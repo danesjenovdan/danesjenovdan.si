@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- meta info + OG tags -->
+		<title>Dolžni</title>
+		<meta name="description" content="Naša zafučkana demokracija je polna hroščev, spama in virusov. Država, ki jo poganja, ni niti dovolj zmogljiva niti zainteresirana za to, da bi jih odpravila. Nam se tudi ne da, ampak nekdo mora. Prispevaj za pips!">
+        <meta name="author" content="Danes je nov dan, Inštitut za druga vprašanja">
+        <link rel="shortcut icon" href="http://danesjenovdan.si/favicon.ico">
+        
+        <meta property="og:title" content="Dolžni"/>
+		<meta property="og:type" content="article" />
+		<meta property="og:description" content="Naša zafučkana demokracija je polna hroščev, spama in virusov. Država, ki jo poganja, ni niti dovolj zmogljiva niti zainteresirana za to, da bi jih odpravila. Nam se tudi ne da, ampak nekdo mora. Prispevaj za pips!" />
+		<meta property="og:image" content="TODO" />
+
+		<!-- Bootstrap -->
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		
+		<!-- font -->
+		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+		
+		<!-- icons -->
+		<link href="../icons/icons.css" rel="stylesheet">
+		
+		<!-- CSS -->
+		<link href="../css/guide.css" rel="stylesheet">
+		
+	</head>
+	<body>
+		
+		<div id="menucontent">
+			<div id="menuheader"><div id="menuclose"><div id="menucloseicon" class="icon col-light-gold">×</div></div><div id="menutitle" class="bck-light-gold">Danes je nov dan</div><div class="col-light-gold" id="menutitleback">Danes je nov dan</div></div>
+			<div class="menuitem"><div class="ribbon bck-light-green"></div>Konsenz</div>
+			<div class="menuitem"><div class="ribbon bck-light-red"></div>Projekti</div>
+			<div class="menuitem"><div class="ribbon bck-light-green"></div>Krivi</div>
+			<div class="menuitem"><div class="ribbon bck-light-gold"></div>Dolžni</div>
+			<div class="menuitem"><div class="ribbon bck-light-gold"></div>Formalnosti</div>
+			<div class="menuitem"><div class="ribbon bck-light-red"></div>Občasnik</div>
+		</div>
+		
+		<div class="popup" id="signup">
+			<div class="popupclose"><div class="icon-close"></div></div>
+			<div class="container popupcontainer">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<p class="popuptext">Tukaj se mi zdi da mi manjka tekst.</p>
+						<form class="ac-custom ac-checkbox ac-checkmark">
+							<input type="email" id="newsletteremail" class="form-control">
+							<ul>
+								<li><input id="dodajme" name="dodajme" type="checkbox"><label for="dodajme">dodaj me na listo podpornikov</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+							<ul>
+						</form>
+						<button class="btn btn-popup push" id="submitemail">Pošlji!</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="popup popup-dolzni" id="velikosrcepopup">
+			<div class="popupclose"><div class="icon-close"></div></div>
+			<div class="container popupcontainer">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 centermycontent">
+						<h1 class="popupdolznititle">Enkratna donacija</h1>
+						<p class="popupdolznitext">Enkrat ni nobenkrat, pravijo, ampak v resnici je neizračunljivo več. Prosimo, izberi znesek, ki se mu lahko odpoveš v dobro šraufanja demokracije.</p>
+						<div class="velikosrcetilecontainer">
+							<div class="velikosrcetile bck-gold"><div class="pulse"></div>3 €</div><div class="velikosrcetile bck-gold"><div class="pulse"></div>5 €</div><div class="velikosrcetile bck-gold"><div class="pulse"></div>10 €</div><div class="velikosrcetile bck-gold"><div class="pulse"></div>20 €</div><div class="velikosrcetile bck-gold"><div class="pulse"></div>50 €</div><div class="velikosrceinput"><input class="input-drugo" type="text" placeholder="...">€</div>
+						</div>
+						<div class="btn btn-dolzni" id="submitenkratna">Prispevaj!</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="popup popup-dolzni" id="velikaplacapopup">
+			<div class="popupclose"><div class="icon-close"></div></div>
+			<div class="container popupcontainer">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 centermycontent">
+						<h1 class="popupdolznititle">Redna mesečna podpora</h1>
+						<p class="popupdolznitext">Če imaš redne dohodke, lahko tudi redno prispevaš za digitalno optimizacijo države. Vemo, v idealnem svetu to ne bi bila tvoja dolžnost, saj plačuješ že davke, toda ... poglej malo okoli sebe.</p>
+						<div class="velikosrcetilecontainer">
+							<div class="velikosrcetile bck-gold"><div class="pulse"></div>3 €</div><div class="velikosrcetile bck-gold"><div class="pulse"></div>5 €</div><div class="velikosrcetile bck-gold"><div class="pulse"></div>10 €</div><div class="velikosrcetile bck-gold"><div class="pulse"></div>20 €</div><div class="velikosrcetile bck-gold"><div class="pulse"></div>50 €</div><div class="velikosrceinput"><input class="input-drugo" type="text" placeholder="...">€</div>
+						</div>
+						<div class="btn btn-dolzni" id="submitredna">Podpri nas!</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="popup popup-dolzni" id="naturalijepopup">
+			<div class="popupclose"><div class="icon-close"></div></div>
+			<div class="container popupcontainer">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 centermycontent">
+						<form class="naturalijeform">
+							<div class="naturalijelabel">Tvoj mail</div>
+							<input type="email" id="naturalijeemail" class="form-control">
+							<div class="naturalijelabel">Kaj znaš, imaš, veljaš?</div>
+							<textarea id="naturalijetextarea" class="form-control">programiranje, analiza podatkov, statistika, vizuzalizacije, aktivizem, pravo, pisarna, blablabla</textarea>
+						</form>
+						<h1 class="popupdolznititle title-naturalije">PO-MOČ</h1>
+						<p class="popupdolznitext text-naturalije">Če si brez denarja, še ne pomeni, da ne moreš nič narediti. Zavihaj rokave, zgubaj čelo in napni mišice. Spodaj je okviren spisek znanj, uslug in storitev, ki jih trenutno potrebujemo, veseli pa bomo prav vsakogar!</p>
+						<div class="btn btn-dolzni" id="submitnaturalije">Javi se!</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="popup popup-dolzni" id="majicapopup">
+			<div class="popupclose"><div class="icon-close"></div></div>
+			<div class="container popupcontainer">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 centermycontent">
+						<div class="row">
+							<div class="col-md-6">
+								<h1 class="artikeltitle">Majica</h1>
+								<p class="artikeltext">Skupnost je izglasovala slogan, mi smo ga ilustrirali. Naša prva majica prinaša natančno analizo stanja v državi. Da ne pozabimo, v čem je fora.</p>
+								<form class="artikelform">
+									<p class="artikellable">Kroj</p>
+									<div class="artikeltogglecontainer majicatype">
+										<div class="artikeltoggle artikeltoggle-square">"ženski"</div>
+										<div class="artikeltoggle artikeltoggle-square">"moški"</div>
+									</div>
+									<p class="artikellable">Velikost</p>
+									<div class="artikeltogglecontainer majicasize">
+										<div class="artikeltoggle artikeltoggle-circle">S</div>
+										<div class="artikeltoggle artikeltoggle-circle">M</div>
+										<div class="artikeltoggle artikeltoggle-circle">L</div>
+										<div class="artikeltoggle artikeltoggle-circle">XL</div>
+									</div>
+									<p class="artikellable noshake">Količina</p>
+									<div class="artikeltogglecontainer noshake">
+										<div class="artikelcounter"><span class="artikelnumber">1</span><div class="plusone"></div><div class="minusone"></div></div>
+									</div>
+									<p class="artikellable noshake">Cena</p>
+									<div class="artikeltogglecontainer noshake">
+										<p class="artikelprice">15 eur</p>
+									</div>
+									<div class="artikelfinishcontainer">
+										<div class="btn btn-finish">Na blagajno!</div>
+										<p class="artikelfinishor"><a href="#" class="artikelfinishorlink">dodaj izdelek v voziček in še malo prebrskaj po policah</a></p>
+									</div>
+								</form>
+							</div>
+							<div class="col-md-6">
+								<div class="artikelgallerycontainer">
+									<div data-img="http://danesjenovdan.si/styleguide/img/jasmina.png" class="gallerymainimage"><div class="galleryarrow galleryarrow-left"><div class="icon icon-zakljuci-thick col-gold"></div></div><div class="galleryarrow galleryarrow-right"><div class="icon icon-zakljuci-thick col-gold"></div></div></div>
+									<div class="gallerythumbscontainer">
+										<div class="gallerythumb" data-img="http://danesjenovdan.si/styleguide/img/jasmina.png"></div>
+										<div class="gallerythumb" data-img="http://danesjenovdan.si/styleguide/img/ziga.png"></div>
+										<div class="gallerythumb" data-img="http://danesjenovdan.si/styleguide/img/eva.png"></div>
+										<div class="gallerythumb" data-img="http://danesjenovdan.si/styleguide/img/nika.png"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="popup popup-dolzni" id="rizlepopup">
+			<div class="popupclose"><div class="icon-close"></div></div>
+			<div class="container popupcontainer">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 centermycontent">
+						<div class="row">
+							<div class="col-md-6">
+								<h1 class="artikeltitle">Rizle</h1>
+								<p class="artikeltext">Obvezna oprema za hedonist(k)e in njihovo družbo. Imej jih vedno s sabo, ful so stajliš in preverjeno lahko rešijo večer.</p>
+								<form class="artikelform">
+									<p class="artikellable noshake">Količina</p>
+									<div class="artikeltogglecontainer noshake">
+										<div class="artikelcounter"><span class="artikelnumber">1</span><div class="plusone"></div><div class="minusone"></div></div>
+									</div>
+									<p class="artikellable noshake">Cena</p>
+									<div class="artikeltogglecontainer noshake">
+										<p class="artikelprice">2 eur</p>
+									</div>
+									<div class="artikelfinishcontainer">
+										<div class="btn btn-finish">Na blagajno!</div>
+										<p class="artikelfinishor"><a href="#" class="artikelfinishorlink">dodaj izdelek v voziček in še malo prebrskaj po policah</a></p>
+									</div>
+								</form>
+							</div>
+							<div class="col-md-6">
+								<div class="artikelgallerycontainer">
+									<div class="galleryarrow galleryarrow-left"></div><div class="galleryarrow galleryarrow-right"></div>
+									<div data-img="http://danesjenovdan.si/styleguide/img/ziga.png" class="gallerymainimage"></div>
+									<div class="gallerythumbscontainer">
+										<div class="gallerythumb" data-img="http://danesjenovdan.si/styleguide/img/ziga.png"></div>
+										<div class="gallerythumb" data-img="http://danesjenovdan.si/styleguide/img/eva.png"></div>
+										<div class="gallerythumb" data-img="http://danesjenovdan.si/styleguide/img/nika.png"></div>
+										<div class="gallerythumb" data-img="http://danesjenovdan.si/styleguide/img/karmen.png"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="container-fluid">
+			<div class="row bck-gold" id="header-dolzni">
+	            <div class="container">
+	                <div class="row">
+						<div id="menu" class="menu-gold">
+							<div id="menutoggle"><div class="icon-menu"></div></div>
+							<h1 id="nologo">Danes je nov dan</h1>
+						</div>
+		                <div class="col-md-12">
+		                    <h1 id="intro"><span id="title">DOLŽNI /</span> Naša zafučkana demokracija je polna hroščev, spama in virusov. Država, ki jo poganja, ni niti dovolj zmogljiva niti zainteresirana za to, da bi jih odpravila. Nam se tudi ne da, ampak nekdo mora. Prispevaj za pips!</h2>
+		                </div>
+	                </div>
+	            </div>
+	        </div>
+			<div class="row" id="row-cart">
+				<div class="col-md-12">
+					<div class="btn btn-zakljuci">Zaključi nakup <div class="icon icon-zakljuci"><div class="icon-zakljuci-thin"></div></div></div>
+					<div id="carticons">
+						<div id="cartcounter">2</div>
+						<div id="carticon"><div class="icon icon-cart"></div></div>
+					</div>
+				</div>
+				<div class="vozicek">
+					<h1 class="vozicektitle">Voziček</h1>
+					<div class="vozicekitemcontainer">
+						<div class="vozicekitemimage" data-img="http://danesjenovdan.si/styleguide/img/jure.png"></div>
+						<h1 class="vozicekitemtitle">Majica</h1>
+						<p class="vozicekitemproperty">moška</p>
+						<p class="vozicekitemproperty">velikost L</p>
+						<div class="vozicekitemcountercontainer">
+							<div class="vozicekitemcounter"><span class="artikelnumber">1</span><div class="plusone"></div><div class="minusone"></div></div>
+							<div class="vozicekitemremove">Odstrani <span class="odstranix">×</span></div>
+						</div>
+					</div>
+					<div class="vozicekitemcontainer">
+						<div class="vozicekitemimage" data-img="http://danesjenovdan.si/styleguide/img/jure.png"></div>
+						<h1 class="vozicekitemtitle">Majica</h1>
+						<p class="vozicekitemproperty">moška</p>
+						<p class="vozicekitemproperty">velikost L</p>
+						<div class="vozicekitemcountercontainer">
+							<div class="vozicekitemcounter"><span class="artikelnumber">1</span><div class="plusone"></div><div class="minusone"></div></div>
+							<div class="vozicekitemremove">Odstrani <span class="odstranix">×</span></div>
+						</div>
+					</div>
+					<div class="vozicekitemcontainer">
+						<div class="vozicekitemimage" data-img="http://danesjenovdan.si/styleguide/img/jure.png"></div>
+						<h1 class="vozicekitemtitle">Majica</h1>
+						<p class="vozicekitemproperty">moška</p>
+						<p class="vozicekitemproperty">velikost L</p>
+						<div class="vozicekitemcountercontainer">
+							<div class="vozicekitemcounter"><span class="artikelnumber">1</span><div class="plusone"></div><div class="minusone"></div></div>
+							<div class="vozicekitemremove">Odstrani <span class="odstranix">×</span></div>
+						</div>
+					</div>
+					<div class="vozicekitemcontainer">
+						<div class="vozicekitemimage" data-img="http://danesjenovdan.si/styleguide/img/jure.png"></div>
+						<h1 class="vozicekitemtitle">Majica</h1>
+						<p class="vozicekitemproperty">moška</p>
+						<p class="vozicekitemproperty">velikost L</p>
+						<div class="vozicekitemcountercontainer">
+							<div class="vozicekitemcounter"><span class="artikelnumber">1</span><div class="plusone"></div><div class="minusone"></div></div>
+							<div class="vozicekitemremove">Odstrani <span class="odstranix">×</span></div>
+						</div>
+					</div>
+					<div class="vozicekracun">
+						<div class="vozicekracunitemcontainer">
+							<div class="vozicekracunitem">Majica</div>
+							<div class="vozicekracunprice">15 eur</div>
+						</div>
+						<div class="vozicekracunitemcontainer">
+							<div class="vozicekracunitem">Majica</div>
+							<div class="vozicekracunprice">15 eur</div>
+						</div>
+						<div class="vozicekracuntotalcontainer">
+							<div class="vozicekracuntotaltitle">Skupaj</div>
+							<div class="vozicekracuntotalprice">30 eur</div>
+						</div>
+						<div class="btn btn-vozicek-zakljuci">Zaključi nakup <div class="icon icon-zakljuci"><div class="icon-zakljuci-thin"></div></div></div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="dolznititle">
+							<div class="cardtitlecontainer">
+								<h1 class="cardtitle col-gold">privošči nam</h1>
+								<div class="triangle triangle-top triangle-gold"></div>
+								<div class="triangle triangle-bottom"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="card card-dolzni popupopen" data-href="velikosrcepopup">
+							<h1 class="dolznicardtitle">enkrat, ker imaš veliko&nbsp;srce!</h1>
+							<div class="arrow-down-right arrow-dolzni bck-gold"><div class="icon icon-arrow-down-right"></div></div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card card-dolzni popupopen" data-href="velikaplacapopup">
+							<h1 class="dolznicardtitle">redno, ker imaš veliko&nbsp;plačo!</h1>
+							<div class="arrow-down-right arrow-dolzni bck-gold"><div class="icon icon-arrow-down-right"></div></div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card card-dolzni popupopen" data-href="naturalijepopup">
+							<h1 class="dolznicardtitle">v naturalijah, ker keš ni vse, kar potrebujemo</h1>
+							<div class="arrow-down-right arrow-dolzni bck-gold"><div class="icon icon-arrow-down-right"></div></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="dolznititle">
+							<div class="cardtitlecontainer">
+								<h1 class="cardtitle col-gold">privošči sebi</h1>
+								<div class="triangle triangle-top triangle-gold"></div>
+								<div class="triangle triangle-bottom"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="card card-dolzni popupopen" data-href="majicapopup">
+							<div class="dolzniimage" data-img="http://danesjenovdan.si/styleguide/img/jure.png"></div>
+							<h1 class="dolznicardtitle dolznicardtitle-big">majico, ker moda je komunikacija</h1>
+							<div class="arrow-down-right arrow-dolzni bck-gold"><div class="icon icon-arrow-down-right"></div></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="card card-dolzni popupopen" data-href="rizlepopup">
+							<div class="dolzniimage" data-img="http://danesjenovdan.si/styleguide/img/jure.png"></div>
+							<h1 class="dolznicardtitle dolznicardtitle-big" style="padding-bottom: 86px;">rizle, ker se za dobrimi konji vedno kadi</h1>
+							<div class="arrow-down-right arrow-dolzni bck-gold"><div class="icon icon-arrow-down-right"></div></div>
+						</div>
+					</div>
+				</div>
+			</div> <!-- end of container -->			
+	
+			<div class="row" id="footer">
+				<svg id="footerdivider" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="40px" viewBox="0 0 100 102" preserveAspectRatio="none">
+					<path d="M0 0 L50 100 L100 0 Z"></path>
+				</svg>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3 footerline">
+							<div id="newsletter" data-href="signup" class="icon-newsletter col-gold popupopen"></div>
+							<p id="newslettertext" class="footertext"><a class="footerlink link-gold popupopen" data-href="signup" href="#">Naroči se na e-novice.</a> Pišemo samo, kadar imamo res kaj povedati.</p>
+						</div>
+						<div class="col-md-3 footerline">
+							<div id="socialcontainer">
+								<div class="social push bck-gold" data-href="https://www.facebook.com/danesjenovdan">
+									<div class="icon icon-facebook"></div>
+								</div>
+								<div class="social push bck-gold" data-href="https://twitter.com/danesjenovdan">
+									<div class="icon icon-twitter"></div>
+								</div>
+								<br>
+							 	<div class="social push bck-gold" data-href="https://github.com">
+									<div class="icon icon-github"></div>
+								</div>
+								<div class="social push bck-gold" data-href="http://vimeo.com/user26914674">
+									<div class="icon icon-playbig"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 footerline">
+							<span id="podpri"><object data="../img/heart-gold.svg" class="icon-heart-line" type="image/svg+xml" /></object><span class="icon icon-heart col-gold"></span>Podpri nas!</span>
+						</div>
+						<div class="col-md-3 footerline">
+							<p class="footertext" id="izkaznica">Danes je nov dan<br>Inštitut za druga vprašanja<br>Parmova ulica 20<br>1000 Ljubljana<br><br><a class="footerlink link-gold" href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="../bootstrap/js/bootstrap.min.js"></script>
+		
+		<!-- jQuery cookie -->
+		<script src="../js/jquery.cookie.js"></script>
+		<script src="../js/nsa.js"></script>
+		<!-- frontend magic -->
+		<script src="../js/front.js"></script>
+		<script src="../js/dolzni.js"></script>
+		
+	</body>
+</html>

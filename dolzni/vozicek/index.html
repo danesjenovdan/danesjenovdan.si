@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- meta info + OG tags -->
+		<title>Formalnosti</title>
+		<meta name="description" content="Portal Danes je nov dan je nastal jeseni 2012 kot sopotnik, integralni del in podpornik vstajniških gibanj. Od septembra 2013 delujemo kot inštitut, ki se osredotoča na (digitalno) politično participacijo, transparentnost in nadzor.">
+        <meta name="author" content="Danes je nov dan, Inštitut za druga vprašanja">
+        <link rel="shortcut icon" href="http://danesjenovdan.si/favicon.ico">
+        
+        <meta property="og:title" content="Formalnosti"/>
+		<meta property="og:type" content="article" />
+		<meta property="og:description" content="Portal Danes je nov dan je nastal jeseni 2012 kot sopotnik, integralni del in podpornik vstajniških gibanj. Od septembra 2013 delujemo kot inštitut, ki se osredotoča na (digitalno) politično participacijo, transparentnost in nadzor." />
+		<meta property="og:image" content="TODO" />
+
+		<!-- Bootstrap -->
+		<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		
+		<!-- font -->
+		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+		
+		<!-- icons -->
+		<link href="../../icons/icons.css" rel="stylesheet">
+		
+		<!-- CSS -->
+		<link href="../../css/guide.css" rel="stylesheet">
+		
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<div class="card card-vozicek">
+							<div class="voziceksteps">
+								<div class="vozicekstep active">Naročilo</div>
+								<div class="vozicekstep">prevzem</div>
+								<div class="vozicekstep">plačilo</div>
+							</div>
+						
+							<div class="vozicekstepcontainer" id="pregled">
+								<h1 class="voziceksteptitle">Pregled naročila</h1>
+								<div class="pregledtotal">
+									<div class="pregledtotaltitle">Skupaj</div>
+									<div class="pregledtotalprice">12 eur</div>
+								</div>
+								<div class="btn btn-pregled">Naslednji korak &rsaquo;</div>
+							</div>
+							
+							<div class="vozicekstepcontainer hidden" id="prevzem">
+								
+								<form class="ac-custom ac-radio ac-fill" autocomplete="off" id="prevzemform">
+									<ul>
+										<li><input id="osebno" name="r1" type="radio"><label for="r2">osebni prevzem</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+										<li><input id="poposti" name="r1" type="radio"><label for="r3">dostava po pošti</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+									</ul>
+								</form>
+								<div class="vozicekstepcontainer">
+									<form class="ac-custom ac-radio ac-fill2 hidden" autocomplete="off" id="osebnoform">
+										<ul>
+											<li><input id="hekovnik" name="r2" type="radio"><label for="r2">Hekovnik</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+											<li><input id="lendava" name="r2" type="radio"><label for="r3">Lendava</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+										</ul>
+									</form>
+									<div id="narocniknotform" class="hidden">
+										<h1 class="vozicekstepformtitle">Naročnik</h1>
+										<div class="steplabel">Ime in priimek</div>
+										<input type="text" class="form-control">
+										<div class="steplabel">Naslov</div>
+										<input type="text" class="form-control">
+										<div class="steplabel">Pošta in poštna številka</div>
+										<input type="text" class="form-control">
+										<div class="steplabel">Povej nam kaj</div>
+										<textarea class="form-control"></textarea>
+									</div>
+								</div>
+								<div class="btn btn-pregled">Naslednji korak &rsaquo;</div>
+							</div>
+							
+							<div class="vozicekstepcontainer hidden" id="plačilo">
+								
+								<form class="ac-custom ac-radio ac-fill" autocomplete="off">
+									<ul>
+										<li><input id="r2" name="r1" type="radio"><label for="r2">nakazilo na TRR</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+										<li><input id="r3" name="r1" type="radio"><label for="r3">paypal</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+									</ul>
+								</form>
+								<div class="btn btn-pregled">Naslednji korak &rsaquo;</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="../../bootstrap/js/bootstrap.min.js"></script>
+		
+		<!-- jQuery cookie -->
+		<script src="../../js/jquery.cookie.js"></script>
+		<script src="../../js/nsa.js"></script>
+		
+		<!-- frontend magic -->
+		<script src="../../js/front.js"></script>
+		<script src="../../js/vozicek.js"></script>
+		
+	</body>
+</html>
