@@ -258,11 +258,8 @@ $(document).ready(function() {
 		});
 		
 	});
-    $('#menutitle').on('click', function() {
-        document.location.href = 'http://danesjenovdan.si/styleguide/landing';
-    });
 	$('#menutitleback').on('click', function() {
-		document.location.href = 'http://danesjenovdan.si/styleguide/landing';
+		document.location.href = 'http://danesjenovdan.si/styleguide/landing'
 	});
 	
 	$('#menucontent').height($(window).height());
