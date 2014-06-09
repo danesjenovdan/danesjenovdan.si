@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="vozicekhtml">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,21 +59,21 @@
 							
 							<div class="vozicekstepcontainer hidden" id="prevzem">
 								
-								<form class="ac-custom ac-radio ac-fill" autocomplete="off" id="prevzemform">
+								<form id="form-dostava" class="vozicekform ac-custom ac-radio ac-fill" autocomplete="off" id="prevzemform">
 									<ul>
-										<li><input id="osebno" name="r1" type="radio"><label for="r2">osebni prevzem</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
-										<li><input id="poposti" name="r1" type="radio"><label for="r3">dostava po pošti</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+										<li><input id="osebno" name="dostava" type="radio"><label for="osebno">osebni prevzem</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+										<li><input id="poposti" name="dostava" type="radio"><label for="poposti">dostava po pošti</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
 									</ul>
 								</form>
-								<div class="vozicekstepcontainer">
-									<form class="ac-custom ac-radio ac-fill2 hidden" autocomplete="off" id="osebnoform">
+								<div class="vozicekstepcontainer vozicekstepchild">
+									<form class="vozicekform ac-custom ac-radio ac-fill2 hidden" autocomplete="off" id="osebnoform">
 										<ul>
-											<li><input id="hekovnik" name="r2" type="radio"><label for="r2">Hekovnik</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
-											<li><input id="lendava" name="r2" type="radio"><label for="r3">Lendava</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+											<li><input id="hekovnik" name="prevzem" type="radio"><label for="hekovnik">Hekovnik</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+											<li><input id="lendava" name="prevzem" type="radio"><label for="lendava">Lendava</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
 										</ul>
 									</form>
 									<div id="narocniknotform" class="hidden">
-										<h1 class="vozicekstepformtitle">Naročnik</h1>
+										<h1 class="vozicekstepformtitle"></h1>
 										<div class="steplabel">Ime in priimek</div>
 										<input type="text" class="form-control">
 										<div class="steplabel">Naslov</div>

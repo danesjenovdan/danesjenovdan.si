@@ -116,9 +116,12 @@ $(document).ready(function() {
 	// prevzem
 	$('#osebno').on('click', function() {
 		$('#osebnoform').removeClass('hidden');
+        $('#narocniknotform h1').text('Kako te identificiramo?');
 	});
 	$('#poposti').on('click', function() {
 		$('#narocniknotform').removeClass('hidden');
+        $('#osebnoform').addClass('hidden');
+        $('#narocniknotform h1').text('Kam pošljemo?');
 	});
 	$('#hekovnik, #lendava').on('click', function() {
 		$('#narocniknotform').removeClass('hidden');

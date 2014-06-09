@@ -409,7 +409,7 @@ $(document).ready(function() {
 				startConfetti();
 				window.setTimeout(function() {
 					$('#submitemail').parents('.popup').removeClass('open');
-				}, 300)
+				}, 100)
 				console.log(r);
 			});
 		return false;
@@ -495,6 +495,13 @@ $(document).ready(function() {
 					]
 				}), function(r) {
 					console.log(r);
+                    $('#podpisipravice').parent().height($('#podpisipravice').parent().height());
+                    $('#podpisipravice').slideUp(500, function() {
+                        $('#hvalapravice').slideDown();
+                    });
+                    
+                    startConfetti();
+                    
 			});
 		} else {
 			$('form').shake();
@@ -535,6 +542,33 @@ $(document).ready(function() {
 	
 	// nologo TODO
 	$('#nologo').text('MENI');
+    
+    // newsletter show name/lastname
+    $('#dodajme').on('click', function() {
+        if (!$('.hider').hasClass('open')) {
+            $('#signup .hider').addClass('open');
+            $('#submitemail').text('Oddaj in podpiši!');
+        } else {
+            $('#signup .hider').removeClass('open');
+            $('#submitemail').text('Oddaj!');
+        }
+    });
+    
+    
+    // documents
+    $('#akt').on('click', function() {
+        window.open('./dokumenti/Akt%20o%20ustanovitvi.pdf', '_blank');
+    });
+    $('#statut').on('click', function() {
+        window.open('./dokumenti/Statut.pdf', '_blank');
+    });
+    $('#letno2013').on('click', function() {
+        window.open('./dokumenti/2013/Letno%20poročilo%202013.pdf', '_blank');
+    });
+    $('#poslovno2013').on('click', function() {
+        window.open('./dokumenti/2013/Poslovno%20poročilo%202013.pdf', '_blank');
+    });
+    
 });
 
 // podpisniki

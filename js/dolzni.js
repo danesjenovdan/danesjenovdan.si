@@ -28,7 +28,11 @@ var racunHTML = [	'<div class="vozicekracunitemcontainer">',
 
 
 function createCart() {
-	$.cookie('dolzniCart', JSON.stringify({'items': []}));
+    if (!$.cookie('dolzniCart')) {
+	   $.cookie('dolzniCart', JSON.stringify({'items': []}));
+    } else {
+        renderCart();
+    }
 }
 
 function addItem(name, quantity, details, price) {
@@ -233,7 +237,43 @@ $(document).ready(function() {
 	$('.btn-finish').on('click', function() {
 		if ($(this).parent().parent().children('.artikeltogglecontainer:nth-of-type(1)').children('.artikeltoggle').hasClass('dolzniselected') && $(this).parent().parent().children('.artikeltogglecontainer:nth-of-type(2)').children('.artikeltoggle').hasClass('dolzniselected')) {
 			// everything OK
+            // add to cart
+            // determine what it's for
+            if ($(this).parents('.popup').attr('id') === 'majicapopup') {
+                // majica
+
+                // generate data
+                var name = 'majica';
+                if ($(this).parent().siblings('.majicatype').children('.dolzniselected').text() === 'ohlapen') {
+                    name = name + 'oh' + $(this).parent().siblings('.majicasize').children('.dolzniselected').text();
+                } else {
+                    name = name + 'op' + $(this).parent().siblings('.majicasize').children('.dolzniselected').text();
+                }
+                var quantity = $(this).parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text();
+                var details = {
+                    'realname': 'Majica',
+                    'type': $(this).parent().siblings('.majicatype').children('.dolzniselected').text(),
+                    'size': $(this).parent().siblings('.majicasize').children('.dolzniselected').text()
+                }
+
+                // add item
+                addItem(name, quantity, details, 12);
+
+            } else {
+                // ker ni drugega morajo bit rizle
+                // generate data
+                var name = 'rizle'
+                var quantity = $(this).parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text();
+                var details = {}
+
+                // add item
+                addItem(name, quantity, details, 2);
+
+            }
+            
 			$(this).parents('.popup').removeClass('open');
+            
+            window.open('vozicek', '_blank');
 		} else {
 			$(this).parent().parent().children('.artikeltogglecontainer, .artikellable').not('.noshake').shake();
 		}
@@ -366,5 +406,10 @@ $(document).ready(function() {
 		}
 	})
 	
+    
+    // zaključi nakup
+    $('.btn-zakljuci').on('click', function() {
+        window.open('vozicek', '_blank');
+    });
 	
 });

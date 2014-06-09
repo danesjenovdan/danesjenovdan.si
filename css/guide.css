@@ -110,6 +110,33 @@ bck-light-red .pulse {
 	color: #69551f !important;
 }
 
+/* cookie warning */
+.cookiewarning {
+    width: 100%;
+    height: 45px;
+    background-color: #e7eaea;
+    text-align: center;
+}
+.cookiewords {
+    line-height: 45px;
+    height: 45px;
+    margin-right: 25px;
+}
+.btn-cookie {
+    height: 23px;
+    line-height: 23px;
+    
+    margin-top: 11px;
+    margin-right: 15px;
+    
+    padding-right: 12px;
+    padding-left: 12px;
+    
+    display: inline-block;
+    
+    cursor: pointer;
+}
+
 /* --> pulse animation <-- */
 /* position a pulse        */
 /* div into an already     */
@@ -512,6 +539,21 @@ bck-light-red .pulse {
 	padding-right: 25px;
 }
 
+/* hider */
+.hider {
+    overflow: hidden;
+    height: 0px;
+    
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.hider.open {
+    height: 100px;
+}
+
 /* popup */
 .popup {
 	position: fixed;
@@ -531,6 +573,8 @@ bck-light-red .pulse {
 	overflow-y: auto;
 	
 	min-height: 100%;
+    
+    padding-top: 70px;
 }
 #signup input {
  	color: #1d7373;	
@@ -578,7 +622,6 @@ bck-light-red .pulse {
 .popuptext {
 	font-weight: 300;
 	font-size: 24px;
-	margin-top: 100px;
 }
 .popup input {
 	text-align: center;
@@ -590,30 +633,48 @@ bck-light-red .pulse {
 	background-repeat: no-repeat;
 	background-position: center right;
 }
+#pravica-1:hover {
+    background-image: url(../img/pravica1.gif);
+}
 #pravica-2 {
 	background-image: url(../img/pravica2.png);
 	background-repeat: no-repeat;
 	background-position: center right;
+}
+#pravica-2:hover {
+    background-image: url(../img/pravica2.gif);
 }
 #pravica-3 {
 	background-image: url(../img/pravica3.png);
 	background-repeat: no-repeat;
 	background-position: center right;
 }
+#pravica-3:hover {
+    background-image: url(../img/pravica3.gif);
+}
 #pravica-4 {
 	background-image: url(../img/pravica4.png);
 	background-repeat: no-repeat;
 	background-position: center right;
+}
+#pravica-4:hover {
+    background-image: url(../img/pravica4.gif);
 }
 #pravica-5 {
 	background-image: url(../img/pravica5.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 }
+#pravica-5:hover {
+    background-image: url(../img/pravica5.gif);
+}
 #pravica-6 {
 	background-image: url(../img/pravica6.png);
 	background-repeat: no-repeat;
 	background-position: center right;
+}
+#pravica-6:hover {
+    background-image: url(../img/pravica6.gif);
 }
 .pravica {
 	top: 0;
@@ -864,6 +925,12 @@ input:focus
 }
 #podpisipravice label {
 	font-size: 14px;
+}
+
+#hvalapravice {
+    overflow: hidden;
+    height: auto;
+    display: none;
 }
 
 .ac-custom ul,
@@ -1975,7 +2042,7 @@ input:focus
 .naturalijeform {
 	width: 50%;
 	float: right;
-	margin-top: 20px;
+	margin-top: 80px;
 }
 .naturalijelabel {
 	text-align: left;
@@ -1990,7 +2057,7 @@ input:focus
 #naturalijetextarea {
 	border-width: 2px;
 	border-radius: 0;
-	height: 120px;
+	height: 180px;
 }
 #submitnaturalije {
 	width: 100%;
@@ -2379,6 +2446,11 @@ input:focus
 	color: #ffffff;
 }
 /* zaključi nakup */
+
+.vozicekhtml {
+    background-color: #f0efef;
+}
+
 .card-vozicek {
 	padding: 3px;
 }
@@ -2432,6 +2504,9 @@ input:focus
 .vozicekstepcontainer {
 	padding: 30px;
 	position: relative;
+}
+.vozicekstepchild {
+    padding-top: 0px;
 }
 .voziceksteptitle {
 	font-size: 18px;
@@ -2489,19 +2564,34 @@ input:focus
 	background: #272727;
 	font-weight: 400;
 }
+.vozicekstepcontainer .ac-custom label {
+    padding-left: 35px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
 .vozicekstepcontainer .ac-custom label::before {
 	border-color: #272727;
+    width: 25px !important;
+    height: 25px !important;
+    border-width: 2px;
+    margin-top: -12px;
 }
 .vozicekstepcontainer .ac-custom svg path {
 	stroke: #272727;
 }
 .vozicekstepcontainer .ac-custom svg {
-	margin-top: -25px;
-	left: 6px;
+	margin-top: -14px;
+	left: 3px;
+    width: 20px;
+    height: 20px;
 }
 .vozicekstepcontainer input {
 	border-color: #f0efef !important;
 	color: #272727;
+}
+.vozicekstepcontainer input[type="radio"] {
+    width: 25px !important;
+    height: 25px !important;
 }
 .vozicekstepcontainer input:hover, .vozicekstepcontainer input:active, .vozicekstepcontainer input:focus, .vozicekstepcontainer textarea:hover, .vozicekstepcontainer textarea:focus, .vozicekstepcontainer textarea:active {
 	border-color: #272727 !important;
@@ -2512,6 +2602,8 @@ input:focus
 	height: 120px;
 	border-color: #f0efef;
 }
+
+
 .dolzniselected {
 	background-color: #272727;
 	color: #ffffff;
