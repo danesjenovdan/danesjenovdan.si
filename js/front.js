@@ -453,8 +453,13 @@ $(document).ready(function() {
 	});
 	
 	$('#moresupporters').on('click', function() {
-		$(this).hide();
-		$('#podporniki').append(podpisniki);
+        if (!$(this).hasClass('open')) {
+            $(this).addClass('open');
+            $('#podporniki').append(podpisniki);
+        } else {
+            $(this).removeClass('open');
+            $('#podporniki').text($('#podporniki').text().split(podpisniki)[0]);
+        }
 	});
 	
 	$('#megavideo').height($(window).height()).width($(window).width());
@@ -508,6 +513,16 @@ $(document).ready(function() {
 		}
 		return false;
 	});
+    
+    // refresh form konsenz
+    $('.hvalapravicerefresh').on('click', function() {
+        $('#podpisipravice input').val('');
+        $('#hvalapravice').slideUp(500, function() {
+            $('#podpisipravice').slideDown();
+        });
+        
+        return false;
+    });
 	
 	$.get('http://agrument.danesjenovdan.si/getwordcount/', function(r) {
 		$('#agrument .projectnumbernumber').text(r);

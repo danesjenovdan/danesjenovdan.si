@@ -1,12 +1,12 @@
 var majicaHTML = [	'<div class="pregleditemcontainer">',
 					'<div class="pregleditemimage" style="background-image: url(http://danesjenovdan.si/styleguide/img/jure.png);" data-img="http://danesjenovdan.si/styleguide/img/jure.png"></div>',
 					'<p class="pregleditemdescription"> Majica / {{ itemtype }} / {{ itemsize }}</p>',
-					'<p class="pregleditemprice">{{ itemquantity }} x 12 eur</p>',
+					'<p class="pregleditemprice">{{ itemquantity }} x 12 €</p>',
 					'</div>'].join('\n');
 var rizleHTML = [	'<div class="pregleditemcontainer">',
 					'<div class="pregleditemimage" style="background-image: url(http://danesjenovdan.si/styleguide/img/jure.png);" data-img="http://danesjenovdan.si/styleguide/img/jure.png"></div>',
 					'<p class="pregleditemdescription"> Rizle</p>',
-					'<p class="pregleditemprice">{{ itemquantity }} x 2 eur</p>',
+					'<p class="pregleditemprice">{{ itemquantity }} x 2 €</p>',
 					'</div>'].join('\n');
 
 function getItemIdByName(name) {
@@ -58,7 +58,7 @@ function renderSummary() {
 		}
 	});
 	
-	$('.pregledtotalprice').text(calculatePrice() + ' eur');
+	$('.pregledtotalprice').text(calculatePrice() + ' €');
 }
 
 function addItems() {
@@ -111,6 +111,7 @@ $(document).ready(function() {
 	
 	$('.btn-pregled').on('click', function() {
 		$(this).parent().addClass('hidden').next().removeClass('hidden');
+        $('.vozicekstep.active').removeClass('active').next().addClass('active');
 	});
 	
 	// prevzem

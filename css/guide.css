@@ -5,6 +5,10 @@ pre {
 
 /* global styles */
 
+html {
+	-webkit-font-smoothing: antialiased !important;
+}
+
 body, h1, h2, h3, h4, p, span, a {
 	font-family: 'Titillium Web', 'Helvetica', 'Arial', sans-serif;
 }
@@ -510,6 +514,49 @@ bck-light-red .pulse {
 #ti {
 	background-image: url('../img/ti.png');
 }
+#filip:hover {
+	background-image: url('../img/filip_hover.png');
+}
+#ziga:hover {
+	background-image: url('../img/ziga_hover.png');
+}
+#nika:hover {
+	background-image: url('../img/nika_hover.png');
+}
+#jasmina:hover {
+	background-image: url('../img/jasmina_hover.png');
+}
+#eva:hover {
+	background-image: url('../img/eva_hover.png');
+}
+#karmen:hover {
+	background-image: url('../img/karmen_hover.png');
+}
+#jure:hover {
+	background-image: url('../img/jure_hover.png');
+}
+#barbara:hover {
+	background-image: url('../img/barbara_hover.png');
+}
+#franci:hover {
+	background-image: url('../img/franci_hover.png');
+}
+#ursula:hover {
+	background-image: url('../img/ursula_hover.png');
+}
+#tanja:hover {
+	background-image: url('../img/tanja_hover.png');
+}
+#anja:hover {
+	background-image: url('../img/anja_hover.png');
+}
+#klemen:hover {
+	background-image: url('../img/klemen_hover.png');
+}
+#ti:hover {
+	background-image: url('../img/ti_hover.png');
+}
+
 
 .polaroid .image::after {
 	content: '';
@@ -743,7 +790,7 @@ bck-light-red .pulse {
 	opacity: 1;
 }
 .pravicatooltip.open.left::before {
-	left: 15%;
+	left: 25%;
 	opacity: 1;
 	-webkit-transition: all 0.6s;
 	transition: all 0.6s;
@@ -756,8 +803,8 @@ bck-light-red .pulse {
 	transition: all 0.6s;
 }
 .pravicatooltip.open.right::before {
-	left: 85%;
-	margin-left: -45px;
+	left: 75%;
+	margin-left: -90px;
 	opacity: 1;
 	-webkit-transition: all 0.6s;
 	transition: all 0.6s;
@@ -769,7 +816,7 @@ bck-light-red .pulse {
 	display: block;
 }
 .tooltipleft::before {
-	left: 10% !important;
+	left: 50% !important;
 }
 .tooltipright::before {
 	left: 90% !important;
@@ -829,7 +876,7 @@ bck-light-red .pulse {
     font-weight: 700;
     border-radius: 0px;
     font-size: 18px;
-    color: #ffffff !important;
+    color: #ffffff;
     letter-spacing: 1px;
     background-color: #dd786b;
 	position: relative;
@@ -931,6 +978,17 @@ input:focus
     overflow: hidden;
     height: auto;
     display: none;
+}
+.hvalapravicetext {
+    padding-top: 100px;
+    font-size: 18px;
+}
+.hvalapravicerefresh {
+    color: #467871;
+    text-decoration: underline;
+    font-size: 14px;
+    margin-top: 120px;
+    display: block;
 }
 
 .ac-custom ul,
@@ -1605,6 +1663,19 @@ input:focus
 	margin: auto;
 	
 	margin-top: 7px;
+    
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
+}
+#moresupporters.open {
+    -moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 #submitsignature .pulse:hover {
 	-moz-transform: scale(1.08, 1.25);
@@ -1612,6 +1683,9 @@ input:focus
 	-o-transform: scale(1.08, 1.25);
 	-webkit-transform: scale(1.08, 1.25);
 	transform: scale(1.08, 1.25);
+}
+#dodajmelabel:before {
+    border-color: #c2d8d8;
 }
 
 /* projekti */
@@ -1926,6 +2000,7 @@ input:focus
 	position: absolute;
 	left: 0;
 	top: 0;
+    background-size: cover;
 }
 .arrow-dolzni {
 	text-align: center;
@@ -2042,7 +2117,7 @@ input:focus
 .naturalijeform {
 	width: 50%;
 	float: right;
-	margin-top: 80px;
+	margin-top: 95px;
 }
 .naturalijelabel {
 	text-align: left;
@@ -2057,7 +2132,7 @@ input:focus
 #naturalijetextarea {
 	border-width: 2px;
 	border-radius: 0;
-	height: 180px;
+	height: 162px;
 }
 #submitnaturalije {
 	width: 100%;
@@ -2287,7 +2362,7 @@ input:focus
 	margin-top: 10px;
 	height: 40px;
 	font-weight: 400;
-	color: #272727 !important;
+	color: #272727;
 	line-height: 40px;
 	padding-top: 0;
 	padding-bottom: 0;
@@ -2438,11 +2513,19 @@ input:focus
 	font-size: 18px;
 }
 .btn-vozicek-zakljuci {
-	background: #272727;
+	background: #ccac55;
+    color: #272727;
 	width: 100%;
 	font-weight: 300;
 }
+.btn-vozicek-zakljuci:hover {
+	background: #272727;
+    color: #ffffff;
+}
 .btn-vozicek-zakljuci .icon {
+	color: #272727;
+}
+.btn-vozicek-zakljuci:hover .icon {
 	color: #ffffff;
 }
 /* zaključi nakup */
@@ -2470,6 +2553,9 @@ input:focus
 	font-weight: 600;
 	text-transform: uppercase;
 	background-color: #f0efef;
+}
+.vozicekstep:nth-child(2) {
+    padding-left: 28px;
 }
 .vozicekstep.active {
 	background-color: #ccac55;
@@ -2561,8 +2647,19 @@ input:focus
 }
 .btn-pregled {
 	width: 100%;
-	background: #272727;
+	background: #f0efef;
+    color: #272727;
 	font-weight: 400;
+}
+.btn-pregled:hover {
+    color: #f0efef;
+    background: #272727;
+}
+.btn-pregled .icon-zakljuci-thin {
+    color: #272727;
+}
+.btn-pregled:hover .icon-zakljuci-thin {
+    color: #f0efef;
 }
 .vozicekstepcontainer .ac-custom label {
     padding-left: 35px;
@@ -2609,7 +2706,17 @@ input:focus
 	color: #ffffff;
 }
 
-
+.footnote {
+    margin-bottom: 4px;
+}
+.footnotepogoji {
+    color: #272727;
+    text-decoration: underline;
+    padding-bottom: 20px;
+}
+.footnotepogoji:hover {
+    color: #000000;
+}
 
 
 

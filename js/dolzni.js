@@ -22,7 +22,7 @@ var rizleHTML = [	'<div class="vozicekitemcontainer">',
 
 var racunHTML = [	'<div class="vozicekracunitemcontainer">',
 					'<div class="vozicekracunitem">{{ itemname }}</div>',
-					'<div class="vozicekracunprice">{{ itemtotalprice }} eur</div>',
+					'<div class="vozicekracunprice">{{ itemtotalprice }} €</div>',
 					'</div>'].join('\n');
 
 
@@ -172,7 +172,7 @@ function renderCart() {
 	});
 	
 	// končna cena
-	$('.vozicekracuntotalprice').text(calculatePrice() + ' eur');
+	$('.vozicekracuntotalprice').text(calculatePrice() + ' €');
 	
 }
 
@@ -202,6 +202,12 @@ $(document).ready(function() {
 		}
 	});
 	
+    $('#naturalijetextarea').on('focus', function() {
+        if ($(this).val() === 'programiranje, analiza podatkov, statistika, vizuzalizacije, aktivizem, pravo, pisarna, blablabla') {
+            $(this).val('');
+        }
+    });
+    
 	$('#submitnaturalije').on('click', function() {
 		if ($('#naturalijeemail').val() != '' && $('#naturalijetextarea').val() != '') {
 			$.post('https://djnd.slack.com/services/hooks/incoming-webhook?token=EApBJ7B21GFJmytVv5ZoNqoV',
@@ -319,9 +325,9 @@ $(document).ready(function() {
 		} else {
 			// all OK
 			if ($(this).prev().children('.selected').hasClass('velikosrceinput')) {
-				addItem('Enkratna donacija ' + $(this).prev().children('.selected').children('.input-drugo').val() + ' eur', 1, '', $(this).prev().children('.selected').children('.input-drugo').val());
+				addItem('Enkratna donacija ' + $(this).prev().children('.selected').children('.input-drugo').val() + ' €', 1, '', $(this).prev().children('.selected').children('.input-drugo').val());
 			} else {
-				addItem('Enkratna donacija ' + $(this).prev().children('.selected').text().split(' ')[0] + ' eur', 1, '', $(this).prev().children('.selected').text().split(' ')[0]);
+				addItem('Enkratna donacija ' + $(this).prev().children('.selected').text().split(' ')[0] + ' €', 1, '', $(this).prev().children('.selected').text().split(' ')[0]);
 			}
 		}
 	});
@@ -332,9 +338,9 @@ $(document).ready(function() {
 		} else {
 			// all OK
 			if ($(this).prev().children('.selected').hasClass('velikosrceinput')) {
-				addItem('Redna donacija ' + $(this).prev().children('.selected').children('.input-drugo').val() + ' eur', 1, '', $(this).prev().children('.selected').children('.input-drugo').val());
+				addItem('Redna donacija ' + $(this).prev().children('.selected').children('.input-drugo').val() + ' €', 1, '', $(this).prev().children('.selected').children('.input-drugo').val());
 			} else {
-				addItem('Redna donacija ' + $(this).prev().children('.selected').text().split(' ')[0] + ' eur', 1, '', $(this).prev().children('.selected').text().split(' ')[0]);
+				addItem('Redna donacija ' + $(this).prev().children('.selected').text().split(' ')[0] + ' €', 1, '', $(this).prev().children('.selected').text().split(' ')[0]);
 			}
 		}
 	});
