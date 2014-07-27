@@ -255,12 +255,18 @@ $(document).ready(function() {
                 newShopObject['details'] += 'velikost: ' + e['details']['size'] + ', kroj: ' + e['details']['type'] + ' količina: ' + e['quantity'];
                 newShopObject['name'] = e['details']['realname'];
                 
+                // post to slack
+                postToSlack('Yo, nekdo je kupil majico!', newShopObject['name'], $('.emailshopinput').val(), function() {});
+                
             } else {
                 
                 rizleinbasket = true;
                 
                 newShopObject['name'] = 'Rizle';
                 newShopObject['details'] += 'količina: ' + e['quantity'];
+                
+                // post to slack
+                postToSlack('Yo, nekdo je kupil rizle!', newShopObject['name'], $('.emailshopinput').val(), function() {});
                 
             }
             

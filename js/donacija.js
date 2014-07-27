@@ -259,6 +259,9 @@ $(document).ready(function() {
                 if (e['name'].indexOf('Enkratna') !== -1) {
                     // enkratna donacija
                     
+                    // post to slack
+                    postToSlack('Yo, nekdo je dal enkratno donacijo!', newShopObject['name'], $('.emailshopinput').val(), function() {});
+                    
                     if (shopObject['payment_type'].indexOf('paypal') !== -1) {
                         $('#paypalitemname').val('Enkratna donacija ');
                         // paypal
@@ -278,6 +281,10 @@ $(document).ready(function() {
                     
                 } else {
                     // redna donacija
+                    
+                    // post to slack
+                    postToSlack('Yo, nekdo je dal enkratno donacijo!', newShopObject['name'], $('.emailshopinput').val(), function() {});
+                    
                     window.setTimeout(function() {
                         sendTheMail($('.emailshopinput').val(), rednadonacijaHTML);
                     }, 100); 

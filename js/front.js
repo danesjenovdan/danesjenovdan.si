@@ -1002,3 +1002,33 @@ function onPause(id) {
 	$('#megavideo').removeClass('open');
 	$('.popup').removeClass('open');
 }
+
+
+
+
+// SLACK API
+function postToSlack(text, title, value, callback) {
+    $.post('https://djnd.slack.com/services/hooks/incoming-webhook?token=EApBJ7B21GFJmytVv5ZoNqoV',
+           JSON.stringify({
+               'channel': '#api-monitor',
+               'username': 'Apinator',
+               'text': text,
+               'attachments': [
+                   {
+                       'fallback': 'Your client is stupid, check it out on the web.',
+                       'color': 'good',
+                       'parse': 'full',
+                       'fields': [
+                           {
+                               'title': title,
+                               'value': value,
+                               'short': false
+                           }
+                       ]
+                   }
+               ]
+           }),
+           function(r) {
+               callback();
+           });
+}
