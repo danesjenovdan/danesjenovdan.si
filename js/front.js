@@ -1,3 +1,20 @@
+// equalise heights
+$.fn.equalizeHeights = function() {
+	return this.height( Math.max.apply(this, $(this).map(function(i,e){ return $(e).height() }).get() ));
+}
+
+window.androidcheck = function() {
+    return (/Android/i).test(navigator.userAgent || navigator.vendor || window.opera);
+}
+
+// mobile check function
+window.mobilecheck = function() {
+    var check = false;
+    (function(a,b){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))check=true})(navigator.userAgent||navigator.vendor||window.opera);return check;}
+window.touchcheck = function() {
+    var check = false;
+    (function(a,b){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od|ad)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))check=true})(navigator.userAgent||navigator.vendor||window.opera);return check;}
+
 // shake plugin
 jQuery.fn.shake = function() {
     this.each(function(i) {
@@ -151,44 +168,136 @@ if( document.createElement('svg').getAttributeNS ) {
 }
 // end of SVG magic checkboxes
 
-// document ready
-$(document).ready(function() {
-	$('.tile').not('.tile-project').height($('.tile-small').width());
+function repaintMe() {
+    $('.tile').not('.tile-project').height($('.tile-small').width());
+    $('.tile-project').equalizeHeights();
+    $('.polaroidtext').equalizeHeights();
+    $('.tile-obcasnik').equalizeHeights();
 	$('.polaroid .image').height($('.polaroid .image').width());
 	$('.pravica').height($('.pravica').width());
 	$('.card-dolzni').each(function (i, e) {
 		$(e).height($(e).width());
 	});
+    
+    $('.tile-background').each(function(i, e) {
+        $(e).css({
+            'background-image': 'url(' + $(this).data('img') + ')'
+        });
+    });
+    
+    $('#menucontent').height($(window).height());
+    
+    $('#podpri').css('color', $('.footerlink').css('color'));
+    
+    $('#megavideo').height($(window).height()).width($(window).width());
+    
+    $('.obcasniktileimage, .dolzniimage').each(function(i, e) {
+		$(e).css('background-image', 'url(' + $(e).data('img') + ')');
+	});
+    
+    if ($(window).width() < 992) {
+        $('.tile-big').removeClass('tile-big').addClass('tile-small');
+        $('.agrumenttitle, .tiletext').hide();
+        
+        $('.tile-landing-obcasnik').removeClass('tile-landing-obcasnik').addClass('tile-small');
+        $('.arrow-small-tile').removeClass('arrow-small-tile');
+        $('.tileobcasniktitle').removeClass('tileobcasniktitle').addClass('tiletitle');
+        $('.obcasniktiledate').hide();
+        
+        $('.insttitle').removeClass('insttitle');
+        
+        $('.projectnumber').width(
+            $('.projectnumbercontainer')
+                .width() - $('.projectnumbercontainer .arrow-project').width() - 15);
+        
+    }
+    
+}
+
+
+// document ready
+$(document).ready(function() {
+    
+    repaintMe();
+    window.onresize = function() {
+        repaintMe();
+    }
+    
+    // agree with cookies
+    $('.confirmcookies').on('click', function() {
+        $('.cookiewarning').animate({
+            'margin-left': 2000
+        }, 500, function() {
+            $('.cookiewarning').slideUp(200);
+            updateConsent();
+        });
+    });
+    // get more info about cookies
+    $('.cookiemoreinfo').on('click', function() {
+        window.open('http://danesjenovdan.si/piskotki/', '_blank');
+    });
+    
+    if (window.touchcheck()) {
+        $('.polaroid .image').addClass('hover');
+    }
+    
+    // ga za krivi
+    $('.polaroid').on('hover', function() {
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'krivi',
+            'eventAction': 'hover',
+            'eventLabel': $(this).children('.image').attr('id')
+        });
+    });
 	
 	$('.pravica').on('click', function() {
-		if ($('.pravicatooltip').hasClass('open')) {
-			$('.pravicatooltip').removeClass('open');
-			$('.pravicaexpander').attr('style', '');
-			$('.pravicatooltip').removeClass('left').removeClass('middle').removeClass('right');
-			
-			var thisy = $(this);
-			window.setTimeout(function() {
-				$('.pravicacontent.open').removeClass('open');
-				$('#' + thisy.data('href')).addClass('open');
-				$('.pravicatooltip').css({
-					'top': thisy.offset().top + thisy.height() + 30,
-					'height': $('#' + thisy.data('href')).height() + 90
-				}).addClass('open').addClass(thisy.data('tooltip'));
-				thisy.next().css({
-					'height': $('#' + thisy.data('href')).height() + 110
-				});
-			}, 500);
-		} else {
-			$('.pravicacontent.open').removeClass('open');
-			$('#' + $(this).data('href')).addClass('open');
-			$('.pravicatooltip').css({
-				'top': $(this).offset().top + $(this).height() + 30,
-				'height': $('#' + $(this).data('href')).height() + 90
-			}).addClass('open').addClass($(this).data('tooltip'));
-			$(this).next().css({
-				'height': $('#' + $(this).data('href')).height() + 110
-			});
-		}
+        
+        // ga za pravice
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'konsenz',
+            'eventAction': $(this).data('href')
+        });
+        
+        if ($('#' + $(this).data('href')).hasClass('open')) {
+            $('.pravicatooltip').removeClass('open');
+            $('.pravicaexpander').attr('style', '');
+            $('.pravicatooltip')
+                .removeClass('left')
+                .removeClass('middle')
+                .removeClass('right');
+            $('.pravicacontent.open').removeClass('open');
+        } else {
+            if ($('.pravicatooltip').hasClass('open')) {
+                $('.pravicatooltip').removeClass('open');
+                $('.pravicaexpander').attr('style', '');
+                $('.pravicatooltip').removeClass('left').removeClass('middle').removeClass('right');
+
+                var thisy = $(this);
+                window.setTimeout(function() {
+                    $('.pravicacontent.open').removeClass('open');
+                    $('#' + thisy.data('href')).addClass('open');
+                    $('.pravicatooltip').css({
+                        'top': thisy.offset().top + thisy.height() + 30,
+                        'height': $('#' + thisy.data('href')).height() + 90
+                    }).addClass('open').addClass(thisy.data('tooltip'));
+                    thisy.next().css({
+                        'height': $('#' + thisy.data('href')).height() + 110
+                    });
+                }, 500);
+            } else {
+                $('.pravicacontent.open').removeClass('open');
+                $('#' + $(this).data('href')).addClass('open');
+                $('.pravicatooltip').css({
+                    'top': $(this).offset().top + $(this).height() + 30,
+                    'height': $('#' + $(this).data('href')).height() + 90
+                }).addClass('open').addClass($(this).data('tooltip'));
+                $(this).next().css({
+                    'height': $('#' + $(this).data('href')).height() + 110
+                });
+            }
+        }
 	});
 	
 	$('.tooltipclose').on('click', function() {
@@ -197,9 +306,39 @@ $(document).ready(function() {
 		$('.pravicatooltip').removeClass('left').removeClass('middle').removeClass('right');
 	});
 	
-	$('.popupopen, .tile-project').on('click', function() {
+	$('.popupopen').on('click', function() {
+        
+//        document.location.href = document.location.href + '#popup-' + $(this).data('href');
+        
 		$('.popup').height($(window).height());
 		$('#' + $(this).data('href')).addClass('open');
+        
+//        // ga za newsletter
+//        if ($(this).attr('id') === 'newsletter') {
+//            ga('send', {
+//                'hitType': 'event',
+//                'eventCategory': document.title,
+//                'eventAction': 'signup',
+//                'eventLabel': 'pravice',
+//                'eventValue': 1
+//            })
+//        }
+		
+        return false;
+	});
+    $('.projecttiletitle, .projectnumbercontainer').on('click', function() {
+        
+        // ga za projekte
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'projekti_popup',
+            'eventAction': $(this).parent().attr('id'),
+            'eventLabel': 'globina',
+            'eventValue': 0
+        });
+        
+		$('.popup').height($(window).height());
+		$('#' + $(this).parent().data('href')).addClass('open');
 		return false;
 	});
 	
@@ -207,28 +346,114 @@ $(document).ready(function() {
 		$('.popup').removeClass('open');
 	});
 	
+    $('.btn-projekt').on('click', function() {
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'projekti_popup',
+            'eventAction': $(this).parents('.popup-projekt').attr('id').split('info')[0],
+            'eventLabel': 'globina',
+            'eventValue': 1
+        });
+    });
+    
 	//social
 	$('.social, .btn-projekt').on('click', function() {
+        
+        switch($(this).data('href')) {
+            case 'https://www.facebook.com/danesjenovdan':
+                ga('send', {
+                    'hitType': 'event',
+                    'eventCategory': document.title,
+                    'eventAction': 'footer_click',
+                    'eventLabel': 'facebook'
+                });
+                break;
+            case 'https://twitter.com/danesjenovdan':
+                ga('send', {
+                    'hitType': 'event',
+                    'eventCategory': document.title,
+                    'eventAction': 'footer_click',
+                    'eventLabel': 'twitter'
+                });
+                break;
+            case 'https://github.com/danesjenovdan':
+                ga('send', {
+                    'hitType': 'event',
+                    'eventCategory': document.title,
+                    'eventAction': 'footer_click',
+                    'eventLabel': 'github'
+                });
+                break;
+            case 'http://vimeo.com/user26914674':
+                ga('send', {
+                    'hitType': 'event',
+                    'eventCategory': document.title,
+                    'eventAction': 'footer_click',
+                    'eventLabel': 'vimeo'
+                });
+                break;
+            case 'https://www.youtube.com/channel/UCWMqx3p_QtWjdDRq58Hfh_w':
+                ga('send', {
+                    'hitType': 'event',
+                    'eventCategory': document.title,
+                    'eventAction': 'footer_click',
+                    'eventLabel': 'youtube'
+                });
+                break;
+            case 'http://agrument.danesjenovdan.si/rss/':
+                ga('send', {
+                    'hitType': 'event',
+                    'eventCategory': document.title,
+                    'eventAction': 'footer_click',
+                    'eventLabel': 'agrument_rss'
+                });
+                break;
+        }
+        
 		window.open($(this).data('href'), '_blank')
 	});
     $('.fb').on('click', function() {
-		url = 'https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=' + encodeURIComponent(document.location.href) + '&ref=responsive';
+        
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'obcasnik',
+            'eventAction': 'share',
+            'eventLabel': 'facebook'
+        });
+        
+		url = 'https://www.facebook.com/dialog/share?app_id=301375193309601&display=popup&href=' + encodeURIComponent(document.location.href) + '&redirect_uri=' + encodeURIComponent(document.location.href) + '&ref=responsive';
 		window.open(url, '_blank');
 		return false;
     });
     $('.tw').on('click', function() {
-        url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('Danes je nov dan! ' + document.location.href);
+        
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'obcasnik',
+            'eventAction': 'share',
+            'eventLabel': 'twitter'
+        });
+        
+        url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title + ' ' + document.location.href);
         window.open(url, '_blank');
         return false;
     });
     $('.gp').on('click', function() {
-        url = 'https://plus.google.com/share?url=' + encodeURIComponent(document.location.href);
+        url = 'https://plus.google.com/share?url=' + document.title + ' ' + encodeURIComponent(document.location.href);
         window.open(url, '_blank');
         ga('send', 'event', 'social', 'gplus');
         return false;
+        
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'obcasnik',
+            'eventAction': 'share',
+            'eventLabel': 'google_plus'
+        });
+        
     });
 	
-	$('.tile').not('.tile-obcasnik-full, .tile-project').on('click', function() {
+	$('.tile').not('.tile-obcasnik-full, .tile-project, #tile-video').on('click', function() {
 		if (!$(this).data('target')) {
 			document.location.href = $(this).data('href');
 		} else {
@@ -258,11 +483,16 @@ $(document).ready(function() {
 		});
 		
 	});
-	$('#menutitleback').on('click', function() {
-		document.location.href = 'http://danesjenovdan.si/styleguide/landing'
+	$('#menutitleback, #menutitle').on('click', function() {
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'menu',
+            'eventAction': document.title,
+            'eventLabel': 'landing'
+        });
+        
+		document.location.href = '/'
 	});
-	
-	$('#menucontent').height($(window).height());
 	
 	$('#menuclose').on('click', function() {
 		$('.container-fluid').animate({
@@ -286,106 +516,88 @@ $(document).ready(function() {
 		});
 		
 	});
-	$('.menuitem:nth-child(2)').on('click', function() {
+	$('.menuitem').on('click', function() {
+        var _this = $(this);
 		$('.container-fluid').animate({
 			'left': 0
 		}, 400);
 		$('#menucontent').animate({
 			'left': -250
 		}, 400, function() {
-			if (document.location.href != 'http://danesjenovdan.si/styleguide/konsenz/') {
-				document.location.href = 'http://danesjenovdan.si/styleguide/konsenz';
-			} else {
-				$('#menu, #obcasnik').animate({
-					'top': 0
-				}, 200);
-			}
+            $('#menu, #obcasnik').animate({
+                'top': 0
+            }, 200);
+//                $('html, body').animate({
+//                    'scrollTop': $('#footer').offset().top
+//                }, 500);
+
+            if (document.location.href.indexOf(_this.data('menu')) === -1) {
+                
+                ga('send', {
+                    'hitType': 'event',
+                    'eventCategory': 'menu',
+                    'eventAction': document.title,
+                    'eventLabel': _this.data('menu')
+                });
+                
+                document.location.href = 'http://danesjenovdan.si/' + _this.data('menu');
+            } else {
+                $('#menu, #obcasnik').animate({
+                    'top': 0
+                }, 200);
+            }
 		});
 	});
-	$('.menuitem:nth-child(3)').on('click', function() {
-		$('.container-fluid').animate({
-			'left': 0
-		}, 400);
-		$('#menucontent').animate({
-			'left': -250
-		}, 400, function() {
-			if (document.location.href != 'http://danesjenovdan.si/styleguide/projekti/') {
-				document.location.href = 'http://danesjenovdan.si/styleguide/projekti';
-			} else {
-				$('#menu, #obcasnik').animate({
-					'top': 0
-				}, 200);
-			}
-		});
-	});
-	$('.menuitem:nth-child(4)').on('click', function() {
-		$('.container-fluid').animate({
-			'left': 0
-		}, 400);
-		$('#menucontent').animate({
-			'left': -250
-		}, 400, function() {
-			if (document.location.href != 'http://danesjenovdan.si/styleguide/krivi/') {
-				document.location.href = 'http://danesjenovdan.si/styleguide/krivi';
-			} else {
-				$('#menu, #obcasnik').animate({
-					'top': 0
-				}, 200);
-			}
-		});
-	});
-	$('.menuitem:nth-child(5)').on('click', function() {
-		$('.container-fluid').animate({
-			'left': 0
-		}, 400);
-		$('#menucontent').animate({
-			'left': -250
-		}, 400, function() {
-			if (document.location.href != 'http://danesjenovdan.si/styleguide/dolzni/') {
-				document.location.href = 'http://danesjenovdan.si/styleguide/dolzni';
-			} else {
-				$('#menu, #obcasnik').animate({
-					'top': 0
-				}, 200);
-			}
-		});
-	});
-	$('.menuitem:nth-child(6)').on('click', function() {
-		$('.container-fluid').animate({
-			'left': 0
-		}, 400);
-		$('#menucontent').animate({
-			'left': -250
-		}, 400, function() {
-			if (document.location.href != 'http://danesjenovdan.si/styleguide/formalnosti/') {
-				document.location.href = 'http://danesjenovdan.si/styleguide/formalnosti';
-			} else {
-				$('#menu, #obcasnik').animate({
-					'top': 0
-				}, 200);
-			}
-		});
-	});
-	$('.menuitem:nth-child(7)').on('click', function() {
-		$('.container-fluid').animate({
-			'left': 0
-		}, 400);
-		$('#menucontent').animate({
-			'left': -250
-		}, 400, function() {
-			if (document.location.href != 'http://danesjenovdan.si/styleguide/obcasnik/') {
-				document.location.href = 'http://danesjenovdan.si/styleguide/obcasnik';
-			} else {
-				$('#menu, #obcasnik').animate({
-					'top': 0
-				}, 200);
-			}
-		});
-	});
-	
-	$('#newsletter').addClass('buzz-out'); // todo
 	
 	$('#submitemail').on('click', function() {
+        if ($('.hider').hasClass('open')) {
+            
+            ga('send', {
+                'hitType': 'event',
+                'eventCategory': document.title,
+                'eventAction': 'signup',
+                'eventLabel': 'pravice',
+                'eventValue': 1
+            });
+            
+            $.post('http://djapi.danesjenovdan.si/nsa/updatevictimsignature', {
+                'id': $.cookie('djndid'), 
+                'signature': 1
+            }, function(r) {
+                $.post('http://djapi.danesjenovdan.si/nsa/updatevictimemail', {
+                    'id': $.cookie('djndid'), 
+                    'email': $('#newsletteremail').val()
+                }, function(re) {
+                    $.post('http://djapi.danesjenovdan.si/nsa/updatevictimnamelastname', {
+                        'id': $.cookie('djndid'), 
+                        'name': $('#newslettername').val().split(' ')[0],
+                        'lastname': $('#newslettername').val().split(' ')[1],
+                    }, function(res) {
+                    });
+                });
+            });
+        } else {
+            
+            ga('send', {
+                'hitType': 'event',
+                'eventCategory': document.title,
+                'eventAction': 'signup',
+                'eventLabel': 'pravice',
+                'eventValue': 0
+            });
+            
+            $.post('http://djapi.danesjenovdan.si/nsa/updatevictimemail', {
+                'id': $.cookie('djndid'), 
+                'email': $('#newsletteremail').val()
+            }, function(re) {
+                $.post('http://djapi.danesjenovdan.si/nsa/updatevictimnamelastname', {
+                    'id': $.cookie('djndid'), 
+                    'name': $('#newslettername').val().split(' ')[0],
+                    'lastname': $('#newslettername').val().split(' ')[1],
+                }, function(res) {
+                });
+            });
+        }
 		$.post('https://djnd.slack.com/services/hooks/incoming-webhook?token=EApBJ7B21GFJmytVv5ZoNqoV',
 			JSON.stringify({
 				'channel': '#api-monitor',
@@ -416,12 +628,36 @@ $(document).ready(function() {
 	});
 	
 	$('#podpri').on('click', function() {
-		location.href = 'http://danesjenovdan.si/styleguide/dolzni'
-	}); // todo
-	
-	$('#podpri').css('color', $('.footerlink').css('color'));
+        
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': document.title,
+            'eventAction': 'footer_click',
+            'eventLabel': 'podpri_nas'
+        });
+        
+		location.href = '/dolzni'
+	});
+    
+    $('#izkaznica > a').on('click', function() {
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': document.title,
+            'eventAction': 'footer_click',
+            'eventLabel': 'formalnosti'
+        });
+    });
 	
 	$('.tab').on('click', function() {
+        
+        // ga za filtriranje krivi
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'krivi',
+            'eventAction': 'filter',
+            'eventLabel': $(this).data('href')
+        });
+        
 		if ($(this).hasClass('selected')) {
 			return false;
 		} else {
@@ -462,23 +698,57 @@ $(document).ready(function() {
         }
 	});
 	
-	$('#megavideo').height($(window).height()).width($(window).width());
-	
-	$('#btn-pravica-video').on('click', function() {
+	$('#btn-pravica-video, #tile-video').on('click', function() {
+        
+        // ga za pravica video
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'konsenz',
+            'eventAction': 'video_pravice'
+        });
+        
 		$('#megavideo').addClass('open');
 		player.api('play');
 	});
 	
 	$(document).on('keyup', function(e) {
 		if (e.keyCode == 27) {
-			$('#megavideo').removeClass('open');
-			player.api('pause');
+            if ($('#megavideo').length) {
+                $('#megavideo').removeClass('open');
+                player.api('pause');
+            }
 			$('.popup').removeClass('open');
 		}
 	});
 	
 	$('#submitsignature').on('click', function() {
 		if ($('#signaturename').val() != '' && $('#signaturelastname').val() != '' && $('#signatureemail').val() != '') {
+            
+            // ga za podpis pravic
+            ga('send', {
+                'hitType': 'event',
+                'eventCategory': 'konsenz',
+                'eventAction': 'signup',
+                'eventLabel': 'pravice',
+                'eventValue': 1
+            });
+            
+            $.post('http://djapi.danesjenovdan.si/nsa/updatevictimsignature', {
+                'id': $.cookie('djndid'),
+                'signature': 1
+            }, function(r) {
+                $.post('http://djapi.danesjenovdan.si/nsa/updatevictimnamelastname', {
+                    'id': $.cookie('djndid'),
+                    'name': $('#signaturename').val(),
+                    'lastname': $('#signaturelastname').val()
+                }, function(re) {
+                    $.post('http://djapi.danesjenovdan.si/nsa/updatevictimemail', {
+                        'id': $.cookie('djndid'),
+                        'email': $('#signatureemail').val()
+                    });
+                });
+            });
+            
 			$.post('https://djnd.slack.com/services/hooks/incoming-webhook?token=EApBJ7B21GFJmytVv5ZoNqoV',
 				JSON.stringify({
 					'channel': '#api-monitor',
@@ -532,21 +802,41 @@ $(document).ready(function() {
 		$('#lastagrument').children('.agrumenttitle').text(r);
 	});
 	
-	$.get('http://agrument.danesjenovdan.si/getlastagrumenttextsmall/', function(r) {
-		$('#lastagrument').children('.agrumenttitle').after(r);
-		$('#lastagrument .agrumenttitle + p').addClass('tiletext');
-	})
+    if ($(window).width() > 991) {
+        $.get('http://agrument.danesjenovdan.si/getlastagrumenttextsmall/', function(r) {
+            $('#lastagrument').children('.agrumenttitle').after(r);
+            $('#lastagrument .agrumenttitle + p').addClass('tiletext');
+        })
+    }
 	
-	$('.obcasniktileimage, .dolzniimage').each(function(i, e) {
-		$(e).css('background-image', 'url(' + $(e).data('img') + ')');
-	});
-	
-	$('.arrow-obcasnik-left, .arrow-obcasnik-right, #sendemail').on('click', function() {
+	$('.arrow-obcasnik-left, .arrow-obcasnik-right, #sendemail').not('.nextproject, .previousproject').on('click', function() {
 		document.location.href = $(this).data('href');
 	});
+    
+    // listanje med projekti
+    $('.nextproject').on('click', function() {
+        var popup = $('.popup.open');
+        
+        popup.removeClass('open');
+        
+        window.setTimeout(function() {
+            popup.next().addClass('open');
+        }, 500);
+    });
+    $('.previousproject').on('click', function() {
+        var popup = $('.popup.open');
+        
+        popup.removeClass('open');
+        
+        window.setTimeout(function() {
+            popup.prev().addClass('open');
+        }, 500);
+        
+        return false;
+    });
 	
 	$('#obcasnik').on('click', function() {
-		document.location.href = 'http://danesjenovdan.si/styleguide/obcasnik'
+		document.location.href = '/obcasnik'
 	});
 	
 	// open popup
@@ -554,9 +844,6 @@ $(document).ready(function() {
 		$('.popup').height($(window).height());
 		$('#' + document.location.href.split('#popup-')[1]).addClass('open');
 	}
-	
-	// nologo TODO
-	$('#nologo').text('MENI');
     
     // newsletter show name/lastname
     $('#dodajme').on('click', function() {
@@ -568,7 +855,23 @@ $(document).ready(function() {
             $('#submitemail').text('Oddaj!');
         }
     });
-    
+    // newsletter android fix
+    if (true) {// (window.androidcheck()) {
+        $('#newslettername').on('focus', function() {
+            window.setTimeout(function() {
+                $('.popup.open').animate({
+                    'padding-bottom': '+=200px',
+                    'scrollTop': 200
+                }, 500);
+            }, 700);
+        });
+        $('#newslettername').on('blur', function() {
+            $('.popup.open').animate({
+                'padding-bottom': '-=200px',
+                'scrollTop': 0
+            }, 500);
+        });
+    }
     
     // documents
     $('#akt').on('click', function() {
@@ -578,10 +881,10 @@ $(document).ready(function() {
         window.open('./dokumenti/Statut.pdf', '_blank');
     });
     $('#letno2013').on('click', function() {
-        window.open('./dokumenti/2013/Letno%20poročilo%202013.pdf', '_blank');
+        window.open('./dokumenti/2013/Letno%20porocilo%202013.pdf', '_blank');
     });
     $('#poslovno2013').on('click', function() {
-        window.open('./dokumenti/2013/Poslovno%20poročilo%202013.pdf', '_blank');
+        window.open('./dokumenti/2013/Poslovno%20porocilo%202013.pdf', '_blank');
     });
     
 });

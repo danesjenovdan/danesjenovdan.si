@@ -1,5 +1,5 @@
 var majicaHTML = [	'<div class="vozicekitemcontainer">',
-					'<div class="vozicekitemimage" data-img="http://danesjenovdan.si/styleguide/img/jure.png" style="background-image: url(http://danesjenovdan.si/styleguide/img/jure.png); "></div>',
+					'<div class="vozicekitemimage" data-img="../../img/majica1.jpg" style="background-image: url(../../img/majica1.jpg); "></div>',
 					'<h1 class="vozicekitemtitle">Majica</h1>',
 					'<p class="vozicekitemproperty">{{ itemtype }}</p>',
 					'<p class="vozicekitemproperty">velikost {{ itemsize }}</p>',
@@ -10,7 +10,7 @@ var majicaHTML = [	'<div class="vozicekitemcontainer">',
 					'</div>'].join('\n'); // TODO update picture
 					
 var rizleHTML = [	'<div class="vozicekitemcontainer">',
-					'<div class="vozicekitemimage" data-img="http://danesjenovdan.si/styleguide/img/jure.png" style="background-image: url(http://danesjenovdan.si/styleguide/img/jure.png); "></div>',
+					'<div class="vozicekitemimage" data-img="../../img/rizle1.jpg" style="background-image: url(../../img/rizle1.jpg); "></div>',
 					'<h1 class="vozicekitemtitle">Rizle</h1>',
 					'<p class="vozicekitemproperty">&nbsp;</p>',
 					'<p class="vozicekitemproperty">&nbsp;</p>',
@@ -28,32 +28,63 @@ var racunHTML = [	'<div class="vozicekracunitemcontainer">',
 
 
 function createCart() {
+    $.cookie('dolzniCart2', JSON.stringify({'items': []}), {'expires': 30, 'path': '/'});
     if (!$.cookie('dolzniCart')) {
-	   $.cookie('dolzniCart', JSON.stringify({'items': []}));
+        $.cookie('dolzniCart', JSON.stringify({'items': []}), {'expires': 30, 'path': '/'});
     } else {
         renderCart();
     }
 }
 
 function addItem(name, quantity, details, price) {
+    if ($.cookie('dolzniCart') === '') {
+        createCart();
+    }
 	items = JSON.parse($.cookie('dolzniCart')).items;
 	
 	if (items.length === 0) { // empty cart
 		items.push({'name': name, 'quantity': quantity, 'details': details, 'price': price});
 
-		$.cookie('dolzniCart', JSON.stringify({'items': items}));
+		$.cookie('dolzniCart', JSON.stringify({'items': items}), {'expires': 30, 'path': '/'});
 	} else { // something already in cart
 		$.each(items, function(i, e) {
 			if (e['name'] === name) {
 				items[i]['quantity'] = parseInt(items[i]['quantity']) + 1;
 			
-				$.cookie('dolzniCart', JSON.stringify({'items': items}));
+				$.cookie('dolzniCart', JSON.stringify({'items': items}), {'expires': 30, 'path': '/'});
 				
 				return false;
 			} else if (i + 1 === items.length){
 				items.push({'name': name, 'quantity': quantity, 'details': details, 'price': price});
 
-				$.cookie('dolzniCart', JSON.stringify({'items': items}));
+				$.cookie('dolzniCart', JSON.stringify({'items': items}), {'expires': 30, 'path': '/'});
+			}
+		});
+	}
+}
+
+function addItem2(name, quantity, details, price) {
+    if ($.cookie('dolzniCart2') === '') {
+        createCart();
+    }
+	items = JSON.parse($.cookie('dolzniCart2')).items;
+	
+	if (items.length === 0) { // empty cart
+		items.push({'name': name, 'quantity': quantity, 'details': details, 'price': price});
+
+		$.cookie('dolzniCart2', JSON.stringify({'items': items}), {'expires': 30, 'path': '/'});
+	} else { // something already in cart
+		$.each(items, function(i, e) {
+			if (e['name'] === name) {
+				items[i]['quantity'] = parseInt(items[i]['quantity']) + 1;
+			
+				$.cookie('dolzniCart2', JSON.stringify({'items': items}), {'expires': 30, 'path': '/'});
+				
+				return false;
+			} else if (i + 1 === items.length){
+				items.push({'name': name, 'quantity': quantity, 'details': details, 'price': price});
+
+				$.cookie('dolzniCart2', JSON.stringify({'items': items}), {'expires': 30, 'expires': 30, 'path': '/'});
 			}
 		});
 	}
@@ -68,7 +99,7 @@ function removeItem(id) {
 		items.splice(id, 1);
 	}
 	
-	$.cookie('dolzniCart', JSON.stringify({'items': items}));
+	$.cookie('dolzniCart', JSON.stringify({'items': items}), {'expires': 30, 'path': '/'});
 }
 
 function removeItemFamily(id) {
@@ -76,7 +107,7 @@ function removeItemFamily(id) {
 	
 	items.splice(id, 1);
 	
-	$.cookie('dolzniCart', JSON.stringify({'items': items}));
+	$.cookie('dolzniCart', JSON.stringify({'items': items}), {'expires': 30, 'path': '/'});
 }
 
 function getItemIdByName(name) {
@@ -97,7 +128,7 @@ function incrementQuantity(name) {
 	
 	items[getItemIdByName(name)]['quantity'] = parseInt(items[getItemIdByName(name)]['quantity'] + 1);
 	
-	$.cookie('dolzniCart', JSON.stringify({'items': items}));
+	$.cookie('dolzniCart', JSON.stringify({'items': items}), {'expires': 30, 'path': '/'});
 }
 
 function calculatePrice() {
@@ -105,7 +136,9 @@ function calculatePrice() {
 	var price = 0;
 	
 	$.each(items, function(i, e) {
-		price = price + (parseInt(e['price']) * parseInt(e['quantity']));
+        if (e['name'].indexOf('donacija') === -1) {
+            price = price + (parseInt(e['price']) * parseInt(e['quantity']));
+        }
 	});
 	
 	return price;
@@ -116,7 +149,9 @@ function countItems() {
 	var count = 0;
 	
 	$.each(items, function(i, e) {
-		count = count + parseInt(e['quantity']);
+        if (e['name'].indexOf('donacija') === -1) {
+            count = count + parseInt(e['quantity']);
+        }
 	});
 	
 	return count;
@@ -210,6 +245,13 @@ $(document).ready(function() {
     
 	$('#submitnaturalije').on('click', function() {
 		if ($('#naturalijeemail').val() != '' && $('#naturalijetextarea').val() != '') {
+            
+            // mandrill send mail
+            sendTheNaturalijeMail(
+                'vsi@danesjenovdan.si', 
+                ('Piše: ' + $('#naturalijeemail').val() + '<br><br>' + $('#naturalijetextarea').val())
+            );
+            
 			$.post('https://djnd.slack.com/services/hooks/incoming-webhook?token=EApBJ7B21GFJmytVv5ZoNqoV',
 				JSON.stringify({
 					'channel': '#api-monitor',
@@ -231,18 +273,21 @@ $(document).ready(function() {
 					]
 				}), 
 				function(r) {
+                    startConfetti();
+                    $('#naturalijepopup').removeClass('open');
 					console.log(r);
 				}
 			);
-			$(this).parents('.popup').removeClass('open');
 		} else {
 			$('.naturalijeform').shake();
 		}
 	});
 	
-	$('.btn-finish').on('click', function() {
+	$('.btn-finish-majica').on('click', function() {
+        
 		if ($(this).parent().parent().children('.artikeltogglecontainer:nth-of-type(1)').children('.artikeltoggle').hasClass('dolzniselected') && $(this).parent().parent().children('.artikeltogglecontainer:nth-of-type(2)').children('.artikeltoggle').hasClass('dolzniselected')) {
 			// everything OK
+            
             // add to cart
             // determine what it's for
             if ($(this).parents('.popup').attr('id') === 'majicapopup') {
@@ -262,10 +307,19 @@ $(document).ready(function() {
                     'size': $(this).parent().siblings('.majicasize').children('.dolzniselected').text()
                 }
 
+                // ga za majico step2
+                ga('send', {
+                    'hitType': 'event',
+                    'eventCategory': 'majica',
+                    'eventAction': 'step2',
+                    'eventLabel': name
+                });
+                
                 // add item
                 addItem(name, quantity, details, 12);
 
             } else {
+                alert('rizle');
                 // ker ni drugega morajo bit rizle
                 // generate data
                 var name = 'rizle'
@@ -279,10 +333,35 @@ $(document).ready(function() {
             
 			$(this).parents('.popup').removeClass('open');
             
-            window.open('vozicek', '_blank');
+            window.open('vozicek#checkout', '_blank');
 		} else {
 			$(this).parent().parent().children('.artikeltogglecontainer, .artikellable').not('.noshake').shake();
 		}
+	});
+    
+    $('.btn-finish-rizle').on('click', function() {
+        
+        // ker ni drugega morajo bit rizle
+        // generate data
+        var name = 'rizle'
+        var quantity = $(this).parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text();
+        var details = {}
+        
+        // ga za rizle step2
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'rizle',
+            'eventAction': 'step2',
+            'eventLabel': 'rizle' + quantity
+        });
+
+        // add item
+        addItem(name, quantity, details, 2);
+
+
+        $(this).parents('.popup').removeClass('open');
+
+        window.open('vozicek#checkout', '_blank');
 	});
 	
 	$('.gallerymainimage, .gallerythumb, .vozicekitemimage, .pregleditemimage').each(function(i, e) {
@@ -309,6 +388,9 @@ $(document).ready(function() {
 		$(this).addClass('dolzniselected');
 		
 		// activate button
+        
+        // prevent shaking
+        $(this).parent().addClass('noshake').prev().addClass('noshake');
 	});
 	
 	// $('.btn-dolzni').not('#submitnaturalije').on('click', function() {
@@ -320,28 +402,54 @@ $(document).ready(function() {
 	// });
 	
 	$('#submitenkratna').on('click', function() {
+        $.cookie('dolzniCart2', JSON.stringify({'items': []}), {'expires': 30, 'path': '/'});
+        
 		if (!$(this).siblings('.velikosrcetilecontainer').children().hasClass('selected')) {
 			$(this).prev().shake();
 		} else {
+            
+            // ga za enkratno donacijo
+            ga('send', {
+                'hitType': 'event',
+                'eventCategory': 'one_time_d',
+                'eventAction': 'step2'
+            });
+            
 			// all OK
 			if ($(this).prev().children('.selected').hasClass('velikosrceinput')) {
-				addItem('Enkratna donacija ' + $(this).prev().children('.selected').children('.input-drugo').val() + ' €', 1, '', $(this).prev().children('.selected').children('.input-drugo').val());
+				addItem2('Enkratna donacija ' + $(this).prev().children('.selected').children('.input-drugo').val() + ' €', 1, '', $(this).prev().children('.selected').children('.input-drugo').val());
 			} else {
-				addItem('Enkratna donacija ' + $(this).prev().children('.selected').text().split(' ')[0] + ' €', 1, '', $(this).prev().children('.selected').text().split(' ')[0]);
+				addItem2('Enkratna donacija ' + $(this).prev().children('.selected').text().split(' ')[0] + ' €', 1, '', $(this).prev().children('.selected').text().split(' ')[0]);
 			}
+            
+            window.open('./donacija', '_blank');
+            $('.popup.open').removeClass('open');
 		}
 	});
 
 	$('#submitredna').on('click', function() {
+        $.cookie('dolzniCart2', JSON.stringify({'items': []}), {'expires': 30, 'path': '/'});
+        
 		if (!$(this).siblings('.velikosrcetilecontainer').children().hasClass('selected')) {
 			$(this).prev().shake();
 		} else {
 			// all OK
+            
+            // ga za redno donacijo
+            ga('send', {
+                'hitType': 'event',
+                'eventCategory': 'regular_d',
+                'eventAction': 'step2'
+            });
+            
 			if ($(this).prev().children('.selected').hasClass('velikosrceinput')) {
-				addItem('Redna donacija ' + $(this).prev().children('.selected').children('.input-drugo').val() + ' €', 1, '', $(this).prev().children('.selected').children('.input-drugo').val());
+				addItem2('Redna donacija ' + $(this).prev().children('.selected').children('.input-drugo').val() + ' €', 1, '', $(this).prev().children('.selected').children('.input-drugo').val());
 			} else {
-				addItem('Redna donacija ' + $(this).prev().children('.selected').text().split(' ')[0] + ' €', 1, '', $(this).prev().children('.selected').text().split(' ')[0]);
+				addItem2('Redna donacija ' + $(this).prev().children('.selected').text().split(' ')[0] + ' €', 1, '', $(this).prev().children('.selected').text().split(' ')[0]);
 			}
+            
+            window.open('donacija#redna', '_blank');
+            $('.popup.open').removeClass('open');
 		}
 	});
 	
@@ -358,7 +466,8 @@ $(document).ready(function() {
 			
 			if ($(this).parent().parent().parent().children('.artikeltogglecontainer:nth-of-type(1)').children('.artikeltoggle').hasClass('dolzniselected') && $(this).parent().parent().parent().children('.artikeltogglecontainer:nth-of-type(2)').children('.artikeltoggle').hasClass('dolzniselected')) {
 				// everything OK
-				
+                
+                
 				// generate data
 				var name = 'majica';
 				if ($(this).parent().parent().siblings('.majicatype').children('.dolzniselected').text() === 'ohlapen') {
@@ -372,6 +481,14 @@ $(document).ready(function() {
 					'type': $(this).parent().parent().siblings('.majicatype').children('.dolzniselected').text(),
 					'size': $(this).parent().parent().siblings('.majicasize').children('.dolzniselected').text()
 				}
+                
+                // ga za majico step3
+                ga('send', {
+                    'hitType': 'event',
+                    'eventCategory': 'majica',
+                    'eventAction': 'step3',
+                    'eventLabel': name
+                });
 
 				// add item
 				addItem(name, quantity, details, 12);
@@ -387,11 +504,20 @@ $(document).ready(function() {
 			
 		} else {
 			// ker ni drugega morajo bit rizle
+            
 			// generate data
 			var name = 'rizle'
 			var quantity = $(this).parent().parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text();
 			var details = {}
 			
+            // ga za rizle step3
+            ga('send', {
+                'hitType': 'event',
+                'eventCategory': 'rizle',
+                'eventAction': 'step3',
+                'eventLabel': 'rizle' + quantity
+            });
+            
 			// add item
 			addItem(name, quantity, details, 2);
 			
