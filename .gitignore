@@ -29,7 +29,7 @@ Thumbs.db
 
 # Other things #
 ######################
-js/nsa.js
-js/vozicek.js
-js/donacija.js
-js/mailing.js
+nsa.js
+vozicek.js
+donacija.js
+mailing.js
