@@ -628,7 +628,7 @@ a:hover {
 	content: '';
 	width: 0;
 	height: 0;
-	border-style: solid;
+	border-style: solid outset;
 	border-width: 0px 12.5px 12px 12.5px;
 	border-color: transparent transparent #ffffff transparent;
 	position: absolute;
