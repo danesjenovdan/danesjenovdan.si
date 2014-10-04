@@ -2991,6 +2991,8 @@ input::-webkit-inner-spin-button {
 /* Listanje med projekti */
 .nextproject, .previousproject {
     position: absolute;
+    top: 50%;
+    margin-top: 21px;
 }
 
 
