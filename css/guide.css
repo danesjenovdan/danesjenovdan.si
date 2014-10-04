@@ -2500,6 +2500,7 @@ input:focus
     max-width: 360px;
 	width: 100%;
 	height: 100%;
+    float: right;
 }
 .gallerymainimage {
 	width: 100%;
