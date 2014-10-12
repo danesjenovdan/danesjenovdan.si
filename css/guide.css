@@ -15,7 +15,12 @@ html {
 
 body, h1, h2, h3, h4, p, span, a {
 	font-family: 'Titillium Web', 'Helvetica', 'Arial', sans-serif;
-    text-shadow: 0 0 1px rgba(39, 39, 39, 0.2);
+/*    text-shadow: 0 0 1px rgba(39, 39, 39, 0.2);*/
+    
+    /* font rendering improvement */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    
 }
 
 html, body {
