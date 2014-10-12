@@ -15,7 +15,6 @@ html {
 
 body, h1, h2, h3, h4, p, span, a {
 	font-family: 'Titillium Web', 'Helvetica', 'Arial', sans-serif;
-/*    text-shadow: 0 0 1px rgba(39, 39, 39, 0.2);*/
     
     /* font rendering improvement */
     -webkit-font-smoothing: antialiased;
@@ -316,7 +315,6 @@ a:hover {
 .tiletitle {
 	font-size: 24px;
 	font-weight: 400;
-    text-shadow: 0 0 1px #222222;
 	text-transform: uppercase;
 	margin: 0;
 	text-align: center;
@@ -2211,7 +2209,6 @@ input:focus
 	font-size: 24px;
 	font-weight: 400;
 	text-align: center;
-    text-shadow: 0 0 1px #222222;
 }
 .dolznicardtitle-big {
 	width: 50%;
