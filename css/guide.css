@@ -1933,6 +1933,28 @@ input:focus
 }
 
 /* obcasnik */
+.obcasnikheadertitle {
+    font-size: 16px;
+    padding-left: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.obcasnikbigtitle {
+    color: #ffffff;
+    font-weight: 600;
+    opacity: 0;
+    text-transform: uppercase;
+}
+.obcasnikbigtitle:hover {
+    text-decoration: none;
+    color: #704a45;
+}
+.obcasniksmalltitle {
+    font-weight: 600;
+    font-size: 14px;
+    color: #272727;
+    opacity: 0;
+}
 .tile-obcasnik {
     padding-bottom: 66px;
 }
@@ -1997,7 +2019,7 @@ input:focus
 	margin-left: 0;
 }
 .row-obcasnik {
-	padding-bottom: 30px;
+/*	padding-bottom: 30px;*/
 	position: fixed;
 	top: 0;
 	width: 100%;

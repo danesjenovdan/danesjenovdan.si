@@ -835,9 +835,25 @@ $(document).ready(function() {
         return false;
     });
 	
-	$('#obcasnik').on('click', function() {
-		document.location.href = '/obcasnik'
-	});
+	// obcasnik title magic
+    var titlevisible = false;
+    $(window).scroll(function() {
+        if (!titlevisible) {
+            if ($(document).scrollTop() > 190) {
+                titlevisible = true;
+                $('.obcasnikbigtitle, .obcasniksmalltitle').animate({
+                    'opacity': 1
+                }, 500);
+            }
+        } else {
+            if ($(document).scrollTop() < 190) {
+                titlevisible = false;
+                $('.obcasnikbigtitle, .obcasniksmalltitle').animate({
+                    'opacity': 0
+                });
+            }
+        }
+    });
 	
 	// open popup
 	if (document.location.href.indexOf('#popup-') != '') {
