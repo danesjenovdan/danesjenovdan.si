@@ -3197,11 +3197,25 @@ input::-webkit-inner-spin-button {
     }
     
 	.arrow-obcasnik-left, .arrow-obcasnik-right {
-		top: 50px;
+		top: 35px;
 	}
+    .arrow-obcasnik-left {
+        left: 0;
+    }
+    .arrow-obcasnik-right {
+        right: 0;
+    }
+    
+    .row-obcasnik {
+        min-height: 81px;
+    }
     
     .hider.open {
         height: 120px;
+    }
+    
+    .obcasnikheadertitle {
+        margin-top: 15px;
     }
 }
 
