@@ -18,7 +18,10 @@ $(document).ready(function () {
         addItem2('Enkratna donacija 1€', 1, '', 1);
         window.open('http://danesjenovdan.si/dolzni/donacija/', '_blank');
     });
-
+    
+    $('.popovermofo').popover({
+        'trigger': 'hover'
+    });
 });
 
 google.load("visualization", "1", {
