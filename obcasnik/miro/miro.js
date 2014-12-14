@@ -410,7 +410,7 @@ $(document).ready(function() {
     
     $('#donate5').on('click', function() {
         $.cookie('dolzniCart2', JSON.stringify({'items': []}), {'expires': 30, 'path': '/'});
-        addItem2('Enkratna donacija 5€', 1, '', 5);
+        addItem2('Enkratna donacija 5 €', 1, '', 5);
         window.open('http://danesjenovdan.si/dolzni/donacija/', '_blank');
     });
 });
