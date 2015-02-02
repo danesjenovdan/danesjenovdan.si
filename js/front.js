@@ -258,7 +258,7 @@ if (document.createElement('svg').getAttributeNS) {
 // end of SVG magic checkboxes
 
 function repaintMe() {
-    $('.tile').not('.tile-project').height($('.tile-small').width());
+    $('.tile').not('.tile-project, .tile-stream').height($('.tile-small').width());
     $('.tile-project').equalizeHeights();
     $('.polaroidtext').equalizeHeights();
     $('.tile-obcasnik').equalizeHeights();
@@ -542,7 +542,7 @@ $(document).ready(function () {
 
     });
 
-    $('.tile').not('.tile-obcasnik-full, .tile-project, #tile-video').on('click', function () {
+    $('.tile').not('.tile-obcasnik-full, .tile-project, #tile-video, .tile-stream').on('click', function () {
         if (!$(this).data('target')) {
             document.location.href = $(this).data('href');
         } else {
@@ -580,7 +580,7 @@ $(document).ready(function () {
             'eventLabel': 'landing'
         });
 
-        document.location.href = '/'
+        document.location.href = 'http://danesjenovdan.si/'
     });
 
     $('#menuclose').on('click', function () {
@@ -605,7 +605,33 @@ $(document).ready(function () {
         });
 
     });
-    $('.menuitem').on('click', function () {
+    $('.menuitem-agrument').on('click', function () {
+        var _this = $(this);
+        $('.container-fluid').animate({
+            'left': 0
+        }, 400);
+        $('#menucontent').animate({
+            'left': -250
+        }, 400, function () {
+            $('#menu, #obcasnik').animate({
+                'top': 0
+            }, 200);
+            //                $('html, body').animate({
+            //                    'scrollTop': $('#footer').offset().top
+            //                }, 500);
+
+
+            ga('send', {
+                'hitType': 'event',
+                'eventCategory': 'menu',
+                'eventAction': document.title,
+                'eventLabel': _this.data('menu')
+            });
+
+            document.location.href = 'http://agrument.danesjenovdan.si/';
+        });
+    });
+    $('.menuitem').not('menuitem-agrument').on('click', function () {
         var _this = $(this);
         $('.container-fluid').animate({
             'left': 0
