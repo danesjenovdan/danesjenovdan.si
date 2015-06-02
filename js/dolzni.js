@@ -404,6 +404,8 @@ $(document).ready(function() {
 	$('#submitenkratna').on('click', function() {
         $.cookie('dolzniCart2', JSON.stringify({'items': []}), {'expires': 30, 'path': '/'});
         
+        console.log('clicked submit');
+        
 		if (!$(this).siblings('.velikosrcetilecontainer').children().hasClass('selected')) {
 			$(this).prev().shake();
 		} else {
@@ -419,7 +421,9 @@ $(document).ready(function() {
 			if ($(this).prev().children('.selected').hasClass('velikosrceinput')) {
 				addItem2('Enkratna donacija ' + $(this).prev().children('.selected').children('.input-drugo').val() + ' €', 1, '', $(this).prev().children('.selected').children('.input-drugo').val());
 			} else {
-				addItem2('Enkratna donacija ' + $(this).prev().children('.selected').text().split(' ')[0] + ' €', 1, '', $(this).prev().children('.selected').text().split(' ')[0]);
+                var amount = $(this).prev().children('.selected').text().split(' ')[$(this).prev().children('.selected').text().split(' ').length - 2]
+                console.log(amount);
+				addItem2('Enkratna donacija ' + amount + ' €', 1, '', amount);
 			}
             
             window.open('./donacija', '_blank');
@@ -445,7 +449,8 @@ $(document).ready(function() {
 			if ($(this).prev().children('.selected').hasClass('velikosrceinput')) {
 				addItem2('Redna donacija ' + $(this).prev().children('.selected').children('.input-drugo').val() + ' €', 1, '', $(this).prev().children('.selected').children('.input-drugo').val());
 			} else {
-				addItem2('Redna donacija ' + $(this).prev().children('.selected').text().split(' ')[0] + ' €', 1, '', $(this).prev().children('.selected').text().split(' ')[0]);
+                var amount = $(this).prev().children('.selected').text().split(' ')[$(this).prev().children('.selected').text().split(' ').length - 2]
+				addItem2('Redna donacija ' + amount + ' €', 1, '', amount);
 			}
             
             window.open('donacija#redna', '_blank');
