@@ -2924,6 +2924,10 @@ input::-webkit-inner-spin-button {
 }
 /* new agrument */
 
+.newagrumentbigtitle:hover {
+    color: #467871;
+}
+
 .newagrumentspacer {
     width: 100%;
     height: 120px;
