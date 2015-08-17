@@ -1647,7 +1647,7 @@ input:focus {
     -ms-transition: all 0.2s;
     transition: all 0.2s;
 }
-.menuitem:hover .ribbon {
+.menuitem:hover .ribbon, .menuitem.active .ribbon {
     left: 0px;
 }
 .footerline {
