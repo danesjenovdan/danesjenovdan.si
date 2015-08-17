@@ -542,7 +542,7 @@ $(document).ready(function () {
 
     });
 
-    $('.tile').not('.tile-obcasnik-full, .tile-project, #tile-video, .tile-stream').on('click', function () {
+    $('.tile').not('.tile-obcasnik-full, .tile-project, #tile-video, .tile-stream, .tile-nolink').on('click', function () {
         if (!$(this).data('target')) {
             document.location.href = $(this).data('href');
         } else {
