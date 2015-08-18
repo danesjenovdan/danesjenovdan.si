@@ -1261,7 +1261,7 @@ input:focus {
 #header {
     background-color: #6ba8a0;
     padding-top: 32px;
-    z-index: 2;
+    z-index: 3;
 }
 #header-dolzni {
     background-color: #6ba8a0;
@@ -2943,6 +2943,8 @@ input::-webkit-inner-spin-button {
     padding-right: 22.5px;
     margin-top: 0;
     margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.2em;
 }
 .tile-newagrument p {
     margin-bottom: 26px;
