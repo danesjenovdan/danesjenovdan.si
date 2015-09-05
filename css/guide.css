@@ -2963,9 +2963,11 @@ input::-webkit-inner-spin-button {
     margin-top: 16px;
     margin-bottom: 30px;
 }
+/*
 .newagrumentimgsource:after {
     content: attr(data-content);
 }
+*/
 .newagrumentdate {
     font-size: 14px;
     font-weight: 800;
@@ -3001,8 +3003,8 @@ input::-webkit-inner-spin-button {
     color: #ffffff;
 }
 .circle-agrument.tw {
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .newagrumentsidebar .card {
     padding: 20px;
