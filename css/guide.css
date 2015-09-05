@@ -1291,6 +1291,18 @@ input:focus {
     background-color: #c2d8d8;
     z-index: 90;
 }
+.languagetoggle {
+    height: 32px;
+    padding: 7px 8px 9px 8px;
+    position: absolute;
+    display: block;
+    margin-right: 15px;
+    top: 0px;
+    right: 0;
+    cursor: pointer;
+    background-color: #c2d8d8;
+    z-index: 90;
+}
 .icon-menu {
     position: relative;
     top: 0px;
@@ -1314,7 +1326,7 @@ input:focus {
 .menu-col-gold {
     color: #e4d2a3 !important;
 }
-#menutoggle {
+.menutoggle {
     color: #272727;
     font-size: 16px;
     display: inline-block;
@@ -1329,6 +1341,7 @@ input:focus {
     margin: 0;
     display: inline-block;
 }
+/*
 #nologo {
     font-size: 16px;
     color: #272727;
@@ -1337,6 +1350,7 @@ input:focus {
     margin: 0;
     display: inline-block;
 }
+*/
 #intro {
     font-size: 30px;
     color: #272727;
