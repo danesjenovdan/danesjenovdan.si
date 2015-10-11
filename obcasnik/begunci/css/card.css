@@ -1,3 +1,8 @@
+.card-title {
+    padding: 0;
+    margin: 0;
+}
+
 .card-container {
     width: 50%;
     height: 640px;
@@ -14,7 +19,7 @@
 
 .card {
     margin-left: 7%;
-    margin-top: 7%;
+    margin-top: 2%;
     width: 86%;
     height: 86%;
     position: relative;
@@ -22,6 +27,8 @@
     transition: transform 0.7s;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     border-radius: 1px;
+    
+    cursor: pointer;
 }
 
 .front, .back {
@@ -42,9 +49,24 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #dd786b;
+    background-color: #ffffff;
 }
+
+.back::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+
 .back p {
     padding-left: 40px;
     padding-right: 40px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    
+    position: relative;
+    margin: auto;
 }
