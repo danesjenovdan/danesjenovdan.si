@@ -661,9 +661,14 @@ $(document).ready(function () {
 
                 document.location.href = 'http://danesjenovdan.si/' + _this.data('menu');
             } else {
-                $('#menu, #obcasnik').animate({
-                    'top': 0
-                }, 200);
+                console.log(this)
+                if ($(_this).data('menu') == 'obcasnik/') {
+                    document.location.href = 'http://danesjenovdan.si/obcasnik/';
+                } else {
+                    $('#menu, #obcasnik').animate({
+                        'top': 0
+                    }, 200);
+                }
             }
         });
     });
