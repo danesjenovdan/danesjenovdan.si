@@ -386,6 +386,12 @@ $(document).ready(function() {
 			}
 		})
 		$(this).addClass('dolzniselected');
+        
+        if ($(this).text() == '"moški"') {
+            $(this).parent().next().next().children('div:nth-child(1), div:nth-child(2)').addClass('hidden');
+        } else if ($(this).text() == '"ženski"') {
+            $(this).parent().next().next().children('div:nth-child(1), div:nth-child(2)').removeClass('hidden');
+        }
 		
 		// activate button
         
