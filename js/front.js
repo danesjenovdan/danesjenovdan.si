@@ -306,7 +306,7 @@ function repaintMe() {
 
 // document ready
 $(document).ready(function () {
-    
+
     $('.languagetoggle').on('click', function() {
         document.location.href = $(this).data('href');
     });
@@ -724,7 +724,7 @@ $(document).ready(function () {
             JSON.stringify({
                 'channel': '#api-monitor',
                 'username': 'Apinator',
-                'text': 'Yo Filip! Nekdo se je sign-upal na newsletter.',
+                'text': 'Yo @channel! Nekdo se je sign-upal na newsletter.',
                 'attachments': [
                     {
                         'fallback': 'Your client is stupid, go vote.',
@@ -875,7 +875,7 @@ $(document).ready(function () {
                 JSON.stringify({
                     'channel': '#api-monitor',
                     'username': 'Apinator',
-                    'text': 'Yo Filip! Nekdo je podpisal pravice.',
+                    'text': 'Yo @channel! Nekdo je podpisal pravice.',
                     'attachments': [
                         {
                             'fallback': 'Your client is stupid, go vote.',
