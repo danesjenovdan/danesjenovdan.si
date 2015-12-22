@@ -561,6 +561,33 @@ a:hover {
 #ti {
     background-image: url('../img/ti.jpg');
 }
+#tea {
+	background-image: url('../img/tea.jpg');
+}
+#juric {
+	background-image: url('../img/juric.jpg');
+}
+#skornc {
+	background-image: url('../img/skornc.jpg');
+}
+#mirt{
+	background-image: url('../img/mirt.jpg');
+}
+#medeja {
+	background-image: url('../img/medeja.jpg');
+}
+#kunst{
+	background-image: url('../img/kunst.jpg');
+}
+#evas {
+	background-image: url('../img/evas.jpg');
+}
+#tadej {
+	background-image: url('../img/tadej.jpg');
+}
+#tine {
+	background-image: url('../img/tine.jpg');
+}
 #filip:hover,
 #filip.hover {
     background-image: url('../img/filip_hover.jpg');
@@ -616,6 +643,42 @@ a:hover {
 #ti:hover,
 #ti.hover {
     background-image: url('../img/ti_hover.jpg');
+}
+#tea:hover,
+#tea.hover {
+    background-image: url('../img/tea_hover.jpg');
+}
+#tine:hover,
+#tine.hover {
+    background-image: url('../img/tine_hover.jpg');
+}
+#juric:hover,
+#juric.hover {
+    background-image: url('../img/juric_hover.jpg');
+}
+#skornc:hover,
+#skornc.hover {
+    background-image: url('../img/skornc_hover.jpg');
+}
+#mirt:hover,
+#mirt.hover {
+    background-image: url('../img/mirt_hover.jpg');
+}
+#medeja:hover,
+#medeja.hover {
+    background-image: url('../img/medeja_hover.jpg');
+}
+#kunst:hover,
+#kunst.hover {
+    background-image: url('../img/kuknst_hover.jpg');
+}
+#evas:hover,
+#evas.hover {
+    background-image: url('../img/evas_hover.jpg');
+}
+#tadej:hover,
+#tadej.hover {
+    background-image: url('../img/tadej_hover.jpg');
 }
 .polaroid .image::after {
     content: '';
