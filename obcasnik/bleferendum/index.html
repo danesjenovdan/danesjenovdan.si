@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- meta info + OG tags -->
+    <title>O bleferendumu</title>
+    <meta name="description" content="Interaktivni manifest ZA.  Izčrpni odgovori na večino vprašanj, ki se porajajo med ljudmi zaradi zastraševanja, zavajanj in laži predlagateljev referenduma. Moralna panika je konstrukt, lgbtq družine pa realnost!">
+    <meta name="author" content="Danes je nov dan, Inštitut za druga vprašanja">
+    <link rel="shortcut icon" href="http://danesjenovdan.si/favicon.ico">
+
+    <meta property="og:title" content="O bleferendumu" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Interaktivni manifest ZA.  Izčrpni odgovori na večino vprašanj, ki se porajajo med ljudmi zaradi zastraševanja, zavajanj in laži predlagateljev referenduma. Moralna panika je konstrukt, lgbtq družine pa realnost!" />
+    <meta property="og:image" content="http://danesjenovdan.si/obcasnik/bleferendum/img/ogimage.png" />
+
+    <!-- Bootstrap -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    <!-- font -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+
+    <!-- icons -->
+    <link href="/icons_/icons.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="/css/guide.css" rel="stylesheet">
+    <link href="ref.css" rel="stylesheet">
+
+    <!-- WP fix -->
+    <script>
+        (function () {
+            if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                var msViewportStyle = document.createElement("style");
+                msViewportStyle.appendChild(
+                    document.createTextNode("@-ms-viewport{width:auto!important}")
+                );
+                document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+            }
+        })();
+    </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <!-- jQuery cookie -->
+    <script src="/js/jquery.cookie.js"></script>
+    <script src="http://danesjenovdan.si/obcasnik/begunci/js/chart.min.js"></script>
+
+</head>
+
+<body>
+    <style>
+        .menucontent {
+        background-image: url("mavrica.png");
+        background-repeat: repeat-x;
+        }
+        
+    </style>
+    
+    <div id="menucontent">
+        <div id="menuheader">
+            <div id="menuclose">
+                <div id="menucloseicon" class="icon col-light-red">×</div>
+            </div>
+            <div id="menutitle" class="bck-light-red">Danes je nov dan</div>
+            <div class="col-light-red" id="menutitleback">Danes je nov dan</div>
+        </div>
+        <div class="menuitem menuitem-agrument" data-menu="agrument">
+            <div class="ribbon bck-light-green"></div>Agrument</div>
+        <div class="menuitem" data-menu="obcasnik/">
+            <div class="ribbon bck-light-red"></div>Občasnik</div>
+        <div class="menuitem" data-menu="projekti/">
+            <div class="ribbon bck-light-red"></div>Projekti</div>
+        <div class="menuitem" data-menu="krivi/">
+            <div class="ribbon bck-light-green"></div>Krivi</div>
+        <div class="menuitem" data-menu="dolzni/">
+            <div class="ribbon bck-light-gold"></div>Dolžni</div>
+        <div class="menuitem" data-menu="konsenz/">
+            <div class="ribbon bck-light-green"></div>Konsenz</div>
+        <div class="menuitem" data-menu="formalnosti/">
+            <div class="ribbon bck-light-gold"></div>Formalnosti</div>
+    </div>
+
+   <!-- <div class="arrow-obcasnik-left bck-pink" data-href="/obcasnik/terorizem/">
+        <div class="icon icon-arrow-left"></div>
+        <div class="titlenext titlenext-left"></div>
+    </div> -->
+    <div class="arrow-obcasnik-right bck-pink" data-href="/obcasnik/begunci">
+        <div class="titlenext titlenext-right">Noben človek ni otok</div>
+        <div class="icon icon-arrow-right"></div>
+    </div>
+
+    <style>
+.mavrica {
+    background-size: 100% 100%;
+    background-image: linear-gradient(right, rgba(233, 30, 99, 1) 0%, rgba(233, 30, 99, 1) 14.28571429%, rgba(106, 27, 154, 1) 14.28571429%, rgba(106, 27, 154, 1) 28.57142857%, rgba(33, 150, 243, 1) 28.57142857%, rgba(33, 150, 243, 1) 42.85714286%, rgba(139, 195, 74, 1) 42.85714286%, rgba(139, 195, 74, 1) 57.14285714%, rgba(255, 235, 59, 1) 57.14285714%, rgba(255, 235, 59, 1) 71.42857143%, rgba(255, 183, 77, 1) 71.42857143%, rgba(255, 183, 77, 1) 85.71428571%, rgba(239, 83, 80, 1) 85.71428571%, rgba(239, 83, 80, 1) 100%);
+    background-image: -o-linear-gradient(right, rgba(233, 30, 99, 1) 0%, rgba(233, 30, 99, 1) 14.28571429%, rgba(106, 27, 154, 1) 14.28571429%, rgba(106, 27, 154, 1) 28.57142857%, rgba(33, 150, 243, 1) 28.57142857%, rgba(33, 150, 243, 1) 42.85714286%, rgba(139, 195, 74, 1) 42.85714286%, rgba(139, 195, 74, 1) 57.14285714%, rgba(255, 235, 59, 1) 57.14285714%, rgba(255, 235, 59, 1) 71.42857143%, rgba(255, 183, 77, 1) 71.42857143%, rgba(255, 183, 77, 1) 85.71428571%, rgba(239, 83, 80, 1) 85.71428571%, rgba(239, 83, 80, 1) 100%);
+    background-image: -moz-linear-gradient(right, rgba(233, 30, 99, 1) 0%, rgba(233, 30, 99, 1) 14.28571429%, rgba(106, 27, 154, 1) 14.28571429%, rgba(106, 27, 154, 1) 28.57142857%, rgba(33, 150, 243, 1) 28.57142857%, rgba(33, 150, 243, 1) 42.85714286%, rgba(139, 195, 74, 1) 42.85714286%, rgba(139, 195, 74, 1) 57.14285714%, rgba(255, 235, 59, 1) 57.14285714%, rgba(255, 235, 59, 1) 71.42857143%, rgba(255, 183, 77, 1) 71.42857143%, rgba(255, 183, 77, 1) 85.71428571%, rgba(239, 83, 80, 1) 85.71428571%, rgba(239, 83, 80, 1) 100%);
+    background-image: -webkit-linear-gradient(right, rgba(233, 30, 99, 1) 0%, rgba(233, 30, 99, 1) 14.28571429%, rgba(106, 27, 154, 1) 14.28571429%, rgba(106, 27, 154, 1) 28.57142857%, rgba(33, 150, 243, 1) 28.57142857%, rgba(33, 150, 243, 1) 42.85714286%, rgba(139, 195, 74, 1) 42.85714286%, rgba(139, 195, 74, 1) 57.14285714%, rgba(255, 235, 59, 1) 57.14285714%, rgba(255, 235, 59, 1) 71.42857143%, rgba(255, 183, 77, 1) 71.42857143%, rgba(255, 183, 77, 1) 85.71428571%, rgba(239, 83, 80, 1) 85.71428571%, rgba(239, 83, 80, 1) 100%);
+    background-image: -ms-linear-gradient(right, rgba(right, rgba(233, 30, 99, 1) 0%, rgba(233, 30, 99, 1) 14.28571429%, rgba(106, 27, 154, 1) 14.28571429%, rgba(106, 27, 154, 1) 28.57142857%, rgba(33, 150, 243, 1) 28.57142857%, rgba(33, 150, 243, 1) 42.85714286%, rgba(139, 195, 74, 1) 42.85714286%, rgba(139, 195, 74, 1) 57.14285714%, rgba(255, 235, 59, 1) 57.14285714%, rgba(255, 235, 59, 1) 71.42857143%, rgba(255, 183, 77, 1) 71.42857143%, rgba(255, 183, 77, 1) 85.71428571%, rgba(239, 83, 80, 1) 85.71428571%, rgba(239, 83, 80, 1) 100%);
+}
+        .rdec {
+            color: #EF5350;
+        }
+        .oranzen {
+            color: #FFB74D;
+        }
+        .rumen {
+            color: #FFEB3B;
+        }
+
+    </style>
+    
+    <div class="container-fluid container-obcasnik">
+        <div class="row row-obcasnik mavrica" id="header">
+            <div class="container">
+                <div class="row">
+                    <div id="menu" class="menu bck-white">
+                        <div class="menutoggle">
+                            <div class="icon-menu"></div>
+                        </div>
+                        <h1 class="nologo">Meni</h1>
+                    </div>
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <h1 class="obcasnikheadertitle"><a href="/obcasnik" class="obcasnikbigtitle" style="color:black;">Občasnik / </a><span class="obcasniksmalltitle" style="color:black;">O bleferendumu</span></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+                                                                                                                                                    
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="tile tile-obcasnik-full">
+                        <h1 class="obcasniktitle" style="color:#EF5350;">O bleferendumu</h1>
+                        <p class="obcasnikdate">16. 12. 2015</p>
+
+
+                        <style>
+                            .tile-obcasnik-full h2 {
+                                font-size: 24px;
+                                padding: 15px 40px;
+                                color: #704a45;
+                            }
+                            .tile-obcasnik-full h3 {
+                                font-size: 20px;
+                                padding: 15px 40px;
+                                color: #dd786b;
+                                font-weight: 600;
+                            }
+                            blockquote {
+                                border-left-color: #704a45;
+                                color: #222222;
+                                font-weight: 400;
+                                font-size: 14px;
+                            }
+                            a {
+                                font-weight: 600;
+                            }
+							
+							.panel1 {
+								background-color: #ef5350;
+								color: white;
+								font-weight: 500;
+							}
+							
+							.panel2 {
+								background-color:#FFB74D;
+								color: #333;
+								font-weight: 500;
+							}
+ 
+							.panel3 {
+								background-color:#FFEB3B;
+								color: #333;
+								font-weight: 500;
+							}
+							
+							.panel4 {
+								background-color:#8BC34A;
+								color: #333;
+								font-weight: 500;
+							}
+							
+							.panel5 {
+								background-color:#2196F3;
+								color: white;
+								font-weight: 500;
+							}
+							
+							.panel6 {
+								background-color:#6A1B9A;
+								color: white;
+								font-weight: 500;
+							}
+							
+							.panel7 {
+								background-color:#E91E63;
+								color: white;
+								font-weight: 500;
+							}
+                        </style>
+						<br>
+                        <p class="obcasniktext" style="font-size:16px;font-weight:600;">Besedilo o bleferendumu je kratek manifest, ki bi moral biti v odprti družbi dovolj poveden. Ker pa v taki družbi nedeljski referendum ne bi bil mogoč, s klikom na vsako od barv mavrice dobiš natančnejšo razdelavo poante, podkrepljeno s podatki,  zakonodajo, raziskavami in grafičnimi prikazi.</p>
+                    </br>
+						<div class = "panel-group" id = "accordion">
+						   <div>
+							  
+							  <div class = "panel1" style="cursor:pointer;">
+									<p  class="obcasniktext" style="font-weight:500" data-toggle = "collapse" data-parent = "#accordion" href = "#collapseOne">
+									   Zakon, iz katerega izhajajo socialne, ekonomske idr. pravice, je sekularna institucija, Cerkev in država pa sta ločeni, zato katoliška interpretacija ne sme vplivati nanj! Cerkev lahko legitimno komur koli odtegne pravico do cerkvene poroke, država pa mora vsem zagotoviti v Ustavi zapisano enakost. Ali pa začnimo z zaporno kaznijo prevzgajati tiste, ki seksajo pred poroko in se ne postijo. Prihajajoči referendum je zloraba demokratičnega mehanizma za odločanje o skupnem, saj se bomo na njem mračnjaško opredeljevali o tem, kako naj živi manjšina.
+									</p>
+							  </div>
+							  
+							  <div id = "collapseOne" class = "panel-collapse collapse">
+								 <div class = "panel-body">
+									<h2 style="color:#EF5350">Laično o ustavnem pravu</h2>
+									<p class="obcasniktext">Namesto, da bi to storilo Ustavno sodišče, ki se ni odločilo vsebinsko, pač pa strogo formalistično, moramo ustavo brati in interpretirati kar sami. Za to pri DJND nismo strokovnjaki, avtoritete nam ne zagotavljata klovnovsko ogrinjalo in sivolasa glava, naših sodb nihče ne bo implementiral. Pa vendar: slovenska ustava je enostavna, iz nje pa je otročje lahko izpeljati argumentacijo, ki spremembo definicije zakonske zveze, po kateri v zakon ne stopata več mož in žena, pač pa dve osebi, utemeljuje kot skladno z ustavo. Trenutna zakonodajna rešitev je namreč neustavna, zato se mora spremeniti, tako da bo skladna z Ustavo. </p>
+									<p class="obcasniktext">Razlogi nasprotnikov zakonika pa so bolj splošni in nejasni, celo ideološki. Zdi se, da se jim Ustavno sodišče ni bilo pripravljeno pridružiti z eksplicitno, torej vsebinsko podporo in odločitvijo, raje je mirno pristalo na svojo samokastracijo in se iz simbolne avtoritete pretvorilo v birokratsko institucijo, ki namesto uradnikov preverja datume in žige na obrazcih ter šteje podpise. Kaj bomo z Ustavnim sodiščem, ki nam ustave ne interpretira vsebinsko, pač pa se fokusira zgolj na formalistične vidike? To zna vendar že vsak računalniški program!</p>
+									<h3 style="color:#EF5350">Pro!</h3>
+									<p class="obcasniktext">Iz imena predlagateljev referenduma (<a class="rdec" href="http://24kul.si/koalicija-za-otroke-gre">Koalicija za otroke gre</a>) je mogoče sklepati, da so njihova glavna skrb otroci. Toda, sprašujemo se, v kakšni “nevarnosti” so otroci in ali so “nevarnosti,” ki naj bi jih odpirala sprememba zakona, res hujše od že obstoječih nevarnosti? Po sedanji ureditvi so otroci namreč izpostavljeni enakim nevarnostim in “nevarnostim,” kot bi jim bili pod novim zakonikom, le da novi zakonik izenači pravice med različnimi oblikami družin. Ali ni bolje, če gre res za otroke (in njihovo varnost), urediti družinsko pravo tako, da so otroci v vseh družinah enako zavarovani? Torej, res je, kar pravijo nasprotniki, da gre za otroke, toda če gre za vse otroke, mora v parlamentu potrjena sprememba zakona obveljati, saj bo s tem področje družinskega prava končno skladno z Ustavo. </p>
+									<p class="obcasniktext">Trenutna zakonodaja je neskladna z Ustavo predvsem v 14. členu, ki se glasi:</p>
+									<div class="obcasniktext">
+										<blockquote class="rdeca">V Sloveniji so vsakomur zagotovljene enake človekove pravice in temeljne svoboščine ne glede na narodnost, raso, spol, jezik, vero, politično ali drugo prepričanje, gmotno stanje, rojstvo, izobrazbo, družbeni položaj, invalidnost ali katerokoli drugo osebno okoliščino. Vsi so pred zakonom enaki. </br>Vir: <a class="rdec" href="http://www.us-rs.si/o-sodiscu/pravna-podlaga/ustava/ii-clovekove-pravice-in-temeljne-svoboscine/">Ustava RS</a></blockquote>
+									</div>
+									<p class="obcasniktext">Prav zadnji stavek nakazuje glavno neskladje obstoječega pravnega stanja z Ustavo, saj pod trenutnimi zakoni vsi enostavno nismo enaki. Neposredno o družini govorita 53. in 54. člen Ustave, pri čemer je potrebno izpostaviti, da 53. člen ne omeji pojma družine le na mater, očeta in otroke in definicijo družine prepušča zakonu. To neizpodbitno dokazuje, da ima sprememba zakona ustavno podporo.</p>
+									<h3 style="color:#EF5350">Contra?!</h3>
+									<p class="obcasniktext">Ali to pomeni, da razlogi nasprotnikov zakonika ne temeljijo na Ustavi? Iz članka z naslovom “<a class="rdec" href="http://24kul.si/18-razlogov-za-razpis-referenduma-o-druzini">18 razlogov za razpis referenduma o družini!</a>,” kjer je povzeta večina argumentov nasprotnikov spremembe zakona, lahko razberemo, da se tudi oni želijo navezati na branjenje pravic in svoboščin, a le za “tradicionalne družine.” </p>
+									<p class="obcasniktext">Težko si zamislimo interpretacijo zgoraj citiranega 14. člena Ustave, ki bi nedvoumno dala prav nasprotnikom zakonika. Bolj verjetno je, da se nasprotniki sklicujejo na 15. člen, v katerem med drugim piše:</p>
+									<div class="obcasniktext">
+										<blockquote class="rdeca"> /.../ človekove pravice in temeljne svoboščine so omejene samo s pravicami drugih in v primerih, ki jih določa ta ustava.</blockquote>
+									</div>
+									<p class="obcasniktext">Zgoraj smo že zapisali, da Ustava ne omejuje poroke le na razmerje moškega in ženske, pa tudi ne definira družine kot enote, ki jo sestavljajo mati, oče in otroci. Edina možnost ustavne podpore nasprotovanju spremembi zakona ostaja v vprašanju, ali sprememba krati pravice drugih, torej “tradicionalnih” družin. </p>
+									<p class="obcasniktext">Nasprotniki spremembe zakona se med drugim bojijo, da bo vse (torej tudi zasebne “katoliške”) šole preplavilo izobraževanje v skladu s “teorijo spola," poleg tega se bojijo diskriminacije na podlagi pravice do »ugovora vesti« (da bodo npr. odpuščeni matičarji, ki ne bodo želeli poročati istospolnih parov, ali pa pri razpisih diskriminirana podjetja in nevladne organizacije, ki se ne bi strinjale z novo ureditvijo). Tovrstne apokaliptične posledice morda vzbujajo skrb tudi bolj liberalno naravnanim osebam, ki si želijo pluralne družbe, saj so nekatere naštetih od pričakovanih posledic nenazadnje neskladne z ustavo. Na srečo vseh nas pa niti ena izmed bojazni nasprotnikov ni zapisana v noben zakon in s tem tudi ni predmet referendumske razprave. V primeru diskriminacije se lahko žrtve pritožijo na razna sodišča (tudi ustavno), saj obstaja verjetnost, da se jim krati pravice - in tudi to velja za vse. </p>
+									<p class="obcasniktext">Bojazni nasprotnikov je najbolj enostavno označiti za navadno strašenje, kar večinoma tudi je, a obstajajo precedensi iz tujih držav, ki jim deloma dajejo prav (<a class="rdec" href="https://en.wikipedia.org/wiki/Kim_Davis_(county_clerk)">primer Kim Davis</a>). Vprašanje razmejitve med svobodo govora in sovražnim govorom je zagotovo eno bolj perečih vprašanj sodobnosti, a je skrajno neokusno zlorabiti zakonodajo, ki odpravlja neustavnost za razpravo o tem.</p>
+									
+									<h2 style="color:#EF5350">Cerkev ≠ država</h2>
+									<p class="obcasniktext">Predlagana sprememba ZZZDR odpravlja trenutno zakonsko neskladje z Ustavo glede pravic istospolno usmerjenih, hkrati pa ne odvzema pravic heteroseksualcem, prav tako tudi ne diskriminira tistih, ki so zaradi svojega verskega, političnega ali kakšnega drugega prepričanja izrecno proti istospolnim porokam, poleg tega te posameznike (kakor tudi vse ostale) še vedno ščitita 14. in 15. člen ustave.</p>
+									<p class="obcasniktext">In ko se tako zagovorniki referenduma sprenevedajo, da gre za pravice otrok in heteroseksualnih parov, bo referendum 20. decembra v bistvu prizorišče političnega in družbenega boja za pravico do opredelitve instituta zakonske zveze. Torej križarski boj za potrditev “tradicionalne,” lahko rečemo kar katoliške definicije zakonske zveze kot zveze med moškim in žensko. </p>
+									<p class="obcasniktext">Toda s 7. členom Ustave so država in verske skupnosti ločene. V sekularni državi ima ne glede na vso simboliko sklenitev zakonske zveze naravo upravnega postopka, ki se sklepa pred upravnim organom pred uradno osebo. Posledično cerkvena poroka nima zakonske veljave, kakor tudi ne cerkvena pravila glede sklenitve in prekinitve zakonske zveze. Torej, ko nasprotniki spremembe ZZZDR milostno pristajajo na to, da homoseksualci imajo pravico obstajati, celo živeti v svojih “zvezah” in “registriranih skupnostnih,” le da tega ne moramo imenovati poroka, ker je ta rezervirana za moškega in žensko, pozabljajo (oz. patološko zanikajo), da si ne lastijo instituta poroke. Ne le zato, ker ni “njihov,” da bi si ga lahko lastili, ampak predvsem zato, ker je v sekularni državi zakonska zveza pogodbeno razmerje med dvema posameznikoma z ekonomskimi in socialnimi posledicami in država mora omogočiti dostop do tega postopka brez diskriminacije na podlagi spolne usmerjenosti. </p>
+									<p class="obcasniktext">Narava demokratične sekularne države je, da služi vsem državljanom in torej odraža spreminjajočo se naravo razmerij med posamezniki v državi. RKC in ostale verske skupnosti niso zavezane k temu in imajo po načelu verske svobode pravico do izvajanja verskih obredov v skladu s svojo doktrino. Cerkev lahko poroča (le!) cerkveno in pri tem lahko sama odloči, koga bo poročila in pod kakšnimi pogoji. Te pravice ji tudi nihče ne odteguje. Civilna poroka ni zadosten pogoj, da dva posameznika skleneta veljaven krščanski zakon. Za to morata narediti še nekaj več, in sicer skleniti cerkveno poroko, torej izpolniti pogoje RKC in se predati drug drugemu pred duhovnikom in bogom. Šele to naredi poroko večno in resnično v očeh katoliškega občestva, zato nam res ni jasno, zakaj Cerkev skrbi, kaj dve osebi delata pred nekim matičarjem tam nekje na neki upravni enoti ...</p>
+								 </div>
+							  </div>
+							  
+						   </div>
+						   
+						   <div>
+							  <div class = "panel2" style="cursor:pointer;">
+									<p class="obcasniktext" style="font-weight:500" data-toggle = "collapse" data-parent = "#accordion" href = "#collapseTwo">
+									   Namesto, da bi se vsi skupaj pogovarjali o mnoštvu intimnih izbir in življenjskih poti ter njihovih pragmatičnih vidikih v odnosu do socialne države, se borimo za vključitev vseh v neko sovražno strukturo, ki je utemeljena na preživelih nasprotjih med moškim in žensko, ki v ta odnos nujno vnašajo hierarhijo. Borimo se pravzaprav za vključitev v dominanten (biopolitični) diskurz, za institucijo zakona kot tako, za vnaprej predpisane intimne in življenjske izbire, za trenutno prevladujočo moralo. Namesto, da bi vzklikali "hura za raznolikost," uprizarjamo heteronormativne pravljice in obljubljamo znižanje ločitvenih statistik. 
+									</p>
+							  </div>
+							  
+							  <div id = "collapseTwo" class = "panel-collapse collapse">
+								 <div class = "panel-body">
+                                    <h2 style="color:#FFB74D">Pravni in družbeni vidiki instituta zakonske zveze
+                                    </h2>
+                                    <p class="obcasniktext">V želji po pravnih zmagah skupnost pristaja celo na registrirana partnerstva in kohabitacije, kar pomeni pristajanje na približke in drugorazredno državljanstvo. Tovrstni pravni položaji so oblikovani zato, da heteroseksualne zakonske zveze ohranijo svoj simbolni in pravni primat. Ni naključje, da je tak zakon v Sloveniji sprejela vlada l. 2005, ki jo je vodil SDS: gre za <a class="oranzen" href="http://www.pisrs.si/Pis.web/pregledPredpisa?id=ZAKO4335">zakon o registraciji istospolne partnerske skupnosti</a>. Zanimivo je že samo poimenovanje zakona, kar nekateri označujejo za simbolno nasilje. Besedo registracija namreč ponavadi uporabljamo za pravno povezovanje s predmeti in ne ljudmi. (<a class="oranzen" href="http://www.mirovni-institut.si/publikacije/obrazi-homofobije/">Več!</a>) Pred sprejetjem tega zakona so bili geji in lezbijke v Sloveniji drugorazredni državljani zaradi odsotnosti zakona, ki bi urejal njihova partnerstva, s sprejetjem zakona o registraciji pa je drugorazrednost de facto zapisana v zakonu. (<a class="oranzen" href="http://www.zalozbakrtina.si/index.php?page=knjiga&kid=74">Več!</a>)
+                                    </p>
+                                    <p class="obcasniktext">Prav zato je prvi korak zavrnitev tovrstnih delnih rešitev in s tega izhajajoča dejanska enakopravnost. Poroka, enaka za vse državljane, je vprašanje pravičnosti. Toda postavlja se vprašanje, ali je poroka sploh pravi odgovor. Gejevska in lezbična skupnost se v želji po enakopravnosti namreč “normalizira” glede na prevladujočo moralo. To pomeni ukinitev pluralnosti, še večjo marginalizacijo drugačnih seksualnosti (nemonogamna seksualnost, transseksualnost, sadomazohizem itd.) in imitacijo heteroseksualnosti, kar je razumljeno kot predpogoj za sprejemljivost, spoštljivost in enakopravnost. Toda cilj lgbtq-aktivistične politike ne bi smel biti v vključevanju v obstoječe institucije, pač pa v transformaciji teh institucij in celotne družbe. Kazati večini, da “so prav takšni kot mi,” je slab in kompromisarski način za pridobivanje pravic. Prav tak pa je tudi izkupiček, če je sploh kakšen.</p>
+                                    <h3 style="color:#FFB74D">Uzakonjena diskriminacija</h3>
+                                    <p class="obcasniktext">Javna obravnava bleferenduma nam na žalost le redko osvetli probleme, ki izhajajo iz treh perečih členov ZZZDR. Ko govorimo le o spremembi par besed v zakonu, nehote zmanjšujemo njihov pomen in zanemarjamo dejstvo, da njihova formulacija ne prinaša sprememb le znotraj omenjenega zakona.</p>
+                                    <p class="obcasniktext"><a class="oranzen" href="http://www.mirovni-institut.si/wp-content/uploads/2015/03/Pravni-polozaj-istospolnih-partnerstev-in-star%C5%A1evstva_feb_2015.pdf">Istospolni partnerji niso diskriminatorno obravnavani le znotraj obstoječe družinske zakonodaje (ZZZDR)</a>, pač pa tudi širše, v zakonih s področja družinskega, civilnega, delovnega, prava socialne varnosti, gospodarskega, kazenskega in upravnega prava, ki se nanašajo na 3., 12. in 16. člen iz ZZZDR, torej na definicijo zakonske zveze.</p>
+                                    
+                                     <p class="obcasniktext">V najslabši položaj zakonodaja postavlja neregistrirane istospolne partnerje, ki jih marsikateri zakon sploh ne obravnava, medtem ko so raznospolni partnerji v zunajzakonskih zvezah obravnavani praktično enakopravno raznospolnim partnerjem v zakonski zvezi. Na račun diskriminatorne zakonodaje pa so oškodovani tudi biološki otroci enega od istospolnih partnerjev. Res gre torej tudi za otroke, a ne z argumenti, ki jih ponuja desnica.
+</p>
+									<style>
+										.nav-tabs {
+											border-bottom: 4px solid #FFB74D;
+										}
+										.nav-tabs li {
+											margin-bottom: 0;
+											font-size:12px;
+										}
+										.nav-tabs li > a {
+											-webkit-border-radius: 0;
+											-moz-border-radius: 0;
+											-o-border-radius: 0;
+											-ms-border-radius: 0;
+											border-radius: 0;
+											border-width: 0 !important;
+											background-color: #ffd7a0;
+											margin-right: 8px;
+											text-transform: uppercase;
+											font-weight: 800;
+											color: #272727;
+											padding: 7px;
+										}
+										.nav-tabs li > a:hover {
+											background-color: #FFB74D;
+											color: #272727;
+										}
+										.nav-tabs > li.active > a {
+											background-color: #FFB74D;
+											color: #272727;
+										}
+										.nav-tabs > li.active > a:hover {
+											background-color: #FFB74D;
+											color: #272727;
+										}
+										.tab-content {
+											padding: 20px;
+											border-bottom: 4px solid #FFB74D;
+										}
+										.tab-pane p,
+										.tab-pane li {
+											font-size: 18px;
+											line-height:1.4em;
+										}
+									</style>
+
+									<div class="obcasniktext">
+
+										<!-- Nav tabs -->
+										<ul class="nav nav-tabs" role="tablist">
+											<li class="active"><a href="#1" role="tab" data-toggle="tab">Družinsko</br>pravo</a>
+											</li>
+											<li><a href="#2" role="tab" data-toggle="tab">Civilno</br>pravo</a>
+											</li>
+											<li><a href="#3" role="tab" data-toggle="tab">Delovno</br>pravo</a>
+											</li>
+											<li><a href="#4" role="tab" data-toggle="tab">Pravo socialne</br>varnosti</a>
+											</li>
+											<li><a href="#5" role="tab" data-toggle="tab">Gospodarsko</br>pravo</a>
+											</li>
+											<li><a href="#6" role="tab" data-toggle="tab">Kaznovalno</br>pravo</a>
+											</li>
+											<li><a href="#7" role="tab" data-toggle="tab">Upravno</br>pravo</a>
+											</li>
+										</ul>
+
+										<!-- Tab panes -->
+										<div class="tab-content">
+											<div class="tab-pane active" id="1">
+												<p class="obcasniktext">Registrirani istospolni partnerji so upravičeni le do nekaterih pravic iz Zakona o zakonski zvezi in družinskih razmerjih (ZZZDR): imajo pravico do preživnine, pravico do pridobivanja skupnega premoženja, pravico do dedovanja, pravico do pridobivanja informacij o zdravstvenem stanju obolelega partnerja in obiskov v zdravstenih ustanovah ter pravico do vdovske pokojnine. <a class="oranzen" href="http://enakopravnost.si/blog/2015/03/13/katerih-socialnih-pravic-nimajo-registrirani-istospolni-pari/">Neregistriranim istospolnim parom ne pripadajo niti zgoraj naštete pravice</a>, pač pa je partnerjema priznana le pravica do dedovanja. </p>
+												<p class="obcasniktext">Glavna razlika med ZZZDR in Zakonom o registraciji istospolne partnerske skupnosti (ZRIPS) se kaže v odstnosti starševskega prava v slednjem. Partnerja v istospolni partnerski zvezi ne moreta posvojiti otroka, ki ni biološki potomec nobenega od njiju, možna pa je posvojitev biološkega otroka enega od partnerjev s strani drugega. </p>
+												<p class="obcasniktext">Medtem ko raznospolnima partnerjema v dlje trajajoči zunajzakonski skupnosti pripadajo enake pravice in dolžnosti kot partnerjema v zakonski zvezi, četudi ta nista sklenila zakonske zveze, istospolna zunajzakonska skupnost pravno sploh ni prepoznana.</p>
+											</div>
+											<div class="tab-pane" id="2">
+												<p class="obcasniktext">V Obligacijskem zakoniku (OZ) ni upoštevano dejstvo, da poleg registriranih obstajajo tudi neregistrirani istospolni partnerji. Istospolni partnerji (v registriranih ali neregistriranih zvezah) niso upoštevani med osebami, ki imajo v primeru smrti ali težke invalidnosti družinskega člana pravico do denarne odškodnine. Poleg raznospolnih zunajzakonskih partnerjev niso zaščiteni pred škodovanjem upnikom. Prav tako niso upravičeni do izročilne pogodbe, dosmrtnega preživljanja in življenjskega zavarovanja v korist tretjega.  </p>
+												<p class="obcasniktext">Stanovanjski zakon (SZ-1) v definiciji ožjih družinskih članov iz 11. člena za potrebe tega zakona omenja le zakonske in zunajzakonske partnerje, ne pa tudi registriranih in neregistriranih istospolnih partnerjev. </p>
+												<p class="obcasniktext">Do neenakopravnosti istospolnih partnerjev prihaja tudi znotraj civilno procesnega prava, in sicer znotraj pravdnih in nepravdnih postopkov, izvršb, sodnih taks ter procesnih pravil mednarodnega zasebnega prava.</p>
+												<p class="obcasniktext">Področje dedovanja je edino področje v sklopu civilnega prava, kjer je diskriminacija zaradi spolne usmerjenosti v celoti odpravljena. </p>
+											</div>
+											<div class="tab-pane" id="3">
+												<p class="obcasniktext">Znotraj delovnega prava najdemo protidiskriminacijsko klavzulo, ki prepoveduje neenako obravnavo v vseh fazah delovnega razmerja ne glede na katerokoli osebno okoliščino, pri čemer izrecno omenja tudi spolno usmerjenost. Kljub temu zakon vsebuje še nekatere diskriminatorne določbe, ko pravice delavca veže na obstoj partnerskega razmerja (npr. pravica do plačane odsotnosti zaradi partnerjeve smrti za partnerje iz neregistriranega istosplonega partnerstva).</p>
+											</div>
+											<div class="tab-pane" id="4">
+												<p class="obcasniktext">Pravo socialne varnosti ureja zdravstveno varstvo in zavarovanje, starševsko varstvo in družinske prejemke, pravice povezane z ukrepi države na trgu dela (brezposelnost in zaposlovanje), pokojninsko in invalidsko zavarovanje ter socialnovarstvene storitve in prejemke. </p>
+												<p class="obcasniktext">Istospolni partnerji so iz zdravstvenega zavarovanja po partnerju, ki ga ureja Zakon o zdravstvenem varstvu in zdravstvenem zavarovanju (ZZVZZ), v celoti izvzeti, diskriminatorna ureditev pa je očitna tudi pri položaju otrok istospolnih partnerjev, ki ne morejo biti zdravstveno zavarovani po strani nebiološkega starša. Zaposleni (ne)registrirani istospolni partner nima pravice do odsotnosti z dela zaradi bolezni partnerja in pravice do nadomestila dohodka za nego družinskega člana niti nima pravice do nadomestila zaradi varstva partnerjevega otroka.  </p>
+												<p class="obcasniktext">Zakon o pokojninskem in invalidskem zavarovanju (ZPIZ-2) neregistriranim istospolnim partnerjem ne priznava pravice do vdovske pokojnine, otroci iz neregistrirane istospolne skupnosti pa niso upravičeni do družinske pokojnine s strani nebiološkega starša. </p>
+												<p class="obcasniktext">Zakon o urejanju trga dela (ZUTD) istospolne skupnosti diskriminira predvsem v dveh določbah, in sicer niti registriranim niti neregistriranim istospolnim partnerjem ne daje možnosti prostovoljne vključitve v zavarovanje za primer brezposelnosti. Prav tako so izvzeti iz določbe o pravici do nadomestila ob odpovedi pogodbe o zaposlitvi zaradi preselitve partnerja, kar pomeni da v takšnih primerih niso upravičeni do denarnega nadomestila za brezposlenost. </p>
+												<p class="obcasniktext">Zakon o starševskem varstvu in družinskih prejemkih (ZSDP-1) je bil sprejet leta 2014 in na nekaterih mestih izrecno ureja položaj registriranih istospolnih partnerjev. Zakon je delno zajel tudi neregistrirane istospolne partnerje (opredeljene kot “druge osebe”), a diskriminacije v celoti ni odpravil. Istospolnim partnerjem je v okviru zakona tako omogočena pravica do materinskega, očetovskega in starševskega dopusta. </p>
+												<p class="obcasniktext">Zakon o socialno varstvenih prejemkih (ZSVarPre) načeloma kot družinske člane šteje registrirane istospolne partnerje, izključuje pa neregistrirane istospolne partnerje. V določenih primerih pa s partnerji različnega spola niso izenačeni niti registrirani istospolni partnerji. </p>
+												<p class="obcasniktext">Zakon o uveljavljanju pravic iz javnih sredstev (ZUPJS) za družinske člane šteje registrirane istospolne partnerje, izključuje pa istospolne partnerje, ki svoje skupnosti niso registrirali. Ti se tako ne upoštevajo pri ugotavljanju materialnega položaja vlagatelja za dodelitev pravice do otroškega dodatka, državne štipendije, znižanja plačila za programe vrtcev, dodatne subvencije malice za učence in dijake, subvencije kosila za učence, oprostitve plačil socialnovarstvenih storitev, prispevka k plačilu sredstev, namenjenih za plačilo oz. doplačilo pravic družinskega pomočnika, subvencije najemnine, pravice do kritja razlike do polne vrednosti zdravstvenih storitev in pravice do plačila prispevka za obvezno zdravstveno zavarovanje.</p>
+											</div>
+											<div class="tab-pane" id="5">
+												<p class="obcasniktext">Med temeljnimi zakoni gospodarskega prava, ki vsebujejo generalne določbe, v katerih opredeljujejo povezane osebe, družinske člane ipd., ni nobenega, ki ne bi diskriminiral istospolnih partnerstev. Največkrat gre za drugačno obravnavo neregistriranih istospolnih partnerjev v primerjavi z zunajzakoskimi partnerji in njihovimi otroki, nekaj zakonov, npr. Zakon o sodelovanju delavcev pri upravljanju (ZSDU) in Zakon o integriteti in preprečevanju korupcije (ZIntPK-UPB2), pa istospolnega partnerstva sploh ne obravnava in to skupino oseb torej v celoti diskriminira. Različna obravnava je lahko za istospolne partnerje in njihove otroke v nekaterih primerih manj, v drugih pa bolj ugodna kot za raznospolne partnerje in njihove otroke. </p>
+											</div>
+											<div class="tab-pane" id="6">
+												<p class="obcasniktext">Kazenski zakonik (KZ-1) vsebuje nekaj določb, ki posameznike, ki predstavljajo določeno manjšino, posebej varujejo pred diskriminacijo. Kljub vsemu pa zakon vsebuje tudi nekaj določb, ki so diskriminatorne do neregistriranih istospolnih partnerjev, npr. opustitev naznanitve, ovadbe in pomoč storilcu kaznivega dejanja. </p>
+												<p class="obcasniktext">Zakon o kazenskem postopku (ZKP) v večini primerov ni diskriminatoren do registriranih partnerjev, je pa diskriminatoren do neregistriranih istospolnih skupnosti. </p>
+											</div>
+											<div class="tab-pane" id="7">
+												<p class="obcasniktext">Zakon o državljanstvu (ZDRS) registrirane istospolne partnerje slovenskih državljanov v celoti izključuje iz možnosti za sprejem v državljanstvo RS na osnovi družinskih vezi, saj je zakonska zveza pogoj za pridobivanje državljanstva. </p></br>
+											</div>
+										</div>
+									</div>
+									
+								 </div>
+                                
+                                <h3 style="color:#FFB74D">Poroka, družina in drugi s čustvi nabiti koncepti</h3>
+                                <p class="obcasniktext">Prvotna funkcija zakonske zveze je bila zavarovanje lastnine in teritorija. Do 19. stoletja je za večino prebivalstva zakonska zveza temeljila na presoji ekonomske koristi, po nastopu ideje romantične ljubezni med meščanstvom pa se je ta razširila še med druge segmente družbe. 
+Ena izmed današnjih funkcij monogamne raznospolne zakonske zveze je ohranjanje privilegijev tistih, ki so si tudi z institucijo poroke ustvarili socialni kapital simbolne in ekonomske narave. Zakonska zveza kot pravna ustanova je v Sloveniji nastala šele po pokristjanjenju: slovanski predniki Slovencev so poznali pojem bolj ali manj trajne zakonske zveze in navado, da se ta zveza potrjuje z javnimi, performativnimi dejanji. Toda akt poroke in zakonska zveza sta produkt moderne krščanske Evrope. Številne lastnosti evropske družine tako izhajajo iz zapovedi krščanstva, ki so bile naložene kmečkim družinam, da bi lahko v svojo škodo prispevale k bogatenju Cerkve. Telo je tako podrejeno normam, ki so koristne za državo (in Cerkev), ki uravnava biološko in ideološko reprodukcijo oziroma številčnost in kvaliteto prebivalstva. (<a class="oranzen" href="http://www.zalozbakrtina.si/index.php?page=knjiga&kid=74">Več!</a>)</p>
+                                <p class="obcasniktext">Feministi in radikalni “teoretiki spola” tako tradicionalno zakonsko zvezo krivijo za zatiranje in spolno diskriminacijo. Norma(lna) je heteronormativnost: prevlada heteroseksualnosti kot družbeno pričakovane, oziroma princip organizacije skoraj celotnega družbenega življenja, tudi v tistih vidikih, ki nimajo nič skupnega s seksualnostjo. Kljub njeni prikladnosti za kapitalističen ustroj družbe pa institucija zakona doživlja krizo: sklenitev zakonskih zvez je vedno manj, raste število nevezanih ali drugače vezanih, pa tudi razvezanih. Bojazen konzervativcev, da bi izenačenje istospolnih partnerstev z raznospolnimi povzročilo razvrednotenje zakonske zveze, je nesmiselno. Ne zato, ker odpiranje definicije zakona ne bi imelo vpliva na njeno vsebino, pač pa predvsem zato, ker je zakonska zveza kot institucija namreč že razvrednotena: koliko ljudi pa poznate, ki so odraščali v Ravnohribovi <a class="oranzen" href="https://www.youtube.com/watch?v=fVhOJeXQWCA">fantazmi</a>? Mokre sanje enega so nočna mora drugega ...</p>
+                                <p class="obcasniktext">Diskurz o krizi družine se je v preteklosti že pojavljal (npr. v 70. letih, ko se je močno zvišala stopnja razvez, v 80. in 90. letih, ko se je močno znižala rodnost ali ob zakonodajnih spremembah na področju oploditve z biomedicinsko pomočjo leta 2001), kar pomeni, da lahko o njem govorimo kot o cikličnem pojavu, ki nastopi ob velikih družbenih spremembah. Če bi že morali govoriti o krizi družine, gre za krizo tradicionalne nuklearne družine, nikakor pa ne za krizo družine kot take. Še kako prav je imel Gittins, ko je zapisal, da je družina v političnem smislu predmet ideloških konfrontacij, ki izhajajo predvsem iz interesa po uveljavljanju družbenega nadzora.</p>
+                                <p class="obcasniktext">Pojem družine se spreminja. Zmanjšuje se delež klasičnih družin, povečuje pa se delež drugih družinskih skupnosti, posebno enostarševskih družin in parov brez otrok, ki prav tako tvorijo družinsko skupnost. Prihaja pa tudi do sprememb povezanih z zakonsko zvezo. Tisti, ki se poročajo, se poročajo pozneje, razlogi za poroko pa so izrazito subjektivne narave (ljubezen, čustvena zavezanost, simbolni pomen), saj  je status zunajzakonske pravno izenačen z zakonsko zvezo. Pri istospolnih partnerjih pa je interes za poroko toliko večji iz pragmatičnega razloga, in sicer pravne neizenačenosti s heteroseksualnimi partnerskimi zvezami. (<a class="oranzen" href="http://www.dlib.si/details/URN:NBN:SI:doc-R6E5X1NC/?">Več!</a>)</p>
+                                <p class="obcasniktext">Družina in zakonska zveza po svetu nastopajo v različnih oblikah: monogamna raznospolna zakonska zveza je tako le ena izmed poročnih oblik. Poznamo zakonske zveze enega moškega z več ženskami, zakonske zveze ene ženske z več moškimi in monogamne istospolne zakonske/partnerske zveze. Med Malajci na otoku Langkavi, na primer, ljudje v določeno sorodstveno skupino niso rojeni enkrat za vselej, pač pa se sorodstvo vzpostavi prek sprejemanja in dajanja hrane ter delitve prostora. (<a class="oranzen" href="http://www.zalozbakrtina.si/index.php?page=knjiga&kid=74">Več!</a>)</p>
+                                <p class="obcasniktext">In če si ideji sorodstva ter delitve prostora razlagamo širše ter ju apliciramo na našo družbo?</p>
+                                <div class="obcasniktext">
+                                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/QFMKao6mw4I" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                </br>
+							  </div>
+							  
+						   </div>
+						   
+						   <div>
+							  <div class = "panel3" style="cursor:pointer;">
+									<p class="obcasniktext" style="font-weight:500" data-toggle = "collapse" data-parent = "#accordion" href = "#collapseThree">
+									   Otroci so s strani pobudnikov referenduma spretno izrabljani kot fokus odurne propagande, nič manj ponižujoče pa ni niti bigbradersko izpostavljanje intimnih zgodb skrbno izbranih marginalcev, s katerimi razen spolne usmerjenosti po merilih prevladujoče morale ni nič narobe. Zagovarjanje argumentov v prid popolni izenačitvi pravic, ki omogoča tudi posvojitve, izraža enako pokroviteljsko držo gospodarja kot krik "za otroke gre!" Tragedija tega referenduma je v tem, da bomo prave teme lahko odprli šele, ko bomo pred biopolitičnim občestvom države vsi na istem. Šele takrat bo mogoče kritizirati tudi od znotraj in si jemati pravico do soustvarjanja norme.
+									</p>
+							  </div>
+							  
+							  <div id = "collapseThree" class = "panel-collapse collapse">
+								 <div class = "panel-body">
+									<h2 style="color:#000">Kako naj bi živeli, kako dejansko živimo in kako bi lahko živeli</h2>
+                                     <p class="obcasniktext">Ironično je, kako predlagatelji in zagovorniki referenduma v bran jemljejo neke hipotetične osebe, ki še sploh ne obstajajo. <i>Nerojene otroke</i> ščitijo pred grozečima Sodomo in Gomoro, kot si ju lahko predstavlja samo sprevžren in vsega zmožen um, obenem pa večinoma popolnoma ignorirajo dejstvo, da obstajajo mnogi <i>že rojeni otroci</i>, ki odraščajo v karseda raznolikih družinskih kombinacijah, med drugim tudi v družinah, kjer sta partnerja homoseksualca. In dantejevskim predstavam o njihovem trpljenju navkljub tem otrokom ni prav nesramno nič hudega. Večinoma imajo še tako kulske starše, da zlahka zaobidejo pravne in birokratske omejitve, ki jih v izhodišču postavljajo v diskriminatoren položaj. Skratka, njihovi starši počnejo tisto, kar počnejo vsi starši na svetu: tisto, kar mislijo, da je dobro za njihovega otroka.</p>
+                                     <p class="obcasniktext">Še bolj ironično je, da za dobro njihovega otroka lahko največ stori prav tista stran, ki svari pred nasiljem nad njim in njegovo zlorabo, in sicer tako, da vzgoji svoje mulce na način, da bodo odprti, socialno občutljivi in dobri. Namesto tega se v marsikateri kleni slovenski družini, ki bo šla v nedeljo po maši branit neke hipotetične otroke, v resnici pa bolj fotrov alkoholizem in mamine podočnjake, odvija nasilje nad otroki, ki že obstajajo: nasilje tradicije, konzervativizma, zaplankanosti, zaprtosti in sumničavosti. Znotraj takega nasilja velja darvinistična logika: splavaj ali utoni, splavajo novi nasilneži, zastavonoše nekakšnih slovenskih vrednot, in njihove servilne žene, nekam na dno družbene hierarhije pa potonejo tisti, ki iz takšnih ali drugačnih razlogov znotraj obstoječih idealov ne najdejo udobnega mesta zase.</p>
+                                     <h3 style="color:#000">Spet ta otročad ali <i>žel boš, kar si sejal</i> ...</h3>
+                                     <p class="obcasniktext">
+V argumentih proti nasprotniki izenačitve pravic homoseksualnih oseb največkrat omenjajo otroke, ki so tako izrabljeni kot izgovor za dopuščanje obstoječega stanja. Pogoj za dobro starševstvo ni spolna usmerjenost, temveč na to vpliva veliko drugih dejavnikov, recimo zaupanje, ljubezen, vzpostavljanje toplih medosebnih odnosov, občutek varnosti, zadovoljiva ekonomska sposobnost staršev ... V ZDA znotraj instituta (prve) zakonske zveze “moža in žene” živi <a class="rumen" href="http://www.pewresearch.org/fact-tank/2014/12/22/less-than-half-of-u-s-kids-today-live-in-a-traditional-family/">manj kot polovica otrok</a>. Vse pogostejše so enostarševske družine, družine s krušnimi starši, družine z neporočenimi starši in druge oblike družin. V zadnjih letih je bilo opravljenih več raziskav (<a class="rumen" href="http://www.biomedcentral.com/1471-2458/14/635">klik1</a>,  <a class="rumen" href="http://pediatrics.aappublications.org/content/pediatrics/early/2013/03/18/peds.2013-0377.full.pdf">klik2</a>, <a class="rumen"  href="https://www.lgbtmap.org/file/all-children-matter-full-report.pdf">klik3</a>, <a class="rumen" href="http://www.squareonemd.com/pdf/Does%20the%20Gender%20of%20Parents%20Matter%202010.pdf">klik4</a>), ki med drugim dokazujejo, da so tudi starši v istospolnih zvezah in zakonih (lahko) dobri starši, otroci istospolnih staršev pa niso nič bolj izpostavljeni psihičnim problemom, težavam z delovanjem v družbi, slabšim uspehom v šoli in ostalim neprijetnostim, s katerimi se soočamo skozi odraščanje. </p>
+                                     <p class="obcasniktext"><a class="rumen" href="http://www.biomedcentral.com/1471-2458/14/635">Študija Univerze v Melbournu</a>, ki je bila opravljena leta 2014, je na primer v svoje raziskovanje vključila 500 otrok iz istospolnih družin in ugotovila, da so ti popolnoma primerljivi z vrstniki in glede na nacionalno povprečje dosegajo celo višje rezultate v raziskavah, ki zadevajo vedenje, zdravje in družinske vrednote. Vloge v istospolnih družinah so bolj enakomerno porazdeljene in niso dodeljene glede na tradicionalne spolne razdelitve, ampak na individualne preference in veščine, kar vodi v boljše meddružinske odnose in ima pozitiven vpliv na otroke. </p>
+                                     <p class="obcasniktext">Ob dolgotrajnih in kompleksnih postopkih posvojitve so istospolni starši pogosto tudi bolje pripravljeni na starševstvo. Kot kažejo zadnje študije iz ZDA, kjer življenski slog in kulturno okolje lahko primerjamo z našim, kar 51 % nosečnosti <a class="rumen" href="http://www.guttmacher.org/pubs/FB-Unintended-Pregnancy-US.html">ni načrtovanih</a>, prihod otroka pa lahko predstavlja precejšen emocionalni in finančni stres. Izkušnje iz tujine nam kažejo, da otroci iz homoseksualnih družin niso nič kaj drugačni od tistih, ki prihajajo iz heteroseksualnih, to, da sta različnega spola, pa dveh oseb še ne dela dobrih staršev. Zahodnjaki se v partnerske zveze združujemo zaradi romantične ljubezni, ta pa tiho upošteva tudi kulturni, socialni in ekonomski kapital, vero in druge osebne preference, prav tako pa se v vlogi staršev razlikujemo med sabo, in to ne glede na spol ali spolno usmerjenost. 
+</p>
+                                     <p class="obcasniktext">Edine pomembne razlike, ki jih najdemo med otroci istospolnih staršev in otroci raznospolnih staršev, se kažejo v vprašanjih o toleranci in odprtosti do drugačnosti. V <a class="rumen" href="http://onlinelibrary.wiley.com/doi/10.1037/0002-9432.77.4.550/abstract">raziskavi</a> iz leta 2007 so v intervjujih osebe, vzgojene v istospolnih družinah, izpostavile, da se počutijo bolj solidarne, odprtih misli in imajo bolj pozitivne poglede na drugačnost kot ljudje iz tradicionalnih družinskih okolij. Manj tudi diskriminirajo ali (pred-)postavljajo ljudi v stereotipne spolne vloge.
+</p>
+                                     <p class="obcasniktext">Otroci iz istospolnih družin pa se pogosto počutijo drugačne in se spopadajo z medvrstniškim nadlegovanjem, toda to se dogaja predvsem zaradi vzgoje, ki so je deležni njihovi vrstniki iz raznospolnih družin. Negativne posledice prinaša neodobravajoča družbena reakcija in razlikovanje otrok zaradi spolne pripadnosti njihovih staršev. Diskriminatorni pa niso le ljudje, ampak predvsem naše državne ureditve in zakoni, ki potiskajo istospolne družine iz vsakodnevnih aktivnosti, jim odvzemajo državljanske pravice ter s tem legitimizirajo simbolno in druge vrste nasilja, ki ga nad istospolno usmerjenimi in drugimi manjšinami zganja moralistična večina. </p>
+                                     <p class="obcasniktext">Kljub temu, da mnoge istospolne družine tudi v Sloveniji že obstajajo, so nekateri geji in lezbijke, ki si otrok za zdaj le želijo, mnenja, da bi bila odločitev za starševstvo v tako diskriminatorni državi neodgovorna. Včasih gredo celo tako daleč, da zagovarjajo stališče, da naj nihče ne bi imel pravice otroka izpostavljati (pričakovani) stigmi. Tovrstna samodiskriminacija je posledica družbene in zakonske diskriminacije na osnovi spolne usmerjenosti in kaže na moč norme in načine, na katere “margina” sprejema večinske vzorce, kot je monogamna zakonska zveza. Istospolnim partnerjem pravice niso podeljene, nihče od konzervativcev pa ne predlaga, da bi zaradi stigme, ki jih bo doletela, otroke prepovedali imeti npr. tajkunom in drugim lopovom. </p>
+                                     <p class="obcasniktext">Tekom referendumske kampanje se neprestano soočamo z netolerantnimi izjavami o istospolnih družinah, ki se običajno zaključijo patetično: “za otroke gre.” Če se “lobi,” ki želi zaščititi vse te otroke pred geji in lezbijkami, v svojem svetem boju povezuje z RKC, bi morali biti za dobrobit teh istih otrok vsaj zaskrbljeni. Vprašati se je treba tudi, če gre v njihovi sprevrženi krilatici tudi za tiste otroke, ki v Sloveniji že živijo znotraj družin, utemeljenih na socialnem starševstvu. Otroci gejev in lezbijk imajo imena in priimke, nimajo pa enakih pravic kot njihovi sošolci. Učitelji o teh temah molčijo, s tem pa reproducirajo heteronormativni ideal, ki podpihuje sovražnost in homofobijo in nekaterim otrokom povzročajo resne travme. Zgodi se celo, da starši zamolčijo svojo spolno usmerjenost otrokom, da bi jih obvarovali travme slovenske šole. </p>
+                                     <h3 style="color:#000">O pogojih možnega</h3>
+                                     <p class="obcasniktext">Ali res želimo, da te družine še naprej obstajajo na enak način, kot obstajajo sedaj? Obstajati namreč ne bodo kar prenehale. Hočemo, da ostanejo marginalizirane in nevidne? Da so sankcionirane, kadar se razkrijejo? V Sloveniji se družine istospolno usmerjenih partnerjev pogosto znajdejo v situacijah, kjer si za reševanje specifičnih družinskih potreb in potreb otroka ne morejo pomagati z že obstoječimi pravnimi orodji, zato je logično, da si želijo pravno izenačitev. Problemi in nevsakdanje situacije, ki jih heteroseksualni pari rešujejo prek standardiziranih (četudi zbirokratiziranih) postopkov, so za istospolno usmerjene pogosto nerešljivi. </p>
+                                     <p class="obcasniktext">In medtem ko pri nas lgbtq populacije še ne spustimo niti v obstoječe institucije, ki zadevajo partnerstvo, se množijo alternativni življenjski stili in raznolike družinske oblike, četudi so potisnjene na obrobja. Hkrati se v teoriji množijo ideje o ukinitvi državno regulirane zakonske zveze. Fineman, na primer, predlaga zamenjavo zakonske zveze z individualnimi pogodbami, kar bi “zakoncema omogočilo, da se sama odločita, kako bosta uredila svoje življenje, dovoljena pa bi bila tudi poroka osebam istega spola ali skupini več kot dveh oseb. V takem primeru zakonska zveza ne bi več imela pripisanega posebnega javnega statusa, ljudje pa bi si sami določili njene pogoje in okvire udejanjanja. Pravica do mnoštvene zakonske zveze izraža pravico posameznika do oblikovanja razmerja brez vmešavanja države.” (<a class="rumen" href="http://www.zalozbakrtina.si/index.php?page=knjiga&kid=74">Več!</a>)</p>
+                                     <p class="obcasniktext">Tovrstne “radikalne” ideje se verjetno slovenskemu volilnemu občestvu zdijo kot znanstvena fantastika, hkrati pa niso zmožni toliko refleksije, da bi premislili o različicah gospodinjstev in družin v njihovih lastnih okoljih. Koliko parov se vara, skupaj eksperimentira z drugimi, v gospodinjstvo vključi nesorodnika, koliko otrok se rodi ne le izven zakonskih zvez, ampak recimo kot posledica kršenja (pogosto tudi cerkvene) zaveze, kolikokrat slišimo pogovore o ženah, ki da se “pretvarjajo, da nič ne vedo” ipd. Če odpremo oči in pogledamo okoli sebe, bomo tudi mi hitro ugotovili, da le redko živimo v normativnih družinah, kjer je vse, kot bi naj bilo. Naša dejanska resničnost je prejkone drugačna, včasih funkcionira, pogosto pa ne, in običajno ravno zato ne, ker čas namesto za razpravo o pogojih možnega porabljamo za vzdrževanje zunanjega videza srečne družine. </p>
+                                     <p class="obcasniktext">Toda ta vprašanja bomo v javno razpravo lahko vnesli šele kasneje. Tragedija tega referenduma je namreč v tem, da se bomo o pravih vprašanjih spraševali šele za (potencialnim) sprejetjem nečesa, kar bi moralo biti urejeno že zdavnaj in tudi široko družbeno legitimizirano. Pravo se na družbene dinamike odziva razmeroma pozno. Vizionarsko premišljevati možne prakse, ki pritičejo subjektom današnega časa in politično delovati za majhne pragmatične spremembe na pravnem področju pa sta dve različni zadevi. Zato za konec tega poglavja za trenutek nazaj k prvi.</p>
+                                     <p class="obcasniktext">Sprašujemo se namreč še tole: kako mislijo predlagatelji referenduma zaščititi tiste (tudi svoje) otroke, ki so geji ali lezbijke? S pretvarjanjem, da je spolnost nekaj, kar se začne kvečjemu s puberteto, konzervativci vzdržujejo fantazmo nedolžnega otroka, ne glede na to, pred koliko časa jo je ovrgel Freud in ne glede na to, koliko se njihov lasten triletnik čoha po jajčkih. Ko zasačijo malčka in malčico, ki se igrata zdravnike, ponosno zardevajo, kaj pa se zgodi, ko se zdravnike igrata dva malčka? Takrat zardevanje ni več ponosno. Zatorej, pozor! Edini subjekt, ki ga želijo zaščititi nasprotniki spremembe zakona, o kateri se bomo izrekali na referendumu, je njihov lasten. Mi bomo kar naglas rekli: za kakšne otroke vendar, skrbi jih le za lastno - dvolično, moralistično in ne tako redko latentno homoseksualno - rit.</p>
+                                 
+								 </div>
+							  </div>
+						   </div>
+						   
+						   <div>
+							  <div class = "panel4" style="cursor:pointer;">
+									<p class="obcasniktext" style="font-weight:500"  data-toggle = "collapse" data-parent = "#accordion" href = "#collapseFour">
+									   Vam res moramo našteti zglede družb, ki na podobnem izpitu iz zagotavljanja pravice do vključenosti niso pogrnile na celi črti, pa kljub temu niso doživele usode Sodome in Gomore? Pojasniti, da so boljše prakse ponekod realnost, ki ni prinesla dramatičnih sprememb na ravni vsakdanjega življenja večine in zagotoviti, da so večinoma žal tudi geji in lezbijke usklajeni s primčevsko vizijo bele ograjice, vikend aranžmajev v toplicah in družinskega karavana? Tudi če zakon zdrži referendumsko ofenzivo, bomo ostali konzervativna družba, le da bodo v njej poleg hetero- prosperirale še homokonzerve.
+									</p>
+							  </div>
+							  
+							  <div id = "collapseFour" class = "panel-collapse collapse">
+								 <div class = "panel-body">
+									<h2 style="color:#8BC34A">Vsakdanja življenja vsakdanjih ljudi</h2>
+                                     <p class="obcasniktext">Junija 2005 je v parlamentu potekala razprava o Zakonu o registraciji istospolne partnerske skupnosti in eden izmed konzervativnih argumentov je bil, kot navaja <a href="http://www.zalozbakrtina.si/index.php?page=knjiga&kid=74" class="zelen">Majerhold</a>, tale: </p>
+                                     <div class="obcasniktext">
+                                        <blockquote class="zelena">“V Novi Sloveniji ponovno poudarjamo, da ne odrekamo homoseksualnim skupnostim pravic, ki jim pripadajo, vendar pa nikakor ne moremo enačiti homoseksalnih in heteroseksualnih skupnosti. Želimo, da se uredijo in umestijo v družbo na specifičen in njim lasten način, ki bo avtonomen in samostojen. <i>Zakon namreč ne more izenačiti nečesa, česar se ne da izenačiti</i>.” </blockquote>
+                                     </div>
+                                     <p class="obcasniktext">Po eni strani ta argument lahko razumemo, saj na prvi pogled različnost razume bolje kot del LGBTQ aktivistov, ki si želijo bele obleke, zloščenih čevljev in konfetov. Dejstvo pa je, da ne gre le za obred: poroka poleg žura zagotavlja tudi pravice. Poleg tega <a class="zelen" href="http://ajph.aphapublications.org/doi/abs/10.2105/AJPH.2012.301113">raziskave kažejo</a>, da ima institucija poroke pozitiven vpliv na ljudi. Poročeni pari so manj pod stresom in imajo posledično manj psiholoških težav. Ta ugotovitev velja tako za raznospolne kot tudi za istospolne pare in kaže na to, da imajo legalno priznane zveze pozitiven vpliv na duševno zdravje ljudi. Države na podlagi zakonske zveze posameznikom zagotavljajo številne socialne in premoženjske pravice ter davčne olajšave. Ob tem velja spomniti, da tovrstne pravice nimajo pozitivnega vpliva zgolj na posameznike, pač pa tudi na družbo kot tako, ki ima številne koristi od zadovoljnih in srečnih posameznikov (npr. večja produktivnost na delovnem mestu), pa tudi na državo (ki ima manj stroškov).</p>
+                                     <p class="obcasniktext">Iz tega bi se dalo sklepati, da uzakonjene pravice, ki jih določa zakonska skupnost, pomembno vplivajo na vsakdanje življenje posameznikov. Ob tem se je potrebno vprašati: kakšno je vsakdanje življenje istospolnih parov v Sloveniji in na tujem? <a class="zelen" href="http://dk.fdv.uni-lj.si/dr/dr49-50Svab2.PDF">Raziskava</a>, opravljena v Sloveniji, kaže, da partnerske zveze gejev in lezbijk temeljijo na visoki stopnji egalitarnosti. O egalitarnih in podpornih istospolnih partnerstvih pišejo tudi raziskovalci iz <a class="zelen" href="http://www.leeds.ac.uk/cava/papers/intseminar3stacey.htm">tujine</a>, kar kaže na to, da istospolne partnerske zveze uvajajo določene vedenjske vzorce, ki presegajo patriarhalne forme dominacije, na katerih temeljijo številne raznospolne zveze. <a class="zelen" href="http://www.dlib.si/details/URN:NBN:SI:DOC-I22LWCPA/?query=%27contributor%3DSobo%C4%8Dan%2C+Ana+Marija%27&pageSize=25">Jansen</a> na primeru Nemčije pokaže, da se delitev gospodinjskih opravil ne izvaja po predpisanih vzorcih spolnih vlog, pač pa na podlagi zanimanja in časovnih možnosti. To ne pomeni, da istospolni pari ne sledijo obveznostim in dolžnostim, pač pa da so te sprejete na podlagi svobodnih in zavestnih odločitev posameznikov.</p>
+                                     <h3 style="color:#8BC34A">Vpogled</h3>
+                                     <p class="obcasniktext">Vsakdanje življenje gejev in lezbijk poteka v zasebnih krogih, ki so, kot navaja Švab, privatizirani in “zaprti.” Podobno kot ostale družbene skupine (npr. mladi v Sloveniji), geji in lezbijke v vsakdanjem življenju najbolj zaupajo ožjim prijateljskim krogom in družini. Opiranje na zasebne kroge pa se lahko izkaže za problematično, saj posameznikovo “razkritje” lahko odločilno vpliva na posameznikove odnose z družinskimi člani. Kot poudarja Kuhar, razkriti posamezniki ostajajo potisnjeni v tako imenovani “prozorni klozet,” ko družinski člani zavoljo miru v družini ne želijo govoriti o posameznikovi seksualnosti. Ožji prijatelji tako ostajajo najpomembnejša podporna mreža gejev in lezbijk. Vsekakor je vzpodbudno, da se je v zadnjih letih družbena distanca do homoseksualcev zmanjšala. V 90-ih letih prejšnjega stoletja je približno 60 % Slovencev navedlo, da ne želi imeti homoseksualne osebe za soseda, medtem ko danes to isto mnenje deli le še 35 % <a href="http://www.ncbi.nlm.nih.gov/pubmed/24359463" class="zelen">vprašanih</a>. Vseeno pa pomanjkanje sistemskih političnih rešitev in širše družbene podpore otežuje vsakodnevno življenje gejev in lezbijk.
+</p>
+                                     <p class="obcasniktext">Kot kažejo <a class="zelen" href="http://www.dlib.si/details/URN:NBN:SI:DOC-I22LWCPA/?query=%27contributor%3DSobo%C4%8Dan%2C+Ana+Marija%27&pageSize=25">tuje raziskave</a>, se istospolni pari pozitivno izkazujejo tudi v vlogi staršev. Mavrične družine v večini primerov temeljijo na dobri starševski podpori in  zaupnih odnosih med starši in otroki. Izkazalo se je, da so otroci, ki odraščajo v istospolnih družinah samozavestnejši, bolj odprti in strpnejši. Istospolnim staršem je zelo pomembno, da imajo otroci stik z referenčno osebo nasprotnega spola, kar je izrednega pomena za razvoj vsakega posameznika. Sklepamo lahko, da se mavrične družine veliko bolj zavedajo pomena pluralnosti in demokracije, ki jih želijo prenesti na svoje otroke. Kaj pa primeri, ko ljudje že imajo otroke in pridejo do spoznanja, da so istospolno usmerjeni? Kot <a class="zelen" href="http://www.theguardian.com/lifeandstyle/2010/feb/20/coming-out-husband-wife">navaja Guardianova novinarka Bloom</a>, tovrstna spoznanja niso najlažja, se pa zdi, da prav mlajše generacije, ki odraščajo v bolj pluralnih okoljih, lahko postanejo opora svojim staršem. </p>
+								    <h3 style="color:#8BC34A">Dobra praksa: Irski referendum</h3>
+                                     <p class="obcasniktext">Irska je prva država, ki je pravico do poročanja istospolnih parov <a href="http://www.irishtimes.com/news/politics/ireland-becomes-first-country-to-approve-same-sex-marriage-by-popular-vote-1.2223646" class="zelen">izglasovala na referendumu</a>. Konec maja 2015 je 62,7 % udeležencev referenduma glasovalo v prid istospolnim porokam. Proti je glasovala samo ena izmed 26 irskih grofij, Roscommon-South Leitrim. </p>
+                                     <p class="obcasniktext">Vloga družine, utemeljene na poroki med moškim in žensko, ima osrednje mesto v irski ustavi. 41. člen <a href="https://www.constitution.ie/Documents/Bhunreacht_na_hEireann_web.pdf" class="zelen">irske ustave</a> določa, da je “družina naravna, primarna in fundamentalna družbena enota.” Ustava natančno določa zlasti vlogo matere in opredeljuje njeno vlogo tako v zasebnem kot tudi javnem življenju. Na novo sprejeta <a href="https://en.wikipedia.org/wiki/Constitution_of_Ireland" class="zelen">4. točka 41. člena</a> irske ustave tako presega ustaljeno družbeno normo: “Zakonska skupnost je uzakonjena med dvema osebama ne glede na spol.” </p>
+                                     <h4 style="color:#8BC34A">Širok družbeni konsenz v prid istospolnim porokam</h4>
+                                     <p class="obcasniktext">Ključno vprašanje v irskem primeru je, kaj je botrovalo sprejetju vsaj navidez radikalnih družbenih sprememb tradicionalne in konzervativne katoliške države, v kateri je bila homoseksualnost kriminalizirana vse do leta 1993. Številni raziskovalci še vedno iščejo odgovore. Površnosti navkljub je mogoče spremembe pripisati pozitivni referendumski kampanji in množični podpori istospolnim porokam vseh večjih političnih strank. Naj spomnimo, poleg tradicionalno sredinsko-levih laburistov, sta člen o istospolnih porokah podprli tako desnosredinska koalicijska stranka Fine Gael, kot tudi njena večna nasprotnica Fianna Fail. Večinska podpora političnih strank je imela vpliv zlasti na množično udeležbo volivcev na referendumu (bila je primerljiva z udeležbo na parlamentarnih volitvah) in zagotovljeno podporo številnih starejših volivcev.</p>
+                                     <h4 style="color:#8BC34A;">Odnos cerkvenih ustanov do referenduma</h4>
+                                     <p class="obcasniktext">Irska katoliška cerkev je pričakovano zavzela nevtralno-do-negativno pozicijo do istospolnih porok. Katoliški inštitut Iona, posamezni nepovezani poslanci in posamične družbene skupine, kot na primer Mothers and Fathers Matter in StandUp4Marriage so uporabljali argumente, podobne slovenskim nasprotnikom istospolnih porok. Tudi v tem primeru so bili otroci najbolj prikladen in uporabljan primer za dokazovanje populističnih argumentov proti porokam.</p>
+                                     <p class="obcasniktext">Ostale verske ustanove, na primer Islamski kulturni center, Irsko predstavništvo Imamov in Reformirana prezbetarijanska cerkev, so prav tako nasprotovale spremembi ustave. Omenjene skupine so pozvale k sprejetju tako imenovanega “člena vesti,” ki naj bi posameznikom in podjetjem dovoljeval osebno presojo pri dobavi dobrin in storitev istospolnim parov. Irska vlada je to pobudo odločno zavrnila. </p>
+                                     <p class="obcasniktext">Kot zanimivost pa je potrebno omeniti tudi pozitivno držo do vprašanja istospolnih porok s strani Irske cerkve (Church of Ireland), ki je preko svoje organizacije <a href="http://changingattitudeireland.org/" class="zelen">Changing Attitude Ireland</a> javno podprla referendumsko pobudo. Irska cerkev je avtonomna enota anglikanske cerkve, CAI pa <a href="http://changingattitudeireland.org/about/our-goals-and-beliefs/" class="zelen">poudarja</a>, da so predsodki do istospolnih oseb nedopustni in da se mora cerkev upreti kulturni represiji in diskriminaciji gejev in lezbijk.</p>
+                                    <p class="obcasniktext">Kampanjo “ZA” so podprle tudi številne korporacije s sedežem na Irskem, kot na primer Ebay, Twitter, Pay Pal in številni drugi, večinska podpora pa je prišla tudi s strani civilnodružbenih in mladinskih organizacij. Odločilno vlogo je odigrala zlasti civilnodružbena organizacija <a href="http://www.yesequality.ie/" class="zelen">Yes Equality</a>. Ključnega pomena za uspeh kampanje pa je bilo še nekaj: številne javne in politične osebnosti so se javno deklarirale za geje. Največ, kar se da doseči pri nas, je, da se <a href="http://danesjenovdan.si/homojbog/" class="zelen">javne osebnosti deklarirajo za geje</a>, vendar to v resnici niso, se torej deklarirajo politično in solidarnostno, ne pa osebno. Medtem pa v irskem predstavniškem domu in vladi sedi kar nekaj javno deklariranih gejev. Pred referendumom je svojo spolno usmerjenost razkril tudi minister za zdravje, Leo Varadkar. Varadkar, član desnosredinske vlade, je javno podporo dobil tudi s strani ministrskega predsednika Kennyyja, ki ga je denimo Janša označil za strankarskega kolega in političnega zaveznika. Hja, mogoče bi se lahko SDS v tem primeru zgledovala po svojih irskih zaveznikih ...</p>
+                                     <h4 style="color:#8BC34A">Mladi “ZA enakopravnost”</h4>
+                                     <p class="obcasniktext">Irsko referendumsko kampanjo pa je zlasti zaznamovala številčnost mladih volivcev. Ti so se v obdobju finančne recesije množično izseljevali iz Irske, vendar so svojo prisotnost na referendumu potrdili z množičnimi prihodi domov. S tem so odločilno prispevali k sprejetju novega ustavnega člena. Mladi, ki v primerjavi s svojimi starši odraščajo v veliko bolj odprti in liberalni Irski, so kot enega ključnih razlogov “za” istospolne poroke navedli svoje istospolne prijatelje. Odločilno vlogo pri agitaciji mladih volivcev so odigrali družbeni mediji in mobilne aplikacije. Organizacija Yes Equality je v ta namen razvila mobilno aplikacijo <a href="http://www.yesequality.ie/selfie-for-yes-to-get-out-the-vote-on-may-22nd/" class="zelen">Yes Equality</a>, ki je imela dvojni namen: 1) aplikacija omogoča fotografiranje (standardno ali selfie) z dodano priponko “It is a Yes!” (sem ZA!), 2) ima vgrajen opomnik, ki uporabnika dan prej ali na dan volitev opozori, da je čas za volitve.</p>
+                                     <p class="obcasniktext">Aplikacija se je odlično prijela med mladimi uporabniki, ki so selfije in fotografije z dodano “ZA” priponko objavljali na Facebooku in Twitterju. Del kampanje, ki se je uspešno prijela med mladimi, je bila tudi tudi akcija #RingYourGranny. Aktivisti kampanje “ZA” so vedeli, da bodo mlajši volivci v večini volili v prid istospolnim porokam, medtem ko je bil rezultat med starejšimi volivci veliko bolj nepredvidjiv. Tako so se številni mladi vključili v neposredno agitiranje v prid referenduma in argumente “ZA” posredovali svojim staršem in starim staršem preko telefona. Razgovore so tudi posneli in jih delili z ostalimi uporabniki interneta. Kako uspešni so bili, pa si lahko ogledate v posnetku spodaj:</p>
+                                     <div class="obcasniktext">
+                                     <iframe width="100%" height="450" src="https://www.youtube.com/embed/v7k67q5c6R0" frameborder="0" allowfullscreen></iframe>
+                                     </div>
+                                     <p class="obcasniktext">Irska je ena izmed dvajsetih držav, ki so uzakonile pravico do poročanja istospolnim parom. Priznanje pravice do istospolne poroke je pogosto odraz široke politične podpore in dolgotrajnega boja zlasti levih političnih strank in civilnodružbenih gibanj. <a href="http://www.dlib.si/details/URN:NBN:SI:doc-GNGJJWMO/?" class="zelen">Na primeru Španije</a> je mogoče videti, da ta gibanja zagovarjajo vključitev manjšin v širši koncept državljanstva, utemeljenega na enakosti. Danes je pravica zagotovljena v naslednjih državah: Argentina, Belgija, Brazilija, Kanada, Danska, Velika Britanija, Finska, Francija, Islandija, Irska, Luksemburg, Nizozemska, Nova Zelandija, Norveška, Portugalska, Južnoafriška republika, Španija, Švedska, Urugvaj in nekatere zvezne države ZDA. Slovenija bo za Irsko druga država, ki bo odločitev o istospolnih porokah prepustila usodi volivk in volivcev, kar je problematično, saj gre za vprašanje človekovih pravic.</p>
+                                     <div class="obcasniktext">
+                                     <img src="img/map.png" class="img-responsive" style="margin:auto;">
+                                     </div>
+                                     <p class="obcasniktext" style="font-size:12px">Vir: <a href="http://www.freedomtomarry.org/landscape/entry/c/international" class="zelen">Freedom to Marry</a></p>
+                                  </div>
+							  </div>
+							  
+						   </div>
+						   
+						   <div>
+							  <div class = "panel5" style="cursor:pointer;">
+									<p class="obcasniktext" style="font-weight:500"  data-toggle = "collapse" data-parent = "#accordion" href = "#collapseFive">
+									   Tega referenduma ne bi smelo biti. Medije in politiko zaznamuje milostna naklonjenost do simpatičnih, artikuliranih in navadno nekoliko privilegiranih marginalcev, pa tudi najbolj militantni križarji zmorejo kak opogumljajoč nasmešek. S pristajanjem na pro et contra razpravo o univerzalnih pravicah spročamo: dokler si le ne domišljate, da smo enaki, vam bomo naklonili kakšno merico enakopravnosti, eni manj, drugi več, oboji pa perverzno prepričani, da je prav, da se o tem sploh smemo izrekati.
+									</p>
+							  </div>
+							  
+							  <div id = "collapseFive" class = "panel-collapse collapse">
+								 <div class = "panel-body">
+                                     <h2 style="color:#2196F3">Pokroviteljska drža ni prava</h2>
+                                     <p class="obcasniktext">Ideja, da lahko večina državljanov odloči, da odvzame ali ne podeli človekove pravice neki skupini znotraj njihove države, se zdi absurdna. Demokracija ne more dopustiti, da se preko mehanizmov demokratičnega odločanja uveljavljajo diskriminatorne in nedemokratične odločitve. Oziroma povedano drugače, četudi je temelj demokacije suverenost ljudstva, je v ustavni demokraciji suverena volja ljudstva podrejena vrednotam, ki so zapisane v Ustavi. Oziroma, povedano še drugače, demokracija se ne sme izroditi v izmenjavo različnih mnenj, kjer ima vsako vedno enako vrednost.</p>
+                                     <p class="obcasniktext">Izkaže se namreč, da je lahko zgoraj omenjena demokratično izkazana volja ljudstva v konfliktu s pravicami in svoboščinami, zagotovljenimi v demokraciji. Tako je recimo leta 1968, eno leto po tem, ko je Vrhovno sodišče razveljavilo Virginski zakon, in s tem vse podobne ureditve, ki so prepovedovale poroke med različnimi rasami, <a href="http://www.gallup.com/poll/163697/approve-marriage-blacks-whites.aspx" class="moder">72% Američanov nasprotovalo porokam med belci in črnci</a>. Še leta 1995 je bilo podpornikov takšnih porok manj kot polovica in vprašanje je, kdaj sploh bi vse ameriške zvezne države dovolile poroke med belci in črnci, če bi se o tem odločala večina njihovih državljanov.</p>
+                                     <p class="obcasniktext">Slovenci smo se vsaj dvakrat izrekli o (odpravljanju) človekovih pravicah manjšine, in sicer leta 2001 smo samskim ženskam odrekli pravico do oploditve z biomedicinsko pomočjo, leta 2012 smo zavrnili družinski zakonik, leta 2004 pa je bil na referendumu zavrnjen Tehnični zakon, ki naj bi uredil pravice izbrisanih.</p>
+                                     <h3 style="color:#2196F3">Referendum</h3>
+                                     <p class="obcasniktext">Moderni institut referenduma je bil primarno zamišljen kot mehanizem v rokah državljanom proti samovolji oblasti. Narobe je, da se ga zlorablja za zanikanje ustavno zagotovljene pravice do enakosti. In velja tudi narobe, ne smemo pristati na uveljavljanje in legitimiziranje človekovih pravic preko (dobre) volje večine, gre za pravice, ki izhajajo iz ustave, ki morajo biti zagotovljene preko zakonodaje in o katerih ne moremo odločati državljani. Ne gre za verne ali sekularne, liberalne ali konzervativne, ruralne ali centralne volivce - nobena izmed teh skupin nima pravice odločati o tem, ali v Sloveniji velja pravica do nediskriminacije in komu bi jo večina rada odtegnila. 
+</p>
+                                     <p class="obcasniktext">Pri tem je beseda “večina” preveč radodarna dikcija in usluga zagovornikom referenduma: ne le, da zagotovo ne bo več kot 50 % vseh volilnih upravičencev glasovalo proti, tudi izjemno skeptični moramo biti do tega, koliko posameznikov je dejansko proti enakopravnosti na področju sklepanja zakonske zveze, in koliko izmed njih je bombardiranih (v skladu z motom: duhovnik in referendumska kampanja v vsako vas) z izredno dobro razdelano strategijo, ki temelji na demagogiji, sejanju strahu in širjenju laži in polresnic.</p>
+                                     <p class="obcasniktext">Da je narobe, ko o podeljevanju z Ustavo zagotovljenjih človekovih pravic odloča na referendumu prisotna večina, je celo zapisano v sami Ustavi. Državni zbor je leta 2013 spremenil <a href="http://www.us-rs.si/o-sodiscu/pravna-podlaga/ustava/iv-drzavna-ureditev/" class="moder">90. člen Ustave</a>, ki v drugem odstavku pravi: </br>
+Referenduma ni dopustno razpisati:
+                                  <div class="obcasniktext">
+                                         <ul>
+<li>o zakonih o nujnih ukrepih za zagotovitev obrambe države, varnosti ali odprave posledic naravnih nesreč,</li>
+<li>o zakonih o davkih, carinah in drugih obveznih dajatvah ter o zakonu, ki se sprejema za izvrševanje državnega proračuna,</li>
+<li>o zakonih o ratifikaciji mednarodnih pogodb,</li>
+<li><strong>o zakonih, ki odpravljajo protiustavnost na področju človekovih pravic in temeljnih svoboščin ali drugo protiustavnost</strong>.</li></ul></div></p>
+                                     
+                                     <p class="obcasniktext">Hkrati ponovno preberimo še 14. člen Ustave: </p>
+                                  <div class="obcasniktext">
+                                  <blockquote class="modra">V Sloveniji so vsakomur zagotovljene enake človekove pravice in temeljne svoboščine, ne glede na narodnost, raso spol, jezik, vero, politično ali drugo prepričanje, gmotno stanje, rojstvo, izobrazbo, družbeni položaj, invalidnost ali katerokoli drugo osebno okoliščino.</blockquote>
+                                  </div>
+                                     <p class="obcasniktext">Ustavno sodišče je že v dveh predhodnih odločitvah (leta <a href="http://odlocitve.us-rs.si/sl/odlocitev/US28771" class="moder">2009</a> in <a class="moder" href="http://odlocitve.us-rs.si/sl/odlocitev/US30046">2013</a>) zapisalo, da je spolna usmerjenost ena izmed osebnih okoliščin iz prvega odstavka 14. člena Ustave in torej ne more biti osebna okoliščina, od katere je odvisna pridobitev posameznih pravic. </p>
+                                     <p class="obcasniktext">Torej, kako so se nam zgodili Metka Zevnik, Aleš Primc in referendum 20. decembra?</p>
+                                  <h4 style="color:#2196F3">Ustavno sodišče</h4>
+                                  <p class="obcasniktext">5 ustavnih sodnikov je v svoji večinski odločitvi v prid razpisu referenduma o ZZZDR-D zapisalo, da </p>
+                                  <div class="obcasniktext">
+                                  <blockquote class="modra">referenduma ni dopustno razpisati le o zakonih, ki odpravljajo tisto protiustavnost, ki jo je predhodno v svojih odločbah že ugotovilo Ustavno sodišče, in o zakonih, ki odpravljajo kršitev človekove pravice, ugotovljene s sodbo Evropskega sodišča za človekove pravice. </blockquote>
+                                  </div>
+                                  <p class="obcasniktext">In čeprav je v preteklosti Ustavno sodišče prepoznalo kršitve enakopravnosti homoseksualnih parov, v obrazložitvi svoje tokratne odločitve izpostavlja, da je te kršitve ustave mogoče rešiti z drugačnimi ureditvami, ter da predlagana sprememba ZZZDR preveč “sistemsko” rešuje problem diskriminacije na podlagi spolne usmerjenosti. </p>
+                                  <p class="obcasniktext">Ponujamo štiri razloge, zakaj je večinska odločitev Ustavnega sodišča problematična.</p>
+                                  <h5 style="color:#2196F3">Prvič, </h5>
+                                  <p class="obcasniktext">že pred spremembo 90. člena Ustave ni bilo sporno, da velja prepoved referenduma v primerih ugotovljenih protiustavnosti v izdanih odločbah Ustavnega sodišča. Ozko branje četrte alineje drugega odstavka 90. člena Ustave, torej prepoved referenduma le v primerih, ko je bila protiustavnost predhodno že ugotovljena na Ustavnem sodišču ali na Evropskem sodišču za človekove pravice, pomeni, da beremo spremembo ustave kot odvečno, saj bi tudi brez te določbe Ustavno sodišče prišlo do razlage, ki jo je sprejelo (več v <a href="http://odlocitve.us-rs.si/documents/08/bc/u-ii-1-15-odklonilno-lm-dr-korpic-horvat27.pdf" class="moder">odklonilnem ločenem mnenju ustavne sodnice dr. Korpič - Horvat</a>).</p>
+                                  <h5 style="color:#2196F3">Drugič,</h5>
+                                  <p class="obcasniktext">v kolikor se strinjamo, da je namen drugega odstavka 90. člena Ustave varstvo človekovih pravic in svoboščin, ni jasno, zakaj je upravičeno med njimi vzpostavljati neenakost, v tem pogledu, da bi bilo treba poskrbeti za njihovo takojšnje varstvo samo tedaj, ko so takšne kršitve že ugotovoljne (več v <a href="http://odlocitve.us-rs.si/documents/08/bc/u-ii-1-15-odklonilno-lm-dr-sovdat27.pdf" class="moder">odklonilnem ločenem mnenju ustavne sodnice dr. Sovdat</a> in <a href="http://odlocitve.us-rs.si/documents/08/bc/u-ii-1-15-odklonilno-lm-dr-jadek-pensa27.pdf" class="moder">odklonilnem ločenem mnenju ustavne sodnice dr. Jadek Pensa</a>). </p>
+                                  <h5 style="color:#2196F3">Tretjič,</h5>
+                                  <p class="obcasniktext">predsednik ustavnega sodišča, mag. Miroslav Mozetič v svojem pritrdilnem ločenem mnenju opozarja, da moramo razlagati drugi odstavek 90. člena Ustave ozko, če ne želimo ogroziti, celo izničiti, prav tako ustavno zagotovljene pravice do referenduma. Vendar cilj omenjene določbe ni in favorem pravici do referenduma, temveč in favorem varstvu človekovih pravic. S sprejeto razlago je Ustavno sodišče zelo široko odprlo vrata referendumskemu potrjevanju zakonov in torej storilo ravno nasprotno (več v <a href="http://odlocitve.us-rs.si/documents/08/bc/u-ii-1-15-odklonilno-lm-dr-sovdat27.pdf" class="moder">odklonilnem ločenem mnenju ustavne sodnice dr. Sovdat</a> in <a href="http://odlocitve.us-rs.si/documents/08/bc/u-ii-1-15-odklonilno-lm-dr-korpic-horvat27.pdf" class="moder">odklonilnem ločenem mnenju ustavne sodnice dr. Korpič - Horvat</a>). 
+</p>
+                                  <h5 style="color:#2196F3">Četrtič,</h5>
+                                  <p class="obcasniktext">diskriminacija na podlagi spolne usmerjenosti je sistemska - in sistemska rešitev ni le edina elegantna, ampak tudi edina, ki se celostno ukvarja z vprašanjem diskriminacije na podlagi spolne usmerjenosti. Oziroma, kot je v svojem odklonilnem ločenem mnenju zapisala ustavna sodnica dr. Etelka Korpič - Horvat: </p>
+                                  <div class="obcasniktext">
+                                  <blockquote class="modra">Morda je bila za vztrajanje pri sporni interpretaciji ustavne določbe kriva bojazen, da bi preizkus zatrjevane protiustavnosti pokazal, da je zatrjevana protiustavnost v resnici ugotovljena protiustavnost, ki ne bi dopuščala referenduma.</blockquote>
+                                  </div>
+                                  <p class="obcasniktext">Obžalujemo večinsko odločitev Ustavnega sodišča. Zato, ker se skriva za črko zakona (v tem primeru Ustave), ko nam sporoča, da so homoseksualci drugorazredni državljani. Zato, ker dovoljuje, da bomo vsi odločali o tem, ali naj pravice, ki jih “mi” imamo, sploh dovolimo “njim.” Zato, ker je neprijetno opozorilo, da je zakonski okvir le še eno izmed orodij za ohranjanje obstoječih razmerij moči. </p>
+                                  <p class="obcasniktext"><strong>Tega referenduma ne bi smelo biti.</strong></p>
+
+								 </div>
+							  </div>
+							  
+						   </div>
+						   
+						   <div>
+							  <div class = "panel6" style="cursor:pointer;">
+									<p class="obcasniktext" style="font-weight:500"  data-toggle = "collapse" data-parent = "#accordion" href = "#collapseSix">
+									   Ker pa referendum zagotovo bo, bi ga lahko tudi bojkotirali. Pro et contra debata o njegovi vsebini je nedopustna. Toda kljub temu, da smo v pravico do odločanja, ali so vse “osebe” vredne t.i. “pravice do pravic” prisiljeni, se z njenim uveljavljanjem pozicioniramo na raven superiornejšega. Hierarhija pa je na ravni odločanja o vključevanju v okvir temeljnih pravnih, ekonomskih in socialnih pravic (ki šele odpira možnost naslavljati partikularna vprašanja) nedopustna. Zagovorniki zakona z odgovarjanjem na demagogije razpravi dajemo legitimnost in vstopamo v polje, ki ga strukturirajo ravno naši nasprotniki. Pragmatična realnopolitična aktivistična presoja pa veleva: ZA!
+									</p>
+							  </div>
+							  
+							  <div id = "collapseSix" class = "panel-collapse collapse">
+								 <div class = "panel-body">
+                                     <h2 style="color:#6A1B9A">Mala šola relativizma</h2>
+                                     <div class="obcasniktext">
+                                     <p class="bubble">V šoli bodo naše otroke indoktrinirali s teorijo spola.</p>
+                                    <p class="bubble2">Ne bodite no smešni, nihče jih ne bo indoktriniral.</p>
+                                     </div>
+                                     <p class="obcasniktext">Šola je ideološki aparat države, indoktrinacija je ena njenih ključnih funkcij, zato bi bilo kakršno koli predpostavljanje njene nevtralnosti golo sprenevedanje. Obstoječi učni načrti otroke indoktrinirajo v mišljenje, da LGBTQ ljudi sploh ni, še zlasti ne v znanosti, umetnosti, politiki, športu, poslovnem svetu itd. Težava je tudi v tem, da je homoseksualnost v šolah večinoma naslovljena redko, kot enkratna tematika, kar napeljuje na to, da gre za obrobno vprašanje ali problem. In potem pubertetnik pošteka, da je gej. Luštno. </p>
+                                     <div class="obcasniktext">
+                                     </br><p class="bubble">Novela zakona ukinja zakonsko zvezo moškega in ženske.</p>
+                                    <p class="bubble2">Nihče ne ukinja zakonske zveze med moškim in žensko, temveč se v noveli zakona predlaga razširitev njene definicije na urejeno življenjsko skupnost dveh oseb.</p>
+                                     </div>
+                                     <p class="obcasniktext">Res je, da novela zakona koncept zakonske skupnosti razširja na skupnost dveh oseb, znotraj katere je irelevantno, ali gre za par bodisi moškega in ženske bodisi dveh žensk bodisi dveh moških bodisi dvojino kogarkoli že pač. Problem tako definirane zakonske zveze pa vseeno ostaja na ravni tega, da gre za ohranjanje hegemonične vladavine skupnosti, ki vase spušča le dva posameznika, pri čemer prek tovrstne strukturne redukcije ta ostaja rigidno zaprta ter slepa za kakršne koli dejansko druge in različne možnosti. Drugi je, skratka, drugi lahko le v kolikor ni resnično drugi.</p>
+                                     <div class="obcasniktext">
+                                     </br><p class="bubble">Materinska in očetovska ljubezen je največ, kar lahko damo otroku. Mama in oče, ženska in moški naj imata v družinskem zakonu mesto, ki je v skladu z naravo. Ljubezen in spolnost med žensko in moškim ter njun spolni odnos so nekaj edinstvenega in najlepšega, kar nam je naravno dano. </p>
+                                    <p class="bubble2">Ljubezen med istospolnimi partnerji ter njihovo izkazovanje ljubezni do otrok je povsem enakovredno ljubezni med moškim in žensko. Ljubezen je ljubezen.</p>
+                                     </div>
+                                     <p class="obcasniktext">First things first: Družina in zakonska zveza nista rezultat naravnega zakona, temveč stvar družbene konvencije. Najbolj splošna antropološka definicija jo opredeljuje kot skupnost ljudi, ki praviloma skupaj uživajo glavne obroke. Da se poudarjanje raznovrstnosti obstoječih načinov življenja in medkulturnih razlikah ne zdi odveč, je infantilno, podobno kot npr. še zmeraj živa potreba po javnem izpostavljanju sloganov a la “Black lives matter!” 
+Na Zahodu je moškost močno povezana s heteroseksualnostjo, kar nad moškimi vzpostavlja pritisk samopotrjevanja. To pa poteka na način zavračanja “neprave,” tj. homoseksualne moškosti. Moška heteroseksualnost tako ni le želja po ženski, temveč negacija želje po moškem. </p>
+<p class="obcasniktext">In kar zadeva ljubezen in otroke: gotovo je, da otroci za uspešen psihofizični razvoj potrebujejo (tudi) ljubezen, vendar pa je prav tako gotovo, da pri tem ne gre za izključno in edino takšno ljubezen, kakršno ponujajo pobudniki referenduma. In če, na koncu (jalovega) poskusa filozofske opredelitve same ljubezni in seksualnosti ter umeščanje slednjega v kontekst referendumskega vprašanja nikakor ne morete povezati skupaj, potem za to obstaja razlog. Te povezave namreč preprosto ni.</p>
+                                     <div class="obcasniktext">
+                                     </br><p class="bubble">Zgodovinsko gledano je bila zakonska zveza zmeraj heteroseksualna institucija, zato naj taka tudi ostane.</p>
+                                    <p class="bubble2">Bila je institucija ljubezni, zato naj taka tudi ostane, samo naj se razširi.</p>
+                                     </div>
+                                         <p class="obcasniktext">Če bi bila trditev, da je bila zakonska zveza zmeraj heteroseksualna, resnična, normativni sklep iz tega ne bi mogel izhajati. <a href="http://www.zalozbakrtina.si/index.php?page=knjiga&kid=196" class="vijolicen">Primorac</a> pravi: “Dejstvo, da je imela določena ureditev vselej določeno obliko, ni odločilen argument za trditev, da mora taka tudi ostati.” <a href="https://en.wikipedia.org/wiki/Jeremy_Bentham" class="vijolicen">Bentham</a> je trdil, da neobstoj precedensa ne sme biti ugovor proti določenemu ukrepu, saj bi tako ugovor bil možen proti katerem koli obstoječem ukrepu ali obstoječi instituciji.  Poleg tega je zgodovinsko gledano bila spolna svoboda privilegij aristokracije, ki je pomenila izraz moči. Od tod najverjetneje tudi izhaja konzervativni argument o gejevski eliti, ki si lahko “privošči” “deviantne” spolne prakse. </p>
+                                    
+                                     <h3 style="color:#6A1B9A">Koalicija "za otroke gre!"</h3>
+                                     <p class="obcasniktext"><a href="http://24kul.si/18-razlogov-za-razpis-referenduma-o-druzini" class="vijolicen">Koalicija</a>, ki jo podpirata stranki SDS ter NSi in slovenska RKC, je zakuhala referendum, ki nasprotuje pravicam istospolno usmerjenih, in po vsej verjetnosti je pridigala o razkroju tradicionalnih vrednost tudi v vaši regiji. Širjenje polresnic ali pollaži (ali pa kar celih laži) ter zastraševanje sta priljubljeni desničarski strategiji nabora (neizobraženih) slovenskih volivcev. Kot mnoge druge tudi ta kampanja temelji na zmotnih predpostavkah, ki izhajajo iz razumevanja “naravnega:” spola in družine. Poleg tega nič novega ne predstavlja zaostrena polarizacija, kjer so pravice istospolno usmerjenih a priori v radikalnem nasprotju s pravicami otrok, kar po tihem še vedno izenačuje istospolno usmerjenost s pedofilijo. Ne, najbolj preseneča reinkarnacija desničarske politike, ki temelji na logiki “kako spreminjati, da bi vse ostalo čimbolj isto,” in se kaže v uporabi otrok za politične cilje.
+</p>
+                                  <p class="obcasniktext"><a href="https://en.wikipedia.org/wiki/Think_of_the_children" class="vijolicen">Pojavljanje otrok v retoriki politične propagande</a> je strategija, ki legitimnost debate vzpostavlja na čustvenih odzivih, s čimer onemogoča racionalno razpravo. Hkrati sklicevanje na pravice otrok ohranja predstave o njihovi nedolžnosti in čistosti, ki ju je treba varovati. Z drugimi besedami, ki morda opisujejo pripetljaj na družinskem pikniku ali na hrvaški plaži - otroško zanimanje za lastne in tuje genitalije je treba "pravilno" usmeriti in raziskovanje seksualnosti, če ne do poroke vsaj do pubertete, prepovedati: "<i>Fantki imate lulčka, punčke pa luliko. Urška, to ni igrača!</i>"</p>
+                                  <p class="obcasniktext">Tovrstna izkušnja je ena izmed prvih, kjer otrok spozna prevladujočo zahodnjaško dihotomijo spola, ki mu ga v skladu s kulturno normo dodelijo starši in to tudi pri gejevskih ali lezbičnih starših ni izjema. Del desničarske argumentacije temelji na seksualnih tabujih in na neznanju, v strahu pred nezmožnostjo soočanja z dejstvi, da vsi otroci, ne glede na spolno usmerjenost in spolno identifikacijo, v odsotnosti staršev seksualno eksperimentirajo. Zapisano z besedami poslanke <a href="http://prva.sds.si/News/Details/2703" class="vijolicen">Jelke Godec</a>: "Že omenjena teorija spola predvideva tudi možnost odločitve otroka o spolu, ki se bo lahko sam odločal o tem, ali je moški ali ženska, in v času adolescence bo možnost eksperimentiranja s spolno usmerjenostjo".</p>
+								 <h3 style="color:#6A1B9A">Teorija spola!</h3>
+                                     <p class="obcasniktext">Med mračnjaške argumente spada tudi govor o teoriji spola kot o novi državni ideologiji, za katero naj bi se odločali na referendumu. Ker gre za simbolne reprezentacije fizične realnosti (ženskega in moškega videza genitalij), je vsako razlikovanje spolov teorija, hipoteza, prepričanje, in ne naravno dejstvo, saj je število naravnih spolov kulturna definicija – vse kulture ne pripisujejo statusa naravnih kriterijev spola istim dejavnikom. Antropologinja <a href="https://www.youtube.com/watch?v=CYs_AJ7pBE8" class="vijolicen">Šterk</a> pravi: "Ameriški staroselci spol definirajo glede na moški in ženski videz telesa in glede na spol duha, ki naseljuje telo. Za teorijo spola je relevantna kombinacija moškega telesa z ženskim duhom, ki označuje spol berdača. Berdač v večini ljudstev Severne Amerike opravlja družbeno vlogo ženske in brez javnega obsojanja živi v skupnem gospodinjstvu z vojščakom, spolom, ki ga označuje moško telo z moškim duhom. Nasprotno, Berdač zaradi privilegiranega dostopa do materinega (zasebnega) in vojščakovega (javnega) sveta, praviloma opravlja pomembne družbene funkcije.”</p>
+                                     <p class="obcasniktext">"Po teorije spola" pa nam ni treba potovati v bivšo Indijo med "primitivna" ljudstva, kot bi nam lahko očitali socialni darvinisti. Eno od prvih razlikovanj med biološkim (sex) in družbenim (gender) spolom se po desetletju izkušenj britanskih in ameriških psihologov pojavi v oxfordskem slovarju leta 1963. Spol je torej v <a href="http://www.apath.org/rede/23.html" class="vijolicen">manjši meri predmet narave</a> kot pa kulture: vezan je na družbene statuse in vloge različnih družbenih realnosti, ki jih ustvarja jezik, prek katerega se je v današnjem zahodnjaškem svetu možno identificirati že z več kot petdesetimi družbenimi spoli.</p>
+                                     <p class="obcasniktext">Vladajoča ideologija narave je ideologija vladajočega razreda, parafrazirajmo Marxa in Engelsa iz Nemške ideologije. Ker je tudi narava kulturno in zgodovinsko utemeljen koncept in ne večno medkulturno univerzalno dejstvo, je del vladajoče ideologije tudi definiranje "naravnega". <a href="http://www.siol.net/novice/slovenija/2009/07/primc_druzine.aspx" class="vijolicen">Primc se torej moti</a>, ko vprašanje pravic istospolnih naslavlja kot družbeno nepomembno, banalnejše od socialnih stisk delavcev, kmetov in brezposelnih diplomantov. Desnica pa ima prav vsaj tam, kjer teorije spola paranoidno poveže s prevladujočo, t.i. državno ideologijo. V boju za ekonomske in socialne pravice, ki nam po "naravi" poklica, izobrazbe, rase, spola, etnične pripadnosti, državljanstva itd. "ne pripadajo," smo namreč pred občestvom elite oziroma države vsi enaki. To pa bi morda lahko učili v šolah in vrtcih, saj se gre vendar za prihodnost naših otrok, mar ne?</p>
+                                     <p class="obcasniktext">Toliko o "naravi" spola, nekoliko več pa še o "naravi" staršev v politični propagandi. Slogan "za otroke gre!" je le ena od mnogih variacij, ki z namenom vzpostavljanja moralne avtoritete čustveno sili starše v navidezno izbiro med pravicami otrok in pravicami istospolno usmerjenih, v odnosu do otrok pa ne izraža empatije, ampak nadvlado.
+</p>
+                                     <p class="obcasniktext">O pravicah otrok pa lahko sklepamo, da imajo otroci le toliko pravic in dolžnosti, kot jim jih dodelijo (ne)sorazmeroma zaščitniški, avtoritarni ali permisivni starši. S tem pa ni nič narobe, saj sta odraščanje in socializacija v temelju travmatična, represivna procesa. Napačna pa je predpostavka, da se gejevski in lezbični starši bistveno razlikujejo od kulturno normativnih (heteroseksualnih) staršev.</p>
+
+                                  </div>
+							  </div>
+							  
+						   </div>
+						   
+						   <div>
+							  <div class = "panel7" style="cursor:pointer;">
+									<p class="obcasniktext" style="font-weight:500"  data-toggle = "collapse" data-parent = "#accordion" href = "#collapseSeven">
+									   Zatorej, če smo že stisnjeni v kot in prisiljeni soodločati o nečem, kar se nas najverjetneje ne tiče, glasujmo za! Glas gre za vključitev drugega v hetero-hegemonski red - toda ne zato, da bi drugega temu redu podredili, pač pa mu dali glas, da ga skupaj z nami lahko legitimno preizprašuje. Če se referenduma ne boste udeležili, boste morda prispevali k visokemu odstotku glasov proti, kar ob morebitnem padcu zakona utegne dati vtis, da je Slovenija še bolj tradicionalna, kot je v resnici. Toda, karkoli že storite, ne bodite vase zagledani moralistični večvredneži, ki bodo v imenu nadnaravnih sil, nerojenih otrok in lastnih konfliktov med normo in fantazmo, glasovali proti.
+									</p>
+							  </div>
+							  
+							  <div id = "collapseSeven" class = "panel-collapse collapse">
+								 <div class = "panel-body">
+                                     <h2 style="color:#E91E63">Kako ravnati?</h2>
+                                     <p class="obcasniktext">Na referendumu se bo izkazalo, katere zahteve LGBTQ skupnosti so za heteroseksualce družbeno sprejemljive. Čeprav mogoče (tako kot mi) verjamete, da se o pravicah manjšin ne sme razpravljati, kaj šele glasovati na referendumu, pa vas kljub vsemu pozivamo, da se referenduma udeležite in glasujete ZA. Novi pravilnik o referendumski ureditvi namreč pravi, da se mora za potrditev zakona na referendumu izreči ne le večina tistih, ki se referenduma udeležijo, ampak mora ta večina predstavljati tudi najmanj 20 odstotkov vseh volilnih upravičencev. V praksi to pomeni, da je:</p>
+                                     <h3 style="color:#E91E63">Zakon sprejet:</h3>
+                                     <div class="obcasniktext">
+                                     <ol><strong><li>
+                                        Če več kot 343.104 volivcev glasuje proti in je glasov proti manj kot 50 %.
+                                         </li></br>
+                                         <li>
+                                            Če manj kot 343.104 volivcev glasuje proti in je glasov proti manj kot 50 %.
+                                         </li></br>
+                                         <li>
+                                             Če manj kot 343.104 volivcev glasuje proti in je glasov proti več kot 50 %.
+                                         </li></strong></ol>
+                                     </div>
+                                     <h3 style="color:#E91E63">Zakon zavnjen:</h3>
+                                     <div class="obcasniktext">
+                                         <ol><strong><li>Če več kot 343.104 volivcev glasuje proti in je glasov proti več kot 50 %.
+                                             </li></strong></ol>
+                                     </div>
+                                     <p class="obcasniktext">Možnosti za sprejem zakona so tri, tista za padec pa samo ena!</p>
+                                     <p class="obcasniktext">Letošnji referendum je že drugo tovrstno pregovarjanje o pravicah manjšin. Leta 2012 smo se o podobni tematiki odločali že na referendumu o Družinskem zakoniku. Žal je slovenska družba takrat pokazala svoj žalostni pravi jaz in glasovala proti sprejemu zakona. Pa vendar celotna slika ni tako slaba. Referenduma se je takrat od 1.709.417 volivcev udeležilo 518.207 volivcev.</p>
+                                     <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
+                                    <div id="piechart" style="display:block; margin:0 auto;"></div>
+                               
+
+                                     <p class="obcasniktext">Za zakon je glasovalo 45,45 % volivcev oziroma 233.268 ljudi, proti pa 54,55 % volivcev ali 279.937, kar pomeni da bi bil po sedanji zakonodaji o referendumu <a href="http://www.dvk-rs.si/index.php/si/arhiv-referendumi/zakonodajni-referendum-o-druzinskem-zakoniku" class="roza">Družinski zakonik</a> sprejet kljub temu, da je večina udeležencev glasovala proti - še mnogo več jih je namreč ostalo doma. </p>
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
+       <div id="piechart2"></div>
+								    <p class="obcasniktext">Kričanje nasprotnikov spremembe ZZZDR-ja, da novi zakon ukinja zakonsko zvezo moža in žene, ni zmota, ampak načrtno zavajanje. Zakon spreminja samo definicijo zakonske zveze, ki bo še naprej na enak način veljala za vse, ki jo lahko sklenejo že danes, sklenili pa jo bodo lahko tudi istospolno usmerjeni. Glas “za” je torej glas za bolj vključujočo in enakopravno družbo.
+</p>
+                                     <p class="obcasniktext"><strong>In če po vsem zapisanem še vedno vztrajate pri “proti,” ste se znašli v res eminentni družbi.</strong></p>
+                               <div class="obcasniktext"><iframe width="100%" height="450" src="https://www.youtube.com/embed/oENOkrChK58" frameborder="0" allowfullscreen></iframe></div></br>
+                                  </div>
+							  </div>
+							  
+						   </div>
+						</div>
+
+						<script type = "text/javascript">
+						   $(function () { $('#collapseThree','#collapseTwo','#collapseOne','#collapseFour','#collapseFive','#collapseSix','#collapseSeven').collapse('toggle')});
+						</script>  
+
+						
+
+
+                        <div class="obcasniktext">
+                            <div>
+                                <div onclick="window.open('http://danesjenovdan.si/dolzni/', '_blank')" class="btn-cookie bck-pink" style="height:40px; line-height:40px; font-size:18px; font-weight:800;">Podpri nas!</div>
+                                <div id="donate3" class="btn-cookie bck-pink" style="height:40px; line-height:40px; font-size:18px; font-weight:800">Doniraj 3€!</div>
+                            </div>
+                        </div>
+
+
+                        <div class="obcasniksocialcontainer">
+                            <div class="circle-obcasnik bck-brick2 circle fb">
+                                <div class="pulse"></div>
+                                <div class="icon icon-facebook"></div>
+                            </div>
+                            <div class="circle-obcasnik bck-brick2 circle tw">
+                                <div class="pulse"></div>
+                                <div class="icon icon-twitter"></div>
+                            </div>
+                            <div class="circle-obcasnik bck-brick2 circle gp">
+                                <div class="pulse"></div>
+                                <div class="icon icon-googleplus"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end of container -->
+
+        <div class="row" id="footer">
+            <svg id="footerdivider" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="40px" viewBox="0 0 100 102" preserveAspectRatio="none">
+                <path d="M0 0 L50 300 L100 0 Z"></path>
+            </svg>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 footerline">
+                        <div id="newsletter" data-href="signup" class="icon-newsletter col-red popupopen buzz-out"></div>
+                        <p id="newslettertext" class="footertext"><a class="footerlink link-red popupopen" data-href="signup" href="#">Naroči se na e-novice.</a> Pišemo samo, kadar imamo res kaj povedati.</p>
+                    </div>
+                    <div class="col-md-3 footerline">
+                        <div id="socialcontainer">
+                            <div class="social push bck-pink" data-href="https://www.facebook.com/danesjenovdan">
+                                <div class="icon icon-facebook"></div>
+                            </div>
+                            <div class="social push bck-pink" data-href="https://twitter.com/danesjenovdan">
+                                <div class="icon icon-twitter"></div>
+                            </div>
+                            <div class="social push bck-pink" data-href="https://github.com/danesjenovdan">
+                                <div class="icon icon-github"></div>
+                            </div>
+                            <div class="social push bck-pink" data-href="http://vimeo.com/user26914674">
+                                <div class="icon icon-vimeo"></div>
+                            </div>
+                            <div class="social push bck-pink" data-href="https://www.youtube.com/channel/UCWMqx3p_QtWjdDRq58Hfh_w">
+                                <div class="icon icon-youtube"></div>
+                            </div>
+                            <div class="social push bck-pink" data-href="http://agrument.danesjenovdan.si/rss/">
+                                <div class="icon icon-rss"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 footerline">
+                        <span id="podpri"><object data="/img/heart2.svg" class="icon-heart-line" type="image/svg+xml" /></object><span class="icon icon-heart col-red"></span>Podpri nas!</span>
+                    </div>
+                    <div class="col-md-3 footerline">
+                        <p class="footertext" id="izkaznica"><a class="link-red" href="/formalnosti/">Danes je nov dan</a>
+                            <br>Inštitut za druga vprašanja
+                            <br>Parmova ulica 20
+                            <br>1000 Ljubljana
+                            <br>
+                            <br><a class="footerlink link-red" href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+    <div class="popup popup-red centermycontentvertically" id="signup">
+        <div class="popupclose">
+            <div class="icon-close"></div>
+        </div>
+        <div class="container popupcontainer centermevertically">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <p class="popuptext">Dodajte me na mailing listo.</p>
+                    <form class="ac-custom ac-checkbox ac-checkmark">
+                        <input id="newsletteremail" type="email" class="form-control" placeholder="ti@email.com">
+                        <ul>
+                            <li>
+                                <input id="dodajme" name="dodajme" type="checkbox">
+                                <label for="dodajme">dodaj me na listo podpornikov</label>
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg>
+                            </li>
+                        </ul>
+                        <div class="hider">
+                            <p class="popuptext">Zaupaj nam še svoje polno ime.</p>
+                            <input id="newslettername" type="text" class="form-control" placeholder="Ime Priimek">
+                        </div>
+                    </form>
+                    <button class="btn btn-popup push" id="submitemail">Oddaj!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- froogaloop -->
+    <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+
+    <!-- frontend magic -->
+    <script src="/js/front.js"></script>
+
+    <!-- dolzni -->
+    <script src="/js/dolzni.js"></script>
+
+    <!-- NSA -->
+    <script src="/js/nsa.js"></script>
+
+    <!-- Google Universal Analytics -->
+    <script>
+        (function () {
+            'use strict';
+            window.Fingerprint = function (a) {
+                var e = Array.prototype.forEach,
+                    f = Array.prototype.map;
+                this.each = function (a, b, c) {
+                    if (null !== a)
+                        if (e && a.forEach === e) a.forEach(b, c);
+                        else if (a.length === +a.length)
+                        for (var d = 0, f = a.length; d < f && b.call(c, a[d], d, a) !== {}; d++);
+                    else
+                        for (d in a)
+                            if (a.hasOwnProperty(d) && b.call(c, a[d], d, a) === {}) break
+                };
+                this.map = function (a, b, c) {
+                    var d = [];
+                    if (null == a) return d;
+                    if (f && a.map === f) return a.map(b, c);
+                    this.each(a, function (a, f, e) {
+                        d[d.length] = b.call(c, a, f, e)
+                    });
+                    return d
+                };
+                a && (this.hasher = a)
+            };
+            Fingerprint.prototype = {
+                get: function () {
+                    var a = [];
+                    a.push(navigator.userAgent);
+                    a.push([screen.height, screen.width, screen.colorDepth].join("x"));
+                    a.push((new Date).getTimezoneOffset());
+                    a.push(!!window.sessionStorage);
+                    a.push(!!window.localStorage);
+                    var e = this.map(navigator.plugins, function (a) {
+                        var e = this.map(a, function (a) {
+                            return [a.type, a.suffixes].join("~")
+                        }).join(",");
+                        return [a.name, a.description, e].join("::")
+                    }, this).join(";");
+                    a.push(e);
+                    return this.hasher ? this.hasher(a.join("###"), 31) : this.murmurhash3_32_gc(a.join("###"), 31)
+                },
+                murmurhash3_32_gc: function (a, e) {
+                    var f, g, b, c, d;
+                    f = a.length & 3;
+                    g = a.length - f;
+                    b = e;
+                    for (d = 0; d < g;) c = a.charCodeAt(d) & 255 | (a.charCodeAt(++d) & 255) << 8 | (a.charCodeAt(++d) & 255) << 16 | (a.charCodeAt(++d) & 255) << 24, ++d, c = 3432918353 * (c & 65535) + ((3432918353 * (c >>> 16) & 65535) << 16) & 4294967295, c = c << 15 | c >>> 17, c = 461845907 * (c & 65535) + ((461845907 * (c >>> 16) & 65535) << 16) & 4294967295, b ^= c, b = b << 13 | b >>> 19, b = 5 * (b & 65535) + ((5 * (b >>> 16) & 65535) << 16) & 4294967295, b = (b & 65535) + 27492 + (((b >>> 16) + 58964 & 65535) << 16);
+                    c = 0;
+                    switch (f) {
+                    case 3:
+                        c ^= (a.charCodeAt(d + 2) & 255) << 16;
+                    case 2:
+                        c ^= (a.charCodeAt(d + 1) & 255) << 8;
+                    case 1:
+                        c ^= a.charCodeAt(d) & 255, c = 3432918353 * (c & 65535) + ((3432918353 * (c >>> 16) & 65535) << 16) & 4294967295, c = c << 15 | c >>> 17, b ^= 461845907 * (c & 65535) + ((461845907 * (c >>> 16) & 65535) << 16) & 4294967295
+                    }
+                    b ^= a.length;
+                    b ^= b >>> 16;
+                    b = 2246822507 * (b & 65535) + ((2246822507 * (b >>> 16) & 65535) << 16) & 4294967295;
+                    b ^= b >>> 13;
+                    b = 3266489909 * (b & 65535) + ((3266489909 * (b >>> 16) & 65535) << 16) & 4294967295;
+                    return (b ^ b >>> 16) >>> 0
+                }
+            }
+        })();
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        var fingerprint = new Fingerprint().get();
+        ga('create', 'UA-36901322-1', 'danesjenovdan.si', {
+            'storage': 'none',
+            'clientId': fingerprint,
+            'userId': $.cookie('djndid')
+        });
+        ga('send', 'pageview', {
+            'anonymizeIp': 'true'
+        });
+
+        ga('set', 'dimension1', $.cookie('djndid'));
+    </script>
+    <!-- End of Google Universal Analytics -->
+    <!-- better pageview tracking -->
+    <script>
+        (function (tos) {
+            window.setInterval(function () {
+                tos = (function (t) {
+                    return t[0] == 50 ? (parseInt(t[1]) + 1) + ':00' : (t[1] || '0') + ':' + (parseInt(t[0]) + 10);
+                })(tos.split(':').reverse());
+                ga('send', 'event', 'Time', 'Log', 'ToS', tos);
+            }, 10000);
+        })('00');
+    </script>
+    <!-- end of better pageview tracking -->
+
+    <!-- obcasnik read ga -->
+    <script>
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'obcasnik',
+            'eventAction': 'read'
+        });
+    </script>
+    <!-- end of obcasnik read ga -->
+
+    <!-- custom post js -->
+    <script src="js/script.js"></script>
+    <script>      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Volilni upravičenci', 'Število'],
+          ['So glasovali',     518207],
+          ['Niso glasovali',      1191210],
+        ]);
+
+        var options = {
+          title: '',
+          slices: {
+            0: { color: '#E91E63' },
+            1: { color: '#2196F3' }
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }</script>
+    <script>       google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Kako so glasovali', 'Število'],
+          ['Glasovali ZA', 233268],
+          ['Glasovali PROTI', 279937],
+        ]);
+
+        var options = {
+          title: '',
+          slices: {
+            0: { color: '#E91E63' },
+            1: { color: '#2196F3' }
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+      }
+      
+</script>
+
+    <!-- end of custom post js -->
+
+</body>
+
+</html>
