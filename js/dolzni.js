@@ -252,10 +252,8 @@ $(document).ready(function() {
                 ('Piše: ' + $('#naturalijeemail').val() + '<br><br>' + $('#naturalijetextarea').val())
             );
 
-			$.post('https://djnd.slack.com/services/hooks/incoming-webhook?token=EApBJ7B21GFJmytVv5ZoNqoV',
+			$.post('https://hooks.slack.com/services/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',
 				JSON.stringify({
-					'channel': '#api-monitor',
-					'username': 'Apinator',
 					'text': 'Yo @channel! Nekdo je obljubil naturalije!',
 					'attachments': [
 						{
