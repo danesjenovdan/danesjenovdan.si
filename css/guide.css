@@ -519,6 +519,18 @@ a:hover {
 #polaroidti {
     cursor: pointer;
 }
+#mare {
+	background-image: url('../img/mare.png');
+}
+#kaja {
+	background-image: url('../img/kaja.png');
+}
+#zigaaljaz {
+	background-image: url('../img/zigaaljaz.png');
+}
+#mlacnik {
+	background-image: url('../img/mlacnik.jpg');
+}
 #filip {
     background-image: url('../img/filip.jpg');
 }
@@ -587,6 +599,25 @@ a:hover {
 }
 #tine {
 	background-image: url('../img/tine.jpg');
+}
+#darja {
+	background-image: url('../img/darja.jpg');
+}
+#mare:hover,
+#mare.hover {
+    background-image: url('../img/mare_hover.png');
+}
+#kaja:hover,
+#kaja.hover {
+    background-image: url('../img/kaja_hover.png');
+}
+#zigaaljaz:hover,
+#zigaaljaz.hover {
+    background-image: url('../img/zigaaljaz_hover.png');
+}
+#mlacnik:hover,
+#mlacnik.hover {
+    background-image: url('../img/mlacnik_hover.jpg');
 }
 #filip:hover,
 #filip.hover {
@@ -680,6 +711,11 @@ a:hover {
 #tadej.hover {
     background-image: url('../img/tadej_hover.jpg');
 }
+#darja:hover,
+#darja.hover {
+    background-image: url('../img/darja_hover.jpg');
+}
+
 .polaroid .image::after {
     content: '';
     width: 0;
