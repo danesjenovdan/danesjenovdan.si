@@ -720,10 +720,8 @@ $(document).ready(function () {
                 }, function (res) {});
             });
         }
-        $.post('https://djnd.slack.com/services/hooks/incoming-webhook?token=EApBJ7B21GFJmytVv5ZoNqoV',
+        $.post('https://hooks.slack.com/services/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',
             JSON.stringify({
-                'channel': '#api-monitor',
-                'username': 'Apinator',
                 'text': 'Yo @channel! Nekdo se je sign-upal na newsletter.',
                 'attachments': [
                     {
@@ -871,10 +869,8 @@ $(document).ready(function () {
                 });
             });
 
-            $.post('https://djnd.slack.com/services/hooks/incoming-webhook?token=EApBJ7B21GFJmytVv5ZoNqoV',
+            $.post('https://hooks.slack.com/services/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',
                 JSON.stringify({
-                    'channel': '#api-monitor',
-                    'username': 'Apinator',
                     'text': 'Yo @channel! Nekdo je podpisal pravice.',
                     'attachments': [
                         {
@@ -1190,10 +1186,8 @@ function onPause(id) {
 
 // SLACK API
 function postToSlack(text, title, value, callback) {
-    $.post('https://djnd.slack.com/services/hooks/incoming-webhook?token=EApBJ7B21GFJmytVv5ZoNqoV',
+    $.post('https://hooks.slack.com/services/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',
         JSON.stringify({
-            'channel': '#api-monitor',
-            'username': 'Apinator',
             'text': text,
             'attachments': [
                 {
