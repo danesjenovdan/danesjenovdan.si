@@ -286,7 +286,8 @@ function repaintMe() {
 
     if ($(window).width() < 992) {
         $('.tile-big').removeClass('tile-big').addClass('tile-small');
-        $('.agrumenttitle, .tiletext').hide();
+        //$('.agrumenttitle, .tiletext').hide();
+        $('.tiletext').hide();
 
         $('.tile-landing-obcasnik').removeClass('tile-landing-obcasnik').addClass('tile-small');
         $('.arrow-small-tile').removeClass('arrow-small-tile');
@@ -322,7 +323,7 @@ $(document).ready(function () {
             'margin-left': 2000
         }, 500, function () {
             $('.cookiewarning').slideUp(200);
-            updateConsent();
+            window.updateConsent && window.updateConsent();
         });
     });
     // get more info about cookies

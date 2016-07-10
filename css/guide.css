@@ -58,6 +58,9 @@ a:hover {
 .bck-light-green {
     background: #c2d8d8 !important;
 }
+.bck-dark-green {
+    background: #1d7373 !important;
+}
 .bck-red {
     background: #dd786b !important;
 }
@@ -341,6 +344,11 @@ a:hover {
     font-size: 24px;
     width: 45%;
 }
+.tile-small .agrumenttitle {
+    text-align: center;
+    width: auto;
+    padding-left: 0;
+}
 .tile-news .tiletitle {
     text-align: left;
     padding-left: 30px;
@@ -416,6 +424,14 @@ a:hover {
     height: 100%;
     width: 50%;
 }
+.tile-big.tile-triple .arrow-down-right {
+    height: 100%;
+    width: 33%;
+}
+.tile-small.tile-triple .arrow-down-right {
+    height: 50%;
+    width: 25%;
+}
 .tile-news .arrow-down-right {
     width: 25%;
 }
@@ -440,6 +456,25 @@ a:hover {
     font-weight: 300;
     padding-left: 30px;
     font-size: 24px;
+}
+.tile-triple {
+    padding-left: 33%;
+}
+.tile-small.tile-triple {
+    padding-left: 50%;
+}
+.tile-triple .tile-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 33%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.tile-small.tile-triple .tile-image {
+    width: 50%;
 }
 /* tabs */
 
@@ -3380,6 +3415,9 @@ input::-webkit-inner-spin-button {
     }
     .obcasnikheadertitle {
         margin-top: 15px;
+    }
+    .tile-small.tile-triple .arrow-down-right {
+        width: 50%;
     }
 }
 /* Small devices (tablets, 768px and up) */
