@@ -309,7 +309,7 @@ function repaintMe() {
 $(document).ready(function () {
 
     $('.languagetoggle').on('click', function() {
-        document.location.href = $(this).data('href');
+        window.location.href = $(this).data('href');
     });
 
     repaintMe();
@@ -402,7 +402,7 @@ $(document).ready(function () {
 
     $('.popupopen').on('click', function () {
 
-        //        document.location.href = document.location.href + '#popup-' + $(this).data('href');
+        //        window.location.href = window.location.href + '#popup-' + $(this).data('href');
 
         $('.popup').height($(window).height());
         $('#' + $(this).data('href')).addClass('open');
@@ -433,11 +433,15 @@ $(document).ready(function () {
 
         $('.popup').height($(window).height());
         $('#' + $(this).data('href')).addClass('open');
+        window.location.hash = 'popup-' + $(this).data('href');
         return false;
     });
 
     $('.popupclose, .btn-zapri').on('click', function () {
         $('.popup').removeClass('open');
+        var scr = document.body.scrollTop;
+        window.location.hash = "";
+        document.body.scrollTop = scr;
     });
 
     $('.btn-projekt').on('click', function () {
@@ -515,7 +519,7 @@ $(document).ready(function () {
             'eventLabel': 'facebook'
         });
 
-        url = 'https://www.facebook.com/dialog/share?app_id=301375193309601&display=popup&href=' + encodeURIComponent(document.location.href) + '&redirect_uri=' + encodeURIComponent(document.location.href) + '&ref=responsive';
+        url = 'https://www.facebook.com/dialog/share?app_id=301375193309601&display=popup&href=' + encodeURIComponent(window.location.href) + '&redirect_uri=' + encodeURIComponent(window.location.href) + '&ref=responsive';
         window.open(url, '_blank');
         return false;
     });
@@ -528,12 +532,12 @@ $(document).ready(function () {
             'eventLabel': 'twitter'
         });
 
-        url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title + ' ' + document.location.href);
+        url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title + ' ' + window.location.href);
         window.open(url, '_blank');
         return false;
     });
     $('.gp').on('click', function () {
-        url = 'https://plus.google.com/share?url=' + document.title + ' ' + encodeURIComponent(document.location.href);
+        url = 'https://plus.google.com/share?url=' + document.title + ' ' + encodeURIComponent(window.location.href);
         window.open(url, '_blank');
         ga('send', 'event', 'social', 'gplus');
         return false;
@@ -549,7 +553,7 @@ $(document).ready(function () {
 
     $('.tile').not('.tile-obcasnik-full, .tile-project, #tile-video, .tile-stream, .tile-nolink').on('click', function () {
         if (!$(this).data('target')) {
-            document.location.href = $(this).data('href');
+            window.location.href = $(this).data('href');
         } else {
             window.open($(this).data('href'), '_blank')
         }
@@ -585,7 +589,7 @@ $(document).ready(function () {
             'eventLabel': 'landing'
         });
 
-        document.location.href = 'http://danesjenovdan.si/'
+        window.location.href = 'http://danesjenovdan.si/'
     });
 
     $('#menuclose').on('click', function () {
@@ -633,7 +637,7 @@ $(document).ready(function () {
                 'eventLabel': _this.data('menu')
             });
 
-            document.location.href = 'http://agrument.danesjenovdan.si/';
+            window.location.href = 'http://agrument.danesjenovdan.si/';
         });
     });
     $('.menuitem').not('menuitem-agrument').on('click', function () {
@@ -651,7 +655,7 @@ $(document).ready(function () {
             //                    'scrollTop': $('#footer').offset().top
             //                }, 500);
 
-            if (document.location.href.indexOf(_this.data('menu')) === -1) {
+            if (window.location.href.indexOf(_this.data('menu')) === -1) {
 
                 ga('send', {
                     'hitType': 'event',
@@ -660,11 +664,11 @@ $(document).ready(function () {
                     'eventLabel': _this.data('menu')
                 });
 
-                document.location.href = 'http://danesjenovdan.si/' + _this.data('menu');
+                window.location.href = 'http://danesjenovdan.si/' + _this.data('menu');
             } else {
                 console.log(this)
                 if ($(_this).data('menu') == 'obcasnik/') {
-                    document.location.href = 'http://danesjenovdan.si/obcasnik/';
+                    window.location.href = 'http://danesjenovdan.si/obcasnik/';
                 } else {
                     $('#menu, #obcasnik').animate({
                         'top': 0
@@ -757,7 +761,7 @@ $(document).ready(function () {
             'eventLabel': 'podpri_nas'
         });
 
-        location.href = '/dolzni'
+        window.location.href = '/dolzni'
     });
 
     $('#izkaznica > a').on('click', function () {
@@ -795,7 +799,7 @@ $(document).ready(function () {
     });
 
     $('#polaroidti').on('click', function () {
-        document.location.href = $(this).data('href');
+        window.location.href = $(this).data('href');
     });
 
     $('.harmonikatitle').on('click', function () {
@@ -833,14 +837,25 @@ $(document).ready(function () {
     });
 
     $(document).on('keyup', function (e) {
-        if (e.keyCode == 27) {
+        if (e.keyCode == 27) { // 27 == ESC key
             if ($('#megavideo').length) {
                 $('#megavideo').removeClass('open');
                 player.api('pause');
             }
             $('.popup').removeClass('open');
+            var scr = document.body.scrollTop;
+            window.location.hash = "";
+            document.body.scrollTop = scr;
         }
     });
+
+    window.addEventListener("hashchange", function (e) {
+        if (window.location.hash.indexOf("#popup-") === 0) {
+            var id = window.location.hash.slice(7);
+            $('.popup').removeClass('open');
+            $('#' + id + '.popup').addClass("open");
+        }
+    }, false);
 
     $('#submitsignature').on('click', function () {
         if ($('#signaturename').val() != '' && $('#signaturelastname').val() != '' && $('#signatureemail').val() != '') {
@@ -929,7 +944,7 @@ $(document).ready(function () {
     }
 
     $('.arrow-obcasnik-left, .arrow-obcasnik-right, #sendemail').not('.nextproject, .previousproject').on('click', function () {
-        document.location.href = $(this).data('href');
+        window.location.href = $(this).data('href');
     });
 
     // listanje med projekti
@@ -940,6 +955,7 @@ $(document).ready(function () {
 
         window.setTimeout(function () {
             popup.next().addClass('open');
+            window.location.hash = "popup-" + popup.next().attr('id');
         }, 500);
     });
     $('.previousproject').on('click', function () {
@@ -949,6 +965,7 @@ $(document).ready(function () {
 
         window.setTimeout(function () {
             popup.prev().addClass('open');
+            window.location.hash = "popup-" + popup.prev().attr('id');
         }, 500);
 
         return false;
@@ -975,9 +992,9 @@ $(document).ready(function () {
     });
 
     // open popup
-    if (document.location.href.indexOf('#popup-') != '') {
+    if (window.location.href.indexOf('#popup-') != '') {
         $('.popup').height($(window).height());
-        $('#' + document.location.href.split('#popup-')[1]).addClass('open');
+        $('#' + window.location.href.split('#popup-')[1]).addClass('open');
     }
 
     // newsletter show name/lastname
