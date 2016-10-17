@@ -112,8 +112,8 @@
 
             <div class="row">
 
-                <!--<div class="col-md-9 col-sm-12">
-                    <div class="tile tile-big tile-triple">
+                <div class="col-md-9 col-sm-12">
+                    <div class="tile tile-big tile-triple" data-href="http://parlameter.si">
                         <div class="tile-image" style="background-image: url(img/parlameter_tile_logo.png);"></div>
                         <h1 class="tiletitle">Kmalu</h1>
                         <h2 class="agrumenttitle">Parlameter.si</h2>
@@ -122,21 +122,23 @@
                             <div class="icon-arrow-down-right icon-arrow-turn-up"></div>
                         </div>
                     </div>
-                </div>-->
+                </div>
 
                 <div class="col-md-3 col-sm-6">
-                    <div class="tile tile-small tile-background" data-href="/dolzni/#popup-majicapopup" data-img="img/majica1.jpg" alt="majica" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'majice', 'eventValue': 8})">
-                        <div class="tile-background-hover bck-gold">Kupi majico in nas podpri!</div>
+                    <div class="tile tile-small tile-background" data-href="/dolzni/#popup-rizlepopup" data-img="img/rizle-landing.jpg" alt="rizle" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'rizle', 'eventValue': 1})">
+                        <div class="tile-background-hover bck-gold">Kupi rizle in nas podpri!</div>
                         <div class="arrow-down-right noback">
                             <div class="icon-arrow-down-right"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="tile tile-small" data-href="/projekti" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'projekti', 'eventValue': 2})">
-                        <h1 class="tiletitle">Projekti</h1>
-                        <div class="arrow-down-right bck-red">
+                <div class="col-md-6 col-sm-6">
+                    <div id="lastagrument" class="tile tile-big tile-agrument" data-href="http://agrument.danesjenovdan.si/" data-target="_blank" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'zadnji_agrument', 'eventValue': 56})">
+                        <h1 class="tiletitle">Zadnji agrument</h1>
+                        <h2 class="agrumenttitle">Današnji agrument<br>še ni dozorel</h2>
+                        <p class="tiletext"></p>
+                        <div class="arrow-down-right" alt="Preberi zadnji agrument!">
                             <div class="icon-arrow-down-right"></div>
                         </div>
                     </div>
@@ -145,9 +147,18 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="tile tile-big" data-href="http://danesjenovdan.si/prostovid" data-target="_blank" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'zp_prostovid', 'eventValue': 910})">
                         <h1 class="tiletitle">Zadnji projekt</h1>
-                        <h2 class="agrumenttitle">Prostovid</h2>
-                        <p class="tiletext">Kritični študentski komentarji stanja slovenskega prostora v obliki nasprotujočih si vizij prihodnosti. Sporočilo je jasno: vsi smo soodgovorni za bodoč videz okolice!</p>
+                        <h2 class="agrumenttitle">Največji Uspehi Študentske Politike</h2>
+                        <p class="tiletext">Pregled največjih malverzacij, lumparij in ostalih “uspehov” študentske politike v zadnjih 20 letih.</p>
                         <div class="arrow-down-right bck-red">
+                            <div class="icon-arrow-down-right"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="tile tile-small tile-background" data-href="/dolzni/#popup-majicapopup" data-img="img/majica1.jpg" alt="majica" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'majice', 'eventValue': 8})">
+                        <div class="tile-background-hover bck-gold">Kupi majico in nas podpri!</div>
+                        <div class="arrow-down-right noback">
                             <div class="icon-arrow-down-right"></div>
                         </div>
                     </div>
@@ -165,18 +176,15 @@
                             <a href="#" class="hvalapravicerefreshagrument">Osveži formo</a>
                         </div>
                     </div>
-                    <!--
-                        <div class="arrow-down-right" alt="Preberi zadnji agrument!">
-                            <div class="icon-arrow-down-right"></div>
-                        </div>
--->
+                    <!--<div class="arrow-down-right" alt="Preberi zadnji agrument!">
+                        <div class="icon-arrow-down-right"></div>
+                    </div>-->
                 </div>
 
-
                 <div class="col-md-3 col-sm-6">
-                    <div class="tile tile-small tile-background" data-href="http://vimeo.com/91865881" id="tile-video" data-target="_blank" data-img="img/thumb_video1.png" alt="Oglej si video o pravicah!" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'video_pravice', 'eventValue': 3})">
-                        <div class="tile-background-hover background-video"></div>
-                        <div class="arrow-down-right noback hidden">
+                    <div class="tile tile-small" data-href="/krivi" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'krivi', 'eventValue': 7})">
+                        <h1 class="tiletitle">Kdo smo?</h1>
+                        <div class="arrow-down-right">
                             <div class="icon-arrow-down-right"></div>
                         </div>
                     </div>
@@ -191,41 +199,31 @@
                     </div>
                 </div>
 
+                <!--
                 <div class="col-md-3 col-sm-6">
-                    <div class="tile tile-small tile-background" data-href="/dolzni/#popup-rizlepopup" data-img="img/rizle-landing.jpg" alt="rizle" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'rizle', 'eventValue': 1})">
-                        <div class="tile-background-hover bck-gold">Kupi rizle in nas podpri!</div>
-                        <div class="arrow-down-right noback">
+                    <div class="tile tile-small" data-href="/projekti" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'projekti', 'eventValue': 2})">
+                        <h1 class="tiletitle">Projekti</h1>
+                        <div class="arrow-down-right bck-red">
                             <div class="icon-arrow-down-right"></div>
                         </div>
                     </div>
                 </div>
 
-				<div class="col-md-6 col-sm-6">
+                <div class="col-md-3 col-sm-6">
+                    <div class="tile tile-small tile-background" data-href="http://vimeo.com/91865881" id="tile-video" data-target="_blank" data-img="img/thumb_video1.png" alt="Oglej si video o pravicah!" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'video_pravice', 'eventValue': 3})">
+                        <div class="tile-background-hover background-video"></div>
+                        <div class="arrow-down-right noback hidden">
+                            <div class="icon-arrow-down-right"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
                     <div class="tile tile-big tile-landing-obcasnik" data-href="/obcasnik/bleferendum/" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'obcasnik_bleferendum', 'eventValue': 1112})">
                         <h1 class="tileobcasniktitle">O bleferendumu</h1>
                         <p class="obcasniktiledate">16. 12. 2015</p>
                         <p class="tiletext">Interaktivni manifest ZA.  Izčrpni odgovori na večino vprašanj, ki se porajajo med ljudmi zaradi zastraševanja, zavajanj in laži predlagateljev referenduma. Moralna panika je konstrukt, lgbtq družine pa realnost!"</p>
                         <div class="arrow-small-tile arrow-down-right bck-red">
-                            <div class="icon-arrow-down-right"></div>
-                        </div>
-                    </div>
-                </div>
-
-        <div class="col-md-6 col-sm-6">
-                    <div id="lastagrument" class="tile tile-big tile-agrument" data-href="http://agrument.danesjenovdan.si/" data-target="_blank" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'zadnji_agrument', 'eventValue': 56})">
-                        <h1 class="tiletitle">Zadnji agrument</h1>
-                        <h2 class="agrumenttitle">Današnji agrument<br>še ni dozorel</h2>
-                        <p class="tiletext"></p>
-                        <div class="arrow-down-right" alt="Preberi zadnji agrument!">
-                            <div class="icon-arrow-down-right"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="tile tile-small" data-href="/krivi" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'landing', 'eventAction': 'krivi', 'eventValue': 7})">
-                        <h1 class="tiletitle">Kdo smo?</h1>
-                        <div class="arrow-down-right">
                             <div class="icon-arrow-down-right"></div>
                         </div>
                     </div>
@@ -240,9 +238,7 @@
                         </div>
                     </div>
                 </div>
-
-
-
+                -->
             </div>
             <!-- end of row -->
             <div class="spacer" style="height: 100px; width: 100%;"></div>
