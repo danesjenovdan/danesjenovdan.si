@@ -259,7 +259,7 @@ if (document.createElement('svg').getAttributeNS) {
 // end of SVG magic checkboxes
 
 function repaintMe() {
-    $('.tile').not('.tile-project, .tile-stream').height($('.tile-small').width());
+    $('.tile').not('.tile-project, .tile-stream').height($('.tile-small').not('.tile-triple, .tile-big-disabled').width());
     $('.tile-project').equalizeHeights();
     $('.polaroidtext').equalizeHeights();
     $('.tile-obcasnik').equalizeHeights();
