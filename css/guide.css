@@ -658,6 +658,15 @@ a:hover {
 #darja {
 	background-image: url('../img/darja.jpg');
 }
+#mato {
+	background-image: url('../img/mato.png');
+}
+#miha {
+	background-image: url('../img/miha.png');
+}
+#zeljka {
+	background-image: url('../img/zeljka.png');
+}
 #mare:hover,
 #mare.hover {
     background-image: url('../img/mare_hover.png');
@@ -769,6 +778,18 @@ a:hover {
 #darja:hover,
 #darja.hover {
     background-image: url('../img/darja_hover.jpg');
+}
+#mato:hover,
+#mato.hover {
+	background-image: url('../img/mato_hover.png');
+}
+#miha:hover,
+#miha.hover {
+	background-image: url('../img/miha_hover.png');
+}
+#zeljka:hover,
+#zeljka.hover {
+	background-image: url('../img/zeljka_hover.png');
 }
 
 .polaroid .image::after {
