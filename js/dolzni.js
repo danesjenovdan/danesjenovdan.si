@@ -21,7 +21,7 @@ var rizleHTML = [	'<div class="vozicekitemcontainer">',
 					'</div>'].join('\n'); // TODO update picture
 
 var salckaHTML = [	'<div class="vozicekitemcontainer">',
-					'<div class="vozicekitemimage" data-img="../../img/salcka1.jpg" style="background-image: url(../../img/salcka1.jpg); "></div>',
+					'<div class="vozicekitemimage" data-img="../../img/salca1.jpg" style="background-image: url(../../img/salca1.jpg); "></div>',
 					'<h1 class="vozicekitemtitle">Šalčka</h1>',
 					'<p class="vozicekitemproperty">&nbsp;</p>',
 					'<p class="vozicekitemproperty">&nbsp;</p>',
