@@ -144,7 +144,16 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="card card-dolzni popupopen" data-href="salckapopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'salca', 'eventAction': 'step1'})">
+                                <div class="dolzniimage" data-img="/img/salca_cover.jpg"></div>
+                                <h1 class="dolznicardtitle dolznicardtitle-big">šalčko</h1>
+                                <div class="arrow-down-right arrow-dolzni bck-gold">
+                                    <div class="icon icon-arrow-down-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
                             <div class="card card-dolzni popupopen" data-href="majicapopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'majica', 'eventAction': 'step1'})">
                                 <div class="dolzniimage" data-img="/img/majica-cover.jpg"></div>
                                 <h1 class="dolznicardtitle dolznicardtitle-big">majico</h1>
@@ -153,7 +162,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <!--<div class="col-md-4 col-sm-6">
                             <div class="card card-dolzni popupopen" data-href="rizlepopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'rizle', 'eventAction': 'step1'})">
                                 <div class="dolzniimage" data-img="/img/rizle-cover.jpg"></div>
                                 <h1 class="dolznicardtitle dolznicardtitle-big">rizle</h1>
@@ -161,7 +170,7 @@
                                     <div class="icon icon-arrow-down-right"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
 
                     <div class="row">
@@ -385,6 +394,7 @@
                                             <div class="artikeltoggle artikeltoggle-circle">M</div>
                                             <div class="artikeltoggle artikeltoggle-circle">L</div>
                                             <div class="artikeltoggle artikeltoggle-circle">XL</div>
+                                            <div class="artikeltoggle artikeltoggle-circle">XXL</div>
                                         </div>
                                         <p class="artikellable noshake">Količina</p>
                                         <div class="artikeltogglecontainer noshake">
@@ -468,7 +478,52 @@
                 </div>
             </div>
 
-
+            <div class="popup popup-dolzni centermycontentvertically" id="salckapopup">
+                <div class="popupclose">
+                    <div class="icon-close"></div>
+                </div>
+                <div class="container popupcontainer centermevertically">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 centermycontent">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1 class="artikeltitle">Šalčka, da te zjutraj opomni, da je danes nov dan</h1>
+                                    <p class="artikeltext">Z nakupom poskrbiš za simpatičen vnos tekočih poživil, kot so kava, čaj ali vroča čokolada, pa tudi za poživitev našega delovanja.</p>
+                                    <form class="artikelform">
+                                        <p class="artikellable noshake">Količina</p>
+                                        <div class="artikeltogglecontainer noshake">
+                                            <div class="artikelcounter"><span class="artikelnumber">1</span>
+                                                <div class="plusone"></div>
+                                                <div class="minusone"></div>
+                                            </div>
+                                        </div>
+                                        <p class="artikellable noshake">Cena</p>
+                                        <div class="artikeltogglecontainer noshake">
+                                            <p class="artikelprice">14 €</p>
+                                        </div>
+                                        <div class="artikelfinishcontainer">
+                                            <div class="btn btn-finish btn-finish-salca">Plačaj!</div>
+                                            <!-- <p class="artikelfinishor hidden-xs"><a href="#" class="artikelfinishorlink">dodaj izdelek v voziček in še malo prebrskaj po policah</a> -->
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6 hidden-xs hidden-sm">
+                                    <div class="artikelgallerycontainer">
+                                        <div data-img="/img/salca1.jpg" class="gallerymainimage"></div>
+                                        <div class="gallerythumbscontainer">
+                                            <div class="gallerythumb" data-img="/img/salca1.jpg"></div>
+                                            <div class="gallerythumb" data-img="/img/salca2.jpg"></div>
+                                            <div class="gallerythumb" data-img="/img/salca3.jpg"></div>
+                                            <div class="gallerythumb" data-img="/img/salca4.jpg"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
