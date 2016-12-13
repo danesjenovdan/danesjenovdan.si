@@ -20,6 +20,17 @@ var rizleHTML = [	'<div class="vozicekitemcontainer">',
 					'</div>',
 					'</div>'].join('\n'); // TODO update picture
 
+var salckaHTML = [	'<div class="vozicekitemcontainer">',
+					'<div class="vozicekitemimage" data-img="../../img/salcka1.jpg" style="background-image: url(../../img/salcka1.jpg); "></div>',
+					'<h1 class="vozicekitemtitle">Šalčka</h1>',
+					'<p class="vozicekitemproperty">&nbsp;</p>',
+					'<p class="vozicekitemproperty">&nbsp;</p>',
+					'<div class="vozicekitemcountercontainer">',
+					'<div class="vozicekitemcounter" data-name="{{ itemname }}"><span class="artikelnumber">{{ itemquantity }}</span><div class="plusone" onclick="addItem($(this).parent().data(\'name\')); renderCart();"></div><div class="minusone" onclick="removeItem(getItemIdByName($(this).parent().data(\'name\'))); renderCart();"></div></div>',
+					'<div class="vozicekitemremove" data-name="{{ itemname }}" onclick="removeItemFamily(getItemIdByName($(this).data(\'name\'))); renderCart();">Odstrani <span class="odstranix">×</span></div>',
+					'</div>',
+					'</div>'].join('\n'); // TODO update picture
+
 var racunHTML = [	'<div class="vozicekracunitemcontainer">',
 					'<div class="vozicekracunitem">{{ itemname }}</div>',
 					'<div class="vozicekracunprice">{{ itemtotalprice }} €</div>',
@@ -165,6 +176,10 @@ function renderRizle(itemquantity, itemname) {
 	return rizleHTML.replace('{{ itemquantity }}', itemquantity).replace(/\{\{ itemname \}\}/g, itemname);
 }
 
+function renderSalcka(itemquantity, itemname) {
+	return salckaHTML.replace('{{ itemquantity }}', itemquantity).replace(/\{\{ itemname \}\}/g, itemname);
+}
+
 function renderRacun(itemname, itemtotalprice) {
 	return racunHTML.replace('{{ itemname }}', itemname).replace('{{ itemtotalprice }}', itemtotalprice);
 }
@@ -194,7 +209,7 @@ function renderCart() {
 				$('.vozicekracun').before(renderMajica(items[majicaid]['details']['type'], items[majicaid]['details']['size'], items[majicaid]['quantity'], items[majicaid]['name']));
 				// na računu
 				$('.vozicekracun').prepend(renderRacun('Majica ' + items[majicaid]['details']['size'] + ' ' + items[majicaid]['details']['type'] + ' kroj', (parseInt(items[majicaid]['quantity']) * parseInt(items[majicaid]['price']))));
-			} else {
+			} else if (e['name'].indexOf('rizle') != -1) {
 				// rizle so
 
 				rizleid = getItemIdByName(e['name']);
@@ -202,6 +217,10 @@ function renderCart() {
 				$('.vozicekracun').before(renderRizle(items[rizleid]['quantity'], items[rizleid]['name']));
 				// na računu
 				$('.vozicekracun').prepend(renderRacun('Rizle', (items[rizleid]['quantity'] * items[rizleid]['price'])));
+			} else {
+				salcaid = getItemIdByName(e['name']);
+				$('.vozicekracun').before(renderSalcka(items[salcaid]['quantity'], items[salcaid]['name']));
+				$('.vozicekracun').prepend(renderRacun('Šalčka', (items[salcaid]['quantity'] * items[salcaid]['price'])));
 			}
 		}
 	});
@@ -362,6 +381,30 @@ $(document).ready(function() {
         window.open('vozicek#checkout', '_blank');
 	});
 
+    $('.btn-finish-salca').on('click', function() {
+
+        // ker ni drugega mora bit salca
+        // generate data
+        var name = 'salca'
+        var quantity = $(this).parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text();
+        var details = {}
+
+        // ga za salca step2
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'salca',
+            'eventAction': 'step2',
+            'eventLabel': 'salca' + quantity
+        });
+
+        // add item
+        addItem(name, quantity, details, 14);
+
+
+        $(this).parents('.popup').removeClass('open');
+
+        window.open('vozicek#checkout', '_blank');
+	});
 	$('.gallerymainimage, .gallerythumb, .vozicekitemimage, .pregleditemimage').each(function(i, e) {
 		$(e).css('background-image', 'url(' + $(e).data('img') + ')');
 	});
@@ -386,9 +429,11 @@ $(document).ready(function() {
 		$(this).addClass('dolzniselected');
 
         if ($(this).text() == '"moški"') {
-            $(this).parent().next().next().children('div:nth-child(1), div:nth-child(2)').addClass('hidden');
+            $(this).parent().next().next().children('div:nth-child(1), div:nth-child(2), div:nth-child(3)').addClass('hidden');
+			$(this).parent().next().next().children('div:nth-child(5)').removeClass('hidden');
         } else if ($(this).text() == '"ženski"') {
             $(this).parent().next().next().children('div:nth-child(1), div:nth-child(2)').removeClass('hidden');
+			$(this).parent().next().next().children('div:nth-child(3), div:nth-child(5)').addClass('hidden');
         }
 
 		// activate button
