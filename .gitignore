@@ -35,6 +35,6 @@ donacija.js
 mailing.js
 
 /eng/*
-en/
+/en
 
 node_modules
