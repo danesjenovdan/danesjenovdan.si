@@ -38,3 +38,7 @@ mailing.js
 /en
 
 node_modules
+
+/dist
+/dist_server
+/.vscode
