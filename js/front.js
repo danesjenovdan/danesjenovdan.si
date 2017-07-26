@@ -934,9 +934,10 @@ $(document).ready(function () {
     }
 
     $.get('http://djapi.knedl.si/getExposed/exposed/', function (r) {
+        console.log(r);
         $('#izpostavljeno').children('.tiletitle').text(r.title);
         $('#izpostavljeno').children('.tiletext').text(r.label);
-        $('#izpostavljeno').attr('href', r.url);
+        $('#izpostavljeno').data('href', r.url);
     });
 
     $('.arrow-obcasnik-left, .arrow-obcasnik-right, #sendemail').not('.nextproject, .previousproject').on('click', function () {
