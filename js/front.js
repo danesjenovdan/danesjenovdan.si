@@ -933,6 +933,12 @@ $(document).ready(function () {
         })
     }
 
+    $.get('http://djapi.knedl.si/bla/', function (r) {
+        $('#izpostavljeno').children('.tiletitle').text(r.title);
+        $('#izpostavljeno').children('.tiletext').text(r.text);
+        $('#izpostavljeno').attr('href', r.link);
+    });
+
     $('.arrow-obcasnik-left, .arrow-obcasnik-right, #sendemail').not('.nextproject, .previousproject').on('click', function () {
         window.location.href = $(this).data('href');
     });
@@ -1027,6 +1033,15 @@ $(document).ready(function () {
     });
     $('#poslovno2013').on('click', function () {
         window.open('./dokumenti/2013/Poslovno%20porocilo%202013.pdf', '_blank');
+    });
+    $('#poslovno2014').on('click', function () {
+        window.open('./dokumenti/2014/Poslovno%20porocilo%202014.pdf', '_blank');
+    });
+    $('#poslovno2015').on('click', function () {
+        window.open('./dokumenti/2015/Poslovno%20porocilo%202015.pdf', '_blank');
+    });
+    $('#poslovno2016').on('click', function () {
+        window.open('./dokumenti/2016/Poslovno%20porocilo%202016.pdf', '_blank');
     });
 
 

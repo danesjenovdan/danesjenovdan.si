@@ -496,6 +496,27 @@ a:hover {
 .tile-small.tile-triple .tile-image {
     width: 50%;
 }
+
+.tile-live {
+    background-color: #dd786b;
+}
+.tile-live .tiletitle {
+    font-weight: 700;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
+}
+.tile-live .tiletext {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+}
+.tile-live .arrow-down-right {
+    background: transparent;
+}
+
+
 /* tabs */
 
 .tab {
