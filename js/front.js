@@ -933,10 +933,10 @@ $(document).ready(function () {
         })
     }
 
-    $.get('http://djapi.knedl.si/bla/', function (r) {
+    $.get('http://djapi.knedl.si/getExposed/exposed/', function (r) {
         $('#izpostavljeno').children('.tiletitle').text(r.title);
-        $('#izpostavljeno').children('.tiletext').text(r.text);
-        $('#izpostavljeno').attr('href', r.link);
+        $('#izpostavljeno').children('.tiletext').text(r.label);
+        $('#izpostavljeno').attr('href', r.url);
     });
 
     $('.arrow-obcasnik-left, .arrow-obcasnik-right, #sendemail').not('.nextproject, .previousproject').on('click', function () {
