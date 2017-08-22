@@ -748,7 +748,7 @@ $(document).ready(function() {
       'eventLabel': 'podpri_nas'
     });
 
-    window.location.href = '/dolzni'
+    window.location.href = 'http://danesjenovdan.si/dolzni'
   });
 
   $('#izkaznica > a').on('click', function() {
