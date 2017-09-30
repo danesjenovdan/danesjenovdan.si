@@ -55,59 +55,67 @@
     });
   }
 
-  var LANDING_TEMPLATES = {
+  var templates = {
     makeProjectTile: function (title, text, url, image) {
       return '\
-      <div class="col-md-4 col-sm-6 flex-col">\
-        <div class="landing-tile">\
-          <a href="' + url + '" target="_blank" class="landing-tile__link">\
-            <div class="landing-tile__image" style="background-image: url(\'' + image + '\');">\
-              <span class="icon-arrow-right"></span>\
-            </div>\
-            <div class="landing-tile__content">\
-              <h1 class="landing-tile__title">' + title + '</h1>\
-              <p class="landing-tile__text">' + text + '</p>\
-            </div>\
-          </a>\
+        <div class="col-md-4 col-sm-6 flex-col">\
+          <div class="landing-tile">\
+            <a href="' + url + '" target="_blank" class="landing-tile__link">\
+              <div class="landing-tile__image" style="background-image: url(\'' + image + '\');">\
+                <span class="icon-arrow-right"></span>\
+              </div>\
+              <div class="landing-tile__content">\
+                <h1 class="landing-tile__title">' + title + '</h1>\
+                <div class="landing-tile__text">' + text + '</div>\
+              </div>\
+            </a>\
+          </div>\
         </div>\
-      </div>\
-    ';
+      ';
     },
     makeAgrumentTile: function (title, text, date, image, imageSource, imageSourceUrl) {
       return '\
-      <div class="col-md-12">\
-        <div class="tile tile-obcasnik-full tile-newagrument" data-date="' + date + '">\
-          <h1 class="newagrumenttitle">' + title + '</h1>\
-          <img src="' + image + '" class="img-responsive img-newagrument">\
-          <div class="newagrumentimgsource"><a href="' + imageSourceUrl + '" target="_blank">' + imageSource + '</a></div>\
-          <div class="row">\
-            <div class="col-md-3">\
-              <p class="newagrumentdate">' + date + '</p>\
-              <p class="newagrumentcopyme">Skopiraj povezavo!</p>\
-              <div class="newagrumenturlcontainer">\
-                <input class="form-control newagrumenturl" value="http://agrument.danesjenovdan.si/' + date + '">\
+        <div class="col-md-12">\
+          <div class="tile tile-obcasnik-full tile-newagrument" data-date="' + date + '">\
+            <h1 class="newagrumenttitle">' + title + '</h1>\
+            <img src="' + image + '" class="img-responsive img-newagrument">\
+            <div class="newagrumentimgsource"><a href="' + imageSourceUrl + '" target="_blank">' + imageSource + '</a></div>\
+            <div class="row">\
+              <div class="col-md-3">\
+                <p class="newagrumentdate">' + date + '</p>\
+                <p class="newagrumentcopyme">Skopiraj povezavo!</p>\
+                <div class="newagrumenturlcontainer">\
+                  <input class="form-control newagrumenturl" value="http://agrument.danesjenovdan.si/' + date + '">\
+                </div>\
+                <div class="agrumentsocialcontainer">\
+                  <div class="circle-agrument bck-green circle fb">\
+                    <div class="pulse"></div>\
+                    <div class="icon icon-facebook"></div>\
+                  </div>\
+                  <div class="circle-agrument bck-green circle tw">\
+                    <div class="pulse"></div>\
+                    <div class="icon icon-twitter"></div>\
+                  </div>\
+                  <div class="circle-agrument bck-green circle gp">\
+                    <div class="pulse"></div>\
+                    <div class="icon icon-googleplus"></div>\
+                  </div>\
+                </div>\
               </div>\
-              <div class="agrumentsocialcontainer">\
-                <div class="circle-agrument bck-green circle fb">\
-                  <div class="pulse"></div>\
-                  <div class="icon icon-facebook"></div>\
-                </div>\
-                <div class="circle-agrument bck-green circle tw">\
-                  <div class="pulse"></div>\
-                  <div class="icon icon-twitter"></div>\
-                </div>\
-                <div class="circle-agrument bck-green circle gp">\
-                  <div class="pulse"></div>\
-                  <div class="icon icon-googleplus"></div>\
-                </div>\
-              </div>\
+              <div class="col-md-9">' + text + '</div>\
             </div>\
-            <div class="col-md-9">' + text + '</div>\
           </div>\
         </div>\
-      </div>\
-    ';
-    }
+      ';
+    },
+    makeParlameterTile: function (title, text, url) {
+      return '\
+        <div class="landing-tile__content">\
+          <h3 class="landing-tile__title landing-tile__title--small">' + title + '</h3>\
+          <div class="landing-tile__text landing-tile__text--small">' + text + '</div>\
+        </div>\
+      ';
+    },
   }
 
   $.getJSON('http://djapi.knedl.si/djndLanding/projects/3/')
@@ -118,7 +126,7 @@
       var container = $('#landing-append-projects');
       for (var i = 0; i < json.data.length; i++) {
         var data = json.data[i];
-        var tile = LANDING_TEMPLATES.makeProjectTile(data.title, data.label, data.url, data.image);
+        var tile = templates.makeProjectTile(data.title, data.label, data.url, data.image);
         container.append(tile);
       }
     });
@@ -126,12 +134,19 @@
   $.getJSON('http://agrument.danesjenovdan.si/getfullagrument/')
     .done(function (json) {
       var container = $('#landing-append-agrument');
-      var tile = LANDING_TEMPLATES.makeAgrumentTile(json.title, json.content, json.date, json.image, json.source, json['source-url']);
+      var tile = templates.makeAgrumentTile(json.title, json.content, json.date, json.image, json.source, json['source-url']);
       container.append(tile);
 
       var urlElement = container.find('.newagrumenturl');
       var titleElement = container.find('.newagrumenttitle')
       generateSocialButtons(urlElement, titleElement);
       fetchAgrumentShortUrl(urlElement);
+    });
+
+  $.getJSON('http://djapi.knedl.si/djndLanding/parlameter/1/')
+    .done(function (data) {
+      var container = $('#landing-append-parlameter');
+      var tile = templates.makeParlameterTile(data.title, data.label, data.url);
+      container.append(tile);
     });
 }());

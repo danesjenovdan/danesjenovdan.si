@@ -3982,10 +3982,22 @@ input::-webkit-inner-spin-button {
     text-align: left;
 }
 
+.landing-tile__title--small {
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: none;
+    font-weight: 600;
+}
+
 .landing-tile__text {
     margin-top: 25px;
     font-size: 18px;
     font-weight: 300;
+}
+
+.landing-tile__text--small {
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .landing-tile__link,
@@ -4025,6 +4037,42 @@ input::-webkit-inner-spin-button {
 
 .landing-tile__link:hover .landing-tile__image .icon-arrow-right {
     opacity: 1;
+}
+
+.landing-tile__separator {
+    border-top-width: 6px;
+    border-top-color: #f0efef;
+    margin: 0 8px;
+}
+
+.landing-tile__text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.landing-tile__text ul li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.landing-tile__text ul li::before {
+    content: '\e605';
+    display: block;
+    color: #f0efef;
+    position: absolute;
+    left: 2px;
+    top: 4px;
+
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 /* end of new landing sections */
 
