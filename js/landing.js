@@ -110,9 +110,24 @@
     },
     makeParlameterTile: function (title, text, url) {
       return '\
-        <div class="landing-tile__content">\
-          <h3 class="landing-tile__title landing-tile__title--small">' + title + '</h3>\
-          <div class="landing-tile__text landing-tile__text--small">' + text + '</div>\
+        <div class="col-md-12">\
+          <div class="landing-tile">\
+            <a href="' + url + '" target="_blank" class="landing-tile__link">\
+              <div class="landing-tile__content row">\
+                <div class="col-xs-4">\
+                  <img src="/img/parlameter_logo.png" class="img-responsive">\
+                </div>\
+                <div class="col-xs-8">\
+                  <i>Orodje za uporabniku prijazno analizo parlametarnega dogajanja</i>\
+                </div>\
+              </div>\
+              <hr class="landing-tile__separator">\
+              <div class="landing-tile__content">\
+                <h3 class="landing-tile__title landing-tile__title--small">' + title + '</h3>\
+                <div class="landing-tile__text landing-tile__text--small">' + text + '</div>\
+              </div>\
+            </a>\
+          </div>\
         </div>\
       ';
     },
