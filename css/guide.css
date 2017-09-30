@@ -136,7 +136,7 @@ a:hover {
     padding-bottom: 11px;
     background-color: #e7eaea;
     text-align: center;
-    margin-top: 25px;
+    /* margin-top: 25px; */
 }
 .cookiewarning-green {
     background-color: #ede6e5;
@@ -3266,7 +3266,7 @@ input::-webkit-inner-spin-button {
     padding-top: 0;
 }
 .streamtitle {
-    width 100%;
+    width: 100%;
     height: 60px;
     background-image: url(../img/editorspick.png);
 }
@@ -3913,3 +3913,117 @@ input::-webkit-inner-spin-button {
     }
 }
 /* end of agrument tile */
+
+/* new landing sections */
+.landing-section {
+    margin-bottom: 32px;
+}
+
+.landing-section__header h2 {
+    font-family: "Titillium Web";
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.landing-section__header h2 .icon-arrow-down-right {
+    font-size: 20px;
+}
+
+.landing-tile {
+    margin-bottom: 32px;
+    background-color: #fff;
+}
+
+.landing-tile__image {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-color: #fff;
+    text-align: center;
+}
+
+.landing-tile__image::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #dd786b;
+}
+
+.landing-tile__image::after {
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 15px 15px 15px;
+    border-color: transparent transparent #ffffff transparent;
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+}
+
+.landing-tile__content {
+    padding: 25px;
+}
+
+.landing-tile__title {
+    font-size: 39px;
+    line-height: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: left;
+}
+
+.landing-tile__text {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.landing-tile__link,
+.landing-tile__link:hover,
+.landing-tile__link:active,
+.landing-tile__link:focus,
+.landing-tile__link:visited {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.landing-tile__image::before,
+.landing-tile__image .icon-arrow-right {
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.landing-tile__image .icon-arrow-right {
+    position: absolute;
+    top: 63px;
+    left: 0;
+    width: 100%;
+    color: #272727;
+    z-index: 2;
+    font-size: 56px;
+}
+
+.landing-tile__link:hover .landing-tile__image::before {
+    opacity: 0.8;
+}
+
+.landing-tile__link:hover .landing-tile__image .icon-arrow-right {
+    opacity: 1;
+}
+/* end of new landing sections */

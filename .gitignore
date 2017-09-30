@@ -42,3 +42,4 @@ node_modules
 /dist
 /dist_server
 /.vscode
+/TODO.todo
