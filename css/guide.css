@@ -4027,3 +4027,13 @@ input::-webkit-inner-spin-button {
     opacity: 1;
 }
 /* end of new landing sections */
+
+/* classes for equal height of children, put .flex-row on .row and .flex-col on .col-* children */
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-col {
+    display: flex;
+}

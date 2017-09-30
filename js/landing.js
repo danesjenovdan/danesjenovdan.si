@@ -58,7 +58,7 @@
   var LANDING_TEMPLATES = {
     makeProjectTile: function (title, text, url, image) {
       return '\
-      <div class="col-md-4 col-sm-6">\
+      <div class="col-md-4 col-sm-6 flex-col">\
         <div class="landing-tile">\
           <a href="' + url + '" target="_blank" class="landing-tile__link">\
             <div class="landing-tile__image" style="background-image: url(\'' + image + '\');">\
@@ -121,7 +121,6 @@
         var tile = LANDING_TEMPLATES.makeProjectTile(data.title, data.label, data.url, data.image);
         container.append(tile);
       }
-      $('.landing-tile').equalizeHeights();
     });
 
   $.getJSON('http://agrument.danesjenovdan.si/getfullagrument/')
