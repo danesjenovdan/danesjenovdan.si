@@ -131,6 +131,23 @@
         </div>\
       ';
     },
+    makeNewsTile: function (title, text, url, date) {
+      if (text.length >= 445) {
+        text = text.slice(0, 445) + '...';
+        text += '<a href="' + url + '" class="landing-tile__link-more">VEČ <span class="icon-arrow-down-right"></span></a>';
+      }
+      return '\
+        <div class="col-md-12">\
+          <div class="landing-tile landing-tile--news">\
+            <div class="landing-tile__content">\
+              <h3 class="landing-tile__title"><a href="' + url + '" class="col-gray">' + title + '</a></h3>\
+              <div class="landing-tile__date">' + date + '</div>\
+              <div class="landing-tile__text"><p>' + text + '</p></div>\
+            </div>\
+          </div>\
+        </div>\
+      ';
+    },
   }
 
   $.getJSON('http://djapi.knedl.si/djndLanding/projects/3/')
@@ -163,5 +180,18 @@
       var container = $('#landing-append-parlameter');
       var tile = templates.makeParlameterTile(data.title, data.label, data.url);
       container.append(tile);
+    });
+
+  $.getJSON('http://djapi.knedl.si/djndLanding/news/4/')
+    .done(function (json) {
+      if (json.status != 'OK') {
+        return;
+      }
+      var container = $('#landing-append-news');
+      for (var i = 0; i < json.data.length; i++) {
+        var data = json.data[i];
+        var tile = templates.makeNewsTile(data.title, data.label, data.url, data.date);
+        container.append(tile);
+      }
     });
 }());
