@@ -4111,7 +4111,8 @@ input::-webkit-inner-spin-button {
 }
 
 .landing-tile__link:hover .icon-arrow-down-right,
-.landing-tile__link-more:hover .icon-arrow-down-right {
+.landing-tile__link-more:hover .icon-arrow-down-right,
+.landing-section__header h2 a:hover + .icon-arrow-down-right {
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
@@ -4156,7 +4157,8 @@ input::-webkit-inner-spin-button {
     text-decoration: underline;
 }
 
-.landing-tile__link-more .icon-arrow-down-right {
+.landing-tile__link-more .icon-arrow-down-right,
+.landing-section__header h2 a + .icon-arrow-down-right {
     display: inline-block;
 }
 /* end of new landing sections */
