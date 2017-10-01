@@ -76,7 +76,7 @@
     makeAgrumentTile: function (title, text, date, image, imageSource, imageSourceUrl) {
       return '\
         <div class="col-md-12">\
-          <div class="tile tile-obcasnik-full tile-newagrument" data-date="' + date + '">\
+          <div class="landing-tile tile-obcasnik-full tile-newagrument" data-date="' + date + '">\
             <h1 class="newagrumenttitle">' + title + '</h1>\
             <img src="' + image + '" class="img-responsive img-newagrument">\
             <div class="newagrumentimgsource"><a href="' + imageSourceUrl + '" target="_blank">' + imageSource + '</a></div>\
