@@ -132,9 +132,13 @@
       ';
     },
     makeNewsTile: function (title, text, url, date) {
-      if (text.length >= 445) {
-        text = text.slice(0, 445) + '...';
-        text += '<a href="' + url + '" class="landing-tile__link-more">VEČ <span class="icon-arrow-down-right"></span></a>';
+      if (text.substr(0, 3) === '<p>' && text.substr(-4) === '</p>') {
+        text = text.slice(3, -4);
+      }
+      // TODO: fix this when news site exists
+      if (true || text.length >= 445) {
+        // text = text.slice(0, 445) + '...';
+        text += ' <a href="' + url + '" class="landing-tile__link-more">VEČ <span class="icon-arrow-down-right"></span></a>';
       }
       return '\
         <div class="col-md-12">\
