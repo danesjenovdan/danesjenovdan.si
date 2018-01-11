@@ -132,6 +132,15 @@
       ';
     },
     makeNewsTile: function (title, text, url, date) {
+      var day = date.split('-')[2];
+      var month = date.split('-')[1];
+      var year = date.split('-')[0];
+      if (day.substr(0,1) === '0') {
+        day = day.substr(1);
+      }
+      if (month.substr(0,1) === '0') {
+        month = month.substr(1);
+      }
       if (text.substr(0, 3) === '<p>' && text.substr(-4) === '</p>') {
         text = text.slice(3, -4);
       }
@@ -145,7 +154,7 @@
           <div class="landing-tile landing-tile--news">\
             <div class="landing-tile__content">\
               <h3 class="landing-tile__title"><a href="' + url + '" class="col-gray">' + title + '</a></h3>\
-              <div class="landing-tile__date">' + date + '</div>\
+              <div class="landing-tile__date">' + day + '. ' + month + '. ' + year + '</div>\
               <div class="landing-tile__text"><p>' + text + '</p></div>\
             </div>\
           </div>\
