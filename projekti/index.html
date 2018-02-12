@@ -136,6 +136,42 @@
                 </div>-->
 
                 <div class="col-md-4 col-sm-6">
+                    <div class="tile tile-project" id="ahmad" data-href="ahmadinfo">
+                        <div class="obcasniktileimage" style="height:180px;" data-img="img/ahmad.png" style="max-width:auto"></div>
+                        <h1 class="projecttiletitle">Ahmad mora ostati</h1>
+                        <p class="projecttiletext">Objavili smo peticijo Ambasade Rog, ki je od Ministrstva za notranje zadeve zahtevala, da ustavi deportacijo sirskega begunca Ahmada Šamija. Pritisk javnosti je bil dovolj za dvodnevno zamrznitev, v četrtek, 16. novembra, pa je vlada odločila, da mora Šami kljub vsemu oditi.</p>
+                        <div class="projectnumbercontainer">
+                            <div class="projectnumber" style="padding-top: 15px;padding-bottom: 15px;">
+                                <p class="projectnumbertext">Podpisalo</p>
+                                <p class="projectnumbernumber js-ahmad-counter" style="font-size: 28px; line-height: 60px">{{counter}}</p>
+                                <p class="projectnumbertext">ljudi</p>
+                            </div>
+                            <div class="arrow-down-right bck-red arrow-project">
+                                <div class="icon-arrow-down-right icon-arrow-turn-up"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4 col-sm-6">
+                    <div class="tile tile-project" id="mixer" data-href="mixerinfo">
+                        <div class="obcasniktileimage" style="height:180px;" data-img="img/mikser-soocenj.png" style="max-width:auto"></div>
+                        <h1 class="projecttiletitle">Mikser soočenj</h1>
+                        <p class="projecttiletext">Za oktobrske predsedniške volitve smo v sodelovanju s POP TV pripravili spletno aplikacijo, ki omogoča enostavno obdelavo in deljenje izsekov iz predvolilnih soočenj. Uporabniki so z njeno pomočjo pripravili in objavili številne satirične in norčave videe, orodje pa bomo ob podobnih priložnostih spet ponudili v uporabo!</p>
+                        <div class="projectnumbercontainer">
+                            <div class="projectnumber" style="padding-top: 15px;padding-bottom: 15px;">
+                                <p class="projectnumbertext">{{text}}</p>
+                                <p class="projectnumbernumber" style="font-size: 28px; line-height: 60px">{{counter}}</p>
+                                <p class="projectnumbertext">{{text2}}</p>
+                            </div>
+                            <div class="arrow-down-right bck-red arrow-project">
+                                <div class="icon-arrow-down-right icon-arrow-turn-up"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="col-md-4 col-sm-6">
                     <div class="tile tile-project" id="razglednica" data-href="razglednicainfo">
                         <div class="obcasniktileimage" style="height:180px;" data-img="img/razglednica-z-visa.png" style="max-width:auto"></div>
                         <h1 class="projecttiletitle">Razglednica z Visa</h1>
@@ -815,7 +851,7 @@
         </div>
     </div>-->
 
-    <div class="popup popup-projekt popup-red centermycontentvertically" id="razglednicainfo">
+    <div class="popup popup-projekt popup-red centermycontentvertically" id="ahmadinfo">
         <div class="popupclose">
             <div class="icon-close"></div>
         </div>
@@ -824,6 +860,33 @@
             <div class="titlenext titlenext-left">{{prev title}}</div>
             <div class="icon icon-arrow-left"></div>
         </div> -->
+        <div class="nextproject arrow-obcasnik-right bck-red hidden-xs hidden-sm">
+            <div class="titlenext titlenext-right">Mikser soočenj</div>
+            <div class="icon icon-arrow-right"></div>
+        </div>
+
+        <div class="container popupcontainer centermevertically">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1 class="popuptitle">Ahmad mora ostati</h1>
+                    <p class="popuptext">Novembra 2017 je Slovenijo razklala zgodba, ki je na plečih tragične človeške usode demostrirala dejstvo, da rek <i>osebno je politično</i> gotovo velja. Slovenski birokratski aparat je pokazal, da sveto upošteva Dublinsko uredbo, kadar potrebuje podlago za vračanje prosilcev za azil na Hrvaško, ne pa tudi, kadar je možno uporabiti njeno diskrecijsko klavzulo za reševanje individualnih usod.
+                        Begunec Šami (Shamieh) je prišel v državo po humanitarnem koridorju in ni nikoli zaprosil za azil na Hrvaškem. V letu in pol življenja pri nas se je naučil jezika in se integriral v družbo, še posebej aktiven je bil kot eden od pobudnikov Ambasade Rog, deloval je kot prostovoljec na področju begunske in socialne problematike, bil je tudi ključen sodelavec pri dveh projektih Ministrstva za kulturo. Namesto da bi njegovo zgodbo uporabili kot zgled in zaželjeno prakso vključevanja ter ga za prispevek družbi "nagradili" vsaj z dovoljenjem za bivanje, pa se je Ministrstvo za notranje zadeve odločilo njegovo vlogo za azil enostavno - zavreči.</p>
+                    <div class="btn btn-popup push btn-projekt" data-href="http://danesjenovdan.si/ahmad/">Poglej <br>peticijo</div>
+                    <div class="btn btn-popup push btn-zapri">Zapri</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup popup-projekt popup-red centermycontentvertically" id="mixerinfo">
+        <div class="popupclose">
+            <div class="icon-close"></div>
+        </div>
+
+        <div class="previousproject arrow-obcasnik-left bck-red hidden-xs hidden-sm">
+            <div class="titlenext titlenext-left">Ahmad mora ostati</div>
+            <div class="icon icon-arrow-left"></div>
+        </div>
         <div class="nextproject arrow-obcasnik-right bck-red hidden-xs hidden-sm">
             <div class="titlenext titlenext-right">Razglednica z Visa</div>
             <div class="icon icon-arrow-right"></div>
@@ -1749,7 +1812,7 @@
     <script src="/js/nsa.js"></script>
 
     <!-- frontend magic -->
-    <script src="/js/front.js?20180212"></script>
+    <script src="/js/front.js?18v2"></script>
 
 
     <!-- Google Universal Analytics -->
