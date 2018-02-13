@@ -306,7 +306,7 @@ function onLanguageToggle() {
   var path = window.location.pathname;
   path = path.slice(1, path.indexOf('/', 1));
   if (path === '') {
-    window.location.href = '/';
+    window.location.href = '/en/';
   } else if (langLinkMapping[path]) {
     window.location.href = '/en/' + langLinkMapping[path];
   } else {
