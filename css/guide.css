@@ -1888,20 +1888,34 @@ input:focus {
 }
 .harmonikatitle {
     background-color: #e4d2a3;
-    width: 70%;
-    text-align: center;
+    width: 75%;
     font-weight: 800;
     font-size: 24px;
-    padding-top: 33px;
-    padding-bottom: 33px;
+    padding: 4px 15px;
     color: #69551f;
     position: relative;
     margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 8px;
     cursor: pointer;
 }
+.harmonikatitle::after {
+    display: block;
+    content: '\e114'; /* chevron-down */
+    font-family: 'Glyphicons Halflings';
+    font-size: 18px;
+    line-height: 37px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid bold;
+    padding: 4px 15px;
+}
+.harmonikatitle.open::after {
+    content: '\e113'; /* chevron-up */
+}
+
 .harmonikacontent {
+    background-color: #f0efef;
     width: 75%;
     position: relative;
     margin: auto;
@@ -1911,6 +1925,24 @@ input:focus {
 .harmonikacontent.open {
     height: auto;
 }
+
+.document-wrapper {
+    height: 47px;
+}
+.document-wrapper p {
+    line-height: 47px;
+    margin: 0;
+}
+.document-wrapper .circle {
+    float: left;
+    width: 35px;
+    height: 35px;
+    padding: 8px 9px;
+}
+.document-wrapper .circle .icon {
+    font-size: 18px;
+}
+
 /* konsenz */
 
 #podporniki {

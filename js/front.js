@@ -792,10 +792,10 @@ $(document).ready(function() {
   $('.harmonikatitle').on('click', function() {
     if (!$(this).parent().parent().next().children().children('.harmonikacontent').hasClass('open')) {
       $(this).parent().parent().next().children().children('.harmonikacontent').addClass('open');
-      $(this).children('.plus').text('-');
+      $(this).addClass('open');
     } else {
       $(this).parent().parent().next().children().children('.harmonikacontent').removeClass('open');
-      $(this).children('.plus').text('+');
+      $(this).removeClass('open');
     }
     return false;
   });
