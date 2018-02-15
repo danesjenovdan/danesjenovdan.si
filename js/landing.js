@@ -163,7 +163,7 @@
     },
   }
 
-  $.getJSON('http://djapi.knedl.si/djndLanding/projects/3/')
+  $.getJSON('https://djapi.knedl.si/djndLanding/projects/3/')
     .done(function (json) {
       if (json.status != 'OK') {
         return;
@@ -188,14 +188,14 @@
       fetchAgrumentShortUrl(urlElement);
     });
 
-  $.getJSON('http://djapi.knedl.si/djndLanding/parlameter/1/')
+  $.getJSON('https://djapi.knedl.si/djndLanding/parlameter/1/')
     .done(function (data) {
       var container = $('#landing-append-parlameter');
       var tile = templates.makeParlameterTile(data.title, data.label, data.url);
       container.append(tile);
     });
 
-  $.getJSON('http://djapi.knedl.si/djndLanding/news/4/')
+  $.getJSON('https://djapi.knedl.si/djndLanding/news/4/')
     .done(function (json) {
       if (json.status != 'OK') {
         return;
