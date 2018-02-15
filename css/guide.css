@@ -816,6 +816,35 @@ a:hover {
 #zeljka.hover {
 	background-image: url('../img/zeljka_hover.png');
 }
+#veronika {
+    background-image: url('../img/veronika.jpg');
+}
+#veronika:hover,
+#veronika.hover {
+    background-image: url('../img/veronika_hover.jpg');
+}
+#matej {
+    background-image: url('../img/matej.jpg');
+}
+#matej:hover,
+#matej.hover {
+    background-image: url('../img/matej_hover.jpg');
+}
+#anja_t {
+    background-image: url('../img/anja_t.jpg');
+}
+#anja_t:hover,
+#anja_t.hover {
+    background-image: url('../img/anja_t_hover.jpg');
+}
+#katja {
+    background-image: url('../img/katja.jpg');
+}
+#katja:hover,
+#katja.hover {
+    background-image: url('../img/katja_hover.jpg');
+}
+
 
 .polaroid .image::after {
     content: '';
