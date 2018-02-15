@@ -1,34 +1,34 @@
 // equalise heights
-$.fn.equalizeHeights = function() {
+$.fn.equalizeHeights = function () {
   $(this).css("height", "");
-  return this.height(Math.max.apply(this, $(this).map(function(i, e) {
+  return this.height(Math.max.apply(this, $(this).map(function (i, e) {
     return $(e).height() + 15
   }).get()));
 }
 
-window.androidcheck = function() {
+window.androidcheck = function () {
   return (/Android/i).test(navigator.userAgent || navigator.vendor || window.opera);
 }
 
 // mobile check function
-window.mobilecheck = function() {
+window.mobilecheck = function () {
   var check = false;
-  (function(a, b) {
+  (function (a, b) {
     if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true
   })(navigator.userAgent || navigator.vendor || window.opera);
   return check;
 }
-window.touchcheck = function() {
+window.touchcheck = function () {
   var check = false;
-  (function(a, b) {
+  (function (a, b) {
     if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od|ad)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true
   })(navigator.userAgent || navigator.vendor || window.opera);
   return check;
 }
 
 // shake plugin
-jQuery.fn.shake = function() {
-  this.each(function(i) {
+jQuery.fn.shake = function () {
+  this.each(function (i) {
     $(this).css({
       "position": "relative"
     });
@@ -120,7 +120,7 @@ if (document.createElement('svg').getAttributeNS) {
     var svg = createSVGEl(svgDef);
     el.parentNode.appendChild(svg);
 
-    el.addEventListener('change', function() {
+    el.addEventListener('change', function () {
       if (el.checked) {
         draw(el, type);
       } else {
@@ -132,37 +132,37 @@ if (document.createElement('svg').getAttributeNS) {
   function controlRadiobox(el, type) {
     var svg = createSVGEl();
     el.parentNode.appendChild(svg);
-    el.addEventListener('change', function() {
+    el.addEventListener('change', function () {
       resetRadio(el);
       draw(el, type);
     });
   }
 
-  checkbxsCross.forEach(function(el, i) {
+  checkbxsCross.forEach(function (el, i) {
     controlCheckbox(el, 'cross');
   });
-  radiobxsFill.forEach(function(el, i) {
+  radiobxsFill.forEach(function (el, i) {
     controlRadiobox(el, 'fill');
   });
-  radiobxsFill2.forEach(function(el, i) {
+  radiobxsFill2.forEach(function (el, i) {
     controlRadiobox(el, 'fill');
   });
-  checkbxsCheckmark.forEach(function(el, i) {
+  checkbxsCheckmark.forEach(function (el, i) {
     controlCheckbox(el, 'checkmark');
   });
-  radiobxsCircle.forEach(function(el, i) {
+  radiobxsCircle.forEach(function (el, i) {
     controlRadiobox(el, 'circle');
   });
-  checkbxsBoxfill.forEach(function(el, i) {
+  checkbxsBoxfill.forEach(function (el, i) {
     controlCheckbox(el, 'boxfill');
   });
-  radiobxsSwirl.forEach(function(el, i) {
+  radiobxsSwirl.forEach(function (el, i) {
     controlRadiobox(el, 'swirl');
   });
-  checkbxsDiagonal.forEach(function(el, i) {
+  checkbxsDiagonal.forEach(function (el, i) {
     controlCheckbox(el, 'diagonal');
   });
-  checkbxsList.forEach(function(el) {
+  checkbxsList.forEach(function (el) {
     controlCheckbox(el, 'list', {
       viewBox: '0 0 300 100',
       preserveAspectRatio: 'none'
@@ -241,13 +241,13 @@ if (document.createElement('svg').getAttributeNS) {
   }
 
   function reset(el) {
-    Array.prototype.slice.call(el.parentNode.querySelectorAll('svg > path')).forEach(function(el) {
+    Array.prototype.slice.call(el.parentNode.querySelectorAll('svg > path')).forEach(function (el) {
       el.parentNode.removeChild(el);
     });
   }
 
   function resetRadio(el) {
-    Array.prototype.slice.call(document.querySelectorAll('input[type="radio"][name="' + el.getAttribute('name') + '"]')).forEach(function(el) {
+    Array.prototype.slice.call(document.querySelectorAll('input[type="radio"][name="' + el.getAttribute('name') + '"]')).forEach(function (el) {
       var path = el.parentNode.querySelector('svg > path');
       if (path) {
         path.parentNode.removeChild(path);
@@ -265,11 +265,11 @@ function repaintMe() {
   $('.tile-obcasnik').equalizeHeights();
   $('.polaroid .image').height($('.polaroid .image').width());
   $('.pravica').height($('.pravica').width());
-  $('.card-dolzni').each(function(i, e) {
+  $('.card-dolzni').each(function (i, e) {
     $(e).height($(e).width());
   });
 
-  $('.tile-background').each(function(i, e) {
+  $('.tile-background').each(function (i, e) {
     $(e).css({
       'background-image': 'url(' + $(this).data('img') + ')'
     });
@@ -281,7 +281,7 @@ function repaintMe() {
 
   $('#megavideo').height($(window).height()).width($(window).width());
 
-  $('.obcasniktileimage, .dolzniimage').each(function(i, e) {
+  $('.obcasniktileimage, .dolzniimage').each(function (i, e) {
     $(e).css('background-image', 'url(' + $(e).data('img') + ')');
   });
 
@@ -315,29 +315,29 @@ function onLanguageToggle() {
 }
 
 // document ready
-$(document).ready(function() {
+$(document).ready(function () {
 
-  $('.languagetoggle').on('click', function(event) {
+  $('.languagetoggle').on('click', function (event) {
     event.preventDefault();
     onLanguageToggle();
   });
 
   repaintMe();
-  window.onresize = function() {
+  window.onresize = function () {
     repaintMe();
   }
 
   // agree with cookies
-  $('.confirmcookies').on('click', function() {
+  $('.confirmcookies').on('click', function () {
     $('.cookiewarning').animate({
       'margin-left': 2000
-    }, 500, function() {
+    }, 500, function () {
       $('.cookiewarning').slideUp(200);
       window.updateConsent && window.updateConsent();
     });
   });
   // get more info about cookies
-  $('.cookiemoreinfo').on('click', function() {
+  $('.cookiemoreinfo').on('click', function () {
     window.open('/piskotki/', '_blank');
   });
 
@@ -346,7 +346,7 @@ $(document).ready(function() {
   }
 
   // ga za krivi
-  $('.polaroid').on('hover', function() {
+  $('.polaroid').on('hover', function () {
     ga('send', {
       'hitType': 'event',
       'eventCategory': 'krivi',
@@ -355,7 +355,7 @@ $(document).ready(function() {
     });
   });
 
-  $('.pravica').on('click', function() {
+  $('.pravica').on('click', function () {
 
     // ga za pravice
     ga('send', {
@@ -379,7 +379,7 @@ $(document).ready(function() {
         $('.pravicatooltip').removeClass('left').removeClass('middle').removeClass('right');
 
         var thisy = $(this);
-        window.setTimeout(function() {
+        window.setTimeout(function () {
           $('.pravicacontent.open').removeClass('open');
           $('#' + thisy.data('href')).addClass('open');
           $('.pravicatooltip').css({
@@ -404,13 +404,13 @@ $(document).ready(function() {
     }
   });
 
-  $('.tooltipclose').on('click', function() {
+  $('.tooltipclose').on('click', function () {
     $('.pravicatooltip').removeClass('open');
     $('.pravicaexpander').attr('style', '');
     $('.pravicatooltip').removeClass('left').removeClass('middle').removeClass('right');
   });
 
-  $('.popupopen').on('click', function() {
+  $('.popupopen').on('click', function () {
 
     //        window.location.href = window.location.href + '#popup-' + $(this).data('href');
 
@@ -430,7 +430,7 @@ $(document).ready(function() {
 
     return false;
   });
-  $('.tile-project').on('click', function() {
+  $('.tile-project').on('click', function () {
 
     // ga za projekte
     ga('send', {
@@ -447,14 +447,14 @@ $(document).ready(function() {
     return false;
   });
 
-  $('.popupclose, .btn-zapri').on('click', function() {
+  $('.popupclose, .btn-zapri').on('click', function () {
     $('.popup').removeClass('open');
     var scr = document.body.scrollTop;
     window.location.hash = "";
     document.body.scrollTop = scr;
   });
 
-  $('.btn-projekt').on('click', function() {
+  $('.btn-projekt').on('click', function () {
     ga('send', {
       'hitType': 'event',
       'eventCategory': 'projekti_popup',
@@ -465,7 +465,7 @@ $(document).ready(function() {
   });
 
   //social
-  $('.social, .btn-projekt').on('click', function() {
+  $('.social, .btn-projekt').on('click', function () {
 
     switch ($(this).data('href')) {
       case 'https://www.facebook.com/danesjenovdan':
@@ -520,7 +520,7 @@ $(document).ready(function() {
 
     window.open($(this).data('href'), '_blank')
   });
-  $('.fb').on('click', function() {
+  $('.fb').on('click', function () {
 
     ga('send', {
       'hitType': 'event',
@@ -533,7 +533,7 @@ $(document).ready(function() {
     window.open(url, '_blank');
     return false;
   });
-  $('.tw').on('click', function() {
+  $('.tw').on('click', function () {
 
     ga('send', {
       'hitType': 'event',
@@ -546,7 +546,7 @@ $(document).ready(function() {
     window.open(url, '_blank');
     return false;
   });
-  $('.gp').on('click', function() {
+  $('.gp').on('click', function () {
     url = 'https://plus.google.com/share?url=' + document.title + ' ' + encodeURIComponent(window.location.href);
     window.open(url, '_blank');
     ga('send', 'event', 'social', 'gplus');
@@ -561,7 +561,7 @@ $(document).ready(function() {
 
   });
 
-  $('.tile').not('.tile-obcasnik-full, .tile-project, #tile-video, .tile-stream, .tile-nolink').on('click', function() {
+  $('.tile').not('.tile-obcasnik-full, .tile-project, #tile-video, .tile-stream, .tile-nolink').on('click', function () {
     if (!$(this).data('target')) {
       window.location.href = $(this).data('href');
     } else {
@@ -569,13 +569,13 @@ $(document).ready(function() {
     }
   });
 
-  $('#menu').on('click', function() {
+  $('#menu').on('click', function () {
     $('#obcasnik').animate({
       'top': '-82px'
     }, 200);
     $('#menu').animate({
       'top': -50
-    }, 200, function() {
+    }, 200, function () {
       $('body').css('overflow-x', 'hidden');
       $('.container-fluid').animate({
         'left': 250
@@ -591,7 +591,7 @@ $(document).ready(function() {
     });
 
   });
-  $('#menutitleback, #menutitle').on('click', function() {
+  $('#menutitleback, #menutitle').on('click', function () {
     ga('send', {
       'hitType': 'event',
       'eventCategory': 'menu',
@@ -602,7 +602,7 @@ $(document).ready(function() {
     window.location.href = '/'
   });
 
-  $('#menuclose').on('click', function() {
+  $('#menuclose').on('click', function () {
     $('.container-fluid').animate({
       'left': 0
     }, 400);
@@ -613,7 +613,7 @@ $(document).ready(function() {
 
     $('#menucontent').animate({
       'left': -250
-    }, 400, function() {
+    }, 400, function () {
       $('body').css('overflow-x', 'auto');
       $('#menu').animate({
         'top': 0
@@ -624,14 +624,14 @@ $(document).ready(function() {
     });
 
   });
-  $('.menuitem-agrument').on('click', function() {
+  $('.menuitem-agrument').on('click', function () {
     var _this = $(this);
     $('.container-fluid').animate({
       'left': 0
     }, 400);
     $('#menucontent').animate({
       'left': -250
-    }, 400, function() {
+    }, 400, function () {
       $('#menu, #obcasnik').animate({
         'top': 0
       }, 200);
@@ -650,14 +650,14 @@ $(document).ready(function() {
       window.location.href = 'http://agrument.danesjenovdan.si/';
     });
   });
-  $('.menuitem').not('menuitem-agrument').on('click', function() {
+  $('.menuitem').not('menuitem-agrument').on('click', function () {
     var _this = $(this);
     $('.container-fluid').animate({
       'left': 0
     }, 400);
     $('#menucontent').animate({
       'left': -250
-    }, 400, function() {
+    }, 400, function () {
       $('#menu, #obcasnik').animate({
         'top': 0
       }, 200);
@@ -688,9 +688,8 @@ $(document).ready(function() {
     });
   });
 
-  $('#submitemail').on('click', function() {
+  $('#submitemail').on('click', function () {
     if ($('.hider').hasClass('open')) {
-
       ga('send', {
         'hitType': 'event',
         'eventCategory': document.title,
@@ -698,41 +697,13 @@ $(document).ready(function() {
         'eventLabel': 'pravice',
         'eventValue': 1
       });
-
-      $.post('http://djapi.danesjenovdan.si/nsa/updatevictimsignature', {
-        'id': $.cookie('djndid'),
-        'signature': 1
-      }, function(r) {
-        $.post('http://djapi.danesjenovdan.si/nsa/updatevictimemail', {
-          'id': $.cookie('djndid'),
-          'email': $('#newsletteremail').val()
-        }, function(re) {
-          $.post('http://djapi.danesjenovdan.si/nsa/updatevictimnamelastname', {
-            'id': $.cookie('djndid'),
-            'name': $('#newslettername').val().split(' ')[0],
-            'lastname': $('#newslettername').val().split(' ')[1],
-          }, function(res) {});
-        });
-      });
     } else {
-
       ga('send', {
         'hitType': 'event',
         'eventCategory': document.title,
         'eventAction': 'signup',
         'eventLabel': 'pravice',
         'eventValue': 0
-      });
-
-      $.post('http://djapi.danesjenovdan.si/nsa/updatevictimemail', {
-        'id': $.cookie('djndid'),
-        'email': $('#newsletteremail').val()
-      }, function(re) {
-        $.post('http://djapi.danesjenovdan.si/nsa/updatevictimnamelastname', {
-          'id': $.cookie('djndid'),
-          'name': $('#newslettername').val().split(' ')[0],
-          'lastname': $('#newslettername').val().split(' ')[1],
-        }, function(res) {});
       });
     }
     $.post('https://hooks.slack.com/services/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',
@@ -749,9 +720,9 @@ $(document).ready(function() {
           }]
         }]
       }),
-      function(r) {
+      function (r) {
         startConfetti();
-        window.setTimeout(function() {
+        window.setTimeout(function () {
           $('#submitemail').parents('.popup').removeClass('open');
         }, 100)
         console.log(r);
@@ -759,7 +730,7 @@ $(document).ready(function() {
     return false;
   });
 
-  $('#podpri').on('click', function() {
+  $('#podpri').on('click', function () {
 
     ga('send', {
       'hitType': 'event',
@@ -771,7 +742,7 @@ $(document).ready(function() {
     window.location.href = '/dolzni/'
   });
 
-  $('#izkaznica > a').on('click', function() {
+  $('#izkaznica > a').on('click', function () {
     ga('send', {
       'hitType': 'event',
       'eventCategory': document.title,
@@ -780,7 +751,7 @@ $(document).ready(function() {
     });
   });
 
-  $('.tab').on('click', function() {
+  $('.tab').on('click', function () {
 
     // ga za filtriranje krivi
     ga('send', {
@@ -805,11 +776,11 @@ $(document).ready(function() {
     }
   });
 
-  $('#polaroidti').on('click', function() {
+  $('#polaroidti').on('click', function () {
     window.location.href = $(this).data('href');
   });
 
-  $('.harmonikatitle').on('click', function() {
+  $('.harmonikatitle').on('click', function () {
     if (!$(this).parent().parent().next().children().children('.harmonikacontent').hasClass('open')) {
       $(this).parent().parent().next().children().children('.harmonikacontent').addClass('open');
       $(this).addClass('open');
@@ -820,7 +791,7 @@ $(document).ready(function() {
     return false;
   });
 
-  $('#moresupporters').on('click', function() {
+  $('#moresupporters').on('click', function () {
     if (!$(this).hasClass('open')) {
       $(this).addClass('open');
       $('#podporniki').append(podpisniki);
@@ -830,7 +801,7 @@ $(document).ready(function() {
     }
   });
 
-  $('#btn-pravica-video, #tile-video').on('click', function() {
+  $('#btn-pravica-video, #tile-video').on('click', function () {
 
     // ga za pravica video
     ga('send', {
@@ -843,7 +814,7 @@ $(document).ready(function() {
     player.api('play');
   });
 
-  $(document).on('keyup', function(e) {
+  $(document).on('keyup', function (e) {
     if (e.keyCode == 27) { // 27 == ESC key
       if ($('#megavideo').length) {
         $('#megavideo').removeClass('open');
@@ -856,7 +827,7 @@ $(document).ready(function() {
     }
   });
 
-  window.addEventListener("hashchange", function(e) {
+  window.addEventListener("hashchange", function (e) {
     if (window.location.hash.indexOf("#popup-") === 0) {
       var id = window.location.hash.slice(7);
       $('.popup').removeClass('open');
@@ -864,7 +835,7 @@ $(document).ready(function() {
     }
   }, false);
 
-  $('#submitsignature').on('click', function() {
+  $('#submitsignature').on('click', function () {
     if ($('#signaturename').val() != '' && $('#signaturelastname').val() != '' && $('#signatureemail').val() != '') {
 
       // ga za podpis pravic
@@ -874,22 +845,6 @@ $(document).ready(function() {
         'eventAction': 'signup',
         'eventLabel': 'pravice',
         'eventValue': 1
-      });
-
-      $.post('http://djapi.danesjenovdan.si/nsa/updatevictimsignature', {
-        'id': $.cookie('djndid'),
-        'signature': 1
-      }, function(r) {
-        $.post('http://djapi.danesjenovdan.si/nsa/updatevictimnamelastname', {
-          'id': $.cookie('djndid'),
-          'name': $('#signaturename').val(),
-          'lastname': $('#signaturelastname').val()
-        }, function(re) {
-          $.post('http://djapi.danesjenovdan.si/nsa/updatevictimemail', {
-            'id': $.cookie('djndid'),
-            'email': $('#signatureemail').val()
-          });
-        });
       });
 
       $.post('https://hooks.slack.com/services/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',
@@ -906,15 +861,12 @@ $(document).ready(function() {
             }]
           }]
         }),
-        function(r) {
-          console.log(r);
+        function (r) {
           $('#podpisipravice').parent().height($('#podpisipravice').parent().height());
-          $('#podpisipravice').slideUp(500, function() {
+          $('#podpisipravice').slideUp(500, function () {
             $('#hvalapravice').slideDown();
           });
-
           startConfetti();
-
         });
     } else {
       $('form').shake();
@@ -923,58 +875,58 @@ $(document).ready(function() {
   });
 
   // refresh form konsenz
-  $('.hvalapravicerefresh').on('click', function() {
+  $('.hvalapravicerefresh').on('click', function () {
     $('#podpisipravice input').val('');
-    $('#hvalapravice').slideUp(500, function() {
+    $('#hvalapravice').slideUp(500, function () {
       $('#podpisipravice').slideDown();
     });
 
     return false;
   });
 
-  $.get('http://agrument.danesjenovdan.si/getwordcount/', function(r) {
+  $.get('http://agrument.danesjenovdan.si/getwordcount/', function (r) {
     $('#agrument .projectnumbernumber').text(r);
   });
 
-  $.get('http://agrument.danesjenovdan.si/getlastagrument/', function(r) {
+  $.get('http://agrument.danesjenovdan.si/getlastagrument/', function (r) {
     $('#lastagrument').children('.agrumenttitle').text(r);
   });
 
   if ($(window).width() > 991) {
-    $.get('http://agrument.danesjenovdan.si/getlastagrumenttextsmall/', function(r) {
+    $.get('http://agrument.danesjenovdan.si/getlastagrumenttextsmall/', function (r) {
       $('#lastagrument').children('.agrumenttitle').after(r);
       $('#lastagrument .agrumenttitle + p').addClass('tiletext');
     })
   }
 
-  $.get('http://djapi.knedl.si/getExposed/exposed/', function(r) {
+  $.get('http://djapi.knedl.si/getExposed/exposed/', function (r) {
     console.log(r);
     $('#izpostavljeno').children('.tiletitle').text(r.title);
     $('#izpostavljeno').children('.tiletext').text(r.label);
     $('#izpostavljeno').data('href', r.url);
   });
 
-  $('.arrow-obcasnik-left, .arrow-obcasnik-right, #sendemail').not('.nextproject, .previousproject').on('click', function() {
+  $('.arrow-obcasnik-left, .arrow-obcasnik-right, #sendemail').not('.nextproject, .previousproject').on('click', function () {
     window.location.href = $(this).data('href');
   });
 
   // listanje med projekti
-  $('.nextproject').on('click', function() {
+  $('.nextproject').on('click', function () {
     var popup = $('.popup.open');
 
     popup.removeClass('open');
 
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       popup.next().addClass('open');
       window.location.hash = "popup-" + popup.next().attr('id');
     }, 500);
   });
-  $('.previousproject').on('click', function() {
+  $('.previousproject').on('click', function () {
     var popup = $('.popup.open');
 
     popup.removeClass('open');
 
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       popup.prev().addClass('open');
       window.location.hash = "popup-" + popup.prev().attr('id');
     }, 500);
@@ -984,7 +936,7 @@ $(document).ready(function() {
 
   // obcasnik title magic
   var titlevisible = false;
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if (!titlevisible) {
       if ($(document).scrollTop() > 190) {
         titlevisible = true;
@@ -1009,7 +961,7 @@ $(document).ready(function() {
   }
 
   // newsletter show name/lastname
-  $('#dodajme').on('click', function() {
+  $('#dodajme').on('click', function () {
     if (!$('.hider').hasClass('open')) {
       $('#signup .hider').addClass('open');
       $('#submitemail').text('Oddaj in podpiši!');
@@ -1020,15 +972,15 @@ $(document).ready(function() {
   });
   // newsletter android fix
   if (true) { // (window.androidcheck()) {
-    $('#newslettername').on('focus', function() {
-      window.setTimeout(function() {
+    $('#newslettername').on('focus', function () {
+      window.setTimeout(function () {
         $('.popup.open').animate({
           'padding-bottom': '+=200px',
           'scrollTop': 200
         }, 500);
       }, 700);
     });
-    $('#newslettername').on('blur', function() {
+    $('#newslettername').on('blur', function () {
       $('.popup.open').animate({
         'padding-bottom': '-=200px',
         'scrollTop': 0
@@ -1037,49 +989,49 @@ $(document).ready(function() {
   }
 
   // documents
-  $('#akt').on('click', function() {
+  $('#akt').on('click', function () {
     window.open('./dokumenti/Akt%20o%20ustanovitvi.pdf', '_blank');
   });
-  $('#statut').on('click', function() {
+  $('#statut').on('click', function () {
     window.open('./dokumenti/Statut.pdf', '_blank');
   });
-  $('#letno2013').on('click', function() {
+  $('#letno2013').on('click', function () {
     window.open('./dokumenti/2013/Letno%20porocilo%202013.pdf', '_blank');
   });
-  $('#poslovno2013').on('click', function() {
+  $('#poslovno2013').on('click', function () {
     window.open('./dokumenti/2013/Poslovno%20porocilo%202013.pdf', '_blank');
   });
-  $('#poslovno2014').on('click', function() {
+  $('#poslovno2014').on('click', function () {
     window.open('./dokumenti/2014/Poslovno%20porocilo%202014.pdf', '_blank');
   });
-  $('#poslovno2015').on('click', function() {
+  $('#poslovno2015').on('click', function () {
     window.open('./dokumenti/2015/Poslovno%20porocilo%202015.pdf', '_blank');
   });
-  $('#poslovno2016').on('click', function() {
+  $('#poslovno2016').on('click', function () {
     window.open('./dokumenti/2016/Poslovno%20porocilo%202016.pdf', '_blank');
   });
 
 
   // dolzni popups across the site
-  $('.dajmiredno').on('click', function() {
+  $('.dajmiredno').on('click', function () {
     window.open('/dolzni/#popup-velikaplacapopup', '_blank');
   });
-  $('.dajmienkrat').on('click', function() {
+  $('.dajmienkrat').on('click', function () {
     window.open('/dolzni/#popup-velikosrcepopup', '_blank');
   });
-  $('.dajminaturalije').on('click', function() {
+  $('.dajminaturalije').on('click', function () {
     window.open('/dolzni/#popup-naturalijepopup', '_blank');
   });
-  $('.dajmirizle').on('click', function() {
+  $('.dajmirizle').on('click', function () {
     window.open('/dolzni/#popup-rizlepopup', '_blank');
   });
-  $('.dajmimajico').on('click', function() {
+  $('.dajmimajico').on('click', function () {
     window.open('/dolzni/#popup-majicapopup', '_blank');
   });
 
   // fancybox
   // fancybox
-  $('.fancyboxtab').on('click', function() {
+  $('.fancyboxtab').on('click', function () {
     if (!$(this).hasClass('active')) {
       // hide old
       $('.content-' + $('.fancyboxcontent').data('order-1')).addClass('hidden');
@@ -1211,7 +1163,7 @@ window.currentConfettis = 0;
 // vimeo
 if (window.$f) {
   player = $f($('#thevideo')[0]);
-  player.addEvent('ready', function() {
+  player.addEvent('ready', function () {
     player.addEvent('pause', onPause);
     console.log(player);
   });
@@ -1238,7 +1190,7 @@ function postToSlack(text, title, value, callback) {
         }]
       }]
     }),
-    function(r) {
+    function (r) {
       callback();
     });
 }
