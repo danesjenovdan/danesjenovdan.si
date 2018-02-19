@@ -599,7 +599,11 @@ $(document).ready(function () {
       'eventLabel': 'landing'
     });
 
-    window.location.href = '/'
+    if (window.location.host && window.location.host.indexOf('agrument') === 0) {
+      window.location.href = 'https://danesjenovdan.si/';
+    } else {
+      window.location.href = '/';
+    }
   });
 
   $('#menuclose').on('click', function () {
@@ -674,7 +678,11 @@ $(document).ready(function () {
           'eventLabel': _this.data('menu')
         });
 
-        window.location.href = '/' + _this.data('menu');
+        if (window.location.host && window.location.host.indexOf('agrument') === 0) {
+          window.location.href = 'https://danesjenovdan.si/' + _this.data('menu');
+        } else {
+          window.location.href = '/' + _this.data('menu');
+        }
       } else {
         console.log(this)
         if ($(_this).data('menu') == 'obcasnik/') {
