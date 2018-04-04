@@ -51,7 +51,7 @@ $(document).ready(function () {
             'path': '/'
         });
         addItem2('Enkratna donacija 3 €', 1, '', 3);
-        window.open('http://danesjenovdan.si/dolzni/donacija/', '_blank');
+        window.open('https://danesjenovdan.si/dolzni/donacija/', '_blank');
     });
 
     $('.popovermofo').popover({

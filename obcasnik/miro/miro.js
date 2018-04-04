@@ -2,14 +2,14 @@ var prvitimer = '2014-06-30';
 var drugitimer = '2014-07-09';
 
 $(document).ready(function() {
-    
+
     // touch hide
     if (window.touchcheck()) {
         $('.touchhidden').css({
             'display': 'none'
         });
     }
-    
+
     // moment language settings
     moment.lang('sl');
     $('.prvitimer').text(moment(prvitimer).fromNow());
@@ -31,16 +31,16 @@ $(document).ready(function() {
     $('.m, .z').each(function(i, e) {
         $(e).text($(e).data('width') + '%');
     });
-    
+
     $('.tableizer-table').not('.icontable').dataTable({
         'info': false,
         'language': ponase
     });
-    
+
     $('.krog').each(function(i, e) {
         $(e).height($(e).width());
     });
-    
+
     // fancybox
     $('.fancyboxtab').on('click', function() {
         if (!$(this).hasClass('active')) {
@@ -58,30 +58,30 @@ $(document).ready(function() {
             // update state
             $('.fancyboxcontent').data('order-2', 1);
             $('.fancyboxcontent').data('order-1', $(this).data('order'));
-            
-            
+
+
             $('.fancyboxtab.active').removeClass('active');
             $(this).addClass('active');
-        }   
+        }
     });
-    
+
     $('.fancyboxleft').on('click', function() {
         // check if not first
         if ($('.content-' + $('.fancyboxcontent').data('order-1') + '-' + $('.fancyboxcontent').data('order-2')).prev().length) {
-            
+
             // hide current
             $('.content-' + $('.fancyboxcontent').data('order-1') + '-' + $('.fancyboxcontent').data('order-2')).addClass('hidden');
-            
+
             // show prev
             $('.content-' + $('.fancyboxcontent').data('order-1') + '-' + (parseInt($('.fancyboxcontent').data('order-2')) - 1)).removeClass('hidden');
-            
+
             // switch title
             $('.fancyboxtitle').text(
             $('.content-' + $('.fancyboxcontent').data('order-1') + '-' + (parseInt($('.fancyboxcontent').data('order-2')) - 1)).data('title'));
-            
+
             // update state
             $('.fancyboxcontent').data('order-2', (parseInt($('.fancyboxcontent').data('order-2')) - 1));
-            
+
         } else {
             alert('Si na koncu sklopa. Bravo za vzdržljivost!');
         }
@@ -89,25 +89,25 @@ $(document).ready(function() {
     $('.fancyboxright').on('click', function() {
         // check if not last
         if ($('.content-' + $('.fancyboxcontent').data('order-1') + '-' + $('.fancyboxcontent').data('order-2')).next().length) {
-            
+
             // hide current
             $('.content-' + $('.fancyboxcontent').data('order-1') + '-' + $('.fancyboxcontent').data('order-2')).addClass('hidden');
-            
+
             // show next
             $('.content-' + $('.fancyboxcontent').data('order-1') + '-' + (parseInt($('.fancyboxcontent').data('order-2')) + 1)).removeClass('hidden');
-            
+
             // switch title
             $('.fancyboxtitle').text(
             $('.content-' + $('.fancyboxcontent').data('order-1') + '-' + (parseInt($('.fancyboxcontent').data('order-2')) + 1)).data('title'));
-            
+
             // update state
             $('.fancyboxcontent').data('order-2', (parseInt($('.fancyboxcontent').data('order-2')) + 1));
-            
+
         } else {
             alert('Si na koncu sklopa. Bravo za vzdržljivost!');
         }
     });
-    
+
 });
 
 var chartVSE, chartSP, chartDOO;
@@ -407,10 +407,10 @@ $(document).ready(function() {
             }
         });
     });
-    
+
     $('#donate5').on('click', function() {
         $.cookie('dolzniCart2', JSON.stringify({'items': []}), {'expires': 30, 'path': '/'});
         addItem2('Enkratna donacija 5 €', 1, '', 5);
-        window.open('http://danesjenovdan.si/dolzni/donacija/', '_blank');
+        window.open('https://danesjenovdan.si/dolzni/donacija/', '_blank');
     });
 });
