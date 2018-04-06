@@ -912,7 +912,6 @@ $(document).ready(function () {
   }
 
   $.get('https://djapi.knedl.si/getExposed/exposed/', function (r) {
-    console.log(r);
     $('#izpostavljeno').children('.tiletitle').text(r.title);
     $('#izpostavljeno').children('.tiletext').text(r.label);
     $('#izpostavljeno').data('href', r.url);
@@ -1208,3 +1207,7 @@ function postToSlack(text, title, value, callback) {
 }
 
 $('.js-ahmad-counter').load('https://djapi.knedl.si/getNumberOfSignatures/?peticija=ahmad');
+
+$.getJSON('https://djapi.knedl.si/getKuraSignatures/', function(r) {
+  $('.js-kura-counter').text(r.counter);
+});
