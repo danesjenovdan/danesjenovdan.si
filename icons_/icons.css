@@ -111,3 +111,9 @@
 .icon-carret-down:before {
 	content: "\e612";
 }
+.icon-office {
+	background-image: url('icon-office.svg');
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}

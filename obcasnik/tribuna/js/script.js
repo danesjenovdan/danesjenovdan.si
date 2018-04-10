@@ -7,7 +7,7 @@ $(document).ready(function () {
         $('.fancyboxrestcontainer')
             .height($('.fancyboxrestcontainer').parent().height());
     }
-    
+
     $('#donate1').on('click', function () {
         $.cookie('dolzniCart2', JSON.stringify({
             'items': []
@@ -16,9 +16,9 @@ $(document).ready(function () {
             'path': '/'
         });
         addItem2('Enkratna donacija 1 €', 1, '', 1);
-        window.open('http://danesjenovdan.si/dolzni/donacija/', '_blank');
+        window.open('https://danesjenovdan.si/dolzni/donacija/', '_blank');
     });
-    
+
     $('.popovermofo').popover({
         'trigger': 'hover'
     });
