@@ -332,6 +332,10 @@ $(document).ready(function() {
             var size = console_div.siblings('.majicasize').children('.dolzniselected').text();
             var type = console_div.siblings('.majicatype').children('.dolzniselected').text();
             console.log("asdsadasd" + size+" "+type)
+            if (type == '' || size == '') {
+            	$(this).parent().shake();
+            	return
+            }
             if (type.indexOf("moški") !== -1){
                 type = "m"
             }
