@@ -239,7 +239,7 @@ function getBasketItems(key){
         renderCart();
     });
 }
-function addToCart(itemId, quantity) { // TODO
+function addToCart(itemId, quantity, callback) { // TODO
     key = $.cookie()["basket"]
     console.log({"product_id": itemId, "quantity": parseInt(quantity)})
     console.log("https://shop.knedl.si/api/add_to_basket/?order_key=" + key)
@@ -250,8 +250,9 @@ function addToCart(itemId, quantity) { // TODO
         success: function(data) {
             getBasketItems(data.order_key)
         },
-        dataType: "json"
-    });
+		dataType: "json",
+		success: callback(),
+	});
 }
 function selectDonation(price, isSubscription) {
     // get new chart
@@ -359,12 +360,17 @@ $(document).ready(function() {
         else{
             quantity = $(this).parent().parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text()
         }
-        addToCart(articles[key].id, quantity)
         $(this).parents('.popup').removeClass('open');
         if ($( this ).hasClass("btn")){
             //window.open('vozicek#checkout', '_blank');
-            document.location.href='/dolzni/vozicek'
-        }
+            addToCart(articles[key].id, quantity, function() {
+				document.location.href='/dolzni/vozicek';
+			});
+        } else {
+			addToCart(articles[key].id, quantity, function() {
+				console.log('added to cart');
+			})
+		}
     });
     getBasketKey();
 
