@@ -34,6 +34,7 @@
 
 		<!-- CSS -->
 		<link href="../../css/guide.css" rel="stylesheet">
+		<link href="../../css/loader.css" rel="stylesheet">
 
         <!-- WP fix -->
         <script>
@@ -72,40 +73,40 @@
 
 							<div class="vozicekstepcontainer hidden" id="prevzem">
 
-								<form id="form-dostava" class="vozicekform ac-custom ac-radio ac-fill" autocomplete="off" id="prevzemform">
+								<form id="form-dostava" class="vozicekform ac-custom ac-radio ac-fill" id="prevzemform">
 									<ul>
                                         <li><input id="poposti" name="dostava" type="radio"><label for="poposti">dostava po pošti</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
 										<li><input id="osebno" name="dostava" type="radio"><label for="osebno">osebni prevzem</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
 									</ul>
 								</form>
 								<div class="vozicekstepcontainer vozicekstepchild">
-									<form class="vozicekform ac-custom ac-radio ac-fill2 hidden" autocomplete="off" id="osebnoform">
+									<form class="vozicekform ac-custom ac-radio ac-fill2 hidden" id="osebnoform">
 										<ul>
 											<li><input id="hekovnik" data-object="na Hekovniku" name="prevzem" type="radio"><label for="hekovnik">pisarna Danes je nov dan (Hekovnik, Tobačna 5, Ljubljana)</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
-											<li><input id="lendava" data-object="v Lendavi (Mansarda)" name="prevzem" type="radio"><label for="lendava">Mansarda (Lendava)</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
-                                            <li><input id="pina" data-object="v Kopru (Pina)" name="prevzem" type="radio"><label for="pina">Pina (Koper)</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
 										</ul>
 									</form>
+									<form>
 									<div id="narocniknotform" class="hidden">
 										<h1 class="vozicekstepformtitle"></h1>
 										<div class="steplabel">Ime in priimek</div>
-										<input type="text" data-object="name" class="form-control" id="voziceknamelastname">
+										<input type="text" data-object="name" autocomplete="name" class="form-control" id="voziceknamelastname">
                                         <div class="steplabel">Email</div>
-										<input type="text" data-object="email" class="form-control emailshopinput" id="vozicekemail">
+										<input type="text" data-object="email" autocomplete="email" class="form-control emailshopinput" id="vozicekemail">
 										<div class="steplabel">Naslov</div>
-										<input type="text" data-object="address" class="form-control" id="vozicekaddress1">
-										<div class="steplabel">Pošta in poštna številka</div>
-										<input type="text" data-object="address2" class="form-control" id="vozicekaddress2">
+										<input type="text" data-object="address" autocomplete="street-address" class="form-control" id="vozicekaddress1">
+										<div class="steplabel"> Poštna številka in pošta</div>
+										<input type="text" data-object="address2" autocomplete="postal-code" class="form-control" id="vozicekaddress2">
 										<div class="steplabel">Povej nam kaj</div>
 										<textarea data-object="extra" class="form-control povejnam"></textarea>
 									</div>
+									<form>
 								</div>
 								<div class="btn btn-pregled btn-prevzem">Štima, nadaljuj <div class="icon icon-zakljuci"><div class="icon-zakljuci-thin"></div></div></div>
 							</div>
 
 							<div class="vozicekstepcontainer hidden" id="plačilo">
 
-								<form class="ac-custom ac-radio ac-fill placiloform" autocomplete="off">
+								<form class="ac-custom ac-radio ac-fill placiloform">
 									<ul>
 										<li><input id="placajspoloznico" data-object="poloznica" name="placilo" type="radio"><label for="placajspoloznico">plačaj s položnico</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
                                         <!-- <li><input id="placajpopovzetju" data-object="po povzetju" name="placilo" type="radio"><label for="placajpopovzetju">plačaj po povzetju</label><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li> -->
@@ -132,12 +133,15 @@
 		</div>
 
         <form id="paypalform" class="hidden" name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="maschinna@gmail.com">
-        <input type="hidden" name="currency_code" value="EUR">
-        <input type="hidden" name="item_name" id="paypalitemname" value="">
-        <input type="hidden" name="amount" id="paypalprice" value="1">
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+	        <input type="hidden" name="cmd" value="_xclick">
+	        <input type="hidden" name="business" value="maschinna@gmail.com">
+	        <input type="hidden" name="currency_code" value="EUR">
+	        <input type="hidden" name="item_name" id="paypalitemname" value="">
+	        <input type="hidden" name="amount" id="paypalprice" value="1">
+	        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+    	</form>
+        <div class="overlay"></div>
+        <div class="lds-heart"><div></div></div>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
