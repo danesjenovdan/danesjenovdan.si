@@ -209,8 +209,8 @@ $(document).ready(function() {
         else if ($("input:radio[id ='placajspaypalom']:checked").val() == 'on') {
             costumer_data["payment_type"] = "paypal";
             costumer_data["subscription"] = isSubscription;
-            costumer_data["success_url"] = "http://localhost:8080/dolzni/?success=true";
-            costumer_data["fail_url"] = "http://localhost:8080/dolzni/?success=false&donacija=true";
+            costumer_data["success_url"] = "https://danesjenovdan.si/dolzni/?success=true";
+            costumer_data["fail_url"] = "https://danesjenovdan.si/dolzni/?success=false&donacija=true";
             console.log(costumer_data)
             $.ajax({
                 type: "POST",

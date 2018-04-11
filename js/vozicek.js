@@ -269,8 +269,8 @@ $(document).ready(function() {
 		else if ($("input:radio[id ='placajspaypalom']:checked").val() == 'on') {
 			costumer_data["payment_type"] = "paypal";
 			costumer_data["subscription"] = false;
-			costumer_data["success_url"] = "http://localhost:8080/dolzni/?success=true";
-			costumer_data["fail_url"] = "http://localhost:8080/dolzni/?success=false&order_key=" + key;
+			costumer_data["success_url"] = "https://danesjenovdan.si/dolzni/dolzni/?success=true";
+			costumer_data["fail_url"] = "https://danesjenovdan.si/dolzni/?success=false&order_key=" + key;
 			$.ajax({
 				type: "POST",
 				url: "https://shop.knedl.si/api/checkout/?order_key=" + key,
