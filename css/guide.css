@@ -4228,16 +4228,19 @@ input::-webkit-inner-spin-button {
 .newdonationbox {
     background-color: #fff;
     cursor: pointer;
+    margin-bottom: 30px;
 }
 
 .newdonationbox .newdonationtitle {
     height: 140px;
     display: flex;
     align-items: center;
+    padding: 0 15px;
 }
 
 .newdonationbox .newdonationtitle .dolznicardtitle {
     margin: 0;
+    padding: 0;
     width: 100%;
 }
 
