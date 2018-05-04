@@ -42,7 +42,7 @@ function updateItem(id, quantity) {
 	console.log(key)
 	$.ajax({
 	  type: "PUT",
-	  url: "https://shop.knedl.si/api/items/"+ id +"/?order_key=" + key,
+	  url: "https://shop.djnd.si/api/items/"+ id +"/?order_key=" + key,
 	  data: {"quantity": parseInt(quantity)},
 	  success: function(data) {
 		console.log(data)
@@ -90,7 +90,7 @@ function removeItemFamily(id) {
 	console.log(basket_items);
 	$.ajax({
 		type: "DELETE",
-		url: "https://shop.knedl.si/api/items/"+ id +"/?order_key=" + key,
+		url: "https://shop.djnd.si/api/items/"+ id +"/?order_key=" + key,
 		success: function(data) {
 			console.log(data);
 			getBasketItems(key);
@@ -218,7 +218,7 @@ function getBasketKey() {
     basket = $.cookie()["basket"]
     if(basket === undefined || basket === "") {
         console.log("about to get")
-        $.get('https://shop.knedl.si/api/basket/', function(data) {
+        $.get('https://shop.djnd.si/api/basket/', function(data) {
             console.log("key: " + data.order_key)
             $.cookie("basket", data.order_key, {"path": "/", "expires": 10})
             getBasketItems(data.order_key)
@@ -228,7 +228,7 @@ function getBasketKey() {
     }
 }
 function getBasketItems(key){
-    $.get("https://shop.knedl.si/api/items/?order_key=" + key, function(data) {
+    $.get("https://shop.djnd.si/api/items/?order_key=" + key, function(data) {
         basket_items = data;
         if($(".vozicek").hasClass("open")){
             // rerender open cart
@@ -242,10 +242,10 @@ function getBasketItems(key){
 function addToCart(itemId, quantity, callback) { // TODO
     key = $.cookie()["basket"]
     console.log({"product_id": itemId, "quantity": parseInt(quantity)})
-    console.log("https://shop.knedl.si/api/add_to_basket/?order_key=" + key)
+    console.log("https://shop.djnd.si/api/add_to_basket/?order_key=" + key)
     $.ajax({
         type: "POST",
-        url: "https://shop.knedl.si/api/add_to_basket/?order_key=" + key,
+        url: "https://shop.djnd.si/api/add_to_basket/?order_key=" + key,
         data: JSON.stringify({"product_id": itemId, "quantity": parseInt(quantity)}),
         success: function(data) {
             getBasketItems(data.order_key)
@@ -257,11 +257,11 @@ function addToCart(itemId, quantity, callback) { // TODO
 function selectDonation(price, isSubscription) {
     // get new chart
     donationArticle = articles["enkratna donacija"]
-    $.get('https://shop.knedl.si/api/basket/', function(data) {
+    $.get('https://shop.djnd.si/api/basket/', function(data) {
         donation_order_key = data.order_key
         $.ajax({
           type: "POST",
-          url: "https://shop.knedl.si/api/add_to_basket/?order_key=" + donation_order_key,
+          url: "https://shop.djnd.si/api/add_to_basket/?order_key=" + donation_order_key,
           data: JSON.stringify({"product_id": donationArticle["id"], "quantity": parseInt(price)}),
           success: function(data) {
             $.cookie("donation", JSON.stringify({"key": donation_order_key, "isSubscription": isSubscription}), {"path": "/", "expires": 10})
@@ -289,17 +289,17 @@ $(document).ready(function() {
 			// donation fail
 		}
 		console.log("try again")
-		
+
 		$.cookie("basket", order_key, {"path": "/", "expires": 10})
 	}
 	Array.prototype.diff = function(a) {
         return this.filter(function(i) {return a.indexOf(i) < 0;});
     };
-    
+
     console.log(all_shirts)
     console.log("ivan")
-    
-    $.get('https://shop.knedl.si/api/products/', function(data){
+
+    $.get('https://shop.djnd.si/api/products/', function(data){
         console.log(data);
         $.each(data, function(index, item){
             if (item.name.indexOf("Majica") !== -1){
@@ -318,7 +318,7 @@ $(document).ready(function() {
     });
     console.log(shirts)
 
-    
+
     $(".btn-finish, .artikelfinishorlink").on("click", function(){
         if($( this ).hasClass("majica")) {
             // check shirt size
@@ -406,7 +406,7 @@ $(document).ready(function() {
 		if ($('#naturalijeemail').val() != '' && $('#naturalijetextarea').val() != '') {
 			$.ajax({
 				type: "POST",
-				url: "https://shop.knedl.si/api/send_as_email/",
+				url: "https://shop.djnd.si/api/send_as_email/",
 				data: JSON.stringify({"title": "naturalije",
 									  "email": $('#naturalijeemail').val(),
 									  "body": $('#naturalijetextarea').val()}),

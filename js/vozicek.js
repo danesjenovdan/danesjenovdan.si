@@ -202,7 +202,7 @@ $(document).ready(function() {
 			//function updateVictim(id, name, lastname, email, fbid)
 			//updateVictim($.cookie('djndid'), $('#narocniknotform input:first-of-type').val().split(' ')[0], $('#narocniknotform input:first-of-type').val().split(' ')[1], $('.emailshopinput').val(), '');
 
-			
+
 			costumer_data['name'] = $('#narocniknotform input:first-of-type').val()
 			costumer_data['address'] = $("#vozicekaddress1").val() + ", " + $("#vozicekaddress2").val()
 			costumer_data['phone'] = 00
@@ -219,7 +219,7 @@ $(document).ready(function() {
 
 			// costumer_data['payment_type']
 			// costumer_data['subscription'] = false
-			
+
 
 			$(this).parent().addClass('hidden').next().removeClass('hidden');
 			$('.vozicekstep.active').removeClass('active').next().addClass('active');
@@ -243,7 +243,7 @@ $(document).ready(function() {
 			costumer_data["payment_type"] = "upn"
 			$.ajax({
 				type: "POST",
-				url: "https://shop.knedl.si/api/checkout/?order_key=" + key,
+				url: "https://shop.djnd.si/api/checkout/?order_key=" + key,
 				data: JSON.stringify(costumer_data),
 				dataType: "json",
 				success: function(data) {
@@ -251,7 +251,7 @@ $(document).ready(function() {
 					console.log(data);
 					$.ajax({
 						type: "POST",
-						url: "https://shop.knedl.si/poloznica/",
+						url: "https://shop.djnd.si/poloznica/",
 						data: JSON.stringify(data),
 						dataType: "html",
 						success: function(data) {
@@ -273,7 +273,7 @@ $(document).ready(function() {
 			costumer_data["fail_url"] = "https://danesjenovdan.si/dolzni/?success=false&order_key=" + key;
 			$.ajax({
 				type: "POST",
-				url: "https://shop.knedl.si/api/checkout/?order_key=" + key,
+				url: "https://shop.djnd.si/api/checkout/?order_key=" + key,
 				data: JSON.stringify(costumer_data),
 				dataType: "json",
 				success: function(data) {
@@ -294,7 +294,7 @@ function getBasketKey() {
     basket = $.cookie()["basket"]
     if(basket === undefined || basket === "") {
         console.log("about to get")
-        $.get('https://shop.knedl.si/api/basket/', function(data) {
+        $.get('https://shop.djnd.si/api/basket/', function(data) {
             console.log("key: " + data.order_key)
             $.cookie("basket", data.order_key, {"path": "/", "expires": 10})
             getBasketItems(data.order_key)
@@ -304,7 +304,7 @@ function getBasketKey() {
     }
 }
 function getBasketItems(key){
-    $.get("https://shop.knedl.si/api/items/?order_key=" + key, function(data) {
+    $.get("https://shop.djnd.si/api/items/?order_key=" + key, function(data) {
         basket_items = data;
         renderSummary();
         console.log("rerender")

@@ -183,7 +183,7 @@ $(document).ready(function() {
             costumer_data["payment_type"] = "upn"
             $.ajax({
                 type: "POST",
-                url: "https://shop.knedl.si/api/checkout/?order_key=" + key,
+                url: "https://shop.djnd.si/api/checkout/?order_key=" + key,
                 data: JSON.stringify(costumer_data),
                 dataType: "json",
                 success: function(data) {
@@ -191,7 +191,7 @@ $(document).ready(function() {
                     console.log(data);
                     $.ajax({
                         type: "POST",
-                        url: "https://shop.knedl.si/poloznica/",
+                        url: "https://shop.djnd.si/poloznica/",
                         data: JSON.stringify(data),
                         dataType: "html",
                         success: function(data) {
@@ -214,7 +214,7 @@ $(document).ready(function() {
             console.log(costumer_data)
             $.ajax({
                 type: "POST",
-                url: "https://shop.knedl.si/api/checkout/?order_key=" + key,
+                url: "https://shop.djnd.si/api/checkout/?order_key=" + key,
                 data: JSON.stringify(costumer_data),
                 dataType: "json",
                 success: function(data) {
@@ -228,7 +228,7 @@ $(document).ready(function() {
     });
     var donation = JSON.parse($.cookie()["donation"])
     function getBasketItems(key){
-        $.get("https://shop.knedl.si/api/items/?order_key=" + donation["key"], function(data) {
+        $.get("https://shop.djnd.si/api/items/?order_key=" + donation["key"], function(data) {
             basket_items = data;
             renderSummary(donation.isSubscription)
             $(".overlay, .lds-heart").hide();

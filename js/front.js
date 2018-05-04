@@ -911,7 +911,7 @@ $(document).ready(function () {
     })
   }
 
-  $.get('https://djapi.knedl.si/getExposed/exposed/', function (r) {
+  $.get('https://djapi.djnd.si/getExposed/exposed/', function (r) {
     $('#izpostavljeno').children('.tiletitle').text(r.title);
     $('#izpostavljeno').children('.tiletext').text(r.label);
     $('#izpostavljeno').data('href', r.url);
@@ -1206,8 +1206,8 @@ function postToSlack(text, title, value, callback) {
     });
 }
 
-$('.js-ahmad-counter').load('https://djapi.knedl.si/getNumberOfSignatures/?peticija=ahmad');
+$('.js-ahmad-counter').load('https://djapi.djnd.si/getNumberOfSignatures/?peticija=ahmad');
 
-$.getJSON('https://djapi.knedl.si/getKuraSignatures/', function(r) {
+$.getJSON('https://djapi.djnd.si/getKuraSignatures/', function(r) {
   $('.js-kura-counter').text(r.counter);
 });
