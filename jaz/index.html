@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- meta info + OG tags -->
+  <title>Danes je nov dan</title>
+  <meta name="description" content="Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.">
+  <meta name="author" content="Danes je nov dan, Inštitut za druga vprašanja">
+  <link rel="shortcut icon" href="https://danesjenovdan.si/favicon.ico">
+
+  <meta property="og:title" content="Danes je nov dan" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja." />
+  <meta property="og:image" content="https://danesjenovdan.si/img/djndog.png" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600,700&amp;subset=latin-ext,latin">
+
+  <!-- icons -->
+  <link rel="stylesheet" href="/icons_/icons.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/guide.css?20171020">
+  <link rel="stylesheet" href="/css/gdpr.css?20171020">
+
+  <!-- WP fix -->
+  <script>
+    (function() {
+      if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+          document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+      }
+    })();
+  </script>
+</head>
+
+<body>
+
+  <div id="menucontent">
+    <div id="menuheader">
+      <div id="menuclose">
+        <div id="menucloseicon" class="icon col-light-green">×</div>
+      </div>
+      <div id="menutitle" class="bck-light-green">Danes je nov dan</div>
+      <div id="menutitleback" class="col-light-green">Danes je nov dan</div>
+    </div>
+    <div class="menuitem menuitem-agrument" data-menu="agrument">
+      <div class="ribbon bck-light-green"></div>Agrument
+    </div>
+    <div class="menuitem" data-menu="obcasnik/">
+      <div class="ribbon bck-light-red"></div>Občasnik
+    </div>
+    <div class="menuitem" data-menu="projekti/">
+      <div class="ribbon bck-light-red"></div>Projekti
+    </div>
+    <div class="menuitem" data-menu="krivi/">
+      <div class="ribbon bck-light-green"></div>Krivi
+    </div>
+    <div class="menuitem" data-menu="dolzni/">
+      <div class="ribbon bck-light-gold"></div>Dolžni
+    </div>
+    <div class="menuitem" data-menu="konsenz/">
+      <div class="ribbon bck-light-green"></div>Konsenz
+    </div>
+    <div class="menuitem" data-menu="formalnosti/">
+      <div class="ribbon bck-light-gold"></div>Formalnosti
+    </div>
+  </div>
+
+  <div class="container-fluid">
+
+    <div class="row bck-gray" id="header">
+      <div class="container">
+        <div class="row">
+          <div id="menu">
+            <div class="menutoggle">
+              <div class="icon-menu"></div>
+            </div>
+            <h1 class="nologo">Meni</h1>
+          </div>
+          <div class="languagetoggle" data-href="/en/">
+            <h1 class="nologo">En</h1>
+          </div>
+          <div class="col-md-12">
+            <h1 id="intro"><span id="title" class="col-dark-green">DANES JE NOV DAN /</span> je neprofiten inštitut, ki skrbi za varen, vključujoč in sodoben splet − in svet. Ne trolamo, ne pošiljamo neželene pošte, ne težimo in ne žicamo. Radi bi ti pisali, kadar naredimo
+              kaj dobrega, kadar se dogaja kaj pomembnega, radi bi te spoznali z dnevnimi agrumenti, novostmi na Parlametru in drugimi projekti.
+              <br><br>Pripravili smo vse možne različne scenarije bodoče e-komunikacije s tabo, ti pa se moraš le opredeliti do vsakega od njih!</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- main content container -->
+
+    <div class="container logged-out">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <p class="popuptext gdprpopuptext">Da lahko nastavljaš svoje nastavitve moraš najprej povedati kdo si. Na tvoj email naslov bo prispel mail z linkom, na katerem lahko urejaš svoje nastavitve.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form>
+            <input id="gdpremail" type="email" class="form-control" placeholder="ti@email.com">
+          </form>
+          <button class="btn btn-popup push" id="submitgdpremail">Oddaj!</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container logged-in">
+
+      <!-- <div class="row">
+        <div class="col-md-12">
+          <div class="cookiewarning" style="margin-bottom: 20px;">
+            <span class="cookiewords">Soglašam z uporabo piškotkov</span>
+            <br class="visible-xs">
+            <div class="confirmcookies btn-cookie bck-red">V REDU</div>
+            <div class="cookiemoreinfo btn-cookie bck-light-green">Želim več informacij</div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="gdpr-card">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="img-gdpr">
+                  <img class="img-gdpr" src="https://danesjenovdan.si/icons_/agrument.svg">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <h3 class="col-green">Agrument</h3>
+                <div class="toggle-label">Naročite me!</div>
+                <div class="toggle-container">
+                  <label class="switch" data-target="agrument">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <p>Agrument je dnevna intervencija v 1000 znakih. Čez teden so besedila kritično-aktualna, ob sobotah namenjena različnim tematskim sklopom, ob nedeljah pa projekt počiva. Pri Agrumentu sodeluje okrog 15 prostovoljk in prostovoljcev, ki že 5. leto zapovrstjo vsak dan družno reflektirajo družbeno in politično dogajanje, opozarjajo na okoljske in socialne problematike in razkrivajo hrbtne plati medijskih zgodb.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer" style="height: 44px; width: 100%;"></div>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="gdpr-card">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="img-gdpr">
+                  <img class="img-gdpr" src="https://danesjenovdan.si/icons_/newsletter.svg">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <h3 class="col-red">Mesečne novice</h3>
+                <div class="toggle-label">Naročite me!</div>
+                <div class="toggle-container">
+                  <label class="switch red" data-target="djnd">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <p>E-pošto s pregledom aktualnih in nedavnih projektov in akcij, ki jih izvajamo na inštitutu Danes je nov dan, pošiljamo največ enkrat mesečno. Če želiš biti na tekočem s tem, kar počnemo, se ti splača naročiti na mesečne novice, v katerih najdeš kratek povzetek naših aktivnosti s pripadajočimi povezavami na relevantna spletna mesta.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer" style="height: 44px; width: 100%;"></div>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="gdpr-card">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="img-gdpr">
+                  <img class="img-gdpr" src="https://danesjenovdan.si/icons_/obvestila.svg">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <h3 class="col-blue">Novice v zvezi s Parlametrom</h3>
+                <div class="toggle-label">Naročite me!</div>
+                <div class="toggle-container">
+                  <label class="switch blue" data-target="parlameter">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <p>To so obvestila, vezana izključno na naš najobsežnejši projekt do sedaj, Parlameter. Ko dodamo kakšno novo funkcionalnost, ga inštaliramo v novi državi ali pa preprosto začnemo spremljati prihajajoč 8. državni zbor Republike Slovenije, te lahko o tem obvestimo po e-pošti. Naroči se, da ti ne uide nobena novost!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer" style="height: 44px; width: 100%;"></div>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="gdpr-card">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="img-gdpr">
+                  <img class="img-gdpr" src="https://danesjenovdan.si/icons_/konsenz.svg">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <h3 class="col-green">Konsenz</h3>
+                <div class="toggle-label">Podpišite me!</div>
+                <div class="toggle-container">
+                  <label class="switch" data-target="konsenz">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <p>Danes je nov dan deluje na podlagi <a href="https://danesjenovdan.si/konsenz/">6 pravic</a>, ki predstavljajo nekakšno skupnostno ustavo in usmerjajo naše aktivnosti. Doslej je za 6 pravic svoja imena javno zastavilo skoraj 1800 ljudi in vabimo te, da se nam s podpisom pridružiš tudi ti!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer" style="height: 100px; width: 100%;"></div>
+      <!-- end of main content container -->
+
+    </div>
+
+
+    <div class="row" id="footer">
+      <svg id="footerdivider" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="40px" viewBox="0 0 100 102" preserveAspectRatio="none">
+        <path d="M0 0 L50 300 L100 0 Z"></path>
+      </svg>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 footerline">
+            <div id="newsletter" data-href="signup" class="icon-newsletter col-green popupopen buzz-out"></div>
+            <p id="newslettertext" class="footertext"><a class="footerlink link-green popupopen" data-href="signup" href="#">Naroči se na e-novice.</a> Pišemo samo, kadar imamo res kaj povedati.</p>
+          </div>
+          <div class="col-md-3 footerline">
+            <div id="socialcontainer">
+              <div class="social push" data-href="https://www.facebook.com/danesjenovdan">
+                <div class="icon icon-facebook"></div>
+              </div>
+              <div class="social push" data-href="https://twitter.com/danesjenovdan">
+                <div class="icon icon-twitter"></div>
+              </div>
+              <div class="social push" data-href="https://github.com/danesjenovdan">
+                <div class="icon icon-github"></div>
+              </div>
+              <div class="social push" data-href="https://vimeo.com/user26914674">
+                <div class="icon icon-vimeo"></div>
+              </div>
+              <div class="social push" data-href="https://www.youtube.com/channel/UCWMqx3p_QtWjdDRq58Hfh_w">
+                <div class="icon icon-youtube"></div>
+              </div>
+              <div class="social push" data-href="https://agrument.danesjenovdan.si/rss/">
+                <div class="icon icon-rss"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 footerline">
+            <span id="podpri">
+              <object data="/img/heart2.svg" class="icon-heart-line" type="image/svg+xml"></object>
+              <span class="icon icon-heart col-green"></span> Podpri nas!
+            </span>
+          </div>
+          <div class="col-md-3 footerline">
+            <p class="footertext" id="izkaznica"><a class="link-green" href="/formalnosti/">Danes je nov dan</a>
+              <br>Inštitut za druga vprašanja
+              <br>Parmova ulica 20
+              <br>1000 Ljubljana
+              <br>
+              <br><a class="footerlink link-green" href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end of container fluid -->
+
+  <div class="popup centermycontentvertically" id="signup">
+    <div class="popupclose">
+      <div class="icon-close"></div>
+    </div>
+    <div class="container popupcontainer centermevertically">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <p class="popuptext">Dodajte me na mailing listo.</p>
+          <form class="ac-custom ac-checkbox ac-checkmark">
+            <input id="newsletteremail" type="email" class="form-control" placeholder="ti@email.com">
+            <ul>
+              <li>
+                <input id="dodajme" name="dodajme" type="checkbox">
+                <label for="dodajme">dodaj me na listo podpornikov</label>
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg>
+              </li>
+            </ul>
+            <div class="hider">
+              <p class="popuptext">Zaupaj nam še svoje polno ime.</p>
+              <input id="newslettername" type="text" class="form-control" placeholder="Ime Priimek">
+            </div>
+          </form>
+          <button class="btn btn-popup push" id="submitemail">Oddaj!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/js/jquery.cookie.js"></script>
+  <script src="/js/nsa.js"></script>
+
+  <!-- Google Universal Analytics -->
+  <script>
+    (function() {
+      'use strict';
+      window.Fingerprint = function(a) {
+        var e = Array.prototype.forEach,
+          f = Array.prototype.map;
+        this.each = function(a, b, c) {
+          if (null !== a)
+            if (e && a.forEach === e) a.forEach(b, c);
+            else if (a.length === +a.length)
+            for (var d = 0, f = a.length; d < f && b.call(c, a[d], d, a) !== {}; d++);
+          else
+            for (d in a)
+              if (a.hasOwnProperty(d) && b.call(c, a[d], d, a) === {}) break
+        };
+        this.map = function(a, b, c) {
+          var d = [];
+          if (null == a) return d;
+          if (f && a.map === f) return a.map(b, c);
+          this.each(a, function(a, f, e) {
+            d[d.length] = b.call(c, a, f, e)
+          });
+          return d
+        };
+        a && (this.hasher = a)
+      };
+      Fingerprint.prototype = {
+        get: function() {
+          var a = [];
+          a.push(navigator.userAgent);
+          a.push([screen.height, screen.width, screen.colorDepth].join("x"));
+          a.push((new Date).getTimezoneOffset());
+          a.push(!!window.sessionStorage);
+          a.push(!!window.localStorage);
+          var e = this.map(navigator.plugins, function(a) {
+            var e = this.map(a, function(a) {
+              return [a.type, a.suffixes].join("~")
+            }).join(",");
+            return [a.name, a.description, e].join("::")
+          }, this).join(";");
+          a.push(e);
+          return this.hasher ? this.hasher(a.join("###"), 31) : this.murmurhash3_32_gc(a.join("###"), 31)
+        },
+        murmurhash3_32_gc: function(a, e) {
+          var f, g, b, c, d;
+          f = a.length & 3;
+          g = a.length - f;
+          b = e;
+          for (d = 0; d < g;) c = a.charCodeAt(d) & 255 | (a.charCodeAt(++d) & 255) << 8 | (a.charCodeAt(++d) & 255) << 16 | (a.charCodeAt(++d) & 255) << 24, ++d, c = 3432918353 * (c & 65535) + ((3432918353 * (c >>> 16) & 65535) << 16) & 4294967295, c = c << 15 | c >>> 17, c = 461845907 * (c & 65535) + ((461845907 * (c >>> 16) & 65535) << 16) & 4294967295, b ^= c, b = b << 13 | b >>> 19, b = 5 * (b & 65535) + ((5 * (b >>> 16) & 65535) << 16) & 4294967295, b = (b & 65535) + 27492 + (((b >>> 16) + 58964 & 65535) << 16);
+          c = 0;
+          switch (f) {
+            case 3:
+              c ^= (a.charCodeAt(d + 2) & 255) << 16;
+            case 2:
+              c ^= (a.charCodeAt(d + 1) & 255) << 8;
+            case 1:
+              c ^= a.charCodeAt(d) & 255, c = 3432918353 * (c & 65535) + ((3432918353 * (c >>> 16) & 65535) << 16) & 4294967295, c = c << 15 | c >>> 17, b ^= 461845907 * (c & 65535) + ((461845907 * (c >>> 16) & 65535) << 16) & 4294967295
+          }
+          b ^= a.length;
+          b ^= b >>> 16;
+          b = 2246822507 * (b & 65535) + ((2246822507 * (b >>> 16) & 65535) << 16) & 4294967295;
+          b ^= b >>> 13;
+          b = 3266489909 * (b & 65535) + ((3266489909 * (b >>> 16) & 65535) << 16) & 4294967295;
+          return (b ^ b >>> 16) >>> 0
+        }
+      }
+    })();
+
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    var fingerprint = new Fingerprint().get();
+    ga('create', 'UA-36901322-1', 'danesjenovdan.si', {
+      'storage': 'none',
+      'clientId': fingerprint,
+      'userId': $.cookie('djndid')
+    });
+    ga('send', 'pageview', {
+      'anonymizeIp': 'true'
+    });
+    ga('set', 'dimension1', $.cookie('djndid'));
+  </script>
+  <!-- End of Google Universal Analytics -->
+  <!-- better pageview tracking -->
+  <script>
+    (function(tos) {
+      window.setInterval(function() {
+        tos = (function(t) {
+          return t[0] == 50 ? (parseInt(t[1]) + 1) + ':00' : (t[1] || '0') + ':' + (parseInt(t[0]) + 10);
+        })(tos.split(':').reverse());
+        ga('send', 'event', 'Time', 'Log', 'ToS', tos);
+      }, 10000);
+    })('00');
+  </script>
+  <!-- end of better pageview tracking -->
+
+  <!-- frontend magic -->
+  <script src="/js/front.js?20171020"></script>
+  <script src="/jaz/script.js?20171020"></script>
+</body>
+
+</html>
