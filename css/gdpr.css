@@ -56,6 +56,10 @@
     margin: auto;
 }
 
+#person {
+    font-weight: 600;
+}
+
 
 /* TOGGLE */
 /* The switch - the box around the slider */

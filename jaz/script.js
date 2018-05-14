@@ -19,11 +19,13 @@ $(document).ready(function() {
         paramObject[item.name] = item.value;
     });
 
+    $('#person').text(paramObject.email);
+
     $('.switch input[type="checkbox"]').on('change', function() {
         var target = $(this).parent().data('target');
         
         // call API here
-        url = 'http://localhost:8000/confirm-' + target + '/?token=' + paramObject.token + '&email=' + paramObject.email + '&permission=' + this.checked;
+        url = 'http://mailer.knedl.si/confirm-' + target + '/?token=' + paramObject.token + '&email=' + paramObject.email + '&permission=' + this.checked;
         console.log(url);
         $.get(url, function(r) {
             console.log(r);
