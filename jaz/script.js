@@ -25,7 +25,7 @@ $(document).ready(function() {
         var target = $(this).parent().data('target');
         
         // call API here
-        url = 'http://spam.djnd.si/confirm-' + target + '/?token=' + paramObject.token + '&email=' + paramObject.email + '&permission=' + this.checked;
+        url = 'https://spam.djnd.si/confirm-' + target + '/?token=' + paramObject.token + '&email=' + paramObject.email + '&permission=' + this.checked;
         console.log(url);
         $.get(url, function(r) {
             console.log(r);
