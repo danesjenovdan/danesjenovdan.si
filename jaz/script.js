@@ -1,4 +1,8 @@
-var searchparams = window.location.search
+if ((window.location.search.indexOf('?') === -1) && (window.location.search.indexOf('&') === -1)) {
+    alert('Prosim ne goljufaj. ;)');
+    document.location.href = 'https://danesjenovdan.si/';
+} else {
+    var searchparams = window.location.search
     .split('?')[1]
     .split('&')
     .map(function(val) {
@@ -8,23 +12,25 @@ var searchparams = window.location.search
         }
     });
 
-var paramObject = {};
-searchparams.forEach(function(item) {
-    paramObject[item.name] = item.value;
-});
+    var paramObject = {};
+    searchparams.forEach(function(item) {
+        paramObject[item.name] = item.value;
+    });
+}
 
 $(document).ready(function() {
-    if (document.location.href.indexOf('token') === -1) {
-        $('.logged-out').css('display', 'block');
-        $('.logged-in').css('display', 'none');
-    }
+    // if (document.location.href.indexOf('token') === -1) {
+    //     $('.logged-out').css('display', 'block');
+    //     $('.logged-in').css('display', 'none');
+    // }
 
     $('#person').text(paramObject.email);
 
-    console.log('ping');
-
     $.get('https://spam.djnd.si/get-settings/?token=' + paramObject.token + '&email=' + paramObject.email, function(r) {
-        console.log(r);
+        if (r === 'Ne goljufaj prosim.') {
+            alert('Ne goljufaj prosim. ;)');
+            document.location.href = 'https://danesjenovdan.si/'
+        }
         $('#checkbox-agrument')[0].checked = r.agrument;
         $('#checkbox-djnd')[0].checked = r.djnd;
         $('#checkbox-parlameter')[0].checked = r.parlameter;
