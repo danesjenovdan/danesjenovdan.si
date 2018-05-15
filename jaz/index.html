@@ -152,7 +152,7 @@
                 <div class="toggle-label">Naročite me!</div>
                 <div class="toggle-container">
                   <label class="switch" data-target="agrument">
-                    <input type="checkbox">
+                    <input type="checkbox" id="checkbox-agrument">
                     <span class="slider round"></span>
                   </label>
                 </div>
@@ -179,7 +179,7 @@
                 <div class="toggle-label">Naročite me!</div>
                 <div class="toggle-container">
                   <label class="switch red" data-target="djnd">
-                    <input type="checkbox">
+                    <input type="checkbox" id="checkbox-djnd">
                     <span class="slider round"></span>
                   </label>
                 </div>
@@ -206,7 +206,7 @@
                 <div class="toggle-label">Naročite me!</div>
                 <div class="toggle-container">
                   <label class="switch blue" data-target="parlameter">
-                    <input type="checkbox">
+                    <input type="checkbox" id="checkbox-parlameter">
                     <span class="slider round"></span>
                   </label>
                 </div>
@@ -230,10 +230,13 @@
               </div>
               <div class="col-md-8">
                 <h3 class="col-green">Konsenz</h3>
+                <form>
+                  <input id="konsenzname" type="text" class="form-control" placeholder="Ime Priimek">
+                </form>
                 <div class="toggle-label">Podpišite me!</div>
                 <div class="toggle-container">
-                  <label class="switch" data-target="konsenz">
-                    <input type="checkbox">
+                  <label class="switch switch-konsenz" data-target="konsenz">
+                    <input type="checkbox" id="checkbox-konsenz">
                     <span class="slider round"></span>
                   </label>
                 </div>
@@ -445,7 +448,7 @@
 
   <!-- frontend magic -->
   <script src="/js/front.js?20171020"></script>
-  <script src="/jaz/script.js?20171020"></script>
+  <script src="/jaz/script.js?20180505"></script>
 </body>
 
 </html>
