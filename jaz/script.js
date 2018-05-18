@@ -50,9 +50,10 @@ $(document).ready(function() {
 
     $('.switch input[type="checkbox"]').not('#checkbox-konsenz').on('change', function() {
         var target = $(this).parent().data('target');
+        var checked = this.checked;
         var label = $(this).parent().parent().parent().find('.toggle-label');
 
-        if (this.checked) {
+        if (checked) {
             window.currentConfettis = 0;
             startConfetti();
         }
@@ -65,7 +66,7 @@ $(document).ready(function() {
             if (r !== '1') {
                 alert(r);
             } else {
-                label.text(this.checked ? 'Naročeno!' : 'Naročite me!');
+                label.text(checked ? 'Naročeno!' : 'Naročite me!');
             }
         });
     });
