@@ -40,7 +40,13 @@ $(document).ready(function() {
 
     $('.switch input[type="checkbox"]').not('#checkbox-konsenz').on('change', function() {
         var target = $(this).parent().data('target');
-        
+        var label = $(this).parent().parent().parent().find('.toggle-label');
+
+        if (this.checked) {
+            window.currentConfettis = 0;
+            startConfetti();
+        }
+
         // call API here
         url = 'https://spam.djnd.si/confirm-' + target + '/?token=' + paramObject.token + '&email=' + paramObject.email + '&permission=' + this.checked;
         console.log(url);
@@ -48,6 +54,8 @@ $(document).ready(function() {
             console.log(r);
             if (r !== '1') {
                 alert(r);
+            } else {
+                label.text(this.checked ? 'Naročeno!' : 'Naročite me!');
             }
         });
     });
@@ -56,18 +64,27 @@ $(document).ready(function() {
         if ($('#konsenzname').val() === '') {
             alert('Da te lahko podpišemo, nam moraš povedati kako ti je ime.')
             event.preventDefault();
-        } else {
+        } else if (event.target.tagName === 'INPUT') { // prevent triggering click multiple times
             var target = 'konsenz';
-        
+            var checked = $(this).children('input')[0].checked;
+            var label = $(this).parent().parent().find('.toggle-label');
+
+            if (checked) {
+                window.currentConfettis = 0;
+                startConfetti();
+            }
+
             // call API here
-            url = 'https://spam.djnd.si/confirm-' + target + '/?token=' + paramObject.token + '&email=' + paramObject.email + '&name=' + $('#konsenzname').val() + '&permission=' + $(this).children('input')[0].checked;
+            url = 'https://spam.djnd.si/confirm-' + target + '/?token=' + paramObject.token + '&email=' + paramObject.email + '&name=' + $('#konsenzname').val() + '&permission=' + checked;
             console.log(url);
             $.get(url, function(r) {
                 console.log(r);
                 if (r !== '1') {
                     alert(r);
+                } else {
+                    label.text(checked ? 'Podpisano!' : 'Podpišite me!');
                 }
-            }); 
+            });
         }
     });
 });
