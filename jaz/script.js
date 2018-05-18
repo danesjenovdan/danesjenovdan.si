@@ -36,6 +36,16 @@ $(document).ready(function() {
         $('#checkbox-parlameter')[0].checked = r.parlameter;
         $('#checkbox-konsenz')[0].checked = r.konsenz;
         $('#konsenzname').val(r.name);
+
+        $('.switch').each(function () {
+            var label = $(this).parent().parent().find('.toggle-label');
+            var checked = $(this).find('input')[0].checked;
+            if ($(this).hasClass('switch-konsenz')) {
+                label.text(checked ? 'Podpisano!' : 'Podpišite me!');
+            } else {
+                label.text(checked ? 'Naročeno!' : 'Naročite me!');
+            }
+        });
     });
 
     $('.switch input[type="checkbox"]').not('#checkbox-konsenz').on('change', function() {
