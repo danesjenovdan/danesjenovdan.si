@@ -24,6 +24,11 @@ $(document).ready(function() {
     //     $('.logged-in').css('display', 'none');
     // }
 
+    $('#save-button').on('click', function(event) {
+        event.preventDefault();
+        alert('Shranjeno!');
+    });
+
     $('#person').text(paramObject.email);
 
     $.get('https://spam.djnd.si/get-settings/?token=' + paramObject.token + '&email=' + paramObject.email, function(r) {
