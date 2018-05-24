@@ -15,14 +15,30 @@ $(document).ready(function() {
         $('.logged-out').css('display', 'block');
         $('.logged-in').css('display', 'none');
 
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'gdpr',
+            'eventAction': 'landing-logged-out'
+        });
+
         $('#submitemailform').on('submit', function(event) {
             event.preventDefault();
             var email = $('#gdpremail').val();
             if (email) {
                 $.get('https://spam.djnd.si/deliver-email/?email=' + email, function(r) {
                     if (r === '1') {
+                        ga('send', {
+                            'hitType': 'event',
+                            'eventCategory': 'gdpr',
+                            'eventAction': 'deliver-email'
+                        });
                         alert('Sporočilo poslano na e-naslov!');
                     } else {
+                        ga('send', {
+                            'hitType': 'event',
+                            'eventCategory': 'gdpr',
+                            'eventAction': 'deliver-email-error'
+                        });
                         alert('Prišlo je do napake :(');
                     }
                 });
@@ -31,6 +47,12 @@ $(document).ready(function() {
             }
         });
     } else {
+        ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'gdpr',
+            'eventAction': 'landing-logged-in'
+        });
+
         $('#save-button').on('click', function(event) {
             event.preventDefault();
             alert('Shranjeno!');
@@ -78,6 +100,11 @@ $(document).ready(function() {
                     alert(r);
                 } else {
                     label.text(checked ? 'Naročeno!' : 'Naročite me!');
+                    ga('send', {
+                        'hitType': 'event',
+                        'eventCategory': 'gdpr',
+                        'eventAction': target + '-' + checked
+                    });
                 }
             });
         });
@@ -105,6 +132,11 @@ $(document).ready(function() {
                         alert(r);
                     } else {
                         label.text(checked ? 'Podpisano!' : 'Podpišite me!');
+                        ga('send', {
+                            'hitType': 'event',
+                            'eventCategory': 'gdpr',
+                            'eventAction': target + '-' + checked
+                        });
                     }
                 });
             }
