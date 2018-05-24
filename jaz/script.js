@@ -32,6 +32,7 @@ $(document).ready(function() {
                             'eventCategory': 'gdpr',
                             'eventAction': 'deliver-email'
                         });
+                        fbq('track', 'Lead');
                         alert('Sporočilo poslano na e-naslov!');
                     } else {
                         ga('send', {
