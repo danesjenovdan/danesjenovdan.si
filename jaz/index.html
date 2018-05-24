@@ -35,7 +35,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/guide.css?20171020">
-  <link rel="stylesheet" href="/css/gdpr.css?20180518">
+  <link rel="stylesheet" href="/css/gdpr.css?20180524">
 
   <!-- WP fix -->
   <script>
@@ -99,9 +99,13 @@
             <h1 class="nologo">En</h1>
           </div>
           <div class="col-md-12">
-            <h1 id="intro"><span id="title" class="col-dark-green">DANES JE NOV DAN /</span> je neprofiten inštitut, ki skrbi za varen, vključujoč in sodoben splet − in svet. Ne trolamo, ne pošiljamo neželene pošte, ne težimo in ne žicamo. Radi bi ti pisali, kadar naredimo
-              kaj dobrega, kadar se dogaja kaj pomembnega, radi bi te spoznali z dnevnimi agrumenti, novostmi na Parlametru in drugimi projekti.
-              <br><br><span id="person"></span>, pripravili smo vse možne različne scenarije bodoče e-komunikacije s tabo, ti pa se moraš le opredeliti do vsakega od njih!</h1>
+            <h1 id="intro">
+              <span id="title" class="col-dark-green">DANES JE NOV DAN /</span> je neprofiten inštitut, ki skrbi za varen, vključujoč in sodoben splet − in svet. Ne trolamo, ne pošiljamo neželene pošte, ne težimo in ne žicamo. Radi bi ti pisali, kadar naredimo kaj dobrega, kadar se dogaja kaj pomembnega, radi bi te spoznali z dnevnimi agrumenti, novostmi na Parlametru in drugimi projekti.
+            </h1>
+            <h1 id="intro">
+              <span class="logged-in"><span id="person"></span>, </span>
+              pripravili smo vse možne različne scenarije bodoče e-komunikacije s tabo, ti pa se moraš le opredeliti do vsakega od njih!
+            </h1>
           </div>
         </div>
       </div>
@@ -112,16 +116,20 @@
     <div class="container logged-out">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <p class="popuptext gdprpopuptext">Da lahko nastavljaš svoje nastavitve moraš najprej povedati kdo si. Na tvoj email naslov bo prispel mail z linkom, na katerem lahko urejaš svoje nastavitve.</p>
+          <p class="popuptext gdprpopuptext">
+            Da bomo vedeli, čigave nastavitve urejaš, prosimo vpiši svoj e-naslov. Na ta naslov ti bomo poslali personalizirano povezavo do spletne strani za urejanje nastavitev.
+          </p>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <form>
-            <input id="gdpremail" type="email" class="form-control" placeholder="ti@email.com">
-          </form>
-          <button class="btn btn-popup push" id="submitgdpremail">Oddaj!</button>
-        </div>
+        <form id="submitemailform">
+          <div class="col-md-5 col-md-offset-2 col-sm-8">
+            <input id="gdpremail" type="email" class="form-control" placeholder="Vpiši e-naslov">
+          </div>
+          <div class="col-md-3 col-sm-4 text-center">
+            <button class="btn btn-block bck-green push" id="submitgdpremail">Potrdi</button>
+          </div>
+        </form>
       </div>
     </div>
 
@@ -463,7 +471,7 @@
 
   <!-- frontend magic -->
   <script src="/js/front.js?20171020"></script>
-  <script src="/jaz/script.js?20180522"></script>
+  <script src="/jaz/script.js?20180524"></script>
 </body>
 
 </html>

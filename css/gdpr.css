@@ -60,6 +60,9 @@
     font-weight: 600;
 }
 
+#gdpremail {
+    height: 47px;
+}
 
 /* TOGGLE */
 /* The switch - the box around the slider */
