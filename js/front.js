@@ -421,6 +421,10 @@ $(document).ready(function () {
     $('.popup').height($(window).height());
     $('#' + $(this).data('href')).addClass('open');
 
+    if ($('#' + $(this).data('href')).length) {
+      document.scrollingElement.style.overflowY = 'hidden'
+    }
+
     //        // ga za newsletter
     //        if ($(this).attr('id') === 'newsletter') {
     //            ga('send', {
@@ -456,6 +460,7 @@ $(document).ready(function () {
     var scr = document.body.scrollTop;
     window.location.hash = "";
     document.body.scrollTop = scr;
+    document.scrollingElement.style.overflowY = ''
   });
 
   $('.btn-projekt').on('click', function () {
