@@ -2403,6 +2403,7 @@ input:focus {
     position: relative;
     cursor: pointer;
 }
+.card-dolzni:hover + .card-dolzni .icon-arrow-down-right,
 .card-dolzni:hover .icon-arrow-down-right {
     -webkit-transform: rotate(-135deg);
     -moz-transform: rotate(-135deg);
@@ -4304,4 +4305,3 @@ input::-webkit-inner-spin-button {
 .flex-col {
     display: flex;
 }
-
