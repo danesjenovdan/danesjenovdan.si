@@ -451,15 +451,20 @@ $(document).ready(function () {
 
     $('.popup').height($(window).height());
     $('#' + $(this).data('href')).addClass('open');
+
+    if ($('#' + $(this).data('href')).length) {
+      document.scrollingElement.style.overflowY = 'hidden'
+    }
+
     window.location.hash = 'popup-' + $(this).data('href');
     return false;
   });
 
   $('.popupclose, .btn-zapri').on('click', function () {
     $('.popup').removeClass('open');
-    var scr = document.body.scrollTop;
+    var scr = $(window).scrollTop();
     window.location.hash = "";
-    document.body.scrollTop = scr;
+    $('html,body').scrollTop(scr);
     document.scrollingElement.style.overflowY = ''
   });
 
@@ -838,9 +843,10 @@ $(document).ready(function () {
         player.api('pause');
       }
       $('.popup').removeClass('open');
-      var scr = document.body.scrollTop;
+      var scr = $(window).scrollTop();
       window.location.hash = "";
-      document.body.scrollTop = scr;
+      $('html,body').scrollTop(scr);
+      document.scrollingElement.style.overflowY = ''
     }
   });
 
