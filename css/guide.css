@@ -2045,6 +2045,10 @@ input:focus {
     width: 48%;
     height: 92px;
     margin-right: 1%;
+    white-space: normal;
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
 }
 .btn-zapri {
     margin-top: 30px;

@@ -1,0 +1,830 @@
+{
+  "projects": [
+    {
+      "show": true,
+      "pinned": true,
+      "id": "parlameter",
+      "popup": "parlameterinfo",
+      "title": "Parlameter",
+      "text":
+        "Spletno orodje za faktično utemeljevanje kritiziranja čez poslance in/ali slavospeve njihovi prizadevnosti. Pretvarjanje porazgubljenih javnih podatkov v organizirane informacije, številke in grafe. Nulti korak za opolnomočen premik od pavšalne sodbe, da so \"vsi isti\" k identifikaciji podobnosti in razlik, ki uporabnike opremi z izhodišči za vsebinsko interpretacijo.",
+      "image": "/img/parlameter_slika.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Parlameter poganja več kot</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px\">270 000</p><p class=\"projectnumbertext\">vrstic kode</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": true,
+      "id": "agrument",
+      "popup": "agrumentinfo",
+      "title": "Agrument",
+      "text":
+        "Dnevni odzivi, komentarji in pomisleki v 1000 znakih. Z lupo beremo drobni tisk, z markerjem osvetljujemo opombe pod črto, dešifriramo oklepaje, funkcije in drugo družbenopolitično matematiko. Kolektivni projekt 15+ članskega uredništva.",
+      "image": "/projekti/img/agrument.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">število napisanih besed</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">189961</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "sestavivlado",
+      "popup": "sestavivladoinfo",
+      "title": "SESTAVIVLADO.SI",
+      "text":
+        "Oglasi za delo, na podlagi katerih bi v idealni Sloveniji zaposlili ministrice in ministre, so delo široke civilnodružbene in nevladniške koalicije. Dovolj je iskanja ministrstev za lakomne pretendente, poiščimo raje pravšnje - strokovne, vsebinske in etične - kadre za ministrstva!",
+      "image": "/projekti/img/sestavivlado.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">V civilnodružbeni koaliciji je</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">22</p><p class=\"projectnumbertext\">organizacij</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "copywrong",
+      "popup": "copywronginfo",
+      "title": "Rešimo internet",
+      "text":
+        "Kampanja za svoboden in avtonomen internet ob načrtovani reformi avtorskega prava Evropskega parlamenta. Sama reforma je krvavo potrebna, vanjo pa so se vtihotapili 4 problematični členi, ki ščitijo založnike, ogrožajo pa pošteno uporabo, citiranje, izobraževanje in raziskovanje, celo linkanje in meme. Na to je bilo potrebno opozoriti tudi slovenske evroposlance!",
+      "image": "/projekti/img/copywrong.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Peticijo podpisalo</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">skoraj 3000</p><p class=\"projectnumbertext\">ljudi</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "politicniportret",
+      "popup": "politicniportretinfo",
+      "title": "Politični portret",
+      "text":
+        "Gre za prevod in nadgradnjo odprtokodnega projekta politiscales. Test ponuja 117 vprašanj, ki posameznika umeščajo vzdolž 8 vrednotnih osi. Na test je odgovorila tudi večina političnih strank, ki kandidirajo na parlamentarnih volitvah 2018, zato lahko uporabnik svoja stališča tudi primerja z njihovimi odgovori.",
+      "image": "/projekti/img/politicni-portret.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Spletno mesto je obiskalo</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">več kot 30 000</p><p class=\"projectnumbertext\">ljudi</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "madzarska",
+      "popup": "madzarskainfo",
+      "title": "Predvolilni spot ESZDÉESZ",
+      "text":
+        "Gre za parodično predelavo uradnega predvolilnega spota stranke SDS. V odziv na medijska razkritja o nelegalnem financiranju kampanje SDS s strani z Orbánom povezanih madžarskih podjetij smo se odločili na nedopustnost zaobhajanja domače volilne zakonodaje opozoriti s prevodom nagovora stranke v - madžarščino.",
+      "image": "/projekti/img/eszdeesz.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Poskusov cenzure s strani SDS</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">2</p><p class=\"projectnumbertext\">zaenkrat</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "uporabljajfacebook",
+      "popup": "uporabljajfacebookinfo",
+      "title": "Uporabljaj Facebook",
+      "text":
+        "Prevedli in na lastni domeni objavili smo odprtokodno spletno mesto Sign up for Facebook, ki uporabnike opozarja na načine, kako Facebook zlorablja njihovo zaupanje glede podatkov, ki mu jih dajejo. Gre za pregled in razlago tega, do katerih naših podatkov ta storitev dostopa, katere shranjuje in kako z njimi pomaga oglaševalcem.",
+      "image": "/projekti/img/uporabljaj-facebook.jpg",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Od ideje do izvedbe</p><p class=\"projectnumbernumber\" style=\"font-size: 28px\">5 ur</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "kura",
+      "popup": "kurainfo",
+      "title": "kura.si",
+      "text":
+        "Odzvali smo se na povabilo Društva za zaščito živali Ljubljana in sodelovali v kampanji proti baterijski reji jajc. V okviru projekta smo izdelali spletno igro kura.si in postavili platformo za peticijo, ki od trgovcev zahteva, da prenehajo prodajati na tak način pridobljena jajca.",
+      "image": "/projekti/img/vesela-kura-djnd.gif",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Doslej zbranih že</p><p class=\"projectnumbernumber js-kura-counter\" style=\"font-size: 28px; line-height: 60px\">13411</p><p class=\"projectnumbertext\">podpisov</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "humansvote",
+      "popup": "humansvoteinfo",
+      "title": "humans.vote",
+      "text":
+        "S projektom humans.vote smo sodelovali na blockchain hackatonu Future Hack. Šlo je za 48-urni programerski maraton, v katerem smo skodirali varno odprtokodno blockchain rešitev za digitalne volitve oz. vsakršno odločanje na podlagi glasovanja.",
+      "image": "/projekti/img/humans-vote.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">V 2 dneh in nočeh spisali</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px\">6000+</p><p class=\"projectnumbertext\">vrstic kode</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "ahmad",
+      "popup": "ahmadinfo",
+      "title": "Ahmad mora ostati",
+      "text":
+        "Objavili smo peticijo Ambasade Rog, ki je od Ministrstva za notranje zadeve zahtevala, da ustavi deportacijo sirskega begunca Ahmada Šamija. Pritisk javnosti je bil dovolj za dvodnevno zamrznitev, v četrtek, 16. novembra, pa je vlada odločila, da mora Šami kljub vsemu oditi.",
+      "image": "/projekti/img/ahmad.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Podpisalo</p><p class=\"projectnumbernumber js-ahmad-counter\" style=\"font-size: 28px; line-height: 60px\">4256</p><p class=\"projectnumbertext\">ljudi</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "razglednica",
+      "popup": "razglednicainfo",
+      "title": "Razglednica z Visa",
+      "text":
+        "Testna uporaba metode SCAN, ki jo skupaj z EBSI digitaliziramo in ponovno premišljamo za potrebe prihajajočega projekta Detektor lisic. Poseg v rumeno medijsko krajino in dokaz, da tudi med izjavami tipa rekla-kazala obstajajo razlike.",
+      "image": "/projekti/img/razglednica-z-visa.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Na FB deljeno</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px\">702</p><p class=\"projectnumbertext\">krat</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "breakfree",
+      "popup": "grafitinfo",
+      "title": "Ali.je že grafit?",
+      "text":
+        "Julija 2017 so na Kongresnem trgu v nedostojnem in nedopustnem prepletu cerkvenih in državniških slovesnosti odkrili Spomenik žrtvam vseh vojn. Na dveh betonskih blokih, enakih po prostorni in različnih po videzu, ni niti jasnega sporočila niti plezalskih oprimkov. Mi pa smo začeli čakati na grafit ...",
+      "image": "/projekti/img/spomenik.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Grafit smo dočakali po</p><p class=\"projectnumbernumber grafitnumber\" style=\"font-size: 28px; line-height: 60px\">226</p><p class=\"projectnumbertext\">dneh</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "breakfree",
+      "popup": "breakfreeinfo",
+      "title": "Break Free Slovenija",
+      "text":
+        "Peticija za Vlado RS, v kateri jo skupaj s široko koalicijo nevladnih partnerjev pozivamo, da zaviha rokave na področju trajnostne in zelene energije. Javni denar naj namesto v energetske dinozavre usmerja v odgovoren prehod iz fosilnih goriv na trajnostno pridobivanje energije, poskrbi za zaposlene v tem sektorju, spodbuja samooskrbo z energijo in vzpostavi infrastrukturo za elektrifikacijo prometa z obnovljivimi viri.",
+      "image": "/projekti/img/breakfree.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext js-breakfree-counter-text\">Več kot</p><p class=\"projectnumbernumber js-breakfree-counter\" style=\"font-size: 28px; line-height: 60px\">5250</p><p class=\"projectnumbertext\">podpisov</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "varuhinja",
+      "popup": "varuhinjainfo",
+      "title": "Ne bomo odnehali",
+      "text":
+        "Peticija za varuhinjo človekovih pravic, v kateri jo pozivamo, naj Zakon o tujcih vloži v ustavno presojo. Funkcijo varuha razumemo kot zavezo k spoštovanju človekovih pravic mimo pragmatičnih, ekonomskih ali ideoloških interesov. Ni dopustno, da Zakon o tujcih, o čigar neustavnosti in neskladnosti z mednarodnimi pravnimi okvirji, so se izrekle številne domače nevladne organizacije, pa tudi tuje institucije, toliko časa po sprejetju v DZ tako dolgo čaka na to, da se mu posvetijo v uradu varuhinje.",
+      "image": "/projekti/img/varuhinja.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Več kot</p><p class=\"projectnumbernumber js-varuhinja-counter\" style=\"font-size: 28px; line-height: 60px\">1310</p><p class=\"projectnumbertext\">podpisov</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "ustavimokonje",
+      "popup": "ustavimokonjeinfo",
+      "title": "Lahko še ustavimo konje?",
+      "text":
+        "Spletni poziv predsedniku Pahorju, naj svoje funkcije ne razume kot birokrat, pač v dobro človekovih pravic z njo eksperimentira. Vsak človek je odgovoren, da v okviru svojih moči poskuša preprečiti eklatantne kršitve človekovih pravic, človek, katerega funkcija je utemeljena na simbolni integriteti, pa še toliko bolj.",
+      "image": "/projekti/img/ustavimokonje.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Poslano že</p><p class=\"projectnumbernumber js-ustavimokonje-counter\" style=\"font-size: 28px; line-height: 60px\">826</p><p class=\"projectnumbertext\">krat</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "aaron",
+      "popup": "aaroninfo",
+      "title": "Misliti drugačne heroje",
+      "text":
+        "8. novembra 2016 ni bil črn le dan zato, ker so Američani izvolili Trumpa, ampak tudi zato, ker bi na ta dan Aaron Swartz, če bi bil še živ, dopolnil 30 let. Danesjenovdanovci smo izkoristili priložnost selitve v novo pisarno in se na svoj način poklonili spominu na spletnega aktivista ter borca za odprto kodo in podatke.",
+      "image": "/projekti/img/aaron.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">ogledov na družb. omrežjih</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; white-space: nowrap;\">več kot 43 tisoč</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "proglas",
+      "popup": "proglasinfo",
+      "title": "Proglas \"sovraštvo\"",
+      "text":
+        "Vizualni razmislek ob Mladininem razpisu za proglas na temo sovraštvo, ki enega najbolj ikoničnih predosamosvojitvenih sloganov postavi v sodoben kontekst. Če je bila lastna nacionalna država takrat razumljena kot pogoj za demokratično emancipacijo in odpiranje svetu, je danes, ko je multikulti prilično mrtev, ograjena tvorba, ki prebivalce zapira v lastne vrtičke, druge pa pušča zunaj.",
+      "image": "/projekti/img/proglas_cover.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">od ideje do izvedbe</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; white-space: nowrap;\">2 uri</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "studentskiuspehi",
+      "popup": "studentskiuspehiinfo",
+      "title": "Največji uspehi študentske politike",
+      "text":
+        "Pregled največjih malverzacij, lumparij in ostalih “uspehov” študentske politike v zadnjih 20 letih. Na eni strani nenavadne pogodbe, vrtoglavi honorarji in vprašljive investicije, na drugi pa izogibanje javnemu nadzoru in državni reviziji.",
+      "image": "/projekti/img/studentskiuspehi.jpg",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">poslanih mejlov</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; white-space: nowrap;\">več kot 3000</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "prostovid",
+      "popup": "prostovidinfo",
+      "title": "Prostovid",
+      "text":
+        "Kritični študentski komentarji stanja slovenskega prostora v obliki nasprotujočih si vizij prihodnosti, postavljeni na spletni ogled iz udobnega naslanjača. Sporočilo je jasno: vsi smo soodgovorni za bodoč videz okolice!",
+      "image": "/projekti/img/prostovid.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">št. predstavljenih krajev</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">9</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "alternacija",
+      "popup": "alternacijainfo",
+      "title": "Alternacija",
+      "text":
+        "V tvitih politikov in strank smo besede begunec, migrant itn. zamenjali z besedo žid in z vizualno zasnovo spletne kampanje namignili na nekaj vsem znanih spornih simbolov, da bi bilo jasno: od odkrite fašistične propagande jih loči le še beseda!",
+      "image": "/projekti/img/alternacija.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">na Facebooku deljeno</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">1620-krat</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "zar",
+      "popup": "zarinfo",
+      "title": "Žar brez utvar",
+      "text":
+        "Re-akcija ob vnovičnem prikazu cesarjeve golote ali zakaj je Pahor slab predsednik. Namesto, da bi prižgali televizijski PR žar, smo mu na internetu raje podkurili z vsebinsko kritiko. Stanje pečenosti: gotof!",
+      "image": "/projekti/img/zar.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">na družbenih omrežjih deljeno</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">1805-krat</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "jansa",
+      "popup": "jansainfo",
+      "title": "Čas je ZA: Janez Janša",
+      "text":
+        "Zadnji prc pred volilnim molkom ali lažne novice iz Noriškega kraljestva: kraljevič je ZA! Provokativna politična satira ali vpogled v paralelno realnost, kjer je Gargamela pobruhal samorog.",
+      "image": "/projekti/img/casjeza.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">doseg videa na FB</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">92,556</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "neenak",
+      "popup": "neenakinfo",
+      "title": "Neenakost",
+      "text":
+        "Neenakost za začetnike oz. zakaj problem \"razvitih\" družb ni pomanjkanje, pač pa prevelike materialne razlike med njihovimi prebivalci. Interaktivna izkušnja, po kateri vam bo vse jasno, pa malo tudi slabo.",
+      "image": "/projekti/img/neenakost.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">št. obiskovalcev</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">2162 v 48h</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "map",
+      "popup": "mapinfo",
+      "title": "OMNIA zemljevid",
+      "text":
+        "Interaktiven zemljevid Omnia volišč ZA tiste, ki so bili na dan referenduma o spremembi definicije zakonske zveze, na izletu ali na obisku pri mami.",
+      "image": "/projekti/img/omnia_zemljevid.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">doseg na FB</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">18,237</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "bestof",
+      "popup": "bestofinfo",
+      "title": "Best of: referendumsko soočenje",
+      "text":
+        "S takimi zvezdami ni težko biti dober režiser: izreži/prilepi trolanje za spremljavo neprespani noči po večernem bistroumju na nacionalki, ki je v studio povabila izbrano druščino nasprotnikov spremembe definicije zakonske zveze. Venček domačih.",
+      "image": "/projekti/img/soocenje.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">ogledi videa na FB</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">312,463</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "za",
+      "popup": "zainfo",
+      "title": "Želim glasovati ZA, toda ...",
+      "text":
+        "Mrkih pogledov in naveličanih jezikov glede samega referenduma o redefiniciji zakonske zveze, pa vendar: treba je bit' za! Vodič po postopkih za vse, ki iz različnih razlogov ne morejo glasovati kot ostali.",
+      "image": "/projekti/img/vodic_za.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">število razloženih postopkov</p><p class=\"projectnumbernumber\">10</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "vandal",
+      "popup": "vandalinfo",
+      "title": "Je to vandalizem?",
+      "text":
+        "Preizpraševanje koncepta vandalizma, kot ga definira interes kapitala. Kaj je vandalizem: kolesarjenje čez center mesta ali slabo vzdrževanje in pomanjkanje kolesarskih stez? Naj povedo ljudje!",
+      "image": "/projekti/img/vandalizem.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">število definicij vandalizma</p><p class=\"projectnumbernumber\">56</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "ninja",
+      "popup": "ninjainfo",
+      "title": "Slep splet",
+      "text":
+        "Kampanja za večjo spletno vključenost slepih in slabovidnih, ki opozarja, da ni opravičila za šlampasto kodo, vsiljive oglase in ignoranco. Projekt študentov Univerze v Ljubljani pod mentorstvom starih DJND mačk/-ov.",
+      "image": "/projekti/img/slepsvet.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">na Facebooku deljeno</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">160-krat</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "tarca",
+      "popup": "tarcainfo",
+      "title": "Zgrešena tarča",
+      "text":
+        "Kaj storiš, ko si nacionalka tik pred začetkom veljave predvolilne zakonodaje vzame pravico do \"uredniške politike\", ki pa se je ne čuti dolžna pojasniti? Pišeš jim.",
+      "image": "/projekti/img/tarca.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">bralcev pisma prvi dan</p><p class=\"projectnumbernumber\">9k</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "slaughter",
+      "popup": "slaughterinfo",
+      "title": "(s)laughter",
+      "text":
+        "Video, koncipiran in posnet za Radical Democracy Video Challenge, v katerem žrtve nasilnega diskurza izgovarjajo besede svojih krvnikov. Tragikomična viralna uspešnica.",
+      "image": "/projekti/img/slaughter.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">število ogledov videa</p><p class=\"projectnumbernumber\">13k</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "heartbleed",
+      "popup": "heartbleedinfo",
+      "title": "Heartbleed",
+      "text":
+        "Zahteva po takojšnji naslovitvi spletne varnostne grožnje, ki je ogrozila številne zasebne podatke na strani ponudnikov raznovrstnih spletnih storitev. Opozarjanje odgovornih ter zbiranje odzivov.",
+      "image": "/projekti/img/heartbleed.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">od ideje do izvedbe</p><p class=\"projectnumbernumber\">11h</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "borut",
+      "popup": "borutinfo",
+      "title": "Et tu, B(o)rute?",
+      "text":
+        "Orodje, ki maši luknje v političnem spominu. Spletni opomnik za raznovrstno angažirano rabo, spisan na dah ob imenovanju nove KPK in njenega predsednika. Zlati Diggit lavreat 2014.",
+      "image": "/projekti/img/borute.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">število objav v medijih</p><p class=\"projectnumbernumber\">8</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "novsou",
+      "popup": "novsouinfo",
+      "title": "NOV ŠOU",
+      "text":
+        "Spletna kampanja za statutarne spremembe ŠOU v smeri njene opredelitve kot institucije javnega prava ter s tem povezanim večjim nadzorom nad njenim delovanjem.",
+      "image": "/projekti/img/novsou.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">volilna udeležba zvišana za</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">1200%</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "homojbog",
+      "popup": "homojboginfo",
+      "title": "Homojbog",
+      "text":
+        "Video intervencija proti kontraproduktivni pokroviteljski drži do LGBTQ skupnosti. Grobe ulične samo-deklaracije prepoznavnih ljudi. Proti vzdrževanju razlik med »nami« in »njimi«.",
+      "image": "/projekti/img/homojbog.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">skupno število ogledov</p><p class=\"projectnumbernumber\" style=\"font-size: 44px;\">26k</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "danzastudentskoorganiziranje",
+      "popup": "danzastudentskoorganiziranjeinfo",
+      "title": "dan za študentsko organiziranje",
+      "text":
+        "Delavnica o možnostih in pasteh študentskega organiziranja, razmislek o pravnem statusu ŠOS in ŠOU, financiranju, politiziranju, razpetostjo med skupnimi in partikularnimi interesi.",
+      "image": "/projekti/img/dan_za_stud_org.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">predsednik ŠOS po dogodku ostal</p><p class=\"projectnumbernumber\" style=\"font-size: 37px;\">133min</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "k4",
+      "popup": "k4info",
+      "title": "K4zazmeri",
+      "text":
+        "Peticija za ohranitev kluba K4 kot prostora progresivne in neodvisne kulturne ter glasbene produkcije ter Zavoda K6/4 kot neprofitne in odprte urbane platforme za sodobne umetniške prakse.",
+      "image": "/projekti/img/k4zazmeri.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">število podpisov</p><p class=\"projectnumbernumber\" style=\"font-size: 37px;\">2465</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "danzavodo",
+      "popup": "danzavodoinfo",
+      "title": "Dan za vodo",
+      "text":
+        "Delavnica o poskusih privatizacije vodnih virov in iskanju bolj demokratičnih načinov upravljanja s skupnim, ki je izšla neposredno iz uporabniškega predloga na portalu.",
+      "image": "/projekti/img/dan_za_vodo.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 10px; width: 218px;\"><p class=\"projectnumbertext\">število podpisov slovenske peticije</p><p class=\"projectnumbernumber\">21k</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "predlogi",
+      "popup": "predlogiinfo",
+      "title": "Predlogi",
+      "text":
+        "Platforma, kjer se je vse začelo. Orodje za spletno participacijo in digitalno demokracijo, skupnostno odločanje, debato in organizacijo delovnih procesov. Trenutno v predalu.",
+      "image": "/projekti/img/predlogi.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">število glasov</p><p class=\"projectnumbernumber\">12k</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "harlemshake",
+      "popup": "harlemshakeinfo",
+      "title": "Harlem shake",
+      "text":
+        "Lokalizirana verzija svetovne viralne obsesije s kančkom domače politične satire, inovativne rabe univerzitetnih prostorov in obilico veselja do življenja. Danes je nor dan.",
+      "image": "/projekti/img/harlemshake.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">število ogledov videa</p><p class=\"projectnumbernumber\" style=\"font-size: 37px;\">7434</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "zakonopljo",
+      "popup": "zakonopljoinfo",
+      "title": "Za konopljo",
+      "text":
+        "Prvi poskusi zbiranja podpisov za parlamentarno obravnavo zakona o legalizaciji konoplje. Prepričljiva kampanja z za leto 2012 avantgardnimi prijemi spletnega komuniciranja.",
+      "image": "/projekti/img/za_konopljo.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">obiskovalcev v desetih dneh</p><p class=\"projectnumbernumber\">33k</p></div>"
+    }
+  ],
+  "popups": [
+    {
+      "id": "parlameterinfo",
+      "title": "Parlameter",
+      "text":
+        "Parlameter nudi transparenten vpogled in enostavno dostopnost ter preglednost informacij o delu parlamenta. Zbiramo in analiziramo podatke o glasovanjih, transkripte sej, pa tudi siceršnje aktivnosti poslancev ter poslanskih skupin.<br>Podatki so urejeni na strojem in ljudem prijazen način: za prve so tu API klici, za druge pa kartični dizajn oz. inovativna organizacija podatkov. Vsak kos vsebine Parlametra namreč živi v obliki samostojne kartice, ki jo uporabnik lahko deli z drugimi ali vdela v svoje spletno mesto.<br>Razvoj Parlametra je podprl Google DNI, njegovo samostojno življenje pa trenutno lajša še štipendija NED.<br>Vrednost projekta pripoznavajo strokovna (nagrada Brumen, velika nagrada Diggit), novinarska (vdelan je na STA), pa tudi tuja nevladniška javnost: kmalu Parlameter prihaja tudi na Hrvaško, v Bosno in v Veliko Britanijo.",
+      "href": "https://parlameter.si/",
+      "buttonText": "Preizkusi Parlameter"
+    },
+    {
+      "id": "agrumentinfo",
+      "title": "Agrument",
+      "text":
+        "Od začetka leta 2014 dnevno posegamo v vsebinsko podhranjen domač medijski prostor. Z intervencijami v približno 1000 znakih opozarjamo na hrbtne plati velikih zgodb, izpostavljamo majhne, a pomembne pripetljaje, spremljamo neodvisne medije in zakulisne dogodke, ki imajo pogosto najbolj radikalen vpliv na življenje, skupno dobro ter naravo. Informacije in interpretacije preverimo večkrat in na različnih mestih, radi zastavljamo druga vprašanja, radi pa Agrumente opremljamo tudi z avtorskimi vizualnimi rešitvami.<br>Vsake toliko se 25 vikendov zapored dogaja tematski agrument (npr. filozofski), tu in tam pa agrument dobi tudi video format.",
+      "href": "https://agrument.danesjenovdan.si/",
+      "buttonText": "Loti se branja!"
+    },
+    {
+      "id": "copywronginfo",
+      "title": "Rešimo internet",
+      "text":
+        "Junija 2018 smo se lotili kampanje, v kateri smo problematizirali štiri člene predlagane evropske reforme avtorskega prava: pri dveh smo zahtevali ukinitev, pri drugih dveh pa spremembo. Predlagani 11. člen je ogrožal pravico do linkanja, saj so lobisti velikih založnikov želeli ukiniti prost pretok informacij in zaračunavati za povezave do svojih vsebin. 13. člen je bil problematičen zato, ker je z zahtevano vpeljavo avtomatskih filtrov vsebin omogočal cenzuro tudi pri pošteni uporabi avtorskih del (npr. pri memih, parodijah, citatih). 3. in 4. člen, ki se ukvarjata z dovoljenimi izjemami glede podatkovnega rudarjanja in izobraževanja, pa sta bila potrebna razširitve in jasnejše definicije.<br>S pobudo smo skupaj s sorodnimi aktivističnimi akcijami širom Evrope začasno uspeli: reforma v predlagani obliki ni bila sprejeta, o njej pa bo Evropski parlament ponovno razpravljal jeseni.",
+      "href": "https://danesjenovdan.si/resimointernet/",
+      "buttonText": "Oglej si spletno mesto kampanje"
+    },
+    {
+      "id": "sestavivladoinfo",
+      "title": "SESTAVIVLADO.SI",
+      "text":
+        "Konec julija 2018 smo v sodelovanju s široko civilnodružbeno in nevladniško koalicijo s pomočjo satirične spletne strani opozorili na problematičnost uveljavljenih načinov političnega povezovanja. Namesto da bi se stranke v oblikovanju vlade povezovale na podlagi konkretnih politik in vsebin, kupčkajo z glasovi in močjo, funkcije pa podeljujejo na podlagi apetitov posameznikov in zanemarjajo kompetence. Ob tem je v slovenski politiki očiten trend sprejemanja zakonodaje po skrajšanih postopkih, ki izključuje civilno družbo in nevladnike iz javne razprave ter pomaga ustvarjati vtis o tem, da so odveč. Resnica pa ne bi mogla biti bolj drugačna ...",
+      "href": "https://sestavivlado.si/",
+      "buttonText": "Oglej si spletno stran"
+    },
+    {
+      "id": "politicniportretinfo",
+      "title": "Politični portret",
+      "text":
+        "Konec maja 2018 smo se v zadnjem šprintu pred bližajočimi se volitvami odločili pomagati volivcem pri izboru med številnimi strankami. Ker se soočenja in strankarski programi osredotočajo na čim bolj splošne in prazne floskule, smo velik del strank, ki kandidirajo, prepričali, da se opredelijo do 117 trditev, prevzetih z odprtokodnega projekta politiscales. Posamezni uporabnik lahko reši test in svoje rezultate primerja z rezultati političnih strank in se tako učinkovito umesti v politični prostor. Volivcem smo želeli dati možnost, da se odločajo glede na vsebinska stališča, in velik odziv na akcijo dokazuje, da so to tudi potrebovali.",
+      "href": "https://danesjenovdan.si/politicni-portret/",
+      "buttonText": "Reši kviz"
+    },
+    {
+      "id": "madzarskainfo",
+      "title": "Predvolilni spot ESZDÉESZ",
+      "text":
+        "SDS je edina stranka pri nas, ki ima v lasti podjetja. Med njimi so tudi medijske hiše, v katere so madžarska podjetja, povezana s predsednikom vlade Orbánom, vložila že več kot 2 milijona evrov. S tem so posredno financirala volilno kampanjo SDS.\n                        A v Sloveniji po veljavni zakonodaji politične stranke ne smejo prejemati financiranja iz tujine. Gre za mehanizem, ki varuje suverenost države in volitev, SDS pa ga, in z njim državo, izigrava.\n                        Da bi opozorili na probleatično orbanizacijo Slovenije, smo promocijski video SDS sinhronizirali v madžarščino.",
+      "href": "https://vimeo.com/272352527",
+      "buttonText": "Oglej si video"
+    },
+    {
+      "id": "uporabljajfacebookinfo",
+      "title": "Uporabljaj Facebook",
+      "text":
+        "Vedno več je govora o problematičnosti spletnih gigantov, kot je Facebook, in njihovega ravnanja z našimi podatki. Po odmevnih aferah, kot je bila tista v zvezi s podjetjem Cambridge Analytica, smo se konec marca 2018 odločili v slovenščino prevesti odprtokodno spletno mesto Sign up for Facebook. Spletno mesto je zasnovano tako, da uporabnika, ki se odloča o tem, ali odpreti račun na tem družbenem omrežju ali ne, vodi skozi informacije o tem, katere njegove/njene podatke Facebook zbira, shranjuje, kaj z njimi počne in kako vse to koristi oglaševalcem oz. partikularnim interesnim skupinam. Ker je treba sprejeti odgovornost za svoje odločitve in se zavedati njihovih možnih posledic!",
+      "href": "https://uporabljajfacebook.si/",
+      "buttonText": "Oglej si spletno mesto"
+    },
+    {
+      "id": "kurainfo",
+      "title": "KURA.SI",
+      "text":
+        "Najpomembnejši rezultat kampanje proti baterijski reji jajc, ki smo se ji pridružili marca 2018, je peticija, poslana vsem večjim trgovcem, ki na domačem trgu prodajajo na ta način pridobljena jajca, na katero se je javnost množično odzvala. Zanjo smo priskrbeli vso potrebno digitalno infrastrukturo. Kar nekaj kreativnih ur pa smo na inštitutu preživeli tudi ob retro spletni igri kura.si, ki smo jo razvili v podporo kampanji. V njej se igralec postavi v vlogo kokoši nesnice in kaj kmalu ugotovi, da je obsojen na životarjenje v majhnem prostoru, v katerem se ne more prosto gibati. Seveda je morebitna odprava baterijske reje kokoši le majhen korak v prizadevanju za dobrobit živali, a edino majhnimi koraki nas bodo počasi in zanesljivo pripeljali v utopistično prihodnost medsebojnega spoštovanja in sobivanja različnih kultur in vrst.",
+      "href": "https://kura.si",
+      "buttonText": "preizkusi se v vlogi kure"
+    },
+    {
+      "id": "humansvoteinfo",
+      "title": "humans.vote",
+      "text":
+        "Januarja 2018 je skupina naših razvijalcev sodelovala na hackatonu Future Hack, v okviru katerega so v 48 urah razvili aplikacijo, ki omogoča varno glasovanje s pomočjo blockchain tehnologije. Namenili smo se zgraditi orodje, ki bi vsakomur, ne glede na njihovo znanje o blockchainu, omogočilo enostavno namestitev in uporabo glasovalne aplikacije. Organizacije in posamezniki imajo pri implementaciji različnih mehanizmov odločanja raznolike potrebe, zato smo aplikacijo oblikovali tako, da je sposobna delovati z vsakršnim glasovalnim sistemom. Uporabniški vmesnik je zaradi časovne omejitve žal ostal nedodelan, smo pa v 48 urah uspeli realizirati zastavljen projekt, spisati dokumentacijo in temeljita navodila za nametitev ter uporabo in javno objaviti (odprto) kodo na GitHubu.",
+      "href": "http://humans.vote",
+      "buttonText": "Sčekiraj projekt"
+    },
+    {
+      "id": "ahmadinfo",
+      "title": "Ahmad mora ostati",
+      "text":
+        "Novembra 2017 je Slovenijo razklala zgodba, ki je na plečih tragične človeške usode demostrirala dejstvo, da rek osebno je politično gotovo velja. Slovenski birokratski aparat je pokazal, da sveto upošteva Dublinsko uredbo, kadar potrebuje podlago za vračanje prosilcev za azil na Hrvaško, ne pa tudi, kadar je možno uporabiti njeno diskrecijsko klavzulo za reševanje individualnih usod.\n                        Begunec Šami (Shamieh) je prišel v državo po humanitarnem koridorju in ni nikoli zaprosil za azil na Hrvaškem. V letu in pol življenja pri nas se je naučil jezika in se integriral v družbo, še posebej aktiven je bil kot eden od pobudnikov Ambasade Rog, deloval je kot prostovoljec na področju begunske in socialne problematike, bil je tudi ključen sodelavec pri dveh projektih Ministrstva za kulturo. Namesto da bi njegovo zgodbo uporabili kot zgled in zaželjeno prakso vključevanja ter ga za prispevek družbi \"nagradili\" vsaj z dovoljenjem za bivanje, pa se je Ministrstvo za notranje zadeve odločilo njegovo vlogo za azil enostavno - zavreči.",
+      "href": "https://danesjenovdan.si/ahmad/",
+      "buttonText": "Poglej peticijo"
+    },
+    {
+      "id": "mixerinfo",
+      "title": "Mikser soočenj",
+      "text":
+        "V sodelovanju s POP TV smo pripravili aplikacijo, s katero televizijsko soočenje predsedniških kandidatov iz okvirjev enosmerne televizijske logike v razmislek in ravnanje izročamo tudi spletni javnosti.\n                    Aplikacija omogoča bliskovito obdelavo in deljenje zanimivih, pomembnih ali komičnih izsekov iz predsedniških soočenj. Z njeno pomočjo so uporabniki na spletnem naslovu soocenje.24ur.com lahko v živo spremljali in remiksali največje televizijsko soočenje pred volitvami.\n                    Na spletnem mestu projekta smo objavili številne video izseke, ki so jih iz soočenj ustvarili naši uporabniki. Večinoma gre za norčevanje iz praznih izjav kandidatov, nekaj pa je tudi parodij, ki odstirajo resne vsebinske pomisleke. Video prvega soočenja je tudi podnaslovljen, nanj pa je priklopljen iskalnik, da je brskanje po izjavah še lažje. Še vedno lahko poskusite tudi ustvariti svojo umetnino!",
+      "href": "http://soocenje.24ur.com/",
+      "buttonText": "Sčekiraj projekt"
+    },
+    {
+      "id": "razglednicainfo",
+      "title": "Razglednica z Visa",
+      "text":
+        "Sicer pregovorno parlamentarno dolgočasen avgust je l. 2017 zaznamoval dogodek na trajektu za Vis, kjer sta se srečala poslanska kolega Violeta Tomić (Levica) in Branko Grims (SDS). Srečanju je sledila objava fotografij poslanke v za okus tega medija neprimernih oblačilih, pozah ter družbi, temu pa poslankin odziv na družbenih medijih, ki je namignil na potencialno vpletenost Grimsa, kar je on na svojih kanalih ogorčeno zavrnil. Poletna romanca na Visu se nam je zdela primerna vaja za preizkus preiskovalne metode SCAN, ki jo raziskujemo in razvijamo za potrebe projekta Detektor lisic.",
+      "href": "https://danesjenovdan.si/razglednica-z-visa/",
+      "buttonText": "Oglej si izsledke metode SCAN"
+    },
+    {
+      "id": "grafitinfo",
+      "title": "Ali je Spomenik žrtvam vseh vojn že pografitiran",
+      "text":
+        "O umetniški vrednosti Spomenika se nima smisla opredeljevati, ker vsaj pri hrani in umetnosti velja, da se o okusih pač ne razpravlja. To pa še ne pomeni, da ni nujno opozoriti na njegovo simbolno razžalitev vseh, ki so med drugo svetovno vojno stopili na pravo stran. Sodobna zgodovina je polna poskusov relativizacije definicij dobrega in slabega, prijatelja in sovražnika, heroja in izdajalca, partizana in belogardista. To, da so vojni sledila tudi zavržena dejanja zmagovalne strani, ne pomeni, da kolaboracije z nacističnim režimom ni bilo ali pa da je moralno enakovredna sodelovanju z zavezniki. Povojne svinjarije naj se raziščejo in kaznujejo, vsi svojci naj dobijo možnost pokopati svoje mrtve. A spomenik, ki izenačuje domobrance in partizane, se lahko le po...grafitira.",
+      "href": "https://ali.je/spomenikvsemzrtvamvojnzepografitiran/",
+      "buttonText": "Poglej, če zid že ima grafit"
+    },
+    {
+      "id": "breakfreeinfo",
+      "title": "Razglednica z Visa",
+      "text":
+        "Sicer pregovorno parlamentarno dolgočasen avgust je l. 2017 zaznamoval dogodek na trajektu za Vis, kjer sta se srečala poslanska kolega Violeta Tomić (Levica) in Branko Grims (SDS). Srečanju je sledila objava fotografij poslanke v za okus tega medija neprimernih oblačilih, pozah ter družbi, temu pa poslankin odziv na družbenih medijih, ki je namignil na potencialno vpletenost Grimsa, kar je on na svojih kanalih ogorčeno zavrnil. Poletna romanca na Visu se nam je zdela primerna vaja za preizkus preiskovalne metode SCAN, ki jo raziskujemo in razvijamo za potrebe projekta Detektor lisic.",
+      "href": "https://danesjenovdan.si/razglednica-z-visa/",
+      "buttonText": "Oglej si izsledke metode SCAN"
+    },
+    {
+      "id": "grafitinfo",
+      "title": "Ali je Spomenik žrtvam vseh vojn že pografitiran",
+      "text":
+        "O umetniški vrednosti Spomenika se nima smisla opredeljevati, ker vsaj pri hrani in umetnosti velja, da se o okusih pač ne razpravlja. To pa še ne pomeni, da ni nujno opozoriti na njegovo simbolno razžalitev vseh, ki so med drugo svetovno vojno stopili na pravo stran. Sodobna zgodovina je polna poskusov relativizacije definicij dobrega in slabega, prijatelja in sovražnika, heroja in izdajalca, partizana in belogardista. To, da so vojni sledila tudi zavržena dejanja zmagovalne strani, ne pomeni, da kolaboracije z nacističnim režimom ni bilo ali pa da je moralno enakovredna sodelovanju z zavezniki. Povojne svinjarije naj se raziščejo in kaznujejo, vsi svojci naj dobijo možnost pokopati svoje mrtve. A spomenik, ki izenačuje domobrance in partizane, se lahko le po...grafitira.",
+      "href": "https://ali.je/spomenikvsemzrtvamvojnzepografitiran/",
+      "buttonText": "Poglej, če zid že ima grafit"
+    },
+    {
+      "id": "breakfreeinfo",
+      "title": "Break Free Slovenija",
+      "text":
+        "Pridružili smo se lokalni Greenpeacovi koaliciji, ki je pod naslovom Break Free med 13. in 31. marcem 2017 širom sveta organizirala serijo dogodkov in iniciativ, katerih skupni cilj je poziv k opustitvi fosilnih goriv. Ne le, da umazana energija škoduje planetu, poleg tega nas še drago stane. Slovenija je kot podpisnica Pariškega sporazuma zavezana popolni dekarbonizaciji energetskega in industrijskega sektorja do leta 2050, kar pomeni, da bomo namesto vlaganja v premogovne elektrarne pristati na njihov neizbežen in čimprejšnji konec. To lahko odgovorno storimo le s pravočasnim, odgovornim in trajnostnim odnosom politike, ki pa se obnaša, kot da je časa na pretek. Peticijo smo zasnovali kot dinamično in uporabniku prijazno spletno izkušnjo, ponovno pa smo vpregli tudi Šepetalko, bota, ki na inovativen način informira uporabnike in prijazno ter razumljivo pojasnjuje morebitne nejasnosti. Projekt je nastal v sodelovanju z Break Free koalicjo pod vodstvom Greenpeace Slovenija in kolektivom Ljudje.",
+      "href": "https://danesjenovdan.si/breakfree/",
+      "buttonText": "Oglej si spletno kampanjo"
+    },
+    {
+      "id": "varuhinjainfo",
+      "title": "Ne bomo odnehali",
+      "text":
+        "V sodelovanju z Ljudmi, Stripgeneratorjem in Project Seen smo k življenju obudili Šepetalko, ki preko forme dialoga odstira nejasnosti v zvezi z Zakonom o tujcih in opozarja na njegovo neustavnost ter kršitve mednarodnih konvencij v zvezi s človekovimi pravicami. Uporabniku prijazna spletna izkušnja poskrbi za informiranost, na koncu pa pozove k angažmaju v obliki peticije za varuhinjo, v kateri jo pozivamo, naj preneha s pasivno držo in Zakon o tujcih nemudoma vloži v ustavno presojo. Za tiste, ki vsebino spornega zakona poznajo, smo izdelali tudi enostavno spletno mesto, kjer je mogoče enostavno podpisati peticijo. Peticijo smo varuhinji že izročili, v odgovor pa iz PR oddelka njene pisarne skupaj z več kot 1400 podpisniki dobili arogantno lekcijo o nedopustnih pritiskih na avtonomijo institucije varuha. Živimo torej v državi, kjer je nespodobno javne funkcionarje klicati k odgovornosti, da učinkovito in pravočasno opravijo svoje delo.",
+      "href": "https://danesjenovdan.si/varuhinja/",
+      "buttonText": "Oglej si peticijo"
+    },
+    {
+      "id": "ustavimokonjeinfo",
+      "title": "Lahko še ustavimo konje?",
+      "text":
+        "Ogorčenje ob sprejetju neustavnega Zakona o tujcih je proizvedlo poziv predsedniku Republike Slovenije Borutu Pahorju, naj ravna etično: pozvali smo ga, da v bran človekovih pravic zastavi tudi svoje privilegije. Funkcija predsednika resda predpostavlja, da ta razglaša zakone ne glede na to, ali se z njimi strinja ali ne, toda predsedovanje je možno misliti tudi onkraj političnega pragmatizma in navade: če bi predsednik zavrnil razglas zakona, bi resda tvegal potencialno razrešitev v DZ, toda v smislu človeške integritete in simbolne avtoritete bi kvečjemu pridobil. Predsednikov urad je možnost nerazglasitve zakona zavrnil kot nemogočo, toda ta sodba velja le znotraj predpostavke, da mora Pahor na funkciji v vsakem primeru ostati - in si s čim bolj nevsebinskim obnašanjem še zagotoviti možnosti za naslednjo kandidaturo. Toda bistveno bolj predsedniško bi bilo tvegati službo za človekove pravice kot ceneno in nevsebinsko zbirati lajke na družbenih omrežjih.",
+      "href": "https://danesjenovdan.si/ustavimokonje/",
+      "buttonText": "Oglej si spletno kampanjo"
+    },
+    {
+      "id": "aaroninfo",
+      "title": "Misliti drugačne heroje",
+      "text":
+        "Aaron Swartz je bil računalniški programer, (h)aktivist, borec za odprto kodo in podatke, redefinicijo avtorskega prava ter prosto dostopnost znanstvenih besedil. Slednje ga je pripeljalo tudi v težave z zakonom.Po tem, ko je iz strežnikov MIT skopiral tako rekoč cel JSTOR, se je FBI odločil, da mu da lekcijo, ki ne bo ustavila le njegovih, pač pa od podobnih prizadevanj odvrnila tudi ostale. JSTOR sicer ni želel preganjati Swartza, univerza MIT, ki se javno pozicionira kot zagovornica odprtega dostopa do znanja in podatkov, pa je molčala.Swartz ni sprejel tožilske ponudbe, po kateri bi v zameno za priznanje očitanih kršitev zvezne zakonodaje dobil 6 mesecev zapora ter kriminalno kartoteko, zato mu je grozilo do 50 let zapora in milijon dolarjev kazni. Swartz ni nikoli postal kriminalec, saj je 11. januarja 2013 storil samomor.",
+      "href": "https://www.youtube.com/watch?v=_2FWJyZ4pao",
+      "buttonText": "Oglej si video"
+    },
+    {
+      "id": "proglasinfo",
+      "title": "Proglas \"sovraštvo\"",
+      "text":
+        "Poleti 2016 smo se odzvali na Mladinin natečaj na temo sovraštvo s prispevkom, ki kritično parodira enega od stebrov slovenskega oglaševalstva, pa tudi slovenstva kot takega. Za ilustracijo poante, da je Slovenija vase zaprta in do vsega tujega sovražna država, smo vzpostavili dialog s kultno oglaševalsko akcijo \"Slovenija, moja dežela\", ki so jo za Gospodarsko zbornico Slovenije v osemdesetih letih prejšnjega stoletja ustvarili v Studiu marketing Delo. Na Mladininem natečaju je strokovna žirija v sestavi Tomato Košir, Matevž Medja in Robert Botteri delo razglasila za zmagovalno, sledila je tudi objava v tiskani številki omenjene revije.",
+      "href": "https://danesjenovdan.si/projekti/img/proglas.png",
+      "buttonText": "Oglej si kreativo"
+    },
+    {
+      "id": "studentskiuspehiinfo",
+      "title": "Največji uspehi študentske politike",
+      "text":
+        "Dan pred sejo Odbora za izobraževanje, šport in mladino, smo pomagali izvajati javni pritisk v prid noveli Zakona o skupnosti študentov, ki jo je pripravila Združena levica. Novela naslavlja največje nedorečenosti in dvoumnosti, ki so študentskim funkcionarjem doslej omogočale delovati predvsem v lastnem interesu, študentsko organizacijo pa redefinira v osebo javnega prava in jo na ta način podreja tudi strožji zakonodaji. Vodilna garnitura ŠOS ostro zavrača spremembe študentske zakonodaje, partikularnim interesom pa se uklanja pa se jim tudi pristojno ministrstvo, ki namesto študentskih očitno zastopa zasebne interese. S kampanjo smo pomagali preprečiti zavrnitev novele na omenjenem Odboru in dosegli, da se razprava nadaljuje jeseni 2016. Šova je konec!",
+      "href": "https://danesjenovdan.si/studentski-uspehi/",
+      "buttonText": "Oglej si spletno kampanijo"
+    },
+    {
+      "id": "prostovidinfo",
+      "title": "Prostovid",
+      "text":
+        "S Prostovidom smo konec aprila 2016 študentom in njihovim mentorjem z Biotehniške fakultete in Fakultete za arhitekturo UL pomagali predstaviti rezultate delavnice o možnih prihodnostih slovenskega prostora. Študentje so predelali vizualne materiale storitve Google street view na način, da kažejo bodisi pesimistično bodisi optimistično prostorsko vizijo, mi pa smo jih uredili in predstavili na za splet primeren način. Vsakdo je postavljen pred enostavno odločitev: si želim krajine, kot jo bo neizogibno oblikovalo nadaljevanje trenutnih trendov \"urejanja\" prostora, ali pa bom zahteval/-a prijaznejši, vključujoč in naravi prijazen pristop.",
+      "href": "https://danesjenovdan.si/prostovid/",
+      "buttonText": "Oglej si spletno mesto projekta"
+    },
+    {
+      "id": "alternacijainfo",
+      "title": "Alternacija",
+      "text":
+        "Da bi pokazali na problematičnost diskurza o beguncih, smo marca 2016 pripravili spletno kampanjo, v kateri smo tvite politikov in političnih strank spremenili tako, da smo besede begunec, migrant itn. zamenjali z besedo žid. Šele, ko besede, namenjene beguncem, preusmerimo na skupino, do katere je Zahod patološko empatičen, postane jasno, da se naša družba odkrito spogleduje s fašizmom. Politična propaganda zoper begunce spominja na nacistično, kar ustvarja družbo strahu, v kateri namesto o ekonomski razpravljamo o migrantski krizi, poleg pasov pa zategujemo še vojaške škornje. Sieg!",
+      "href": "https://danesjenovdan.si/alternacija/",
+      "buttonText": "Oglej si spletno kampanijo"
+    },
+    {
+      "id": "zarinfo",
+      "title": "Žar brez utvar",
+      "text":
+        "14. februarja leta 2016 ni zaznamovala le vsakokratna komercializacija ljubezni, pač pa tudi predsednika države. Na ta dan je namreč komercialna televizija predvajala oddajo Na žaru z Borutom Pahorjem v glavni vlogi. Zbadljiv format oddaje je zaradi gosta povsem zvodenel in se spremenil v učinkovit začetek nove volilne kampanje. Na DJND smo ob tem pozornost s simpatičnih pobalinstev preusmerili na konkretne Pahorjeve politične napake. Predsednik je resna funkcija, zato terja tudi resno kritiko: vzeli smo ga s TV-žara in ga dali v internetno pečico, iz katere je prišel bistveno bolj osmoljen kot iz oddaje.",
+      "href": "https://danesjenovdan.si/zarbrezutvar/",
+      "buttonText": "Oglej si spletno mesto"
+    },
+    {
+      "id": "jansainfo",
+      "title": "Čas je ZA: Janez Janša",
+      "text":
+        "S spletne strani SDS smo vzeli Janšev nagovor ljudem, v katerem poziva h glasovanju PROTI. Iz govora smo vzeli vse različne besede, jih temeljito premešali, dodali kanček sloga, kakšno vejico in mavrično zastavo, in iz paranoidne teorije zarote je nastal poziv k spoštovanju raznolikosti, zagovarjanju enakosti ter zagotavljanju vključenosti. Zakaj pa ne.",
+      "href":
+        "https://www.facebook.com/danesjenovdan/videos/vb.415115695237226/938006822948108/?type=2&theater",
+      "buttonText": "Oglej si video"
+    },
+    {
+      "id": "neenakinfo",
+      "title": "Neenakost",
+      "text":
+        "Projekt razlaga tri vidike ekonomske neenakosti, in sicer premoženjsko neenakost, dohodkovno neenakost, analizira pa tudi neenakost v Sloveniji. Temeljni pojmi in številke so predstavljeni na interaktiven ter zlahka razumljiv način, ki uporabniku/-ci omogoča, da se s klikanjem sprehodi skozi ključne ekonomske zagate sodobnega časa ter se seznani z njihovimi implikacijami. Ob koncu spletne izkušnje so nakazane tudi nekatere možne rešitve. Projekt sta podprla Inštitut za delavske študije in Open Society Foundation, prvič pa je bil predstavljen v Cankarjevem domu na dogodku ob prevodu Pikettyjevega Kapitala v slovenščino.",
+      "href": "https://danesjenovdan.si/neenakost/",
+      "buttonText": "Oglej si spletno mesto"
+    },
+    {
+      "id": "mapinfo",
+      "title": "OMNIA zemljevid",
+      "text":
+        "Še en vodič za boljšo udeležbo na referendumu, ki ga ne bi smelo biti. Ker državna volilna komisija domuje na enako zastarelih spletnih straneh kot večina javne uprave, ker nacionalna televizija glede procesa in možnih rezultatov referenduma širi napačne informacije in ker morda komu pride prav.",
+      "href": "https://danesjenovdan.si/za/zemljevid/",
+      "buttonText": "Oglej si spletno mesto"
+    },
+    {
+      "id": "bestofinfo",
+      "title": "Best of: referendumsko soočenje",
+      "text":
+        "Najtežje je razumeti, kako je lahko sprememba definicije zakonske zveze v smeri enakosti in vključenosti pogorela KLJUB referendumskem soočenju na nacionalni televiziji. Naša best of montaža te sramote je dosegla četrtino prebivalstva, imela na tisoče všečkov, delitev in komentarjev, porodila je meme in vroče debate, mestoma celo zbadljivo in žaljivo retoriko do \"protigonistov\". Kako je torej mogoče, da se geji še vedno ne smejo poročati, če se je cela Slovenija norčevala iz argumentacije njihovih nasprotnikov?",
+      "href":
+        "https://www.facebook.com/danesjenovdan/videos/vb.415115695237226/934372303311560/?type=2&theater",
+      "buttonText": "Oglej si video"
+    },
+    {
+      "id": "zainfo",
+      "title": "Želim glasovati ZA, toda ...",
+      "text":
+        "Projekt je prvi praktični preizkus orodja po imenu Cefizelj. Spletna aplikacija ima svoj CMS, v katerem naklikaš drevesno strukturo in na vsak konec poti dodaš vsebino (WYSIWYG). Orodje je namenjeno razlagi zoprnih uradniških postopkov in ga bomo v sodelovanju s posamezniki in organizacijami pri DJND še uporabljali. Cefizlja smo preizkusili na navodilih za nestandardno glasovanje na referendumu: vodič je namenjen zdomcem, hendikepiranim, tistim, ki bodo na dan referenduma nekje drugje v Sloveniji, skratka vsem, ki se na referendum ne bodo odpravili peš po nedeljski maši. O človekovih pravicah sicer ne razpravljamo na način pro et contra, z veseljem pa vzklikamo: ZA!",
+      "href": "https://danesjenovdan.si/za/",
+      "buttonText": "Oglej si vodič"
+    },
+    {
+      "id": "vandalinfo",
+      "title": "Je to vandalizem?",
+      "text":
+        "Akcija Je to vandalizem? predstavlja odgovor na kampanjo Mestne občine Ljubljana Človek, čuvaj svoje mesto, samo eno imaš. Slednja namreč vandalizem zvaja na skupni imenovalec, da gre za posege v prostor oz. njegove rabe, ki zmanjšujejo komercialno vrednost tega prostora. To je definicija oblasti in interesov kapitala, ki se namesto ljudi odloča o tem, kaj je v mestu prav in kaj narobe. Preko Instagrama nabiramo fotografije, ki koncept vandalizma relativizirajo in preizprašujejo od spodaj navzgor. Naj ljudje sami povedo, katere posege v svoje mesto razumejo kot primerne in katere kot vandalizem.",
+      "href": "https://danesjenovdan.si/vandalizem/",
+      "buttonText": "Oglej si spletno stran kampanje"
+    },
+    {
+      "id": "ninjainfo",
+      "title": "Slep splet",
+      "text":
+        "15. oktobra 2015 smo se ob mednarodnem dnevu bele palice oglasili s pozivom spletnim medijem, naj svoja spletna mesta naredijo dostopnejša slepim in slabovidnim. Na testih dostopnosti so pogoreli tako rekoč vsi največji slovenski mediji, kar je še posebej problematično zato, ker spletna prilagoditev slepim ni niti pretirano komplicirana niti posebej draga. Pri nas je slepih \"le\" 10 000 ljudi, kar očitno ni dovolj, da bi spletnim ponudnikom storitev predstavljalo tržno nišo, zato so popolnoma po nepotrebnem izključeni iz okolja, kjer bi se lahko počutili kot doma - torej iz interneta.",
+      "href": "https://danesjenovdan.si/slepsplet/",
+      "buttonText": "Oglej si spletno stran kampanje"
+    },
+    {
+      "id": "tarcainfo",
+      "title": "Zgrešena tarča",
+      "text":
+        "Odzvali smo se na oddajo Tarča, predvajano 12. 6. 2014, v kateri je bilo govora o skorajšnjih volitvah, vanjo pa so bili povabljeni predsedniki arbitrarno izbranih \"najpomembnejših političnih strank.\" Ker nismo razumeli izbora, pojasnili nam ga pa tudi niso, smo javno pismo naslovili na mag. Lada Ambrožiča, varuha gledalčevih pravic, Darjo Groznik, odgovorno urednico UPE Uredništva prvega programa in mag. Ksenijo Horvat Petrovčič, odgovorno urednico UPE Informativni program RTV Slovenija.",
+      "href": "https://danesjenovdan.si/zgresena-tarca/",
+      "buttonText": "Preberi pismo!"
+    },
+    {
+      "id": "slaughterinfo",
+      "title": "(S)laughter",
+      "text":
+        "Aprila 2014 smo na poziv Radical Democracy: Video Challenge prijavil video z naslovom (S)laughter. V njem so izjave znanih domačih politikov, mnenjskih in spiritualnih voditeljev ter njihovih hišnikov, izgovarjali tisti in tiste, na katere so letele. Nastala je tragikomična viralna uspešnica, ki se je v konkurenci 212 videov sicer uvrstila med 30 finalistov, je pa zaradi nujnosti poznavanja širšega konteksta mnogo bolj odzvanjala doma kot v tujini.",
+      "href": "https://vimeo.com/91865881",
+      "buttonText": "Oglej si posnetek!"
+    },
+    {
+      "id": "heartbleedinfo",
+      "title": "Heartbleed",
+      "text":
+        "9. aprila 2014 smo se odzvali na moralno paniko, ki jo je sprožil zlonamerni spletni insekt po imenu heartbleed. Na domače ponudnike spletnih storitev smo naslovili zahtevo po takojšnji identifikaciji morebitne varnostne grožnje in njeni odpravi, saj so mediji večinoma (napačno) pozivali uporabnike k menjavi gesel, vsa odgovornost za njihovo spletno varnost pa je bila tokrat v rokah ponudnikov.",
+      "href": "https://danesjenovdan.si/heartbleed",
+      "buttonText": "Oglej si poziv in odzive!"
+    },
+    {
+      "id": "borutinfo",
+      "title": "Et tu, B(o)rute?",
+      "text":
+        "Marca 2014 smo pripravili spletni opomnik za prihodnje volilno presojanje ob morebitnih novih kandidaturah aktualnega predsednika RS. Orodje, ki je sicer uporabno za raznovrstno angažirano rabo, je nastalo ob imenovanju nove KPK in njenega predsednika, ki je nadzorni organ z visoko stopnjo javnega zaupanja simbolno razvrednotil v eni sami potezi.",
+      "href": "https://danesjenovdan.si/borut",
+      "buttonText": "Oglej si mejl iz preteklosti!"
+    },
+    {
+      "id": "novsouinfo",
+      "title": "Nov ŠOU",
+      "text":
+        "Decembra 2013 smo pripravili spletno kampanjo Nov ŠOU, s katero je podprl predlagane statutarne spremembe ŠOU v smeri njene opredelitve kot institucije javnega prava ter s tem povezanim večjim nadzorom nad njenim delovanjem. Referendum kljub za študentsko politiko rekordni udeležbi (skoraj 6000) in jasno izraženi demokratični volji študentk in študentov (94 % se jih je opredelilo za predlagane spremembe) ni uspel, saj ni bil dosežen 20 % kvorum.",
+      "href": "https://danesjenovdan.si/novsou",
+      "buttonText": "Oglej si e-kampanjo!"
+    },
+    {
+      "id": "homojboginfo",
+      "title": "Homojbog",
+      "text":
+        "Junija 2013 smo ob Paradi ponosa pripravili intervencijo proti kontraproduktivni pokroviteljski drži do LGBTQ skupnosti. V akciji so sodelovale številne medijske osebnosti, uspešno izpolnjen namen akcije pa je bil z grobimi, direktnimi, uličnimi samo-deklaracijami prepoznavnih ljudi izkazati solidarnost z vsemi, ki jih take ali podobne žaljivke zaznamujejo.",
+      "href": "https://danesjenovdan.si/homojbog",
+      "buttonText": "Oglej si sodelujoče!"
+    },
+    {
+      "id": "danzastudentskoorganiziranjeinfo",
+      "title": "Dan za študentsko organiziranje",
+      "text":
+        "25. marca 2013 smo v atriju ZRC SAZU organizirali delavnico o možnostih in pasteh študentskega organiziranja. Razmisleke o pravnem statusu ŠOS in ŠOU, financiranju, funkcioniranju in politiziranju ter razpetostjo med skupnimi in partikularnimi interesi so prispevali Aleš Črnič, Slavko Gaber, Klemen Miklavič in Jože Vogrinc. Srečanje je v eter prenašal Radio Študent, polna dvorana študentk in študentov pa je razblinila mit o njihovi nezainteresiranosti ter vzpodbudila Danes je nov dan, da odtlej pomemben delež svojih aktivnosti navezuje na študentsko problematiko.",
+      "href": "http://spet.danesjenovdan.si/",
+      "buttonText": "Oglej si posnetek!"
+    },
+    {
+      "id": "k4info",
+      "title": "K4 za zmeri!",
+      "text":
+        "Marca 2013 smo ponudili spletni prostor peticiji za ohranitev kluba K4 kot prostora progresivne in neodvisne kulturne ter glasbene produkcije ter Zavoda K6/4 kot neprofitne in odprte urbane platforme za sodobne umetniške prakse. Zbrali smo 2465 podpisov, K4 pa je kljub netransparentni menjavi vodstva ostal bistveno bolj zavezan urbani kulturi, kot je bilo sprva načrtovano.",
+      "href": "https://danesjenovdan.si/k4",
+      "buttonText": "Oglej si peticijo!"
+    },
+    {
+      "id": "danzavodoinfo",
+      "title": "Dan za vodo",
+      "text":
+        "5. marca 2013 smo v atriju ZRC SAZU organizirali delavnico o poskusih privatizacije vodnih virov in iskanju bolj demokratičnih načinov upravljanja s skupnim. Tema prvega participativnega posveta strokovne (Nikolai Jeffs, Maja Simoneti, Urša Šebenik in Žiga Vodovnik), zainteresirane in mimoidoče javnosti v organizaciji Danes je nov dan je izšla neposredno iz uporabniškega predloga na spletni platformi, in sicer iz zahteve po prepovedi privatizacije skupnega.",
+      "href": "http://spet.danesjenovdan.si/?spet=dan-za-vodo",
+      "buttonText": "Oglej si posnetek!"
+    },
+    {
+      "id": "predlogiinfo",
+      "title": "Predlogi",
+      "text":
+        "Predlogi so platforma za konstruktivno, varno in vključujočo razpravo, kjer se je porodila sprva neformalna skupnost Danes je nov dan, ki danes deluje v okviru inštituta. Orodje smo začeli koncipirati ob začetku protestov novembra 2012, prvo, zelo rudimentarno verzijo, pa smo objavili že ob protestih 7. 12. Platforma se je odtlej vsebinsko napolnila, funkcionalno razvila in posodobila, trenutno pa je arhivirana. V prihodnosti načrtujemo njeno ponovno rabo za pomoč pri participativnem odločanju mladih.",
+      "href": "http://predlogi.danesjenovdan.si/",
+      "buttonText": "Oglej si platformo!"
+    },
+    {
+      "id": "harlemshakeinfo",
+      "title": "Harlem shake za republiko",
+      "text":
+        "Februarja 2013 smo skočili na globalno viralni ponoreli vlak z imenom Harlem Shake in zmontirala ter na splet naložila video naključnega dogodka, ki mu je bila priča nekega večera v prostorih neke fakultete ljubljanske Univerze. Čeprav je dogodek trajal vsega 30 sekund, je učinkovito prikazal dve možni viziji prihodnosti slovenske družbe: ena je rumena, druga pa mavrična. Mi smo za pesem in ples!",
+      "href": "https://www.youtube.com/watch?v=kW3eGP6QecU",
+      "buttonText": "Oglej si posnetek!"
+    },
+    {
+      "id": "zakonopljoinfo",
+      "title": "Za konopljo",
+      "text":
+        "Z brezplačno spletno kampanjo smo konec leta 2012 podprli prizadevanja Slovenskega konopljinega socialnega kluba, ki je v parlament vložil predlog zakona za legalizacijo konoplje. Ponosni smo predvsem na zgodnjo implementacijo nekaterih elementov igrifikacije, ki je šele leto kasneje postala pomemben trend v oblikovanju uporabniških vmesnikov. Zaradi trave nas policaji sicer še vedno preganjajo, ampak verjamemo, da nam bo nekoč uspelo tudi to."
+    }
+  ]
+}
