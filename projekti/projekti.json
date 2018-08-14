@@ -587,14 +587,6 @@
       "buttonText": "Poglej, če zid že ima grafit"
     },
     {
-      "id": "breakfreeinfo",
-      "title": "Razglednica z Visa",
-      "text":
-        "Sicer pregovorno parlamentarno dolgočasen avgust je l. 2017 zaznamoval dogodek na trajektu za Vis, kjer sta se srečala poslanska kolega Violeta Tomić (Levica) in Branko Grims (SDS). Srečanju je sledila objava fotografij poslanke v za okus tega medija neprimernih oblačilih, pozah ter družbi, temu pa poslankin odziv na družbenih medijih, ki je namignil na potencialno vpletenost Grimsa, kar je on na svojih kanalih ogorčeno zavrnil. Poletna romanca na Visu se nam je zdela primerna vaja za preizkus preiskovalne metode SCAN, ki jo raziskujemo in razvijamo za potrebe projekta Detektor lisic.",
-      "href": "https://danesjenovdan.si/razglednica-z-visa/",
-      "buttonText": "Oglej si izsledke metode SCAN"
-    },
-    {
       "id": "grafitinfo",
       "title": "Ali je Spomenik žrtvam vseh vojn že pografitiran",
       "text":
