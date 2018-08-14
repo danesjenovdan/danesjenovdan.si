@@ -2,463 +2,413 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--		<meta name="viewport" content="width=device-width, initial-scale=1">-->
-    <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;' name='viewport' />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;' name='viewport' />
 
-    <!-- meta info + OG tags -->
-    <title>Konsenz</title>
-    <meta name="description" content="Delovanje inštituta izhaja iz razumevanja demokracije kot nenehnega procesa, družbene pogodbe kot stalne in vključujoče razprave ter politične participacije kot odgovornosti za lastno opolnomočenje.">
-    <meta name="author" content="Danes je nov dan, Inštitut za druga vprašanja">
-    <link rel="shortcut icon" href="https://danesjenovdan.si/favicon.ico">
+  <!-- meta info + OG tags -->
+  <title>Konsenz</title>
+  <meta name="description" content="Delovanje inštituta izhaja iz razumevanja demokracije kot nenehnega procesa, družbene pogodbe kot stalne in vključujoče razprave ter politične participacije kot odgovornosti za lastno opolnomočenje.">
+  <meta name="author" content="Danes je nov dan, Inštitut za druga vprašanja">
+  <link rel="shortcut icon" href="https://danesjenovdan.si/favicon.ico">
 
-    <meta property="og:title" content="Konsenz" />
-    <meta property="og:type" content="article" />
-    <meta property="og:description" content="Delovanje inštituta izhaja iz razumevanja demokracije kot nenehnega procesa, družbene pogodbe kot stalne in vključujoče razprave ter politične participacije kot odgovornosti za lastno opolnomočenje." />
-    <meta property="og:image" content="https://danesjenovdan.si/img/djndog.png" />
+  <meta property="og:title" content="Konsenz" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Delovanje inštituta izhaja iz razumevanja demokracije kot nenehnega procesa, družbene pogodbe kot stalne in vključujoče razprave ter politične participacije kot odgovornosti za lastno opolnomočenje." />
+  <meta property="og:image" content="https://danesjenovdan.si/img/djndog.png" />
 
-    <!-- Bootstrap -->
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
-    <!-- font -->
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+  <!-- font -->
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600,700&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
 
-    <!-- icons -->
-    <link href="/icons_/icons.css" rel="stylesheet">
+  <!-- icons -->
+  <link href="/icons_/icons.css" rel="stylesheet">
 
-    <!-- CSS -->
-    <link href="/css/guide.css" rel="stylesheet">
-    <link href="/css/flip.css" rel="stylesheet">
+  <!-- CSS -->
+  <link href="/css/guide.css?180814" rel="stylesheet">
+  <link href="/css/flip.css" rel="stylesheet">
 
-    <!-- WP fix -->
-    <script>
-        (function () {
-            if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
-                var msViewportStyle = document.createElement("style");
-                msViewportStyle.appendChild(
-                    document.createTextNode("@-ms-viewport{width:auto!important}")
-                );
-                document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
-            }
-        })();
-    </script>
-
+  <!-- WP fix -->
+  <script>
+  (function () {
+    if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+      var msViewportStyle = document.createElement("style");
+      msViewportStyle.appendChild(
+        document.createTextNode("@-ms-viewport{width:auto!important}")
+      );
+      document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+    }
+  })();
+  </script>
 </head>
 
 <body>
-
-    <div id="menucontent">
-        <div id="menuheader">
-            <div id="menuclose">
-                <div id="menucloseicon" class="icon col-light-green">×</div>
-            </div>
-            <div id="menutitle" class="bck-light-green">Danes je nov dan</div>
-            <div class="col-light-green" id="menutitleback">Danes je nov dan</div>
-        </div>
-        <div class="menuitem menuitem-agrument" data-menu="agrument">
-            <div class="ribbon bck-light-green"></div>Agrument</div>
-        <div class="menuitem" data-menu="obcasnik/">
-            <div class="ribbon bck-light-red"></div>Občasnik</div>
-        <div class="menuitem" data-menu="projekti/">
-            <div class="ribbon bck-light-red"></div>Projekti</div>
-        <div class="menuitem" data-menu="krivi/">
-            <div class="ribbon bck-light-green"></div>Krivi</div>
-        <div class="menuitem" data-menu="dolzni/">
-            <div class="ribbon bck-light-gold"></div>Dolžni</div>
-        <div class="menuitem active" data-menu="konsenz/">
-            <div class="ribbon bck-light-green"></div>Konsenz</div>
-        <div class="menuitem" data-menu="formalnosti/">
-            <div class="ribbon bck-light-gold"></div>Formalnosti</div>
+  <div id="menucontent">
+    <div id="menuheader">
+      <div id="menuclose">
+        <div id="menucloseicon" class="icon col-light-green">×</div>
+      </div>
+      <div id="menutitle" class="bck-light-green">Danes je nov dan</div>
+      <div class="col-light-green" id="menutitleback">Danes je nov dan</div>
     </div>
-
-    <div class="container-fluid">
-        <div class="row" id="header">
-            <div class="container">
-                <div class="row">
-                    <div id="menu">
-                        <div class="menutoggle">
-                            <div class="icon-menu"></div>
-                        </div>
-                        <h1 class="nologo">Meni</h1>
-                    </div>
-                    <div class="languagetoggle menu" data-href="/en/">
-                        <h1 class="nologo">En</h1>
-                    </div>
-                    <div class="col-md-12">
-                        <h1 id="intro"><span id="title">KONSENZ /</span> Delovanje inštituta izhaja iz razumevanja demokracije kot nenehnega procesa, družbene pogodbe kot stalne in vključujoče razprave ter politične participacije kot odgovornosti za lastno opolnomočenje.</h1>
-		                </div>
-	                </div>
-	            </div>
-	        </div>
-			<div class="container">
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="cookiewarning">
-                            <span class="cookiewords">Soglašam z uporabo piškotkov</span>
-                            <br class="visible-xs">
-                            <div class="confirmcookies btn-cookie bck-red">V REDU</div>
-                            <div class="cookiemoreinfo btn-cookie bck-light-green">Želim več informacij</div>
-                        </div>
-                    </div>
-                </div>
-
-				<div class="row pravice">
-					<div class="col-sm-4">
-						<div class="pravica prvavrsta" id="pravica-1" data-href="pravica1" data-tooltip="left">
-							<h1 class="pravicatitle">Pravica do<br>dobrega<br>življenja<br>in<br>solidarne<br>družbe</h1>
-                    </div>
-                    <div class="pravicaexpander"></div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="pravica prvavrsta" id="pravica-2" data-href="pravica2" data-tooltip="middle">
-                        <h1 class="pravicatitle">Pravica<br>do<br>skupnega</h1>
-                    </div>
-                    <div class="pravicaexpander"></div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="pravica prvavrsta" id="pravica-3" data-href="pravica3" data-tooltip="right">
-                        <h1 class="pravicatitle">Pravica do<br>dobre<br>politične<br>oblasti</h1>
-                    </div>
-                    <div class="pravicaexpander"></div>
-                </div>
-            </div>
-        </div>
-        <!-- end of container -->
-
-        <div class="row pravicatooltip">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="tooltipclose"></div>
-                        <div id="pravica1" data-tooltip="left" class="pravicacontent">
-                            <h1 class="tooltiptitle">Pravica do dobrega življenja in solidarne družbe</h1>
-                            <p class="tooltiptext">Vsakdo ima pravico do kvalitetnega zdravstva, šolstva, oskrbe in bivališča, pravico do solidarne družbe, ki nas podpira in spodbuja, pravico do prostega časa, srečnega otroštva, kreativne mladosti, preskrbljene odraslosti in varne starosti. Vsakdo ima pravico do prihodnosti. Predolgo je bilo merilo uspešnosti države njen gospodarski razvoj in merilo izpolnjenega posameznika njegov dohodek. Naše merilo je veselje do življenja.</p>
-                        </div>
-                        <div id="pravica2" data-tooltip="middle" class="pravicacontent">
-                            <h1 class="tooltiptitle">Pravica do skupnega</h1>
-                            <p class="tooltiptext">Naša skupna moč presega seštevek naših posameznih moči, zato je potrebno varovati skupno, z njim upravljati demokratično, transparentno in v dobrobit vseh. Ne dovolimo privatizacije in uničevanja naravnih virov in javnih prostorov.</p>
-                        </div>
-                        <div id="pravica3" data-tooltip="right" class="pravicacontent">
-                            <h1 class="tooltiptitle">Pravica do dobre politične oblasti</h1>
-                            <p class="tooltiptext">Politika ne sme biti boj za oblast, ampak naj služi skupnim interesom. Terjamo odprt politični prostor, umik obstoječih političnih elit in poudarek na vsebinah. Civilni sferi je treba omogočiti dostop do mehanizmov odločanja.</p>
-                        </div>
-                        <div id="pravica4" data-tooltip="left" class="pravicacontent">
-                            <h1 class="tooltiptitle">Pravica (do) narave</h1>
-                            <p class="tooltiptext">Narava je subjekt zaščite, interesi naravnega okolja so skupni interesi, živali imajo pravico do dostojanstva. Napredek, razvoj in gospodarska rast ne smejo biti izgovor za neodgovorno ravnanje z okoljem.</p>
-                        </div>
-                        <div id="pravica5" data-tooltip="middle" class="pravicacontent">
-                            <h1 class="tooltiptitle">Pravica do človeku prijazne ekonomije</h1>
-                            <p class="tooltiptext">Javni dolg je rezultat zasebnega delovanja, zato ga ne bi smeli naprtiti ljudem. Hočemo ustvariti okolje, v katerem bodo prosperirala podjetja, ki so prijazna do človeka in narave ter družbeno odgovorna. Vsakdo ima pravico do izpolnjujočega dela in dostojnega življenja.</p>
-                        </div>
-                        <div id="pravica6" data-tooltip="right" class="pravicacontent">
-                            <h1 class="tooltiptitle">Pravica do vključenosti</h1>
-                            <p class="tooltiptext">Zavračamo delitve na podlagi kakršnih koli osebnih okoliščin. Dovolj je politike izključevanja, ki naključnim družbenim skupinam jemlje dostojno življenje, jih potiska na družbene robove ter jim krade moč, ki jim pripada. Z ustavo zagotovljena pravica do enakosti ne sme biti samo deklarativna. Pravica do vključenosti in človekove pravice veljajo za vse. O tem ne razpravljamo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row pravice">
-                <div class="col-sm-4">
-                    <div class="pravica drugavrsta" id="pravica-4" data-href="pravica4" data-tooltip="left">
-                        <h1 class="pravicatitle">Pravica<br>(do)<br>narave</h1>
-                    </div>
-                    <div class="pravicaexpander"></div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="pravica drugavrsta" id="pravica-5" data-href="pravica5" data-tooltip="middle">
-                        <h1 class="pravicatitle">Pravica do človeku prijazne ekonomije</h1>
-                    </div>
-                    <div class="pravicaexpander"></div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="pravica drugavrsta" id="pravica-6" data-href="pravica6" data-tooltip="right">
-                        <h1 class="pravicatitle">Pravica do<br>vključenosti</h1>
-                    </div>
-                    <div class="pravicaexpander"></div>
-                </div>
-            </div>
-        </div>
-        <!-- end of container -->
-
-
-        <div class="container">
-            <div class="row hidden-xs hidden-sm">
-                <div class="col-md-12 centermycontent">
-                    <div class="btn bck-green" id="btn-pravica-video">
-                        <div class="pulse"></div><span class="icon icon-playsmall"></span> O pravicah</div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card" id="svojaimenacard">
-                        <div class="cardtitlecontainer">
-                            <h1 class="cardtitle" id="svojaimenatitle">SVOJA IMENA SMO ZA 6 PRAVIC ZASTAVILI ŽE:</h1>
-                            <div class="triangle triangle-top"></div>
-                            <div class="triangle triangle-bottom"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p id="podporniki">
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 centermycontent">
-                                <div id="moresupporters"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="cardtitlecontainer">
-                            <h1 class="cardtitle">Podpiši pravice!</h1>
-                            <div class="triangle triangle-top"></div>
-                            <div class="triangle triangle-bottom"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 centermycontent">
-                                <form id="podpisipravice" class="ac-custom ac-checkbox ac-checkmark">
-                                    <input id="signaturename" type="text" class="form-control" placeholder="ime">
-                                    <input id="signatureemail" type="email" class="form-control" placeholder="e-naslov">
-                                    <div class="btn bck-green" value="Podpišem!" id="submitsignature">
-                                        <div class="pulse"></div>Podpišem!
-                                    </div>
-                                </form>
-
-                                <div id="hvalapravice">
-                                    <p class="hvalapravicetext">HVALA!</p>
-                                    <a href="#" class="hvalapravicerefresh">Osveži formo</a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- end of container -->
-
-        <div class="row" id="footer">
-            <svg id="footerdivider" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="40px" viewBox="0 0 100 102" preserveAspectRatio="none">
-                <path d="M0 0 L50 300 L100 0 Z"></path>
-            </svg>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 footerline">
-                        <div id="newsletter" data-href="signup" class="icon-newsletter col-green buzz-out"></div>
-                        <p id="newslettertext" class="footertext"><a class="footerlink link-green" href="/jaz/">Naroči se na e-novice.</a> Pišemo samo, kadar imamo res kaj povedati.</p>
-                    </div>
-                    <div class="col-md-3 footerline">
-                        <div id="socialcontainer">
-                            <div class="social push" data-href="https://www.facebook.com/danesjenovdan">
-                                <div class="icon icon-facebook"></div>
-                            </div>
-                            <div class="social push" data-href="https://twitter.com/danesjenovdan">
-                                <div class="icon icon-twitter"></div>
-                            </div>
-                            <div class="social push" data-href="https://github.com/danesjenovdan">
-                                <div class="icon icon-github"></div>
-                            </div>
-                            <div class="social push" data-href="https://vimeo.com/user26914674">
-                                <div class="icon icon-vimeo"></div>
-                            </div>
-                            <div class="social push" data-href="https://www.youtube.com/channel/UCWMqx3p_QtWjdDRq58Hfh_w">
-                                <div class="icon icon-youtube"></div>
-                            </div>
-                            <div class="social push" data-href="https://agrument.danesjenovdan.si/rss/">
-                                <div class="icon icon-rss"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 footerline">
-                        <span id="podpri"><object data="/img/heart2.svg" class="icon-heart-line" type="image/svg+xml" /></object><span class="icon icon-heart col-green"></span>Podpri nas!</span>
-                    </div>
-                    <div class="col-md-3 footerline">
-                        <p class="footertext" id="izkaznica"><a class="link-green" href="/formalnosti/">Danes je nov dan</a>
-                            <br>Inštitut za druga vprašanja
-                            <br>Parmova ulica 20
-                            <br>1000 Ljubljana
-                            <br>
-                            <br><a class="footerlink link-green" href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    <div class="menuitem menuitem-agrument" data-menu="agrument">
+      <div class="ribbon bck-light-green"></div>Agrument
     </div>
-    <!-- end of container-fluid -->
+    <div class="menuitem" data-menu="obcasnik/">
+      <div class="ribbon bck-light-red"></div>Občasnik
+    </div>
+    <div class="menuitem" data-menu="projekti/">
+      <div class="ribbon bck-light-red"></div>Projekti
+    </div>
+    <div class="menuitem" data-menu="krivi/">
+      <div class="ribbon bck-light-green"></div>Krivi
+    </div>
+    <div class="menuitem" data-menu="dolzni/">
+      <div class="ribbon bck-light-gold"></div>Dolžni
+    </div>
+    <div class="menuitem active" data-menu="konsenz/">
+      <div class="ribbon bck-light-green"></div>Konsenz
+    </div>
+    <div class="menuitem" data-menu="formalnosti/">
+      <div class="ribbon bck-light-gold"></div>Formalnosti
+    </div>
+  </div>
 
-    <div class="popup centermycontentvertically" id="signup">
-        <div class="popupclose">
-            <div class="icon-close"></div>
-        </div>
-        <div class="container popupcontainer centermevertically">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <p class="popuptext">Dodajte me na mailing listo.</p>
-                    <form class="ac-custom ac-checkbox ac-checkmark">
-                        <input id="newsletteremail" type="email" class="form-control" placeholder="ti@email.com">
-                        <ul>
-                            <li>
-                                <input id="dodajme" name="dodajme" type="checkbox">
-                                <label for="dodajme">dodaj me na listo podpornikov</label>
-                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg>
-                            </li>
-                        </ul>
-                        <div class="hider">
-                            <p class="popuptext">Zaupaj nam še svoje polno ime.</p>
-                            <input id="newslettername" type="text" class="form-control" placeholder="Ime Priimek">
-                        </div>
-                    </form>
-                    <button class="btn btn-popup push" id="submitemail">Oddaj!</button>
-                </div>
+  <div class="container-fluid">
+    <div class="row" id="header">
+      <div class="container">
+        <div class="row">
+          <div id="menu">
+            <div class="menutoggle">
+              <div class="icon-menu"></div>
             </div>
+            <h1 class="nologo">Meni</h1>
+          </div>
+          <div class="languagetoggle menu" data-href="/en/">
+            <h1 class="nologo">En</h1>
+          </div>
+          <div class="col-md-12">
+            <h1 id="intro"><span id="title">KONSENZ /</span> Delovanje inštituta izhaja iz razumevanja demokracije kot nenehnega procesa, družbene pogodbe kot stalne in vključujoče razprave ter politične participacije kot odgovornosti za lastno opolnomočenje.</h1>
+          </div>
         </div>
+      </div>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="cookiewarning">
+            <span class="cookiewords">Soglašam z uporabo piškotkov</span>
+            <br class="visible-xs">
+            <div class="confirmcookies btn-cookie bck-red">V REDU</div>
+            <div class="cookiemoreinfo btn-cookie bck-light-green">Želim več informacij</div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 32px;">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/92594621" frameborder="0"></iframe>
+          </div>
+        </div>
 
-    <div id="megavideo">
-        <iframe id="thevideo" src="//player.vimeo.com/video/92594621?api=1&player_id=thevideo" badge="0" byline="0" portrait="0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <div class="col-md-10 col-md-offset-1">
+          <div class="tile-konsenz">
+            <div class="tile-konsenz__header">
+              <div class="tile-konsenz__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M54.53 95.863h-9.584a1 1 0 1 1 0-2h9.584c7.705 0 13.974-6.454 13.974-14.388v-9.849c0-7.934-6.269-14.388-13.974-14.388a1 1 0 1 1 0-2c8.808 0 15.974 7.352 15.974 16.388v9.849c0 9.037-7.166 16.388-15.974 16.388zM50.179 55.239h-7.681a1 1 0 1 1 0-2h7.681a1 1 0 1 1 0 2z"/><path d="M45.448 95.863c-9.153 0-15.69-2.155-19.43-6.406-2.884-3.279-2.917-6.588-2.917-6.728v-21.14c0-.301.133-.571.345-.755a1.001 1.001 0 0 1-.345-.756c0-.16.022-3.985 1.918-9.428 2.116-6.069 4.196-6.32 11.812-6.32 3.939 0 6.556 2.213 8.16 4.72V20.162c0-.241.087-.474.245-.655 2.86-3.295 7.493-1.554 9.542-.174a1 1 0 0 1 .441.83v1.32c5.486-1.219 7.884 1.641 7.99 1.772a1 1 0 0 1 .223.629v1.512c5.341.55 6.971 5.493 7.07 8.179l.001 39.343a1 1 0 1 1-2 0V33.611c-.01-.218-.334-6.266-6.071-6.266a1 1 0 0 1-1-1V24.3c-.65-.549-2.752-1.869-6.913-.561a1 1 0 0 1-1.3-.954v-2.061c-1.145-.646-4.222-2.082-6.229-.164v33.679c0 .519-.396.95-.912.995a.994.994 0 0 1-1.073-.822c-.059-.329-1.512-8.082-8.175-8.082-7.652 0-8.301.326-9.923 4.978-1.285 3.686-1.656 6.608-1.764 7.958 1.485.236 4.599.47 5.305-1.634 1.256-3.742 1.332-3.966 2.312-3.71a.754.754 0 0 1 .063.019h4.731c.426 0 .805.27.945.672.17.49 4.152 12.077 3.362 19.604-.472 4.494-3.544 6.295-6.187 6.069-2.528-.216-4.966-2.278-4.733-5.803.186-2.812-.425-7.899-2.87-10.393-.842-.858-1.821-1.346-2.973-1.476v20.113c.005.449.354 11.134 20.347 11.134.552 0 1 .447 1 1s-.445 1.002-.997 1.002zM27.761 61.375a7.148 7.148 0 0 1 1.74 1.316c3.125 3.188 3.631 8.996 3.438 11.926-.155 2.343 1.398 3.549 2.907 3.678 1.77.143 3.694-1.116 4.027-4.286.64-6.095-2.208-15.491-3.04-18.067H33.15c-.15.409-.398 1.115-.805 2.328-.743 2.215-2.722 2.946-4.584 3.105z"/><path d="M54.22 48.489a1 1 0 0 1-1-1V22.784a1 1 0 1 1 2 0v24.705a1 1 0 0 1-1 1zM62.433 34.395a1 1 0 0 1-1-1v-7.05a1 1 0 1 1 2 0v7.05a1 1 0 0 1-1 1z"/><g><path d="M62.433 52.26a1 1 0 0 1-1-1V41.024a1 1 0 1 1 2 0V51.26a1 1 0 0 1-1 1z"/></g><g><path d="M64.859 15.804a1 1 0 0 1-1-1V5.917a1 1 0 1 1 2 0v8.887a1 1 0 0 1-1 1zM86.789 29.453h-7.642a1 1 0 1 1 0-2h7.642a1 1 0 1 1 0 2zM75.887 18.121a1 1 0 0 1-.717-1.697L86.831 4.439a1 1 0 1 1 1.434 1.394L76.604 17.818a.998.998 0 0 1-.717.303z"/></g></svg>
+              </div>
+              <h3 class="tile-konsenz__title">Pravica do dobrega življenja in solidarne družbe</h3>
+            </div>
+            <div class="tile-konsenz__content">
+              <p class="tile-konsenz__paragraph">
+                Vsakdo ima pravico do kvalitetnega zdravstva, šolstva, oskrbe in bivališča, pravico do solidarne družbe, ki nas podpira in spodbuja, pravico do prostega časa, srečnega otroštva, kreativne mladosti, preskrbljene odraslosti in varne starosti. Vsakdo ima pravico do prihodnosti. Predolgo je bilo merilo uspešnosti države njen gospodarski razvoj in merilo izpolnjenega posameznika njegov dohodek. Naše merilo je veselje do življenja.
+              </p>
+            </div>
+          </div>
+          <div class="tile-konsenz">
+            <div class="tile-konsenz__header">
+              <div class="tile-konsenz__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M73.619 40.248c.009-.253.02-.506.02-.761 0-12.42-10.104-22.523-22.524-22.523-12.362 0-22.426 10.011-22.519 22.351-8.686 3.128-14.913 11.447-14.913 21.197 0 12.42 10.104 22.524 22.523 22.524 5.194 0 9.979-1.771 13.794-4.736a22.398 22.398 0 0 0 13.793 4.736c12.42 0 22.524-10.104 22.524-22.524 0-8.899-5.188-16.608-12.698-20.264zM58.528 57.541a22.467 22.467 0 0 0-6.234-12.772c3.229-2.365 7.197-3.78 11.499-3.78 2.333 0 4.563.433 6.639 1.187-.966 6.966-5.603 12.767-11.904 15.365zM50 74.316a19.46 19.46 0 0 1-5.708-13.362 22.43 22.43 0 0 0 6.822 1.059c1.563 0 3.09-.161 4.563-.466A19.452 19.452 0 0 1 50 74.316zm1.114-15.303c-2.333 0-4.562-.433-6.638-1.187a19.47 19.47 0 0 1 5.523-11.118 19.47 19.47 0 0 1 5.621 11.759 19.45 19.45 0 0 1-4.506.546zm-9.486-2.475c-5.415-3.025-9.252-8.548-9.928-15.004a19.409 19.409 0 0 1 4.506-.546c4.302 0 8.27 1.415 11.499 3.78a22.483 22.483 0 0 0-6.077 11.77zm9.486-36.574c10.617 0 19.265 8.522 19.502 19.084a22.407 22.407 0 0 0-6.823-1.06A22.4 22.4 0 0 0 50 42.724a22.403 22.403 0 0 0-13.794-4.736c-1.563 0-3.089.161-4.563.465.543-10.283 9.054-18.489 19.471-18.489zM16.683 60.512c0-8.142 5.013-15.127 12.11-18.053 1.01 7.621 5.837 14.052 12.496 17.294-.009.252-.02.504-.02.759 0 6.122 2.458 11.679 6.436 15.743-3.229 2.366-7.197 3.781-11.499 3.781-10.766 0-19.523-8.759-19.523-19.524zm47.11 19.524c-4.302 0-8.27-1.415-11.499-3.781 3.939-4.025 6.386-9.516 6.433-15.568 7.476-2.693 13.125-9.235 14.554-17.224 5.979 3.341 10.037 9.727 10.037 17.049-.001 10.765-8.759 19.524-19.525 19.524z"/></svg>
+              </div>
+              <h3 class="tile-konsenz__title">Pravica do skupnega</h3>
+            </div>
+            <div class="tile-konsenz__content">
+              <p class="tile-konsenz__paragraph">
+                Naša skupna moč presega seštevek naših posameznih moči, zato je potrebno varovati skupno, z njim upravljati demokratično, transparentno in v dobrobit vseh. Ne dovolimo privatizacije in uničevanja naravnih virov in javnih prostorov.
+              </p>
+            </div>
+          </div>
+          <div class="tile-konsenz">
+            <div class="tile-konsenz__header">
+              <div class="tile-konsenz__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><style></style><path d="M18.111 83.405a1 1 0 0 0 1.179.78l21.868-4.449 1.904 9.638a1.002 1.002 0 0 0 1.174.788 1 1 0 0 0 .788-1.175l-1.906-9.65 12.436-2.53L53.44 89.01a1 1 0 0 0 1.97.342l2.247-12.973 7.275-1.48a.998.998 0 0 0 .78-1.179l-4.117-20.236 20.88 3.805a1.005 1.005 0 0 0 .749-.161.994.994 0 0 0 .414-.643l6.77-37.148a.999.999 0 0 0-.804-1.163l-43.771-7.977a.997.997 0 0 0-1.163.804L39.719 38.17l-28.607 5.82a1 1 0 0 0-.635.428c-.146.221-.199.491-.146.751l7.78 38.236zm28.348-71.061l41.804 7.618-6.411 35.181-20.684-3.769-2.561-12.589c.021-.012.044-.017.065-.031l5.231-3.618 5.944 8.593a1 1 0 1 0 1.644-1.139l-5.943-8.592 8.593-5.944a1 1 0 0 0-1.139-1.645l-8.592 5.943-5.944-8.593a1.001 1.001 0 0 0-1.645 1.139l5.943 8.592-4.589 3.174-.24-1.18a.999.999 0 0 0-1.179-.78L41.83 37.741l4.629-25.397zM40.79 39.993l.014-.003 15.371-3.127 7.38 36.275-43.684 8.888-7.38-36.276 28.299-5.757z"/><path d="M26.087 59.847l6.045 3.834.203 7.107a1.002 1.002 0 0 0 1.628.75l5.601-4.523 6.922 1.976c.364.103.759-.008 1.015-.289.255-.281.329-.684.191-1.037l-2.59-6.621 4.065-5.893c.217-.315.235-.726.048-1.059s-.554-.525-.93-.508l-7.2.42-4.399-5.617a1 1 0 0 0-1.753.357l-1.854 6.89-6.793 2.428a1.001 1.001 0 0 0-.199 1.785zm8.158-2.507a.998.998 0 0 0 .629-.682l1.471-5.464 3.488 4.455c.202.259.519.396.846.382l5.679-.331-3.204 4.644a1.004 1.004 0 0 0-.108.933l2.049 5.236-5.48-1.563a.997.997 0 0 0-.902.184l-4.435 3.581-.16-5.621a1.003 1.003 0 0 0-.464-.816l-4.765-3.021 5.356-1.917z"/></svg>
+              </div>
+              <h3 class="tile-konsenz__title">Pravica do dobre politične oblasti</h3>
+            </div>
+            <div class="tile-konsenz__content">
+              <p class="tile-konsenz__paragraph">
+                Politika ne sme biti boj za oblast, ampak naj služi skupnim interesom. Terjamo odprt politični prostor s poudarkom na vsebinah in umik fokusa na obraze. Civilni sferi je treba omogočiti dostop do mehanizmov odločanja.
+              </p>
+            </div>
+          </div>
+          <div class="tile-konsenz">
+            <div class="tile-konsenz__header">
+              <div class="tile-konsenz__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 58"><path d="M18 37c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8zm2 0c0-5.5-4.5-10-10-10S0 31.5 0 37s4.5 10 10 10 10-4.5 10-10z"/><path d="M6.3 40.7l3 3c.4.4 1 .4 1.4 0s.4-1 0-1.4l-3-3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4z"/><path d="M12.3 39.3l-3 3c-.4.4-.4 1 0 1.4s1 .4 1.4 0l3-3c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z"/><path d="M9 43v14c0 .6.4 1 1 1s1-.4 1-1V43c0-.6-.4-1-1-1s-1 .5-1 1zM20.3 41.7l2 2c.4.4 1 .4 1.4 0s.4-1 0-1.4l-2-2c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4z"/><path d="M24.3 40.3l-2 2c-.4.4-.4 1 0 1.4s1 .4 1.4 0l2-2c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z"/><path d="M22 43v14c0 .6.4 1 1 1s1-.4 1-1V43c0-.6-.4-1-1-1s-1 .5-1 1z"/><path d="M21.1 14.5l-7.5 14.2c-.3.5-.1 1.1.4 1.3 2.5 1.4 4 4 4 6.9 0 3.6-2.4 6.7-5.7 7.7-1.1.4-1.6.3-1.8.4-.9.7-.5 2 .5 2h24.4c.7 0 1.2-.7.9-1.4l-13.4-31c-.3-.8-1.4-.8-1.8-.1zM20 37c0-3.3-1.6-6.3-4.2-8.1l6.1-11.5 12 27.7H16c2.5-1.9 4-4.9 4-8.1zM36.1 20.7c.4.4 1 .4 1.4 0l1.3-1.3 1.3 1.3c.4.4 1 .4 1.4 0l2.8-2.9c.3-.3.4-.8.2-1.2L37.7 3.5c-.4-.7-1.4-.7-1.8 0l-6.7 13.1c-.2.4-.1.9.2 1.2l2.8 2.9c.4.4 1 .4 1.4 0l1.3-1.3 1.2 1.3zm-4.8-3.8l5.5-10.7L42.3 17l-1.6 1.6-1.3-1.3c-.4-.4-1-.4-1.4 0l-1.3 1.3-1.3-1.3c-.4-.4-1-.4-1.4 0l-1.3 1.3-1.4-1.7z"/><path d="M37 6.2l21.1 40.3c.3.5.9.7 1.3.4s.7-.9.4-1.3l-22-42c-.4-.7-1.4-.7-1.8 0L25.3 24.2c-.1.3-.2.6 0 .9l9.2 21.3c.2.5.8.7 1.3.5s.7-.8.5-1.3l-9-20.9L37 6.2zM51 0h-4c-1.7 0-3 1.3-3 3s1.3 3 3 3h8c1.1 0 2 .9 2 2 0 .6.4 1 1 1s1-.4 1-1c0-2.2-1.8-4-4-4h-8c-.5 0-1-.5-1-1s.5-1 1-1h4c.6 0 1-.4 1-1s-.4-1-1-1zM58 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM54 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM50 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM46 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM42 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM38 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM34 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM30 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM26 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM18 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM13 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM4 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM0 56v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1s-1 .5-1 1zM16.4 8.8c.9 0 1.6.8 1.6 1.9 0 .8-.9 1.4-2.1 1.4H4.3c-1.5 0-2.3-.9-2.3-2.7 0-1.7 1.3-3.1 2.8-3.1.4 0 1-.7 1.2-.9.2-.3.5-.7.9-1 1-.9 2.3-1.4 4-1.4C13.4 3 15 4.5 15 7.8c0 .6.4 1 1 1h.4zM10.8 1c-2.2 0-3.9.7-5.3 1.9-.6.5-1 1-1.3 1.4C1.8 4.6 0 6.8 0 9.4c0 2.8 1.7 4.7 4.3 4.7h11.6c2.1 0 4.1-1.4 4.1-3.4 0-1.9-1.3-3.5-3-3.8C16.6 3 14.2 1 10.8 1z"/></svg>
+              </div>
+              <h3 class="tile-konsenz__title">Pravica (do) narave</h3>
+            </div>
+            <div class="tile-konsenz__content">
+              <p class="tile-konsenz__paragraph">
+                Narava je subjekt zaščite, interesi naravnega okolja so skupni interesi, živali imajo pravico do dostojanstva. Napredek, razvoj in gospodarska rast ne smejo biti izgovor za neodgovorno ravnanje z okoljem.
+              </p>
+            </div>
+          </div>
+          <div class="tile-konsenz">
+            <div class="tile-konsenz__header">
+              <div class="tile-konsenz__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M60.835 41.195a3.261 3.261 0 0 0-2.663-.719L39 43.811v-6.844c1.478-.09 4.199-.517 6.076-2.393 2.63-2.628 2.424-6.944 2.413-7.126a.997.997 0 0 0-.943-.943c-.181-.016-4.499-.216-7.126 2.412-.15.15-.288.307-.42.466v-3.409c1.478-.09 4.199-.517 6.076-2.393 2.63-2.628 2.424-6.944 2.413-7.126a.997.997 0 0 0-.943-.943c-.181-.014-4.499-.216-7.126 2.413-.15.15-.288.307-.42.466v-2.97l5.612-5.496A4.568 4.568 0 0 0 46 6.639a4.569 4.569 0 0 0-1.388-3.287l-.001-.001C42.791 1.569 39.838 1.556 38 3.31c-1.839-1.755-4.791-1.741-6.612.042A4.569 4.569 0 0 0 30 6.639c0 1.242.493 2.41 1.389 3.287L37 15.42v2.97a6.541 6.541 0 0 0-.42-.466c-2.627-2.63-6.945-2.427-7.126-2.413a.997.997 0 0 0-.943.943c-.011.182-.217 4.498 2.413 7.126 1.877 1.878 4.598 2.304 6.076 2.393v3.409a6.33 6.33 0 0 0-.42-.466c-2.628-2.628-6.943-2.427-7.126-2.412a.997.997 0 0 0-.943.943c-.011.182-.217 4.498 2.413 7.126 1.877 1.878 4.598 2.304 6.076 2.393v5.619l-4.293-4.293A.999.999 0 0 0 32 38H22a1 1 0 0 0-1-1H2v2h14v14H2v2h19a1 1 0 0 0 1-1h2.764l10.691 5.346a3.263 3.263 0 0 0 3.108-.099L60.379 46.52A3.277 3.277 0 0 0 62 43.698c0-.968-.425-1.88-1.165-2.503zM40.834 30.33c1.348-1.348 3.424-1.71 4.635-1.803-.091 1.208-.451 3.276-1.807 4.632-1.348 1.348-3.424 1.71-4.634 1.803.091-1.208.451-3.276 1.806-4.632zm0-10.992c1.348-1.349 3.424-1.711 4.635-1.804-.091 1.208-.451 3.276-1.807 4.632-1.347 1.347-3.42 1.709-4.631 1.803.094-1.211.456-3.284 1.803-4.631zm-8.496 2.828c-1.349-1.348-1.711-3.424-1.804-4.635 1.208.091 3.276.451 4.632 1.807 1.347 1.347 1.709 3.42 1.803 4.631-1.211-.094-3.284-.456-4.631-1.803zm0 10.993c-1.349-1.348-1.711-3.425-1.804-4.635 1.208.091 3.276.45 4.632 1.806 1.347 1.348 1.709 3.421 1.803 4.632-1.211-.094-3.284-.456-4.631-1.803zM20 53h-2V39h2v14zM32 6.639c0-.701.28-1.361.787-1.858A2.748 2.748 0 0 1 34.716 4c.697 0 1.396.261 1.928.781l.657.644a.998.998 0 0 0 1.398 0l.657-.644a2.773 2.773 0 0 1 3.855-.001 2.582 2.582 0 0 1 .002 3.716L38 13.601l-5.212-5.104A2.587 2.587 0 0 1 32 6.639zm27.371 38.153L37.556 57.519c-.37.217-.821.23-1.206.038l-10.902-5.451A.997.997 0 0 0 25 52h-3V40h9.586l7.879 7.879a1.83 1.83 0 0 1-2.586 2.586l-5.172-5.172-1.414 1.414 5.172 5.172A3.802 3.802 0 0 0 38.172 53 3.833 3.833 0 0 0 42 49.172a3.804 3.804 0 0 0-1.121-2.707l-.81-.81 18.444-3.208c.372-.067.747.037 1.034.279a1.266 1.266 0 0 1-.176 2.066z"/><path d="M21 13h2c0-1.654 1.346-3 3-3V8c-1.654 0-3-1.346-3-3h-2c0 1.654-1.346 3-3 3v2c1.654 0 3 1.346 3 3zm1-5.031c.292.393.638.739 1.031 1.031A4.988 4.988 0 0 0 22 10.031 4.988 4.988 0 0 0 20.969 9 4.988 4.988 0 0 0 22 7.969zM15 22h2c0-1.654 1.346-3 3-3v-2c-1.654 0-3-1.346-3-3h-2c0 1.654-1.346 3-3 3v2c1.654 0 3 1.346 3 3zm1-5.031c.292.393.638.739 1.031 1.031A4.988 4.988 0 0 0 16 19.031 4.988 4.988 0 0 0 14.969 18 4.988 4.988 0 0 0 16 16.969zM53 17h2c0-1.654 1.346-3 3-3v-2c-1.654 0-3-1.346-3-3h-2c0 1.654-1.346 3-3 3v2c1.654 0 3 1.346 3 3zm1-5.031c.292.393.638.739 1.031 1.031A4.988 4.988 0 0 0 54 14.031 4.988 4.988 0 0 0 52.969 13 4.988 4.988 0 0 0 54 11.969zM20 33h2v2h-2zM16 33h2v2h-2zM12 33h2v2h-2z"/></svg>
+              </div>
+              <h3 class="tile-konsenz__title">Pravica do človeku prijazne ekonomije</h3>
+            </div>
+            <div class="tile-konsenz__content">
+              <p class="tile-konsenz__paragraph">
+                Javni dolg je rezultat zasebnega delovanja, zato ga ne bi smeli naprtiti ljudem. Hočemo ustvariti okolje, v katerem bodo prosperirala podjetja, ki so prijazna do človeka in narave ter družbeno odgovorna. Vsakdo ima pravico do izpolnjujočega dela in dostojnega življenja.
+              </p>
+            </div>
+          </div>
+          <div class="tile-konsenz">
+            <div class="tile-konsenz__header">
+              <div class="tile-konsenz__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M41.7 26.772l4.093-4.371.271-.29 5.352-5.717c2.259-2.414 2.065-6.548-.433-9.216-1.297-1.387-3.046-2.182-4.798-2.182-1.545 0-2.968.61-4.007 1.721l-.478.512-.479-.513a5.43 5.43 0 0 0-4.007-1.72c-1.752 0-3.501.795-4.8 2.183-2.494 2.667-2.688 6.8-.432 9.214L41.7 26.772zM33.875 8.546c.921-.984 2.139-1.549 3.339-1.549.986 0 1.891.386 2.546 1.086l1.938 2.076 1.939-2.075a3.446 3.446 0 0 1 2.547-1.087c1.2 0 2.417.564 3.338 1.549 1.792 1.914 1.986 4.822.433 6.481l-8.255 8.82-8.256-8.819c-1.552-1.661-1.359-4.569.431-6.482zM60.707 59.293c-.2-.199-4.729-4.636-14.51-6.863A12.95 12.95 0 0 0 47.326 50H48c2.206 0 4-1.794 4-4s-1.794-4-4-4v2c1.103 0 2 .897 2 2s-.897 2-2 2h-.183c.108-.655.183-1.319.183-2h-2c0 6.617-6.28 12-14 12s-14-5.384-14-12.001h-2c0 .681.075 1.346.183 2.001H16c-1.103 0-2-.897-2-2s.897-2 2-2v-2c-2.206 0-4 1.794-4 4s1.794 4 4 4h.674c.289.847.67 1.658 1.128 2.43-9.781 2.228-14.31 6.664-14.51 6.863l1.414 1.414c.046-.046 4.572-4.456 14.362-6.497C21.98 57.711 26.685 60 32 60s10.02-2.289 12.932-5.789c9.739 2.033 14.316 6.452 14.363 6.498l1.412-1.416z"/><path d="M26.293 41.293c-2.204 2.204-4.352.229-4.589-.004l-1.411 1.418c.755.755 2.174 1.637 3.812 1.637 1.145 0 2.396-.431 3.602-1.637l-1.414-1.414zM43.707 42.707l-1.414-1.414c-2.204 2.204-4.352.229-4.589-.004l-1.411 1.418c.755.755 2.174 1.637 3.812 1.637 1.145 0 2.396-.431 3.602-1.637zM29 42v4c0 1.654 1.345 3 2.999 3A3.004 3.004 0 0 0 35 46v-4h-2v4a1.001 1.001 0 0 1-2 0v-4h-2zM38.64 51.769l-1.28-1.537c-5.27 4.392-10.501.179-10.722-.001l-1.278 1.538c.044.036 3 2.443 6.905 2.443 1.967 0 4.176-.611 6.375-2.443zM22.438 31.058l5.994 6.402 2.458-2.625.505-.539 3.032-3.237c1.469-1.57 1.355-4.246-.254-5.965-.838-.896-1.973-1.409-3.113-1.409-1.01 0-1.941.396-2.627 1.115a3.59 3.59 0 0 0-2.628-1.115c-1.14 0-2.275.514-3.114 1.41-1.606 1.717-1.72 4.392-.253 5.963zm1.714-4.597c.462-.493 1.064-.776 1.653-.776.327 0 .798.088 1.189.505l1.438 1.54 1.439-1.539a1.593 1.593 0 0 1 1.189-.506c.589 0 1.191.283 1.653.776.888.948 1.004 2.429.253 3.23l-4.534 4.843-4.534-4.843c-.749-.802-.633-2.282.254-3.23zM18.366 23.46l2.458-2.625.505-.539 3.032-3.237c1.469-1.57 1.355-4.246-.254-5.965-.838-.896-1.973-1.409-3.113-1.409-1.01 0-1.941.396-2.627 1.115a3.59 3.59 0 0 0-2.628-1.115c-1.14 0-2.275.514-3.114 1.41-1.606 1.718-1.72 4.393-.253 5.963l5.994 6.402zm-4.281-10.999c.462-.493 1.064-.776 1.653-.776.327 0 .798.088 1.189.505l1.438 1.54 1.439-1.539a1.593 1.593 0 0 1 1.189-.506c.589 0 1.191.283 1.653.776.888.948 1.004 2.429.253 3.23l-4.534 4.843-4.534-4.843c-.748-.802-.632-2.282.254-3.23z"/></svg>
+              </div>
+              <h3 class="tile-konsenz__title">Pravica do vključenosti</h3>
+            </div>
+            <div class="tile-konsenz__content">
+              <p class="tile-konsenz__paragraph">
+                Zavračamo delitve na podlagi kakršnih koli osebnih okoliščin. Dovolj je politike izključevanja, ki naključnim družbenim skupinam jemlje dostojno življenje, jih potiska na družbene robove ter jim krade moč, ki jim pripada. Z ustavo zagotovljena pravica do enakosti ne sme biti samo deklarativna. Pravica do vključenosti in človekove pravice veljajo za vse. O tem ne razpravljamo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <!-- end of container -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <div class="row" id="footer">
+      <svg id="footerdivider" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="40px" viewBox="0 0 100 102" preserveAspectRatio="none">
+        <path d="M0 0 L50 300 L100 0 Z"></path>
+      </svg>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 footerline">
+            <div id="newsletter" data-href="signup" class="icon-newsletter col-green buzz-out"></div>
+            <p id="newslettertext" class="footertext"><a class="footerlink link-green" href="/jaz/">Naroči se na e-novice.</a> Pišemo samo, kadar imamo res kaj povedati.</p>
+          </div>
+          <div class="col-md-3 footerline">
+            <div id="socialcontainer">
+              <div class="social push" data-href="https://www.facebook.com/danesjenovdan">
+                <div class="icon icon-facebook"></div>
+              </div>
+              <div class="social push" data-href="https://twitter.com/danesjenovdan">
+                <div class="icon icon-twitter"></div>
+              </div>
+              <div class="social push" data-href="https://github.com/danesjenovdan">
+                <div class="icon icon-github"></div>
+              </div>
+              <div class="social push" data-href="https://vimeo.com/user26914674">
+                <div class="icon icon-vimeo"></div>
+              </div>
+              <div class="social push" data-href="https://www.youtube.com/channel/UCWMqx3p_QtWjdDRq58Hfh_w">
+                <div class="icon icon-youtube"></div>
+              </div>
+              <div class="social push" data-href="https://agrument.danesjenovdan.si/rss/">
+                <div class="icon icon-rss"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 footerline">
+            <span id="podpri"><object data="/img/heart2.svg" class="icon-heart-line" type="image/svg+xml"></object><span class="icon icon-heart col-green"></span>Podpri nas!</span>
+          </div>
+          <div class="col-md-3 footerline">
+            <p class="footertext" id="izkaznica"><a class="link-green" href="/formalnosti/">Danes je nov dan</a>
+              <br>Inštitut za druga vprašanja
+              <br>Parmova ulica 20
+              <br>1000 Ljubljana
+              <br>
+              <br><a class="footerlink link-green" href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of container-fluid -->
 
-    <!-- froogaloop -->
-    <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+  <div class="popup centermycontentvertically" id="signup">
+    <div class="popupclose">
+      <div class="icon-close"></div>
+    </div>
+    <div class="container popupcontainer centermevertically">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <p class="popuptext">Dodajte me na mailing listo.</p>
+          <form class="ac-custom ac-checkbox ac-checkmark">
+            <input id="newsletteremail" type="email" class="form-control" placeholder="ti@email.com">
+            <ul>
+              <li>
+                <input id="dodajme" name="dodajme" type="checkbox">
+                <label for="dodajme">dodaj me na listo podpornikov</label>
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg>
+              </li>
+            </ul>
+            <div class="hider">
+              <p class="popuptext">Zaupaj nam še svoje polno ime.</p>
+              <input id="newslettername" type="text" class="form-control" placeholder="Ime Priimek">
+            </div>
+          </form>
+          <button class="btn btn-popup push" id="submitemail">Oddaj!</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- jQuery cookie -->
-    <script src="/js/jquery.cookie.js"></script>
-    <!-- NSA -->
-    <script src="/js/nsa.js"></script>
+  <div id="megavideo">
+    <iframe id="thevideo" src="//player.vimeo.com/video/92594621?api=1&amp;player_id=thevideo" badge="0" byline="0" portrait="0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  </div>
 
-    <!-- frontend magic -->
-    <script src="/js/front.js?_new"></script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Google Universal Analytics -->
-    <script>
-        (function () {
-            'use strict';
-            window.Fingerprint = function (a) {
-                var e = Array.prototype.forEach,
-                    f = Array.prototype.map;
-                this.each = function (a, b, c) {
-                    if (null !== a)
-                        if (e && a.forEach === e) a.forEach(b, c);
-                        else if (a.length === +a.length)
-                        for (var d = 0, f = a.length; d < f && b.call(c, a[d], d, a) !== {}; d++);
-                    else
-                        for (d in a)
-                            if (a.hasOwnProperty(d) && b.call(c, a[d], d, a) === {}) break
-                };
-                this.map = function (a, b, c) {
-                    var d = [];
-                    if (null == a) return d;
-                    if (f && a.map === f) return a.map(b, c);
-                    this.each(a, function (a, f, e) {
-                        d[d.length] = b.call(c, a, f, e)
-                    });
-                    return d
-                };
-                a && (this.hasher = a)
-            };
-            Fingerprint.prototype = {
-                get: function () {
-                    var a = [];
-                    a.push(navigator.userAgent);
-                    a.push([screen.height, screen.width, screen.colorDepth].join("x"));
-                    a.push((new Date).getTimezoneOffset());
-                    a.push(!!window.sessionStorage);
-                    a.push(!!window.localStorage);
-                    var e = this.map(navigator.plugins, function (a) {
-                        var e = this.map(a, function (a) {
-                            return [a.type, a.suffixes].join("~")
-                        }).join(",");
-                        return [a.name, a.description, e].join("::")
-                    }, this).join(";");
-                    a.push(e);
-                    return this.hasher ? this.hasher(a.join("###"), 31) : this.murmurhash3_32_gc(a.join("###"), 31)
-                },
-                murmurhash3_32_gc: function (a, e) {
-                    var f, g, b, c, d;
-                    f = a.length & 3;
-                    g = a.length - f;
-                    b = e;
-                    for (d = 0; d < g;) c = a.charCodeAt(d) & 255 | (a.charCodeAt(++d) & 255) << 8 | (a.charCodeAt(++d) & 255) << 16 | (a.charCodeAt(++d) & 255) << 24, ++d, c = 3432918353 * (c & 65535) + ((3432918353 * (c >>> 16) & 65535) << 16) & 4294967295, c = c << 15 | c >>> 17, c = 461845907 * (c & 65535) + ((461845907 * (c >>> 16) & 65535) << 16) & 4294967295, b ^= c, b = b << 13 | b >>> 19, b = 5 * (b & 65535) + ((5 * (b >>> 16) & 65535) << 16) & 4294967295, b = (b & 65535) + 27492 + (((b >>> 16) + 58964 & 65535) << 16);
-                    c = 0;
-                    switch (f) {
-                    case 3:
-                        c ^= (a.charCodeAt(d + 2) & 255) << 16;
-                    case 2:
-                        c ^= (a.charCodeAt(d + 1) & 255) << 8;
-                    case 1:
-                        c ^= a.charCodeAt(d) & 255, c = 3432918353 * (c & 65535) + ((3432918353 * (c >>> 16) & 65535) << 16) & 4294967295, c = c << 15 | c >>> 17, b ^= 461845907 * (c & 65535) + ((461845907 * (c >>> 16) & 65535) << 16) & 4294967295
-                    }
-                    b ^= a.length;
-                    b ^= b >>> 16;
-                    b = 2246822507 * (b & 65535) + ((2246822507 * (b >>> 16) & 65535) << 16) & 4294967295;
-                    b ^= b >>> 13;
-                    b = 3266489909 * (b & 65535) + ((3266489909 * (b >>> 16) & 65535) << 16) & 4294967295;
-                    return (b ^ b >>> 16) >>> 0
-                }
-            }
-        })();
+  <!-- froogaloop -->
+  <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
 
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  <!-- jQuery cookie -->
+  <script src="/js/jquery.cookie.js"></script>
+  <!-- NSA -->
+  <script src="/js/nsa.js"></script>
 
-        var fingerprint = new Fingerprint().get();
-        ga('create', 'UA-36901322-1', 'danesjenovdan.si', {
-            'storage': 'none',
-            'clientId': fingerprint,
-            'userId': $.cookie('djndid')
-        });
-        ga('send', 'pageview', {
-            'anonymizeIp': 'true'
-        });
+  <!-- frontend magic -->
+  <script src="/js/front.js?_new"></script>
 
-        ga('set', 'dimension1', $.cookie('djndid'));
-    </script>
-    <!-- End of Google Universal Analytics -->
-    <!-- better pageview tracking -->
-    <script>
-        (function (tos) {
-            window.setInterval(function () {
-                tos = (function (t) {
-                    return t[0] == 50 ? (parseInt(t[1]) + 1) + ':00' : (t[1] || '0') + ':' + (parseInt(t[0]) + 10);
-                })(tos.split(':').reverse());
-                ga('send', 'event', 'Time', 'Log', 'ToS', tos);
-            }, 10000);
-        })('00');
-    </script>
-    <!-- end of better pageview tracking -->
+  <!-- Google Universal Analytics -->
+  <script>
+    (function () {
+      'use strict';
+      window.Fingerprint = function (a) {
+        var e = Array.prototype.forEach,
+          f = Array.prototype.map;
+        this.each = function (a, b, c) {
+          if (null !== a)
+            if (e && a.forEach === e) a.forEach(b, c);
+            else if (a.length === +a.length)
+              for (var d = 0, f = a.length; d < f && b.call(c, a[d], d, a) !== {}; d++);
+            else
+              for (d in a)
+                if (a.hasOwnProperty(d) && b.call(c, a[d], d, a) === {}) break
+        };
+        this.map = function (a, b, c) {
+          var d = [];
+          if (null == a) return d;
+          if (f && a.map === f) return a.map(b, c);
+          this.each(a, function (a, f, e) {
+            d[d.length] = b.call(c, a, f, e)
+          });
+          return d
+        };
+        a && (this.hasher = a)
+      };
+      Fingerprint.prototype = {
+        get: function () {
+          var a = [];
+          a.push(navigator.userAgent);
+          a.push([screen.height, screen.width, screen.colorDepth].join("x"));
+          a.push((new Date).getTimezoneOffset());
+          a.push(!!window.sessionStorage);
+          a.push(!!window.localStorage);
+          var e = this.map(navigator.plugins, function (a) {
+            var e = this.map(a, function (a) {
+              return [a.type, a.suffixes].join("~")
+            }).join(",");
+            return [a.name, a.description, e].join("::")
+          }, this).join(";");
+          a.push(e);
+          return this.hasher ? this.hasher(a.join("###"), 31) : this.murmurhash3_32_gc(a.join("###"), 31)
+        },
+        murmurhash3_32_gc: function (a, e) {
+          var f, g, b, c, d;
+          f = a.length & 3;
+          g = a.length - f;
+          b = e;
+          for (d = 0; d < g;) c = a.charCodeAt(d) & 255 | (a.charCodeAt(++d) & 255) << 8 | (a.charCodeAt(++d) & 255) << 16 | (a.charCodeAt(++d) & 255) << 24, ++d, c = 3432918353 * (c & 65535) + ((3432918353 * (c >>> 16) & 65535) << 16) & 4294967295, c = c << 15 | c >>> 17, c = 461845907 * (c & 65535) + ((461845907 * (c >>> 16) & 65535) << 16) & 4294967295, b ^= c, b = b << 13 | b >>> 19, b = 5 * (b & 65535) + ((5 * (b >>> 16) & 65535) << 16) & 4294967295, b = (b & 65535) + 27492 + (((b >>> 16) + 58964 & 65535) << 16);
+          c = 0;
+          switch (f) {
+            case 3:
+              c ^= (a.charCodeAt(d + 2) & 255) << 16;
+            case 2:
+              c ^= (a.charCodeAt(d + 1) & 255) << 8;
+            case 1:
+              c ^= a.charCodeAt(d) & 255, c = 3432918353 * (c & 65535) + ((3432918353 * (c >>> 16) & 65535) << 16) & 4294967295, c = c << 15 | c >>> 17, b ^= 461845907 * (c & 65535) + ((461845907 * (c >>> 16) & 65535) << 16) & 4294967295
+          }
+          b ^= a.length;
+          b ^= b >>> 16;
+          b = 2246822507 * (b & 65535) + ((2246822507 * (b >>> 16) & 65535) << 16) & 4294967295;
+          b ^= b >>> 13;
+          b = 3266489909 * (b & 65535) + ((3266489909 * (b >>> 16) & 65535) << 16) & 4294967295;
+          return (b ^ b >>> 16) >>> 0
+        }
+      }
+    })();
 
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    var fingerprint = new Fingerprint().get();
+    ga('create', 'UA-36901322-1', 'danesjenovdan.si', {
+      'storage': 'none',
+      'clientId': fingerprint,
+      'userId': $.cookie('djndid')
+    });
+    ga('send', 'pageview', {
+      'anonymizeIp': 'true'
+    });
+
+    ga('set', 'dimension1', $.cookie('djndid'));
+  </script>
+  <!-- End of Google Universal Analytics -->
+  <!-- better pageview tracking -->
+  <script>
+    (function (tos) {
+      window.setInterval(function () {
+        tos = (function (t) {
+          return t[0] == 50 ? (parseInt(t[1]) + 1) + ':00' : (t[1] || '0') + ':' + (parseInt(t[0]) + 10);
+        })(tos.split(':').reverse());
+        ga('send', 'event', 'Time', 'Log', 'ToS', tos);
+      }, 10000);
+    })('00');
+  </script>
+  <!-- end of better pageview tracking -->
 </body>
 
 </html>
