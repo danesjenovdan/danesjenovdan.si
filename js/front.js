@@ -897,20 +897,9 @@ $(document).ready(function () {
     return false;
   });
 
-  $.get('https://agrument.danesjenovdan.si/getwordcount/', function (r) {
-    $('#agrument .projectnumbernumber').text(r);
+  $.getJSON('https://agrument.danesjenovdan.si/get/word-count/', function (r) {
+    $('#agrument .projectnumbernumber').text(r.count);
   });
-
-  $.get('https://agrument.danesjenovdan.si/getlastagrument/', function (r) {
-    $('#lastagrument').children('.agrumenttitle').text(r);
-  });
-
-  if ($(window).width() > 991) {
-    $.get('https://agrument.danesjenovdan.si/getlastagrumenttextsmall/', function (r) {
-      $('#lastagrument').children('.agrumenttitle').after(r);
-      $('#lastagrument .agrumenttitle + p').addClass('tiletext');
-    })
-  }
 
   $.get('https://api.djnd.si/getExposed/exposed/', function (r) {
     $('#izpostavljeno').children('.tiletitle').text(r.title);

@@ -5,7 +5,7 @@
       method: "POST",
       url: "https://djnd.si/yomamasofat/",
       data: {
-        fatmama: 'https://agrument.danesjenovdan.si/' + date + '/'
+        fatmama: 'https://agrument.danesjenovdan.si/' + date
       },
       success: function (resp) {
         $(element).val(resp);
@@ -176,10 +176,15 @@
       }
     });
 
-  $.getJSON('https://agrument.danesjenovdan.si/getfullagrument/')
+  $.getJSON('https://agrument.danesjenovdan.si/get/last-agrument/')
     .done(function (json) {
+      var post = json.post;
       var container = $('#landing-append-agrument');
-      var tile = templates.makeAgrumentTile(json.title, json.content, json.date, json.image, json.source, json['source-url']);
+      var date = new Date(post.date);
+      console.log(date);
+      var dateString = date.getUTCDate() + '.' + (date.getUTCMonth() + 1) + '.' + date.getUTCFullYear();
+      var image = 'https://agrument.danesjenovdan.si/media/' + post.imageURL;
+      var tile = templates.makeAgrumentTile(post.title, post.content, dateString, image, post.imageCaption, post.imageCaptionURL);
       container.append(tile);
 
       var urlElement = container.find('.newagrumenturl');
