@@ -34,7 +34,7 @@
         "Pri poskusni implementaciji preiskovalne metode SCAN na govore gostov oddaje Odmevi smo opravili tehnološki del posla: razvili smo pametno digitalno semantično orodje, ki se z rabo uči, ter postavili spletno platformo za analize, raziskovalci z EBSI pa so poskrbeli za interpretacijo izbranih primerov govorov gostov Odmevov.",
       "image": "/projekti/img/besedogled.png",
       "projectNumberHTML":
-        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Orodje se je učilo</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">X</p><p class=\"projectnumbertext\">mesecev</p></div>"
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Orodje se je učilo</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">10</p><p class=\"projectnumbertext\">mesecev</p></div>"
     },
     {
       "show": true,
