@@ -4,13 +4,18 @@ var majicaHTML = [  '<div class="pregleditemcontainer">',
 					'<p class="pregleditemprice">{{ itemquantity }} x {{ price }} €</p>',
 					'</div>'].join('\n');
 var rizleHTML = [   '<div class="pregleditemcontainer">',
-					'<div class="pregleditemimage" style="background-image: url(../../img/rizle1.jpg);" data-img="../../img/rizle1.jpg"></div>',
+					'<div class="pregleditemimage" style="background-image: url(../../img/rizle2.png);" data-img="../../img/rizle2.png"></div>',
 					'<p class="pregleditemdescription"> Rizle</p>',
 					'<p class="pregleditemprice">{{ itemquantity }} x {{ price }} €</p>',
 					'</div>'].join('\n');
 var salcaHTML = [   '<div class="pregleditemcontainer">',
-					'<div class="pregleditemimage" style="background-image: url(../../img/salca1.jpg);" data-img="../../img/salca1.jpg"></div>',
+					'<div class="pregleditemimage" style="background-image: url(../../img/salcka.png);" data-img="../../img/salcka.png"></div>',
 					'<p class="pregleditemdescription"> Šalčka</p>',
+					'<p class="pregleditemprice">{{ itemquantity }} x {{ price }} €</p>',
+					'</div>'].join('\n');
+var bundleHTML = [   '<div class="pregleditemcontainer">',
+					'<div class="pregleditemimage" style="background-image: url(../../img/bundle.png);" data-img="../../img/bundle.png"></div>',
+					'<p class="pregleditemdescription"> Kompletek</p>',
 					'<p class="pregleditemprice">{{ itemquantity }} x {{ price }} €</p>',
 					'</div>'].join('\n');
 
@@ -42,6 +47,9 @@ function renderRizle(itemquantity, price) {
 }
 function renderSalca(itemquantity, price) {
 	return salcaHTML.replace('{{ itemquantity }}', itemquantity).replace(/{{ price }}/g, price);
+}
+function renderBundle(itemquantity, price) {
+	return bundleHTML.replace('{{ itemquantity }}', itemquantity).replace(/{{ price }}/g, price);
 }
 function calculatePrice() {
 	var price = 0;
@@ -79,11 +87,16 @@ function renderSummary() {
 				$('.pregledtotal').before(renderRizle(e['quantity'], parseInt(e['article']['price'])));
 
 				$('#paypalitemname').val($('#paypalitemname').val() + ' Rizle');
-			} else {
+			} else if (e['article']['name'].indexOf('Šalčka') != -1) {
 				// salca je
 				$('.pregledtotal').before(renderSalca(e['quantity'], parseInt(e['article']['price'])));
 
 				$('#paypalitemname').val($('#paypalitemname').val() + ' Šalčka');
+			} else {
+				// kompletek je
+				$('.pregledtotal').before(renderBundle(e['quantity'], parseInt(e['article']['price'])));
+
+				$('#paypalitemname').val($('#paypalitemname').val() + ' Kompletek');
 			}
 		}
 	});

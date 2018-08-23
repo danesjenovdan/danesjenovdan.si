@@ -154,9 +154,22 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
+                            <div class="popupopen" data-href="bundlepopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'bundle', 'eventAction': 'step1'})">
+                                <div style="width:50%;float:left" class="card card-dolzni">
+                                    <div class="dolzniimage" style="height:100%" data-img="/img/bundle.png"></div>
+                                </div>
+                                <div style="width:50%;float:left" class="card card-dolzni">
+                                    <h1 class="dolznicardtitle">Kompletek</h1>
+                                    <div class="arrow-down-right arrow-dolzni bck-gold">
+                                        <div class="icon icon-arrow-down-right"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
                             <a href="https://karte.parlameter.si" target="_blank" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'karte', 'eventAction': 'step1'})">
                                 <div style="width:50%;float:left" class="card card-dolzni">
-                                    <div class="dolzniimage" style="height:100%" data-img="https://karte.parlameter.si/img/karte-sajt-ilustracije_1.png"></div>
+                                    <div class="dolzniimage" style="height:100%" data-img="/img/karte.png"></div>
                                 </div>
                                 <div style="width:50%;float:left" class="card card-dolzni">
                                     <h1 class="dolznicardtitle col-gray">karte<br>politični parket</h1>
@@ -169,10 +182,23 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="popupopen" data-href="salcapopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'salca', 'eventAction': 'step1'})">
                                 <div style="width:50%;float:left" class="card card-dolzni">
-                                    <div class="dolzniimage" style="height:100%" data-img="/img/salca1.jpg"></div>
+                                    <div class="dolzniimage" style="height:100%" data-img="/img/salcka.png"></div>
                                 </div>
                                 <div style="width:50%;float:left" class="card card-dolzni">
                                     <h1 class="dolznicardtitle">šalčko</h1>
+                                    <div class="arrow-down-right arrow-dolzni bck-gold">
+                                        <div class="icon icon-arrow-down-right"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="popupopen" data-href="rizlepopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'rizle', 'eventAction': 'step1'})">
+                                <div style="width:50%;float:left" class="card card-dolzni">
+                                    <div class="dolzniimage" style="height:100%" data-img="/img/rizle2.png"></div>
+                                </div>
+                                <div style="width:50%;float:left" class="card card-dolzni">
+                                    <h1 class="dolznicardtitle">rizle</h1>
                                     <div class="arrow-down-right arrow-dolzni bck-gold">
                                         <div class="icon icon-arrow-down-right"></div>
                                     </div>
@@ -186,19 +212,6 @@
                                 </div>
                                 <div style="width:50%;float:left" class="card card-dolzni">
                                     <h1 class="dolznicardtitle">majico</h1>
-                                    <div class="arrow-down-right arrow-dolzni bck-gold">
-                                        <div class="icon icon-arrow-down-right"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="popupopen" data-href="rizlepopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'rizle', 'eventAction': 'step1'})">
-                                <div style="width:50%;float:left" class="card card-dolzni">
-                                    <div class="dolzniimage" style="height:100%" data-img="/img/rizle3.jpg"></div>
-                                </div>
-                                <div style="width:50%;float:left" class="card card-dolzni">
-                                    <h1 class="dolznicardtitle">rizle</h1>
                                     <div class="arrow-down-right arrow-dolzni bck-gold">
                                         <div class="icon icon-arrow-down-right"></div>
                                     </div>
@@ -546,13 +559,13 @@
                                 </div>
                                 <div class="col-md-6 hidden-xs hidden-sm">
                                     <div class="artikelgallerycontainer">
-                                        <div data-img="/img/rizle1.jpg" class="gallerymainimage"></div>
-                                        <div class="gallerythumbscontainer">
+                                        <div data-img="/img/rizle2.png" class="gallerymainimage"></div>
+                                        <!-- <div class="gallerythumbscontainer">
                                             <div class="gallerythumb" data-img="/img/rizle1.jpg"></div>
                                             <div class="gallerythumb" data-img="/img/rizle2.jpg"></div>
                                             <div class="gallerythumb" data-img="/img/rizle3.jpg"></div>
                                             <div class="gallerythumb" data-img="/img/rizle4.jpg"></div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -593,13 +606,60 @@
                                 </div>
                                 <div class="col-md-6 hidden-xs hidden-sm">
                                     <div class="artikelgallerycontainer">
-                                        <div data-img="/img/salca1.jpg" class="gallerymainimage"></div>
-                                        <div class="gallerythumbscontainer">
+                                        <div data-img="/img/salcka.png" class="gallerymainimage"></div>
+                                        <!-- <div class="gallerythumbscontainer">
                                             <div class="gallerythumb" data-img="/img/salca1.jpg"></div>
                                             <div class="gallerythumb" data-img="/img/salca2.jpg"></div>
                                             <div class="gallerythumb" data-img="/img/salca3.jpg"></div>
                                             <div class="gallerythumb" data-img="/img/salca4.jpg"></div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popup popup-dolzni centermycontentvertically" id="bundlepopup">
+                <div class="popupclose">
+                    <div class="icon-close"></div>
+                </div>
+                <div class="container popupcontainer centermevertically">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 centermycontent">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1 class="artikeltitle">KOMPLETEK, DA ZADOVOLJIŠ VSE RAZVADE NAENKRAT</h1>
+                                    <p class="artikeltext">Jutranja kava bo boljša v DJND šalčki, popoldanski užitek smotan, kot se šika, večerna partija s prijatelji pa zabavna in napeta.</p>
+                                    <form class="artikelform">
+                                        <p class="artikellable noshake">Količina</p>
+                                        <div class="artikeltogglecontainer noshake">
+                                            <div class="artikelcounter"><span class="artikelnumber">1</span>
+                                                <div class="plusone"></div>
+                                                <div class="minusone"></div>
+                                            </div>
                                         </div>
+                                        <p class="artikellable noshake">Cena</p>
+                                        <div class="artikeltogglecontainer noshake">
+                                            <p class="artikelprice">25 €</p>
+                                        </div>
+                                        <div class="artikelfinishcontainer">
+                                            <div class="btn btn-finish btn-finish-bundle bundle">Plačaj!</div>
+                                            <p class="artikelfinishor hidden-xs"><a href="#" class="artikelfinishorlink bundle">dodaj izdelek v voziček in še malo prebrskaj po policah</a>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6 hidden-xs hidden-sm">
+                                    <div class="artikelgallerycontainer">
+                                        <div data-img="/img/bundle.png" class="gallerymainimage"></div>
+                                        <!-- <div class="gallerythumbscontainer">
+                                            <div class="gallerythumb" data-img="/img/salca1.jpg"></div>
+                                            <div class="gallerythumb" data-img="/img/salca2.jpg"></div>
+                                            <div class="gallerythumb" data-img="/img/salca3.jpg"></div>
+                                            <div class="gallerythumb" data-img="/img/salca4.jpg"></div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
