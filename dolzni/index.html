@@ -34,7 +34,7 @@
     <link href="/icons_/icons.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link href="/css/guide.css?v180719" rel="stylesheet">
+    <link href="/css/guide.css?v180824" rel="stylesheet">
 
     <!-- WP fix -->
     <script>
@@ -153,7 +153,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-6 col-sm-6 clearfix">
                             <div class="popupopen" data-href="bundlepopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'bundle', 'eventAction': 'step1'})">
                                 <div style="width:50%;float:left" class="card card-dolzni">
                                     <div class="dolzniimage" style="height:100%" data-img="/img/bundle.png"></div>
@@ -166,7 +166,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-6 col-sm-6 clearfix">
                             <a href="https://karte.parlameter.si" target="_blank" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'karte', 'eventAction': 'step1'})">
                                 <div style="width:50%;float:left" class="card card-dolzni">
                                     <div class="dolzniimage" style="height:100%" data-img="/img/karte.png"></div>
@@ -179,7 +179,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-6 col-sm-6 clearfix">
                             <div class="popupopen" data-href="salcapopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'salca', 'eventAction': 'step1'})">
                                 <div style="width:50%;float:left" class="card card-dolzni">
                                     <div class="dolzniimage" style="height:100%" data-img="/img/salcka.png"></div>
@@ -192,7 +192,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-6 col-sm-6 clearfix">
                             <div class="popupopen" data-href="rizlepopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'rizle', 'eventAction': 'step1'})">
                                 <div style="width:50%;float:left" class="card card-dolzni">
                                     <div class="dolzniimage" style="height:100%" data-img="/img/rizle2.png"></div>
@@ -205,7 +205,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-6 col-sm-6 clearfix">
                             <div class="popupopen" data-href="majicapopup" onclick="ga('send', {'hitType': 'event', 'eventCategory': 'majica', 'eventAction': 'step1'})">
                                 <div style="width:50%;float:left" class="card card-dolzni">
                                     <div class="dolzniimage" style="height:100%" data-img="/img/majica1.jpg"></div>
@@ -472,52 +472,54 @@
                     <div class="icon-close"></div>
                 </div>
                 <div class="container popupcontainer centermevertically">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 centermycontent">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h1 class="artikeltitle">Majica, ker moda je komunikacija</h1>
-                                    <p class="artikeltext">Skupnost je izglasovala slogan, mi smo ga ilustrirali. Naša prva majica prinaša natančno analizo stanja v državi. Da ne pozabimo, v čem je fora.</p>
-                                    <form class="artikelform">
-                                        <p class="artikellable">Kroj</p>
-                                        <div class="artikeltogglecontainer majicatype">
-                                            <div class="artikeltoggle artikeltoggle-square female">"ženski"</div>
-                                            <div class="artikeltoggle artikeltoggle-square male">"moški"</div>
-                                        </div>
-                                        <p class="artikellable">Velikost</p>
-                                        <div class="artikeltogglecontainer majicasize">
-                                            <div class="artikeltoggle artikeltoggle-circle shirt-s">S</div>
-                                            <div class="artikeltoggle artikeltoggle-circle shirt-m">M</div>
-                                            <div class="artikeltoggle artikeltoggle-circle shirt-l">L</div>
-                                            <div class="artikeltoggle artikeltoggle-circle shirt-xl">XL</div>
-                                            <div class="artikeltoggle artikeltoggle-circle shirt-xxl">XXL</div>
-                                        </div>
-                                        <p class="artikellable noshake">Količina</p>
-                                        <div class="artikeltogglecontainer noshake">
-                                            <div class="artikelcounter"><span class="artikelnumber">1</span>
-                                                <div class="plusone"></div>
-                                                <div class="minusone"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 centermycontent">
+                                <div class="row">
+                                    <div class="col-md-6 pull-left">
+                                        <h1 class="artikeltitle">Majica, ker moda je komunikacija</h1>
+                                        <p class="artikeltext">Skupnost je izglasovala slogan, mi smo ga ilustrirali. Naša prva majica prinaša natančno analizo stanja v državi. Da ne pozabimo, v čem je fora.</p>
+                                        <form class="artikelform">
+                                            <p class="artikellable">Kroj</p>
+                                            <div class="artikeltogglecontainer majicatype">
+                                                <div class="artikeltoggle artikeltoggle-square female">"ženski"</div>
+                                                <div class="artikeltoggle artikeltoggle-square male">"moški"</div>
                                             </div>
-                                        </div>
-                                        <p class="artikellable noshake">Cena</p>
-                                        <div class="artikeltogglecontainer noshake">
-                                            <p class="artikelprice">12 €</p>
-                                        </div>
-                                        <div class="artikelfinishcontainer">
-                                            <div class="btn btn-finish btn-finish-majica majica">Plačaj!</div>
-                                            <p class="artikelfinishor hidden-xs"><a href="#" class="artikelfinishorlink majica">dodaj izdelek v voziček in še malo prebrskaj po policah</a>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-md-6 hidden-xs hidden-sm">
-                                    <div class="artikelgallerycontainer">
-                                        <div data-img="/img/majica1.jpg" class="gallerymainimage"></div>
-                                        <div class="gallerythumbscontainer">
-                                            <div class="gallerythumb" data-img="/img/majica1.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/majica2.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/majica3.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/majica4.jpg"></div>
+                                            <p class="artikellable">Velikost</p>
+                                            <div class="artikeltogglecontainer majicasize">
+                                                <div class="artikeltoggle artikeltoggle-circle shirt-s">S</div>
+                                                <div class="artikeltoggle artikeltoggle-circle shirt-m">M</div>
+                                                <div class="artikeltoggle artikeltoggle-circle shirt-l">L</div>
+                                                <div class="artikeltoggle artikeltoggle-circle shirt-xl">XL</div>
+                                                <div class="artikeltoggle artikeltoggle-circle shirt-xxl">XXL</div>
+                                            </div>
+                                            <p class="artikellable noshake">Količina</p>
+                                            <div class="artikeltogglecontainer noshake">
+                                                <div class="artikelcounter"><span class="artikelnumber">1</span>
+                                                    <div class="plusone"></div>
+                                                    <div class="minusone"></div>
+                                                </div>
+                                            </div>
+                                            <p class="artikellable noshake">Cena</p>
+                                            <div class="artikeltogglecontainer noshake">
+                                                <p class="artikelprice">12 €</p>
+                                            </div>
+                                            <div class="artikelfinishcontainer">
+                                                <div class="btn btn-finish btn-finish-majica majica">Plačaj!</div>
+                                                <p class="artikelfinishor hidden-xs"><a href="#" class="artikelfinishorlink majica">dodaj izdelek v voziček in še malo prebrskaj po policah</a>
+                                                </p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6 hidden-xs hidden-sm">
+                                        <div class="artikelgallerycontainer">
+                                            <div data-img="/img/majica1.jpg" class="gallerymainimage"></div>
+                                            <div class="gallerythumbscontainer">
+                                                <div class="gallerythumb" data-img="/img/majica1.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/majica2.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/majica3.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/majica4.jpg"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -532,40 +534,42 @@
                     <div class="icon-close"></div>
                 </div>
                 <div class="container popupcontainer centermevertically">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 centermycontent">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h1 class="artikeltitle">Rizle, ker se za dobrimi konji vedno kadi</h1>
-                                    <p class="artikeltext">Obvezna oprema za hedonist(k)e in njihovo družbo. Imej jih vedno s sabo, ne le, da so lepe, preverjeno lahko rešijo večer.</p>
-                                    <form class="artikelform">
-                                        <p class="artikellable noshake">Količina</p>
-                                        <div class="artikeltogglecontainer noshake">
-                                            <div class="artikelcounter"><span class="artikelnumber">1</span>
-                                                <div class="plusone"></div>
-                                                <div class="minusone"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 centermycontent">
+                                <div class="row">
+                                    <div class="col-md-6 pull-left">
+                                        <h1 class="artikeltitle">Rizle, ker se za dobrimi konji vedno kadi</h1>
+                                        <p class="artikeltext">Obvezna oprema za hedonist(k)e in njihovo družbo. Imej jih vedno s sabo, ne le, da so lepe, preverjeno lahko rešijo večer.</p>
+                                        <form class="artikelform">
+                                            <p class="artikellable noshake">Količina</p>
+                                            <div class="artikeltogglecontainer noshake">
+                                                <div class="artikelcounter"><span class="artikelnumber">1</span>
+                                                    <div class="plusone"></div>
+                                                    <div class="minusone"></div>
+                                                </div>
                                             </div>
+                                            <p class="artikellable noshake">Cena</p>
+                                            <div class="artikeltogglecontainer noshake">
+                                                <p class="artikelprice">2 €</p>
+                                            </div>
+                                            <div class="artikelfinishcontainer">
+                                                <div class="btn btn-finish btn-finish-rizle rizle">Plačaj!</div>
+                                                <p class="artikelfinishor hidden-xs"><a href="#" class="artikelfinishorlink rizle">dodaj izdelek v voziček in še malo prebrskaj po policah</a>
+                                                </p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6 hidden-xs hidden-sm">
+                                        <div class="artikelgallerycontainer">
+                                            <div data-img="/img/rizle2.png" class="gallerymainimage"></div>
+                                            <!-- <div class="gallerythumbscontainer">
+                                                <div class="gallerythumb" data-img="/img/rizle1.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/rizle2.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/rizle3.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/rizle4.jpg"></div>
+                                            </div> -->
                                         </div>
-                                        <p class="artikellable noshake">Cena</p>
-                                        <div class="artikeltogglecontainer noshake">
-                                            <p class="artikelprice">2 €</p>
-                                        </div>
-                                        <div class="artikelfinishcontainer">
-                                            <div class="btn btn-finish btn-finish-rizle rizle">Plačaj!</div>
-                                            <p class="artikelfinishor hidden-xs"><a href="#" class="artikelfinishorlink rizle">dodaj izdelek v voziček in še malo prebrskaj po policah</a>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-md-6 hidden-xs hidden-sm">
-                                    <div class="artikelgallerycontainer">
-                                        <div data-img="/img/rizle2.png" class="gallerymainimage"></div>
-                                        <!-- <div class="gallerythumbscontainer">
-                                            <div class="gallerythumb" data-img="/img/rizle1.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/rizle2.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/rizle3.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/rizle4.jpg"></div>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -579,40 +583,42 @@
                     <div class="icon-close"></div>
                 </div>
                 <div class="container popupcontainer centermevertically">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 centermycontent">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h1 class="artikeltitle">Šalčka, da te zjutraj opomni, da je danes nov dan</h1>
-                                    <p class="artikeltext">Z nakupom poskrbiš za simpatičen vnos tekočih poživil, kot so kava, čaj ali vroča čokolada, pa tudi za poživitev našega delovanja.</p>
-                                    <form class="artikelform">
-                                        <p class="artikellable noshake">Količina</p>
-                                        <div class="artikeltogglecontainer noshake">
-                                            <div class="artikelcounter"><span class="artikelnumber">1</span>
-                                                <div class="plusone"></div>
-                                                <div class="minusone"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 centermycontent">
+                                <div class="row">
+                                    <div class="col-md-6 pull-left">
+                                        <h1 class="artikeltitle">Šalčka, da te zjutraj opomni, da je danes nov dan</h1>
+                                        <p class="artikeltext">Z nakupom poskrbiš za simpatičen vnos tekočih poživil, kot so kava, čaj ali vroča čokolada, pa tudi za poživitev našega delovanja.</p>
+                                        <form class="artikelform">
+                                            <p class="artikellable noshake">Količina</p>
+                                            <div class="artikeltogglecontainer noshake">
+                                                <div class="artikelcounter"><span class="artikelnumber">1</span>
+                                                    <div class="plusone"></div>
+                                                    <div class="minusone"></div>
+                                                </div>
                                             </div>
+                                            <p class="artikellable noshake">Cena</p>
+                                            <div class="artikeltogglecontainer noshake">
+                                                <p class="artikelprice">14 €</p>
+                                            </div>
+                                            <div class="artikelfinishcontainer">
+                                                <div class="btn btn-finish btn-finish-salca salcka">Plačaj!</div>
+                                                <p class="artikelfinishor hidden-xs"><a href="#" class="artikelfinishorlink salcka">dodaj izdelek v voziček in še malo prebrskaj po policah</a>
+                                                </p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6 hidden-xs hidden-sm">
+                                        <div class="artikelgallerycontainer">
+                                            <div data-img="/img/salcka.png" class="gallerymainimage"></div>
+                                            <!-- <div class="gallerythumbscontainer">
+                                                <div class="gallerythumb" data-img="/img/salca1.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/salca2.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/salca3.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/salca4.jpg"></div>
+                                            </div> -->
                                         </div>
-                                        <p class="artikellable noshake">Cena</p>
-                                        <div class="artikeltogglecontainer noshake">
-                                            <p class="artikelprice">14 €</p>
-                                        </div>
-                                        <div class="artikelfinishcontainer">
-                                            <div class="btn btn-finish btn-finish-salca salcka">Plačaj!</div>
-                                            <p class="artikelfinishor hidden-xs"><a href="#" class="artikelfinishorlink salcka">dodaj izdelek v voziček in še malo prebrskaj po policah</a>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-md-6 hidden-xs hidden-sm">
-                                    <div class="artikelgallerycontainer">
-                                        <div data-img="/img/salcka.png" class="gallerymainimage"></div>
-                                        <!-- <div class="gallerythumbscontainer">
-                                            <div class="gallerythumb" data-img="/img/salca1.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/salca2.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/salca3.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/salca4.jpg"></div>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -626,40 +632,42 @@
                     <div class="icon-close"></div>
                 </div>
                 <div class="container popupcontainer centermevertically">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 centermycontent">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h1 class="artikeltitle">KOMPLETEK, DA ZADOVOLJIŠ VSE RAZVADE NAENKRAT</h1>
-                                    <p class="artikeltext">Jutranja kava bo boljša v DJND šalčki, popoldanski užitek smotan, kot se šika, večerna partija s prijatelji pa zabavna in napeta.</p>
-                                    <form class="artikelform">
-                                        <p class="artikellable noshake">Količina</p>
-                                        <div class="artikeltogglecontainer noshake">
-                                            <div class="artikelcounter"><span class="artikelnumber">1</span>
-                                                <div class="plusone"></div>
-                                                <div class="minusone"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 centermycontent">
+                                <div class="row">
+                                    <div class="col-md-6 pull-left">
+                                        <h1 class="artikeltitle">KOMPLETEK, DA ZADOVOLJIŠ VSE RAZVADE NAENKRAT</h1>
+                                        <p class="artikeltext">Jutranja kava bo boljša v DJND šalčki, popoldanski užitek smotan, kot se šika, večerna partija s prijatelji pa zabavna in napeta.</p>
+                                        <form class="artikelform">
+                                            <p class="artikellable noshake">Količina</p>
+                                            <div class="artikeltogglecontainer noshake">
+                                                <div class="artikelcounter"><span class="artikelnumber">1</span>
+                                                    <div class="plusone"></div>
+                                                    <div class="minusone"></div>
+                                                </div>
                                             </div>
+                                            <p class="artikellable noshake">Cena</p>
+                                            <div class="artikeltogglecontainer noshake">
+                                                <p class="artikelprice">25 €</p>
+                                            </div>
+                                            <div class="artikelfinishcontainer">
+                                                <div class="btn btn-finish btn-finish-bundle bundle">Plačaj!</div>
+                                                <p class="artikelfinishor hidden-xs"><a href="#" class="artikelfinishorlink bundle">dodaj izdelek v voziček in še malo prebrskaj po policah</a>
+                                                </p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6 hidden-xs hidden-sm">
+                                        <div class="artikelgallerycontainer">
+                                            <div data-img="/img/bundle.png" class="gallerymainimage"></div>
+                                            <!-- <div class="gallerythumbscontainer">
+                                                <div class="gallerythumb" data-img="/img/salca1.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/salca2.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/salca3.jpg"></div>
+                                                <div class="gallerythumb" data-img="/img/salca4.jpg"></div>
+                                            </div> -->
                                         </div>
-                                        <p class="artikellable noshake">Cena</p>
-                                        <div class="artikeltogglecontainer noshake">
-                                            <p class="artikelprice">25 €</p>
-                                        </div>
-                                        <div class="artikelfinishcontainer">
-                                            <div class="btn btn-finish btn-finish-bundle bundle">Plačaj!</div>
-                                            <p class="artikelfinishor hidden-xs"><a href="#" class="artikelfinishorlink bundle">dodaj izdelek v voziček in še malo prebrskaj po policah</a>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-md-6 hidden-xs hidden-sm">
-                                    <div class="artikelgallerycontainer">
-                                        <div data-img="/img/bundle.png" class="gallerymainimage"></div>
-                                        <!-- <div class="gallerythumbscontainer">
-                                            <div class="gallerythumb" data-img="/img/salca1.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/salca2.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/salca3.jpg"></div>
-                                            <div class="gallerythumb" data-img="/img/salca4.jpg"></div>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>

@@ -2604,16 +2604,19 @@ input:focus {
     font-weight: 600;
     max-width: 360px;
     float: right;
+    clear: both;
 }
 .artikeltext {
     text-align: left;
     font-size: 16px;
     max-width: 360px;
     float: right;
+    clear: both;
 }
 .artikelform {
     max-width: 360px;
     float: right;
+    clear: both;
 }
 .artikellable {
     float: left;
