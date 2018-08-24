@@ -179,7 +179,6 @@ function renderCart() {
 
   if (basket_items.length === 0) {
     $('#row-cart, .vozicek').removeClass('open');
-    document.scrollingElement.style.overflowY = ''
   } else {
     $('#row-cart').addClass('open');
   }
