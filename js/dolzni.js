@@ -42,6 +42,17 @@ var bundleHTML = [	'<div class="vozicekitemcontainer">',
           '</div>',
           '</div>'].join('\n'); // TODO update picture
 
+var filozofskiabecedarijHTML = [	'<div class="vozicekitemcontainer">',
+          '<div class="vozicekitemimage" data-img="../../img/filozofski-abecedarij.png" style="background-image: url(../../img/filozofski-abecedarij.png); "></div>',
+          '<h1 class="vozicekitemtitle">Filozofski abecedarij</h1>',
+          '<p class="vozicekitemproperty">&nbsp;</p>',
+          '<p class="vozicekitemproperty">&nbsp;</p>',
+          '<div class="vozicekitemcountercontainer">',
+          '<div class="vozicekitemcounter" data-name="{{ itemname }}"><span class="artikelnumber">{{ itemquantity }}</span><div class="plusone" onclick="addItem({{ itemid }}); renderCart();"></div><div class="minusone" onclick="removeItem({{ itemid }});"></div></div>',
+          '<div class="vozicekitemremove" data-name="{{ itemname }}" onclick="removeItemFamily({{ itemid }}); renderCart();">Odstrani <span class="odstranix">×</span></div>',
+          '</div>',
+          '</div>'].join('\n'); // TODO update picture
+
 var racunHTML = [	'<div class="vozicekracunitemcontainer">',
           '<div class="vozicekracunitem">{{ itemname }}</div>',
           '<div class="vozicekracunprice">{{ itemtotalprice }} €</div>',
@@ -171,6 +182,10 @@ function renderBundle(itemquantity, itemname, itemid) {
   return bundleHTML.replace('{{ itemquantity }}', itemquantity).replace(/\{\{ itemname \}\}/g, itemname).replace(/{{ itemid }}/g, itemid);
 }
 
+function renderFilozofskiAbecedarij(itemquantity, itemname, itemid) {
+  return filozofskiabecedarijHTML.replace('{{ itemquantity }}', itemquantity).replace(/\{\{ itemname \}\}/g, itemname).replace(/{{ itemid }}/g, itemid);
+}
+
 function renderRacun(itemname, itemtotalprice) {
   return racunHTML.replace('{{ itemname }}', itemname).replace('{{ itemtotalprice }}', itemtotalprice);
 }
@@ -223,9 +238,12 @@ function renderCart() {
         // salcaid = getItemIdByName(e['article']['name']);
         $('.vozicekracun').before(renderSalcka(e['quantity'], "Šalčka", e["id"]));
         $('.vozicekracun').prepend(renderRacun('Šalčka', (e['quantity'] * e['article']['price'])));
-      } else {
+      } else if (e['article']['name'].indexOf('KOMPLETEK') != -1) {
         $('.vozicekracun').before(renderBundle(e['quantity'], "Kompletek", e["id"]));
         $('.vozicekracun').prepend(renderRacun('Kompletek', (e['quantity'] * e['article']['price'])));
+      } else if (e['article']['name'].indexOf('Filozofski abecedarij') != -1) {
+        $('.vozicekracun').before(renderFilozofskiAbecedarij(e['quantity'], "Filozofski abecedarij", e["id"]));
+        $('.vozicekracun').prepend(renderRacun('Filozofski abecedarij', (e['quantity'] * e['article']['price'])));
       }
     }
   });
@@ -374,7 +392,11 @@ $(document).ready(function() {
         else if($( this ).hasClass("bundle")) {
             key = "kompletek"
         }
+        else if($( this ).hasClass("filozofskiabecedarij")) {
+            key = "agrument filozofski abecedarij"
+        }
         console.log("key je " + key)
+        console.log(articles)
         console.log(articles[key])
         if ($( this ).hasClass("btn")){
             quantity = $(this).parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text()

@@ -18,6 +18,11 @@ var bundleHTML = [   '<div class="pregleditemcontainer">',
 					'<p class="pregleditemdescription"> Kompletek</p>',
 					'<p class="pregleditemprice">{{ itemquantity }} x {{ price }} €</p>',
 					'</div>'].join('\n');
+var filozofskiabecedarijHTML = [   '<div class="pregleditemcontainer">',
+					'<div class="pregleditemimage" style="background-image: url(../../img/filozofski-abecedarij.png);" data-img="../../img/filozofski-abecedarij.png"></div>',
+					'<p class="pregleditemdescription"> Filozofski abecedarij</p>',
+					'<p class="pregleditemprice">{{ itemquantity }} x {{ price }} €</p>',
+					'</div>'].join('\n');
 
 var billitems = '';
 var majicainbasket = false;
@@ -50,6 +55,9 @@ function renderSalca(itemquantity, price) {
 }
 function renderBundle(itemquantity, price) {
 	return bundleHTML.replace('{{ itemquantity }}', itemquantity).replace(/{{ price }}/g, price);
+}
+function renderFilozofskiAbecedarij(itemquantity, price) {
+	return filozofskiabecedarijHTML.replace('{{ itemquantity }}', itemquantity).replace(/{{ price }}/g, price);
 }
 function calculatePrice() {
 	var price = 0;
@@ -92,11 +100,16 @@ function renderSummary() {
 				$('.pregledtotal').before(renderSalca(e['quantity'], parseInt(e['article']['price'])));
 
 				$('#paypalitemname').val($('#paypalitemname').val() + ' Šalčka');
-			} else {
+			} else if (e['article']['name'].indexOf('KOMPLETEK') != -1) {
 				// kompletek je
 				$('.pregledtotal').before(renderBundle(e['quantity'], parseInt(e['article']['price'])));
 
 				$('#paypalitemname').val($('#paypalitemname').val() + ' Kompletek');
+			} else if (e['article']['name'].indexOf('Filozofski abecedarij') != -1) {
+				// Filozofski abecedarij je
+				$('.pregledtotal').before(renderFilozofskiAbecedarij(e['quantity'], parseInt(e['article']['price'])));
+
+				$('#paypalitemname').val($('#paypalitemname').val() + ' Filozofski abecedarij');
 			}
 		}
 	});
