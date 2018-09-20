@@ -315,7 +315,7 @@ foreach ($popups as $index => $popup) {
     <script src="/js/nsa.js"></script>
 
     <!-- frontend magic -->
-    <script src="/js/front.js?180719"></script>
+    <script src="/js/front.js?180920"></script>
 
 
     <!-- Google Universal Analytics -->
