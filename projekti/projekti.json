@@ -27,6 +27,18 @@
     {
       "show": true,
       "pinned": false,
+      "id": "dajmir",
+      "popup": "dajmirinfo",
+      "title": "daJmir",
+      "text":
+        "Peticija z zahtevo po odstavitvi Damirja Črnčeca z mesta državnega sekretarja. Ker sovražni govor in nestrpnost do kulturne raznolikosti nimata kaj iskati v državnem aparatu, pa četudi sta zdaj utišana, cenzurirana, nadzorovana ... ali zakamuflirana v strokovnost.",
+      "image": "/projekti/img/dajmir.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Doslej podpisalo</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">{{counter}}</p><p class=\"projectnumbertext\">oseb</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
       "id": "besedogled",
       "popup": "besedogledinfo",
       "title": "MEDIJSKI BESEDOGLED",
@@ -509,6 +521,14 @@
         "Od začetka leta 2014 dnevno posegamo v vsebinsko podhranjen domač medijski prostor. Z intervencijami v približno 1000 znakih opozarjamo na hrbtne plati velikih zgodb, izpostavljamo majhne, a pomembne pripetljaje, spremljamo neodvisne medije in zakulisne dogodke, ki imajo pogosto najbolj radikalen vpliv na življenje, skupno dobro ter naravo. Informacije in interpretacije preverimo večkrat in na različnih mestih, radi zastavljamo druga vprašanja, radi pa Agrumente opremljamo tudi z avtorskimi vizualnimi rešitvami.<br>Vsake toliko se 25 vikendov zapored dogaja tematski agrument (npr. filozofski), tu in tam pa agrument dobi tudi video format.",
       "href": "https://agrument.danesjenovdan.si/",
       "buttonText": "Loti se branja!"
+    },
+    {
+      "id": "dajmirinfo",
+      "title": "daJmir",
+      "text":
+        "Sredi septembra 2018 smo v sodelovanju s civilnodružbeno in nevladniško koalicijo objavili peticijo, v kateri smo od predsednika vlade Marjana Šarca zahtevali odstavitev Damirja Črnčeca s položaja državnega sekretarja. Besedilo peticije opozarja na ksenofobijo, nestrpnost in sovraštvo, javno izraženo zlasti na družbenih omrežjih, ki z ustoličenjem Črnčeca na pomemben položaj, postavlja na laž Šarčeve obljube o rdečem kartonu tovrstnemu diskurzu. Spletno peticijo smo opremili z \"žlahtnim izborom\" najbolj spornih tweetov in s fotomontažo Šarčevih lajkov pod njimi demonstrirali, da je to imenovanje v resnici legitimizacija sovraštva.",
+      "href": "https://danesjenovdan.si/dajmir",
+      "buttonText": "Oglej si spletno peticijo"
     },
     {
       "id": "besedogledinfo",
