@@ -1,0 +1,151 @@
+{
+  "people": [
+    {
+      "name": "Žiga Aljaž",
+      "desc": "zadolžen za zadolževanje ",
+      "id": "zigaaljaz"
+    },
+    {
+      "name": "Tea Dežman",
+      "desc": "zadolžena za teženje medijem in sajenje buč",
+      "id": "tea"
+    },
+    {
+      "name": "Filip Muki Dobranić",
+      "mail": "filip@danesjenovdan.si",
+      "desc": "zadolžen za hekanje in <3",
+      "id": "filip",
+      "tags": "founder council"
+    },
+    {
+      "name": "Tine Eržen",
+      "desc": "zadolžen za fotografsko in emocionalno podporo",
+      "id": "tine"
+    },
+    {
+      "name": "Matej Holc",
+      "desc": "zadolžen za molekule in muziko",
+      "id": "matej"
+    },
+    {
+      "name": "Tomaž Jurič",
+      "desc": "zadolžen za backend in samozavest",
+      "id": "juric"
+    },
+    {
+      "name": "Željka Kelkedi",
+      "desc": "zadolžena za toplo vodo in hladen tuš",
+      "id": "zeljka"
+    },
+    {
+      "name": "Primož Klemenšek",
+      "desc": "zadolžen za rézanja in trančiranja",
+      "id": "skornc"
+    },
+    {
+      "name": "Mirt Komel",
+      "desc": "zadolžen za mišljevine, softistiko in prečke",
+      "id": "mirt",
+      "tags": "science"
+    },
+    {
+      "name": "Tomaž Kunst",
+      "desc": "zadoložen za django in snežake",
+      "id": "kunst"
+    },
+    {
+      "name": "Miha Lepej",
+      "desc": "zadolžen za avtomatizacijo in prevračanje miz",
+      "id": "miha"
+    },
+    {
+      "name": "Nika Mahnič",
+      "mail": "nika@danesjenovdan.si",
+      "desc": "zadolžena za povezovanje in ples",
+      "id": "nika",
+      "tags": "founder council"
+    },
+    {
+      "name": "Darja Matjašec",
+      "desc": "zadolžena za prostor v glavah in izven",
+      "id": "darja",
+      "tags": "science"
+    },
+    {
+      "name": "Primož Mlačnik",
+      "desc": "zadolžen za kafkomat in pick 'n' roll",
+      "id": "mlacnik"
+    },
+    {
+      "name": "Jasmina Ploštajner",
+      "mail": "jasmina@danesjenovdan.si",
+      "desc": "zadolžena za barvice in piškote",
+      "id": "jasmina",
+      "tags": "founder"
+    },
+    {
+      "name": "Kaja Poteko",
+      "desc": "zadolžena za šoping in doping",
+      "id": "kaja"
+    },
+    {
+      "name": "Karmen Šterk",
+      "mail": "karmen@danesjenovdan.si",
+      "desc": "zadolžena za filozofsko kulinariko",
+      "id": "karmen",
+      "tags": "founder"
+    },
+    {
+      "name": "Katja Stojnić",
+      "desc": "zadolžena za dvom in lovljenje frekvenc",
+      "id": "katja"
+    },
+    {
+      "name": "Eva Stopar",
+      "desc": "zadolžena za semiotiko in harmonije",
+      "id": "evas"
+    },
+    {
+      "name": "Tadej Štrok",
+      "desc": "zadolžen za igrifikacijo in kalifornizacijo",
+      "id": "tadej",
+      "tags": "science"
+    },
+    {
+      "name": "Anja Tomašević",
+      "desc": "zadolžena za zdrav duh in telo",
+      "id": "anja_t"
+    },
+    {
+      "name": "Veronika Vodlan",
+      "desc": "zadolžena za pisanje in parčkanje",
+      "id": "veronika",
+      "tags": "council"
+    },
+    {
+      "name": "Eva Vrtačič",
+      "mail": "eva@danesjenovdan.si",
+      "desc": "zadolžena za besedotvorje in ribolov",
+      "id": "eva",
+      "tags": "founder council"
+    },
+    {
+      "name": "Žiga Vrtačič",
+      "mail": "ziga@danesjenovdan.si",
+      "desc": "zadolžen za downvoteanje in techno",
+      "id": "ziga",
+      "tags": "founder"
+    },
+    {
+      "name": "Mato Žgajner",
+      "desc": "zadolžen za frontend in enolončnice",
+      "id": "mato"
+    },
+    {
+      "name": "Franci Zidar",
+      "desc": "zadolžen za javascript in teženje na redditu",
+      "id": "franci",
+      "tags": "council"
+    }
+  ]
+}
