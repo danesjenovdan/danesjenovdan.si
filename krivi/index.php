@@ -421,7 +421,15 @@ foreach ($people_array as $index => $person) {
             "/img/veronika_hover.jpg",
             "/img/matej_hover.jpg",
             "/img/anja_t_hover.jpg",
-            "/img/katja_hover.jpg"
+            "/img/katja_hover.jpg",
+            "/img/dominik_hover.png",
+            "/img/miha_s_hover.png",
+            "/img/sara_hover.png",
+            "/img/maja_p_hover.png",
+            "/img/martin_hover.png",
+            "/img/maja_c_hover.png",
+            "/img/jan_hover.jpg",
+            "/img/neza_hover.png"
         )
     </script>
 </body>

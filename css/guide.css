@@ -846,6 +846,73 @@ a:hover {
     background-image: url('../img/katja_hover.jpg');
 }
 
+/* new 2018-09-27 */
+#dominik {
+    background-image: url('../img/dominik.png');
+}
+#dominik:hover,
+#dominik.hover {
+    background-image: url('../img/dominik_hover.png');
+}
+
+#miha_s {
+    background-image: url('../img/miha_s.png');
+}
+#miha_s:hover,
+#miha_s.hover {
+    background-image: url('../img/miha_s_hover.png');
+}
+
+#sara {
+    background-image: url('../img/sara.png');
+}
+#sara:hover,
+#sara.hover {
+    background-image: url('../img/sara_hover.png');
+}
+
+#maja_p {
+    background-image: url('../img/maja_p.png');
+}
+#maja_p:hover,
+#maja_p.hover {
+    background-image: url('../img/maja_p_hover.png');
+}
+
+#martin {
+    background-image: url('../img/martin.png');
+}
+#martin:hover,
+#martin.hover {
+    background-image: url('../img/martin_hover.png');
+}
+
+#maja_c {
+    background-image: url('../img/maja_c.png');
+}
+#maja_c:hover,
+#maja_c.hover {
+    background-image: url('../img/maja_c_hover.png');
+}
+
+#jan {
+    background-image: url('../img/jan.jpg');
+}
+#jan:hover,
+#jan.hover {
+    background-image: url('../img/jan_hover.jpg');
+}
+
+#neza {
+    background-image: url('../img/neza.png');
+}
+#neza:hover,
+#neza.hover {
+    background-image: url('../img/neza_hover.png');
+}
+
+
+
 
 .polaroid .image::after {
     content: '';
