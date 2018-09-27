@@ -262,11 +262,20 @@ $(document).ready(function() {
 
 	// NEW CHECKOUT
 	$('.btn-placaj').on('click', function() {
+		var poloznica = $('input:radio[id="placajspoloznico"]:checked').val() === 'on';
+		var paypal = $('input:radio[id="placajspaypalom"]:checked').val() === 'on';
+		var $this = $(this);
+
+		if (poloznica || paypal) {
+			$this.attr('disabled', true);
+			$this.append('<div class="lds-dual-ring" style="margin-left:20px"></div>');
+		}
+
 		key = $.cookie()["basket"];
 
 		// UPN
-		if( $("input:radio[id ='placajspoloznico']:checked").val() == 'on' ){
-			costumer_data["payment_type"] = "upn"
+		if(poloznica) {
+			costumer_data["payment_type"] = "upn";
 			$.ajax({
 				type: "POST",
 				url: "https://shop.djnd.si/api/checkout/?order_key=" + key,
@@ -288,11 +297,15 @@ $(document).ready(function() {
 						},
 					});
 					$.removeCookie('basket', {"path": "/"});
-				}
+				},
+				error: function(jqXHR, errorText, error) {
+					console.log('fail', jqXHR, errorText, error);
+					$this.text('Napaka :(');
+				},
 			});
 		}
 		// PAYPAL
-		else if ($("input:radio[id ='placajspaypalom']:checked").val() == 'on') {
+		else if (paypal) {
 			costumer_data["payment_type"] = "paypal";
 			costumer_data["subscription"] = false;
 			costumer_data["success_url"] = "https://danesjenovdan.si/dolzni/?success=true";
@@ -309,7 +322,6 @@ $(document).ready(function() {
 				}
 			});
 		}
-
 	});
 });
 var basket_items = []
