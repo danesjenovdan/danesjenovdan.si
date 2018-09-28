@@ -1,194 +1,230 @@
 {
   "people": [
     {
+      "id": "zigaaljaz",
       "name": "Žiga Aljaž",
       "desc": "zadolžen za zadolževanje ",
-      "id": "zigaaljaz"
+      "desc_en": "responsible for responibilities"
     },
     {
+      "id": "tea",
       "name": "Tea Dežman",
       "desc": "zadolžena za teženje medijem in sajenje buč",
-      "id": "tea"
+      "desc_en": "responsible for nagging the media and blabbering"
     },
     {
-      "name": "Filip Muki Dobranić",
-      "mail": "filip@danesjenovdan.si",
-      "desc": "zadolžen za hekanje in <3",
       "id": "filip",
-      "tags": "founder council"
+      "name": "Filip Muki Dobranić",
+      "desc": "zadolžen za hekanje in &lt;3",
+      "desc_en": "responsible for hacking and &lt;3",
+      "mail": "filip@danesjenovdan.si",
+      "tags": "founder"
     },
     {
+      "id": "tine",
       "name": "Tine Eržen",
       "desc": "zadolžen za fotografsko in emocionalno podporo",
-      "id": "tine"
+      "desc_en": "responsible for photographic and emotional support"
     },
     {
+      "id": "matej",
       "name": "Matej Holc",
       "desc": "zadolžen za molekule in muziko",
-      "id": "matej"
+      "desc_en": "responsible for molecules and music"
     },
     {
+      "id": "juric",
       "name": "Tomaž Jurič",
       "desc": "zadolžen za backend in samozavest",
-      "id": "juric"
+      "desc_en": "responsible for back-end and self-confidence"
     },
     {
+      "id": "zeljka",
       "name": "Željka Kelkedi",
       "desc": "zadolžena za toplo vodo in hladen tuš",
-      "id": "zeljka",
+      "desc_en": "responsible for reinventing the wheel and the Real",
       "image_css": "filter: contrast(1.2) brightness(0.9);"
     },
     {
+      "id": "skornc",
       "name": "Primož Klemenšek",
       "desc": "zadolžen za rézanja in trančiranja",
-      "id": "skornc"
+      "desc_en": "responsible for cuts and slices"
     },
     {
+      "id": "mirt",
       "name": "Mirt Komel",
       "desc": "zadolžen za mišljevine, softistiko in prečke",
-      "id": "mirt",
+      "desc_en": "responsible for thoughtings, sophistry, and traverses",
       "tags": "science"
     },
     {
+      "id": "kunst",
       "name": "Tomaž Kunst",
       "desc": "zadoložen za django in snežake",
-      "id": "kunst"
+      "desc_en": "responsible for django and building snowmen"
     },
     {
+      "id": "miha",
       "name": "Miha Lepej",
       "desc": "zadolžen za avtomatizacijo in prevračanje miz",
-      "id": "miha",
+      "desc_en": "responsible for automation and flipping tables",
       "image_css": "filter: contrast(1.2) brightness(0.9);"
     },
     {
-      "name": "Nika Mahnič",
-      "mail": "nika@danesjenovdan.si",
-      "desc": "zadolžena za povezovanje in ples",
       "id": "nika",
+      "name": "Nika Mahnič",
+      "desc": "zadolžena za povezovanje in ples",
+      "desc_en": "responsible for networking and dance",
+      "mail": "nika@danesjenovdan.si",
       "tags": "founder council"
     },
     {
+      "id": "darja",
       "name": "Darja Matjašec",
       "desc": "zadolžena za prostor v glavah in izven",
-      "id": "darja",
+      "desc_en": "responsible for space inside and outside of our heads",
       "tags": "science"
     },
     {
+      "id": "mlacnik",
       "name": "Primož Mlačnik",
       "desc": "zadolžen za kafkomat in pick 'n' roll",
-      "id": "mlacnik"
+      "desc_en": "responsible for kafkettle and pick 'n' roll"
     },
     {
-      "name": "Jasmina Ploštajner",
-      "mail": "jasmina@danesjenovdan.si",
-      "desc": "zadolžena za barvice in piškote",
       "id": "jasmina",
+      "name": "Jasmina Ploštajner",
+      "desc": "zadolžena za barvice in piškote",
+      "desc_en": "resposible for crayons and biscuits",
+      "mail": "jasmina@danesjenovdan.si",
       "tags": "founder"
     },
     {
+      "id": "kaja",
       "name": "Kaja Poteko",
       "desc": "zadolžena za šoping in doping",
-      "id": "kaja"
+      "desc_en": "responsible for shopping and doping"
     },
     {
-      "name": "Karmen Šterk",
-      "mail": "karmen@danesjenovdan.si",
-      "desc": "zadolžena za filozofsko kulinariko",
       "id": "karmen",
+      "name": "Karmen Šterk",
+      "desc": "zadolžena za filozofsko kulinariko",
+      "desc_en": "resposible for philosophical gastronomy",
+      "mail": "karmen@danesjenovdan.si",
       "tags": "founder"
     },
     {
+      "id": "katja",
       "name": "Katja Stojnić",
       "desc": "zadolžena za dvom in lovljenje frekvenc",
-      "id": "katja"
+      "desc_en": "responsible for doubting and shouting"
     },
     {
+      "id": "evas",
       "name": "Eva Stopar",
       "desc": "zadolžena za semiotiko in harmonije",
-      "id": "evas"
+      "desc_en": "responsible for semiotics and harmonies"
     },
     {
+      "id": "tadej",
       "name": "Tadej Štrok",
       "desc": "zadolžen za igrifikacijo in kalifornizacijo",
-      "id": "tadej",
+      "desc_en": "responsible for gamification and californication",
       "tags": "science"
     },
     {
+      "id": "anja_t",
       "name": "Anja Tomašević",
       "desc": "zadolžena za zdrav duh in telo",
-      "id": "anja_t"
+      "desc_en": "responsible for healthy minds and bodies"
     },
     {
+      "id": "veronika",
       "name": "Veronika Vodlan",
       "desc": "zadolžena za pisanje in parčkanje",
-      "id": "veronika",
+      "desc_en": "responsible for working and networking",
       "tags": "council"
     },
     {
-      "name": "Eva Vrtačič",
-      "mail": "eva@danesjenovdan.si",
-      "desc": "zadolžena za besedotvorje in ribolov",
       "id": "eva",
+      "name": "Eva Vrtačič",
+      "desc": "zadolžena za besedotvorje in ribolov",
+      "desc_en": "responsible for words and fishing",
+      "mail": "eva@danesjenovdan.si",
       "tags": "founder council"
     },
     {
-      "name": "Žiga Vrtačič",
-      "mail": "ziga@danesjenovdan.si",
-      "desc": "zadolžen za downvoteanje in techno",
       "id": "ziga",
+      "name": "Žiga Vrtačič",
+      "desc": "zadolžen za downvoteanje in techno",
+      "desc_en": "responsible for downvoting and techno",
+      "mail": "ziga@danesjenovdan.si",
       "tags": "founder"
     },
     {
+      "id": "mato",
       "name": "Mato Žgajner",
       "desc": "zadolžen za frontend in enolončnice",
-      "id": "mato",
+      "desc_en": "responsible for frontend and stews",
       "image_css": "filter: contrast(1.2) brightness(0.9);"
     },
     {
+      "id": "franci",
       "name": "Franci Zidar",
       "desc": "zadolžen za javascript in teženje na redditu",
-      "id": "franci",
+      "desc_en": "javascript ninja and reddit troll",
       "tags": "council"
     },
     {
+      "id": "dominik",
       "name": "Dominik Vuković",
       "desc": "zadolžen za delovni in prosti čas",
-      "id": "dominik"
+      "desc_en": "responsible for work and leasure"
     },
     {
+      "id": "miha_s",
       "name": "Miha Sušnik",
       "desc": "zadolžen za spletke in krotenje zmajev",
-      "id": "miha_s"
+      "desc_en": "responsible for intrigue and chasing dragons"
     },
     {
+      "id": "sara",
       "name": "Sara Kosirnik",
       "desc": "zadolžena za podvprašanja in teorije zarot",
-      "id": "sara"
+      "desc_en": "responsible for questioning and conspiracy theories"
     },
     {
+      "id": "maja_p",
       "name": "Maja Perpar",
       "desc": "zadolžena za red in druge discipline",
-      "id": "maja_p"
+      "desc_en": "responsible for order and other disciples"
     },
     {
+      "id": "martin",
       "name": "Martin Kovač",
       "desc": "zadolžen za besedičenje in fensi gvante",
-      "id": "martin"
+      "desc_en": "responsible for blamer and suiting up",
+      "tags": "council"
     },
     {
+      "id": "maja_c",
       "name": "Maja Cimerman",
       "desc": "zadolžena za vse in nič",
-      "id": "maja_c"
+      "desc_en": "responsible for all and nothing",
+      "tags": "council"
     },
     {
+      "id": "jan",
       "name": "Jan Vidic",
       "desc": "zadolžen za kripto in tofu",
-      "id": "jan"
+      "desc_en": "responsible for crypto and tofu"
     },
     {
+      "id": "neza",
       "name": "Neža Oder",
       "desc": "zadolžena za pravice in krivice",
-      "id": "neza"
+      "desc_en": "responsible for rights and wrongs"
     }
   ]
 }
