@@ -62,13 +62,15 @@
       "id": "kunst",
       "name": "Tomaž Kunst",
       "desc": "zadoložen za django in snežake",
-      "desc_en": "responsible for django and building snowmen"
+      "desc_en": "responsible for django and building snowmen",
+      "mail": "tomaz@danesjenovdan.si"
     },
     {
       "id": "miha",
       "name": "Miha Lepej",
       "desc": "zadolžen za avtomatizacijo in prevračanje miz",
       "desc_en": "responsible for automation and flipping tables",
+      "mail": "miha@danesjenovdan.si",
       "image_css": "filter: contrast(1.2) brightness(0.9);"
     },
     {
@@ -98,7 +100,7 @@
       "desc": "zadolžena za barvice in piškote",
       "desc_en": "resposible for crayons and biscuits",
       "mail": "jasmina@danesjenovdan.si",
-      "tags": "founder"
+      "tags": "founder council"
     },
     {
       "id": "kaja",
@@ -111,7 +113,6 @@
       "name": "Karmen Šterk",
       "desc": "zadolžena za filozofsko kulinariko",
       "desc_en": "resposible for philosophical gastronomy",
-      "mail": "karmen@danesjenovdan.si",
       "tags": "founder"
     },
     {
@@ -131,6 +132,7 @@
       "name": "Tadej Štrok",
       "desc": "zadolžen za igrifikacijo in kalifornizacijo",
       "desc_en": "responsible for gamification and californication",
+      "mail": "tadej@danesjenovdan.si",
       "tags": "science"
     },
     {
@@ -212,6 +214,7 @@
       "name": "Maja Cimerman",
       "desc": "zadolžena za vse in nič",
       "desc_en": "responsible for all and nothing",
+      "mail": "maja@danesjenovdan.si",
       "tags": "council"
     },
     {
