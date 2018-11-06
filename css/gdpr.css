@@ -169,3 +169,14 @@ background-color: #6ba8a0;
 .switch.blue input:checked + .slider:before {
     background-color: #009cdd;
 }
+
+/* pp switch */
+.switch.pp input:checked + .slider {
+    background-color: rgba(95, 35, 91, 0.5);
+}
+.switch.pp input:focus + .slider {
+    box-shadow: 0 0 1px #5f235b;
+}
+.switch.pp input:checked + .slider:before {
+    background-color: #5f235b;
+}

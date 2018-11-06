@@ -10,6 +10,10 @@ $(document).ready(function() {
             var s = val.split('=');
             paramObject[s[0]] = s[1];
         });
+    
+    if (!paramObject.pp) {
+        $('#row-pp').addClass('hidden');
+    }
 
     if (!paramObject.token || !paramObject.email) {
         $('.logged-out').css('display', 'block');
