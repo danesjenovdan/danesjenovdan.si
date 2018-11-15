@@ -27,6 +27,18 @@
     {
       "show": true,
       "pinned": false,
+      "id": "parlametar",
+      "popup": "parlametarinfo",
+      "title": "Parlametar.hr",
+      "text":
+        "Parlameter, odprtokodno orodje za lažje spremljanje dela v parlamentu, je doživelo uspešno migracijo čez južno mejo. Predstavljamo Parlametar, ki nadzoruje in v kontekst postavlja hrvaške poslance!",
+      "image": "/projekti/img/parlametar.png",
+      "projectNumberHTML":
+        "<p class=\"projectnumbertext\">&nbsp;</p><div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbernumber\" style=\"font-size: 42px; line-height: 60px; white-space: nowrap\">2.</p><p class=\"projectnumbertext\">inštalacija Parlametra</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
       "id": "dajmir",
       "popup": "dajmirinfo",
       "title": "daJmir",
@@ -521,6 +533,14 @@
         "Od začetka leta 2014 dnevno posegamo v vsebinsko podhranjen domač medijski prostor. Z intervencijami v približno 1000 znakih opozarjamo na hrbtne plati velikih zgodb, izpostavljamo majhne, a pomembne pripetljaje, spremljamo neodvisne medije in zakulisne dogodke, ki imajo pogosto najbolj radikalen vpliv na življenje, skupno dobro ter naravo. Informacije in interpretacije preverimo večkrat in na različnih mestih, radi zastavljamo druga vprašanja, radi pa Agrumente opremljamo tudi z avtorskimi vizualnimi rešitvami.<br>Vsake toliko se 25 vikendov zapored dogaja tematski agrument (npr. filozofski), tu in tam pa agrument dobi tudi video format.",
       "href": "https://agrument.danesjenovdan.si/",
       "buttonText": "Loti se branja!"
+    },
+    {
+      "id": "parlametarinfo",
+      "title": "Parlametar.hr",
+      "text":
+        "Po mesecih prevajanja, prilagajanja kode, načrtovanja, dizajna in vnašanja podatkov se je sredi septembra 2018 rodil Parlametar, prvi v načrtovani seriji tujejezičnih parlametrov. Nastal je v sodelovanju s hrvaškimi parnerji GONG. Prav tako kot domači Parlameter bo služil novinarjem, raziskovalcem, nevladnikom, zainteresirani javnosti, pa seveda tudi programerjem; orodje je še vedno odprtokodno in dostopno preko API-klicev. Naša misija: Parlameter v čim več držav, občin in mest!",
+      "href": "https://parlametar.hr",
+      "buttonText": "Oglej si Parlametar"
     },
     {
       "id": "dajmirinfo",
