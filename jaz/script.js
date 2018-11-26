@@ -69,11 +69,18 @@ $(document).ready(function() {
             if (r === 'Ne goljufaj prosim.') {
                 document.location.href = './';
             }
-            $('#checkbox-agrument')[0].checked = r.agrument;
-            $('#checkbox-djnd')[0].checked = r.djnd;
-            $('#checkbox-parlameter')[0].checked = r.parlameter;
-            $('#checkbox-konsenz')[0].checked = r.konsenz;
+            console.log(r);
+            $('#checkbox-agrument')[0].checked = r.agrument.permission;
+            $('#checkbox-djnd')[0].checked = r.djnd.permission;
+            $('#checkbox-parlameter')[0].checked = r.parlameter.permission;
+            $('#checkbox-konsenz')[0].checked = r.konsenz.permission;
+            $('#checkbox-pp')[0].checked = r.pp.permission;
+            $('#checkbox-supporter')[0].checked = r.supporter.permission;
             $('#konsenzname').val(r.name);
+
+            if (!r.supporter.visible) {
+                $('#row-supporter').addClass('hidden');
+            }
 
             $('.switch').each(function () {
                 var label = $(this).parent().parent().find('.toggle-label');

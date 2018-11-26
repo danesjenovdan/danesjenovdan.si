@@ -180,3 +180,14 @@ background-color: #6ba8a0;
 .switch.pp input:checked + .slider:before {
     background-color: #5f235b;
 }
+
+/* supporter switch */
+.switch.supporter input:checked + .slider {
+    background-color: #e3c3bf;
+}
+.switch.supporter input:focus + .slider {
+    box-shadow: 0 0 1px #dd786b;
+}
+.switch.supporter input:checked + .slider:before {
+    background-color: #dd786b;
+}
