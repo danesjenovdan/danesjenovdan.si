@@ -27,6 +27,30 @@
     {
       "show": true,
       "pinned": false,
+      "id": "meetandcode2",
+      "popup": "meetandcode2info",
+      "title": "IZDELAVA ČIPOV ZA MERJENJE KVALITETE ZRAKA",
+      "text":
+        "Delavnico, kjer so srednješolci in študentje izdelovali senzorje za merjenje kvalitete zraka, so v okviru Meet & Code organizirali in v prostorih DJND izvedli naši programerji. Poudarek je bil na samostojnem delu in razumevanju vseh korakov in vidikov - od strojnega do programskega.",
+      "image": "/projekti/img/meetandcode2.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Postavili smo</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">12</p><p class=\"projectnumbertext\">senzorjev</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "meetandcode1",
+      "popup": "meetandcode1info",
+      "title": "VARNO IN ŠIFRIRANO NA INTERNET",
+      "text":
+        "Delavnico, kjer so osnovnošolci spoznavali osnove kriptografije, so v okviru Meet & Code organizirali in v prostorih DJND izvedli naši programerji. Poudarek je bil na razumevanju enkripcije na internetu, kar so prikazali in razložili na konkretnih primerih za vsakdanjo rabo.",
+      "image": "/projekti/img/meetandcode1.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Med udeleženci</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">50 %</p><p class=\"projectnumbertext\">deklet</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
       "id": "parlametar",
       "popup": "parlametarinfo",
       "title": "Parlametar.hr",
@@ -533,6 +557,22 @@
         "Od začetka leta 2014 dnevno posegamo v vsebinsko podhranjen domač medijski prostor. Z intervencijami v približno 1000 znakih opozarjamo na hrbtne plati velikih zgodb, izpostavljamo majhne, a pomembne pripetljaje, spremljamo neodvisne medije in zakulisne dogodke, ki imajo pogosto najbolj radikalen vpliv na življenje, skupno dobro ter naravo. Informacije in interpretacije preverimo večkrat in na različnih mestih, radi zastavljamo druga vprašanja, radi pa Agrumente opremljamo tudi z avtorskimi vizualnimi rešitvami.<br>Vsake toliko se 25 vikendov zapored dogaja tematski agrument (npr. filozofski), tu in tam pa agrument dobi tudi video format.",
       "href": "https://agrument.danesjenovdan.si/",
       "buttonText": "Loti se branja!"
+    },
+    {
+      "id": "meetandcode2info",
+      "title": "IZDELAVA ČIPOV ZA MERJENJE KVALITETE ZRAKA",
+      "text":
+        "Oktobra 2018 smo v okviru Meet & Code organizirali dve delavnici za mlade. Druga je bila namenjena dijakom in študentom, na njej pa smo skupaj izdelovali senzorje za merjenje kvalitete zraka. Sestavili smo čip, ki meri število prašnih delcev (PM2,5 in PM10) v zraku, temperaturo in vlago. Nekaj senzorjev smo že inštalirali po Sloveniji, njihovo lokacijo pa vizualiziramo na posebnem spletnem mestu.",
+      "href": "http://zrak.djnd.si/",
+      "buttonText": "OGLEJ SI SENZORJE NA ZEMLJEVIDU"
+    },
+    {
+      "id": "meetandcode1info",
+      "title": "VARNO IN ŠIFRIRANO NA INTERNET",
+      "text":
+        "Oktobra 2018 smo v okviru Meet & Code organizirali dve delavnici za mlade. Prva je bila namenjena starejšim osnovnošolcem, na njej pa smo jim pomagali razumeti osnove (spletne) enkripcije. Na hitro smo preleteli ključne koncepte, nato pa s pomočjo enostavnih eksperimetnov poskušali dešifrirati kriptirana sporočila. Pomembnost spletne enkripcije smo ravno tako razložili na konkretnih primerih, ki so nam pomagali udeležence prepričati, da je varnost na internetu še kako pomembna.",
+      "href": "https://danesjenovdan.si/delavnice/varnost",
+      "buttonText": "OGLEJ SI SPLETNO STRAN DOGODKA"
     },
     {
       "id": "parlametarinfo",
