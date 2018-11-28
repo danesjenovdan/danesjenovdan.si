@@ -2861,6 +2861,13 @@ input:focus {
     padding-top: 16px;
     clear: both;
 }
+.artikelgallerysubtext a {
+    color: #272727;
+    text-decoration: underline;
+}
+.artikelgallerysubtext a:hover {
+    color: #6ba8a0;
+}
 #row-cart {
     background-color: #ffffff;
     height: 60px;
