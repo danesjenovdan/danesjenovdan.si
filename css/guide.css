@@ -2857,6 +2857,10 @@ input:focus {
 .galleryarrow-right {
     right: 0;
 }
+.artikelgallerysubtext {
+    padding-top: 16px;
+    clear: both;
+}
 #row-cart {
     background-color: #ffffff;
     height: 60px;
