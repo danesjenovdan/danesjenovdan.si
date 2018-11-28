@@ -27,6 +27,42 @@
     {
       "show": true,
       "pinned": false,
+      "id": "zicar",
+      "popup": "zicarinfo",
+      "title": "ŽICAR",
+      "text":
+        "Spletna igrificirana kampanja ob 3. obletnici bodeče žice na naši meji s Hrvaško, ki te postavi v begunske čevlje in te na odisejadi proti varnemu življenju sooči s serijo ovir, nevarnosti in frustracij. Ne glede na to, kakšno srečo imaš z izogibanjem bombam, oblastem in morskim psom, te na Schengenski meji s trdnjavo Evropo čaka kot britev ostra žica.",
+      "image": "/projekti/img/zicar.gif",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">V dveh tednih je preko Kolpe poskušalo</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">več kot 2000</p><p class=\"projectnumbertext\">virtualnih beguncev</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "stanosanje",
+      "popup": "stanosanjeinfo",
+      "title": "STANOVANJE = SANJE?",
+      "text":
+        "Izdelali smo interaktivno spletno mesto, kjer smo vizualizirali in v kontekst posameznikovega dohodka postavili podatke iz raziskave, ki jo je pripravil Inštitut za študije stanovanj in prostora v sodelovanju s Fakulteto za družbene vede in Inštitutom za politike prostora.",
+      "image": "/projekti/img/stanosanje.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Spletno stran je obiskalo</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">45.000</p><p class=\"projectnumbertext\">ljudi</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
+      "id": "participativni",
+      "popup": "participativniinfo",
+      "title": "PARTICIPATIVNI PRORAČUN",
+      "text":
+        "Pred lokalnimi volitvami smo se lotili kampanje, s katero smo od županskih kandidatov pridobivali zaveze o implementaciji participativnega proračuna v primeru njihove izvolitve.",
+      "image": "/projekti/img/participativni.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">V 1. krogu lokalnih volitev smo prejeli</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">274</p><p class=\"projectnumbertext\">zavez</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
       "id": "meetandcode2",
       "popup": "meetandcode2info",
       "title": "IZDELAVA ČIPOV ZA MERJENJE KVALITETE ZRAKA",
@@ -557,6 +593,30 @@
         "Od začetka leta 2014 dnevno posegamo v vsebinsko podhranjen domač medijski prostor. Z intervencijami v približno 1000 znakih opozarjamo na hrbtne plati velikih zgodb, izpostavljamo majhne, a pomembne pripetljaje, spremljamo neodvisne medije in zakulisne dogodke, ki imajo pogosto najbolj radikalen vpliv na življenje, skupno dobro ter naravo. Informacije in interpretacije preverimo večkrat in na različnih mestih, radi zastavljamo druga vprašanja, radi pa Agrumente opremljamo tudi z avtorskimi vizualnimi rešitvami.<br>Vsake toliko se 25 vikendov zapored dogaja tematski agrument (npr. filozofski), tu in tam pa agrument dobi tudi video format.",
       "href": "https://agrument.danesjenovdan.si/",
       "buttonText": "Loti se branja!"
+    },
+    {
+      "id": "zicarinfo",
+      "title": "ŽICAR",
+      "text":
+        "Novembra 2018 smo žalostno obeležili 3. obletnico žice, ki jo je na mejo s Hrvaško postavila vlada Mira Cerarja. To smo se odločili storiti z izdelavo nove ne-igre oz. igrificirane izkušnje, ki v nobenem od možnih scenarijev nima srečnega konca. Preko kampanje smo opozorili na dejstvo, da žica še vedno stoji, od nove vlade zahtevali, da jo odstrani, kot je njen predsednik Šarec obljubljal pred izvolitvijo, ter nagovorili splošno javnost k izvajanju političnega pritiska. Pobuda ni bila dovolj, da bi sprožila dejanske spremembe, kar pa ne pomeni, da je bila zaman ali odveč: naša dolžnost je vztrajati in še naprej opozarjati na neznosno lahkost pozabe.",
+      "href": "https://danesjenovdan.si/zicar/",
+      "buttonText": "Reši se, kdor se more"
+    },
+    {
+      "id": "stanosanjeinfo",
+      "title": "STANOVANJE = SANJE?",
+      "text":
+        "Novembra 2018 smo izdelali interaktivno spletno mesto, kjer lahko uporabnik/-ca dobi vpogled v stanovanjsko problematiko v prestolnici na podlagi višine lastnega dohodka. Vnos višine dohodka uporabnika/-co seznani s podatkom, koliko od stanovanj, ki so na voljo na najpopularnejšem spletnem nepremičninskem portalu, lahko kupi oz. najame ter kakšna je njihova povprečna velikost. Personaliziran izračun je nato postavljen v širši kontekst stanovanjske problematike, rasti cen nepremičnin, ki jih plače ne dohajajo, povečevanja prebivalstva ...",
+      "href": "https://danesjenovdan.si/stanovanja/",
+      "buttonText": "Oglej si spletno mesto projekta"
+    },
+    {
+      "id": "participativniinfo",
+      "title": "PARTICIPATIVNI PRORAČUN",
+      "text":
+        "Novembra 2018 smo objavili obsežno spletno kampanjo za participativni proračun. Ker so se ravno bližale lokalne volitve, smo kontaktirali vse županske kandidate in jih prosili za zavezo glede implementacije tega mehanizma neposredne demokracije ob njihovi morebitni izvolitvi. Izdelali smo spletno mesto, kjer smo participativni proračun predstavili in natančno definirali, zraven pa objavili zaveze županskih kandidatov. Po volitvah smo spletno mesto posodobili na način, da lahko javnost spremlja, če so zaveze že izpolnjene ter izvaja pritisk nad župani, ki participativnega proračuna zaenkrat niso pripravljeni vpeljati v svojih občinah.<br>V sklopu širše kampanje smo tudi prevedli in prilagodili špansko odprtokodno rešitev Consul, namenjeno izvajanju participatornega proračuna, in tudi že inštalirali mladinsko različico v občini Kranjska Gora.",
+      "href": "https://danesjenovdan.si/participativni-proracun/",
+      "buttonText": "Oglej si spletno mesto projekta"
     },
     {
       "id": "meetandcode2info",
