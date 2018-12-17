@@ -618,9 +618,11 @@ $(document).ready(function() {
     } else if ($(this).text() == 'sonce') {
       $(this).closest('.artikelform').find(all_shirts.diff(shirts["s"]).join(", ")).addClass('hidden');
       $(this).closest('.artikelform').find(shirts["s"].join(", ")).removeClass('hidden');
+      try { $(this).closest('.row').find('.gallerythumb')[0].click(); } catch(_) {}
     } else if ($(this).text() == 'luna') {
       $(this).closest('.artikelform').find(all_shirts.diff(shirts["l"]).join(", ")).addClass('hidden');
       $(this).closest('.artikelform').find(shirts["l"].join(", ")).removeClass('hidden');
+      try { $(this).closest('.row').find('.gallerythumb')[1].click(); } catch(_) {}
     }
 
     // activate button
