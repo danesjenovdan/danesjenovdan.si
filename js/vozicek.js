@@ -3,6 +3,11 @@ var majicaHTML = [  '<div class="pregleditemcontainer">',
 					'<p class="pregleditemdescription"> Majica / {{ itemtype }} / {{ itemsize }}</p>',
 					'<p class="pregleditemprice">{{ itemquantity }} x {{ price }} €</p>',
 					'</div>'].join('\n');
+var majica2HTML = [  '<div class="pregleditemcontainer">',
+					'<div class="pregleditemimage" style="background-image: url(../../img/majica2_1.jpg);" data-img="../../img/majica2_1.jpg"></div>',
+					'<p class="pregleditemdescription"> Majica / {{ itemtype }} / {{ itemsize }}</p>',
+					'<p class="pregleditemprice">{{ itemquantity }} x {{ price }} €</p>',
+					'</div>'].join('\n');
 var rizleHTML = [   '<div class="pregleditemcontainer">',
 					'<div class="pregleditemimage" style="background-image: url(../../img/rizle2.png);" data-img="../../img/rizle2.png"></div>',
 					'<p class="pregleditemdescription"> Rizle</p>',
@@ -47,6 +52,9 @@ function getItemIdByName(name) {
 function renderMajica(itemtype, itemsize, itemquantity, price) {
 	return majicaHTML.replace('{{ itemtype }}', itemtype).replace('{{ itemsize }}', itemsize).replace('{{ itemquantity }}', itemquantity).replace(/{{ price }}/g, price);
 }
+function renderMajica2(itemtype, itemsize, itemquantity, price) {
+	return majica2HTML.replace('{{ itemtype }}', itemtype).replace('{{ itemsize }}', itemsize).replace('{{ itemquantity }}', itemquantity).replace(/{{ price }}/g, price);
+}
 function renderRizle(itemquantity, price) {
 	return rizleHTML.replace('{{ itemquantity }}', itemquantity).replace(/{{ price }}/g, price);
 }
@@ -81,13 +89,22 @@ function renderSummary() {
 				gen = words[1]
 				size = words[2]
 
-				if(gen === "m"){
-					type = "moški"
-				}
-				else{
-					type = "ženski"
-				}
-				$('.pregledtotal').before(renderMajica(type, size, e['quantity'], parseInt(e['article']['price'])));
+				var renderFunc = renderMajica;
+        if (gen === "m") {
+          type = "moški"
+        }
+        else if (gen === 'z') {
+          type = "ženski"
+        }
+        else if (gen === 's') {
+          type = "sonce"
+          renderFunc = renderMajica2;
+        }
+        else if (gen === 'l') {
+          type = "luna"
+          renderFunc = renderMajica2;
+        }
+				$('.pregledtotal').before(renderFunc(type, size, e['quantity'], parseInt(e['article']['price'])));
 
 				$('#paypalitemname').val($('#paypalitemname').val() + ' Majica');
 			} else if (e['article']['name'].indexOf('Rizle') != -1) {

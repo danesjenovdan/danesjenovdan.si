@@ -9,6 +9,17 @@ var majicaHTML = [	'<div class="vozicekitemcontainer">',
           '</div>',
           '</div>'].join('\n'); // TODO update picture
 
+var majica2HTML = [	'<div class="vozicekitemcontainer">',
+          '<div class="vozicekitemimage" data-img="../../img/majica2_1.jpg" style="background-image: url(../../img/majica2_1.jpg); "></div>',
+          '<h1 class="vozicekitemtitle">Majica</h1>',
+          '<p class="vozicekitemproperty">{{ itemtype }}</p>',
+          '<p class="vozicekitemproperty">velikost {{ itemsize }}</p>',
+          '<div class="vozicekitemcountercontainer">',
+          '<div class="vozicekitemcounter" data-name="{{ itemname }}"><span class="artikelnumber">{{ itemquantity }}</span><div class="plusone" onclick="addItem({{ itemid }}); renderCart();"></div><div class="minusone" onclick="removeItem({{ itemid }});"></div></div>',
+          '<div class="vozicekitemremove" data-name="{{ itemname }}" onclick="removeItemFamily({{ itemid }}); renderCart();">Odstrani <span class="odstranix">×</span></div>',
+          '</div>',
+          '</div>'].join('\n'); // TODO update picture
+
 var rizleHTML = [	'<div class="vozicekitemcontainer">',
           '<div class="vozicekitemimage" data-img="../../img/rizle2.png" style="background-image: url(../../img/rizle2.png); "></div>',
           '<h1 class="vozicekitemtitle">Rizle</h1>',
@@ -170,6 +181,10 @@ function renderMajica(itemtype, itemsize, itemquantity, itemname, itemid) {
   return majicaHTML.replace('{{ itemtype }}', itemtype).replace('{{ itemsize }}', itemsize).replace('{{ itemquantity }}', itemquantity).replace(/\{\{ itemname \}\}/g, itemname).replace(/{{ itemid }}/g, itemid);
 }
 
+function renderMajica2(itemtype, itemsize, itemquantity, itemname, itemid) {
+  return majica2HTML.replace('{{ itemtype }}', itemtype).replace('{{ itemsize }}', itemsize).replace('{{ itemquantity }}', itemquantity).replace(/\{\{ itemname \}\}/g, itemname).replace(/{{ itemid }}/g, itemid);
+}
+
 function renderRizle(itemquantity, itemname, itemid) {
   return rizleHTML.replace('{{ itemquantity }}', itemquantity).replace(/\{\{ itemname \}\}/g, itemname).replace(/{{ itemid }}/g, itemid);
 }
@@ -215,17 +230,31 @@ function renderCart() {
         gen = words[1]
         size = words[2]
 
-        if(gen === "m"){
+        var renderFunc = renderMajica;
+        var racunText;
+        if (gen === "m") {
           type = "moški"
+          racunText = 'Majica ' + size.toUpperCase() + ' ' + type + ' kroj';
         }
-        else{
+        else if (gen === 'z') {
           type = "ženski"
+          racunText = 'Majica ' + size.toUpperCase() + ' ' + type + ' kroj';
+        }
+        else if (gen === 's') {
+          type = "sonce"
+          renderFunc = renderMajica2;
+          racunText = 'Majica ' + size.toUpperCase() + ' ' + type;
+        }
+        else if (gen === 'l') {
+          type = "luna"
+          renderFunc = renderMajica2;
+          racunText = 'Majica ' + size.toUpperCase() + ' ' + type;
         }
 
         // zgoraj
-        $('.vozicekracun').before(renderMajica(type, size.toUpperCase(), e['quantity'], "Majica", e["id"]));
+        $('.vozicekracun').before(renderFunc(type, size.toUpperCase(), e['quantity'], "Majica", e["id"]));
         // na računu
-        $('.vozicekracun').prepend(renderRacun('Majica ' + size.toUpperCase() + ' ' + type + ' kroj', (parseInt(e['quantity']) * parseInt(e['article']['price']))));
+        $('.vozicekracun').prepend(renderRacun(racunText, (parseInt(e['quantity']) * parseInt(e['article']['price']))));
       } else if (e['article']['name'].indexOf('Rizle') != -1) {
         // rizle so
 
@@ -309,8 +338,8 @@ function selectDonation(price, isSubscription) {
     });
 }
 var basket_items = []
-var all_shirts = ['.shirt-xxl', '.shirt-xl', '.shirt-l', '.shirt-m', '.shirt-s'];
-var shirts = {"m":[], "z":[]}
+var all_shirts = ['.shirt-xxl', '.shirt-xl', '.shirt-l', '.shirt-m', '.shirt-s', '.shirt-xs'];
+var shirts = { 'm': [], 'z': [], 's': [], 'l': [] }
 var articles = {}
 $(document).ready(function() {
   var url_string = window.location.href
@@ -356,7 +385,7 @@ $(document).ready(function() {
     console.log(shirts)
 
 
-    $(".btn-finish, .artikelfinishorlink").on("click", function(){
+    $(".btn-finish, .artikelfinishorlink").on("click", function(e){
         if($( this ).hasClass("majica")) {
             // check shirt size
             var console_div = null
@@ -372,15 +401,26 @@ $(document).ready(function() {
             console.log("asdsadasd" + size+" "+type)
             if (type == '' || size == '') {
               $(this).parent().shake();
-              return
+              return;
             }
             if (type.indexOf("moški") !== -1){
                 type = "m"
+                key = 'majica-' + type + '-' + size.toLowerCase();
             }
-            else {
+            else if (type.indexOf("ženski") !== -1) {
                 type = "z"
+                key = 'majica-' + type + '-' + size.toLowerCase();
             }
-            key = 'majica-'+type+'-'+size.toLowerCase()
+            else if (type.indexOf("sonce") !== -1) {
+                type = "s"
+                key = 'mmmajica-' + type + '-' + size.toLowerCase();
+            }
+            else if (type.indexOf("luna") !== -1) {
+                type = "l"
+                key = 'mmmajica-' + type + '-' + size.toLowerCase();
+            }
+            // key = 'majica-'+type+'-'+size.toLowerCase()
+            console.log('dasdas',key)
         }
         else if($( this ).hasClass("salcka")) {
             console.log("salca")
@@ -475,40 +515,38 @@ $(document).ready(function() {
 
       // add to cart
       // determine what it's for
-      if ($(this).parents('.popup').attr('id') === 'majicapopup') {
-        // majica
+      // if ($(this).parents('.popup').attr('id') === 'majicapopup') {
+      //   // majica
 
-        // generate data
-        var name = 'majica';
-        if ($(this).parent().siblings('.majicatype').children('.dolzniselected').text() === 'ohlapen') {
-          name = name + 'oh' + $(this).parent().siblings('.majicasize').children('.dolzniselected').text();
-        } else {
-          name = name + 'op' + $(this).parent().siblings('.majicasize').children('.dolzniselected').text();
-        }
-        var quantity = $(this).parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text();
-        var details = {
-          'realname': 'Majica',
-          'type': $(this).parent().siblings('.majicatype').children('.dolzniselected').text(),
-          'size': $(this).parent().siblings('.majicasize').children('.dolzniselected').text()
-        }
+      //   // generate data
+      //   var name = 'majica';
+      //   if ($(this).parent().siblings('.majicatype').children('.dolzniselected').text() === 'ohlapen') {
+      //     name = name + 'oh' + $(this).parent().siblings('.majicasize').children('.dolzniselected').text();
+      //   } else {
+      //     name = name + 'op' + $(this).parent().siblings('.majicasize').children('.dolzniselected').text();
+      //   }
+      //   var quantity = $(this).parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text();
+      //   var details = {
+      //     'realname': 'Majica',
+      //     'type': $(this).parent().siblings('.majicatype').children('.dolzniselected').text(),
+      //     'size': $(this).parent().siblings('.majicasize').children('.dolzniselected').text()
+      //   }
 
-        // ga za majico step2
-        ga('send', {
-          'hitType': 'event',
-          'eventCategory': 'majica',
-          'eventAction': 'step2',
-          'eventLabel': name
-        });
+      //   // ga za majico step2
+      //   ga('send', {
+      //     'hitType': 'event',
+      //     'eventCategory': 'majica',
+      //     'eventAction': 'step2',
+      //     'eventLabel': name
+      //   });
 
-      } else {
-        alert('rizle');
-        // ker ni drugega morajo bit rizle
-        // generate data
-        var name = 'rizle'
-        var quantity = $(this).parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text();
-        var details = {}
+      // } else {
+      //   // generate data
+      //   var name = 'rizle'
+      //   var quantity = $(this).parent().siblings('.artikeltogglecontainer').children('.artikelcounter').children('.artikelnumber').text();
+      //   var details = {}
 
-      }
+      // }
     } else {
       $(this).parent().parent().children('.artikeltogglecontainer, .artikellable').not('.noshake').shake();
     }
@@ -572,12 +610,17 @@ $(document).ready(function() {
     $(this).addClass('dolzniselected');
 
     if ($(this).text() == '"moški"') {
-      $(all_shirts.diff(shirts["m"]).join(", ")).addClass('hidden');
-      $(shirts["m"].join(", ")).removeClass('hidden');
-
+      $(this).closest('.artikelform').find(all_shirts.diff(shirts["m"]).join(", ")).addClass('hidden');
+      $(this).closest('.artikelform').find(shirts["m"].join(", ")).removeClass('hidden');
     } else if ($(this).text() == '"ženski"') {
-      $(all_shirts.diff(shirts["z"]).join(", ")).addClass('hidden');
-      $(shirts["z"].join(", ")).removeClass('hidden');
+      $(this).closest('.artikelform').find(all_shirts.diff(shirts["z"]).join(", ")).addClass('hidden');
+      $(this).closest('.artikelform').find(shirts["z"].join(", ")).removeClass('hidden');
+    } else if ($(this).text() == 'sonce') {
+      $(this).closest('.artikelform').find(all_shirts.diff(shirts["s"]).join(", ")).addClass('hidden');
+      $(this).closest('.artikelform').find(shirts["s"].join(", ")).removeClass('hidden');
+    } else if ($(this).text() == 'luna') {
+      $(this).closest('.artikelform').find(all_shirts.diff(shirts["l"]).join(", ")).addClass('hidden');
+      $(this).closest('.artikelform').find(shirts["l"].join(", ")).removeClass('hidden');
     }
 
     // activate button
