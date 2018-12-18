@@ -42,6 +42,17 @@ var salckaHTML = [	'<div class="vozicekitemcontainer">',
           '</div>',
           '</div>'].join('\n'); // TODO update picture
 
+var karteHTML = [	'<div class="vozicekitemcontainer">',
+          '<div class="vozicekitemimage" data-img="../../img/karte.png" style="background-image: url(../../img/karte.png); "></div>',
+          '<h1 class="vozicekitemtitle">Karte Politični parket</h1>',
+          '<p class="vozicekitemproperty">&nbsp;</p>',
+          '<p class="vozicekitemproperty">&nbsp;</p>',
+          '<div class="vozicekitemcountercontainer">',
+          '<div class="vozicekitemcounter" data-name="{{ itemname }}"><span class="artikelnumber">{{ itemquantity }}</span><div class="plusone" onclick="addItem({{ itemid }}); renderCart();"></div><div class="minusone" onclick="removeItem({{ itemid }});"></div></div>',
+          '<div class="vozicekitemremove" data-name="{{ itemname }}" onclick="removeItemFamily({{ itemid }}); renderCart();">Odstrani <span class="odstranix">×</span></div>',
+          '</div>',
+          '</div>'].join('\n'); // TODO update picture
+
 var bundleHTML = [	'<div class="vozicekitemcontainer">',
           '<div class="vozicekitemimage" data-img="../../img/bundle.png" style="background-image: url(../../img/bundle.png); "></div>',
           '<h1 class="vozicekitemtitle">Kompletek</h1>',
@@ -193,6 +204,10 @@ function renderSalcka(itemquantity, itemname, itemid) {
   return salckaHTML.replace('{{ itemquantity }}', itemquantity).replace(/\{\{ itemname \}\}/g, itemname).replace(/{{ itemid }}/g, itemid);
 }
 
+function renderKarte(itemquantity, itemname, itemid) {
+  return karteHTML.replace('{{ itemquantity }}', itemquantity).replace(/\{\{ itemname \}\}/g, itemname).replace(/{{ itemid }}/g, itemid);
+}
+
 function renderBundle(itemquantity, itemname, itemid) {
   return bundleHTML.replace('{{ itemquantity }}', itemquantity).replace(/\{\{ itemname \}\}/g, itemname).replace(/{{ itemid }}/g, itemid);
 }
@@ -267,6 +282,9 @@ function renderCart() {
         // salcaid = getItemIdByName(e['article']['name']);
         $('.vozicekracun').before(renderSalcka(e['quantity'], "Šalčka", e["id"]));
         $('.vozicekracun').prepend(renderRacun('Šalčka', (e['quantity'] * e['article']['price'])));
+      } else if (e['article']['name'].indexOf('Politicni parket') != -1) {
+        $('.vozicekracun').before(renderKarte(e['quantity'], "Karte Politični parket", e["id"]));
+        $('.vozicekracun').prepend(renderRacun('Karte Politični parket', (e['quantity'] * e['article']['price'])));
       } else if (e['article']['name'].indexOf('KOMPLETEK') != -1) {
         $('.vozicekracun').before(renderBundle(e['quantity'], "Kompletek", e["id"]));
         $('.vozicekracun').prepend(renderRacun('Kompletek', (e['quantity'] * e['article']['price'])));
@@ -428,6 +446,9 @@ $(document).ready(function() {
         }
         else if($( this ).hasClass("rizle")) {
             key = "rizle"
+        }
+        else if($( this ).hasClass("karte")) {
+            key = "politicni parket"
         }
         else if($( this ).hasClass("bundle")) {
             key = "kompletek"

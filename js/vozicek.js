@@ -18,6 +18,11 @@ var salcaHTML = [   '<div class="pregleditemcontainer">',
 					'<p class="pregleditemdescription"> Šalčka</p>',
 					'<p class="pregleditemprice">{{ itemquantity }} x {{ price }} €</p>',
 					'</div>'].join('\n');
+var karteHTML = [   '<div class="pregleditemcontainer">',
+					'<div class="pregleditemimage" style="background-image: url(../../img/karte.png);" data-img="../../img/karte.png"></div>',
+					'<p class="pregleditemdescription"> Karte Politični parket</p>',
+					'<p class="pregleditemprice">{{ itemquantity }} x {{ price }} €</p>',
+					'</div>'].join('\n');
 var bundleHTML = [   '<div class="pregleditemcontainer">',
 					'<div class="pregleditemimage" style="background-image: url(../../img/bundle.png);" data-img="../../img/bundle.png"></div>',
 					'<p class="pregleditemdescription"> Kompletek</p>',
@@ -60,6 +65,9 @@ function renderRizle(itemquantity, price) {
 }
 function renderSalca(itemquantity, price) {
 	return salcaHTML.replace('{{ itemquantity }}', itemquantity).replace(/{{ price }}/g, price);
+}
+function renderKarte(itemquantity, price) {
+	return karteHTML.replace('{{ itemquantity }}', itemquantity).replace(/{{ price }}/g, price);
 }
 function renderBundle(itemquantity, price) {
 	return bundleHTML.replace('{{ itemquantity }}', itemquantity).replace(/{{ price }}/g, price);
@@ -117,6 +125,10 @@ function renderSummary() {
 				$('.pregledtotal').before(renderSalca(e['quantity'], parseInt(e['article']['price'])));
 
 				$('#paypalitemname').val($('#paypalitemname').val() + ' Šalčka');
+			} else if (e['article']['name'].indexOf('Politicni parket') != -1) {
+				$('.pregledtotal').before(renderKarte(e['quantity'], parseInt(e['article']['price'])));
+
+				$('#paypalitemname').val($('#paypalitemname').val() + ' Karte Politični parket');
 			} else if (e['article']['name'].indexOf('KOMPLETEK') != -1) {
 				// kompletek je
 				$('.pregledtotal').before(renderBundle(e['quantity'], parseInt(e['article']['price'])));
