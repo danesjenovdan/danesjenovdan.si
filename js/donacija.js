@@ -178,8 +178,17 @@ $(document).ready(function() {
         key = kuki["key"];
         isSubscription = kuki["isSubscription"];
 
+        var poloznica = $('input:radio[id="placajspoloznico"]:checked').val() === 'on';
+		var paypal = $('input:radio[id="placajspaypalom"]:checked').val() === 'on';
+		var $this = $(this);
+
+		if (poloznica || paypal) {
+			$this.attr('disabled', true);
+			$this.append('<div class="lds-dual-ring" style="margin-left:20px"></div>');
+		}
+
         // UPN
-        if( $("input:radio[id ='placajspoloznico']:checked").val() == 'on' ){
+        if(poloznica){
             costumer_data["payment_type"] = "upn"
             $.ajax({
                 type: "POST",
@@ -206,7 +215,7 @@ $(document).ready(function() {
             });
         }
         // PAYPAL
-        else if ($("input:radio[id ='placajspaypalom']:checked").val() == 'on') {
+        else if (paypal) {
             costumer_data["payment_type"] = "paypal";
             costumer_data["subscription"] = isSubscription;
             costumer_data["success_url"] = "https://danesjenovdan.si/dolzni/?success=true";
@@ -237,4 +246,3 @@ $(document).ready(function() {
     getBasketItems(donation["key"])
 
 });
-

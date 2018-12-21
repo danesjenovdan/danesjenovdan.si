@@ -338,7 +338,7 @@ function addToCart(itemId, quantity, callback) { // TODO
         dataType: "json",
     });
 }
-function selectDonation(price, isSubscription) {
+function selectDonation(price, isSubscription, cb) {
     // get new chart
     donationArticle = articles["enkratna donacija"]
     $.get('https://shop.djnd.si/api/basket/', function(data) {
@@ -349,6 +349,7 @@ function selectDonation(price, isSubscription) {
           data: JSON.stringify({"product_id": donationArticle["id"], "quantity": parseInt(price)}),
           success: function(data) {
             $.cookie("donation", JSON.stringify({"key": donation_order_key, "isSubscription": isSubscription}), {"path": "/", "expires": 10})
+            if(cb) cb();
           },
           dataType: "json"
         });
@@ -664,26 +665,19 @@ $(document).ready(function() {
     if (!$(this).siblings('.velikosrcetilecontainer').children().hasClass('selected')) {
       $(this).prev().shake();
     } else {
-
-      // ga za enkratno donacijo
-      ga('send', {
-        'hitType': 'event',
-        'eventCategory': 'one_time_d',
-        'eventAction': 'step2'
-      });
-
       // all OK
+      $(this).attr('disabled', true);
+			$(this).append('<span class="lds-dual-ring" style="margin-left:20px"></span>');
       if ($(this).prev().children('.selected').hasClass('velikosrceinput')) {
-        selectDonation(parseInt($(this).prev().children('.selected').children('.input-drugo').val()), false)
+        selectDonation(parseInt($(this).prev().children('.selected').children('.input-drugo').val()), false, function() {
+          window.location.href = './donacija';
+        });
       } else {
         var amount = $(this).prev().children('.selected').text().split(' ')[$(this).prev().children('.selected').text().split(' ').length - 2]
-        console.log(amount);
-        selectDonation(parseInt(amount), false);
+        selectDonation(parseInt(amount), false, function() {
+          window.location.href = './donacija';
+        });
       }
-
-      window.open('./donacija', '_blank');
-      $('.popup.open').removeClass('open');
-      document.scrollingElement.style.overflowY = ''
     }
   });
 
@@ -692,24 +686,18 @@ $(document).ready(function() {
       $(this).prev().shake();
     } else {
       // all OK
-
-      // ga za redno donacijo
-      ga('send', {
-        'hitType': 'event',
-        'eventCategory': 'regular_d',
-        'eventAction': 'step2'
-      });
-
+      $(this).attr('disabled', true);
+			$(this).append('<span class="lds-dual-ring" style="margin-left:20px"></span>');
       if ($(this).prev().children('.selected').hasClass('velikosrceinput')) {
-        selectDonation(parseInt($(this).prev().children('.selected').children('.input-drugo').val()), true)
+        selectDonation(parseInt($(this).prev().children('.selected').children('.input-drugo').val()), true, function() {
+          window.location.href = './donacija';
+        });
       } else {
         var amount = $(this).prev().children('.selected').text().split(' ')[$(this).prev().children('.selected').text().split(' ').length - 2]
-        selectDonation(parseInt(amount), true);
+        selectDonation(parseInt(amount), true, function() {
+          window.location.href = './donacija';
+        });
       }
-
-      window.open('donacija#redna', '_blank');
-      $('.popup.open').removeClass('open');
-      document.scrollingElement.style.overflowY = ''
     }
   });
 
