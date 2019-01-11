@@ -4413,6 +4413,12 @@ input::-webkit-inner-spin-button {
     flex-flow: row wrap;
 }
 
+/* safari breaks with flex wrap and pseudoelements */
+.row.flex-row::before,
+.row.flex-row::after {
+    display: none;
+}
+
 .flex-col {
     display: flex;
 }
