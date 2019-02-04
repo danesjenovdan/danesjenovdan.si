@@ -27,6 +27,18 @@
     {
       "show": true,
       "pinned": false,
+      "id": "botrisovrastva",
+      "popup": "botrisovrastvainfo",
+      "title": "BOTRI SOVRAŠTVA",
+      "text":
+        "Kampanja proti normalizaciji sovraštva v obliki oglaševanja podjetij v medijih, ki razpihujejo nestrpnost. Oglase nekaterih kršiteljev javne odgovornosti, etičnih standardov in dobrega okusa smo preoblikovali tako, da neposredno sporočajo tisto, kar so doslej podpirali le implicitno. In glej ga, zlomka, kar naenkrat jim ni bilo več popolnoma vseeno.",
+      "image": "/projekti/img/botrisovrastva.png",
+      "projectNumberHTML":
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Odzval se je</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">1</p><p class=\"projectnumbertext\">predsednik vlade</p></div>"
+    },
+    {
+      "show": true,
+      "pinned": false,
       "id": "zicar",
       "popup": "zicarinfo",
       "title": "ŽICAR",
@@ -593,6 +605,14 @@
         "Od začetka leta 2014 dnevno posegamo v vsebinsko podhranjen domač medijski prostor. Z intervencijami v približno 1000 znakih opozarjamo na hrbtne plati velikih zgodb, izpostavljamo majhne, a pomembne pripetljaje, spremljamo neodvisne medije in zakulisne dogodke, ki imajo pogosto najbolj radikalen vpliv na življenje, skupno dobro ter naravo. Informacije in interpretacije preverimo večkrat in na različnih mestih, radi zastavljamo druga vprašanja, radi pa Agrumente opremljamo tudi z avtorskimi vizualnimi rešitvami.<br>Vsake toliko se 25 vikendov zapored dogaja tematski agrument (npr. filozofski), tu in tam pa agrument dobi tudi video format.",
       "href": "https://agrument.danesjenovdan.si/",
       "buttonText": "Loti se branja!"
+    },
+    {
+      "id": "botrisovrastvainfo",
+      "title": "BOTRI SOVRAŠTVA",
+      "text":
+        "V javnem diskurzu je temo problematičnosti oglaševanja ob sovražnih vsebinah odprl Domen Savič s kampanjo Ej, Telekom! Mi smo pristavili svoj piskrček in fokus nekoliko razširili. Botre sovraštva smo začeli snovati septembra 2018, ko smo ugotovili, da v izrazito manipulativnih medijih oglašuje veliko sicer kao družbeno odgovornih in uspešnih podjetij. To smo naslovili s spletno kampanjo, v kateri smo njihove oglase preoblikovali tako, da smo podjetja izpostavili kot neposredne pokrovitelje sovraštva: rasizma, homofobije, ksenofobije in šovinizma. Posamezne oglase je mogoče samostojno deliti na družbenih omrežjih - in res so nekateri postali prave viralne uspešnice. Kampanja je pomagala odpreti to temo na najvišjih ravneh; odzval se je predsednik vlade, ki je zažugal podjetjem, naj premislijo, kje oglašujejo, žuganja pa smo bili v obliki nekaj PR manevrov deležni tudi sami, in sicer s strani podjetij, ki so se kar naenkrat zbala za svoj ugled. Botre sovraštva bomo klicali k odgovornosti tudi v prihodnje.",
+      "href": "https://danesjenovdan.si/botri-sovrastva/",
+      "buttonText": "Oglej si spletno mesto kampanje"
     },
     {
       "id": "zicarinfo",
