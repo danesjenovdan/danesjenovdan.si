@@ -46,7 +46,7 @@
         "Izdelali smo interaktivno spletno mesto, kjer smo vizualizirali in v kontekst posameznikovega dohodka postavili podatke iz raziskave, ki jo je pripravil Inštitut za študije stanovanj in prostora v sodelovanju s Fakulteto za družbene vede in Inštitutom za politike prostora.",
       "image": "/projekti/img/stanosanje.png",
       "projectNumberHTML":
-        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Spletno stran je obiskalo</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">45.000</p><p class=\"projectnumbertext\">ljudi</p></div>"
+        "<div class=\"projectnumber\" style=\"padding-top: 15px; padding-bottom: 15px; width: 218px;\"><p class=\"projectnumbertext\">Spletno stran je obiskalo</p><p class=\"projectnumbernumber\" style=\"font-size: 28px; line-height: 60px; white-space: nowrap\">45 000</p><p class=\"projectnumbertext\">ljudi</p></div>"
     },
     {
       "show": true,
@@ -466,7 +466,7 @@
         "Zahteva po takojšnji naslovitvi spletne varnostne grožnje, ki je ogrozila številne zasebne podatke na strani ponudnikov raznovrstnih spletnih storitev. Opozarjanje odgovornih ter zbiranje odzivov.",
       "image": "/projekti/img/heartbleed.png",
       "projectNumberHTML":
-        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">od ideje do izvedbe</p><p class=\"projectnumbernumber\">11h</p></div>"
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">od ideje do izvedbe</p><p class=\"projectnumbernumber\">11 h</p></div>"
     },
     {
       "show": true,
@@ -490,7 +490,7 @@
         "Spletna kampanja za statutarne spremembe ŠOU v smeri njene opredelitve kot institucije javnega prava ter s tem povezanim večjim nadzorom nad njenim delovanjem.",
       "image": "/projekti/img/novsou.png",
       "projectNumberHTML":
-        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">volilna udeležba zvišana za</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">1200%</p></div>"
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">volilna udeležba zvišana za</p><p class=\"projectnumbernumber\" style=\"font-size: 42px;\">1200 %</p></div>"
     },
     {
       "show": true,
@@ -514,7 +514,7 @@
         "Delavnica o možnostih in pasteh študentskega organiziranja, razmislek o pravnem statusu ŠOS in ŠOU, financiranju, politiziranju, razpetostjo med skupnimi in partikularnimi interesi.",
       "image": "/projekti/img/dan_za_stud_org.png",
       "projectNumberHTML":
-        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">predsednik ŠOS po dogodku ostal</p><p class=\"projectnumbernumber\" style=\"font-size: 37px;\">133min</p></div>"
+        "<div class=\"projectnumber\" style=\"width: 218px;\"><p class=\"projectnumbertext\">predsednik ŠOS po dogodku ostal</p><p class=\"projectnumbernumber\" style=\"font-size: 37px;\">133 min</p></div>"
     },
     {
       "show": true,
@@ -630,7 +630,7 @@
       "id": "meetandcode1info",
       "title": "VARNO IN ŠIFRIRANO NA INTERNET",
       "text":
-        "Oktobra 2018 smo v okviru Meet & Code organizirali dve delavnici za mlade. Prva je bila namenjena starejšim osnovnošolcem, na njej pa smo jim pomagali razumeti osnove (spletne) enkripcije. Na hitro smo preleteli ključne koncepte, nato pa s pomočjo enostavnih eksperimetnov poskušali dešifrirati kriptirana sporočila. Pomembnost spletne enkripcije smo ravno tako razložili na konkretnih primerih, ki so nam pomagali udeležence prepričati, da je varnost na internetu še kako pomembna.",
+        "Oktobra 2018 smo v okviru Meet & Code organizirali dve delavnici za mlade. Prva je bila namenjena starejšim osnovnošolcem, na njej pa smo jim pomagali razumeti osnove (spletne) enkripcije. Na hitro smo preleteli ključne koncepte, nato pa s pomočjo enostavnih eksperimentov poskušali dešifrirati kriptirana sporočila. Pomembnost spletne enkripcije smo ravno tako razložili na konkretnih primerih, ki so nam pomagali udeležence prepričati, da je varnost na internetu še kako pomembna.",
       "href": "https://danesjenovdan.si/delavnice/varnost",
       "buttonText": "OGLEJ SI SPLETNO STRAN DOGODKA"
     },
