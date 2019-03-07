@@ -3,7 +3,7 @@
     <nav class="side-menu__nav">
       <header class="logo">
         <div class="logo__mark">
-          <nuxt-link to="/">
+          <nuxt-link :to="localePath('index')">
             <img
               src="~/static/img/logo-circle.png"
               alt="danes je nov dan logo mark"
@@ -12,10 +12,13 @@
           </nuxt-link>
         </div>
         <div class="logo__type">
-          <nuxt-link to="/">
-            DANES JE NOV DAN
-          </nuxt-link>
+          <nuxt-link :to="localePath('index')">DANES JE NOV DAN</nuxt-link>
         </div>
+        <nuxt-link
+          v-for="locale in availableLocales"
+          :key="locale.code"
+          :to="switchLocalePath(locale.code)"
+        >{{ locale.name }}</nuxt-link>
       </header>
       <ul>
         <li
@@ -23,14 +26,14 @@
           :key="item.label"
           :class="{ active: item.active, 'has-children': item.children && item.children.length }"
         >
-          <nuxt-link :to="item.url">
-            {{ item.label }}
-          </nuxt-link>
+          <nuxt-link :to="item.url">{{ item.label }}</nuxt-link>
           <ul v-if="item.children && item.children.length">
-            <li v-for="childItem in item.children" :key="childItem.label" :class="{ active: childItem.active }">
-              <nuxt-link :to="childItem.url">
-                {{ childItem.label }}
-              </nuxt-link>
+            <li
+              v-for="childItem in item.children"
+              :key="childItem.label"
+              :class="{ active: childItem.active }"
+            >
+              <nuxt-link :to="childItem.url">{{ childItem.label }}</nuxt-link>
             </li>
           </ul>
         </li>
@@ -63,6 +66,11 @@ export default {
     return {
       menuItems: MENU_ITEMS,
     };
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+    },
   },
 };
 </script>

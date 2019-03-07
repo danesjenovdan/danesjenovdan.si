@@ -52,6 +52,20 @@ module.exports = {
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
     '@nuxtjs/pwa',
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          { code: 'sl', iso: 'sl-SI', file: 'sl-SI.js', name: 'Slovenščina' },
+          { code: 'en', iso: 'en-US', file: 'en-US.js', name: 'English' },
+        ],
+        defaultLocale: 'sl',
+        encodePaths: false,
+        baseUrl: 'https://danesjenovdan.si',
+        langDir: 'lang/',
+        lazy: true,
+      },
+    ],
   ],
   /*
   ** Axios module configuration

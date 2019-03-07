@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <div>
-      MAIN CONTENT HERE
+      {{ $t('welcome') }}
     </div>
   </b-container>
 </template>
@@ -10,6 +10,12 @@
 // import Logo from '~/components/Logo.vue'
 
 export default {
+  nuxtI18n: {
+    paths: {
+      sl: '/domov',
+      en: '/home',
+    },
+  },
   components: {
     // Logo
   },
