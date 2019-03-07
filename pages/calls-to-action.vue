@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <div>{{ $t('welcome') }}</div>
+    <div>GREAT</div>
   </b-container>
 </template>
 
@@ -8,6 +8,12 @@
 // import Logo from '~/components/Logo.vue'
 
 export default {
+  nuxtI18n: {
+    paths: {
+      sl: '/pozivi-in-peticije',
+      en: '/calls-to-action',
+    },
+  },
   components: {
     // Logo
   },

@@ -1,7 +1,16 @@
+// COLORS
+$color-green: #6ba8a0;
+
+// MISC
+$side-menu-width: 250px;
+
+// -----------------------------------------------------------------------------
+
 // ---
 // Change boostrap defaults
 // ---
 
+$primary: $color-green;
 
 // ---
 // Import bootstrap functions and variables
@@ -10,10 +19,3 @@
 @import 'bootstrap/scss/_variables.scss';
 // so that you can @import this file and use bootstrap breakpoint mixins
 @import 'bootstrap/scss/mixins/_breakpoints.scss';
-
-// -----------------------------------------------------------------------------
-
-$side-menu-width: 250px;
-
-// COLORS
-$color-green: #6ba8a0;

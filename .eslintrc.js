@@ -29,5 +29,24 @@ module.exports = {
         allowEmptyLines: false,
       },
     ],
+    'vue/html-closing-bracket-spacing': [
+      'warn',
+      {
+        startTag: 'never',
+        endTag: 'never',
+        selfClosingTag: 'never',
+      },
+    ],
+    'vue/html-self-closing': [
+      'warn',
+      {
+        html: {
+          void: 'never',
+          normal: 'always',
+          component: 'always',
+        },
+        svg: 'any',
+      },
+    ],
   },
 };

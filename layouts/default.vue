@@ -1,14 +1,14 @@
 <template>
   <div class="page">
-    <side-menu />
+    <side-menu/>
     <section class="content">
-      <nuxt />
+      <nuxt/>
     </section>
   </div>
 </template>
 
 <script>
-import SideMenu from '~/components/SideMenu';
+import SideMenu from '~/components/SideMenu/SideMenu';
 
 export default {
   components: {
@@ -25,7 +25,11 @@ export default {
 
   .content {
     flex: 1;
-    margin-left: $side-menu-width;
+    margin-left: 0;
+
+    @include media-breakpoint-up(md) {
+      margin-left: $side-menu-width;
+    }
   }
 }
 </style>

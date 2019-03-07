@@ -23,7 +23,7 @@ module.exports = {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700,900',
+        href: 'https://use.typekit.net/aqx7lip.css',
       },
     ],
   },
@@ -77,8 +77,8 @@ module.exports = {
   ** Bootstrap Vue module configuration
   */
   bootstrapVue: {
-    bootstrapCSS: true, // or `css`
-    bootstrapVueCSS: true, // or `bvCSS`
+    // bootstrapCSS: true, // or `css`
+    // bootstrapVueCSS: true, // or `bvCSS`
   },
 
   /*

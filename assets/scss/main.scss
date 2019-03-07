@@ -1,5 +1,12 @@
 @import 'variables';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
 
 body {
   background-color: #f0efef;
+}
+
+:focus,
+button:focus {
+  outline: 5px auto $color-green;
 }
