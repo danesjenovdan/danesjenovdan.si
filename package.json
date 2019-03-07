@@ -1,7 +1,7 @@
 {
-  "name": "djnd_v2",
+  "name": "djnd-new",
   "version": "1.0.0",
-  "description": "danesjenovdan.si v2",
+  "description": "new version of the danesjenovdan.si web site",
   "author": "danesjenovdan",
   "private": true,
   "scripts": {

@@ -1,6 +1,6 @@
-# djnd_v2
+# djnd-new
 
-> danesjenovdan.si v2
+> new version of the danesjenovdan.si web site
 
 ## Build Setup
 
