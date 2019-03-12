@@ -98,6 +98,19 @@ module.exports = {
           exclude: /(node_modules)/,
         });
       }
+
+      // inject variables import to all scss modules
+      const scssRule = config.module.rules.find(e => e.test.toString() === '/\\.scss$/i');
+      const scssUses = scssRule.oneOf ? scssRule.oneOf.map(r => r.use) : [scssRule.use];
+      scssUses.forEach(use => {
+        const sassLoader = use.find(e => e.loader === 'sass-loader');
+        if (sassLoader) {
+          sassLoader.options = sassLoader.options || {};
+          sassLoader.options.data = `
+            @import '~/assets/scss/_variables.scss';
+          `;
+        }
+      });
     },
   },
 };

@@ -2,7 +2,9 @@
   <div class="page">
     <side-menu/>
     <section class="content">
-      <nuxt/>
+      <b-container fluid class="content-container">
+        <nuxt/>
+      </b-container>
     </section>
   </div>
 </template>
@@ -18,8 +20,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/_variables.scss';
-
 .page {
   display: flex;
 
@@ -29,6 +29,11 @@ export default {
 
     @include media-breakpoint-up(md) {
       margin-left: $side-menu-width;
+    }
+
+    .content-container {
+      padding-left: 5rem;
+      padding-right: 5rem;
     }
   }
 }

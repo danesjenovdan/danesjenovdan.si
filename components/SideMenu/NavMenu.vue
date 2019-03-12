@@ -94,8 +94,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/_variables.scss';
-
 ul {
   padding: 0;
   margin: 0;

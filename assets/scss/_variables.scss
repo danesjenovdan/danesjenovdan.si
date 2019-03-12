@@ -1,14 +1,22 @@
-// COLORS
+// -----------------------------------------------------------------------------
+// --- THIS FILE IS AUTO IMPORTED BEFORE EVERY VUE COMPONENT AND SCSS FILE
+// --- DO NOT PUT ANY STYLE SELECTORS IN THIS FILE!!
+// --- ONLY VARIABLES/FUNCTIONS/MIXINS
+// -----------------------------------------------------------------------------
+
+// ---
+// Our variables
+// ---
+
 $color-green: #6ba8a0;
 $color-red: #dd786b;
 
-// MISC
 $side-menu-width: 250px;
 
 // -----------------------------------------------------------------------------
 
 // ---
-// Change boostrap defaults
+// Change boostrap defaults here
 // ---
 
 $primary: $color-green;
@@ -17,9 +25,9 @@ $secondary: $color-red;
 $font-family-sans-serif: 'acumin-pro', sans-serif;
 
 // ---
-// Import bootstrap functions and variables
+// Import bootstrap functions and variables so that you can @import this file
+// and use bootstrap breakpoint mixins
 // ---
 @import 'bootstrap/scss/_functions.scss';
 @import 'bootstrap/scss/_variables.scss';
-// so that you can @import this file and use bootstrap breakpoint mixins
 @import 'bootstrap/scss/mixins/_breakpoints.scss';
