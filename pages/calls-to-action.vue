@@ -1,11 +1,31 @@
 <template>
-  <b-container>
-    <div>GREAT</div>
-  </b-container>
+  <div>
+    <page-title :title="$t('menu.calls-to-action')" :text="$t('calls-to-action.description')"/>
+    <filter-bar :items="filters"/>
+    <div class="row mt-4">
+      <div class="col-12 col-md-4">
+        <project-tile/>
+      </div>
+      <div class="col-12 col-md-4">
+        <project-tile/>
+      </div>
+      <div class="col-12 col-md-4">
+        <project-tile/>
+      </div>
+      <div class="col-12 col-md-4">
+        <project-tile/>
+      </div>
+      <div class="col-12 col-md-4">
+        <project-tile/>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-// import Logo from '~/components/Logo.vue'
+import PageTitle from '~/components/PageTitle.vue';
+import FilterBar from '~/components/FilterBar.vue';
+import ProjectTile from '~/components/ProjectTile.vue';
 
 export default {
   nuxtI18n: {
@@ -15,7 +35,19 @@ export default {
     },
   },
   components: {
-    // Logo
+    PageTitle,
+    FilterBar,
+    ProjectTile,
+  },
+  data() {
+    return {
+      filters: [
+        { key: 'okolje', label: 'Okolje', active: false },
+        { key: 'pravice', label: 'Človekove pravice', active: true },
+        { key: 'demokracija', label: 'Demokracija', active: false },
+        { key: 'lulz', label: 'For the lulz', active: false },
+      ],
+    };
   },
 };
 </script>
