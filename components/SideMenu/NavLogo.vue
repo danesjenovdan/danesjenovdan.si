@@ -38,7 +38,6 @@ export default {
   }
 
   .logo__type {
-    font-family: 'acumin-pro', sans-serif;
     font-weight: 700;
     font-size: 37px;
     text-transform: uppercase;

@@ -102,7 +102,6 @@ ul {
   list-style-type: none;
 
   li {
-    font-family: 'acumin-pro', sans-serif;
     font-size: 1.5rem;
     font-weight: 300;
     text-transform: uppercase;
@@ -164,7 +163,6 @@ ul {
       border-radius: 0;
       background: transparent;
       border: 1px solid #333;
-      font-family: 'acumin-pro', sans-serif;
 
       &::placeholder {
         font-style: italic;
