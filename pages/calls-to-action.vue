@@ -1,6 +1,10 @@
 <template>
   <div>
-    <page-title :title="$t('menu.calls-to-action')" :text="$t('calls-to-action.description')"/>
+    <page-title
+      :title="$t('menu.calls-to-action')"
+      :text="$t('calls-to-action.description')"
+      color="secondary"
+    />
     <filter-bar :items="filters"/>
     <div class="row mt-4">
       <div class="col-12 col-md-4">

@@ -2,7 +2,7 @@
   <header class="row">
     <div class="col-4">
       <h1 v-text="title"/>
-      <hr>
+      <hr :class="`border-${color}`">
     </div>
     <div class="col-8">
       <p class="lead" v-text="text"/>
@@ -21,6 +21,10 @@ export default {
     text: {
       type: String,
       required: true,
+    },
+    color: {
+      type: String,
+      default: 'primary',
     },
   },
 };
