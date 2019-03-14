@@ -10,3 +10,18 @@ body {
 button:focus {
   outline: 5px auto $color-green;
 }
+
+.form-control {
+  border-radius: 0;
+  background: transparent;
+  border: 1px solid #333;
+  font-style: italic;
+
+  &::placeholder {
+    font-style: italic;
+  }
+
+  &:focus {
+    border: 1px solid $color-green;
+  }
+}

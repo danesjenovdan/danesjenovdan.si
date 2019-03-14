@@ -164,17 +164,6 @@ ul {
 
     .search-input {
       margin-top: 2rem;
-      border-radius: 0;
-      background: transparent;
-      border: 1px solid #333;
-
-      &::placeholder {
-        font-style: italic;
-      }
-
-      &:focus {
-        border: 1px solid $color-green;
-      }
     }
 
     button {
