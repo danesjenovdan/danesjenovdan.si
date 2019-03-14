@@ -42,7 +42,7 @@ export default {
   top: 0;
   left: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 120;
   width: $side-menu-width;
   background-color: #f6f6f6;
   padding: 2rem;

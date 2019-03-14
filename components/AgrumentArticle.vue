@@ -1,6 +1,6 @@
 <template>
   <article class="row agrument-article">
-    <div class="col-7">
+    <div class="col-md-7">
       <div class="article__image">
         <figure>
           <img
@@ -13,7 +13,7 @@
         </figure>
       </div>
     </div>
-    <div class="col-5">
+    <div class="col-md-5">
       <div class="article__title">
         <h2>Proti singlizmu!</h2>
         <div class="article__date">
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="col-8 offset-2">
+    <div class="col-md-8 offset-md-2">
       <div class="bg-white article__content">
         <div class="article__text">
           <p>
@@ -55,6 +55,11 @@
 <style lang="scss" scoped>
 article {
   margin-bottom: 6rem;
+  margin-top: 2rem;
+
+  @include media-breakpoint-up(md) {
+    margin-top: 0;
+  }
 
   .article__image {
     position: relative;
@@ -90,8 +95,12 @@ article {
     justify-content: center;
 
     h2 {
-      font-size: 4.3rem;
+      font-size: 2.9rem;
       font-weight: 600;
+
+      @include media-breakpoint-up(md) {
+        font-size: 4.3rem;
+      }
     }
 
     .article__date {
@@ -101,17 +110,32 @@ article {
   }
 
   .article__content {
-    padding-left: 8rem;
-    padding-right: 8rem;
+    margin-left: -$content-mobile-padding;
+    margin-right: -$content-mobile-padding;
+    padding-left: $content-mobile-padding;
+    padding-right: $content-mobile-padding;
     padding-bottom: 2.5rem;
 
-    $bg-offset: 25rem;
-    padding-top: 2.5rem + $bg-offset;
+    $bg-offset: 75%;
+    padding-top: calc(2.5rem + #{$bg-offset});
     margin-top: -$bg-offset;
 
+    @include media-breakpoint-up(md) {
+      padding-left: 8rem;
+      padding-right: 8rem;
+
+      $bg-offset: 45%;
+      padding-top: calc(2.5rem + #{$bg-offset});
+      margin-top: -$bg-offset;
+    }
+
     .article__text {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 300;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.25rem;
+      }
 
       a {
         font-weight: 600;

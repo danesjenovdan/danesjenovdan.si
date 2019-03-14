@@ -67,8 +67,8 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
-  padding: 1.2rem;
+  z-index: 100;
+  padding: 1.2rem $content-mobile-padding;
   background-color: #f6f6f6;
   transition: transform 0.15s ease-in-out;
   transform: none;

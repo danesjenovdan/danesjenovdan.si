@@ -50,8 +50,8 @@ export default {
 
 <style lang="scss" scoped>
 .filter-bar {
-  margin-left: -1.2rem;
-  margin-right: -1.2rem;
+  margin-left: -$content-mobile-padding;
+  margin-right: -$content-mobile-padding;
   position: relative;
   height: 3.2rem;
 
