@@ -56,7 +56,7 @@ module.exports = {
       'nuxt-i18n',
       {
         locales: [
-          { code: 'sl', iso: 'sl-SI', file: 'sl-SI.js', name: 'Slovenščina' },
+          { code: 'sl', iso: 'sl-SI', file: 'sl-SI.json', name: 'Slovenščina' },
           { code: 'en', iso: 'en-US', file: 'en-US.js', name: 'English' },
         ],
         defaultLocale: 'sl',
