@@ -3,7 +3,7 @@
     <li
       v-for="item in menuItems"
       :key="item.key"
-      :class="{ 'has-children': item.children && item.children.length, active: item.active }"
+      :class="{ 'has-children': item.children && item.children.length }"
     >
       <nuxt-link :to="localePath(item.key)">
         {{ $t(`menu.${item.key}`) }}
@@ -19,11 +19,7 @@
         </svg>
       </nuxt-link>
       <ul v-if="item.children && item.children.length">
-        <li
-          v-for="childItem in item.children"
-          :key="childItem.key"
-          :class="{ active: childItem.active }"
-        >
+        <li v-for="childItem in item.children" :key="childItem.key">
           <nuxt-link :to="localePath(childItem.key)">
             {{ $t(`menu.${childItem.key}`) }}
             <svg
@@ -83,7 +79,7 @@ export default {
           children: [
             { key: 'agrument' },
             { key: 'obcasnik' },
-            { key: 'videos', active: true },
+            { key: 'videos' },
             { key: 'clippings' },
           ],
         },
@@ -93,7 +89,7 @@ export default {
         { key: 'sign-up' },
         {
           key: 'about',
-          children: [{ key: 'crew', active: true }, { key: 'values' }],
+          children: [{ key: 'crew' }, { key: 'values' }],
         },
       ],
     };
@@ -113,10 +109,6 @@ ul {
     text-transform: uppercase;
     color: #333;
 
-    &.active {
-      color: $color-green;
-    }
-
     a {
       &,
       &:hover,
@@ -125,6 +117,10 @@ ul {
         color: inherit;
         text-decoration: none;
         transition: color 0.15s ease;
+      }
+
+      &.nuxt-link-exact-active {
+        color: $color-green;
       }
 
       &:hover {
@@ -147,14 +143,16 @@ ul {
         font-size: 1.15rem;
         text-transform: none;
 
-        a svg {
-          opacity: 0;
-          transform: rotate(-90deg);
-        }
+        a {
+          svg {
+            opacity: 0;
+            transform: rotate(-90deg);
+          }
 
-        &.active {
-          a svg {
-            opacity: 1;
+          &.nuxt-link-exact-active {
+            svg {
+              opacity: 1;
+            }
           }
         }
       }
