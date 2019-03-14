@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <top-bar/>
     <side-menu/>
     <section class="content">
       <b-container fluid class="content-container">
@@ -11,10 +12,12 @@
 
 <script>
 import SideMenu from '~/components/SideMenu/SideMenu';
+import TopBar from '~/components/SideMenu/TopBar';
 
 export default {
   components: {
     SideMenu,
+    TopBar,
   },
 };
 </script>
@@ -26,9 +29,11 @@ export default {
   .content {
     flex: 1;
     margin-left: 0;
+    margin-top: 104px;
 
     @include media-breakpoint-up(md) {
       margin-left: $side-menu-width;
+      margin-top: 0;
     }
 
     .content-container {
