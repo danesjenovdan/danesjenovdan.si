@@ -37,8 +37,13 @@ export default {
     }
 
     .content-container {
-      padding-left: 5rem;
-      padding-right: 5rem;
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+
+      @include media-breakpoint-up(md) {
+        padding-left: 5rem;
+        padding-right: 5rem;
+      }
     }
   }
 }

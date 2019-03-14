@@ -1,10 +1,10 @@
 <template>
   <header class="row">
-    <div class="col-4">
+    <div class="col-md-4">
       <h1 v-text="title"/>
       <hr :class="`border-${color}`">
     </div>
-    <div class="col-8">
+    <div class="col-md-8">
       <p class="lead" v-text="text"/>
     </div>
   </header>
@@ -32,7 +32,11 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  padding: 5rem 0 4rem;
+  padding: 1.2rem 0 0.5rem;
+
+  @include media-breakpoint-up(md) {
+    padding: 5rem 0 4rem;
+  }
 
   h1 {
     font-size: 3.5rem;
