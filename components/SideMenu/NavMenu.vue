@@ -41,7 +41,12 @@
     </li>
     <li>
       <form :action="localePath('search')" class="search-form">
-        <input class="form-control search-input" type="text" name="q" :placeholder="$t('menu.search')">
+        <input
+          class="form-control search-input"
+          type="text"
+          name="q"
+          :placeholder="$t('menu.search')"
+        >
         <button>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
             <path
@@ -77,16 +82,19 @@ export default {
           key: 'content',
           children: [
             { key: 'agrument' },
-            { key: 'calls-to-action', active: true },
             { key: 'obcasnik' },
-            { key: 'publications' },
-            { key: 'events' },
-            { key: 'parlameter-blog' },
+            { key: 'videos', active: true },
+            { key: 'clippings' },
           ],
         },
+        { key: 'calls-to-action' },
         { key: 'tools' },
-        { key: 'about' },
-        { key: 'support' },
+        { key: 'shop' },
+        { key: 'sign-up' },
+        {
+          key: 'about',
+          children: [{ key: 'crew', active: true }, { key: 'values' }],
+        },
       ],
     };
   },
