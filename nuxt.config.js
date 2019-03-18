@@ -7,10 +7,13 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    titleTemplate: titleChunk => {
+      return titleChunk ? `${titleChunk} - Danes je nov dan` : 'Danes je nov dan';
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      // hid is used as unique identifier if you want to override a tag in components
       { hid: 'description', name: 'description', content: pkg.description },
     ],
     link: [
