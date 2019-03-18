@@ -3,34 +3,29 @@
     <div class="col-md-7">
       <div class="article__image">
         <figure>
-          <img
-            src="https://agrument.danesjenovdan.si/media/1551649592261-singlizem.png"
-            class="img-fluid"
-          >
+          <img :src="`https://agrument.danesjenovdan.si${post.imageURL}`" class="img-fluid">
           <figcaption>
-            <a href="https://danesjenovdan.si">Danes je nov dan</a>
+            <a
+              :href="post.imageCaptionURL"
+              target="_blank"
+              rel="noopener noreferrer"
+            >{{ post.imageCaption }}</a>
           </figcaption>
         </figure>
       </div>
     </div>
     <div class="col-md-5">
       <div class="article__title">
-        <h2>Proti singlizmu!</h2>
+        <h2>{{ post.title }}</h2>
         <div class="article__date">
-          <time datetime="2019-03-06">6. 3. 2019</time>
+          <time :datetime="isoDate">{{ sloDate }}</time>
         </div>
       </div>
     </div>
     <div class="col-md-8 offset-md-2">
       <div class="bg-white article__content">
-        <div class="article__text">
-          <p>
-            Na zahodu število samskih ljudi
-            <a href="#">narašča</a>. Zdi se, da to drži tudi za Slovenijo, čeprav uradnih podatkov nimamo. Za statistični urad smo namreč vsi, ki nismo bili nikoli poročeni, samski.
-          </p>
-          <p>Čeprav se naša razmerja spreminjajo, pa singlizem (singlism) - stigmatizacija in diskriminacija samskih - ostaja prisoten v družbi. Ljudje, ki so poročeni in imajo družino, so dojeti kot bolj odgovorni in resni, medtem ko so samski posamezniki velikokrat videni kot nesrečneži, ki še niso našli ljubezni in sreče. Samske pa ne le obsojamo, temveč ima lahko samskost tudi zelo konkretne posledice, saj je družba pač prilagojena življenju v paru: samskim ženskam smo prepovedali umetno oploditev, brez “boljše polovice” pa je izredno težko dobiti kredit.</p>
-          <p>Družbeni pritiski in nerazvit sistem oskrbe samskih starejših mnoge tišči v okvire zakona in nuklearne družine. Zaradi vedno večjega števila samskih pa bi se kot družba morali začeti ukvarjati s sistemi kohabitacije, namesto da jih vedno znova - diskriminiramo.</p>
-        </div>
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div class="article__text" v-html="post.content"/>
         <hr>
         <div class="article__share">
           <form class="form-inline">
@@ -38,12 +33,7 @@
               <label for="share-link">
                 <em>Skopiraj povezavo!</em>
               </label>
-              <input
-                id="share-link"
-                class="form-control"
-                value="https://djnd.si/baf"
-                onfocus="this.select()"
-              >
+              <ShortLinkInput :value="`https://agrument.danesjenovdan.si/${urlDate}`"/>
             </div>
           </form>
         </div>
@@ -51,6 +41,40 @@
     </div>
   </article>
 </template>
+
+<script>
+import ShortLinkInput from './ShortLinkInput.vue';
+
+export default {
+  name: '',
+  components: {
+    ShortLinkInput,
+  },
+  props: {
+    post: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    isoDate() {
+      return new Date(this.post.date).toISOString().split('T')[0];
+    },
+    sloDate() {
+      return this.isoDate
+        .split('-')
+        .reverse()
+        .join('. ');
+    },
+    urlDate() {
+      return this.isoDate
+        .split('-')
+        .reverse()
+        .join('.');
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 article {
