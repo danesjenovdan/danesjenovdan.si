@@ -3,13 +3,13 @@
     <div class="col-md-7">
       <div class="article__image">
         <figure>
-          <img :src="`https://agrument.danesjenovdan.si${post.imageURL}`" class="img-fluid">
+          <img :src="post.image_url" class="img-fluid">
           <figcaption>
             <a
-              :href="post.imageCaptionURL"
+              :href="post.image_source_url"
               target="_blank"
               rel="noopener noreferrer"
-            >{{ post.imageCaption }}</a>
+            >{{ post.image_source }}</a>
           </figcaption>
         </figure>
       </div>
@@ -25,7 +25,7 @@
     <div class="col-md-8 offset-md-2">
       <div class="bg-white article__content">
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="article__text" v-html="post.content"/>
+        <div class="article__text" v-html="post.content_html"/>
         <hr>
         <div class="article__share">
           <form class="form-inline">
@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     isoDate() {
-      return new Date(this.post.date).toISOString().split('T')[0];
+      return this.post.datetime.split('T')[0];
     },
     sloDate() {
       return this.isoDate

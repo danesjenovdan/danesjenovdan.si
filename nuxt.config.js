@@ -41,7 +41,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: [{ src: '~/plugins/vue-waypoint', ssr: false }],
 
   /*
   ** Nuxt.js modules
