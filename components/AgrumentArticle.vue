@@ -153,7 +153,7 @@ article {
       margin-top: -$bg-offset;
     }
 
-    .article__text {
+    /deep/ .article__text {
       font-size: 1.1rem;
       font-weight: 300;
 
@@ -162,7 +162,7 @@ article {
       }
 
       a {
-        font-weight: 600;
+        font-weight: 500;
         text-decoration: underline;
         color: inherit;
 
