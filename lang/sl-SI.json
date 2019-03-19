@@ -22,5 +22,8 @@
   "tools": {
     "description": "TODO: tools.description"
   },
+  "values": {
+    "description": "Delovanje inštituta izhaja iz razumevanja demokracije kot nenehnega procesa, družbene pogodbe kot stalne in vključujoče razprave ter politične participacije kot odgovornosti za lastno opolnomočenje."
+  },
   "welcome": "Pozdravljeni"
 }

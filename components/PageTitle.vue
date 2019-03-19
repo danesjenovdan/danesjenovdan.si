@@ -53,6 +53,7 @@ header {
     max-width: 630px;
     line-height: 1.3;
     margin-top: 0.7rem;
+    margin-bottom: 3rem;
   }
 }
 </style>
