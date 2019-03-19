@@ -74,23 +74,16 @@ export default {
   data() {
     return {
       menuItems: [
-        {
-          key: 'content',
-          children: [
-            { key: 'agrument' },
-            { key: 'obcasnik' },
-            { key: 'videos' },
-            { key: 'clippings' },
-          ],
-        },
-        { key: 'calls-to-action' },
+        { key: 'agrument' },
+        { key: 'projects' },
+        { key: 'videos' },
         { key: 'tools' },
-        { key: 'shop' },
-        { key: 'sign-up' },
         {
           key: 'about',
-          children: [{ key: 'crew' }, { key: 'values' }],
+          children: [{ key: 'crew' }, { key: 'values' }, { key: 'clipping' }],
         },
+        { key: 'shop' },
+        { key: 'sign-up' },
       ],
     };
   },

@@ -1,8 +1,8 @@
 <template>
   <div>
     <page-title
-      :title="$t('menu.calls-to-action')"
-      :text="$t('calls-to-action.description')"
+      :title="$t('menu.projects')"
+      :text="$t('projects.description')"
       color="secondary"
     />
     <filter-bar :items="filters"/>
@@ -35,7 +35,7 @@ export default {
   nuxtI18n: {
     paths: {
       sl: '/pozivi',
-      en: '/calls-to-action',
+      en: '/projects',
     },
   },
   components: {
@@ -55,7 +55,7 @@ export default {
   },
   head() {
     return {
-      title: this.$t('menu.calls-to-action'),
+      title: this.$t('menu.projects'),
     };
   },
 };
