@@ -1029,6 +1029,9 @@ $(document).ready(function () {
   $('#strategija2018').on('click', function () {
     window.open('./dokumenti/2018/Strateski_nacrt_DJND_2018-2020.pdf', '_blank');
   });
+  $('#poslovno2018').on('click', function () {
+    window.open('./dokumenti/2018/Poslovno%20porocilo%202018.pdf', '_blank');
+  });
 
 
   // dolzni popups across the site
