@@ -21,5 +21,8 @@
   "agrument": {
     "description": "Divja misel kiselkastega okusa. Dnevna doza sezonskih in osvežilnih natipkov. Vsi naši izdelki so sveži, pripravljeni po lastni recepturi in ne vsebujejo €-jev."
   },
+  "tools": {
+    "description": "TODO: tools.description"
+  },
   "welcome": "Pozdravljeni"
 }

@@ -34,7 +34,7 @@ import ProjectTile from '~/components/ProjectTile.vue';
 export default {
   nuxtI18n: {
     paths: {
-      sl: '/pozivi-in-peticije',
+      sl: '/pozivi',
       en: '/calls-to-action',
     },
   },
@@ -51,6 +51,11 @@ export default {
         { key: 'demokracija', label: 'Demokracija', active: false },
         { key: 'lulz', label: 'For the lulz', active: false },
       ],
+    };
+  },
+  head() {
+    return {
+      title: this.$t('menu.calls-to-action'),
     };
   },
 };
