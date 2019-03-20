@@ -2,7 +2,17 @@
   <div>
     <page-title :title="$t('menu.agrument')" :text="$t('agrument.description')"/>
     <agrument-article v-for="post in posts" :key="post.id" :post="post"/>
-    <div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }"/>
+    <div
+      v-waypoint="{
+        active: true,
+        callback: onWaypoint,
+        options: {
+          rootMargin: '100%',
+          threshold: 0,
+        },
+      }"
+    />
+    <agrument-subscribe-bar/>
   </div>
 </template>
 
@@ -10,19 +20,16 @@
 import axios from 'axios';
 import PageTitle from '~/components/PageTitle.vue';
 import AgrumentArticle from '~/components/AgrumentArticle.vue';
+import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
 
 export default {
   components: {
     PageTitle,
     AgrumentArticle,
+    AgrumentSubscribeBar,
   },
   data() {
-    return {
-      intersectionOptions: {
-        rootMargin: '100%',
-        threshold: 0,
-      },
-    };
+    return {};
   },
   async asyncData({ params, error }) {
     const latestPosts = await axios
