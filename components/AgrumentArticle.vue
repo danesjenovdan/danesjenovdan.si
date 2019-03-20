@@ -3,7 +3,15 @@
     <div class="col-md-7">
       <div class="article__image">
         <figure>
-          <img :src="post.image_url" class="img-fluid">
+          <div class="embed-responsive embed-responsive-16by9">
+            <div class="embed-responsive-item d-flex align-items-center">
+              <div
+                class="background-image"
+                :style="{'background-image': `url('${post.image_url}')`}"
+              />
+              <img :src="post.image_url" class="img-fluid">
+            </div>
+          </div>
           <figcaption>
             <a
               :href="post.image_source_url"
@@ -89,8 +97,23 @@ article {
     position: relative;
     z-index: 1;
 
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(20px);
+      z-index: -1;
+    }
+
     img {
       width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     figcaption {
