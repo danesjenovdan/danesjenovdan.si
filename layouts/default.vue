@@ -19,6 +19,11 @@ export default {
     SideMenu,
     TopBar,
   },
+  watch: {
+    $route() {
+      this.$nuxt.$emit('toggle-menu', false);
+    },
+  },
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <section :class="{ 'side-menu': true, 'open': menuOpen }">
-    <nav class="side-menu__nav">
+    <nav ref="sideMenu" class="side-menu__nav">
       <nav-logo/>
       <nav-menu/>
     </nav>
@@ -29,8 +29,12 @@ export default {
     this.$nuxt.$off('toggle-menu', this.toggleMenu);
   },
   methods: {
-    toggleMenu() {
-      this.menuOpen = !this.menuOpen;
+    toggleMenu(force = !this.menuOpen) {
+      this.menuOpen = force;
+      if (this.menuOpen) {
+        // move focus to the menu
+        this.$refs.sideMenu.querySelector('a').focus();
+      }
     },
   },
 };
