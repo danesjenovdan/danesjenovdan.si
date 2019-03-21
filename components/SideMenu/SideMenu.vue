@@ -1,5 +1,8 @@
 <template>
-  <section :class="{ 'side-menu': true, 'open': menuOpen }">
+  <section
+    :class="{ 'side-menu': true, 'open': menuOpen }"
+    :style="{ 'visibility': menuVisible ? 'visible' : 'hidden' }"
+  >
     <nav ref="sideMenu" class="side-menu__nav">
       <nav-logo/>
       <nav-menu/>
@@ -20,6 +23,7 @@ export default {
   data() {
     return {
       menuOpen: false,
+      menuVisible: false,
     };
   },
   mounted() {
@@ -31,9 +35,16 @@ export default {
   methods: {
     toggleMenu(force = !this.menuOpen) {
       this.menuOpen = force;
+      this.menuVisible = true;
       if (this.menuOpen) {
         // move focus to the menu
-        this.$refs.sideMenu.querySelector('a').focus();
+        this.$nextTick(() => {
+          this.$refs.sideMenu.querySelector('a').focus();
+        });
+      } else {
+        setTimeout(() => {
+          this.menuVisible = false;
+        }, 200);
       }
     },
   },
@@ -51,17 +62,19 @@ export default {
   background-color: #f6f6f6;
   padding: 2rem;
   display: flex;
-  will-change: tranform;
+  will-change: transform;
   transform: translateX(-102%);
   transition: transform 0.15s ease-in-out;
   overflow-y: scroll;
 
   &.open {
     transform: none;
+    visibility: visible !important;
   }
 
   @include media-breakpoint-up(md) {
     transform: none;
+    visibility: visible !important;
   }
 
   .side-menu__nav {

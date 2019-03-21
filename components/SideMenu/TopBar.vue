@@ -5,11 +5,11 @@
         <nuxt-link :to="localePath('index')">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="73 69 300 300">
             <defs>
-              <clipPath id="a" transform="translate(65.03 61)">
+              <clipPath id="toplogoclip" transform="translate(65.03 61)">
                 <circle cx="158.15" cy="157.81" r="150" fill="none"></circle>
               </clipPath>
             </defs>
-            <g clip-path="url(#a)">
+            <g clip-path="url(#toplogoclip)">
               <path d="M-.005 292.286L127.993.004l64.762 28.361L64.757 320.647z" fill="#cfad54"></path>
               <path
                 d="M64.765 320.632L192.764 28.351l64.762 28.361-127.999 292.281z"
@@ -75,6 +75,7 @@ export default {
 
   @include media-breakpoint-up(md) {
     transform: translateY(-102%);
+    visibility: hidden;
   }
 
   .logo {
