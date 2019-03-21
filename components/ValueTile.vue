@@ -38,10 +38,10 @@
 
   .left-col,
   .right-col {
-    padding: 1.5rem 0 0 0;
+    padding: 0;
 
     @include media-breakpoint-up(md) {
-      padding-bottom: 1.5rem;
+      padding: 1.5rem 0;
     }
   }
 
@@ -77,18 +77,21 @@
 
     .title {
       h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 600;
         text-align: center;
 
         @include media-breakpoint-up(md) {
           text-align: left;
+          font-size: 2.5rem;
         }
       }
     }
   }
 
   .right-col {
+    padding-top: 1.5rem;
+
     @include media-breakpoint-up(md) {
       padding-left: 2.5rem;
     }
@@ -96,7 +99,7 @@
     /deep/ p {
       font-size: 1.1rem;
       font-weight: 300;
-      padding: 1rem;
+      padding: 0 1rem;
 
       @include media-breakpoint-up(md) {
         padding: 0;
