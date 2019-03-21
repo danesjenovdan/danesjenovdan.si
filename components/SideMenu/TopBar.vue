@@ -32,7 +32,7 @@
         <nuxt-link :to="localePath('index')">{{ $t('danes-je-nov-dan') }}</nuxt-link>
       </div>
       <div class="menu-toggle">
-        <a href="#menu" @click="toggleMenu">
+        <button class="btn" href="#menu" @click="toggleMenu">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="19.25 17.139999389648438 60.75 67.52999877929688"
@@ -42,7 +42,7 @@
               d="M77.33 35.16H21.92a2.67 2.67 0 0 1-2.67-2.67V19.81a2.68 2.68 0 0 1 2.67-2.67h55.41A2.68 2.68 0 0 1 80 19.81v12.68a2.67 2.67 0 0 1-2.67 2.67zm-52.74-5.34h50.07v-7.34H24.59zm52.74 30.1H21.92a2.68 2.68 0 0 1-2.67-2.67V44.56a2.68 2.68 0 0 1 2.67-2.67h55.41A2.68 2.68 0 0 1 80 44.56v12.69a2.68 2.68 0 0 1-2.67 2.67zm-52.74-5.34h50.07v-7.35H24.59zm52.74 30.09H21.92A2.68 2.68 0 0 1 19.25 82V69.32a2.67 2.67 0 0 1 2.67-2.67h55.41A2.67 2.67 0 0 1 80 69.32V82a2.68 2.68 0 0 1-2.67 2.67zm-52.74-5.34h50.07V72H24.59z"
             ></path>
           </svg>
-        </a>
+        </button>
       </div>
     </header>
   </div>
@@ -117,9 +117,9 @@ export default {
       margin-left: auto;
       margin-right: 1rem;
 
-      a {
+      .btn {
         color: #333;
-        display: inline-block;
+        padding: 0;
 
         svg {
           width: 100%;
