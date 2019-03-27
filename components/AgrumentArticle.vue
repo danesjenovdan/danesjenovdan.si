@@ -3,7 +3,7 @@
     <div class="col-md-7">
       <div class="article__image">
         <figure>
-          <div class="embed-responsive embed-responsive-16by9">
+          <div class="embed-responsive embed-responsive-1200by630">
             <div class="embed-responsive-item d-flex align-items-center">
               <div
                 class="background-image"

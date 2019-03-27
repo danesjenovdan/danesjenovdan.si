@@ -29,6 +29,10 @@ $font-family-sans-serif: 'acumin-pro', sans-serif;
 
 $enable-rounded: false;
 
+$embed-responsive-aspect-ratios: (
+  (1200 630),
+);
+
 // ---
 // Import bootstrap functions and variables so that you can @import this file
 // and use bootstrap breakpoint mixins
