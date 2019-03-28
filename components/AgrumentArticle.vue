@@ -6,7 +6,7 @@
           <div class="embed-responsive embed-responsive-1200by630">
             <div class="embed-responsive-item d-flex align-items-center">
               <div
-                class="background-image"
+                class="background-image blurred"
                 :style="{'background-image': `url('${post.image_url}')`}"
               />
               <img :src="post.image_url" class="img-fluid">
@@ -22,7 +22,7 @@
         </figure>
       </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 article__title-col">
       <div class="article__title">
         <h2>{{ post.title }}</h2>
         <div class="article__date">
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="col-md-8 offset-md-2">
-      <div class="bg-white article__content">
+      <div class="article__content">
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="article__text" v-html="post.content_html"/>
         <hr>
@@ -86,7 +86,7 @@ export default {
 
 <style lang="scss" scoped>
 article {
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
   margin-top: 2rem;
 
   @include media-breakpoint-up(md) {
@@ -96,6 +96,13 @@ article {
   .article__image {
     position: relative;
     z-index: 1;
+    margin-right: 1rem;
+    margin-left: -0.5rem;
+
+    @include media-breakpoint-up(md) {
+      margin-right: 0rem;
+      margin-left: 0rem;
+    }
 
     .background-image {
       position: absolute;
@@ -106,8 +113,13 @@ article {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      filter: blur(20px);
-      z-index: -1;
+      z-index: -2;
+
+      &.blurred {
+        filter: blur(10px);
+        z-index: -1;
+        transform: scale(1.2);
+      }
     }
 
     img {
@@ -117,9 +129,13 @@ article {
     }
 
     figcaption {
-      margin-top: 0.75rem;
+      margin-top: 0.25rem;
       font-style: italic;
       text-align: right;
+
+      @include media-breakpoint-up(md) {
+        margin-top: 0.75rem;
+      }
 
       a {
         font-weight: 400;
@@ -133,52 +149,70 @@ article {
     }
   }
 
-  .article__title {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
+  .article__title,
+  .article__content {
+    margin-left: 0.5rem;
+    margin-right: -0.5rem;
+    background-color: #fff;
 
-    h2 {
-      font-size: 2.9rem;
-      font-weight: 600;
+    @include media-breakpoint-up(md) {
+      margin-left: 0rem;
+      margin-right: 0rem;
+      background-color: transparent;
+    }
+  }
 
-      @include media-breakpoint-up(md) {
-        font-size: 4.3rem;
-      }
+  .article__title-col {
+    $bg-offset: 4.5rem;
+    margin-top: -$bg-offset;
+    z-index: -1;
+
+    @include media-breakpoint-up(md) {
+      z-index: 1;
     }
 
-    .article__date {
-      font-style: italic;
-      margin-top: 1rem;
+    .article__title {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      padding: 0 1.2rem 1.5rem 1.2rem;
+      padding-top: $bg-offset;
+
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+
+        @include media-breakpoint-up(md) {
+          font-size: 4.3rem;
+        }
+      }
+
+      .article__date {
+        font-style: italic;
+      }
     }
   }
 
   .article__content {
-    margin-left: -$content-mobile-padding;
-    margin-right: -$content-mobile-padding;
-    padding-left: $content-mobile-padding;
-    padding-right: $content-mobile-padding;
-    padding-bottom: 2.5rem;
-
-    $bg-offset: 75%;
-    padding-top: calc(2.5rem + #{$bg-offset});
-    margin-top: -$bg-offset;
+    padding: 0 1.2rem 1.2rem 1.2rem;
 
     @include media-breakpoint-up(md) {
       padding-left: 8rem;
       padding-right: 8rem;
+      background-color: #fff;
 
-      $bg-offset: 45%;
-      padding-top: calc(2.5rem + #{$bg-offset});
+      $bg-offset: 20vw;
       margin-top: -$bg-offset;
+      padding-top: calc(2rem + #{$bg-offset});
     }
 
     /deep/ .article__text {
-      font-size: 1.1rem;
+      font-size: 1.125rem;
       font-weight: 300;
+      line-height: 1.4;
 
       @include media-breakpoint-up(md) {
         font-size: 1.25rem;
@@ -197,11 +231,15 @@ article {
 
     hr {
       border-top-color: #333;
-      margin-top: 3rem;
-      margin-bottom: 2rem;
+      margin-top: 1.75rem;
+      margin-bottom: 1.75rem;
     }
 
     .article__share {
+      .form-group {
+        margin-bottom: 0.25rem;
+      }
+
       em {
         margin-right: 2rem;
       }

@@ -1,24 +1,29 @@
 <template>
   <div class="agrument-subscribe-bar bg-white">
-    <div class="d-flex justify-content-between">
+    <div class="bar-container">
       <span/>
       <form class="form-inline">
         <strong v-t="'agrument.subscribe-bar.subscribe-to'" class="my-2 mr-2"/>
         <span v-t="'agrument.subscribe-bar.deliver-it'"/>
-        <div class="form-group my-2 mr-3 mx-md-3">
-          <input
-            id="subscribe-email"
-            type="email"
-            class="form-control"
-            :placeholder="$t('agrument.subscribe-bar.email-address')"
-          >
+        <div class="email-controls d-flex">
+          <div class="form-group my-2 mr-2 mx-md-3">
+            <input
+              id="subscribe-email"
+              type="email"
+              class="form-control"
+              :placeholder="$t('agrument.subscribe-bar.email-address')"
+            >
+          </div>
+          <button type="submit" class="btn btn-primary my-2 px-3">
+            <span v-t="'agrument.subscribe-bar.subscribe-action'"/>
+          </button>
         </div>
-
-        <button type="submit" class="btn btn-primary my-2 px-3">
-          <span v-t="'agrument.subscribe-bar.subscribe-action'"/>
-        </button>
       </form>
-      <a href="https://agrument.danesjenovdan.si/rss/" target="_blank" class="btn btn-outline-primary my-2 px-3">
+      <a
+        href="https://agrument.danesjenovdan.si/rss/"
+        target="_blank"
+        class="btn btn-outline-primary my-2 px-3"
+      >
         <span>RSS</span>
         <span class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.25 81.18" fill="currentColor">
@@ -45,36 +50,61 @@
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 0 $content-mobile-padding;
+  padding: 0.5rem $content-mobile-padding;
   box-shadow: $box-shadow-lg;
 
   @include media-breakpoint-up(md) {
     left: $side-menu-width;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
-  strong {
-    font-weight: 600;
-  }
+  .bar-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 
-  .form-control {
-    min-width: 220px;
-  }
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+    }
 
-  .btn {
-    text-transform: uppercase;
-    font-weight: 600;
+    strong {
+      font-weight: 600;
+    }
 
-    .icon {
-      vertical-align: text-bottom;
-      display: inline-block;
-      width: 1.1em;
-      height: 1.4em;
-      line-height: 1;
-      margin-left: 0.25rem;
+    .email-controls {
+      width: 100%;
 
-      svg {
-        width: 100%;
-        height: 100%;
+      @include media-breakpoint-up(md) {
+        width: auto;
+      }
+
+      .form-group {
+        flex: 1 0 auto;
+
+        .form-control {
+          width: 100%;
+        }
+      }
+    }
+
+    .btn {
+      text-transform: uppercase;
+      font-weight: 600;
+      width: 100px;
+
+      .icon {
+        vertical-align: text-bottom;
+        display: inline-block;
+        width: 1.1em;
+        height: 1.4em;
+        line-height: 1;
+        margin-left: 0.25rem;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }

@@ -33,15 +33,22 @@ export default {
 <style lang="scss" scoped>
 header {
   padding: 1.2rem 0 0.5rem;
+  // margin-left: -$content-mobile-padding;
+  // margin-right: -$content-mobile-padding;
 
   @include media-breakpoint-up(md) {
     padding: 5rem 0 4rem;
   }
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 200;
-    letter-spacing: 1.2px;
+    letter-spacing: 0.8px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 3.5rem;
+      letter-spacing: 1.2px;
+    }
   }
 
   hr {
@@ -53,7 +60,11 @@ header {
     max-width: 630px;
     line-height: 1.3;
     margin-top: 0.7rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 3rem;
+    }
   }
 }
 </style>
