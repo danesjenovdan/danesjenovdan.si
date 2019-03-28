@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { uniqBy } from 'lodash';
 import axios from 'axios';
 import PageTitle from '~/components/PageTitle.vue';
 import AgrumentArticle from '~/components/AgrumentArticle.vue';
@@ -46,7 +47,7 @@ export default {
     async fetchNextPage() {
       if (this.nextPageLink) {
         const nextPosts = await axios.get(this.nextPageLink).then(res => res.data);
-        this.posts.push(...nextPosts.data);
+        this.posts = uniqBy([...this.posts, ...nextPosts.data], 'id');
         this.nextPageLink = nextPosts.links.next;
       }
     },
