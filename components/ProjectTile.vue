@@ -1,8 +1,8 @@
 <template>
-  <div class="landing-tile bg-white">
-    <a href="#" target="_blank" class="landing-tile__link">
+  <div class="project-tile bg-white">
+    <a href="#" target="_blank" class="project-tile__link">
       <div
-        class="landing-tile__image"
+        class="project-tile__image"
         style="background-image: url('https://api.djnd.si/static/media/images/og-image_1OVqM6O.png');"
       >
         <svg
@@ -15,9 +15,9 @@
           ></path>
         </svg>
       </div>
-      <div class="landing-tile__content">
-        <h1 class="landing-tile__title">Botri sovraštva</h1>
-        <div class="landing-tile__text">
+      <div class="project-tile__content">
+        <h1 class="project-tile__title">Botri sovraštva</h1>
+        <div class="project-tile__text">
           <p
             style="margin: 0px 0px 6px;"
           >Kampanja, v kateri zahtevamo umik oglaševanja v medijih, ki razpihujejo sovraštvo. Ne zgolj politika, temveč tudi neodgovorna podjetja so kriva za zaskrbljujoče stanje v naši državi.</p>
@@ -32,15 +32,15 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.landing-tile {
+.project-tile {
   margin-bottom: 1.5rem;
 
-  .landing-tile__link {
+  .project-tile__link {
     text-decoration: none;
     color: #333;
 
     &:hover {
-      .landing-tile__image {
+      .project-tile__image {
         &::before {
           opacity: 0.8;
         }
@@ -50,12 +50,12 @@ export default {};
         }
       }
 
-      .landing-tile__title {
+      .project-tile__title {
         color: $color-red;
       }
     }
 
-    .landing-tile__image {
+    .project-tile__image {
       width: 100%;
       height: 220px;
       position: relative;
@@ -104,16 +104,16 @@ export default {};
       }
     }
 
-    .landing-tile__content {
+    .project-tile__content {
       padding: 2rem;
 
-      .landing-tile__title {
+      .project-tile__title {
         font-weight: 700;
         margin-bottom: 2rem;
         transition: color 0.15s ease;
       }
 
-      .landing-tile__text {
+      .project-tile__text {
         font-size: 1.5rem;
         font-weight: 200;
         line-height: 1.2;
