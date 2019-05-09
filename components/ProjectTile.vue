@@ -33,8 +33,6 @@ export default {};
 
 <style lang="scss" scoped>
 .project-tile {
-  margin-bottom: 1.5rem;
-
   .project-tile__link {
     text-decoration: none;
     color: #333;

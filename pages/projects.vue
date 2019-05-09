@@ -6,20 +6,20 @@
       color="secondary"
     />
     <filter-bar :items="filters"/>
-    <div class="row mt-4">
-      <div class="col-12 col-md-4">
+    <div class="grid-container mt-4">
+      <div class="grid-item">
         <project-tile/>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="grid-item">
         <project-tile/>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="grid-item">
         <project-tile/>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="grid-item">
         <project-tile/>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="grid-item">
         <project-tile/>
       </div>
     </div>
@@ -61,5 +61,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.grid-container {
+  display: grid;
+  grid-gap: 1.75rem;
+
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
 </style>

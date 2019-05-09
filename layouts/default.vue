@@ -50,10 +50,10 @@ export default {
         padding-right: 3rem;
       }
 
-      @include media-breakpoint-up(lg) {
-        padding-left: 5rem;
-        padding-right: 5rem;
-      }
+      // @include media-breakpoint-up(lg) {
+      //   padding-left: 5rem;
+      //   padding-right: 5rem;
+      // }
     }
   }
 }
