@@ -5,9 +5,13 @@
         class="landing-tile__image"
         style="background-image: url('https://api.djnd.si/static/media/images/og-image_1OVqM6O.png');"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="32 32 448 384" fill="currentColor">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="18 30 64 40"
+          fill="currentColor"
+        >
           <path
-            d="M311 41c-13-12-33-12-46 0-6 7-9 15-9 23s3 16 9 23l106 105H64c-18 0-32 14-32 32s14 32 32 32h307L265 361c-12 13-12 33 0 46 13 12 33 12 46 0l160-160c12-13 12-33 0-46z"
+            d="M50.005 82c.715-.028 1.542-.322 2.063-.812l17-16c.975-1.085 1.377-3.164.25-4.375-1.109-1.194-3.26-1.159-4.375.03l-11.938 11.25V21a3 3 0 0 0-6 0v51.094l-11.938-11.25c-1.025-1.024-3.253-1.213-4.375-.031-1.122 1.181-.764 3.335.25 4.375l17 16a2.885 2.885 0 0 0 2.063.812z"
           ></path>
         </svg>
       </div>
@@ -44,6 +48,10 @@ export default {};
         svg {
           opacity: 1;
         }
+      }
+
+      .landing-tile__title {
+        color: $color-red;
       }
     }
 
@@ -88,9 +96,11 @@ export default {};
       }
 
       svg {
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
         position: relative;
+        color: #fff;
+        transform: rotate(-90deg);
       }
     }
 
@@ -100,6 +110,7 @@ export default {};
       .landing-tile__title {
         font-weight: 700;
         margin-bottom: 2rem;
+        transition: color 0.15s ease;
       }
 
       .landing-tile__text {
