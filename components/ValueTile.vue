@@ -1,9 +1,9 @@
 <template>
   <div class="value-tile bg-white">
     <div class="row">
-      <div class="col-md-6 left-col">
+      <div class="col-lg-12 col-xxl-6 left-col">
         <div class="d-flex flex-column justify-content-center h-100">
-          <div class="d-flex align-items-center flex-column flex-md-row">
+          <div class="d-flex align-items-center flex-column flex-lg-row">
             <div class="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="currentColor">
                 <path
@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 right-col">
+      <div class="col-lg-12 col-xxl-6 right-col">
         <p>Vsakdo ima pravico do kvalitetnega zdravstva, šolstva, oskrbe in bivališča, pravico do solidarne družbe, ki nas podpira in spodbuja, pravico do prostega časa, srečnega otroštva, kreativne mladosti, preskrbljene odraslosti in varne starosti. Vsakdo ima pravico do prihodnosti. Predolgo je bilo merilo uspešnosti države njen gospodarski razvoj in merilo izpolnjenega posameznika njegov dohodek. Naše merilo je veselje do življenja.</p>
       </div>
     </div>
@@ -32,7 +32,7 @@
   padding: 2.5rem 2rem;
   margin-bottom: 2rem;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     padding: 2.5rem 4rem;
   }
 
@@ -40,33 +40,35 @@
   .right-col {
     padding: 0;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       padding: 1.5rem 0;
     }
   }
 
   .left-col {
     border-bottom: 1px solid #686d6e;
-    padding-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xxl) {
       border-bottom: none;
-      padding-bottom: 1.5rem;
       border-right: 1px solid #686d6e;
       padding-right: 2.5rem;
     }
 
     .icon {
-      flex-basis: 15%;
       flex-shrink: 0;
       color: $color-yellow;
-      margin-right: 2rem;
-      margin-left: 2rem;
       margin-bottom: 2rem;
-      max-height: 100px;
+      width: 100px;
+      height: 100px;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
+        margin-right: 2rem;
         margin-bottom: 0;
+      }
+
+      @include media-breakpoint-up(xxl) {
+        margin-left: 2rem;
       }
 
       svg {
@@ -77,11 +79,12 @@
 
     .title {
       h2 {
+        padding: 0 1rem;
         font-size: 2rem;
         font-weight: 600;
         text-align: center;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
           text-align: left;
           font-size: 2.5rem;
         }
@@ -92,7 +95,7 @@
   .right-col {
     padding-top: 1.5rem;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xxl) {
       padding-left: 2.5rem;
     }
 
@@ -101,7 +104,7 @@
       font-weight: 300;
       padding: 0 1rem;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         padding: 0;
       }
 

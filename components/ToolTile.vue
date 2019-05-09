@@ -1,9 +1,9 @@
 <template>
   <div class="tool-tile bg-white">
     <div class="row">
-      <div :class="['col-md-6', 'left-col', { open }]">
+      <div :class="['col-lg-12', 'col-xxl-6', 'left-col', { open }]">
         <div class="d-flex flex-column justify-content-center h-100">
-          <div class="d-flex align-items-center flex-column flex-md-row">
+          <div class="d-flex align-items-center flex-column flex-lg-row">
             <div class="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="currentColor">
                 <path
@@ -19,7 +19,7 @@
               <h3>A complete solution for any organization aiming for full transparency and digitalization of sessions.</h3>
             </div>
           </div>
-          <div class="d-none d-md-flex">
+          <div class="d-none d-xxl-flex">
             <div class="icon"/>
             <div class="links">
               <ul>
@@ -49,12 +49,12 @@
       <div class="open-arrow-container">
         <button :class="['btn', 'btn-warning', 'open-arrow', { open }]" @click="open = true"/>
       </div>
-      <div :class="['col-md-6', 'right-col', { open }]">
+      <div :class="['col-lg-12', 'col-xxl-6', 'right-col', { open }]">
         <p>Parlameter nudi transparenten vpogled in enostavno dostopnost ter preglednost informacij o delu parlamenta. Zbiramo in analiziramo podatke o glasovanjih, transkripte sej, pa tudi siceršnje aktivnosti poslancev ter poslanskih skupin.</p>
         <p>Podatki so urejeni na strojem in ljudem prijazen način: za prve so tu API klici, za druge pa kartični dizajn oz. inovativna organizacija podatkov. Vsak kos vsebine Parlametra namreč živi v obliki samostojne kartice, ki jo uporabnik lahko deli z drugimi ali vdela v svoje spletno mesto.</p>
         <p>Razvoj Parlametra je podprl Google DNI, njegovo samostojno življenje pa trenutno lajša še štipendija NED.</p>
         <p>Vrednost projekta pripoznavajo strokovna (nagrada Brumen, velika nagrada Diggit), novinarska (vdelan je na STA), pa tudi tuja nevladniška javnost: kmalu Parlameter prihaja tudi na Hrvaško, v Bosno in v Veliko Britanijo.</p>
-        <div class="d-flex d-md-none">
+        <div class="d-flex d-xxl-none">
           <div class="links">
             <ul>
               <li>
@@ -100,7 +100,7 @@ export default {
   margin-bottom: 2rem;
   position: relative;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     padding: 2.5rem 4rem;
   }
 
@@ -108,7 +108,7 @@ export default {
   .right-col {
     padding: 0;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       padding: 1.5rem 0;
     }
   }
@@ -120,23 +120,30 @@ export default {
       padding-bottom: 0rem;
     }
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
+      padding-bottom: 0;
+    }
+
+    @include media-breakpoint-up(xxl) {
       padding-bottom: 1.5rem !important;
       border-right: 1px solid #686d6e;
       padding-right: 2.5rem;
     }
 
     .icon {
-      flex-basis: 20%;
       flex-shrink: 0;
       color: $color-yellow;
-      margin-right: 2rem;
-      margin-left: 2rem;
-      margin-bottom: 2rem;
-      max-height: 100px;
+      margin-bottom: 1.25rem;
+      width: 100px;
+      height: 100px;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
+        margin-right: 2rem;
         margin-bottom: 0;
+      }
+
+      @include media-breakpoint-up(xxl) {
+        margin-left: 2rem;
       }
 
       svg {
@@ -146,12 +153,17 @@ export default {
     }
 
     .title {
+      h2,
+      h3 {
+        padding: 0 1rem;
+      }
+
       h2 {
         font-size: 2rem;
         font-weight: 600;
         text-align: center;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
           font-size: 4.3rem;
           text-align: left;
         }
@@ -163,11 +175,15 @@ export default {
         font-style: italic;
         text-align: center;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
           font-size: 1.5rem;
           text-align: left;
         }
       }
+    }
+
+    .links {
+      padding: 0 1rem;
     }
   }
 
@@ -189,7 +205,7 @@ export default {
       background-position: center;
       background-size: 50% 50%;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         display: none;
       }
 
@@ -207,9 +223,12 @@ export default {
       display: block;
     }
 
-    @include media-breakpoint-up(md) {
-      padding-left: 2.5rem;
+    @include media-breakpoint-up(lg) {
       display: block;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      padding-left: 2.5rem;
     }
 
     /deep/ p {
@@ -217,7 +236,7 @@ export default {
       font-weight: 300;
       padding: 0 1rem;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         padding: 0;
       }
 
@@ -231,8 +250,9 @@ export default {
     margin-top: 1rem;
     padding: 2rem 1rem 0 1rem;
     border-top: 1px solid #686d6e;
+    width: 100%;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xxl) {
       padding: 0;
       border-top: none;
     }
@@ -248,7 +268,15 @@ export default {
         flex-basis: 100%;
         margin-bottom: 0.75rem;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(sm) {
+          flex-basis: 50%;
+        }
+
+        @include media-breakpoint-up(xl) {
+          flex-basis: 33%;
+        }
+
+        @include media-breakpoint-up(xxl) {
           flex-basis: 50%;
         }
 
