@@ -33,6 +33,17 @@ $embed-responsive-aspect-ratios: (
   (1200 630),
 );
 
+$grid-breakpoints: (
+  // bootstrap defaults:
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  // non-defaults:
+  xxl: 1500px
+);
+
 // ---
 // Import bootstrap functions and variables so that you can @import this file
 // and use bootstrap breakpoint mixins
