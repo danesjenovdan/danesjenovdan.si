@@ -44,6 +44,7 @@ export default {
     .content-container {
       padding-left: $content-mobile-padding;
       padding-right: $content-mobile-padding;
+      max-width: 1500px;
 
       @include media-breakpoint-up(md) {
         padding-left: 3rem;
