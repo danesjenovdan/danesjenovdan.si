@@ -41,7 +41,7 @@ header {
   }
 
   @include media-breakpoint-up(xl) {
-    padding: 5rem 0 4rem;
+    padding: 5rem 0 2rem;
   }
 
   h1 {
@@ -58,6 +58,8 @@ header {
   hr {
     border-top-width: 18px;
     border-top-color: $color-red;
+    max-width: 630px;
+    margin-left: 0;
   }
 
   p.lead {
