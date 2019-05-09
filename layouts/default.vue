@@ -5,6 +5,8 @@
     <section class="content">
       <b-container fluid class="content-container">
         <nuxt/>
+        <!-- <cta-box/> -->
+        <page-footer/>
       </b-container>
     </section>
   </div>
@@ -13,11 +15,13 @@
 <script>
 import SideMenu from '~/components/SideMenu/SideMenu';
 import TopBar from '~/components/SideMenu/TopBar';
+import PageFooter from '~/components/PageFooter/PageFooter';
 
 export default {
   components: {
     SideMenu,
     TopBar,
+    PageFooter,
   },
   watch: {
     $route() {
@@ -30,11 +34,12 @@ export default {
 <style lang="scss" scoped>
 .page {
   display: flex;
+  min-height: 100vh;
 
   .content {
     flex: 1;
     margin-left: 0;
-    margin-top: 104px;
+    margin-top: calc(66px + 2.4rem);
 
     @include media-breakpoint-up(md) {
       margin-left: $side-menu-width;
@@ -45,6 +50,10 @@ export default {
       padding-left: $content-mobile-padding;
       padding-right: $content-mobile-padding;
       max-width: 1500px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       @include media-breakpoint-up(md) {
         padding-left: 3rem;

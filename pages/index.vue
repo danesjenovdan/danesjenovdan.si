@@ -1,7 +1,7 @@
 <template>
-  <b-container>
+  <div>
     <div>{{ $t('welcome') }}</div>
-  </b-container>
+  </div>
 </template>
 
 <script>
