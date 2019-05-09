@@ -1,5 +1,5 @@
 <template>
-  <header class="logo">
+  <header class="logo d-none d-md-block">
     <div class="logo__mark">
       <nuxt-link :to="localePath('index')">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="73 69 300 300">

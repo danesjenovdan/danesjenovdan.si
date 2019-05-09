@@ -39,7 +39,7 @@ export default {
       if (this.menuOpen) {
         // move focus to the menu
         this.$nextTick(() => {
-          this.$refs.sideMenu.querySelector('a').focus();
+          this.$refs.sideMenu.querySelector('li a').focus();
         });
       } else {
         setTimeout(() => {
@@ -54,12 +54,12 @@ export default {
 <style lang="scss" scoped>
 .side-menu {
   position: fixed;
-  top: 0;
+  top: calc(66px + 2.4rem);
   left: 0;
   bottom: 0;
   z-index: 120;
-  width: $side-menu-width;
-  background-color: #f6f6f6;
+  width: 100%;
+  background-color: #f0efef;
   padding: 2rem;
   display: flex;
   will-change: transform;
@@ -73,6 +73,10 @@ export default {
   }
 
   @include media-breakpoint-up(md) {
+    top: 0;
+    width: $side-menu-width;
+    background-color: #f6f6f6;
+
     transform: none;
     visibility: visible !important;
   }
@@ -81,6 +85,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
   }
 }
 </style>

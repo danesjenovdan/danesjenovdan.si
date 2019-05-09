@@ -97,10 +97,20 @@ ul {
   list-style-type: none;
 
   li {
-    font-size: 1.5rem;
+    font-size: 1.85rem;
     font-weight: 300;
     text-transform: uppercase;
     color: #333;
+    margin: 1.5rem 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include media-breakpoint-up(md) {
+      font-size: 1.5rem;
+      margin: 0;
+    }
 
     a {
       &,
@@ -113,18 +123,23 @@ ul {
       }
 
       &.nuxt-link-exact-active {
-        color: $color-green;
+        font-weight: 600;
       }
 
       &:hover {
-        color: $color-green;
+        font-weight: 600;
       }
 
       svg {
-        width: 1.1rem;
-        height: 1.1rem;
+        width: 1.5rem;
+        height: 1.5rem;
         position: relative;
         top: -0.1em;
+
+        @include media-breakpoint-up(md) {
+          width: 1.1rem;
+          height: 1.1rem;
+        }
       }
     }
 
@@ -133,8 +148,22 @@ ul {
       margin-bottom: 0.5rem;
 
       li {
-        font-size: 1.15rem;
+        font-size: 1.5rem;
         text-transform: none;
+
+        &,
+        &:first-child {
+          margin: 1rem 0;
+        }
+
+        @include media-breakpoint-up(md) {
+          font-size: 1.15rem;
+
+          &,
+          &:first-child {
+            margin: 0;
+          }
+        }
 
         a {
           svg {
@@ -158,6 +187,13 @@ ul {
 
     .search-input {
       margin-top: 2rem;
+      font-size: 1.5rem;
+      padding-right: 2.5rem;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1rem;
+        padding-right: 1.75rem;
+      }
     }
 
     button {
@@ -167,11 +203,15 @@ ul {
       background: transparent;
       border: 0;
       margin: 0;
-      width: 2rem;
+      width: 2.5rem;
       padding: 0.3rem;
       height: 100%;
       display: flex;
       transition: color 0.15s ease;
+
+      @include media-breakpoint-up(md) {
+        width: 2rem;
+      }
 
       &:hover {
         color: $color-green;
