@@ -1,6 +1,6 @@
 <template>
   <article class="row agrument-article">
-    <div class="col-md-7">
+    <div class="col-xl-7">
       <div class="article__image">
         <figure>
           <div class="embed-responsive embed-responsive-1200by630">
@@ -22,7 +22,7 @@
         </figure>
       </div>
     </div>
-    <div class="col-md-5 article__title-col">
+    <div class="col-xl-5 article__title-col">
       <div class="article__title">
         <h2>{{ post.title }}</h2>
         <div class="article__date">
@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-8 offset-md-2">
+    <div class="col-xl-8 offset-xl-2">
       <div class="article__content">
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="article__text" v-html="post.content_html"/>
@@ -99,7 +99,7 @@ article {
     margin-right: 1rem;
     margin-left: -0.5rem;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       margin-right: 0rem;
       margin-left: 0rem;
     }
@@ -133,7 +133,7 @@ article {
       font-style: italic;
       text-align: right;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         margin-top: 0.75rem;
       }
 
@@ -155,7 +155,7 @@ article {
     margin-right: -0.5rem;
     background-color: #fff;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       margin-left: 0rem;
       margin-right: 0rem;
       background-color: transparent;
@@ -167,7 +167,7 @@ article {
     margin-top: -$bg-offset;
     z-index: -1;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       z-index: 1;
     }
 
@@ -185,7 +185,7 @@ article {
         font-size: 2.5rem;
         font-weight: 600;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(xl) {
           font-size: 4.3rem;
         }
       }
@@ -199,7 +199,7 @@ article {
   .article__content {
     padding: 0 1.2rem 1.2rem 1.2rem;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       padding-left: 8rem;
       padding-right: 8rem;
       background-color: #fff;
@@ -214,7 +214,7 @@ article {
       font-weight: 300;
       line-height: 1.4;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         font-size: 1.25rem;
       }
 

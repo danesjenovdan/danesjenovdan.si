@@ -12,7 +12,7 @@
         },
       }"
     />
-    <agrument-subscribe-bar/>
+    <!-- <agrument-subscribe-bar/> -->
   </div>
 </template>
 
@@ -21,13 +21,13 @@ import { uniqBy } from 'lodash';
 import axios from 'axios';
 import PageTitle from '~/components/PageTitle.vue';
 import AgrumentArticle from '~/components/AgrumentArticle.vue';
-import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
+// import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
 
 export default {
   components: {
     PageTitle,
     AgrumentArticle,
-    AgrumentSubscribeBar,
+    // AgrumentSubscribeBar,
   },
   data() {
     return {};
@@ -64,6 +64,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

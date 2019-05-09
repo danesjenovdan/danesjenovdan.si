@@ -1,10 +1,10 @@
 <template>
   <header class="row">
-    <div class="col-md-4">
+    <div class="col-xl-4">
       <h1 v-text="title"/>
       <hr :class="`border-${color}`">
     </div>
-    <div class="col-md-8">
+    <div class="col-xl-8">
       <p class="lead" v-text="text"/>
     </div>
   </header>
@@ -37,6 +37,10 @@ header {
   // margin-right: -$content-mobile-padding;
 
   @include media-breakpoint-up(md) {
+    padding: 3rem 0 2rem;
+  }
+
+  @include media-breakpoint-up(xl) {
     padding: 5rem 0 4rem;
   }
 
@@ -45,7 +49,7 @@ header {
     font-weight: 200;
     letter-spacing: 0.8px;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       font-size: 3.5rem;
       letter-spacing: 1.2px;
     }
@@ -62,7 +66,7 @@ header {
     margin-top: 0.7rem;
     margin-bottom: 1rem;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       margin-bottom: 3rem;
     }
   }
