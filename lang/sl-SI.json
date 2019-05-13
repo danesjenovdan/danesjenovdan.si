@@ -37,5 +37,8 @@
   "about": {
     "description": "TODO: about.description"
   },
+  "videos": {
+    "description": "TODO: videos.description"
+  },
   "welcome": "Pozdravljeni"
 }
