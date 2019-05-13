@@ -34,5 +34,8 @@
   "people": {
     "description": "Ker iskreno verjamemo, da je treba vsebinam dati prednost pred obrazi, bi radi, da nas poznate le po delu. Da pa ne bi teoretikom zarote, spin medicini in Sovi povzročali preveč sivih las, evo nas. A nismo srčkani?"
   },
+  "about": {
+    "description": "TODO: about.description"
+  },
   "welcome": "Pozdravljeni"
 }
