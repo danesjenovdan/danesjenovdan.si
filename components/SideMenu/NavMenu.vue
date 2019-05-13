@@ -80,7 +80,7 @@ export default {
         { key: 'tools' },
         {
           key: 'about',
-          children: [{ key: 'crew' }, { key: 'values' }, { key: 'clipping' }],
+          children: [{ key: 'people' }, { key: 'values' }, { key: 'clipping' }],
         },
         { key: 'shop' },
         { key: 'sign-up' },

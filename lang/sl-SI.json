@@ -6,7 +6,7 @@
     "videos": "Videogalerija",
     "tools": "Orodja",
     "about": "O DJND",
-    "crew": "Posadka",
+    "people": "Posadka",
     "values": "Vrednote",
     "clipping": "Pojavljanja",
     "shop": "Trgovina",
@@ -30,6 +30,9 @@
   },
   "values": {
     "description": "Delovanje inštituta izhaja iz razumevanja demokracije kot nenehnega procesa, družbene pogodbe kot stalne in vključujoče razprave ter politične participacije kot odgovornosti za lastno opolnomočenje."
+  },
+  "people": {
+    "description": "Ker iskreno verjamemo, da je treba vsebinam dati prednost pred obrazi, bi radi, da nas poznate le po delu. Da pa ne bi teoretikom zarote, spin medicini in Sovi povzročali preveč sivih las, evo nas. A nismo srčkani?"
   },
   "welcome": "Pozdravljeni"
 }
