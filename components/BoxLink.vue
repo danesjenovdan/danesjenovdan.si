@@ -1,5 +1,5 @@
 <template>
-  <a class="box-link">
+  <a href="#" class="box-link">
     <div class="box-link__content">
       <h3>
         POSADKA
@@ -31,20 +31,41 @@
   padding-top: 90%;
   position: relative;
   margin-bottom: 2.5rem;
+  color: #333;
+
+  @include media-breakpoint-up(md) {
+    padding-top: 70%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 90%;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding-top: 75%;
+  }
 
   .box-link__content {
     border: 2px solid $color-green;
-    padding: 1rem 1rem;
+    padding: 1rem;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 
+    @include media-breakpoint-up(lg) {
+      padding: 2rem;
+    }
+
     h3 {
       margin: 0;
       font-weight: 700;
       font-size: 1.85rem;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 2.5rem;
+      }
 
       .arrow {
         margin-left: 0.5rem;
@@ -65,6 +86,10 @@
       font-style: italic;
       line-height: 1.25;
       margin-top: 0.75rem;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 1.5rem;
+      }
     }
 
     .box-link__image {
@@ -76,6 +101,10 @@
       right: 0.5rem;
       width: 70%;
       height: 100%;
+
+      @include media-breakpoint-up(lg) {
+        width: 60%;
+      }
     }
   }
 }

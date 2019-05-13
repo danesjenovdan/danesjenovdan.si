@@ -11,10 +11,9 @@
           <div class="embed-responsive embed-responsive-1200by630">
             <div class="embed-responsive-item d-flex align-items-center">
               <div
-                class="background-image blurred"
+                class="background-image"
                 :style="{'background-image': 'url(/img/about-main.jpg)'}"
               />
-              <img src="/img/about-main.jpg" class="img-fluid">
             </div>
           </div>
         </div>
@@ -46,21 +45,80 @@
         </div>
       </div>
     </div>
-    <div class="row my-3"/>
-    <div class="row">
-      <div class="col-12">
+    <div class="row my-5"/>
+    <div class="row box-links">
+      <div class="col-12 col-sm-6 col-md-12 col-lg-6 col-xxl-4">
         <box-link/>
       </div>
-      <div class="col-12">
+      <div class="col-12 col-sm-6 col-md-12 col-lg-6 col-xxl-4">
         <box-link/>
       </div>
-      <div class="col-12">
+      <div class="col-12 col-sm-6 col-md-12 col-lg-6 col-xxl-4">
         <box-link/>
       </div>
     </div>
+    <div class="row my-4"/>
     <div class="row">
       <div class="col-12">
         <section-header text="Radi sodelujemo z ..."/>
+      </div>
+    </div>
+    <div class="grid-container logos">
+      <div class="grid-item">
+        <logo-box/>
+      </div>
+      <div class="grid-item">
+        <logo-box/>
+      </div>
+      <div class="grid-item">
+        <logo-box/>
+      </div>
+      <div class="grid-item">
+        <logo-box/>
+      </div>
+      <div class="grid-item">
+        <logo-box/>
+      </div>
+    </div>
+    <div class="row my-4"/>
+    <div class="row">
+      <div class="col-12">
+        <section-header text="Donorji"/>
+      </div>
+    </div>
+    <div class="grid-container logos">
+      <div class="grid-item">
+        <logo-box/>
+      </div>
+      <div class="grid-item">
+        <logo-box/>
+      </div>
+      <div class="grid-item">
+        <logo-box/>
+      </div>
+    </div>
+    <div class="row my-4"/>
+    <div class="row">
+      <div class="col-12">
+        <section-header text="Formalnosti"/>
+      </div>
+    </div>
+    <div class="row formalities">
+      <div class="col-12 mt-3">
+        <p>
+          Davčna številka: <strong>SI54561710</strong><br>
+          Matična številka: <strong>6468594000</strong>
+        </p>
+        <p>
+          TRR: <strong>SI56 6100 0000 5740 710</strong><br>
+          (Delavska hranilnica d.d. Ljubljana)
+        </p>
+        <p>
+          Po odločbi Ministrstva za javno upravo
+          imamo status nevladne organizacije v
+          javnem interesu na področju razvoja
+          informacijske družbe.
+        </p>
       </div>
     </div>
   </div>
@@ -70,6 +128,7 @@
 import PageTitle from '~/components/PageTitle.vue';
 import BoxLink from '~/components/BoxLink.vue';
 import SectionHeader from '~/components/SectionHeader.vue';
+import LogoBox from '~/components/LogoBox.vue';
 
 export default {
   nuxtI18n: {
@@ -82,6 +141,7 @@ export default {
     PageTitle,
     BoxLink,
     SectionHeader,
+    LogoBox,
   },
   head() {
     return {
@@ -99,8 +159,9 @@ export default {
   margin-left: -0.5rem;
 
   @include media-breakpoint-up(xl) {
-    margin-right: 0rem;
+    margin-right: -4rem;
     margin-left: 0rem;
+    z-index: 2;
   }
 
   .background-image {
@@ -113,18 +174,6 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     z-index: -2;
-
-    &.blurred {
-      filter: blur(10px);
-      z-index: -1;
-      transform: scale(1.2);
-    }
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 }
 
@@ -135,6 +184,7 @@ export default {
 
   @include media-breakpoint-up(xl) {
     z-index: 1;
+    margin-top: 0;
   }
 
   .about-info__contact {
@@ -153,7 +203,8 @@ export default {
     @include media-breakpoint-up(xl) {
       margin-left: 0rem;
       margin-right: 0rem;
-      background-color: transparent;
+      margin-top: 2rem;
+      padding-left: 2rem;
     }
 
     .icon {
@@ -161,6 +212,12 @@ export default {
       height: 40px;
       margin: 1.5rem auto 0.5rem;
       color: $color-green;
+
+      @include media-breakpoint-up(xl) {
+        &:first-child {
+          margin-top: 0;
+        }
+      }
 
       svg {
         width: 100%;
@@ -182,6 +239,27 @@ export default {
       a {
         color: inherit;
       }
+    }
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 1rem;
+  margin-top: 1rem;
+
+  &.logos {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+.formalities {
+  p {
+    font-weight: 200;
+    font-size: 1.2rem;
+
+    strong {
+      font-weight: 500;
     }
   }
 }

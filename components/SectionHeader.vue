@@ -46,7 +46,7 @@ export default {
 
   span {
     display: inline-block;
-    transform: translateY(40%);
+    transform: translateY(30%);
   }
 }
 </style>
