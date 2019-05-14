@@ -6,22 +6,26 @@
       color="secondary"
     />
     <filter-bar :items="filters"/>
-    <div class="grid-container mt-4">
-      <div class="grid-item">
+    <div class="wrapping-flex-tiles">
+      <div class="flex-tile">
         <person-tile/>
       </div>
-      <div class="grid-item">
+      <div class="flex-tile">
         <person-tile/>
       </div>
-      <div class="grid-item">
+      <div class="flex-tile">
         <person-tile/>
       </div>
-      <div class="grid-item">
+      <div class="flex-tile">
         <person-tile/>
       </div>
-      <div class="grid-item">
+      <div class="flex-tile">
         <person-tile/>
       </div>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
     </div>
   </div>
 </template>
@@ -61,12 +65,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.grid-container {
-  display: grid;
-  grid-gap: 1.75rem;
-
-  @include media-breakpoint-up(sm) {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  }
+.wrapping-flex-tiles {
+  @include wrapping-flex-tiles($width: 260px);
 }
 </style>

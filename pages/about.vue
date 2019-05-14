@@ -57,47 +57,67 @@
         <box-link/>
       </div>
     </div>
-    <div class="row my-4"/>
+    <div class="row my-3"/>
     <div class="row">
       <div class="col-12">
         <section-header text="Radi sodelujemo z ..."/>
       </div>
     </div>
-    <div class="grid-container logos">
-      <div class="grid-item">
+    <div class="wrapping-flex-tiles logos">
+      <div class="flex-tile">
         <logo-box/>
       </div>
-      <div class="grid-item">
+      <div class="flex-tile">
         <logo-box/>
       </div>
-      <div class="grid-item">
+      <div class="flex-tile">
         <logo-box/>
       </div>
-      <div class="grid-item">
+      <div class="flex-tile">
         <logo-box/>
       </div>
-      <div class="grid-item">
+      <div class="flex-tile">
         <logo-box/>
       </div>
+      <div class="flex-tile">
+        <logo-box/>
+      </div>
+      <div class="flex-tile">
+        <logo-box/>
+      </div>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
     </div>
-    <div class="row my-4"/>
     <div class="row">
       <div class="col-12">
         <section-header text="Donorji"/>
       </div>
     </div>
-    <div class="grid-container logos">
-      <div class="grid-item">
+    <div class="wrapping-flex-tiles logos">
+      <div class="flex-tile">
         <logo-box/>
       </div>
-      <div class="grid-item">
+      <div class="flex-tile">
         <logo-box/>
       </div>
-      <div class="grid-item">
+      <div class="flex-tile">
         <logo-box/>
       </div>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
+      <div class="flex-tile"/>
     </div>
-    <div class="row my-4"/>
     <div class="row">
       <div class="col-12">
         <section-header text="Formalnosti"/>
@@ -243,14 +263,8 @@ export default {
   }
 }
 
-.grid-container {
-  display: grid;
-  grid-gap: 1rem;
-  margin-top: 1rem;
-
-  &.logos {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
+.wrapping-flex-tiles {
+  @include wrapping-flex-tiles($width: 150px, $gap: 1rem);
 }
 
 .formalities {
