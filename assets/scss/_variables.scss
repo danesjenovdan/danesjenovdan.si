@@ -26,7 +26,10 @@ $content-mobile-padding: 1.5rem;
     flex: 1 0 $width;
     margin-left: ($gap / 2);
     margin-right: ($gap / 2);
-    margin-bottom: $gap;
+
+    > * {
+      margin-bottom: $gap;
+    }
   }
 }
 

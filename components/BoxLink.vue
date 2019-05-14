@@ -6,7 +6,7 @@
         <span class="arrow">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="18 30 64 40"
+            viewBox="30 18 40 64"
             fill="currentColor"
           >
             <path

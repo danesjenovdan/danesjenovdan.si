@@ -13,8 +13,13 @@
     "sign-up": "Včlani se",
     "search": "Išči"
   },
+  "hello": "Zdravo",
+  "landing": {
+    "description": "TODO: landing.description"
+  },
   "projects": {
-    "description": "Živimo, kar delamo. Delamo, v kar verjamemo. Verjamemo, kar govorimo. Govorimo, kar nočete slišati. Slišite, ker vam znamo povedati. Povemo vam, ker je to naša dolžnost. Vaša dolžnost je, da poveste naprej."
+    "description": "Živimo, kar delamo. Delamo, v kar verjamemo. Verjamemo, kar govorimo. Govorimo, kar nočete slišati. Slišite, ker vam znamo povedati. Povemo vam, ker je to naša dolžnost. Vaša dolžnost je, da poveste naprej.",
+    "more": "več pozivov"
   },
   "agrument": {
     "description": "Dnevni odzivi, komentarji in pomisleki v 1000 znakih, v katerih gojimo divjo misel kiselkastega okusa. Vsi naši natipki so sveži, pripravljeni po lastni recepturi in ne vsebujejo €-jev. Agrument je kolektiven projekt uredništva s 15+ člani.",
@@ -23,10 +28,16 @@
       "deliver-it": "Želim, da mi sveže spisan agrument vsak delovni dan dostavite na mejl!",
       "email-address": "e-naslov",
       "subscribe-action": "Naroči!"
-    }
+    },
+    "more": "več agrumentov"
   },
   "tools": {
-    "description": "TODO: tools.description"
+    "description": "TODO: tools.description",
+    "more": "več orodij"
+  },
+  "clipping": {
+    "description": "TODO: clipping.description",
+    "more": "več pojavljan"
   },
   "values": {
     "description": "Delovanje inštituta izhaja iz razumevanja demokracije kot nenehnega procesa, družbene pogodbe kot stalne in vključujoče razprave ter politične participacije kot odgovornosti za lastno opolnomočenje."
@@ -38,7 +49,7 @@
     "description": "TODO: about.description"
   },
   "videos": {
-    "description": "TODO: videos.description"
-  },
-  "welcome": "Pozdravljeni"
+    "description": "TODO: videos.description",
+    "more": "več videov"
+  }
 }
