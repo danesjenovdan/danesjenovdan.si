@@ -1,15 +1,39 @@
 <template>
   <div>
-    <div>{{ $t('welcome') }}</div>
+    <div class="row">
+      <div class="col-12">
+        <section-header text="Agrument" icon="keyboard"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <section-header text="Pojavljanja" icon="keyboard"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <section-header text="Akcije" color="secondary" icon="keyboard"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <section-header text="Videogalerija" color="warning" icon="keyboard"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <section-header text="Orodja" color="warning" icon="keyboard"/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// import Logo from '~/components/Logo.vue'
+import SectionHeader from '~/components/SectionHeader.vue';
 
 export default {
   components: {
-    // Logo
+    SectionHeader,
   },
 };
 </script>

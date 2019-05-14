@@ -1,0 +1,9 @@
+@function icon-keyboard($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/keyboard.svg'), '#000', '#{$color}'));
+}
+
+@each $color-name, $color in $theme-colors {
+  .icon-keyboard--#{$color-name} {
+    background-image: url(#{icon-keyboard($color)});
+  }
+}

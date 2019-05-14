@@ -1,4 +1,5 @@
-const pkg = require('./package');
+const pkg = require('./package.json');
+const scssCustomFunctions = require('./plugins/scss-functions');
 
 module.exports = {
   mode: 'universal',
@@ -112,6 +113,7 @@ module.exports = {
           sassLoader.options.data = `
             @import '~/assets/scss/_variables.scss';
           `;
+          sassLoader.options.functions = scssCustomFunctions;
         }
       });
     },

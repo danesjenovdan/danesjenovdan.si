@@ -1,5 +1,6 @@
 <template>
-  <div class="section-header">
+  <div :class="['section-header', `section-header--${color}`]">
+    <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]"/>
     <span v-text="text"/>
   </div>
 </template>
@@ -10,6 +11,14 @@ export default {
     text: {
       type: String,
       required: true,
+    },
+    color: {
+      type: String,
+      default: 'primary',
+    },
+    icon: {
+      type: String,
+      default: null,
     },
   },
 };
@@ -44,9 +53,27 @@ export default {
     bottom: -0.4rem;
   }
 
+  .icon {
+    height: 1em;
+    width: 1em;
+    margin-right: 0.25rem;
+  }
+
   span {
     display: inline-block;
-    transform: translateY(30%);
+    vertical-align: bottom;
+    transform: translateY(35%);
+  }
+
+  @each $color-name, $color in $theme-colors {
+    &--#{$color-name} {
+      background-color: rgba($color, 0.15);
+
+      &::before,
+      &::after {
+        background-color: $color;
+      }
+    }
   }
 }
 </style>
