@@ -22,9 +22,9 @@
       <div class="project-tile__content">
         <h1 class="project-tile__title">Botri sovraštva</h1>
         <div class="project-tile__text">
-          <p
-            style="margin: 0px 0px 6px;"
-          >Kampanja, v kateri zahtevamo umik oglaševanja v medijih, ki razpihujejo sovraštvo. Ne zgolj politika, temveč tudi neodgovorna podjetja so kriva za zaskrbljujoče stanje v naši državi.</p>
+          <p>
+            Kampanja, v kateri zahtevamo umik oglaševanja v medijih, ki razpihujejo sovraštvo. Ne zgolj politika, temveč tudi neodgovorna podjetja so kriva za zaskrbljujoče stanje v naši državi.
+          </p>
         </div>
       </div>
     </a>
@@ -121,6 +121,10 @@ export default {};
         font-size: 1.5rem;
         font-weight: 200;
         line-height: 1.2;
+
+        p {
+          margin: 0 0 0.5rem;
+        }
       }
     }
   }
