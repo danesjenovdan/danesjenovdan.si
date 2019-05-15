@@ -9,6 +9,46 @@
         <section-header :text="$t('menu.agrument')" icon="keyboard"/>
       </div>
     </div>
+    <div>
+      <div class="wrapping-flex-tiles">
+        <div class="flex-tile">
+          <preview-tile
+            image="https://agrument.danesjenovdan.si/media/by_id/1411.jpg"
+            title="O arhitekurnem prekariatu"
+            byline="25. 3. 2019"
+            text="Študenti ljubljanske Fakultete za arhitekturo so v javnem pismu opozorili, da jih profesorji izkoriščajo. Ti poleg ..."
+          />
+        </div>
+        <div class="flex-tile">
+          <preview-tile
+            image="https://agrument.danesjenovdan.si/media/by_id/1411.jpg"
+            title="O arhitekurnem prekariatu"
+            byline="25. 3. 2019"
+            text="Študenti ljubljanske Fakultete za arhitekturo so v javnem pismu opozorili, da jih profesorji izkoriščajo. Ti poleg ..."
+          />
+        </div>
+        <div class="flex-tile">
+          <preview-tile
+            image="https://agrument.danesjenovdan.si/media/by_id/1411.jpg"
+            title="O arhitekurnem prekariatu"
+            byline="25. 3. 2019"
+            text="Študenti ljubljanske Fakultete za arhitekturo so v javnem pismu opozorili, da jih profesorji izkoriščajo. Ti poleg ..."
+          />
+        </div>
+        <div class="flex-tile">
+          <preview-tile
+            image="https://agrument.danesjenovdan.si/media/by_id/1411.jpg"
+            title="O arhitekurnem prekariatu"
+            byline="25. 3. 2019"
+            text="Študenti ljubljanske Fakultete za arhitekturo so v javnem pismu opozorili, da jih profesorji izkoriščajo. Ti poleg ..."
+          />
+        </div>
+        <div class="flex-tile"/>
+        <div class="flex-tile"/>
+        <div class="flex-tile"/>
+        <div class="flex-tile"/>
+      </div>
+    </div>
     <div class="d-flex justify-content-center">
       <more-button :to="localePath('agrument')" :text="$t('agrument.more')"/>
     </div>
@@ -71,6 +111,7 @@
 import PageTitle from '~/components/PageTitle.vue';
 import SectionHeader from '~/components/SectionHeader.vue';
 import ProjectTile from '~/components/ProjectTile.vue';
+import PreviewTile from '~/components/PreviewTile.vue';
 import MoreButton from '~/components/MoreButton.vue';
 
 export default {
@@ -78,6 +119,7 @@ export default {
     PageTitle,
     SectionHeader,
     ProjectTile,
+    PreviewTile,
     MoreButton,
   },
 };
