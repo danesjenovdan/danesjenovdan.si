@@ -57,6 +57,42 @@
         <section-header :text="$t('menu.clipping')" icon="keyboard"/>
       </div>
     </div>
+    <div>
+      <div class="wrapping-flex-tiles">
+        <div class="flex-tile">
+          <preview-tile
+            image="https://www.dnevnik.si/i/as/2019/03/17/1166962.jpg"
+            title="Filip Dobranić: Facebook je nevaren in škodljiv"
+            byline="Dnevnik, 25. 3. 2019"
+          />
+        </div>
+        <div class="flex-tile">
+          <preview-tile
+            image="https://www.dnevnik.si/i/as/2019/03/17/1166962.jpg"
+            title="Filip Dobranić: Facebook je nevaren in škodljiv"
+            byline="Dnevnik, 25. 3. 2019"
+          />
+        </div>
+        <div class="flex-tile">
+          <preview-tile
+            image="https://www.dnevnik.si/i/as/2019/03/17/1166962.jpg"
+            title="Filip Dobranić: Facebook je nevaren in škodljiv"
+            byline="Dnevnik, 25. 3. 2019"
+          />
+        </div>
+        <div class="flex-tile">
+          <preview-tile
+            image="https://www.dnevnik.si/i/as/2019/03/17/1166962.jpg"
+            title="Filip Dobranić: Facebook je nevaren in škodljiv"
+            byline="Dnevnik, 25. 3. 2019"
+          />
+        </div>
+        <div class="flex-tile"/>
+        <div class="flex-tile"/>
+        <div class="flex-tile"/>
+        <div class="flex-tile"/>
+      </div>
+    </div>
     <div class="d-flex justify-content-center">
       <more-button :to="localePath('clipping')" :text="$t('clipping.more')"/>
     </div>
@@ -91,6 +127,46 @@
     <div class="row">
       <div class="col-12">
         <section-header :text="$t('menu.videos')" color="warning" icon="keyboard"/>
+      </div>
+    </div>
+    <div>
+      <div class="wrapping-flex-tiles">
+        <div class="flex-tile">
+          <preview-tile
+            color="warning"
+            image="https://i1.ytimg.com/vi/JzpF6KJErpU/hqdefault.jpg"
+            title="Evropa potrebuje dobro reformo avtorskega prava"
+            byline="25. 3. 2019"
+          />
+        </div>
+        <div class="flex-tile">
+          <preview-tile
+            color="warning"
+            image="https://i1.ytimg.com/vi/JzpF6KJErpU/hqdefault.jpg"
+            title="Evropa potrebuje dobro reformo avtorskega prava"
+            byline="25. 3. 2019"
+          />
+        </div>
+        <div class="flex-tile">
+          <preview-tile
+            color="warning"
+            image="https://i1.ytimg.com/vi/JzpF6KJErpU/hqdefault.jpg"
+            title="Evropa potrebuje dobro reformo avtorskega prava"
+            byline="25. 3. 2019"
+          />
+        </div>
+        <div class="flex-tile">
+          <preview-tile
+            color="warning"
+            image="https://i1.ytimg.com/vi/JzpF6KJErpU/hqdefault.jpg"
+            title="Evropa potrebuje dobro reformo avtorskega prava"
+            byline="25. 3. 2019"
+          />
+        </div>
+        <div class="flex-tile"/>
+        <div class="flex-tile"/>
+        <div class="flex-tile"/>
+        <div class="flex-tile"/>
       </div>
     </div>
     <div class="d-flex justify-content-center">
