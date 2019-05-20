@@ -32,7 +32,7 @@ export default {
   font-size: 1.2rem;
   font-style: italic;
   font-weight: 600;
-  color: #333;
+  color: inherit;
   text-decoration: none;
 
   .icon {

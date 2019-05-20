@@ -39,7 +39,7 @@ export default {};
 .project-tile {
   .project-tile__link {
     text-decoration: none;
-    color: #333;
+    color: inherit;
 
     &:hover {
       .project-tile__image {

@@ -100,7 +100,7 @@ ul {
     font-size: 1.85rem;
     font-weight: 300;
     text-transform: uppercase;
-    color: #333;
+    color: inherit;
     margin: 1.5rem 0;
 
     &:first-child {

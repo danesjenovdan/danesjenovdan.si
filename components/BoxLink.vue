@@ -31,7 +31,7 @@
   padding-top: 90%;
   position: relative;
   margin-bottom: 2.5rem;
-  color: #333;
+  color: inherit;
 
   @include media-breakpoint-up(md) {
     padding-top: 70%;

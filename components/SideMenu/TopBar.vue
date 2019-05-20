@@ -144,7 +144,7 @@ export default {
       margin-right: 1rem;
 
       .btn {
-        color: #333;
+        color: inherit;
         padding: 0;
 
         svg {

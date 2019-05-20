@@ -63,7 +63,7 @@ export default {
 .preview-tile {
   .preview-tile__link {
     text-decoration: none;
-    color: #333;
+    color: inherit;
 
     &:hover {
       .preview-tile__image {
