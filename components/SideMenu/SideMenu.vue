@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import NavLogo from './NavLogo';
-import NavMenu from './NavMenu';
+import NavLogo from './NavLogo.vue';
+import NavMenu from './NavMenu.vue';
 
 export default {
   name: 'SideMenu',

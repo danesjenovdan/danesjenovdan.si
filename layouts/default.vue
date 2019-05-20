@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import SideMenu from '~/components/SideMenu/SideMenu';
-import TopBar from '~/components/SideMenu/TopBar';
-import PageFooter from '~/components/PageFooter/PageFooter';
+import SideMenu from '~/components/SideMenu/SideMenu.vue';
+import TopBar from '~/components/SideMenu/TopBar.vue';
+import PageFooter from '~/components/PageFooter/PageFooter.vue';
 
 export default {
   components: {

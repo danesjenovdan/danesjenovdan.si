@@ -1,3 +1,4 @@
+const path = require('path');
 const INLINE_ELEMENTS = require('eslint-plugin-vue/lib/utils/inline-non-void-elements.json');
 
 module.exports = {
@@ -48,5 +49,13 @@ module.exports = {
         svg: 'any',
       },
     ],
+    'import/no-unresolved': ['error']
+  },
+  settings: {
+    'import/resolver': {
+      alias: [
+        ['~', `${path.resolve(__dirname)}/`],
+      ],
+    },
   },
 };
