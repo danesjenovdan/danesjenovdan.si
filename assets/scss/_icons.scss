@@ -14,6 +14,14 @@
   @return encode-svg(str-replace(fs-readFile('static/icons/twitter.svg'), '#000', '#{$color}'));
 }
 
+@function icon-youtube($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/youtube.svg'), '#000', '#{$color}'));
+}
+
+@function icon-vimeo($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/vimeo.svg'), '#000', '#{$color}'));
+}
+
 .icon {
   background-repeat: no-repeat;
   background-position: center;
@@ -35,5 +43,13 @@
 
   .icon-twitter--#{$color-name} {
     background-image: url(#{icon-twitter($color)});
+  }
+
+  .icon-youtube--#{$color-name} {
+    background-image: url(#{icon-youtube($color)});
+  }
+
+  .icon-vimeo--#{$color-name} {
+    background-image: url(#{icon-vimeo($color)});
   }
 }

@@ -189,7 +189,7 @@
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
         <social-media-bar
-          color="secondary"
+          color="warning"
           :text="$t('videos.social-bar.follow-us')"
           :icons="[
             { icon: 'youtube', url: 'https://youtube.com/danesjenovdan' },
