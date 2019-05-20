@@ -57,5 +57,11 @@
     "social-bar": {
       "follow-us": "Sledi nam na Youtubu in Vimeo!"
     }
+  },
+  "shop": {
+    "promo-bar": {
+      "support-us": "Podpri naše delovanje!",
+      "button-text": "Preveri naš šop!"
+    }
   }
 }

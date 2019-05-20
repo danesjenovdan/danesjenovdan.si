@@ -206,6 +206,11 @@
     <div class="d-flex justify-content-center">
       <more-button :to="localePath('tools')" :text="$t('tools.more')" color="warning"/>
     </div>
+    <div class="row mobile-no-gap">
+      <div class="col-12 my-5">
+        <shop-bar/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -218,6 +223,7 @@ import PreviewTile from '~/components/PreviewTile.vue';
 import MoreButton from '~/components/MoreButton.vue';
 import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
 import SocialMediaBar from '~/components/SocialMediaBar.vue';
+import ShopBar from '~/components/ShopBar.vue';
 
 export default {
   components: {
@@ -229,6 +235,7 @@ export default {
     MoreButton,
     AgrumentSubscribeBar,
     SocialMediaBar,
+    ShopBar,
   },
 };
 </script>
