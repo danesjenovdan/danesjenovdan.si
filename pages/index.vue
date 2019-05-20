@@ -55,6 +55,11 @@
     <div class="d-flex justify-content-center">
       <more-button :to="localePath('agrument')" :text="$t('agrument.more')"/>
     </div>
+    <div class="row mobile-no-gap">
+      <div class="col-12 my-5">
+        <agrument-subscribe-bar/>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12">
         <section-header :text="$t('menu.clipping')" icon="keyboard"/>
@@ -126,7 +131,13 @@
         <section-header :text="$t('menu.videos')" color="warning" icon="keyboard"/>
       </div>
     </div>
-    <div>
+    <div class="mt-4">
+      <promoted-tile
+        color="warning"
+        image="https://i1.ytimg.com/vi/JzpF6KJErpU/hqdefault.jpg"
+        title="Evropa potrebuje dobro reformo avtorskega prava"
+        byline="25. 3. 2019"
+      />
       <div class="wrapping-flex-tiles">
         <div class="flex-tile">
           <preview-tile
@@ -184,6 +195,7 @@ import ProjectTile from '~/components/ProjectTile.vue';
 import PromotedTile from '~/components/PromotedTile.vue';
 import PreviewTile from '~/components/PreviewTile.vue';
 import MoreButton from '~/components/MoreButton.vue';
+import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
 
 export default {
   components: {
@@ -193,6 +205,7 @@ export default {
     PromotedTile,
     PreviewTile,
     MoreButton,
+    AgrumentSubscribeBar,
   },
 };
 </script>

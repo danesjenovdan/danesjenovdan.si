@@ -25,3 +25,16 @@ button:focus {
     border: 1px solid $color-green;
   }
 }
+
+.mobile-no-gap {
+  @include media-breakpoint-down(sm) {
+    margin-left: -$content-mobile-padding;
+    margin-right: -$content-mobile-padding;
+
+    > .col,
+    > [class^='col-'],
+    > [class*=' col'] {
+      padding: 0;
+    }
+  }
+}

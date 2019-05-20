@@ -18,7 +18,7 @@ $content-mobile-padding: 1.5rem;
 @mixin wrapping-flex-tiles($width: 320px, $gap: 1.75rem) {
   display: flex;
   flex-wrap: wrap;
-  margin-top: $gap;
+  margin-top: 1.5rem;
   margin-left: -($gap / 2);
   margin-right: -($gap / 2);
 
