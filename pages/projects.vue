@@ -22,10 +22,7 @@
       <div class="flex-tile">
         <project-tile/>
       </div>
-      <div class="flex-tile"/>
-      <div class="flex-tile"/>
-      <div class="flex-tile"/>
-      <div class="flex-tile"/>
+      <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
     </div>
   </div>
 </template>

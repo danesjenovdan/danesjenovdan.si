@@ -43,10 +43,7 @@
             text="Študenti ljubljanske Fakultete za arhitekturo so v javnem pismu opozorili, da jih profesorji izkoriščajo. Ti poleg ..."
           />
         </div>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
       </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -87,10 +84,7 @@
             byline="Dnevnik, 25. 3. 2019"
           />
         </div>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
       </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -115,10 +109,7 @@
         <div class="flex-tile">
           <project-tile/>
         </div>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
       </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -163,10 +154,7 @@
             byline="25. 3. 2019"
           />
         </div>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
-        <div class="flex-tile"/>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
       </div>
     </div>
     <div class="d-flex justify-content-center">

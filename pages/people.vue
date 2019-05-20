@@ -22,10 +22,7 @@
       <div class="flex-tile">
         <person-tile/>
       </div>
-      <div class="flex-tile"/>
-      <div class="flex-tile"/>
-      <div class="flex-tile"/>
-      <div class="flex-tile"/>
+      <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
     </div>
     <div class="row justify-content-center">
       <div class="col volunteer">
