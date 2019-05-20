@@ -1,9 +1,6 @@
 <template>
   <div>
-    <page-title
-      :title="$t('hello')"
-      :text="$t('landing.description')"
-    />
+    <page-title :title="$t('hello')" :text="$t('landing.description')"/>
     <div class="row">
       <div class="col-12">
         <section-header :text="$t('menu.agrument')" icon="keyboard"/>
@@ -126,6 +123,18 @@
     <div class="d-flex justify-content-center">
       <more-button :to="localePath('projects')" :text="$t('projects.more')" color="secondary"/>
     </div>
+    <div class="row mobile-no-gap">
+      <div class="col-12 my-5">
+        <social-media-bar
+          color="secondary"
+          :text="$t('projects.social-bar.follow-us')"
+          :icons="[
+            { icon: 'facebook', url: 'https://facebook.com/danesjenovdan' },
+            { icon: 'twitter', url: 'https://twitter.com/danesjenovdan' },
+          ]"
+        />
+      </div>
+    </div>
     <div class="row">
       <div class="col-12">
         <section-header :text="$t('menu.videos')" color="warning" icon="keyboard"/>
@@ -177,6 +186,18 @@
     <div class="d-flex justify-content-center">
       <more-button :to="localePath('videos')" :text="$t('videos.more')" color="warning"/>
     </div>
+    <div class="row mobile-no-gap">
+      <div class="col-12 my-5">
+        <social-media-bar
+          color="secondary"
+          :text="$t('videos.social-bar.follow-us')"
+          :icons="[
+            { icon: 'youtube', url: 'https://youtube.com/danesjenovdan' },
+            { icon: 'vimeo', url: 'https://vimeo.com/danesjenovdan' },
+          ]"
+        />
+      </div>
+    </div>
     <div class="row">
       <div class="col-12">
         <section-header :text="$t('menu.tools')" color="warning" icon="keyboard"/>
@@ -196,6 +217,7 @@ import PromotedTile from '~/components/PromotedTile.vue';
 import PreviewTile from '~/components/PreviewTile.vue';
 import MoreButton from '~/components/MoreButton.vue';
 import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
+import SocialMediaBar from '~/components/SocialMediaBar.vue';
 
 export default {
   components: {
@@ -206,6 +228,7 @@ export default {
     PreviewTile,
     MoreButton,
     AgrumentSubscribeBar,
+    SocialMediaBar,
   },
 };
 </script>

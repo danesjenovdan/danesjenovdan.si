@@ -19,7 +19,10 @@
   },
   "projects": {
     "description": "Živimo, kar delamo. Delamo, v kar verjamemo. Verjamemo, kar govorimo. Govorimo, kar nočete slišati. Slišite, ker vam znamo povedati. Povemo vam, ker je to naša dolžnost. Vaša dolžnost je, da poveste naprej.",
-    "more": "več pozivov"
+    "more": "več pozivov",
+    "social-bar": {
+      "follow-us": "Pofollowaj nas, da ti takšne akcije nikoli več ne uidejo!"
+    }
   },
   "agrument": {
     "description": "Dnevni odzivi, komentarji in pomisleki v 1000 znakih, v katerih gojimo divjo misel kiselkastega okusa. Vsi naši natipki so sveži, pripravljeni po lastni recepturi in ne vsebujejo €-jev. Agrument je kolektiven projekt uredništva s 15+ člani.",
@@ -50,6 +53,9 @@
   },
   "videos": {
     "description": "TODO: videos.description",
-    "more": "več videov"
+    "more": "več videov",
+    "social-bar": {
+      "follow-us": "Sledi nam na Youtubu in Vimeo!"
+    }
   }
 }
