@@ -1,6 +1,6 @@
 <template>
   <div :class="['promoted-tile', `promoted-tile--${color}`]">
-    <a href="#" target="_blank" class="promoted-tile__link">
+    <a :href="url" target="_blank" rel="noopener noreferrer" class="promoted-tile__link">
       <div class="row">
         <div class="col-xl-7">
           <div class="promoted-tile__image">
@@ -62,6 +62,10 @@ export default {
     text: {
       type: String,
       default: null,
+    },
+    url: {
+      type: String,
+      required: true,
     },
   },
 };

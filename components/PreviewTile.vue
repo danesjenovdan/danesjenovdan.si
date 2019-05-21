@@ -1,6 +1,6 @@
 <template>
   <div :class="['preview-tile', `preview-tile--${color}`]">
-    <a href="#" target="_blank" class="preview-tile__link">
+    <a :href="url" target="_blank" rel="noopener noreferrer" class="preview-tile__link">
       <div class="embed-responsive embed-responsive-1200by630">
         <div class="embed-responsive-item d-flex align-items-center">
           <div
@@ -54,6 +54,10 @@ export default {
     text: {
       type: String,
       default: null,
+    },
+    url: {
+      type: String,
+      required: true,
     },
   },
 };

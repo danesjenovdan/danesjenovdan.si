@@ -12,6 +12,7 @@
         :title="agrumentPosts[0].title"
         :byline="toSloDate(agrumentPosts[0].datetime)"
         :text="agrumentPosts[0].description"
+        :url="agrumentPosts[0].url"
       />
       <div class="wrapping-flex-tiles">
         <div
@@ -24,6 +25,7 @@
             :title="agrumentPost.title"
             :byline="toSloDate(agrumentPost.datetime)"
             :text="agrumentPost.description"
+            :url="agrumentPost.url"
           />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
@@ -43,33 +45,13 @@
       </div>
     </div>
     <div>
-      <div class="wrapping-flex-tiles">
-        <div class="flex-tile">
+      <div v-if="clippings && clippings.length" class="wrapping-flex-tiles">
+        <div v-for="clip in clippings.slice(0, 4)" :key="`${clip.order}`" class="flex-tile">
           <preview-tile
-            image="https://www.dnevnik.si/i/as/2019/03/17/1166962.jpg"
-            title="Filip Dobranić: Facebook je nevaren in škodljiv"
-            byline="Dnevnik, 25. 3. 2019"
-          />
-        </div>
-        <div class="flex-tile">
-          <preview-tile
-            image="https://www.dnevnik.si/i/as/2019/03/17/1166962.jpg"
-            title="Filip Dobranić: Facebook je nevaren in škodljiv"
-            byline="Dnevnik, 25. 3. 2019"
-          />
-        </div>
-        <div class="flex-tile">
-          <preview-tile
-            image="https://www.dnevnik.si/i/as/2019/03/17/1166962.jpg"
-            title="Filip Dobranić: Facebook je nevaren in škodljiv"
-            byline="Dnevnik, 25. 3. 2019"
-          />
-        </div>
-        <div class="flex-tile">
-          <preview-tile
-            image="https://www.dnevnik.si/i/as/2019/03/17/1166962.jpg"
-            title="Filip Dobranić: Facebook je nevaren in škodljiv"
-            byline="Dnevnik, 25. 3. 2019"
+            :image="clip.image"
+            :title="clip.title"
+            :byline="`${clip.publisher}, ${toSloDate(clip.date)}`"
+            :url="clip.url"
           />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
@@ -84,18 +66,15 @@
       </div>
     </div>
     <div>
-      <div class="wrapping-flex-tiles">
-        <div class="flex-tile">
-          <project-tile/>
-        </div>
-        <div class="flex-tile">
-          <project-tile/>
-        </div>
-        <div class="flex-tile">
-          <project-tile/>
-        </div>
-        <div class="flex-tile">
-          <project-tile/>
+      <div v-if="projects && projects.length" class="wrapping-flex-tiles">
+        <div v-for="project in projects.slice(0, 4)" :key="`${project.order}`" class="flex-tile">
+          <project-tile
+            :image="project.image"
+            :title="project.title"
+            :byline="toSloDate(project.date)"
+            :text="project.desc"
+            :url="project.url"
+          />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
       </div>
@@ -120,44 +99,24 @@
         <section-header :text="$t('menu.videos')" color="warning" icon="keyboard"/>
       </div>
     </div>
-    <div class="mt-4">
+    <div v-if="videos && videos.length" class="mt-4">
       <promoted-tile
         color="warning"
-        image="https://i1.ytimg.com/vi/JzpF6KJErpU/hqdefault.jpg"
-        title="Evropa potrebuje dobro reformo avtorskega prava"
-        byline="25. 3. 2019"
+        :image="videos[0].image"
+        :title="videos[0].title"
+        :byline="toSloDate(videos[0].date)"
+        :text="videos[0].desc"
+        :url="videos[0].url"
       />
       <div class="wrapping-flex-tiles">
-        <div class="flex-tile">
+        <div v-for="video in videos.slice(1, 5)" :key="`${video.order}`" class="flex-tile">
           <preview-tile
             color="warning"
-            image="https://i1.ytimg.com/vi/JzpF6KJErpU/hqdefault.jpg"
-            title="Evropa potrebuje dobro reformo avtorskega prava"
-            byline="25. 3. 2019"
-          />
-        </div>
-        <div class="flex-tile">
-          <preview-tile
-            color="warning"
-            image="https://i1.ytimg.com/vi/JzpF6KJErpU/hqdefault.jpg"
-            title="Evropa potrebuje dobro reformo avtorskega prava"
-            byline="25. 3. 2019"
-          />
-        </div>
-        <div class="flex-tile">
-          <preview-tile
-            color="warning"
-            image="https://i1.ytimg.com/vi/JzpF6KJErpU/hqdefault.jpg"
-            title="Evropa potrebuje dobro reformo avtorskega prava"
-            byline="25. 3. 2019"
-          />
-        </div>
-        <div class="flex-tile">
-          <preview-tile
-            color="warning"
-            image="https://i1.ytimg.com/vi/JzpF6KJErpU/hqdefault.jpg"
-            title="Evropa potrebuje dobro reformo avtorskega prava"
-            byline="25. 3. 2019"
+            :image="video.image"
+            :title="video.title"
+            :byline="toSloDate(video.date)"
+            :text="video.desc"
+            :url="video.url"
           />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
@@ -218,17 +177,32 @@ export default {
     ShopBar,
   },
   async asyncData({ $axios, params, error }) {
-    const agrumentResponse = await $axios.$get(
-      'https://agrument.danesjenovdan.si/api/v2/posts?limit=5',
-    );
-    const agrumentPosts = [...agrumentResponse.data];
+    // TODO: infopush
+    const [
+      agrumentResponse,
+      clippingsResponse,
+      projectsResponse,
+      videosResponse,
+    ] = await Promise.all([
+      $axios.$get('https://agrument.danesjenovdan.si/api/v2/posts?limit=5'),
+      $axios.$get('https://djnapi.djnd.si/djnd.si/clips/'),
+      $axios.$get('https://djnapi.djnd.si/djnd.si/projects/'),
+      $axios.$get('https://djnapi.djnd.si/djnd.si/videos/'),
+    ]);
+    const agrumentPosts = agrumentResponse.data;
+    const clippings = clippingsResponse.results;
+    const projects = projectsResponse.results;
+    const videos = videosResponse.results;
     return {
       agrumentPosts,
+      clippings,
+      projects,
+      videos,
     };
   },
   methods: {
     toSloDate(isoTime) {
-      return isoTime
+      return String(isoTime)
         .split('T')[0]
         .split('-')
         .reverse()
