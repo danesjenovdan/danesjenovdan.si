@@ -41,7 +41,7 @@
               <label for="share-link">
                 <em>Skopiraj povezavo!</em>
               </label>
-              <ShortLinkInput :value="`https://agrument.danesjenovdan.si/${urlDate}`"/>
+              <ShortLinkInput :value="post.url"/>
             </div>
           </form>
         </div>
@@ -73,12 +73,6 @@ export default {
         .split('-')
         .reverse()
         .join('. ');
-    },
-    urlDate() {
-      return this.isoDate
-        .split('-')
-        .reverse()
-        .join('.');
     },
   },
 };

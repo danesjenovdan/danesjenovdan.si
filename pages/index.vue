@@ -6,44 +6,24 @@
         <section-header :text="$t('menu.agrument')" icon="keyboard"/>
       </div>
     </div>
-    <div class="mt-4">
+    <div v-if="agrumentPosts && agrumentPosts.length" class="mt-4">
       <promoted-tile
-        image="https://agrument.danesjenovdan.si/media/by_id/1411.jpg"
-        title="O arhitekurnem prekariatu"
-        byline="25. 3. 2019"
-        text="Študenti ljubljanske Fakultete za arhitekturo so v javnem pismu opozorili, da jih profesorji izkoriščajo. Ti poleg ..."
+        :image="agrumentPosts[0].image_url"
+        :title="agrumentPosts[0].title"
+        :byline="toSloDate(agrumentPosts[0].datetime)"
+        :text="agrumentPosts[0].description"
       />
       <div class="wrapping-flex-tiles">
-        <div class="flex-tile">
+        <div
+          v-for="agrumentPost in agrumentPosts.slice(1)"
+          :key="`${agrumentPost.id}`"
+          class="flex-tile"
+        >
           <preview-tile
-            image="https://agrument.danesjenovdan.si/media/by_id/1411.jpg"
-            title="O arhitekurnem prekariatu"
-            byline="25. 3. 2019"
-            text="Študenti ljubljanske Fakultete za arhitekturo so v javnem pismu opozorili, da jih profesorji izkoriščajo. Ti poleg ..."
-          />
-        </div>
-        <div class="flex-tile">
-          <preview-tile
-            image="https://agrument.danesjenovdan.si/media/by_id/1411.jpg"
-            title="O arhitekurnem prekariatu"
-            byline="25. 3. 2019"
-            text="Študenti ljubljanske Fakultete za arhitekturo so v javnem pismu opozorili, da jih profesorji izkoriščajo. Ti poleg ..."
-          />
-        </div>
-        <div class="flex-tile">
-          <preview-tile
-            image="https://agrument.danesjenovdan.si/media/by_id/1411.jpg"
-            title="O arhitekurnem prekariatu"
-            byline="25. 3. 2019"
-            text="Študenti ljubljanske Fakultete za arhitekturo so v javnem pismu opozorili, da jih profesorji izkoriščajo. Ti poleg ..."
-          />
-        </div>
-        <div class="flex-tile">
-          <preview-tile
-            image="https://agrument.danesjenovdan.si/media/by_id/1411.jpg"
-            title="O arhitekurnem prekariatu"
-            byline="25. 3. 2019"
-            text="Študenti ljubljanske Fakultete za arhitekturo so v javnem pismu opozorili, da jih profesorji izkoriščajo. Ti poleg ..."
+            :image="agrumentPost.image_url"
+            :title="agrumentPost.title"
+            :byline="toSloDate(agrumentPost.datetime)"
+            :text="agrumentPost.description"
           />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
@@ -236,6 +216,24 @@ export default {
     AgrumentSubscribeBar,
     SocialMediaBar,
     ShopBar,
+  },
+  async asyncData({ $axios, params, error }) {
+    const agrumentResponse = await $axios.$get(
+      'https://agrument.danesjenovdan.si/api/v2/posts?limit=5',
+    );
+    const agrumentPosts = [...agrumentResponse.data];
+    return {
+      agrumentPosts,
+    };
+  },
+  methods: {
+    toSloDate(isoTime) {
+      return isoTime
+        .split('T')[0]
+        .split('-')
+        .reverse()
+        .join('. ');
+    },
   },
 };
 </script>
