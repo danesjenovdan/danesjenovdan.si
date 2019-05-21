@@ -142,6 +142,32 @@
         <section-header :text="$t('menu.tools')" color="warning" icon="keyboard"/>
       </div>
     </div>
+    <div>
+      <div class="wrapping-flex-tiles">
+        <div class="flex-tile">
+          <tool-preview-tile
+            icon="tool-parlameter"
+            :title="$t('tools.parlameter.title')"
+            :text="$t('tools.parlameter.short_description')"
+          />
+        </div>
+        <div class="flex-tile">
+          <tool-preview-tile
+            icon="tool-commentality"
+            :title="$t('tools.commentality.title')"
+            :text="$t('tools.commentality.short_description')"
+          />
+        </div>
+        <div class="flex-tile">
+          <tool-preview-tile
+            icon="tool-consul"
+            :title="$t('tools.consul.title')"
+            :text="$t('tools.consul.short_description')"
+          />
+        </div>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
+      </div>
+    </div>
     <div class="d-flex justify-content-center">
       <more-button :to="localePath('tools')" :text="$t('tools.more')" color="warning"/>
     </div>
@@ -159,6 +185,7 @@ import SectionHeader from '~/components/SectionHeader.vue';
 import ProjectTile from '~/components/ProjectTile.vue';
 import PromotedTile from '~/components/PromotedTile.vue';
 import PreviewTile from '~/components/PreviewTile.vue';
+import ToolPreviewTile from '~/components/ToolPreviewTile.vue';
 import MoreButton from '~/components/MoreButton.vue';
 import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
 import SocialMediaBar from '~/components/SocialMediaBar.vue';
@@ -171,6 +198,7 @@ export default {
     ProjectTile,
     PromotedTile,
     PreviewTile,
+    ToolPreviewTile,
     MoreButton,
     AgrumentSubscribeBar,
     SocialMediaBar,

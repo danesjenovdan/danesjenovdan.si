@@ -23,6 +23,7 @@ $content-mobile-padding: 1.5rem;
   margin-right: -($gap / 2);
 
   > div {
+    display: flex;
     flex: 1 0 $width;
     margin-left: ($gap / 2);
     margin-right: ($gap / 2);

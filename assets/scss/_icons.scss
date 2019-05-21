@@ -22,6 +22,18 @@
   @return encode-svg(str-replace(fs-readFile('static/icons/vimeo.svg'), '#000', '#{$color}'));
 }
 
+@function icon-tool-parlameter($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/tool-parlameter.svg'), '#000', '#{$color}'));
+}
+
+@function icon-tool-commentality($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/tool-commentality.svg'), '#000', '#{$color}'));
+}
+
+@function icon-tool-consul($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/tool-consul.svg'), '#000', '#{$color}'));
+}
+
 .icon {
   background-repeat: no-repeat;
   background-position: center;
@@ -51,5 +63,17 @@
 
   .icon-vimeo--#{$color-name} {
     background-image: url(#{icon-vimeo($color)});
+  }
+
+  .icon-tool-parlameter--#{$color-name} {
+    background-image: url(#{icon-tool-parlameter($color)});
+  }
+
+  .icon-tool-commentality--#{$color-name} {
+    background-image: url(#{icon-tool-commentality($color)});
+  }
+
+  .icon-tool-consul--#{$color-name} {
+    background-image: url(#{icon-tool-consul($color)});
   }
 }

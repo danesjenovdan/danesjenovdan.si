@@ -36,7 +36,19 @@
   },
   "tools": {
     "description": "TODO: tools.description",
-    "more": "več orodij"
+    "more": "več orodij",
+    "parlameter": {
+      "title": "Parlameter",
+      "short_description": "A complete solution for any organization aiming for full transparency and digitalization of sessions."
+    },
+    "commentality": {
+      "title": "Commentality",
+      "short_description": "Consensus driven commenting system for a civil internet debate."
+    },
+    "consul": {
+      "title": "Consul",
+      "short_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut."
+    }
   },
   "clipping": {
     "description": "TODO: clipping.description",
