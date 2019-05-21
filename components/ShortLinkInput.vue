@@ -3,18 +3,7 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 const SHORTENER_URL = 'https://djnd.si/yomamasofat/';
-
-function fetchShortUrl(url) {
-  return axios({
-    method: 'POST',
-    headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    data: `fatmama=${encodeURIComponent(url)}`,
-    url: SHORTENER_URL,
-  });
-}
 
 export default {
   name: 'ShortLinkInput',
@@ -35,7 +24,7 @@ export default {
     },
   },
   mounted() {
-    fetchShortUrl(this.value)
+    this.fetchShortUrl(this.value)
       .then(res => {
         this.shortLink = res.data;
       })
@@ -43,6 +32,16 @@ export default {
         // eslint-disable-next-line no-console
         console.error('Error shortening link:', error);
       });
+  },
+  methods: {
+    fetchShortUrl(url) {
+      return this.$axios({
+        method: 'POST',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        data: `fatmama=${encodeURIComponent(url)}`,
+        url: SHORTENER_URL,
+      });
+    },
   },
 };
 </script>

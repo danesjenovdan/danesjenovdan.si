@@ -18,7 +18,6 @@
 
 <script>
 import { uniqBy } from 'lodash';
-import axios from 'axios';
 import PageTitle from '~/components/PageTitle.vue';
 import AgrumentArticle from '~/components/AgrumentArticle.vue';
 // import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
@@ -32,12 +31,12 @@ export default {
   data() {
     return {};
   },
-  async asyncData({ params, error }) {
-    const latestPosts = await axios
-      .get(`https://agrument.danesjenovdan.si/api/v2/posts?limit=5`)
-      .then(res => res.data);
-    const posts = [...latestPosts.data];
-    const nextPageLink = latestPosts.links.next;
+  async asyncData({ $axios, params, error }) {
+    const agrumentResponse = await $axios.$get(
+      'https://agrument.danesjenovdan.si/api/v2/posts?limit=5',
+    );
+    const posts = [...agrumentResponse.data];
+    const nextPageLink = agrumentResponse.links.next;
     return {
       posts,
       nextPageLink,
@@ -46,7 +45,7 @@ export default {
   methods: {
     async fetchNextPage() {
       if (this.nextPageLink) {
-        const nextPosts = await axios.get(this.nextPageLink).then(res => res.data);
+        const nextPosts = await this.$axios.$get(this.nextPageLink);
         this.posts = uniqBy([...this.posts, ...nextPosts.data], 'id');
         this.nextPageLink = nextPosts.links.next;
       }

@@ -49,13 +49,19 @@ module.exports = {
         svg: 'any',
       },
     ],
-    'import/no-unresolved': ['error']
+    'import/no-unresolved': ['error'],
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: true, optionalDependencies: false, peerDependencies: false },
+    ],
+    quotes: ['error', 'single', { avoidEscape: true }],
   },
   settings: {
     'import/resolver': {
-      alias: [
-        ['~', `${path.resolve(__dirname)}/`],
-      ],
+      alias: [['~', `${path.resolve(__dirname)}/`]],
     },
+    // stop warnings about vue not being in the dependencies list since nuxt
+    // will always have a version available in it's own dependency tree
+    'import/core-modules': ['vue'],
   },
 };
