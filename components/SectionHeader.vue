@@ -1,13 +1,21 @@
 <template>
-  <div :class="['section-header', `section-header--${color}`]">
+  <component
+    :is="to ? 'nuxt-link' : 'div'"
+    :to="to"
+    :class="['section-header', `section-header--${color}`]"
+  >
     <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]"/>
     <span v-text="text"/>
-  </div>
+  </component>
 </template>
 
 <script>
 export default {
   props: {
+    to: {
+      type: String,
+      default: null,
+    },
     text: {
       type: String,
       required: true,
@@ -35,6 +43,8 @@ export default {
   padding: 0.5rem 1.5rem;
   position: relative;
   margin: 1rem 0;
+  text-decoration: none;
+  color: inherit;
 
   &::before,
   &::after {
@@ -46,6 +56,7 @@ export default {
     background-color: $color-green;
     width: 100%;
     height: 1px;
+    transition: all 0.15s ease;
   }
 
   &::after {
@@ -63,6 +74,7 @@ export default {
     display: inline-block;
     vertical-align: bottom;
     transform: translateY(35%);
+    transition: all 0.15s ease;
   }
 
   @each $color-name, $color in $theme-colors {
@@ -74,6 +86,23 @@ export default {
         background-color: $color;
       }
     }
+  }
+}
+
+a.section-header:hover {
+  &::before,
+  &::after {
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    top: auto;
+    bottom: 0;
+  }
+
+  span {
+    transform: none;
   }
 }
 </style>

@@ -3,7 +3,7 @@
     <page-title :title="$t('hello')" :text="$t('landing.description')"/>
     <div class="row">
       <div class="col-12">
-        <section-header :text="$t('menu.agrument')" icon="keyboard"/>
+        <section-header :to="localePath('agrument')" :text="$t('menu.agrument')" icon="keyboard"/>
       </div>
     </div>
     <div v-if="agrumentPosts && agrumentPosts.length" class="mt-4">
@@ -41,7 +41,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :text="$t('menu.clipping')" icon="keyboard"/>
+        <section-header :to="localePath('clipping')" :text="$t('menu.clipping')" icon="keyboard"/>
       </div>
     </div>
     <div>
@@ -62,7 +62,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :text="$t('menu.projects')" color="secondary" icon="keyboard"/>
+        <section-header :to="localePath('projects')" :text="$t('menu.projects')" color="secondary" icon="keyboard"/>
       </div>
     </div>
     <div>
@@ -96,7 +96,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :text="$t('menu.videos')" color="warning" icon="keyboard"/>
+        <section-header :to="localePath('videos')" :text="$t('menu.videos')" color="warning" icon="keyboard"/>
       </div>
     </div>
     <div v-if="videos && videos.length" class="mt-4">
@@ -138,7 +138,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :text="$t('menu.tools')" color="warning" icon="keyboard"/>
+        <section-header :to="localePath('tools')" :text="$t('menu.tools')" color="warning" icon="keyboard"/>
       </div>
     </div>
     <div>
