@@ -76,7 +76,6 @@ export default {
   .promoted-tile__link {
     text-decoration: none;
     color: inherit;
-    overflow: hidden;
     display: block;
     padding-bottom: 1.8rem;
 
