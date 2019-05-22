@@ -1,7 +1,13 @@
 <template>
   <div>
     <page-title :title="$t('menu.agrument')" :text="$t('agrument.description')"/>
-    <agrument-article v-for="post in posts" :key="post.id" :post="post"/>
+    <agrument-article :post="posts[0]"/>
+    <div class="row mobile-no-gap">
+      <div class="col-12 mb-3 mb-md-5">
+        <agrument-subscribe-bar/>
+      </div>
+    </div>
+    <agrument-article v-for="post in posts.slice(1)" :key="post.id" :post="post"/>
     <div
       v-waypoint="{
         active: true,
@@ -12,7 +18,6 @@
         },
       }"
     />
-    <!-- <agrument-subscribe-bar/> -->
   </div>
 </template>
 
@@ -20,16 +25,13 @@
 import { uniqBy } from 'lodash';
 import PageTitle from '~/components/PageTitle.vue';
 import AgrumentArticle from '~/components/AgrumentArticle.vue';
-// import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
+import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
 
 export default {
   components: {
     PageTitle,
     AgrumentArticle,
-    // AgrumentSubscribeBar,
-  },
-  data() {
-    return {};
+    AgrumentSubscribeBar,
   },
   async asyncData({ $axios, params, error }) {
     const agrumentResponse = await $axios.$get(
