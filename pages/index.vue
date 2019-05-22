@@ -115,7 +115,6 @@
             :image="video.image"
             :title="video.title"
             :byline="toSloDate(video.date)"
-            :text="video.desc"
             :url="video.url"
           />
         </div>
