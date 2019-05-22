@@ -65,6 +65,8 @@ export default {
 
 <style lang="scss" scoped>
 .preview-tile {
+  width: 100%;
+
   .preview-tile__link {
     text-decoration: none;
     color: inherit;

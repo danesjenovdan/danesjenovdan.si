@@ -16,7 +16,7 @@
       />
       <div class="wrapping-flex-tiles">
         <div
-          v-for="agrumentPost in agrumentPosts.slice(1)"
+          v-for="agrumentPost in agrumentPosts.slice(1, 4)"
           :key="`${agrumentPost.id}`"
           class="flex-tile"
         >
@@ -46,7 +46,7 @@
     </div>
     <div>
       <div v-if="clippings && clippings.length" class="wrapping-flex-tiles">
-        <div v-for="clip in clippings.slice(0, 4)" :key="`${clip.order}`" class="flex-tile">
+        <div v-for="clip in clippings.slice(0, 3)" :key="`${clip.order}`" class="flex-tile">
           <preview-tile
             :image="clip.image"
             :title="clip.title"
@@ -67,7 +67,7 @@
     </div>
     <div>
       <div v-if="projects && projects.length" class="wrapping-flex-tiles">
-        <div v-for="project in projects.slice(0, 4)" :key="`${project.order}`" class="flex-tile">
+        <div v-for="project in projects.slice(0, 3)" :key="`${project.order}`" class="flex-tile">
           <project-tile
             :image="project.image"
             :title="project.title"
@@ -109,7 +109,7 @@
         :url="videos[0].url"
       />
       <div class="wrapping-flex-tiles">
-        <div v-for="video in videos.slice(1, 5)" :key="`${video.order}`" class="flex-tile">
+        <div v-for="video in videos.slice(1, 4)" :key="`${video.order}`" class="flex-tile">
           <preview-tile
             color="warning"
             :image="video.image"
@@ -213,9 +213,9 @@ export default {
       videosResponse,
     ] = await Promise.all([
       $axios.$get('https://agrument.danesjenovdan.si/api/v2/posts?limit=5'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/clips/'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/projects/'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/videos/'),
+      $axios.$get('https://djnapi.djnd.si/djnd.si/clips/?ordering=-date'),
+      $axios.$get('https://djnapi.djnd.si/djnd.si/projects/?ordering=-date'),
+      $axios.$get('https://djnapi.djnd.si/djnd.si/videos/?ordering=-date'),
     ]);
     const agrumentPosts = agrumentResponse.data;
     const clippings = clippingsResponse.results;
@@ -242,6 +242,6 @@ export default {
 
 <style lang="scss" scoped>
 .wrapping-flex-tiles {
-  @include wrapping-flex-tiles($width: 320px);
+  @include wrapping-flex-tiles($width: 300px, $width-xl: 345px);
 }
 </style>

@@ -15,7 +15,7 @@ $color-yellow: #cdac54;
 $side-menu-width: 250px;
 $content-mobile-padding: 1.5rem;
 
-@mixin wrapping-flex-tiles($width: 320px, $gap: 1.75rem) {
+@mixin wrapping-flex-tiles($width: 320px, $gap: 1.75rem, $width-xl: $width) {
   display: flex;
   flex-wrap: wrap;
   margin-top: 1.5rem;
@@ -27,6 +27,14 @@ $content-mobile-padding: 1.5rem;
     flex: 1 0 $width;
     margin-left: ($gap / 2);
     margin-right: ($gap / 2);
+
+    @include media-breakpoint-down(sm) {
+      flex-shrink: 1;
+    }
+
+    @include media-breakpoint-up(xl) {
+      flex-basis: $width-xl;
+    }
 
     > * {
       margin-bottom: $gap;
