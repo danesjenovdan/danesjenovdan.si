@@ -1,5 +1,19 @@
 {
   "danes-je-nov-dan": "Danes je nov dan",
+  "months": [
+    "januar",
+    "februar",
+    "marec",
+    "april",
+    "maj",
+    "junij",
+    "julij",
+    "avgust",
+    "september",
+    "oktober",
+    "november",
+    "december"
+  ],
   "menu": {
     "agrument": "Agrument",
     "projects": "Pozivi",

@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import dateMixin from '~/mixins/date.js';
 import ShortLinkInput from './ShortLinkInput.vue';
 
 export default {
@@ -58,6 +59,7 @@ export default {
   components: {
     ShortLinkInput,
   },
+  mixins: [dateMixin],
   props: {
     post: {
       type: Object,
@@ -66,13 +68,10 @@ export default {
   },
   computed: {
     isoDate() {
-      return this.post.datetime.split('T')[0];
+      return this.toIsoDate(this.post.datetime);
     },
     sloDate() {
-      return this.isoDate
-        .split('-')
-        .reverse()
-        .join('. ');
+      return this.toSloDate(this.post.datetime);
     },
   },
 };

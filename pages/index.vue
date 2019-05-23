@@ -62,7 +62,12 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :to="localePath('projects')" :text="$t('menu.projects')" color="secondary" icon="keyboard"/>
+        <section-header
+          :to="localePath('projects')"
+          :text="$t('menu.projects')"
+          color="secondary"
+          icon="keyboard"
+        />
       </div>
     </div>
     <div>
@@ -71,7 +76,7 @@
           <project-tile
             :image="project.image"
             :title="project.title"
-            :byline="toSloDate(project.date)"
+            :byline="toMonthYear(project.date)"
             :text="project.desc"
             :url="project.url"
           />
@@ -96,7 +101,12 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :to="localePath('videos')" :text="$t('menu.videos')" color="warning" icon="keyboard"/>
+        <section-header
+          :to="localePath('videos')"
+          :text="$t('menu.videos')"
+          color="warning"
+          icon="keyboard"
+        />
       </div>
     </div>
     <div v-if="videos && videos.length" class="mt-4">
@@ -138,7 +148,12 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :to="localePath('tools')" :text="$t('menu.tools')" color="warning" icon="keyboard"/>
+        <section-header
+          :to="localePath('tools')"
+          :text="$t('menu.tools')"
+          color="warning"
+          icon="keyboard"
+        />
       </div>
     </div>
     <div>
@@ -189,6 +204,7 @@ import MoreButton from '~/components/MoreButton.vue';
 import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
 import SocialMediaBar from '~/components/SocialMediaBar.vue';
 import ShopBar from '~/components/ShopBar.vue';
+import dateMixin from '../mixins/date.js';
 
 export default {
   components: {
@@ -203,6 +219,7 @@ export default {
     SocialMediaBar,
     ShopBar,
   },
+  mixins: [dateMixin],
   async asyncData({ $axios, params, error }) {
     // TODO: infopush
     const [
@@ -226,15 +243,6 @@ export default {
       projects,
       videos,
     };
-  },
-  methods: {
-    toSloDate(isoTime) {
-      return String(isoTime)
-        .split('T')[0]
-        .split('-')
-        .reverse()
-        .join('. ');
-    },
   },
 };
 </script>
