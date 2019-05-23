@@ -12,7 +12,7 @@
           />
         </div>
       </div>
-      VIDEO TITLE
+      VIDEO TITLE {{ video }}
       <div class="row my-3"/>
     </div>
     <filter-bar :items="filters"/>
@@ -42,6 +42,11 @@ export default {
         { key: 'tmp1', label: 'Lolz', active: false },
         { key: 'tmp2', label: 'Whatever', active: false },
       ],
+    };
+  },
+  asyncData({ query }) {
+    return {
+      video: query.video,
     };
   },
   head() {

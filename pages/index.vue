@@ -46,7 +46,7 @@
     </div>
     <div>
       <div v-if="clippings && clippings.length" class="wrapping-flex-tiles">
-        <div v-for="clip in clippings.slice(0, 3)" :key="`${clip.order}`" class="flex-tile">
+        <div v-for="clip in clippings.slice(0, 3)" :key="`${clip.url}`" class="flex-tile">
           <preview-tile
             :image="clip.image"
             :title="clip.title"
@@ -72,7 +72,7 @@
     </div>
     <div>
       <div v-if="projects && projects.length" class="wrapping-flex-tiles">
-        <div v-for="project in projects.slice(0, 3)" :key="`${project.order}`" class="flex-tile">
+        <div v-for="project in projects.slice(0, 3)" :key="`${project.url}`" class="flex-tile">
           <project-tile
             :image="project.image"
             :title="project.title"
@@ -116,16 +116,17 @@
         :title="videos[0].title"
         :byline="toSloDate(videos[0].date)"
         :text="videos[0].desc"
-        :url="videos[0].url"
+        :url="localePath({ name: 'videos', query: { video: videos[0].url } })"
+        :video="videos[0].url"
       />
       <div class="wrapping-flex-tiles">
-        <div v-for="video in videos.slice(1, 4)" :key="`${video.order}`" class="flex-tile">
+        <div v-for="video in videos.slice(1, 4)" :key="`${video.url}`" class="flex-tile">
           <preview-tile
             color="warning"
             :image="video.image"
             :title="video.title"
             :byline="toSloDate(video.date)"
-            :url="video.url"
+            :url="localePath({ name: 'videos', query: { video: video.url } })"
           />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
