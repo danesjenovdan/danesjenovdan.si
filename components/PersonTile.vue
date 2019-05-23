@@ -2,31 +2,43 @@
   <div class="person-tile bg-white">
     <div
       class="person-tile__image"
-      style="background-image: url('https://danesjenovdan.si/img/filip.png');"
+      :style="`background-image: url('/img/people/${person.id}.jpg')`"
     />
     <div
       class="person-tile__image-hover"
-      style="background-image: url('https://danesjenovdan.si/img/filip_hover.jpg');"
+      :style="`background-image: url('/img/people/${person.id}_hover.jpg')`"
     />
     <div class="person-tile__content">
-      <h1 class="person-tile__name">
-        Filip Muki Dobranić
-      </h1>
+      <h1 class="person-tile__name" v-text="person.name"/>
       <div class="person-tile__text">
-        <a class="person-tile__email" href="mailto:filip@danesjenovdan.si">filip@danesjenovdan.si</a>
-        <p>zadolžen za hekanje in &lt;3</p>
+        <a
+          v-if="person.mail"
+          class="person-tile__email"
+          :href="`mailto:${person.mail}`"
+          v-text="person.mail"
+        />
+        <span v-else class="person-tile__email">&nbsp;</span>
+        <p v-text="person.desc"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    person: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .person-tile {
   position: relative;
+  width: 100%;
 
   &:hover {
     .person-tile__image-hover {
@@ -97,6 +109,10 @@ export default {};
         &:hover {
           text-decoration: none;
         }
+      }
+
+      span.person-tile__email {
+        text-decoration: none;
       }
 
       p {
