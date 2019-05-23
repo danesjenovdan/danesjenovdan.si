@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-title :title="$t('menu.people')" :text="$t('people.description')" color="secondary"/>
-    <filter-bar :items="filters"/>
+    <filter-bar v-model="filters"/>
     <div class="wrapping-flex-tiles">
       <div v-for="person in filteredPeople" :key="person.id" class="flex-tile">
         <person-tile :person="person"/>
@@ -60,16 +60,22 @@ export default {
   data() {
     return {
       filters: [
-        { key: 'all', label: 'Vsi', active: true },
-        { key: 'council', label: 'Svet zavoda', active: false },
-        { key: 'science', label: 'Znanstveni svet zavoda', active: false },
+        { id: 'all', label: 'Vsi', active: true },
+        { id: 'council', label: 'Svet zavoda', active: false },
+        { id: 'science', label: 'Znanstveni svet zavoda', active: false },
       ],
       people: peopleJson.people,
     };
   },
   computed: {
+    activeFilter() {
+      return this.filters.filter(f => f.active).map(f => f.id)[0];
+    },
     filteredPeople() {
-      return this.people;
+      if (!this.activeFilter || this.activeFilter === 'all') {
+        return this.people;
+      }
+      return this.people.filter(person => person.tags && person.tags.includes(this.activeFilter));
     },
   },
   head() {

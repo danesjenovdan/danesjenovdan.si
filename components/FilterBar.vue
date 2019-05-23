@@ -18,13 +18,13 @@
         </svg>
       </div>
       <ul class="filter-list">
-        <li v-for="item in items" :key="item.key" :class="{ active: item.active }">
+        <li v-for="item in value" :key="item.id" :class="{ active: item.active }">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
             <path
               d="M13.94 25.94a1.09 1.09 0 0 1-.77-.32l-9.45-9.45a1.09 1.09 0 0 1 0-1.54l3.37-3.37a1.12 1.12 0 0 1 1.54 0L14 16.63 24.24 6.39a1.09 1.09 0 0 1 1.52 0l3.46 3.28a1.09 1.09 0 0 1 0 1.56L14.87 25.59a1.08 1.08 0 0 1-.68.32 1.09 1.09 0 0 1-.26 0M6 15.4l8 8 12.91-12.94L25 8.68 14.77 18.94a1.12 1.12 0 0 1-1.54 0l-5.37-5.37z"
             ></path>
           </svg>
-          <a :href="`#${item.key}`" @click="toggleFilter(item)">{{ item.label }}</a>
+          <a :href="`#${item.id}`" @click="toggleFilter($event, item.id)">{{ item.label }}</a>
         </li>
       </ul>
     </div>
@@ -35,14 +35,23 @@
 export default {
   name: 'FilterBar',
   props: {
-    items: {
+    value: {
       type: Array,
       required: true,
     },
   },
   methods: {
-    toggleFilter(item) {
-      item.active = !item.active;
+    toggleFilter(event, itemId) {
+      event.preventDefault();
+      const clone = JSON.parse(JSON.stringify(this.value));
+      const item = clone.find(item => item.id === itemId);
+      if (item) {
+        clone.forEach(item => {
+          item.active = false;
+        });
+        item.active = true;
+        this.$emit('input', clone);
+      }
     },
   },
 };
