@@ -3,7 +3,7 @@
     :href="href"
     target="_blank"
     rel="noopener noreferrer"
-    :class="['circle-icon-button', 'icon', `icon-${icon}--${color}`]"
+    :class="['circle-icon-button', `circle-icon-button--${color}`, 'icon', `icon-${icon}--${color}`]"
   />
 </template>
 
@@ -35,10 +35,15 @@ export default {
   background-color: transparent;
   border: none;
   margin: 0 0.5rem;
+  transition: all 0.15s ease;
 
   @include media-breakpoint-up(xl) {
     width: 2.5rem;
     height: 2.5rem;
+  }
+
+  &:hover {
+    transform: scale(0.95);
   }
 }
 </style>
