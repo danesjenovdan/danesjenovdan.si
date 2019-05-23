@@ -49,6 +49,7 @@ module.exports = {
         svg: 'any',
       },
     ],
+    'import/extensions': ['error', 'always', { ignorePackages: true }],
     'import/no-unresolved': ['error'],
     'import/no-extraneous-dependencies': [
       'error',
