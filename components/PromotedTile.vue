@@ -1,20 +1,27 @@
 <template>
   <div :class="['promoted-tile', `promoted-tile--${color}`]">
-    <a :href="url" target="_blank" rel="noopener noreferrer" class="promoted-tile__link">
+    <component
+      :is="isExternalUrl ? 'a' : 'nuxt-link'"
+      :href="url"
+      :to="url"
+      :target="isExternalUrl ? '_blank' : null"
+      :rel="isExternalUrl ? 'noopener noreferrer' : null"
+      class="promoted-tile__link"
+    >
       <div class="row">
         <div class="col-xl-7">
           <div class="promoted-tile__image">
-            <div class="embed-responsive embed-responsive-1200by630">
-              <div class="embed-responsive-item d-flex align-items-center">
-                <div
-                  class="background-image"
-                  :style="{'background-image': `url('${image}')`}"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="30 18 40 64"
-                    fill="currentColor"
-                  >
+            <div class="embed-responsive embed-responsive-16by9">
+              <div v-if="video" class="embed-responsive-item">
+                <iframe
+                  :src="embedUrl"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                />
+              </div>
+              <div v-else class="embed-responsive-item d-flex align-items-center">
+                <div class="background-image" :style="{'background-image': `url('${image}')`}">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="30 18 40 64" fill="currentColor">
                     <path
                       d="M50.005 82c.715-.028 1.542-.322 2.063-.812l17-16c.975-1.085 1.377-3.164.25-4.375-1.109-1.194-3.26-1.159-4.375.03l-11.938 11.25V21a3 3 0 0 0-6 0v51.094l-11.938-11.25c-1.025-1.024-3.253-1.213-4.375-.031-1.122 1.181-.764 3.335.25 4.375l17 16a2.885 2.885 0 0 0 2.063.812z"
                     ></path>
@@ -36,7 +43,7 @@
           </div>
         </div>
       </div>
-    </a>
+    </component>
   </div>
 </template>
 
@@ -66,6 +73,26 @@ export default {
     url: {
       type: String,
       required: true,
+    },
+    video: {
+      type: String,
+      default: null,
+    },
+  },
+  computed: {
+    isExternalUrl() {
+      return this.url && /^https?:\/\//.test(this.url);
+    },
+    embedUrl() {
+      const v = this.video;
+      if (/[/.]youtube\.com\//.test(v) || /[/.]youtu\.be\//.test(v)) {
+        const m = /[?&]v=(.*?)(?:&|$)/.exec(v) || /youtu\.be\/(.*?)(?:\?|$)/.exec(v);
+        if (m && m.length > 1) {
+          return `https://www.youtube.com/embed/${m[1]}?rel=0&modestbranding=1`;
+        }
+      }
+      // TODO: vimeo
+      return '';
     },
   },
 };
