@@ -1,5 +1,5 @@
 const pkg = require('./package.json');
-const scssCustomFunctions = require('./plugins/scss-functions');
+const scssCustomFunctions = require('./plugins/scss-functions.js');
 
 module.exports = {
   mode: 'universal',

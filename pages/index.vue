@@ -3,7 +3,7 @@
     <page-title :title="$t('hello')" :text="$t('landing.description')"/>
     <div class="row">
       <div class="col-12">
-        <section-header :to="localePath('agrument')" :text="$t('menu.agrument')" icon="keyboard"/>
+        <section-header :to="localePath('agrument')" :text="$t('menu.agrument')" icon="section-agrument"/>
       </div>
     </div>
     <div v-if="agrumentPosts && agrumentPosts.length" class="mt-4">
@@ -41,7 +41,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :to="localePath('clipping')" :text="$t('menu.clipping')" icon="keyboard"/>
+        <section-header :to="localePath('clipping')" :text="$t('menu.clipping')" icon="section-clipping"/>
       </div>
     </div>
     <div>
@@ -66,7 +66,7 @@
           :to="localePath('projects')"
           :text="$t('menu.projects')"
           color="secondary"
-          icon="keyboard"
+          icon="section-projects"
         />
       </div>
     </div>
@@ -105,7 +105,7 @@
           :to="localePath('videos')"
           :text="$t('menu.videos')"
           color="warning"
-          icon="keyboard"
+          icon="section-videos"
         />
       </div>
     </div>
@@ -153,7 +153,7 @@
           :to="localePath('tools')"
           :text="$t('menu.tools')"
           color="warning"
-          icon="keyboard"
+          icon="section-tools"
         />
       </div>
     </div>
