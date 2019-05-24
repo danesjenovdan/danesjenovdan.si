@@ -1,37 +1,54 @@
+// SECTIONS
 @function icon-arrow($color) {
   @return encode-svg(str-replace(fs-readFile('static/icons/arrow.svg'), '#000', '#{$color}'));
 }
-
 @function icon-keyboard($color) {
   @return encode-svg(str-replace(fs-readFile('static/icons/keyboard.svg'), '#000', '#{$color}'));
 }
 
+// SOCIAL
 @function icon-facebook($color) {
   @return encode-svg(str-replace(fs-readFile('static/icons/facebook.svg'), '#000', '#{$color}'));
 }
-
 @function icon-twitter($color) {
   @return encode-svg(str-replace(fs-readFile('static/icons/twitter.svg'), '#000', '#{$color}'));
 }
-
 @function icon-youtube($color) {
   @return encode-svg(str-replace(fs-readFile('static/icons/youtube.svg'), '#000', '#{$color}'));
 }
-
 @function icon-vimeo($color) {
   @return encode-svg(str-replace(fs-readFile('static/icons/vimeo.svg'), '#000', '#{$color}'));
 }
 
+// TOOLS
 @function icon-tool-parlameter($color) {
   @return encode-svg(str-replace(fs-readFile('static/icons/tool-parlameter.svg'), '#000', '#{$color}'));
 }
-
 @function icon-tool-commentality($color) {
   @return encode-svg(str-replace(fs-readFile('static/icons/tool-commentality.svg'), '#000', '#{$color}'));
 }
-
 @function icon-tool-consul($color) {
   @return encode-svg(str-replace(fs-readFile('static/icons/tool-consul.svg'), '#000', '#{$color}'));
+}
+
+// VALUES
+@function icon-value-solidarity($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/values/solidarity.svg'), '#000', '#{$color}'));
+}
+@function icon-value-commons($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/values/commons.svg'), '#000', '#{$color}'));
+}
+@function icon-value-political($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/values/political.svg'), '#000', '#{$color}'));
+}
+@function icon-value-nature($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/values/nature.svg'), '#000', '#{$color}'));
+}
+@function icon-value-economy($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/values/economy.svg'), '#000', '#{$color}'));
+}
+@function icon-value-inclusion($color) {
+  @return encode-svg(str-replace(fs-readFile('static/icons/values/inclusion.svg'), '#000', '#{$color}'));
 }
 
 .icon {
@@ -41,39 +58,53 @@
 }
 
 @each $color-name, $color in $theme-colors {
+  // SECTIONS
   .icon-arrow--#{$color-name} {
     background-image: url(#{icon-arrow($color)});
   }
-
   .icon-keyboard--#{$color-name} {
     background-image: url(#{icon-keyboard($color)});
   }
-
+  // SOCIAL
   .icon-facebook--#{$color-name} {
     background-image: url(#{icon-facebook($color)});
   }
-
   .icon-twitter--#{$color-name} {
     background-image: url(#{icon-twitter($color)});
   }
-
   .icon-youtube--#{$color-name} {
     background-image: url(#{icon-youtube($color)});
   }
-
   .icon-vimeo--#{$color-name} {
     background-image: url(#{icon-vimeo($color)});
   }
-
+  // TOOLS
   .icon-tool-parlameter--#{$color-name} {
     background-image: url(#{icon-tool-parlameter($color)});
   }
-
   .icon-tool-commentality--#{$color-name} {
     background-image: url(#{icon-tool-commentality($color)});
   }
-
   .icon-tool-consul--#{$color-name} {
     background-image: url(#{icon-tool-consul($color)});
+  }
+  // VALUES
+  .icon-value-solidarity--#{$color-name} {
+    background-image: url(#{icon-value-solidarity($color)});
+  }
+  .icon-value-commons--#{$color-name} {
+    background-image: url(#{icon-value-commons($color)});
+  }
+  .icon-value-political--#{$color-name} {
+    background-image: url(#{icon-value-political($color)});
+  }
+  .icon-value-nature--#{$color-name} {
+    background-image: url(#{icon-value-nature($color)});
+  }
+  .icon-value-economy--#{$color-name} {
+    background-image: url(#{icon-value-economy($color)});
+  }
+  .icon-value-inclusion--#{$color-name} {
+    background-image: url(#{icon-value-inclusion($color)});
   }
 }

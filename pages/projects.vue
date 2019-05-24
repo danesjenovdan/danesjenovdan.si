@@ -47,7 +47,7 @@ export default {
         { id: 'demokracija', label: 'demokracija', active: false },
         { id: 'kampanja', label: 'kampanja', active: false },
         { id: 'internet', label: 'internet', active: false },
-        // TODO: more tags
+        // TODO: more tags and i18n labels
       ],
     };
   },

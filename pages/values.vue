@@ -2,11 +2,12 @@
   <div>
     <page-title :title="$t('menu.values')" :text="$t('values.description')" color="warning"/>
     <div class="row">
-      <div class="col-12">
-        <value-tile/>
-      </div>
-      <div class="col-12">
-        <value-tile/>
+      <div v-for="value in values" :key="value.id" class="col-12">
+        <value-tile
+          :icon="`value-${value.id}`"
+          :title="$t(`values.values.${value.id}.title`)"
+          :description="$t(`values.values.${value.id}.description`)"
+        />
       </div>
     </div>
   </div>
@@ -15,6 +16,7 @@
 <script>
 import PageTitle from '~/components/PageTitle.vue';
 import ValueTile from '~/components/ValueTile.vue';
+import valuesJson from '~/assets/values.json';
 
 export default {
   nuxtI18n: {
@@ -26,6 +28,11 @@ export default {
   components: {
     PageTitle,
     ValueTile,
+  },
+  data() {
+    return {
+      values: valuesJson.values,
+    };
   },
   head() {
     return {
