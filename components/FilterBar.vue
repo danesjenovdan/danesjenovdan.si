@@ -39,6 +39,14 @@ export default {
       type: Array,
       required: true,
     },
+    single: {
+      type: Boolean,
+      default: true,
+    },
+    everythingId: {
+      type: String,
+      default: null,
+    },
   },
   methods: {
     toggleFilter(event, itemId) {
@@ -46,10 +54,19 @@ export default {
       const clone = JSON.parse(JSON.stringify(this.value));
       const item = clone.find(item => item.id === itemId);
       if (item) {
-        clone.forEach(item => {
-          item.active = false;
-        });
-        item.active = true;
+        if (this.single || (this.everythingId && this.everythingId === itemId)) {
+          clone.forEach(item => {
+            item.active = false;
+          });
+        }
+        item.active = !item.active;
+        if (this.everythingId && this.everythingId !== itemId) {
+          const numActive = !clone.filter(i => i.active).length;
+          const everythingItem = clone.find(item => item.id === this.everythingId);
+          if (everythingItem) {
+            everythingItem.active = !!numActive;
+          }
+        }
         this.$emit('input', clone);
       }
     },

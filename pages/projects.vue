@@ -1,26 +1,16 @@
 <template>
   <div>
-    <page-title
-      :title="$t('menu.projects')"
-      :text="$t('projects.description')"
-      color="secondary"
-    />
-    <filter-bar :items="filters"/>
-    <div class="wrapping-flex-tiles">
-      <div class="flex-tile">
-        <project-tile/>
-      </div>
-      <div class="flex-tile">
-        <project-tile/>
-      </div>
-      <div class="flex-tile">
-        <project-tile/>
-      </div>
-      <div class="flex-tile">
-        <project-tile/>
-      </div>
-      <div class="flex-tile">
-        <project-tile/>
+    <page-title :title="$t('menu.projects')" :text="$t('projects.description')" color="secondary"/>
+    <filter-bar v-model="filters" :single="false" everything-id="all"/>
+    <div v-if="projects && projects.length" class="wrapping-flex-tiles">
+      <div v-for="project in filteredProjects" :key="`${project.url}`" class="flex-tile">
+        <project-tile
+          :image="project.image"
+          :title="project.title"
+          :byline="toMonthYear(project.date)"
+          :text="project.desc"
+          :url="project.url"
+        />
       </div>
       <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
     </div>
@@ -28,9 +18,11 @@
 </template>
 
 <script>
+import { intersection } from 'lodash';
 import PageTitle from '~/components/PageTitle.vue';
 import FilterBar from '~/components/FilterBar.vue';
 import ProjectTile from '~/components/ProjectTile.vue';
+import dateMixin from '~/mixins/date.js';
 
 export default {
   nuxtI18n: {
@@ -44,14 +36,43 @@ export default {
     FilterBar,
     ProjectTile,
   },
+  mixins: [dateMixin],
   data() {
     return {
       filters: [
-        { key: 'okolje', label: 'Okolje', active: false },
-        { key: 'pravice', label: 'Človekove pravice', active: true },
-        { key: 'demokracija', label: 'Demokracija', active: false },
-        { key: 'lulz', label: 'For the lulz', active: false },
+        { id: 'all', label: 'Vsi', active: true },
+        { id: 'peticija', label: 'peticija', active: false },
+        { id: 'pravičnost', label: 'pravičnost', active: false },
+        { id: 'sodelovanje', label: 'sodelovanje', active: false },
+        { id: 'demokracija', label: 'demokracija', active: false },
+        { id: 'kampanja', label: 'kampanja', active: false },
+        { id: 'internet', label: 'internet', active: false },
+        // TODO: more tags
       ],
+    };
+  },
+  computed: {
+    activeFilters() {
+      return this.filters.filter(f => f.active).map(f => f.id);
+    },
+    filteredProjects() {
+      if (
+        !this.activeFilters.length ||
+        (this.activeFilters.length === 1 && this.activeFilters[0] === 'all')
+      ) {
+        return this.projects;
+      }
+      return this.projects.filter(
+        proj => proj.tags && intersection(proj.tags, this.activeFilters).length,
+      );
+    },
+  },
+  async asyncData({ $axios, params, error }) {
+    const projectsResponse = await $axios.$get(
+      'https://djnapi.djnd.si/djnd.si/projects/?ordering=-date&size=500',
+    );
+    return {
+      projects: projectsResponse.results,
     };
   },
   head() {
@@ -64,6 +85,6 @@ export default {
 
 <style lang="scss" scoped>
 .wrapping-flex-tiles {
-  @include wrapping-flex-tiles($width: 320px);
+  @include wrapping-flex-tiles($width: 300px, $width-xl: 345px);
 }
 </style>

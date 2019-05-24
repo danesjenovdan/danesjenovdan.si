@@ -205,7 +205,7 @@ import MoreButton from '~/components/MoreButton.vue';
 import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
 import SocialMediaBar from '~/components/SocialMediaBar.vue';
 import ShopBar from '~/components/ShopBar.vue';
-import dateMixin from '../mixins/date.js';
+import dateMixin from '~/mixins/date.js';
 
 export default {
   components: {
@@ -234,15 +234,11 @@ export default {
       $axios.$get('https://djnapi.djnd.si/djnd.si/projects/?ordering=-date'),
       $axios.$get('https://djnapi.djnd.si/djnd.si/videos/?ordering=-date'),
     ]);
-    const agrumentPosts = agrumentResponse.data;
-    const clippings = clippingsResponse.results;
-    const projects = projectsResponse.results;
-    const videos = videosResponse.results;
     return {
-      agrumentPosts,
-      clippings,
-      projects,
-      videos,
+      agrumentPosts: agrumentResponse.data,
+      clippings: clippingsResponse.results,
+      projects: projectsResponse.results,
+      videos: videosResponse.results,
     };
   },
 };
