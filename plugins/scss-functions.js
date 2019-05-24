@@ -14,12 +14,12 @@ module.exports = {
   'encode-svg($svg)': svg => {
     return sass.types.String(`"data:image/svg+xml,${encodeURIComponent(svg.getValue())}"`);
   },
-  'str-replace($str, $find: "", $replace: "")': ($str, $find, $replace) => {
+  'string-replace($str, $find, $replace: "")': (str, find, replace) => {
     return sass.types.String(
-      $str
+      str
         .getValue()
-        .split($find.getValue())
-        .join($replace.getValue()),
+        .split(find.getValue())
+        .join(replace.getValue()),
     );
   },
 };
