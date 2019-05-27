@@ -22,16 +22,19 @@
 
 // SOCIAL
 @function icon-facebook($color) {
-  @return encode-svg(string-replace(fs-readFile('static/icons/facebook.svg'), '#000', '#{$color}'));
+  @return encode-svg(string-replace(fs-readFile('static/icons/social/facebook.svg'), '#000', '#{$color}'));
 }
 @function icon-twitter($color) {
-  @return encode-svg(string-replace(fs-readFile('static/icons/twitter.svg'), '#000', '#{$color}'));
+  @return encode-svg(string-replace(fs-readFile('static/icons/social/twitter.svg'), '#000', '#{$color}'));
 }
 @function icon-youtube($color) {
-  @return encode-svg(string-replace(fs-readFile('static/icons/youtube.svg'), '#000', '#{$color}'));
+  @return encode-svg(string-replace(fs-readFile('static/icons/social/youtube.svg'), '#000', '#{$color}'));
 }
 @function icon-vimeo($color) {
-  @return encode-svg(string-replace(fs-readFile('static/icons/vimeo.svg'), '#000', '#{$color}'));
+  @return encode-svg(string-replace(fs-readFile('static/icons/social/vimeo.svg'), '#000', '#{$color}'));
+}
+@function icon-github($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/social/github.svg'), '#000', '#{$color}'));
 }
 
 // TOOLS
@@ -104,6 +107,9 @@
   }
   .icon-vimeo--#{$color-name} {
     background-image: url(#{icon-vimeo($color)});
+  }
+  .icon-github--#{$color-name} {
+    background-image: url(#{icon-github($color)});
   }
   // TOOLS
   .icon-tool-parlameter--#{$color-name} {
