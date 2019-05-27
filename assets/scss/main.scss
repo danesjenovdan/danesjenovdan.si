@@ -20,6 +20,8 @@ button:focus {
 
   &::placeholder {
     font-style: italic;
+    color: #444;
+    text-decoration: underline;
   }
 
   &:focus {

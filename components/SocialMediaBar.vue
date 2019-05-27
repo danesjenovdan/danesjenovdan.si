@@ -79,6 +79,13 @@ export default {
       @include media-breakpoint-up(xl) {
         margin-top: 0;
       }
+
+      .circle-icon-button {
+        @include media-breakpoint-up(xl) {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
     }
   }
 }

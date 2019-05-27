@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link :to="to" :class="['more-button', `more-button--${color}`]">
+  <nuxt-link
+    :to="to"
+    :class="['more-button', `more-button--${color}`, { 'more-button--block': block }]"
+  >
     <span v-text="text"/>
     <span :class="['icon', `icon-arrow--${color}`]"/>
   </nuxt-link>
@@ -20,6 +23,10 @@ export default {
       type: String,
       default: 'primary',
     },
+    block: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -34,6 +41,24 @@ export default {
   font-weight: 600;
   color: inherit;
   text-decoration: none;
+
+  &.more-button--block {
+    width: 100%;
+    position: relative;
+
+    .icon {
+      position: absolute;
+      right: 1.75rem;
+      top: 50%;
+      transform: rotate(-90deg) translateX(45%);
+    }
+
+    &:hover {
+      .icon {
+        transform: rotate(-90deg) translateX(45%) translateY(1rem);
+      }
+    }
+  }
 
   .icon {
     height: 1.15em;
