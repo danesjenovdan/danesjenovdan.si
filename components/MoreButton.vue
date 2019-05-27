@@ -3,8 +3,9 @@
     :to="to"
     :class="['more-button', `more-button--${color}`, { 'more-button--block': block }]"
   >
+    <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]"/>
     <span v-text="text"/>
-    <span :class="['icon', `icon-arrow--${color}`]"/>
+    <span :class="['arrow', 'icon', `icon-arrow--${color}`]"/>
   </nuxt-link>
 </template>
 
@@ -22,6 +23,10 @@ export default {
     color: {
       type: String,
       default: 'primary',
+    },
+    icon: {
+      type: String,
+      default: null,
     },
     block: {
       type: Boolean,
@@ -46,7 +51,7 @@ export default {
     width: 100%;
     position: relative;
 
-    .icon {
+    .arrow {
       position: absolute;
       right: 1.75rem;
       top: 50%;
@@ -54,13 +59,19 @@ export default {
     }
 
     &:hover {
-      .icon {
+      .arrow {
         transform: rotate(-90deg) translateX(45%) translateY(1rem);
       }
     }
   }
 
   .icon {
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 0.25rem;
+  }
+
+  .arrow {
     height: 1.15em;
     width: 1.15em;
     margin-left: 0.25rem;
@@ -78,7 +89,7 @@ export default {
   &:hover {
     background-color: rgba($color-green, 0.15);
 
-    .icon {
+    .arrow {
       transform: rotate(-90deg) translateY(1rem);
     }
   }

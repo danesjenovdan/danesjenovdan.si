@@ -82,7 +82,9 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  margin-top: 2rem;
+  @include media-breakpoint-up(xl) {
+    margin-top: 2rem;
+  }
 
   .footer-col {
     padding-bottom: 2rem;

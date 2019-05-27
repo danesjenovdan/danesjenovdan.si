@@ -5,8 +5,14 @@
     <section class="content">
       <b-container fluid class="content-container">
         <nuxt/>
-        <!-- <cta-box/> -->
-        <page-footer :color="pageColor"/>
+        <div>
+          <div class="row mobile-no-gap">
+            <div class="col-12 mt-5">
+              <support-bar :color="pageColor"/>
+            </div>
+          </div>
+          <page-footer :color="pageColor"/>
+        </div>
       </b-container>
     </section>
   </div>
@@ -15,12 +21,14 @@
 <script>
 import SideMenu from '~/components/SideMenu/SideMenu.vue';
 import TopBar from '~/components/SideMenu/TopBar.vue';
+import SupportBar from '~/components/SupportBar.vue';
 import PageFooter from '~/components/PageFooter/PageFooter.vue';
 
 export default {
   components: {
     SideMenu,
     TopBar,
+    SupportBar,
     PageFooter,
   },
   computed: {
