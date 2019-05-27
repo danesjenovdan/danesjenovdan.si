@@ -6,7 +6,7 @@
       <b-container fluid class="content-container">
         <nuxt/>
         <!-- <cta-box/> -->
-        <page-footer/>
+        <page-footer :color="pageColor"/>
       </b-container>
     </section>
   </div>
@@ -22,6 +22,16 @@ export default {
     SideMenu,
     TopBar,
     PageFooter,
+  },
+  computed: {
+    pageColor() {
+      // https://github.com/nuxt/nuxt.js/issues/722#issuecomment-301762247
+      return this.$route.matched.map(r => {
+        return r.components.default.options
+          ? r.components.default.options.pageColor
+          : r.components.default.pageColor;
+      })[0];
+    },
   },
   watch: {
     $route() {

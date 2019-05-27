@@ -25,6 +25,7 @@ import ProjectTile from '~/components/ProjectTile.vue';
 import dateMixin from '~/mixins/date.js';
 
 export default {
+  pageColor: 'secondary',
   nuxtI18n: {
     paths: {
       sl: '/pozivi',
