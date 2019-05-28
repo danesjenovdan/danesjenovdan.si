@@ -46,6 +46,7 @@ import PersonTile from '~/components/PersonTile.vue';
 import peopleJson from '~/assets/people.json';
 
 export default {
+  pageColor: 'secondary',
   nuxtI18n: {
     paths: {
       sl: '/posadka',

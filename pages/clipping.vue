@@ -8,6 +8,7 @@
 import PageTitle from '~/components/PageTitle.vue';
 
 export default {
+  pageColor: 'warning',
   nuxtI18n: {
     paths: {
       sl: '/pojavljanja',

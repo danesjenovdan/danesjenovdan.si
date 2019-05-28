@@ -17,6 +17,7 @@ import PageTitle from '~/components/PageTitle.vue';
 import ToolTile from '~/components/ToolTile.vue';
 
 export default {
+  pageColor: 'warning',
   nuxtI18n: {
     paths: {
       sl: '/orodja',

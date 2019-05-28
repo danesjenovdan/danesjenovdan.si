@@ -25,6 +25,7 @@ import PageTitle from '~/components/PageTitle.vue';
 import FilterBar from '~/components/FilterBar.vue';
 
 export default {
+  pageColor: 'warning',
   nuxtI18n: {
     paths: {
       sl: '/videogalerija',

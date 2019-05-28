@@ -19,6 +19,7 @@ import ValueTile from '~/components/ValueTile.vue';
 import valuesJson from '~/assets/values.json';
 
 export default {
+  pageColor: 'warning',
   nuxtI18n: {
     paths: {
       sl: '/vrednote',
