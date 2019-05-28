@@ -78,9 +78,11 @@ export default {
       iframeLoaded: false,
       filters: [
         { id: 'all', label: 'Vsi', active: true },
-        { id: 'tmp1', label: 'Lolz', active: false },
-        { id: 'tmp2', label: 'Whatever', active: false },
-        // TODO: actual video filters
+        { id: 'dogodek', label: 'dogodek', active: false },
+        { id: 'inspiracija', label: 'inspiracija', active: false },
+        { id: 'provokacija', label: 'provokacija', active: false },
+        { id: 'razlaga', label: 'razlaga', active: false },
+        // TODO: i18n labels
       ],
     };
   },
