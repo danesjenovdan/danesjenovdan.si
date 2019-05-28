@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div :class="['page', `page--${pageColor}`]">
     <top-bar/>
     <side-menu/>
     <section class="content">

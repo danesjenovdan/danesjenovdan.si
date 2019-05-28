@@ -1,8 +1,8 @@
 <template>
   <div class="support-bar">
     <div class="bar-container">
-      <more-button :to="localePath('shop')" text="Podpri nas!" color="warning" icon="heart"/>
-      <more-button :to="localePath('shop')" text="Pridruži se nam!" color="warning" icon="friendship"/>
+      <more-button :to="localePath('shop')" text="Podpri nas!" :color="color" icon="heart"/>
+      <more-button :to="localePath('shop')" text="Pridruži se nam!" :color="color" icon="friendship"/>
     </div>
   </div>
 </template>
@@ -13,6 +13,12 @@ import MoreButton from '~/components/MoreButton.vue';
 export default {
   components: {
     MoreButton,
+  },
+  props: {
+    color: {
+      type: String,
+      default: 'primary',
+    },
   },
 };
 </script>
