@@ -14,7 +14,7 @@
             <div class="embed-responsive embed-responsive-16by9">
               <div v-if="video" class="embed-responsive-item">
                 <iframe
-                  :src="embedUrl"
+                  :src="embedUrl(video)"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 />
@@ -48,7 +48,10 @@
 </template>
 
 <script>
+import videoMixin from '~/mixins/video.js';
+
 export default {
+  mixins: [videoMixin],
   props: {
     color: {
       type: String,
@@ -82,22 +85,6 @@ export default {
   computed: {
     isExternalUrl() {
       return this.url && /^https?:\/\//.test(this.url);
-    },
-    embedUrl() {
-      const v = this.video;
-      if (/[/.]youtube\.com\//.test(v) || /[/.]youtu\.be\//.test(v)) {
-        const m = /[?&]v=(.*?)(?:&|$)/.exec(v) || /youtu\.be\/(.*?)(?:\?|$)/.exec(v);
-        if (m && m.length > 1) {
-          return `https://www.youtube.com/embed/${m[1]}?rel=0&modestbranding=1`;
-        }
-      }
-      if (/[/.]vimeo\.com\//.test(v)) {
-        const m = /vimeo\.com\/(\d*?)(?:\?|$)/.exec(v);
-        if (m && m.length > 1) {
-          return `https://player.vimeo.com/video/${m[1]}`;
-        }
-      }
-      return '';
     },
   },
 };
