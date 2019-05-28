@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-title :title="$t('menu.videos')" :text="$t('videos.description')" color="warning"/>
-    <div ref="bigVideo" class="big-video-container d-none d-lg-block">
+    <div ref="bigVideo" class="big-video">
       <div class="embed-responsive embed-responsive-16by9">
         <div
           class="embed-responsive-item background-image"
@@ -12,13 +12,28 @@
             :src="embedUrl(bigVideo.url)"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            :class="{ loaded: iframeLoaded }"
+            :class="['big-video__iframe', { 'loaded': iframeLoaded }]"
             @load="onIframeLoad"
           />
         </div>
       </div>
-      VIDEO TITLE {{ bigVideo }}
-      <div class="row my-3"/>
+      <div class="row big-video__info">
+        <div class="col-12 col-lg-5">
+          <div class="big-video__title-col">
+            <h2 v-text="bigVideo.title"/>
+            <div v-if="bigVideo.date" class="big-video__byline">
+              <i v-text="toSloDate(bigVideo.date)"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-7">
+          <div class="big-video__text-col">
+            <div v-if="bigVideo.desc" class="big-video__text">
+              <p v-text="bigVideo.desc"/>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <filter-bar v-model="filters" everything-id="all"/>
     <div v-if="videos && videos.length" class="wrapping-flex-tiles">
@@ -117,17 +132,68 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.background-image {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+.big-video {
+  .background-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
-iframe {
-  opacity: 0;
+  iframe {
+    opacity: 0;
 
-  &.loaded {
-    opacity: 1;
+    &.loaded {
+      opacity: 1;
+    }
+  }
+
+  .big-video__info {
+    margin-bottom: 2rem;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 1rem;
+    }
+
+    .big-video__title-col {
+      background-color: #fff;
+      padding: 1.25rem 1rem;
+
+      @include media-breakpoint-up(lg) {
+        background-color: transparent;
+        margin-top: 1rem;
+        float: right;
+        min-width: 400px;
+      }
+
+      h2 {
+        font-size: 1.85rem;
+        font-weight: 600;
+
+        @include media-breakpoint-up(lg) {
+          font-size: 3rem;
+        }
+      }
+    }
+
+    .big-video__text-col {
+      background-color: #fff;
+      padding: 0 1rem 1rem;
+      position: relative;
+      z-index: -1;
+
+      @include media-breakpoint-up(lg) {
+        $overlap: 15rem;
+        padding: 2rem 2.5rem;
+        margin-left: -$overlap;
+        padding-left: $overlap;
+      }
+
+      p {
+        font-size: 1.15rem;
+        font-weight: 200;
+        margin: 0;
+      }
+    }
   }
 }
 
