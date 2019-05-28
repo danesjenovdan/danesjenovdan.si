@@ -41,7 +41,7 @@ export default {
     },
     single: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     everythingId: {
       type: String,

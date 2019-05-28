@@ -1,7 +1,9 @@
 <template>
   <footer class="footer row">
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
-      <div class="lead my-2">Uredi svoje email nastavitve</div>
+      <div class="lead my-2">
+        Uredi svoje email nastavitve
+      </div>
       <div class="form-group">
         <div>
           <input class="form-control" placeholder="vpiši svoj e-naslov">
@@ -12,7 +14,9 @@
       </div>
     </div>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
-      <div class="lead my-2">A še kje nismo frendi?</div>
+      <div class="lead my-2">
+        A še kje nismo frendi?
+      </div>
       <div class="buttons">
         <circle-icon-button
           :color="color"
@@ -33,7 +37,9 @@
       </div>
     </div>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
-      <div class="lead my-2">Vsa naša koda je online. Izvoli!</div>
+      <div class="lead my-2">
+        Vsa naša koda je online. Izvoli!
+      </div>
       <div class="buttons">
         <circle-icon-button :color="color" icon="github" href="https://github.com/danesjenovdan"/>
       </div>

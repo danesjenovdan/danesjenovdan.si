@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-title :title="$t('menu.projects')" :text="$t('projects.description')" color="secondary"/>
-    <filter-bar v-model="filters" :single="false" everything-id="all"/>
+    <filter-bar v-model="filters" everything-id="all"/>
     <div v-if="projects && projects.length" class="wrapping-flex-tiles">
       <div v-for="project in filteredProjects" :key="`${project.url}`" class="flex-tile">
         <project-tile

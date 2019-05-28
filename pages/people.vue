@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-title :title="$t('menu.people')" :text="$t('people.description')" color="secondary"/>
-    <filter-bar v-model="filters"/>
+    <filter-bar v-model="filters" single/>
     <div class="wrapping-flex-tiles">
       <div v-for="person in filteredPeople" :key="person.id" class="flex-tile">
         <person-tile :person="person"/>
