@@ -64,8 +64,6 @@ export default {
       const lastB = b.name.slice(b.name.lastIndexOf(' ') + 1);
       return lastA.toLowerCase().localeCompare(lastB.toLowerCase(), 'sl');
     });
-    // eslint-disable-next-line
-    console.log(sortedPeople.map(p => p.name));
     return {
       filters: [
         { id: 'all', label: 'Vsi', active: true },
