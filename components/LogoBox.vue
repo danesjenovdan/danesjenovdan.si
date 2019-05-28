@@ -9,6 +9,7 @@
 <style lang="scss" scoped>
 .logo-box {
   display: block;
+  width: 100%;
   height: 0;
   padding-top: 100%;
   position: relative;
