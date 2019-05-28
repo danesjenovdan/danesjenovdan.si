@@ -59,13 +59,20 @@ export default {
     PersonTile,
   },
   data() {
+    const sortedPeople = [...peopleJson.people].sort((a, b) => {
+      const lastA = a.name.slice(a.name.lastIndexOf(' ') + 1);
+      const lastB = b.name.slice(b.name.lastIndexOf(' ') + 1);
+      return lastA.toLowerCase().localeCompare(lastB.toLowerCase(), 'sl');
+    });
+    // eslint-disable-next-line
+    console.log(sortedPeople.map(p => p.name));
     return {
       filters: [
         { id: 'all', label: 'Vsi', active: true },
         { id: 'council', label: 'Svet zavoda', active: false },
         { id: 'science', label: 'Znanstveni svet zavoda', active: false },
       ],
-      people: peopleJson.people,
+      people: sortedPeople,
     };
   },
   computed: {
