@@ -41,14 +41,18 @@ export default {
   data() {
     return {
       filters: [
-        { id: 'all', label: 'Vsi', active: true },
+        { id: 'branje', label: 'branje', active: false },
+        { id: 'demokracija', label: 'demokracija', active: false },
+        { id: 'dogodek', label: 'dogodek', active: false },
+        // { id: 'igra', label: 'igra (invisible tag)', active: false },
+        { id: 'internet', label: 'internet', active: false },
+        { id: 'kampanja', label: 'kampanja', active: false },
+        // { id: 'knjiga', label: 'knjiga (invisible tag)', active: false },
+        { id: 'okolje', label: 'okolje', active: false },
         { id: 'peticija', label: 'peticija', active: false },
         { id: 'pravičnost', label: 'pravičnost', active: false },
         { id: 'sodelovanje', label: 'sodelovanje', active: false },
-        { id: 'demokracija', label: 'demokracija', active: false },
-        { id: 'kampanja', label: 'kampanja', active: false },
-        { id: 'internet', label: 'internet', active: false },
-        // TODO: more tags and i18n labels
+        // TODO: i18n labels
       ],
     };
   },
