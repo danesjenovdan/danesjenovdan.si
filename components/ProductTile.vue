@@ -1,23 +1,23 @@
 <template>
-  <div :class="['product-tile', `product-tile--${color}`]">
-    <div class="row">
-      <div class="col-xl-7">
-        <div class="product-tile__image">
-          <div class="embed-responsive embed-responsive-1by1">
-            <div class="embed-responsive-item d-flex align-items-center">
-              <div class="background-image" :style="{'background-image': `url('${image}')`}"/>
-            </div>
+  <div class="row product-tile">
+    <div class="col-xl-6">
+      <div class="product-tile__image">
+        <div class="embed-responsive embed-responsive-1by1">
+          <div class="embed-responsive-item d-flex align-items-center">
+            <div class="background-image" :style="{'background-image': `url('${image}')`}"/>
           </div>
         </div>
       </div>
-      <div class="col-xl-5 product-tile__content-col">
-        <div class="product-tile__content">
-          <h3 class="product-tile__title" v-text="title"/>
-          <div v-if="text || buttonText || buttonUrl" class="product-tile__text">
-            <p v-if="text" v-text="text"/>
-            <more-button v-if="buttonText && buttonUrl" color="secondary" :to="buttonUrl" :text="buttonText"/>
-          </div>
-        </div>
+    </div>
+    <div class="col-xl-6 product-tile__title-col">
+      <div class="product-tile__title">
+        <h2>{{ title }}</h2>
+      </div>
+    </div>
+    <div class="col-xl-9 offset-xl-1">
+      <div class="product-tile__content">
+        <p class="product-tile__text" v-text="text"/>
+        <more-button color="secondary" :to="buttonUrl" :text="buttonText"/>
       </div>
     </div>
   </div>
@@ -36,19 +36,15 @@ export default {
       default: 'primary',
     },
     image: {
-      type: String,
+      type: Object,
       required: true,
     },
     title: {
-      type: String,
+      type: Object,
       required: true,
     },
     text: {
-      type: String,
-      default: null,
-    },
-    url: {
-      type: String,
+      type: Object,
       required: true,
     },
     buttonText: {
@@ -60,18 +56,11 @@ export default {
       default: null,
     },
   },
-  computed: {
-    isExternalUrl() {
-      return this.url && /^https?:\/\//.test(this.url);
-    },
-  },
 };
 </script>
 
 <style lang="scss" scoped>
 .product-tile {
-  padding-bottom: 1.8rem;
-
   .product-tile__image {
     position: relative;
     z-index: 1;
@@ -79,9 +68,8 @@ export default {
     margin-left: -0.5rem;
 
     @include media-breakpoint-up(xl) {
-      margin-right: -1.8rem;
+      margin-right: 0rem;
       margin-left: 0rem;
-      z-index: 2;
     }
 
     .background-image {
@@ -93,69 +81,121 @@ export default {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       z-index: -2;
+
+      &.blurred {
+        filter: blur(10px);
+        z-index: -1;
+        transform: scale(1.2);
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    figcaption {
+      margin-top: 0.25rem;
+      font-style: italic;
+      text-align: right;
+
+      @include media-breakpoint-up(xl) {
+        margin-top: 0.75rem;
+      }
+
+      a {
+        font-weight: 400;
+        text-decoration: underline;
+        color: inherit;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 
-  .product-tile__content-col {
-    $bg-offset: 1.8rem;
-    margin-top: -$bg-offset;
+  .product-tile__title,
+  .product-tile__content {
+    margin-left: 0.5rem;
+    margin-right: -0.5rem;
+    background-color: #fff;
+
+    @include media-breakpoint-up(xl) {
+      margin-left: 0rem;
+      margin-right: 0rem;
+      background-color: transparent;
+    }
+  }
+
+  .product-tile__title-col {
+    $bg-offset: 4.5rem;
+    margin-top: -$bg-offset + 1rem;
     z-index: -1;
 
     @include media-breakpoint-up(xl) {
-      z-index: 1;
       margin-top: 0;
+      z-index: 1;
     }
 
-    .product-tile__content {
+    .product-tile__title {
       position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
       height: 100%;
       justify-content: center;
-      padding: 0 1.2rem 1.5rem;
-      padding-top: $bg-offset + 1.2rem;
-      margin-left: 0.5rem;
-      margin-right: -0.5rem;
-      background-color: #fff;
+      padding: 0 1.2rem 0.75rem 1.75rem;
+      padding-top: $bg-offset;
 
       @include media-breakpoint-up(xl) {
-        margin-left: -1.8rem;
-        margin-right: 0rem;
-        margin-top: 1.8rem;
-        padding: 1.8rem 1.8rem 1.8rem;
-        padding-left: 2rem + 1.8rem;
+        padding-top: $bg-offset / 2;
+        padding-left: 0.5rem;
       }
 
-      .product-tile__title {
+      h2 {
         font-size: 2.5rem;
         font-weight: 600;
-        transition: color 0.15s ease;
 
-        @include media-breakpoint-up(xl) {
-          font-weight: 700;
+        @include media-breakpoint-up(xxl) {
           font-size: 3rem;
         }
       }
+    }
+  }
 
-      .product-tile__text {
-        font-size: 1.25rem;
-        font-weight: 200;
-        margin-top: 0.5rem;
+  .product-tile__content {
+    padding: 0 1.2rem 1.5rem 1.75rem;
 
-        p {
-          margin: 0 0 0.5rem;
-          font-style: italic;
-        }
+    @include media-breakpoint-up(xl) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      background-color: #fff;
 
-        .more-button {
-          margin-top: 1rem;
-        }
+      $bg-offset: 14vw;
+      margin-top: -$bg-offset;
+      padding-top: calc(2rem + #{$bg-offset});
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.25;
+      font-weight: 200;
+      margin: 0;
+
+      @include media-breakpoint-up(xl) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .more-button {
+      margin-top: 1.5rem;
+
+      @include media-breakpoint-up(xl) {
+        margin-top: 2rem;
       }
     }
   }

@@ -2,16 +2,29 @@
   <div>
     <page-title :title="$t('menu.shop')" :text="$t('shop.description')" color="secondary"/>
     <shopping-cart-bar/>
-    <div class="mt-4">
-      <product-tile
-        color="secondary"
-        image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
-        title="tilte"
-        text="text"
-        url="http://google.com"
-        button-text="Privošči si jo!"
-        button-url="https://google.com"
-      />
+    <div class="product-tiles row">
+      <div class="col-12 col-lg-6">
+        <product-tile
+          color="secondary"
+          image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
+          title="Druga DJND majica"
+          text="text"
+          url="http://google.com"
+          button-text="Privošči si jo!"
+          button-url="https://google.com"
+        />
+      </div>
+      <div class="col-12 col-lg-6">
+        <product-tile
+          color="secondary"
+          image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
+          title="Knjiga Filozofski abecedarij"
+          text="text"
+          url="http://google.com"
+          button-text="Privošči si jo!"
+          button-url="https://google.com"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -46,4 +59,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.product-tiles {
+  margin-top: 2rem;
+
+  .product-tile {
+    margin-bottom: 2rem;
+  }
+}
 </style>
