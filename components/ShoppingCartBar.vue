@@ -53,8 +53,13 @@ export default {
     justify-content: space-between;
     padding: 0.8rem 0;
 
+    @include media-breakpoint-up(md) {
+      justify-content: flex-end;
+    }
+
     .cart {
       display: flex;
+      margin-right: 1rem;
 
       .icon {
         width: 2rem;
