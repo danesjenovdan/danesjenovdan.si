@@ -1,12 +1,16 @@
 <template>
-  <nuxt-link
+  <component
+    :is="isExternalUrl ? 'a' : 'nuxt-link'"
+    :href="to"
     :to="to"
+    :target="isExternalUrl ? '_blank' : null"
+    :rel="isExternalUrl ? 'noopener noreferrer' : null"
     :class="['more-button', `more-button--${color}`, { 'more-button--block': block }]"
   >
     <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]"/>
     <span v-text="text"/>
     <span :class="['arrow', 'icon', `icon-arrow--${color}`]"/>
-  </nuxt-link>
+  </component>
 </template>
 
 <script>
@@ -31,6 +35,11 @@ export default {
     block: {
       type: Boolean,
       default: false,
+    },
+  },
+  computed: {
+    isExternalUrl() {
+      return this.to && /^https?:\/\//.test(this.to);
     },
   },
 };

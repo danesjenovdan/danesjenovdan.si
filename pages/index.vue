@@ -1,6 +1,15 @@
 <template>
   <div>
     <page-title :title="$t('hello')" :text="$t('landing.description')"/>
+    <div v-if="infopush && infopush.visible">
+      <info-push
+        :image="infopush.image"
+        :title="infopush.title"
+        :text="infopush.desc"
+        :button-text="infopush.cta_text"
+        :button-url="infopush.cta_url"
+      />
+    </div>
     <div class="row">
       <div class="col-12">
         <section-header :to="localePath('agrument')" :text="$t('menu.agrument')" icon="section-agrument"/>
@@ -196,6 +205,7 @@
 
 <script>
 import PageTitle from '~/components/PageTitle.vue';
+import InfoPush from '~/components/InfoPush.vue';
 import SectionHeader from '~/components/SectionHeader.vue';
 import ProjectTile from '~/components/ProjectTile.vue';
 import PromotedTile from '~/components/PromotedTile.vue';
@@ -219,26 +229,29 @@ export default {
     AgrumentSubscribeBar,
     SocialMediaBar,
     ShopBar,
+    InfoPush,
   },
   mixins: [dateMixin],
   async asyncData({ $axios, params, error }) {
-    // TODO: infopush
     const [
       agrumentResponse,
       clippingsResponse,
       projectsResponse,
       videosResponse,
+      infopushResponse,
     ] = await Promise.all([
       $axios.$get('https://agrument.danesjenovdan.si/api/v2/posts?limit=5'),
       $axios.$get('https://djnapi.djnd.si/djnd.si/clips/?ordering=-date'),
       $axios.$get('https://djnapi.djnd.si/djnd.si/projects/?ordering=-date'),
       $axios.$get('https://djnapi.djnd.si/djnd.si/videos/?ordering=-date'),
+      $axios.$get('https://djnapi.djnd.si/djnd.si/infopushes/'),
     ]);
     return {
       agrumentPosts: agrumentResponse.data,
       clippings: clippingsResponse.results,
       projects: projectsResponse.results,
       videos: videosResponse.results,
+      infopush: infopushResponse.results[0],
     };
   },
 };
