@@ -36,15 +36,15 @@ export default {
       default: 'primary',
     },
     image: {
-      type: Object,
+      type: String,
       required: true,
     },
     title: {
-      type: Object,
+      type: String,
       required: true,
     },
     text: {
-      type: Object,
+      type: String,
       required: true,
     },
     buttonText: {
