@@ -30,12 +30,12 @@
               <span>Skupaj</span>
               <i>50 €</i>
             </div>
-            <more-button block color="secondary" :to="'#'" :text="'Zaključi nakup'"/>
+            <more-button block color="secondary" :to="localePath('shop-checkout')" :text="'Zaključi nakup'"/>
           </div>
         </div>
       </div>
       <div class="checkout">
-        <more-button color="secondary" :to="'#'" :text="'Zaključi nakup'"/>
+        <more-button color="secondary" :to="localePath('shop-checkout')" :text="'Zaključi nakup'"/>
       </div>
     </div>
   </div>
