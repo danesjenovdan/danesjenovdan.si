@@ -144,9 +144,14 @@ export default {
       .cart-preview {
         position: absolute;
         top: 2.7rem;
-        left: -40px;
-        width: 320px;
+        left: 0;
+        width: calc(100vw - #{$content-mobile-padding * 2});
         z-index: 10;
+
+        @include media-breakpoint-up(md) {
+          left: -40px;
+          width: 320px;
+        }
 
         .arrow {
           border: 14px solid transparent;
@@ -154,9 +159,13 @@ export default {
           border-top-width: 0;
           width: 0;
           height: 0;
-          margin-left: 62px;
+          margin-left: 28px;
           position: relative;
           z-index: 11;
+
+          @include media-breakpoint-up(md) {
+            margin-left: 62px;
+          }
         }
 
         .cart-preview__content {
