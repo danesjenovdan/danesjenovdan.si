@@ -10,14 +10,27 @@
               ></path>
             </svg>
           </div>
-          <div class="amount">
-            2
-          </div>
+          <div class="amount">2</div>
         </button>
         <div v-if="cartPreviewShown" class="cart-preview">
           <div class="arrow"/>
           <div class="cart-preview__content">
-            HELLO
+            <cart-product
+              image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
+              title="Druga DJND majica"
+              text="luna, velikost S"
+            />
+            <hr>
+            <cart-product
+              image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
+              title="Druga DJND majica"
+            />
+            <hr>
+            <div class="cart-total">
+              <span>Skupaj</span>
+              <i>50 €</i>
+            </div>
+            <more-button block color="secondary" :to="'#'" :text="'Zaključi nakup'"/>
           </div>
         </div>
       </div>
@@ -30,10 +43,12 @@
 
 <script>
 import MoreButton from '~/components/MoreButton.vue';
+import CartProduct from '~/components/CartProduct.vue';
 
 export default {
   components: {
     MoreButton,
+    CartProduct,
   },
   directives: {
     clickOutside: {
@@ -54,7 +69,7 @@ export default {
   },
   data() {
     return {
-      cartPreviewShown: true,
+      cartPreviewShown: false,
     };
   },
   methods: {
@@ -148,6 +163,19 @@ export default {
           background-color: #fff;
           padding: 1.5rem;
           box-shadow: $box-shadow;
+
+          .cart-total {
+            text-align: right;
+            background-color: rgba($color-red, 0.15);
+            padding: 0.5rem 1rem;
+            margin-bottom: 1rem;
+
+            i {
+              font-weight: 600;
+              font-size: 1.25rem;
+              margin-left: 0.25rem;
+            }
+          }
         }
       }
     }
