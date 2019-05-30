@@ -81,39 +81,6 @@ export default {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      z-index: -2;
-
-      &.blurred {
-        filter: blur(10px);
-        z-index: -1;
-        transform: scale(1.2);
-      }
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    figcaption {
-      margin-top: 0.25rem;
-      font-style: italic;
-      text-align: right;
-
-      @include media-breakpoint-up(xl) {
-        margin-top: 0.75rem;
-      }
-
-      a {
-        font-weight: 400;
-        text-decoration: underline;
-        color: inherit;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
     }
   }
 
