@@ -8,6 +8,9 @@
 @function icon-friendship($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/friendship.svg'), '#000', '#{$color}'));
 }
+@function icon-trash($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/trash.svg'), '#000', '#{$color}'));
+}
 
 // SECTIONS
 @function icon-section-agrument($color) {
@@ -90,6 +93,9 @@
   }
   .icon-friendship--#{$color-name} {
     background-image: url(#{icon-friendship($color)});
+  }
+  .icon-trash--#{$color-name} {
+    background-image: url(#{icon-trash($color)});
   }
   // SECTIONS
   .icon-section-agrument--#{$color-name} {
