@@ -31,10 +31,17 @@ button:focus {
 
 @each $color-name, $color in $theme-colors {
   .page--#{$color-name} {
-    .form-control {
+    .form-control,
+    button {
       &:focus {
         border: 1px solid $color;
         box-shadow: 0 0 0 0.2rem rgba($color, 0.25);
+      }
+    }
+
+    button {
+      &:focus {
+        outline: 5px auto $color;
       }
     }
   }

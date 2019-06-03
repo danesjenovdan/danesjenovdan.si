@@ -19,11 +19,17 @@
               image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
               title="Druga DJND majica"
               text="luna, velikost S"
+              :price="25"
+              :amount="1"
+              @change-amount="changeAmount"
             />
             <hr>
             <cart-product
               image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
               title="Druga DJND majica"
+              :price="25"
+              :amount="1"
+              @change-amount="changeAmount"
             />
             <hr>
             <div class="cart-total">
@@ -69,7 +75,7 @@ export default {
   },
   data() {
     return {
-      cartPreviewShown: false,
+      cartPreviewShown: true,
     };
   },
   methods: {
@@ -77,6 +83,9 @@ export default {
       if (this.cartPreviewShown !== value) {
         this.cartPreviewShown = value;
       }
+    },
+    changeAmount(newAmount) {
+      console.log(newAmount);
     },
   },
 };

@@ -16,7 +16,7 @@ module.exports = {
   rules: {
     'no-console': 'warn',
     'vue/singleline-html-element-content-newline': [
-      'warn',
+      'off',
       {
         ignoreWhenNoAttributes: true,
         ignoreWhenEmpty: true,

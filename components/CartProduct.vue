@@ -10,14 +10,14 @@
       </div>
       <div class="col-7 cart-product__desc-col">
         <div class="cart-product__title" v-text="title"/>
-        <div class="cart-product__price">25 €</div>
+        <div class="cart-product__price">{{ price }} €</div>
         <div v-if="text" class="cart-product__variation" v-text="text"/>
         <div v-else class="cart-product__variation">&nbsp;</div>
         <div class="cart-product__modify">
           <button class="remove-product icon icon-trash--secondary"/>
-          <button class="modify-amount modify-amount--minus">&ndash;</button>
-          <input type="number" min="1" class="amount form-control">
-          <button class="modify-amount modify-amount--plus">+</button>
+          <button class="modify-amount modify-amount--minus" @click="$emit('change-amount', amount - 1)">&ndash;</button>
+          <span class="amount" v-text="amount"/>
+          <button class="modify-amount modify-amount--plus" @click="$emit('change-amount', amount + 1)">+</button>
         </div>
       </div>
     </div>
@@ -38,6 +38,14 @@ export default {
     text: {
       type: String,
       default: '',
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    amount: {
+      type: Number,
+      required: true,
     },
   },
 };
@@ -87,31 +95,30 @@ export default {
         background-color: transparent;
         border: 0;
         height: 1.75rem;
+        width: 1.75rem;
       }
 
       .remove-product {
-        width: 1.75rem;
-        height: 1.75rem;
         background-size: 1.25rem;
       }
 
       .modify-amount {
         font-weight: 700;
         color: $color-red;
-        width: 1.4em;
+        border: 1px solid $color-red;
+        text-align: center;
 
         &.modify-amount--minus {
-          margin-left: 1rem;
+          margin-left: 1.5rem;
         }
       }
 
       .amount {
         display: inline-block;
-        width: 40px;
         text-align: center;
         line-height: 1;
-        height: 1.75rem;
-        padding: 0.125rem 0.5rem;
+        padding: 0.125rem 0.75rem;
+        font-weight: 600;
       }
 
       input[type='number']::-webkit-outer-spin-button,
