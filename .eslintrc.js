@@ -24,7 +24,7 @@ module.exports = {
       },
     ],
     'vue/multiline-html-element-content-newline': [
-      'warn',
+      'off',
       {
         ignoreWhenEmpty: true,
         ignores: ['nuxt-link', 'pre', 'textarea', ...INLINE_ELEMENTS],
