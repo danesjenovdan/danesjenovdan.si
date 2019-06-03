@@ -28,6 +28,34 @@ button:focus {
   }
 }
 
+.custom-control {
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+
+  .custom-control-label {
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 2rem;
+  }
+
+  .custom-control-label::before,
+  .custom-control-label::after {
+    width: 2rem;
+    height: 2rem;
+    top: 0;
+    left: -3rem;
+  }
+
+  .custom-control-label::before {
+    border-color: #333;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::after {
+    // background-image: none;
+  }
+}
+
+
 @each $color-name, $color in $theme-colors {
   .page--#{$color-name} {
     .form-control,
@@ -44,14 +72,16 @@ button:focus {
       }
     }
 
-    .custom-control-input:checked ~ .custom-control-label::before {
-      border-color: $color;
-      background-color: $color;
-    }
+    .custom-control {
+      .custom-control-input:checked ~ .custom-control-label::before {
+        border-color: $color;
+        background-color: $color;
+      }
 
-    .custom-control-input:focus ~ .custom-control-label::before {
-      border-color: $color;
-      box-shadow: 0 0 0 0.2rem rgba($color, 0.25);
+      .custom-control-input:focus ~ .custom-control-label::before {
+        border-color: $color;
+        box-shadow: 0 0 0 0.2rem rgba($color, 0.25);
+      }
     }
   }
 }
