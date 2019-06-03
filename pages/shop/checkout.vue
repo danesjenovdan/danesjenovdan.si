@@ -1,7 +1,7 @@
 <template>
   <div class="checkout">
-    <h1 class="checkout__title">Povzetek naročila</h1>
     <div v-if="stage === 'summary'" class="checkout__summary">
+      <h1 class="checkout__title">Povzetek naročila</h1>
       <cart-product
         image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
         title="Druga DJND majica"
@@ -22,6 +22,27 @@
         <i>50 €</i>
       </div>
       <more-button
+        key="next-summary"
+        block
+        color="secondary"
+        icon="heart"
+        :to="localePath('shop-checkout')"
+        :text="'KUPI'"
+        @click.native="nextStep"
+      />
+    </div>
+    <div v-if="stage === 'delivery'" class="checkout__delivery">
+      <h1 class="checkout__title">Prevzem</h1>
+      <div class="custom-control custom-radio">
+        <input id="delivery-pickup" type="radio" name="delivery" class="custom-control-input">
+        <label class="custom-control-label" for="delivery-pickup">Osebni prevzem</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="delivery-post" type="radio" name="delivery" class="custom-control-input">
+        <label class="custom-control-label" for="delivery-post">Pošlji po pošti</label>
+      </div>
+      <more-button
+        key="next-delivery"
         block
         color="secondary"
         icon="heart"
@@ -60,9 +81,8 @@ export default {
   methods: {
     nextStep(event) {
       event.preventDefault();
-      console.log(this.stage);
       if (this.stage === 'summary') {
-        //
+        this.stage = 'delivery';
       }
     },
   },
