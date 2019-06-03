@@ -21,6 +21,7 @@
               text="luna, velikost S"
               :price="25"
               :amount="1"
+              show-modify
               @change-amount="changeAmount"
             />
             <hr>
@@ -29,6 +30,7 @@
               title="Druga DJND majica"
               :price="25"
               :amount="1"
+              show-modify
               @change-amount="changeAmount"
             />
             <hr>
@@ -85,7 +87,7 @@ export default {
       }
     },
     changeAmount(newAmount) {
-      console.log(newAmount);
+      // console.log(newAmount);
     },
   },
 };

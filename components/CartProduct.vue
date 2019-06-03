@@ -13,11 +13,17 @@
         <div class="cart-product__price">{{ price }} €</div>
         <div v-if="text" class="cart-product__variation" v-text="text"/>
         <div v-else class="cart-product__variation">&nbsp;</div>
-        <div class="cart-product__modify">
+        <div v-if="showModify" class="cart-product__modify">
           <button class="remove-product icon icon-trash--secondary"/>
-          <button class="modify-amount modify-amount--minus" @click="$emit('change-amount', amount - 1)">&ndash;</button>
+          <button
+            class="modify-amount modify-amount--minus"
+            @click="$emit('change-amount', amount - 1)"
+          >&ndash;</button>
           <span class="amount" v-text="amount"/>
-          <button class="modify-amount modify-amount--plus" @click="$emit('change-amount', amount + 1)">+</button>
+          <button
+            class="modify-amount modify-amount--plus"
+            @click="$emit('change-amount', amount + 1)"
+          >+</button>
         </div>
       </div>
     </div>
@@ -46,6 +52,10 @@ export default {
     amount: {
       type: Number,
       required: true,
+    },
+    showModify: {
+      type: Boolean,
+      default: false,
     },
   },
 };
