@@ -3,7 +3,7 @@
     <top-bar/>
     <side-menu/>
     <section class="content">
-      <b-container fluid class="content-container">
+      <div class="container-fluid content-container">
         <nuxt/>
         <div>
           <div class="row mobile-no-gap">
@@ -13,7 +13,7 @@
           </div>
           <page-footer :color="pageColor"/>
         </div>
-      </b-container>
+      </div>
     </section>
   </div>
 </template>

@@ -53,8 +53,6 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc: https://bootstrap-vue.js.org/docs/
-    'bootstrap-vue/nuxt',
     '@nuxtjs/pwa',
     [
       'nuxt-i18n',
@@ -77,14 +75,6 @@ module.exports = {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
-  /*
-  ** Bootstrap Vue module configuration
-  */
-  bootstrapVue: {
-    // bootstrapCSS: true, // or `css`
-    // bootstrapVueCSS: true, // or `bvCSS`
-  },
-
   /*
   ** Build configuration
   */
