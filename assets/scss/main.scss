@@ -56,10 +56,6 @@ button:focus {
   .custom-control-label::before {
     border-color: #333;
   }
-
-  .custom-control-input:checked ~ .custom-control-label::after {
-    // background-image: none;
-  }
 }
 
 
