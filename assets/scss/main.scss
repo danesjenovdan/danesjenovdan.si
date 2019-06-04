@@ -19,8 +19,15 @@ button:focus {
 
   &::placeholder {
     font-style: italic;
+    font-weight: 300;
     color: #444;
     text-decoration: underline;
+  }
+
+  &.form-control-lg {
+    &::placeholder {
+      font-size: 1.2rem;
+    }
   }
 
   &:focus {

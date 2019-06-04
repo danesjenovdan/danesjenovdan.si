@@ -28,19 +28,71 @@
         icon="heart"
         :to="localePath('shop-checkout')"
         :text="'KUPI'"
-        @click.native="nextStep"
+        @click.native="continueToDelivery"
       />
     </div>
     <div v-if="stage === 'delivery'" class="checkout__delivery">
       <h1 class="checkout__title">Prevzem</h1>
       <div class="custom-control custom-radio">
-        <input id="delivery-pickup" type="radio" name="delivery" class="custom-control-input">
+        <input
+          id="delivery-pickup"
+          v-model="delivery"
+          type="radio"
+          name="delivery"
+          class="custom-control-input"
+          value="pickup"
+        >
         <label class="custom-control-label" for="delivery-pickup">Osebni prevzem</label>
       </div>
       <div class="custom-control custom-radio">
-        <input id="delivery-post" type="radio" name="delivery" class="custom-control-input">
+        <input
+          id="delivery-post"
+          v-model="delivery"
+          type="radio"
+          name="delivery"
+          class="custom-control-input"
+          value="post"
+        >
         <label class="custom-control-label" for="delivery-post">Pošlji po pošti</label>
       </div>
+      <template v-if="delivery">
+        <div class="form-group">
+          <input
+            id="name"
+            v-model="name"
+            placeholder="Ime in priimek"
+            class="form-control form-control-lg"
+          >
+        </div>
+        <div class="form-group">
+          <input
+            id="email"
+            v-model="email"
+            type="email"
+            placeholder="Email"
+            class="form-control form-control-lg"
+          >
+        </div>
+        <!-- TODO: preveri če rabimo naslov za izdajo računa tudi pri osebnem prevzemu? -->
+        <template v-if="delivery === 'post'">
+          <div class="form-group">
+            <input
+              id="address"
+              v-model="address"
+              placeholder="Naslov"
+              class="form-control form-control-lg"
+            >
+          </div>
+          <div class="form-group">
+            <input
+              id="address-post"
+              v-model="addressPost"
+              placeholder="Poštna številka in pošta"
+              class="form-control form-control-lg"
+            >
+          </div>
+        </template>
+      </template>
       <more-button
         key="next-delivery"
         block
@@ -48,7 +100,7 @@
         icon="heart"
         :to="localePath('shop-checkout')"
         :text="'KUPI'"
-        @click.native="nextStep"
+        @click.native="continueToPayment"
       />
     </div>
     <div class="terms">
@@ -60,6 +112,10 @@
 <script>
 import MoreButton from '~/components/MoreButton.vue';
 import CartProduct from '~/components/CartProduct.vue';
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const ADDRESS_POST_REGEX = /^\d{4}\s.+/;
 
 export default {
   nuxtI18n: {
@@ -76,14 +132,38 @@ export default {
   data() {
     return {
       stage: 'summary',
+      delivery: null,
+      name: null,
+      email: null,
+      address: null,
+      addressPost: null,
     };
   },
   methods: {
-    nextStep(event) {
-      event.preventDefault();
-      if (this.stage === 'summary') {
-        this.stage = 'delivery';
+    continueToDelivery() {
+      this.stage = 'delivery';
+    },
+    continueToPayment() {
+      // TODO: shake invalid/empty fields
+      // TODO: check email and address fields with regex?
+      if (!this.delivery) {
+        return;
       }
+      if (!this.name || !this.email) {
+        return;
+      }
+      if (!EMAIL_REGEX.test(this.email)) {
+        return;
+      }
+      if (!ADDRESS_POST_REGEX.test(this.addressPost)) {
+        return;
+      }
+      if (this.delivery === 'post') {
+        if (!this.address || !this.addressPost) {
+          return;
+        }
+      }
+      this.stage = 'payment';
     },
   },
 };
