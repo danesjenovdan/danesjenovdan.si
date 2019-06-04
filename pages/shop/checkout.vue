@@ -103,6 +103,9 @@
         @click.native="continueToPayment"
       />
     </div>
+    <div v-if="stage === 'payment'" class="checkout__payment">
+      <braintree/>
+    </div>
     <div class="terms">
       <nuxt-link to="#">Pogoji poslovanja</nuxt-link>
     </div>
@@ -112,6 +115,7 @@
 <script>
 import MoreButton from '~/components/MoreButton.vue';
 import CartProduct from '~/components/CartProduct.vue';
+import Braintree from '~/components/Braintree.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -128,6 +132,7 @@ export default {
   components: {
     MoreButton,
     CartProduct,
+    Braintree,
   },
   data() {
     return {
@@ -155,11 +160,11 @@ export default {
       if (!EMAIL_REGEX.test(this.email)) {
         return;
       }
-      if (!ADDRESS_POST_REGEX.test(this.addressPost)) {
-        return;
-      }
       if (this.delivery === 'post') {
         if (!this.address || !this.addressPost) {
+          return;
+        }
+        if (!ADDRESS_POST_REGEX.test(this.addressPost)) {
           return;
         }
       }
