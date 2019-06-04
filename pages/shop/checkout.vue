@@ -104,7 +104,7 @@
       />
     </div>
     <div v-if="stage === 'payment'" class="checkout__payment">
-      <braintree/>
+      <!-- <braintree/> -->
     </div>
     <div class="terms">
       <nuxt-link to="#">Pogoji poslovanja</nuxt-link>
@@ -115,7 +115,7 @@
 <script>
 import MoreButton from '~/components/MoreButton.vue';
 import CartProduct from '~/components/CartProduct.vue';
-import Braintree from '~/components/Braintree.vue';
+// import Braintree from '~/components/Braintree.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -132,7 +132,7 @@ export default {
   components: {
     MoreButton,
     CartProduct,
-    Braintree,
+    // Braintree,
   },
   data() {
     return {
