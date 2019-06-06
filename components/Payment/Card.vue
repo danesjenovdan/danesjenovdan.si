@@ -147,7 +147,6 @@ export default {
 
 <style lang="scss" scoped>
 .focus {
-  outline: 5px auto $color-red;
   border: 1px solid $color-red;
   box-shadow: 0 0 0 0.2rem rgba($color-red, 0.25);
 }

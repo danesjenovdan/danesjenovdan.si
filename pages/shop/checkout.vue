@@ -33,66 +33,70 @@
     </div>
     <div v-if="stage === 'delivery'" class="checkout__delivery">
       <h1 class="checkout__title">Prevzem</h1>
-      <div class="custom-control custom-radio">
-        <input
-          id="delivery-pickup"
-          v-model="delivery"
-          type="radio"
-          name="delivery"
-          class="custom-control-input"
-          value="pickup"
-        >
-        <label class="custom-control-label" for="delivery-pickup">Osebni prevzem</label>
-      </div>
-      <div class="custom-control custom-radio">
-        <input
-          id="delivery-post"
-          v-model="delivery"
-          type="radio"
-          name="delivery"
-          class="custom-control-input"
-          value="post"
-        >
-        <label class="custom-control-label" for="delivery-post">Pošlji po pošti</label>
-      </div>
-      <template v-if="delivery">
-        <div class="form-group">
+      <form @submit.prevent="continueToPayment">
+        <div class="custom-control custom-radio">
           <input
-            id="name"
-            v-model="name"
-            placeholder="Ime in priimek"
-            class="form-control form-control-lg"
+            id="delivery-pickup"
+            v-model="delivery"
+            type="radio"
+            name="delivery"
+            class="custom-control-input"
+            value="pickup"
           >
+          <label class="custom-control-label" for="delivery-pickup">Osebni prevzem</label>
         </div>
-        <div class="form-group">
+        <div class="custom-control custom-radio">
           <input
-            id="email"
-            v-model="email"
-            type="email"
-            placeholder="Email"
-            class="form-control form-control-lg"
+            id="delivery-post"
+            v-model="delivery"
+            type="radio"
+            name="delivery"
+            class="custom-control-input"
+            value="post"
           >
+          <label class="custom-control-label" for="delivery-post">Pošlji po pošti</label>
         </div>
-        <!-- TODO: preveri če rabimo naslov za izdajo računa tudi pri osebnem prevzemu? -->
-        <template v-if="delivery === 'post'">
+        <template v-if="delivery">
           <div class="form-group">
             <input
-              id="address"
-              v-model="address"
-              placeholder="Naslov"
+              id="name"
+              v-model="name"
+              placeholder="Ime in priimek"
               class="form-control form-control-lg"
             >
           </div>
           <div class="form-group">
             <input
-              id="address-post"
-              v-model="addressPost"
-              placeholder="Poštna številka in pošta"
+              id="email"
+              v-model="email"
+              type="email"
+              placeholder="Email"
               class="form-control form-control-lg"
             >
           </div>
+          <!-- TODO: preveri če rabimo naslov za izdajo računa tudi pri osebnem prevzemu? -->
+          <template v-if="delivery === 'post'">
+            <div class="form-group">
+              <input
+                id="address"
+                v-model="address"
+                placeholder="Naslov"
+                class="form-control form-control-lg"
+              >
+            </div>
+            <div class="form-group">
+              <input
+                id="address-post"
+                v-model="addressPost"
+                placeholder="Poštna številka in pošta"
+                class="form-control form-control-lg"
+              >
+            </div>
+          </template>
         </template>
-      </template>
+        <!-- this is here so you can submit the form with the enter key -->
+        <input type="submit" hidden>
+      </form>
       <more-button
         key="next-delivery"
         block
@@ -100,6 +104,7 @@
         icon="heart"
         :to="localePath('shop-checkout')"
         :text="'KUPI'"
+        :disabled="!canContinueToPayment"
         @click.native="continueToPayment"
       />
     </div>
@@ -109,12 +114,8 @@
       <template v-if="payment === 'card'">
         <card-payment/>
       </template>
-      <template v-if="payment === 'paypal'">
-        PAYPAL
-      </template>
-      <template v-if="payment === 'upn'">
-        UPN
-      </template>
+      <template v-if="payment === 'paypal'">PAYPAL</template>
+      <template v-if="payment === 'upn'">UPN</template>
     </div>
     <div class="terms">
       <nuxt-link to="#">Pogoji poslovanja</nuxt-link>
@@ -148,7 +149,7 @@ export default {
   },
   data() {
     return {
-      stage: 'payment',
+      stage: 'summary',
       delivery: null,
       name: null,
       email: null,
@@ -157,29 +158,38 @@ export default {
       payment: null,
     };
   },
+  computed: {
+    canContinueToPayment() {
+      if (!this.delivery) {
+        return false;
+      }
+      if (!this.name || !this.email) {
+        return false;
+      }
+      if (!EMAIL_REGEX.test(this.email)) {
+        return false;
+      }
+      if (this.delivery === 'post') {
+        if (!this.address || !this.addressPost) {
+          return false;
+        }
+        if (!ADDRESS_POST_REGEX.test(this.addressPost)) {
+          return false;
+        }
+      }
+      return true;
+    },
+  },
   methods: {
     continueToDelivery() {
       this.stage = 'delivery';
     },
     continueToPayment() {
+      console.log('yo!');
       // TODO: shake invalid/empty fields
       // TODO: check email and address fields with regex?
-      if (!this.delivery) {
+      if (!this.canContinueToPayment) {
         return;
-      }
-      if (!this.name || !this.email) {
-        return;
-      }
-      if (!EMAIL_REGEX.test(this.email)) {
-        return;
-      }
-      if (this.delivery === 'post') {
-        if (!this.address || !this.addressPost) {
-          return;
-        }
-        if (!ADDRESS_POST_REGEX.test(this.addressPost)) {
-          return;
-        }
       }
       this.stage = 'payment';
     },
@@ -191,28 +201,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  font-size: 1.85rem;
-  text-align: center;
-  font-weight: 600;
-  margin: 3rem 0;
-}
+.checkout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-.cart-total {
-  text-align: right;
-  background-color: rgba($color-red, 0.15);
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
-
-  i {
+  h1 {
+    font-size: 1.85rem;
+    text-align: center;
     font-weight: 600;
-    font-size: 1.25rem;
-    margin-left: 0.25rem;
+    margin: 3rem 0;
   }
-}
 
-.payment-switcher {
-  margin-bottom: 2rem;
+  .cart-total {
+    text-align: right;
+    background-color: rgba($color-red, 0.15);
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+
+    i {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-left: 0.25rem;
+    }
+  }
+
+  .payment-switcher {
+    margin-bottom: 2rem;
+  }
 }
 
 .terms {
