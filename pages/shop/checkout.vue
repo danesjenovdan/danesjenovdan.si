@@ -114,8 +114,12 @@
       <template v-if="payment === 'card'">
         <card-payment/>
       </template>
-      <template v-if="payment === 'paypal'">PAYPAL</template>
-      <template v-if="payment === 'upn'">UPN</template>
+      <template v-if="payment === 'paypal'">
+        <paypal-payment/>
+      </template>
+      <template v-if="payment === 'upn'">
+        <upn-payment/>
+      </template>
     </div>
     <div class="terms">
       <nuxt-link to="#">Pogoji poslovanja</nuxt-link>
@@ -128,6 +132,8 @@ import MoreButton from '~/components/MoreButton.vue';
 import CartProduct from '~/components/CartProduct.vue';
 import PaymentSwitcher from '~/components/Payment/Switcher.vue';
 import CardPayment from '~/components/Payment/Card.vue';
+import PaypalPayment from '~/components/Payment/Paypal.vue';
+import UpnPayment from '~/components/Payment/Upn.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -146,6 +152,8 @@ export default {
     CartProduct,
     PaymentSwitcher,
     CardPayment,
+    PaypalPayment,
+    UpnPayment,
   },
   data() {
     return {

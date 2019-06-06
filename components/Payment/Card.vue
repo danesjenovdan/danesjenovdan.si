@@ -58,14 +58,12 @@ export default {
         const clientInstance = await braintree.client.create({
           authorization: 'sandbox_93smtrz3_bbgx4xf7h8bx24xg',
         });
-
         const placeholderStyle = {
           'font-style': 'italic',
           'font-weight': '300',
           color: '#444',
           'text-decoration': 'underline',
         };
-
         const options = {
           client: clientInstance,
           styles: {
