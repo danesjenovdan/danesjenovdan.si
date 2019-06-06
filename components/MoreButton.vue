@@ -5,7 +5,8 @@
     :to="to"
     :target="isExternalUrl ? '_blank' : null"
     :rel="isExternalUrl ? 'noopener noreferrer' : null"
-    :class="['more-button', `more-button--${color}`, { 'more-button--block': block }]"
+    :class="['more-button', `more-button--${color}`, { 'more-button--block': block, disabled: disabled }]"
+    :disabled="disabled"
   >
     <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]"/>
     <span v-text="text"/>
@@ -33,6 +34,10 @@ export default {
       default: null,
     },
     block: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
       type: Boolean,
       default: false,
     },
@@ -111,6 +116,14 @@ export default {
         background-color: rgba($color, 0.15);
       }
     }
+  }
+
+  &.disabled,
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    filter: grayscale(1);
+    background-color: #ccc;
   }
 }
 </style>

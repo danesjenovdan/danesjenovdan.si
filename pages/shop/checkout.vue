@@ -104,7 +104,17 @@
       />
     </div>
     <div v-if="stage === 'payment'" class="checkout__payment">
-      <braintree-switcher/>
+      <h1 class="checkout__title">Plačilo</h1>
+      <payment-switcher @change="onPaymentChange"/>
+      <template v-if="payment === 'card'">
+        <card-payment/>
+      </template>
+      <template v-if="payment === 'paypal'">
+        PAYPAL
+      </template>
+      <template v-if="payment === 'upn'">
+        UPN
+      </template>
     </div>
     <div class="terms">
       <nuxt-link to="#">Pogoji poslovanja</nuxt-link>
@@ -115,7 +125,8 @@
 <script>
 import MoreButton from '~/components/MoreButton.vue';
 import CartProduct from '~/components/CartProduct.vue';
-import BraintreeSwitcher from '~/components/Braintree/Switcher.vue';
+import PaymentSwitcher from '~/components/Payment/Switcher.vue';
+import CardPayment from '~/components/Payment/Card.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -132,16 +143,18 @@ export default {
   components: {
     MoreButton,
     CartProduct,
-    BraintreeSwitcher,
+    PaymentSwitcher,
+    CardPayment,
   },
   data() {
     return {
-      stage: 'summary',
+      stage: 'payment',
       delivery: null,
       name: null,
       email: null,
       address: null,
       addressPost: null,
+      payment: null,
     };
   },
   methods: {
@@ -170,6 +183,9 @@ export default {
       }
       this.stage = 'payment';
     },
+    onPaymentChange(payment) {
+      this.payment = payment;
+    },
   },
 };
 </script>
@@ -193,6 +209,10 @@ h1 {
     font-size: 1.25rem;
     margin-left: 0.25rem;
   }
+}
+
+.payment-switcher {
+  margin-bottom: 2rem;
 }
 
 .terms {
