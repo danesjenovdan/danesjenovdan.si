@@ -114,6 +114,14 @@
     "promo-bar": {
       "support-us": "Podpri naše delovanje!",
       "button-text": "Preveri naš šop!"
+    },
+    "products": {
+      "1": {
+        "display_name": "Rizle",
+        "description": "",
+        "short_description": "To so rizle",
+        "button_text": "Pokadi kaj..."
+      }
     }
   }
 }

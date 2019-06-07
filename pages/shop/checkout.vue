@@ -193,7 +193,6 @@ export default {
       this.stage = 'delivery';
     },
     continueToPayment() {
-      console.log('yo!');
       // TODO: shake invalid/empty fields
       // TODO: check email and address fields with regex?
       if (!this.canContinueToPayment) {

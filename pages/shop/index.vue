@@ -1,28 +1,17 @@
 <template>
   <div>
     <page-title :title="$t('menu.shop')" :text="$t('shop.description')" color="secondary"/>
-    <shopping-cart-bar/>
+    <shopping-cart-bar :order-key="orderKey" :items="basketItems"/>
     <div class="product-tiles row">
-      <div class="col-12 col-lg-6">
+      <div v-for="product in products" :key="`${product.id}`" class="col-12 col-lg-6">
         <product-tile
           color="secondary"
-          image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
-          title="Druga DJND majica"
-          text="text"
-          url="http://google.com"
-          button-text="Privošči si jo!"
-          button-url="https://google.com"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <product-tile
-          color="secondary"
-          image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
-          title="Knjiga Filozofski abecedarij"
-          text="text"
-          url="http://google.com"
-          button-text="Privošči si jo!"
-          button-url="https://google.com"
+          :image="`/img/products/${product.id}.jpg`"
+          :title="$te(`shop.products.${product.id}.display_name`) ? $t(`shop.products.${product.id}.display_name`) : product.name"
+          :text="$t(`shop.products.${product.id}.short_description`)"
+          :button-text="$t(`shop.products.${product.id}.button_text`)"
+          :button-url="localePath({ name: 'shop-id', params: { id: product.id } })"
+          @click.native="addToBasket($event, product.id)"
         />
       </div>
     </div>
@@ -48,7 +37,49 @@ export default {
     ProductTile,
   },
   data() {
-    return {};
+    return {
+      orderKey: null,
+      basketItems: null,
+    };
+  },
+  async asyncData({ $axios }) {
+    const products = await $axios.$get('https://podpri.djnd.si/api/shop/products/');
+    return {
+      products,
+    };
+  },
+  async mounted() {
+    if (typeof window !== 'undefined') {
+      this.orderKey = await this.getOrderKey();
+      this.basketItems = await this.getBasketItems();
+    }
+  },
+  methods: {
+    async getOrderKey() {
+      const orderKey = window.localStorage.getItem('order_key') || null;
+      if (!orderKey) {
+        const newBasket = await this.$axios.$get('https://podpri.djnd.si/api/shop/basket/');
+        window.localStorage.setItem('order_key', newBasket.order_key);
+        return newBasket.order_key;
+      }
+      return orderKey;
+    },
+    async getBasketItems() {
+      const basketItems = await this.$axios.$get(
+        `https://podpri.djnd.si/api/shop/items/?order_key=${this.orderKey}`,
+      );
+      return basketItems;
+    },
+    async addToBasket(event, productId) {
+      event.preventDefault();
+      await this.$axios.$post(
+        `https://podpri.djnd.si/api/shop/add_to_basket/?order_key=${this.orderKey}`,
+        {
+          product_id: productId,
+          quantity: 1,
+        },
+      );
+    },
   },
   head() {
     return {

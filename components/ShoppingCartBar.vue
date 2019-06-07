@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white shopping-cart-bar">
+  <div v-show="itemAmount > 0" class="bg-white shopping-cart-bar">
     <div class="bar-container">
       <div v-click-outside="() => toggleCartPreview(null, false)" class="cart-preview-container">
         <button type="button" class="cart" @click="toggleCartPreview">
@@ -10,35 +10,35 @@
               ></path>
             </svg>
           </div>
-          <div class="amount">2</div>
+          <div class="amount" v-text="itemAmount"/>
         </button>
         <div v-if="cartPreviewShown" class="cart-preview">
           <div class="arrow"/>
           <div class="cart-preview__content">
-            <cart-product
-              image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
-              title="Druga DJND majica"
-              text="luna, velikost S"
-              :price="25"
-              :amount="1"
-              show-modify
-              @change-amount="changeAmount"
-            />
-            <hr>
-            <cart-product
-              image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
-              title="Druga DJND majica"
-              :price="25"
-              :amount="1"
-              show-modify
-              @change-amount="changeAmount"
-            />
-            <hr>
+            <template v-for="item in items">
+              <!-- TODO: variant text -->
+              <cart-product
+                :key="`${item.id}`"
+                :image="`/img/products/${item.article.id}.jpg`"
+                :title="$te(`shop.products.${item.article.id}.display_name`) ? $t(`shop.products.${item.article.id}.display_name`) : item.article.name"
+                text="TODO: variant text"
+                :price="formatPrice(item.article.price)"
+                :amount="item.quantity"
+                show-modify
+                @change-amount="changeAmount(item.id)"
+              />
+              <hr :key="`${item.id}-hr`">
+            </template>
             <div class="cart-total">
               <span>Skupaj</span>
-              <i>50 €</i>
+              <i>{{ formatPrice(totalPrice) }} €</i>
             </div>
-            <more-button block color="secondary" :to="localePath('shop-checkout')" :text="'Zaključi nakup'"/>
+            <more-button
+              block
+              color="secondary"
+              :to="localePath('shop-checkout')"
+              :text="'Zaključi nakup'"
+            />
           </div>
         </div>
       </div>
@@ -75,10 +75,34 @@ export default {
       },
     },
   },
+  props: {
+    orderKey: {
+      type: String,
+      default: null,
+    },
+    items: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
-      cartPreviewShown: true,
+      cartPreviewShown: false,
     };
+  },
+  computed: {
+    itemAmount() {
+      if (!this.items || !this.items.length) {
+        return 0;
+      }
+      return this.items.reduce((acc, cur) => acc + cur.quantity, 0);
+    },
+    totalPrice() {
+      if (!this.items || !this.items.length) {
+        return 0;
+      }
+      return this.items.reduce((acc, cur) => acc + cur.quantity * cur.article.price, 0);
+    },
   },
   methods: {
     toggleCartPreview(event, value = !this.cartPreviewShown) {
@@ -87,7 +111,13 @@ export default {
       }
     },
     changeAmount(newAmount) {
-      // console.log(newAmount);
+      // TODO: change amount;
+    },
+    formatPrice(price) {
+      // return Number(price)
+      //   .toFixed(2)
+      //   .replace('.', ',');
+      return Number(price).toFixed();
     },
   },
 };
