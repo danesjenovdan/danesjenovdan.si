@@ -2,24 +2,21 @@
   <div class="checkout">
     <div v-if="stage === 'summary'" class="checkout__summary">
       <h1 class="checkout__title">Povzetek naročila</h1>
-      <cart-product
-        image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
-        title="Druga DJND majica"
-        text="luna, velikost S"
-        :price="25"
-        :amount="1"
-      />
-      <hr>
-      <cart-product
-        image="https://djnapi.djnd.si/media/images/infopush/salcka.png"
-        title="Druga DJND majica"
-        :price="25"
-        :amount="1"
-      />
-      <hr>
+      <template v-for="item in items">
+        <!-- TODO: variant text -->
+        <cart-product
+          :key="`${item.id}`"
+          :image="`/img/products/${item.article.id}.jpg`"
+          :title="$te(`shop.products.${item.article.id}.display_name`) ? $t(`shop.products.${item.article.id}.display_name`) : item.article.name"
+          text="TODO: variant text"
+          :price="item.article.price"
+          :amount="item.quantity"
+        />
+        <hr :key="`${item.id}-hr`">
+      </template>
       <div class="cart-total">
         <span>Skupaj</span>
-        <i>50 €</i>
+        <i>{{ totalPrice }} €</i>
       </div>
       <more-button
         key="next-summary"
@@ -104,7 +101,7 @@
         icon="heart"
         :to="localePath('shop-checkout')"
         :text="'KUPI'"
-        :disabled="!canContinueToPayment"
+        :disabled="!canContinueToPayment || checkoutLoading"
         @click.native="continueToPayment"
       />
     </div>
@@ -112,10 +109,10 @@
       <h1 class="checkout__title">Plačilo</h1>
       <payment-switcher @change="onPaymentChange"/>
       <template v-if="payment === 'card'">
-        <card-payment/>
+        <card-payment :token="token"/>
       </template>
       <template v-if="payment === 'paypal'">
-        <paypal-payment/>
+        <paypal-payment :token="token" :amount="totalPrice"/>
       </template>
       <template v-if="payment === 'upn'">
         <upn-payment/>
@@ -164,9 +161,19 @@ export default {
       address: null,
       addressPost: null,
       payment: null,
+      orderKey: null,
+      items: null,
+      token: null,
+      checkoutLoading: false,
     };
   },
   computed: {
+    totalPrice() {
+      if (!this.items || !this.items.length) {
+        return 0;
+      }
+      return this.items.reduce((acc, cur) => acc + cur.quantity * cur.article.price, 0);
+    },
     canContinueToPayment() {
       if (!this.delivery) {
         return false;
@@ -188,16 +195,52 @@ export default {
       return true;
     },
   },
+  async mounted() {
+    if (typeof window !== 'undefined') {
+      this.orderKey = await this.getOrderKey();
+      this.items = await this.getBasketItems();
+    }
+  },
   methods: {
+    async getOrderKey() {
+      const orderKey = window.localStorage.getItem('order_key') || null;
+      if (!orderKey) {
+        const newBasket = await this.$axios.$get('https://podpri.djnd.si/api/shop/basket/');
+        window.localStorage.setItem('order_key', newBasket.order_key);
+        return newBasket.order_key;
+      }
+      return orderKey;
+    },
+    async getBasketItems() {
+      const basketItems = await this.$axios.$get(
+        `https://podpri.djnd.si/api/shop/items/?order_key=${this.orderKey}`,
+      );
+      return basketItems;
+    },
     continueToDelivery() {
       this.stage = 'delivery';
     },
-    continueToPayment() {
+    async continueToPayment() {
       // TODO: shake invalid/empty fields
       // TODO: check email and address fields with regex?
       if (!this.canContinueToPayment) {
         return;
       }
+
+      this.checkoutLoading = true;
+      const checkoutResponse = await this.$axios.$post(
+        `https://podpri.djnd.si/api/shop/checkout/?order_key=${this.orderKey}`,
+        {
+          name: this.name,
+          email: this.email,
+          address: this.address || '',
+          post: this.addressPost || '',
+          delivery_method: this.delivery,
+        },
+      );
+      this.token = checkoutResponse.token;
+      this.checkoutLoading = false;
+
       this.stage = 'payment';
     },
     onPaymentChange(payment) {

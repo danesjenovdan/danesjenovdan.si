@@ -20,6 +20,16 @@ if (typeof window !== 'undefined') {
 }
 
 export default {
+  props: {
+    token: {
+      type: String,
+      required: true,
+    },
+    amount: {
+      type: Number,
+      required: true,
+    },
+  },
   data() {
     return {
       hostedFieldsInstance: null,
@@ -31,7 +41,7 @@ export default {
     if (braintree && paypal) {
       try {
         const clientInstance = await braintree.client.create({
-          authorization: 'sandbox_93smtrz3_bbgx4xf7h8bx24xg',
+          authorization: this.token,
         });
         const options = {
           client: clientInstance,
@@ -50,7 +60,7 @@ export default {
               return paypalCheckoutInstance.createPayment({
                 flow: 'checkout',
                 intent: 'sale',
-                amount: 10, // TODO: proper amount
+                amount: this.amount,
                 displayName: 'Danes je nov dan',
                 currency: 'EUR',
               });

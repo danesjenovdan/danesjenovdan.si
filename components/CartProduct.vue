@@ -10,11 +10,19 @@
       </div>
       <div class="col-7 cart-product__desc-col">
         <div class="cart-product__title" v-text="title"/>
-        <div class="cart-product__price">{{ price }} €</div>
+        <div class="cart-product__price">
+          <span v-if="!showModify">
+            <strong>{{ amount }}</strong> &times;
+          </span>
+          <strong>{{ formatPrice(price) }} €</strong>
+        </div>
         <div v-if="text" class="cart-product__variation" v-text="text"/>
         <div v-else class="cart-product__variation">&nbsp;</div>
         <div v-if="showModify" class="cart-product__modify">
-          <button class="remove-product icon icon-trash--secondary"/>
+          <button
+            class="remove-product icon icon-trash--secondary"
+            @click="$emit('change-amount', 0)"
+          />
           <button
             class="modify-amount modify-amount--minus"
             @click="$emit('change-amount', amount - 1)"
@@ -46,7 +54,7 @@ export default {
       default: '',
     },
     price: {
-      type: Number,
+      type: [Number, String],
       required: true,
     },
     amount: {
@@ -56,6 +64,11 @@ export default {
     showModify: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    formatPrice(price) {
+      return parseInt(price, 10);
     },
   },
 };
@@ -84,10 +97,14 @@ export default {
     }
 
     .cart-product__price {
-      font-weight: 600;
+      font-weight: 300;
       font-style: italic;
       line-height: 1;
       margin-top: 0.6rem;
+
+      strong {
+        font-weight: 600;
+      }
     }
 
     .cart-product__variation {

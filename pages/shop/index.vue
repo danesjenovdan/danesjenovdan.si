@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-title :title="$t('menu.shop')" :text="$t('shop.description')" color="secondary"/>
-    <shopping-cart-bar :order-key="orderKey" :items="basketItems"/>
+    <shopping-cart-bar :order-key="orderKey" :items="basketItems" @change-amount="changeAmount"/>
     <div class="product-tiles row">
       <div v-for="product in products" :key="`${product.id}`" class="col-12 col-lg-6">
         <product-tile
@@ -79,6 +79,21 @@ export default {
           quantity: 1,
         },
       );
+    },
+    async changeAmount(itemId, newAmount) {
+      if (newAmount <= 0) {
+        await this.$axios.$delete(
+          `https://podpri.djnd.si/api/shop/items/${itemId}/?order_key=${this.orderKey}`,
+        );
+      } else {
+        await this.$axios.$put(
+          `https://podpri.djnd.si/api/shop/items/${itemId}/?order_key=${this.orderKey}`,
+          {
+            quantity: newAmount,
+          },
+        );
+      }
+      this.basketItems = await this.getBasketItems();
     },
   },
   head() {

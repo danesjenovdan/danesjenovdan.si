@@ -22,16 +22,16 @@
                 :image="`/img/products/${item.article.id}.jpg`"
                 :title="$te(`shop.products.${item.article.id}.display_name`) ? $t(`shop.products.${item.article.id}.display_name`) : item.article.name"
                 text="TODO: variant text"
-                :price="formatPrice(item.article.price)"
+                :price="item.article.price"
                 :amount="item.quantity"
                 show-modify
-                @change-amount="changeAmount(item.id)"
+                @change-amount="changeAmount(item.id, $event)"
               />
               <hr :key="`${item.id}-hr`">
             </template>
             <div class="cart-total">
               <span>Skupaj</span>
-              <i>{{ formatPrice(totalPrice) }} €</i>
+              <i>{{ totalPrice }} €</i>
             </div>
             <more-button
               block
@@ -110,14 +110,8 @@ export default {
         this.cartPreviewShown = value;
       }
     },
-    changeAmount(newAmount) {
-      // TODO: change amount;
-    },
-    formatPrice(price) {
-      // return Number(price)
-      //   .toFixed(2)
-      //   .replace('.', ',');
-      return Number(price).toFixed();
+    changeAmount(itemId, newAmount) {
+      this.$emit('change-amount', itemId, newAmount);
     },
   },
 };

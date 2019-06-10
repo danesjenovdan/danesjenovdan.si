@@ -40,6 +40,12 @@ export default {
   components: {
     MoreButton,
   },
+  props: {
+    token: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       hostedFieldsInstance: null,
@@ -56,7 +62,7 @@ export default {
     if (braintree) {
       try {
         const clientInstance = await braintree.client.create({
-          authorization: 'sandbox_93smtrz3_bbgx4xf7h8bx24xg',
+          authorization: this.token,
         });
         const placeholderStyle = {
           'font-style': 'italic',
