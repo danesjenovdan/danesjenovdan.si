@@ -268,7 +268,7 @@ export default {
           payment_type: nonce ? 'braintree' : 'upn',
           nonce,
         });
-        window.localStorage.setItem('order_key', null);
+        window.localStorage.removeItem('order_key');
         this.stage = 'thankyou';
       } catch (error) {
         // eslint-disable-next-line no-console
