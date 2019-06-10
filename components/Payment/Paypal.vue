@@ -1,7 +1,6 @@
 <template>
   <div class="card-payment">
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    <div v-if="nonce" class="alert alert-success">Successfully generated nonce.</div>
     <form v-else>
       <div class="form-group">
         <label>Nadaljuj s klikom na gumb</label>
@@ -33,7 +32,6 @@ export default {
   data() {
     return {
       hostedFieldsInstance: null,
-      nonce: null,
       error: null,
     };
   },
@@ -68,7 +66,7 @@ export default {
             onAuthorize: (data, options) => {
               return paypalCheckoutInstance.tokenizePayment(options).then(payload => {
                 this.error = null;
-                this.nonce = payload.nonce;
+                this.$emit('success', { nonce: payload.nonce });
               });
             },
             onCancel: data => {

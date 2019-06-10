@@ -1,7 +1,6 @@
 <template>
   <div class="card-payment">
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    <div v-if="nonce" class="alert alert-success">Successfully generated nonce.</div>
     <form v-else>
       <div class="form-group">
         <div id="cc-number" :class="['form-control', 'form-control-lg', { focus: numberFocused }]"/>
@@ -49,7 +48,6 @@ export default {
   data() {
     return {
       hostedFieldsInstance: null,
-      nonce: null,
       error: null,
       numberFocused: false,
       expirationDateFocused: false,
@@ -130,12 +128,11 @@ export default {
       if (this.hostedFieldsInstance && !this.paymentInProgress) {
         this.paymentInProgress = true;
         this.error = null;
-        this.nonce = null;
         this.hostedFieldsInstance
           .tokenize()
           .then(payload => {
-            this.nonce = payload.nonce;
-            this.paymentInProgress = false;
+            // this.paymentInProgress = false;
+            this.$emit('success', { nonce: payload.nonce });
           })
           .catch(error => {
             // eslint-disable-next-line no-console

@@ -11,6 +11,9 @@
 @function icon-trash($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/trash.svg'), '#000', '#{$color}'));
 }
+@function icon-confetti-popper($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/confetti-popper.svg'), '#000', '#{$color}'));
+}
 
 // SECTIONS
 @function icon-section-agrument($color) {
@@ -96,6 +99,9 @@
   }
   .icon-trash--#{$color-name} {
     background-image: url(#{icon-trash($color)});
+  }
+  .icon-confetti-popper--#{$color-name} {
+    background-image: url(#{icon-confetti-popper($color)});
   }
   // SECTIONS
   .icon-section-agrument--#{$color-name} {

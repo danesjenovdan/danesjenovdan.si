@@ -1,6 +1,7 @@
 <template>
   <div class="checkout">
-    <div v-if="stage === 'summary'" class="checkout__summary">
+    <div v-if="error" class="alert alert-danger">{{ error }}</div>
+    <div v-else-if="stage === 'summary'" class="checkout__summary">
       <h1 class="checkout__title">Povzetek naročila</h1>
       <template v-for="item in items">
         <!-- TODO: variant text -->
@@ -28,7 +29,7 @@
         @click.native="continueToDelivery"
       />
     </div>
-    <div v-if="stage === 'delivery'" class="checkout__delivery">
+    <div v-else-if="stage === 'delivery'" class="checkout__delivery">
       <h1 class="checkout__title">Prevzem</h1>
       <form @submit.prevent="continueToPayment">
         <div class="custom-control custom-radio">
@@ -105,20 +106,34 @@
         @click.native="continueToPayment"
       />
     </div>
-    <div v-if="stage === 'payment'" class="checkout__payment">
+    <div v-else-if="stage === 'payment'" class="checkout__payment">
       <h1 class="checkout__title">Plačilo</h1>
       <payment-switcher @change="onPaymentChange"/>
       <template v-if="payment === 'card'">
-        <card-payment :token="token"/>
+        <card-payment :token="token" @success="paymentSuccess"/>
       </template>
       <template v-if="payment === 'paypal'">
-        <paypal-payment :token="token" :amount="totalPrice"/>
+        <paypal-payment :token="token" :amount="totalPrice" @success="paymentSuccess"/>
       </template>
       <template v-if="payment === 'upn'">
         <upn-payment/>
       </template>
     </div>
-    <div class="terms">
+    <div v-else-if="stage === 'thankyou'" class="checkout__thankyou">
+      <div class="thankyou__content">
+        <div>
+          <div class="icon icon-confetti-popper--secondary"/>
+        </div>
+        <h1 class="checkout__title">Hvala!</h1>
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vitae similique, ad quis iste veniam voluptates.</p>
+        </div>
+      </div>
+      <div class="thankyou__close">
+        <nuxt-link :to="localePath('shop')" class="close-button">ZAPRI</nuxt-link>
+      </div>
+    </div>
+    <div v-if="stage !== 'thankyou'" class="terms">
       <nuxt-link to="#">Pogoji poslovanja</nuxt-link>
     </div>
   </div>
@@ -165,6 +180,7 @@ export default {
       items: null,
       token: null,
       checkoutLoading: false,
+      error: null,
     };
   },
   computed: {
@@ -246,6 +262,20 @@ export default {
     onPaymentChange(payment) {
       this.payment = payment;
     },
+    async paymentSuccess({ nonce } = {}) {
+      try {
+        await this.$axios.$post(`https://podpri.djnd.si/api/shop/pay/?order_key=${this.orderKey}`, {
+          payment_type: nonce ? 'braintree' : 'upn',
+          nonce,
+        });
+        window.localStorage.setItem('order_key', null);
+        this.stage = 'thankyou';
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error);
+        this.error = error;
+      }
+    },
   },
 };
 </script>
@@ -279,6 +309,58 @@ export default {
 
   .payment-switcher {
     margin-bottom: 2rem;
+  }
+
+  .checkout__thankyou {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 250px;
+    margin: 0 auto;
+
+    .thankyou__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+
+      .icon {
+        margin: 0 auto;
+        width: 120px;
+        height: 120px;
+      }
+
+      h1 {
+        text-transform: uppercase;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      p {
+        text-align: center;
+        font-weight: 300;
+        margin: 0 auto;
+      }
+    }
+
+    .thankyou__close {
+      margin-bottom: 3rem;
+
+      .close-button {
+        display: block;
+        width: 100%;
+        border: 1px solid $color-red;
+        padding: 0.5rem 1.5rem;
+        font-size: 1.2rem;
+        font-style: italic;
+        font-weight: 600;
+        color: inherit;
+        text-decoration: none;
+        background: transparent;
+        text-align: center;
+      }
+    }
   }
 }
 
