@@ -3,31 +3,38 @@
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     <div v-else-if="stage === 'summary'" class="checkout__summary">
       <h1 class="checkout__title">Povzetek naročila</h1>
-      <template v-for="item in items">
-        <!-- TODO: variant text -->
-        <cart-product
-          :key="`${item.id}`"
-          :image="`/img/products/${item.article.id}.jpg`"
-          :title="$te(`shop.products.${item.article.id}.display_name`) ? $t(`shop.products.${item.article.id}.display_name`) : item.article.name"
-          text="TODO: variant text"
-          :price="item.article.price"
-          :amount="item.quantity"
-        />
-        <hr :key="`${item.id}-hr`">
+      <template v-if="summaryLoading">
+        <div class="loader-container">
+          <div class="lds-dual-ring"/>
+        </div>
       </template>
-      <div class="cart-total">
-        <span>Skupaj</span>
-        <i>{{ totalPrice }} €</i>
-      </div>
-      <more-button
-        key="next-summary"
-        block
-        color="secondary"
-        icon="heart"
-        :to="localePath('shop-checkout')"
-        :text="'KUPI'"
-        @click.native="continueToDelivery"
-      />
+      <template v-else>
+        <template v-for="item in items">
+          <!-- TODO: variant text -->
+          <cart-product
+            :key="`${item.id}`"
+            :image="`/img/products/${item.article.id}.jpg`"
+            :title="$te(`shop.products.${item.article.id}.display_name`) ? $t(`shop.products.${item.article.id}.display_name`) : item.article.name"
+            text="TODO: variant text"
+            :price="item.article.price"
+            :amount="item.quantity"
+          />
+          <hr :key="`${item.id}-hr`">
+        </template>
+        <div class="cart-total">
+          <span>Skupaj</span>
+          <i>{{ totalPrice }} €</i>
+        </div>
+        <more-button
+          key="next-summary"
+          block
+          color="secondary"
+          icon="heart"
+          :to="localePath('shop-checkout')"
+          :text="'KUPI'"
+          @click.native="continueToDelivery"
+        />
+      </template>
     </div>
     <div v-else-if="stage === 'delivery'" class="checkout__delivery">
       <h1 class="checkout__title">Prevzem</h1>
@@ -170,6 +177,7 @@ export default {
   data() {
     return {
       stage: 'summary',
+      summaryLoading: true,
       delivery: null,
       name: null,
       email: null,
@@ -215,6 +223,7 @@ export default {
     if (typeof window !== 'undefined') {
       this.orderKey = await this.getOrderKey();
       this.items = await this.getBasketItems();
+      this.summaryLoading = false;
     }
   },
   methods: {
@@ -281,6 +290,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.loader-container {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
 .checkout {
   min-height: 100vh;
   display: flex;
