@@ -15,7 +15,8 @@
         <div id="cc-cvv" :class="['form-control', 'form-control-lg', { focus: cvvFocused }]"/>
       </div>
       <more-button
-        :disabled="!formValid || paymentInProgress"
+        v-if="!paymentInProgress"
+        :disabled="!formValid"
         block
         color="secondary"
         icon="heart"
@@ -23,6 +24,11 @@
         :text="'KUPI'"
         @click.native="payWithCreditCard"
       />
+      <template v-else>
+        <div class="loader-container load-container--small">
+          <div class="lds-dual-ring"/>
+        </div>
+      </template>
     </form>
   </div>
 </template>
@@ -131,14 +137,12 @@ export default {
         this.hostedFieldsInstance
           .tokenize()
           .then(payload => {
-            // this.paymentInProgress = false;
             this.$emit('success', { nonce: payload.nonce });
           })
           .catch(error => {
             // eslint-disable-next-line no-console
             console.error(error);
             this.error = error.message;
-            this.paymentInProgress = false;
           });
       }
     },
@@ -150,5 +154,15 @@ export default {
 .focus {
   border: 1px solid $color-red;
   box-shadow: 0 0 0 0.2rem rgba($color-red, 0.25);
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+
+  &.load-container--small {
+    margin: 1rem 0;
+  }
 }
 </style>

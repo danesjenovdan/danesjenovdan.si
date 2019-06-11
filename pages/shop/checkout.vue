@@ -103,15 +103,21 @@
         <input type="submit" hidden>
       </form>
       <more-button
+        v-if="!checkoutLoading"
         key="next-delivery"
         block
         color="secondary"
         icon="heart"
         :to="localePath('shop-checkout')"
         :text="'KUPI'"
-        :disabled="!canContinueToPayment || checkoutLoading"
+        :disabled="!canContinueToPayment"
         @click.native="continueToPayment"
       />
+      <template v-else>
+        <div class="loader-container load-container--small">
+          <div class="lds-dual-ring"/>
+        </div>
+      </template>
     </div>
     <div v-else-if="stage === 'payment'" class="checkout__payment">
       <h1 class="checkout__title">Plačilo</h1>
@@ -178,6 +184,7 @@ export default {
     return {
       stage: 'summary',
       summaryLoading: true,
+      checkoutLoading: false,
       delivery: null,
       name: null,
       email: null,
@@ -187,7 +194,6 @@ export default {
       orderKey: null,
       items: null,
       token: null,
-      checkoutLoading: false,
       error: null,
     };
   },
@@ -221,6 +227,7 @@ export default {
   },
   async mounted() {
     if (typeof window !== 'undefined') {
+      this.summaryLoading = true;
       this.orderKey = await this.getOrderKey();
       this.items = await this.getBasketItems();
       this.summaryLoading = false;
@@ -246,27 +253,33 @@ export default {
       this.stage = 'delivery';
     },
     async continueToPayment() {
-      // TODO: shake invalid/empty fields
-      // TODO: check email and address fields with regex?
-      if (!this.canContinueToPayment) {
-        return;
+      try {
+        // TODO: shake invalid/empty fields
+        // TODO: check email and address fields with regex?
+        if (!this.canContinueToPayment) {
+          return;
+        }
+
+        this.checkoutLoading = true;
+        const checkoutResponse = await this.$axios.$post(
+          `https://podpri.djnd.si/api/shop/checkout/?order_key=${this.orderKey}`,
+          {
+            name: this.name,
+            email: this.email,
+            address: this.address || '',
+            post: this.addressPost || '',
+            delivery_method: this.delivery,
+          },
+        );
+        this.token = checkoutResponse.token;
+        this.checkoutLoading = false;
+
+        this.stage = 'payment';
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error);
+        this.error = error;
       }
-
-      this.checkoutLoading = true;
-      const checkoutResponse = await this.$axios.$post(
-        `https://podpri.djnd.si/api/shop/checkout/?order_key=${this.orderKey}`,
-        {
-          name: this.name,
-          email: this.email,
-          address: this.address || '',
-          post: this.addressPost || '',
-          delivery_method: this.delivery,
-        },
-      );
-      this.token = checkoutResponse.token;
-      this.checkoutLoading = false;
-
-      this.stage = 'payment';
     },
     onPaymentChange(payment) {
       this.payment = payment;
@@ -294,6 +307,10 @@ export default {
   display: flex;
   justify-content: center;
   margin: 3rem 0;
+
+  &.load-container--small {
+    margin: 1rem 0;
+  }
 }
 
 .checkout {
