@@ -18,7 +18,7 @@
           v-text="person.mail"
         />
         <span v-else class="person-tile__email">&nbsp;</span>
-        <p v-text="person.desc"/>
+        <p v-t="`people.people.${person.id}.description`"/>
       </div>
     </div>
   </div>

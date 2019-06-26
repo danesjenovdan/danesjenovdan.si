@@ -98,7 +98,42 @@
     }
   },
   "people": {
-    "description": "Ker iskreno verjamemo, da je treba vsebinam dati prednost pred obrazi, bi radi, da nas poznate le po delu. Da pa ne bi teoretikom zarote, spin medicini in Sovi povzročali preveč sivih las, evo nas. A nismo srčkani?"
+    "description": "Ker iskreno verjamemo, da je treba vsebinam dati prednost pred obrazi, bi radi, da nas poznate le po delu. Da pa ne bi teoretikom zarote, spin medicini in Sovi povzročali preveč sivih las, evo nas. A nismo srčkani?",
+    "people": {
+      "zigaaljaz": { "description": "zadolžen za zadolževanje " },
+      "tea": { "description": "zadolžena za teženje medijem in sajenje buč" },
+      "filip": { "description": "zadolžen za hekanje in <3" },
+      "tine": { "description": "zadolžen za fotografsko in emocionalno podporo" },
+      "matej": { "description": "zadolžen za molekule in muziko" },
+      "juric": { "description": "zadolžen za backend in samozavest" },
+      "zeljka": { "description": "zadolžena za toplo vodo in hladen tuš" },
+      "skornc": { "description": "zadolžen za rézanja in trančiranja" },
+      "mirt": { "description": "zadolžen za mišljevine, softistiko in prečke" },
+      "kunst": { "description": "zadoložen za django in snežake" },
+      "miha": { "description": "zadolžen za avtomatizacijo in prevračanje miz" },
+      "nika": { "description": "zadolžena za povezovanje in ples" },
+      "darja": { "description": "zadolžena za prostor v glavah in izven" },
+      "mlacnik": { "description": "zadolžen za kafkomat in pick 'n' roll" },
+      "jasmina": { "description": "zadolžena za barvice in piškote" },
+      "kaja": { "description": "zadolžena za šoping in doping" },
+      "karmen": { "description": "zadolžena za filozofsko kulinariko" },
+      "katja": { "description": "zadolžena za dvom in lovljenje frekvenc" },
+      "evas": { "description": "zadolžena za semiotiko in harmonije" },
+      "tadej": { "description": "zadolžen za igrifikacijo in kalifornizacijo" },
+      "anja_t": { "description": "zadolžena za zdrav duh in telo" },
+      "eva": { "description": "zadolžena za besedotvorje in ribolov" },
+      "ziga": { "description": "zadolžen za downvoteanje in techno" },
+      "mato": { "description": "zadolžen za frontend in enolončnice" },
+      "franci": { "description": "zadolžen za javascript in teženje na redditu" },
+      "dominik": { "description": "zadolžen za delovni in prosti čas" },
+      "miha_s": { "description": "zadolžen za spletke in krotenje zmajev" },
+      "sara": { "description": "zadolžena za podvprašanja in teorije zarot" },
+      "maja_p": { "description": "zadolžena za red in druge discipline" },
+      "martin": { "description": "zadolžen za besedičenje in fensi gvante" },
+      "maja_c": { "description": "zadolžena za vse in nič" },
+      "jan": { "description": "zadolžen za kripto in tofu" },
+      "neza": { "description": "zadolžena za pravice in krivice" }
+    }
   },
   "about": {
     "description": "TODO: about.description"
