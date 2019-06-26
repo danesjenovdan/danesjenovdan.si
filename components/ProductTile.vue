@@ -141,7 +141,7 @@ export default {
       padding-right: 2rem;
       background-color: #fff;
 
-      $bg-offset: 14vw;
+      $bg-offset: 50%;
       margin-top: -$bg-offset;
       padding-top: calc(2rem + #{$bg-offset});
     }

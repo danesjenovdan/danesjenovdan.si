@@ -197,7 +197,7 @@ article {
       padding-right: 8rem;
       background-color: #fff;
 
-      $bg-offset: 20vw;
+      $bg-offset: 40%;
       margin-top: -$bg-offset;
       padding-top: calc(2rem + #{$bg-offset});
     }
