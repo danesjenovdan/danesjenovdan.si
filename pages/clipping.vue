@@ -1,11 +1,13 @@
 <template>
   <div>
     <page-title :title="$t('menu.clipping')" :text="$t('clipping.description')" color="warning"/>
+    <clipping-filter/>
   </div>
 </template>
 
 <script>
 import PageTitle from '~/components/PageTitle.vue';
+import ClippingFilter from '~/components/ClippingFilter.vue';
 
 export default {
   pageColor: 'warning',
@@ -17,6 +19,7 @@ export default {
   },
   components: {
     PageTitle,
+    ClippingFilter,
   },
   data() {
     return {};
