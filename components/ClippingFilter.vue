@@ -72,14 +72,14 @@ export default {
     activeTagFilters() {
       return this.tagFilters.filter(f => f.active).map(f => f.id);
     },
-    filteredApiUrl() {
+    queryString() {
       const query = {
         types: this.activeTypeFilters.map(encodeURIComponent).join(','),
         formats: this.activeFormatFilters.map(encodeURIComponent).join(','),
         languages: this.activeLanguageFilters.map(encodeURIComponent).join(','),
         tags: this.activeTagFilters.map(encodeURIComponent).join(','),
       };
-      const qs = `?${Object.keys(query)
+      const qs = `${Object.keys(query)
         .reduce((a, k) => {
           if (query[k]) {
             a.push(`${k}=${query[k]}`);
@@ -87,8 +87,16 @@ export default {
           return a;
         }, [])
         .join('&')}`;
-      return `https://djnapi.djnd.si/djnd.si/clips/${qs}`;
+      return `${qs ? `?${qs}` : ''}`;
     },
+  },
+  watch: {
+    queryString(newQS) {
+      this.$emit('qs-change', newQS);
+    },
+  },
+  created() {
+    this.$emit('qs-change', this.queryString);
   },
 };
 </script>
