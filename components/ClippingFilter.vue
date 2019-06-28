@@ -22,7 +22,6 @@
       <filter-checkboxes v-model="languageFilters" title="Jezik"/>
       <filter-checkboxes v-model="tagFilters" title="Oznake"/>
     </div>
-    <div>{{ filteredApiUrl }}</div>
   </div>
 </template>
 
@@ -98,6 +97,7 @@ export default {
 .clipping-filter {
   background-color: #fff;
   padding: 1rem;
+  padding-bottom: 0.25rem;
 
   @include media-breakpoint-up(md) {
     padding: 1.25rem;

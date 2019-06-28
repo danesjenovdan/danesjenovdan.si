@@ -1,12 +1,12 @@
 <template>
-  <div class="filter">
+  <div v-click-outside="() => dropdownOpen = false" class="filter">
     <button
       class="filter__title icon-arrow--dark"
       :tabindex="titleTabIndex"
-      @click="dropdownOpen = !dropdownOpen"
+      @click="toggleDropdown"
       v-text="title"
     />
-    <div :class="['filter__options', { open: dropdownOpen }]">
+    <div ref="filterOptions" :class="['filter__options', { open: dropdownOpen }]" @focusout="onFocusOut">
       <div v-for="item in value" :key="`type-${item.id}`" class="custom-control custom-checkbox">
         <input
           :id="`type-${item.id}`"
@@ -23,9 +23,10 @@
 
 <script>
 import resize from '~/mixins/resize.js';
+import clickOutside from '~/mixins/clickOutside.js';
 
 export default {
-  mixins: [resize],
+  mixins: [resize, clickOutside],
   props: {
     title: {
       type: String,
@@ -45,6 +46,12 @@ export default {
   methods: {
     toggleDropdown() {
       this.dropdownOpen = !this.dropdownOpen;
+      if (this.dropdownOpen) {
+        // move focus to the first item
+        this.$nextTick(() => {
+          this.$refs.filterOptions.querySelector('input[type="checkbox"]').focus();
+        });
+      }
     },
     toggleItem(event, itemId) {
       const newItems = this.value.map(item => ({
@@ -57,6 +64,11 @@ export default {
       const w = window.innerWidth;
       this.titleTabIndex = w <= 767 ? 0 : -1;
     },
+    onFocusOut(event) {
+      if (event.relatedTarget && !event.currentTarget.contains(event.relatedTarget)) {
+        this.dropdownOpen = false;
+      }
+    },
   },
 };
 </script>
@@ -64,10 +76,11 @@ export default {
 <style lang="scss" scoped>
 .filter {
   flex: 1;
-  padding: 0 0 0 2.5rem;
+  margin: 0 0 0 2.5rem;
+  position: relative;
 
   @include media-breakpoint-up(md) {
-    padding: 0 1.5rem;
+    margin: 0 1.5rem;
   }
 
   .filter__title {
@@ -78,7 +91,7 @@ export default {
     background-color: transparent;
     border: 1px solid #333;
     padding: 0.25rem 0.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 10px;
@@ -93,6 +106,15 @@ export default {
   }
 
   .filter__options {
+    border: 1px solid #333;
+    padding: 0.75rem 0.75rem 0 0.75rem;
+    margin-bottom: 0.75rem;
+    margin-top: calc(-0.75rem - 1px);
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
     display: none;
 
     &.open {
@@ -100,12 +122,19 @@ export default {
     }
 
     @include media-breakpoint-up(md) {
+      border: 0;
+      padding: 0.5rem 0 0 0;
       display: block;
+      position: static;
     }
 
     .custom-control {
       padding-left: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 1rem;
+      }
 
       .custom-control-label {
         font-size: 1rem;
