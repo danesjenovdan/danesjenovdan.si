@@ -98,7 +98,7 @@ export default {
         languages: this.activeLanguageFilters.map(encodeURIComponent).join(','),
         tags: this.activeTagFilters.map(encodeURIComponent).join(','),
       };
-      const qs = `${Object.keys(query)
+      return `${Object.keys(query)
         .reduce((a, k) => {
           if (query[k]) {
             a.push(`${k}=${query[k]}`);
@@ -106,7 +106,6 @@ export default {
           return a;
         }, [])
         .join('&')}`;
-      return `${qs ? `?${qs}` : ''}`;
     },
   },
   watch: {

@@ -9,6 +9,7 @@
     </div>
     <div v-else>
       <div v-for="clip of clips" :key="clip.order">{{ clip }}</div>
+      <pagination v-if="count > perPage" :page="page" :count="count" :per-page="perPage" @change="onPageChange"/>
     </div>
   </div>
 </template>
@@ -17,6 +18,10 @@
 import { CancelToken, isCancel } from 'axios';
 import PageTitle from '~/components/PageTitle.vue';
 import ClippingFilter from '~/components/ClippingFilter.vue';
+import Pagination from '~/components/Pagination.vue';
+
+const PAGE_SIZE = 10;
+const INITIAL_PAGE = 1;
 
 export default {
   pageColor: 'warning',
@@ -29,6 +34,7 @@ export default {
   components: {
     PageTitle,
     ClippingFilter,
+    Pagination,
   },
   data() {
     return {
@@ -36,23 +42,38 @@ export default {
       cancelSource: null,
     };
   },
+  computed: {
+    queryString() {
+      return `?${[this.filterQuery, this.pageQuery].join('&')}`;
+    },
+  },
   async asyncData({ $axios }) {
     const endpoint = 'https://djnapi.djnd.si/djnd.si/clips/';
-    const queryString = '';
-    const clips = await $axios.$get(`${endpoint}${queryString}`);
+    const filterQuery = '';
+    const pageQuery = `page=${INITIAL_PAGE}&size=${PAGE_SIZE}`;
+    const clips = await $axios.$get(`${endpoint}?${[filterQuery, pageQuery].join('&')}`);
     return {
       endpoint,
-      queryString,
-      clips: clips.results,
+      filterQuery,
+      pageQuery,
       filters: clips.filters,
+      clips: clips.results,
+      count: clips.count,
+      page: 1,
+      perPage: PAGE_SIZE,
     };
   },
   methods: {
     onQueryChange(newQuery) {
-      if (this.queryString !== newQuery) {
-        this.queryString = newQuery;
-        this.fetchClips();
+      if (this.filterQuery !== newQuery) {
+        this.filterQuery = newQuery;
+        this.onPageChange(1);
       }
+    },
+    onPageChange(newPage) {
+      this.page = newPage;
+      this.pageQuery = `page=${newPage}&size=${this.perPage}`;
+      this.fetchClips();
     },
     async fetchClips() {
       this.loading = true;
@@ -65,6 +86,7 @@ export default {
           cancelToken: this.cancelSource.token,
         });
         this.clips = clips.results;
+        this.count = clips.count;
       } catch (error) {
         if (!isCancel(error)) {
           // eslint-disable-next-line no-console
