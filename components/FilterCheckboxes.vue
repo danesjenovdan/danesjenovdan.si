@@ -124,6 +124,7 @@ export default {
     @include media-breakpoint-up(md) {
       border: 0;
       padding: 0.5rem 0 0 0;
+      margin-bottom: 0;
       display: block;
       position: static;
     }

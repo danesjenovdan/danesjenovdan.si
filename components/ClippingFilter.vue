@@ -127,6 +127,7 @@ export default {
 
   @include media-breakpoint-up(md) {
     padding: 1.25rem;
+    padding-bottom: 0.25rem;
   }
 
   .filters {
