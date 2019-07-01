@@ -66,7 +66,27 @@
   },
   "clipping": {
     "description": "TODO: clipping.description",
-    "more": "več pojavljan"
+    "more": "več pojavljan",
+    "tags": {
+      "type": {
+        "interview": "Intervju",
+        "talk": "Predavanje"
+      },
+      "format": {
+        "audio": "Avdio",
+        "video": "Video",
+        "text": "Besedilo"
+      },
+      "language": {
+        "sl": "Slovenščina",
+        "hr": "Hrvaščina",
+        "en": "Angleščina"
+      },
+      "tags": {
+        "copyright": "Avtorsko pravo",
+        "tedx": "TedX"
+      }
+    }
   },
   "values": {
     "description": "Delovanje inštituta izhaja iz razumevanja demokracije kot nenehnega procesa, družbene pogodbe kot stalne in vključujoče razprave ter politične participacije kot odgovornosti za lastno opolnomočenje.",

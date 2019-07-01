@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-title :title="$t('menu.clipping')" :text="$t('clipping.description')" color="warning"/>
-    <clipping-filter @qs-change="onQueryChange"/>
+    <clipping-filter :filters="filters" @qs-change="onQueryChange"/>
     <div v-if="loading">
       <div class="loader-container text-center pt-5">
         <div class="lds-dual-ring"/>
@@ -44,6 +44,7 @@ export default {
       endpoint,
       queryString,
       clips: clips.results,
+      filters: clips.filters,
     };
   },
   methods: {

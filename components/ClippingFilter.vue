@@ -32,31 +32,50 @@ export default {
   components: {
     FilterCheckboxes,
   },
+  props: {
+    filters: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
+    const typeFilters = (this.filters.types || []).map(tagName => ({
+      id: tagName,
+      label: this.$te(`clipping.tags.type.${tagName}`)
+        ? this.$t(`clipping.tags.type.${tagName}`)
+        : tagName,
+      active: false,
+    }));
+
+    const formatFilters = (this.filters.formats || []).map(tagName => ({
+      id: tagName,
+      label: this.$te(`clipping.tags.format.${tagName}`)
+        ? this.$t(`clipping.tags.format.${tagName}`)
+        : tagName,
+      active: false,
+    }));
+
+    const languageFilters = (this.filters.languages || []).map(tagName => ({
+      id: tagName,
+      label: this.$te(`clipping.tags.language.${tagName}`)
+        ? this.$t(`clipping.tags.language.${tagName}`)
+        : tagName,
+      active: false,
+    }));
+
+    const tagFilters = (this.filters.tags || []).map(tagName => ({
+      id: tagName,
+      label: this.$te(`clipping.tags.tags.${tagName}`)
+        ? this.$t(`clipping.tags.tags.${tagName}`)
+        : tagName,
+      active: false,
+    }));
+
     return {
-      typeFilters: [
-        { id: 'interview', label: 'intervju', active: false },
-        { id: 'report', label: 'poročanje', active: false },
-        { id: 'talk', label: 'predavanje', active: false },
-        { id: 'rt', label: 'okrogla miza', active: false },
-        { id: 'column', label: 'kolumna', active: false },
-      ],
-      formatFilters: [
-        { id: 'text', label: 'besedilo', active: false },
-        { id: 'audio', label: 'avdio', active: false },
-        { id: 'video', label: 'video', active: false },
-      ],
-      languageFilters: [
-        { id: 'sl', label: 'slovenščina', active: false },
-        { id: 'hr', label: 'hrvaščina', active: false },
-        { id: 'en', label: 'angleščina', active: false },
-      ],
-      tagFilters: [
-        { id: 'parlameter', label: 'Parlameter', active: false },
-        { id: 'copyright', label: 'Avtorsko pravo', active: false },
-        { id: 'tedx', label: 'TedX', active: false },
-        { id: 'studiocity', label: 'Studio City', active: false },
-      ],
+      typeFilters,
+      formatFilters,
+      languageFilters,
+      tagFilters,
     };
   },
   computed: {
