@@ -9,7 +9,7 @@
       :style="`background-image: url('/img/people/${person.id}_hover.jpg')`"
     />
     <div class="person-tile__content">
-      <h1 class="person-tile__name" v-text="person.name"/>
+      <h1 class="person-tile__name" v-text="person.name" />
       <div class="person-tile__text">
         <a
           v-if="person.mail"
@@ -18,7 +18,7 @@
           v-text="person.mail"
         />
         <span v-else class="person-tile__email">&nbsp;</span>
-        <p v-t="`people.people.${person.id}.description`"/>
+        <p v-t="`people.people.${person.id}.description`" />
       </div>
     </div>
   </div>

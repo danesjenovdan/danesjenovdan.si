@@ -1,7 +1,7 @@
 <template>
   <div class="logo-box">
     <div class="logo-box__content">
-      <img src="/img/logo_gong.png" alt="gong logo">
+      <img src="/img/logo_gong.png" alt="gong logo" />
     </div>
   </div>
 </template>

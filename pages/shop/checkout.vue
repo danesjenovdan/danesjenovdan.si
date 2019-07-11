@@ -5,7 +5,7 @@
       <h1 class="checkout__title">Povzetek naročila</h1>
       <template v-if="summaryLoading">
         <div class="loader-container">
-          <div class="lds-dual-ring"/>
+          <div class="lds-dual-ring" />
         </div>
       </template>
       <template v-else>
@@ -19,7 +19,7 @@
             :price="item.article.price"
             :amount="item.quantity"
           />
-          <hr :key="`${item.id}-hr`">
+          <hr :key="`${item.id}-hr`" />
         </template>
         <div class="cart-total">
           <span>Skupaj</span>
@@ -47,7 +47,7 @@
             name="delivery"
             class="custom-control-input"
             value="pickup"
-          >
+          />
           <label class="custom-control-label" for="delivery-pickup">Osebni prevzem</label>
         </div>
         <div class="custom-control custom-radio">
@@ -58,7 +58,7 @@
             name="delivery"
             class="custom-control-input"
             value="post"
-          >
+          />
           <label class="custom-control-label" for="delivery-post">Pošlji po pošti</label>
         </div>
         <template v-if="delivery">
@@ -68,7 +68,7 @@
               v-model="name"
               placeholder="Ime in priimek"
               class="form-control form-control-lg"
-            >
+            />
           </div>
           <div class="form-group">
             <input
@@ -77,7 +77,7 @@
               type="email"
               placeholder="Email"
               class="form-control form-control-lg"
-            >
+            />
           </div>
           <!-- TODO: preveri če rabimo naslov za izdajo računa tudi pri osebnem prevzemu? -->
           <template v-if="delivery === 'post'">
@@ -87,7 +87,7 @@
                 v-model="address"
                 placeholder="Naslov"
                 class="form-control form-control-lg"
-              >
+              />
             </div>
             <div class="form-group">
               <input
@@ -95,12 +95,12 @@
                 v-model="addressPost"
                 placeholder="Poštna številka in pošta"
                 class="form-control form-control-lg"
-              >
+              />
             </div>
           </template>
         </template>
         <!-- this is here so you can submit the form with the enter key -->
-        <input type="submit" hidden>
+        <input type="submit" hidden />
       </form>
       <more-button
         v-if="!checkoutLoading"
@@ -115,27 +115,27 @@
       />
       <template v-else>
         <div class="loader-container load-container--small">
-          <div class="lds-dual-ring"/>
+          <div class="lds-dual-ring" />
         </div>
       </template>
     </div>
     <div v-else-if="stage === 'payment'" class="checkout__payment">
       <h1 class="checkout__title">Plačilo</h1>
-      <payment-switcher @change="onPaymentChange"/>
+      <payment-switcher @change="onPaymentChange" />
       <template v-if="payment === 'card'">
-        <card-payment :token="token" @success="paymentSuccess"/>
+        <card-payment :token="token" @success="paymentSuccess" />
       </template>
       <template v-if="payment === 'paypal'">
-        <paypal-payment :token="token" :amount="totalPrice" @success="paymentSuccess"/>
+        <paypal-payment :token="token" :amount="totalPrice" @success="paymentSuccess" />
       </template>
       <template v-if="payment === 'upn'">
-        <upn-payment/>
+        <upn-payment />
       </template>
     </div>
     <div v-else-if="stage === 'thankyou'" class="checkout__thankyou">
       <div class="thankyou__content">
         <div>
-          <div class="icon icon-confetti-popper--secondary"/>
+          <div class="icon icon-confetti-popper--secondary" />
         </div>
         <h1 class="checkout__title">Hvala!</h1>
         <div>

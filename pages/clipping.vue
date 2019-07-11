@@ -1,15 +1,21 @@
 <template>
   <div>
-    <page-title :title="$t('menu.clipping')" :text="$t('clipping.description')" color="warning"/>
-    <clipping-filter :filters="filters" @qs-change="onQueryChange"/>
+    <page-title :title="$t('menu.clipping')" :text="$t('clipping.description')" color="warning" />
+    <clipping-filter :filters="filters" @qs-change="onQueryChange" />
     <div v-if="loading">
       <div class="loader-container text-center pt-5">
-        <div class="lds-dual-ring"/>
+        <div class="lds-dual-ring" />
       </div>
     </div>
     <div v-else>
       <div v-for="clip of clips" :key="clip.order">{{ clip }}</div>
-      <pagination v-if="count > perPage" :page="page" :count="count" :per-page="perPage" @change="onPageChange"/>
+      <pagination
+        v-if="count > perPage"
+        :page="page"
+        :count="count"
+        :per-page="perPage"
+        @change="onPageChange"
+      />
     </div>
   </div>
 </template>

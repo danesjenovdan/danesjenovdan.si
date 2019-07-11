@@ -4,8 +4,8 @@
     :style="{ 'visibility': menuVisible ? 'visible' : 'hidden' }"
   >
     <nav ref="sideMenu" class="side-menu__nav">
-      <nav-logo/>
-      <nav-menu/>
+      <nav-logo />
+      <nav-menu />
     </nav>
   </section>
 </template>

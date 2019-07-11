@@ -1,13 +1,13 @@
 <template>
   <div>
-    <page-title :title="$t('menu.agrument')" :text="$t('agrument.description')"/>
-    <agrument-article :post="posts[0]"/>
+    <page-title :title="$t('menu.agrument')" :text="$t('agrument.description')" />
+    <agrument-article :post="posts[0]" />
     <div class="row mobile-no-gap">
       <div class="col-12 mb-3 mb-md-5">
-        <agrument-subscribe-bar/>
+        <agrument-subscribe-bar />
       </div>
     </div>
-    <agrument-article v-for="post in posts.slice(1)" :key="post.id" :post="post"/>
+    <agrument-article v-for="post in posts.slice(1)" :key="post.id" :post="post" />
     <div
       v-waypoint="{
         active: true,

@@ -1,5 +1,5 @@
 <template>
-  <input id="share-link" class="form-control" :value="link" onfocus="this.select()">
+  <input id="share-link" class="form-control" :value="link" onfocus="this.select()" />
 </template>
 
 <script>

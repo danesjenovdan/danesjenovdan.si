@@ -21,10 +21,14 @@
               </div>
               <div v-else class="embed-responsive-item d-flex align-items-center">
                 <div class="background-image" :style="{'background-image': `url('${image}')`}">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="30 18 40 64" fill="currentColor">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="30 18 40 64"
+                    fill="currentColor"
+                  >
                     <path
                       d="M50.005 82c.715-.028 1.542-.322 2.063-.812l17-16c.975-1.085 1.377-3.164.25-4.375-1.109-1.194-3.26-1.159-4.375.03l-11.938 11.25V21a3 3 0 0 0-6 0v51.094l-11.938-11.25c-1.025-1.024-3.253-1.213-4.375-.031-1.122 1.181-.764 3.335.25 4.375l17 16a2.885 2.885 0 0 0 2.063.812z"
-                    ></path>
+                    />
                   </svg>
                 </div>
               </div>
@@ -33,12 +37,12 @@
         </div>
         <div class="col-xl-5 promoted-tile__content-col">
           <div class="promoted-tile__content">
-            <h3 class="promoted-tile__title" v-text="title"/>
+            <h3 class="promoted-tile__title" v-text="title" />
             <div v-if="byline" class="promoted-tile__byline">
-              <i v-text="byline"/>
+              <i v-text="byline" />
             </div>
             <div v-if="text" class="promoted-tile__text">
-              <p v-text="text"/>
+              <p v-text="text" />
             </div>
           </div>
         </div>

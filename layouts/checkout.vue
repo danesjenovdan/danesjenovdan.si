@@ -2,7 +2,7 @@
   <div class="page page--secondary">
     <section class="content">
       <div class="container content-container">
-        <nuxt/>
+        <nuxt />
       </div>
     </section>
   </div>

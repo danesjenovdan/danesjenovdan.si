@@ -3,7 +3,7 @@
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     <form v-else>
       <div class="form-group">
-        <div id="cc-number" :class="['form-control', 'form-control-lg', { focus: numberFocused }]"/>
+        <div id="cc-number" :class="['form-control', 'form-control-lg', { focus: numberFocused }]" />
       </div>
       <div class="form-group">
         <div
@@ -12,7 +12,7 @@
         />
       </div>
       <div class="form-group">
-        <div id="cc-cvv" :class="['form-control', 'form-control-lg', { focus: cvvFocused }]"/>
+        <div id="cc-cvv" :class="['form-control', 'form-control-lg', { focus: cvvFocused }]" />
       </div>
       <more-button
         v-if="!paymentInProgress"
@@ -26,7 +26,7 @@
       />
       <template v-else>
         <div class="loader-container load-container--small">
-          <div class="lds-dual-ring"/>
+          <div class="lds-dual-ring" />
         </div>
       </template>
     </form>

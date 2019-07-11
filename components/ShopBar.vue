@@ -1,9 +1,17 @@
 <template>
   <div class="shop-bar bg-white">
     <div class="bar-container">
-      <strong v-t="'shop.promo-bar.support-us'" class="my-xl-3"/>
-      <img src="/img/shop-banner.jpg" alt="shirts from our shop" class="img-fluid d-block d-xl-none">
-      <more-button :to="localePath('shop')" :text="$t('shop.promo-bar.button-text')" color="secondary"/>
+      <strong v-t="'shop.promo-bar.support-us'" class="my-xl-3" />
+      <img
+        src="/img/shop-banner.jpg"
+        alt="shirts from our shop"
+        class="img-fluid d-block d-xl-none"
+      />
+      <more-button
+        :to="localePath('shop')"
+        :text="$t('shop.promo-bar.button-text')"
+        color="secondary"
+      />
     </div>
   </div>
 </template>

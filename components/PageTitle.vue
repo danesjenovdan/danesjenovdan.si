@@ -1,11 +1,11 @@
 <template>
   <header class="row">
     <div class="col-xl-4">
-      <h1 v-text="title"/>
-      <hr :class="`border-${color}`">
+      <h1 v-text="title" />
+      <hr :class="`border-${color}`" />
     </div>
     <div class="col-xl-8">
-      <p class="lead" v-text="text"/>
+      <p class="lead" v-text="text" />
     </div>
   </header>
 </template>

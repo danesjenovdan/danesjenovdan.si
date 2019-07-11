@@ -1,17 +1,17 @@
 <template>
   <div :class="['page', `page--${pageColor}`]">
-    <top-bar/>
-    <side-menu/>
+    <top-bar />
+    <side-menu />
     <section class="content">
       <div class="container-fluid content-container">
-        <nuxt/>
+        <nuxt />
         <div>
           <div class="row mobile-no-gap">
             <div class="col-12 mt-5">
-              <support-bar :color="pageColor"/>
+              <support-bar :color="pageColor" />
             </div>
           </div>
-          <page-footer :color="pageColor"/>
+          <page-footer :color="pageColor" />
         </div>
       </div>
     </section>

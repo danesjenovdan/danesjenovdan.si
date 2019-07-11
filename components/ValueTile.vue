@@ -4,15 +4,15 @@
       <div class="col-lg-12 col-xxl-6 left-col">
         <div class="d-flex flex-column justify-content-center h-100">
           <div class="d-flex align-items-center flex-column flex-lg-row">
-            <div :class="['icon', `icon-${icon}--warning`]"/>
+            <div :class="['icon', `icon-${icon}--warning`]" />
             <div class="title d-flex flex-column">
-              <h2 v-text="title"/>
+              <h2 v-text="title" />
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-12 col-xxl-6 right-col">
-        <p v-text="description"/>
+        <p v-text="description" />
       </div>
     </div>
   </div>

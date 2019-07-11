@@ -4,8 +4,8 @@
     :to="to"
     :class="['section-header', `section-header--${color}`]"
   >
-    <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]"/>
-    <span v-text="text"/>
+    <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]" />
+    <span v-text="text" />
   </component>
 </template>
 

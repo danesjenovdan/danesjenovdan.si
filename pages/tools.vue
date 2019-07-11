@@ -1,12 +1,12 @@
 <template>
   <div>
-    <page-title :title="$t('menu.tools')" :text="$t('tools.description')" color="warning"/>
+    <page-title :title="$t('menu.tools')" :text="$t('tools.description')" color="warning" />
     <div class="row">
       <div class="col-12">
-        <tool-tile/>
+        <tool-tile />
       </div>
       <div class="col-12">
-        <tool-tile/>
+        <tool-tile />
       </div>
     </div>
   </div>

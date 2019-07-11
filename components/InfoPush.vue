@@ -3,10 +3,10 @@
     <div class="row">
       <div class="col-xl-7">
         <div class="info-push__content">
-          <h3 v-if="title" class="info-push__title" v-text="title"/>
+          <h3 v-if="title" class="info-push__title" v-text="title" />
           <div v-if="text || buttonText || buttonUrl" class="info-push__text">
-            <p v-if="text" v-text="text"/>
-            <more-button v-if="buttonText && buttonUrl" :to="buttonUrl" :text="buttonText"/>
+            <p v-if="text" v-text="text" />
+            <more-button v-if="buttonText && buttonUrl" :to="buttonUrl" :text="buttonText" />
           </div>
         </div>
       </div>
@@ -14,7 +14,7 @@
         <div class="info-push__image">
           <div class="embed-responsive embed-responsive-16by9">
             <div class="embed-responsive-item d-flex align-items-center">
-              <div class="background-image" :style="{'background-image': `url('${image}')`}"/>
+              <div class="background-image" :style="{'background-image': `url('${image}')`}" />
             </div>
           </div>
         </div>

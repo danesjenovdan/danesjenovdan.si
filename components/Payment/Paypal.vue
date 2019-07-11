@@ -4,7 +4,7 @@
     <form v-else>
       <div class="form-group">
         <label>Nadaljuj s klikom na gumb</label>
-        <div id="paypal-button"/>
+        <div id="paypal-button" />
       </div>
     </form>
   </div>

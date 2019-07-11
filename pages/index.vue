@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-title :title="$t('hello')" :text="$t('landing.description')"/>
+    <page-title :title="$t('hello')" :text="$t('landing.description')" />
     <div v-if="infopush && infopush.visible">
       <info-push
         :image="infopush.image"
@@ -12,7 +12,11 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :to="localePath('agrument')" :text="$t('menu.agrument')" icon="section-agrument"/>
+        <section-header
+          :to="localePath('agrument')"
+          :text="$t('menu.agrument')"
+          icon="section-agrument"
+        />
       </div>
     </div>
     <div v-if="agrumentPosts && agrumentPosts.length" class="mt-4">
@@ -37,20 +41,24 @@
             :url="agrumentPost.url"
           />
         </div>
-        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('agrument')" :text="$t('agrument.more')"/>
+      <more-button :to="localePath('agrument')" :text="$t('agrument.more')" />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
-        <agrument-subscribe-bar/>
+        <agrument-subscribe-bar />
       </div>
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :to="localePath('clipping')" :text="$t('menu.clipping')" icon="section-clipping"/>
+        <section-header
+          :to="localePath('clipping')"
+          :text="$t('menu.clipping')"
+          icon="section-clipping"
+        />
       </div>
     </div>
     <div>
@@ -63,11 +71,11 @@
             :url="clip.url"
           />
         </div>
-        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('clipping')" :text="$t('clipping.more')"/>
+      <more-button :to="localePath('clipping')" :text="$t('clipping.more')" />
     </div>
     <div class="row">
       <div class="col-12">
@@ -90,11 +98,11 @@
             :url="project.url"
           />
         </div>
-        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('projects')" :text="$t('projects.more')" color="secondary"/>
+      <more-button :to="localePath('projects')" :text="$t('projects.more')" color="secondary" />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
@@ -138,11 +146,11 @@
             :url="localePath({ name: 'videos', query: { video: video.url } })"
           />
         </div>
-        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('videos')" :text="$t('videos.more')" color="warning"/>
+      <more-button :to="localePath('videos')" :text="$t('videos.more')" color="warning" />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
@@ -189,15 +197,15 @@
             :text="$t('tools.consul.short_description')"
           />
         </div>
-        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('tools')" :text="$t('tools.more')" color="warning"/>
+      <more-button :to="localePath('tools')" :text="$t('tools.more')" color="warning" />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
-        <shop-bar/>
+        <shop-bar />
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="social-bar bg-white">
     <div class="bar-container">
-      <strong v-text="text"/>
+      <strong v-text="text" />
       <div class="buttons my-xl-2">
         <circle-icon-button
           v-for="icon in icons"

@@ -6,7 +6,11 @@
       @click="toggleDropdown"
       v-text="title"
     />
-    <div ref="filterOptions" :class="['filter__options', { open: dropdownOpen }]" @focusout="onFocusOut">
+    <div
+      ref="filterOptions"
+      :class="['filter__options', { open: dropdownOpen }]"
+      @focusout="onFocusOut"
+    >
       <div v-for="item in value" :key="`type-${item.id}`" class="custom-control custom-checkbox">
         <input
           :id="`type-${item.id}`"
@@ -14,8 +18,8 @@
           type="checkbox"
           class="custom-control-input"
           @change="toggleItem($event, item.id)"
-        >
-        <label :for="`type-${item.id}`" class="custom-control-label" v-text="item.label"/>
+        />
+        <label :for="`type-${item.id}`" class="custom-control-label" v-text="item.label" />
       </div>
     </div>
   </div>

@@ -1,61 +1,47 @@
 <template>
   <footer class="footer row">
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
-      <div class="lead my-2">
-        Uredi svoje email nastavitve
-      </div>
+      <div class="lead my-2">Uredi svoje email nastavitve</div>
       <div class="form-group">
         <div>
-          <input class="form-control" placeholder="vpiši svoj e-naslov">
+          <input class="form-control" placeholder="vpiši svoj e-naslov" />
         </div>
         <div class="mt-2">
-          <more-button block :to="'LOL'" :text="'Pošlji'" :color="color"/>
+          <more-button block :to="'LOL'" :text="'Pošlji'" :color="color" />
         </div>
       </div>
     </div>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
-      <div class="lead my-2">
-        A še kje nismo frendi?
-      </div>
+      <div class="lead my-2">A še kje nismo frendi?</div>
       <div class="buttons">
         <circle-icon-button
           :color="color"
           icon="facebook"
           href="https://facebook.com/danesjenovdan"
         />
-        <circle-icon-button
-          :color="color"
-          icon="twitter"
-          href="https://twitter.com/danesjenovdan"
-        />
-        <circle-icon-button
-          :color="color"
-          icon="youtube"
-          href="https://youtube.com/danesjenovdan"
-        />
-        <circle-icon-button :color="color" icon="vimeo" href="https://vimeo.com/danesjenovdan"/>
+        <circle-icon-button :color="color" icon="twitter" href="https://twitter.com/danesjenovdan" />
+        <circle-icon-button :color="color" icon="youtube" href="https://youtube.com/danesjenovdan" />
+        <circle-icon-button :color="color" icon="vimeo" href="https://vimeo.com/danesjenovdan" />
       </div>
     </div>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
-      <div class="lead my-2">
-        Vsa naša koda je online. Izvoli!
-      </div>
+      <div class="lead my-2">Vsa naša koda je online. Izvoli!</div>
       <div class="buttons">
-        <circle-icon-button :color="color" icon="github" href="https://github.com/danesjenovdan"/>
+        <circle-icon-button :color="color" icon="github" href="https://github.com/danesjenovdan" />
       </div>
     </div>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
       <div class="about mt-3 mt-lg-2">
         <strong>
           Danes je nov dan,
-          <br>Inštitut za druga vprašanja
-          <br>
+          <br />Inštitut za druga vprašanja
+          <br />
         </strong>
         Tobačna ulica 5, 1000 Ljubljana
-        <br>
-        <br>
+        <br />
+        <br />
         <strong>vsi@danesjenovdan.si</strong>
-        <br>
+        <br />
         <strong>+386 64 147 823</strong> (med 10:00 in 16:00)
       </div>
     </div>

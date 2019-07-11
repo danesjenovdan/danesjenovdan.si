@@ -5,22 +5,22 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="24 27 52 46" fill="currentColor">
           <path
             d="M38 39.4c-3.3 0-6-2.7-6-5.9 0-3.3 2.7-5.9 6-5.9s6 2.7 6 5.9-2.7 5.9-6 5.9zm0-8.9c-1.7 0-3 1.3-3 2.9 0 1.6 1.3 2.9 3 2.9s3-1.3 3-2.9c0-1.6-1.3-2.9-3-2.9z"
-          ></path>
+          />
           <path
             d="M33.5 34.8H26c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h7.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5zm40.5 0H42.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5H74c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5zm-9 21.1c-3.3 0-6-2.7-6-5.9 0-3.3 2.7-5.9 6-5.9s6 2.7 6 5.9c0 3.3-2.7 5.9-6 5.9zm0-8.8c-1.7 0-3 1.3-3 2.9 0 1.6 1.3 2.9 3 2.9s3-1.3 3-2.9c0-1.6-1.3-2.9-3-2.9z"
-          ></path>
+          />
           <path
             d="M60.5 51.4H26c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h34.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5zm13.5 0h-4.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5H74c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5zM45.9 72.5c-3.3 0-6-2.7-6-5.9s2.7-5.9 6-5.9 6 2.7 6 5.9-2.7 5.9-6 5.9zm0-8.8c-1.7 0-3 1.3-3 2.9s1.3 2.9 3 2.9 3-1.3 3-2.9-1.4-2.9-3-2.9z"
-          ></path>
+          />
           <path
             d="M41.4 68H26c-.8 0-1.5-.7-1.5-1.5S25.2 65 26 65h15.4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5zM74 68H50.4c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5H74c.8 0 1.5.7 1.5 1.5S74.8 68 74 68z"
-          ></path>
+          />
         </svg>
       </div>
-      <filter-checkboxes v-model="typeFilters" title="Tip gostovanja"/>
-      <filter-checkboxes v-model="formatFilters" title="Format"/>
-      <filter-checkboxes v-model="languageFilters" title="Jezik"/>
-      <filter-checkboxes v-model="tagFilters" title="Oznake"/>
+      <filter-checkboxes v-model="typeFilters" title="Tip gostovanja" />
+      <filter-checkboxes v-model="formatFilters" title="Format" />
+      <filter-checkboxes v-model="languageFilters" title="Jezik" />
+      <filter-checkboxes v-model="tagFilters" title="Oznake" />
     </div>
   </div>
 </template>

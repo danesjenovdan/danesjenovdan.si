@@ -14,42 +14,10 @@ module.exports = {
   plugins: ['prettier'],
   // add your custom rules here
   rules: {
-    'no-console': 'warn',
-    'vue/singleline-html-element-content-newline': [
-      'off',
-      {
-        ignoreWhenNoAttributes: true,
-        ignoreWhenEmpty: true,
-        ignores: ['nuxt-link', 'pre', 'textarea', ...INLINE_ELEMENTS],
-      },
-    ],
-    'vue/multiline-html-element-content-newline': [
-      'off',
-      {
-        ignoreWhenEmpty: true,
-        ignores: ['nuxt-link', 'pre', 'textarea', ...INLINE_ELEMENTS],
-        allowEmptyLines: false,
-      },
-    ],
-    'vue/html-closing-bracket-spacing': [
-      'warn',
-      {
-        startTag: 'never',
-        endTag: 'never',
-        selfClosingTag: 'never',
-      },
-    ],
-    'vue/html-self-closing': [
-      'warn',
-      {
-        html: {
-          void: 'never',
-          normal: 'always',
-          component: 'always',
-        },
-        svg: 'any',
-      },
-    ],
+    'no-console': ['warn'],
+    'vue/singleline-html-element-content-newline': ['off'],
+    'vue/multiline-html-element-content-newline': ['off'],
+    'vue/html-self-closing': ['warn', { html: { void: 'always' } }],
     'import/extensions': ['error', 'always', { ignorePackages: true }],
     'import/no-unresolved': ['error'],
     'import/no-extraneous-dependencies': [

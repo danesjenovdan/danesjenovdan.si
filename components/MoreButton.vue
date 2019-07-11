@@ -8,9 +8,9 @@
     :class="['more-button', `more-button--${color}`, { 'more-button--block': block, disabled: disabled }]"
     :disabled="disabled"
   >
-    <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]"/>
-    <span v-text="text"/>
-    <span :class="['arrow', 'icon', `icon-arrow--${color}`]"/>
+    <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]" />
+    <span v-text="text" />
+    <span :class="['arrow', 'icon', `icon-arrow--${color}`]" />
   </component>
 </template>
 

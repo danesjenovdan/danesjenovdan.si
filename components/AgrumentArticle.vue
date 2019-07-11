@@ -9,7 +9,7 @@
                 class="background-image blurred"
                 :style="{'background-image': `url('${post.image_url}')`}"
               />
-              <img :src="post.image_url" class="img-fluid">
+              <img :src="post.image_url" class="img-fluid" />
             </div>
           </div>
           <figcaption>
@@ -33,15 +33,15 @@
     <div class="col-xl-8 offset-xl-2">
       <div class="article__content">
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="article__text" v-html="post.content_html"/>
-        <hr>
+        <div class="article__text" v-html="post.content_html" />
+        <hr />
         <div class="article__share">
           <form class="form-inline">
             <div class="form-group">
               <label for="share-link">
                 <em>Skopiraj povezavo!</em>
               </label>
-              <ShortLinkInput :value="post.url"/>
+              <ShortLinkInput :value="post.url" />
             </div>
           </form>
         </div>
@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import dateMixin from '~/mixins/date.js';
 import ShortLinkInput from './ShortLinkInput.vue';
+import dateMixin from '~/mixins/date.js';
 
 export default {
   name: '',

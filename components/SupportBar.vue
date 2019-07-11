@@ -1,8 +1,13 @@
 <template>
   <div class="support-bar">
     <div class="bar-container">
-      <more-button :to="localePath('shop')" text="Podpri nas!" :color="color" icon="heart"/>
-      <more-button :to="localePath('shop')" text="Pridruži se nam!" :color="color" icon="friendship"/>
+      <more-button :to="localePath('shop')" text="Podpri nas!" :color="color" icon="heart" />
+      <more-button
+        :to="localePath('shop')"
+        text="Pridruži se nam!"
+        :color="color"
+        icon="friendship"
+      />
     </div>
   </div>
 </template>

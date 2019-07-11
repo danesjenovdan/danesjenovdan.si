@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-title :title="$t('menu.values')" :text="$t('values.description')" color="warning"/>
+    <page-title :title="$t('menu.values')" :text="$t('values.description')" color="warning" />
     <div class="row">
       <div v-for="value in values" :key="value.id" class="col-12">
         <value-tile

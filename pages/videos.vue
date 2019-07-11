@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-title :title="$t('menu.videos')" :text="$t('videos.description')" color="warning"/>
+    <page-title :title="$t('menu.videos')" :text="$t('videos.description')" color="warning" />
     <div ref="bigVideo" class="big-video">
       <div class="embed-responsive embed-responsive-16by9">
         <div
@@ -20,22 +20,22 @@
       <div class="row big-video__info">
         <div class="col-12 col-lg-5">
           <div class="big-video__title-col">
-            <h2 v-text="bigVideo.title"/>
+            <h2 v-text="bigVideo.title" />
             <div v-if="bigVideo.date" class="big-video__byline">
-              <i v-text="toSloDate(bigVideo.date)"/>
+              <i v-text="toSloDate(bigVideo.date)" />
             </div>
           </div>
         </div>
         <div class="col-12 col-lg-7">
           <div class="big-video__text-col">
             <div v-if="bigVideo.desc" class="big-video__text">
-              <p v-text="bigVideo.desc"/>
+              <p v-text="bigVideo.desc" />
             </div>
           </div>
         </div>
       </div>
     </div>
-    <filter-bar v-model="filters" everything-id="all"/>
+    <filter-bar v-model="filters" everything-id="all" />
     <div v-if="videos && videos.length" class="wrapping-flex-tiles">
       <div v-for="video in filteredVideos" :key="`${video.url}`" class="flex-tile">
         <preview-tile
@@ -46,7 +46,7 @@
           :url="localePath({ name: 'videos', query: { video: video.url } })"
         />
       </div>
-      <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile"/>
+      <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
     </div>
   </div>
 </template>
