@@ -2,7 +2,7 @@
   <div class="product">
     <div class="product__container">
       <h1 v-text="getDisplayName(product)" />
-      <h2 class="price">{{ formatPrice(product.price) }} €</h2>
+      <h2 class="price">{{ formatPrice(product.price) }}</h2>
       <div>{{ product }}</div>
     </div>
   </div>
@@ -33,10 +33,18 @@ export default {
 <style lang="scss" scoped>
 .product {
   h1 {
-    font-size: 1.85rem;
+    margin: 3rem 0 1rem;
     text-align: center;
+    font-size: 1.85rem;
     font-weight: 600;
-    margin: 3rem 0;
+  }
+
+  h2 {
+    margin: 1rem 0 2rem;
+    text-align: center;
+    font-size: 1.85rem;
+    font-weight: 300;
+    font-style: italic;
   }
 }
 </style>

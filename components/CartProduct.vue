@@ -14,7 +14,7 @@
           <span v-if="!showModify">
             <strong>{{ amount }}</strong> &times;
           </span>
-          <strong>{{ formatPrice(price) }} €</strong>
+          <strong>{{ formatPrice(price) }}</strong>
         </div>
         <div v-if="text" class="cart-product__variation" v-text="text" />
         <div v-else class="cart-product__variation">&nbsp;</div>
