@@ -1,17 +1,16 @@
 <template>
   <div>
-    <page-title :title="$t('menu.shop')" :text="$t('shop.description')" color="secondary"/>
-    <shopping-cart-bar :order-key="orderKey" :items="basketItems" @change-amount="changeAmount"/>
+    <page-title :title="$t('menu.shop')" :text="$t('shop.description')" color="secondary" />
+    <shopping-cart-bar :order-key="orderKey" :items="basketItems" @change-amount="changeAmount" />
     <div class="product-tiles row">
       <div v-for="product in products" :key="`${product.id}`" class="col-12 col-lg-6">
         <product-tile
           color="secondary"
           :image="`/img/products/${product.id}.jpg`"
-          :title="$te(`shop.products.${product.id}.display_name`) ? $t(`shop.products.${product.id}.display_name`) : product.name"
+          :title="getDisplayName(product)"
           :text="$t(`shop.products.${product.id}.short_description`)"
           :button-text="$t(`shop.products.${product.id}.button_text`)"
-          :button-url="localePath({ name: 'shop-id', params: { id: product.id } })"
-          @click.native="addToBasket($event, product.id)"
+          :button-url="localePath({ name: 'shop-id', params: { id: product.id, slug: slugify(getDisplayName(product)) } })"
         />
       </div>
     </div>
@@ -19,6 +18,8 @@
 </template>
 
 <script>
+import slugify from 'standard-slugify';
+import productMixin from '~/mixins/product.js';
 import PageTitle from '~/components/PageTitle.vue';
 import ShoppingCartBar from '~/components/ShoppingCartBar.vue';
 import ProductTile from '~/components/ProductTile.vue';
@@ -36,6 +37,7 @@ export default {
     ShoppingCartBar,
     ProductTile,
   },
+  mixins: [productMixin],
   data() {
     return {
       orderKey: null,
@@ -95,6 +97,7 @@ export default {
       }
       this.basketItems = await this.getBasketItems();
     },
+    slugify,
   },
   head() {
     return {
