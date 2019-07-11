@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-title :title="$t('menu.shop')" :text="$t('shop.description')" color="secondary" />
-    <shopping-cart-bar :order-key="orderKey" :items="basketItems" @change-amount="changeAmount" />
+    <shopping-cart-bar :order-key="orderKey" :items="basketItems" @change-amount="onChangeAmount" />
     <div class="product-tiles row">
       <div v-for="product in stockedProducts" :key="`${product.id}`" class="col-12 col-lg-6">
         <product-tile
@@ -19,7 +19,7 @@
 
 <script>
 import slugify from 'standard-slugify';
-import productMixin from '~/mixins/product.js';
+import shopMixin from '~/mixins/shop.js';
 import PageTitle from '~/components/PageTitle.vue';
 import ShoppingCartBar from '~/components/ShoppingCartBar.vue';
 import ProductTile from '~/components/ProductTile.vue';
@@ -37,7 +37,7 @@ export default {
     ShoppingCartBar,
     ProductTile,
   },
-  mixins: [productMixin],
+  mixins: [shopMixin],
   data() {
     return {
       orderKey: null,
@@ -58,51 +58,15 @@ export default {
   async mounted() {
     if (typeof window !== 'undefined') {
       this.orderKey = await this.getOrderKey();
-      this.basketItems = await this.getBasketItems();
+      this.basketItems = await this.getBasketItems(this.orderKey);
     }
   },
   methods: {
-    async getOrderKey() {
-      const orderKey = window.localStorage.getItem('order_key') || null;
-      if (!orderKey) {
-        const newBasket = await this.$axios.$get('https://podpri.djnd.si/api/shop/basket/');
-        window.localStorage.setItem('order_key', newBasket.order_key);
-        return newBasket.order_key;
-      }
-      return orderKey;
-    },
-    async getBasketItems() {
-      const basketItems = await this.$axios.$get(
-        `https://podpri.djnd.si/api/shop/items/?order_key=${this.orderKey}`,
-      );
-      return basketItems;
-    },
-    async addToBasket(event, productId) {
-      event.preventDefault();
-      await this.$axios.$post(
-        `https://podpri.djnd.si/api/shop/add_to_basket/?order_key=${this.orderKey}`,
-        {
-          product_id: productId,
-          quantity: 1,
-        },
-      );
-    },
-    async changeAmount(itemId, newAmount) {
-      if (newAmount <= 0) {
-        await this.$axios.$delete(
-          `https://podpri.djnd.si/api/shop/items/${itemId}/?order_key=${this.orderKey}`,
-        );
-      } else {
-        await this.$axios.$put(
-          `https://podpri.djnd.si/api/shop/items/${itemId}/?order_key=${this.orderKey}`,
-          {
-            quantity: newAmount,
-          },
-        );
-      }
-      this.basketItems = await this.getBasketItems();
-    },
     slugify,
+    async onChangeAmount(itemId, newAmount) {
+      await this.changeAmount(this.orderKey, itemId, newAmount);
+      this.basketItems = await this.getBasketItems(this.orderKey);
+    },
   },
   head() {
     return {

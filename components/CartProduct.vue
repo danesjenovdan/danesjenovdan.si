@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import productMixin from '~/mixins/product.js';
+import shopMixin from '~/mixins/shop.js';
 
 export default {
-  mixins: [productMixin],
+  mixins: [shopMixin],
   props: {
     image: {
       type: String,

@@ -153,6 +153,7 @@
 </template>
 
 <script>
+import shopMixin from '~/mixins/shop.js';
 import MoreButton from '~/components/MoreButton.vue';
 import CartProduct from '~/components/CartProduct.vue';
 import PaymentSwitcher from '~/components/Payment/Switcher.vue';
@@ -180,6 +181,7 @@ export default {
     PaypalPayment,
     UpnPayment,
   },
+  mixins: [shopMixin],
   data() {
     return {
       stage: 'summary',
@@ -229,26 +231,11 @@ export default {
     if (typeof window !== 'undefined') {
       this.summaryLoading = true;
       this.orderKey = await this.getOrderKey();
-      this.items = await this.getBasketItems();
+      this.items = await this.getBasketItems(this.orderKey);
       this.summaryLoading = false;
     }
   },
   methods: {
-    async getOrderKey() {
-      const orderKey = window.localStorage.getItem('order_key') || null;
-      if (!orderKey) {
-        const newBasket = await this.$axios.$get('https://podpri.djnd.si/api/shop/basket/');
-        window.localStorage.setItem('order_key', newBasket.order_key);
-        return newBasket.order_key;
-      }
-      return orderKey;
-    },
-    async getBasketItems() {
-      const basketItems = await this.$axios.$get(
-        `https://podpri.djnd.si/api/shop/items/?order_key=${this.orderKey}`,
-      );
-      return basketItems;
-    },
     continueToDelivery() {
       this.stage = 'delivery';
     },
