@@ -3,7 +3,7 @@
     <page-title :title="$t('menu.shop')" :text="$t('shop.description')" color="secondary" />
     <shopping-cart-bar :order-key="orderKey" :items="basketItems" @change-amount="changeAmount" />
     <div class="product-tiles row">
-      <div v-for="product in products" :key="`${product.id}`" class="col-12 col-lg-6">
+      <div v-for="product in stockedProducts" :key="`${product.id}`" class="col-12 col-lg-6">
         <product-tile
           color="secondary"
           :image="`/img/products/${product.id}.jpg`"
@@ -43,6 +43,11 @@ export default {
       orderKey: null,
       basketItems: null,
     };
+  },
+  computed: {
+    stockedProducts() {
+      return this.products.filter(p => p.stock > 0);
+    },
   },
   async asyncData({ $axios }) {
     const products = await $axios.$get('https://podpri.djnd.si/api/shop/products/');
