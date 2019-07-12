@@ -1,13 +1,6 @@
 <template>
   <div :class="['promoted-tile', `promoted-tile--${color}`]">
-    <component
-      :is="isExternalUrl ? 'a' : 'nuxt-link'"
-      :href="url"
-      :to="url"
-      :target="isExternalUrl ? '_blank' : null"
-      :rel="isExternalUrl ? 'noopener noreferrer' : null"
-      class="promoted-tile__link"
-    >
+    <dynamic-link :to="url" class="promoted-tile__link">
       <div class="row">
         <div class="col-xl-7">
           <div class="promoted-tile__image">
@@ -47,14 +40,18 @@
           </div>
         </div>
       </div>
-    </component>
+    </dynamic-link>
   </div>
 </template>
 
 <script>
 import videoMixin from '~/mixins/video.js';
+import DynamicLink from '~/components/DynamicLink.vue';
 
 export default {
+  components: {
+    DynamicLink,
+  },
   mixins: [videoMixin],
   props: {
     color: {
@@ -84,11 +81,6 @@ export default {
     video: {
       type: String,
       default: null,
-    },
-  },
-  computed: {
-    isExternalUrl() {
-      return this.url && /^https?:\/\//.test(this.url);
     },
   },
 };

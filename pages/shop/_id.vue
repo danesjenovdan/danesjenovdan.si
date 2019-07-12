@@ -13,14 +13,7 @@
       <hr />
       <div>TODO: variants</div>
       <hr />
-      <more-button
-        block
-        color="secondary"
-        icon="heart"
-        :to="'#'"
-        :text="'KUPI'"
-        @click.native.prevent="addAndCheckout"
-      />
+      <more-button block color="secondary" icon="heart" :text="'KUPI'" @click="addAndCheckout" />
       <div class="add-to-basket">
         <nuxt-link to="#">
           Dodaj v voziček in še malo pobrskaj po

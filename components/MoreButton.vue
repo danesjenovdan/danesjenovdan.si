@@ -1,25 +1,28 @@
 <template>
-  <component
-    :is="isExternalUrl ? 'a' : 'nuxt-link'"
-    :href="to"
+  <dynamic-link
+    v-bind="$attrs"
     :to="to"
-    :target="isExternalUrl ? '_blank' : null"
-    :rel="isExternalUrl ? 'noopener noreferrer' : null"
     :class="['more-button', `more-button--${color}`, { 'more-button--block': block, disabled: disabled }]"
     :disabled="disabled"
+    v-on="$listeners"
   >
     <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]" />
     <span v-text="text" />
     <span :class="['arrow', 'icon', `icon-arrow--${color}`]" />
-  </component>
+  </dynamic-link>
 </template>
 
 <script>
+import DynamicLink from '~/components/DynamicLink.vue';
+
 export default {
+  components: {
+    DynamicLink,
+  },
   props: {
     to: {
       type: String,
-      required: true,
+      default: '',
     },
     text: {
       type: String,
@@ -40,11 +43,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
-    },
-  },
-  computed: {
-    isExternalUrl() {
-      return this.to && /^https?:\/\//.test(this.to);
     },
   },
 };

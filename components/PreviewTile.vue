@@ -1,13 +1,6 @@
 <template>
   <div :class="['preview-tile', `preview-tile--${color}`]">
-    <component
-      :is="isExternalUrl ? 'a' : 'nuxt-link'"
-      :href="url"
-      :to="url"
-      :target="isExternalUrl ? '_blank' : null"
-      :rel="isExternalUrl ? 'noopener noreferrer' : null"
-      class="preview-tile__link"
-    >
+    <dynamic-link :to="url" class="preview-tile__link">
       <div class="embed-responsive embed-responsive-1200by630">
         <div class="embed-responsive-item d-flex align-items-center">
           <div class="preview-tile__image" :style="{'background-image': `url('${image}')`}">
@@ -28,12 +21,17 @@
           <p v-text="text" />
         </div>
       </div>
-    </component>
+    </dynamic-link>
   </div>
 </template>
 
 <script>
+import DynamicLink from '~/components/DynamicLink.vue';
+
 export default {
+  components: {
+    DynamicLink,
+  },
   props: {
     color: {
       type: String,
@@ -57,12 +55,7 @@ export default {
     },
     url: {
       type: String,
-      required: true,
-    },
-  },
-  computed: {
-    isExternalUrl() {
-      return this.url && /^https?:\/\//.test(this.url);
+      default: '',
     },
   },
 };
