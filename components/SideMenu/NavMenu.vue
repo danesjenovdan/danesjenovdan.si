@@ -76,8 +76,8 @@ export default {
       menuItems: [
         { key: 'agrument' },
         { key: 'projects' },
-        { key: 'videos' },
         { key: 'tools' },
+        { key: 'videos' },
         {
           key: 'about',
           children: [{ key: 'people' }, { key: 'values' }, { key: 'clipping' }],

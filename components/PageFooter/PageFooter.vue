@@ -1,10 +1,10 @@
 <template>
   <footer class="footer row">
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
-      <div class="lead my-2">Uredi svoje email nastavitve</div>
+      <div v-t="'footer.edit-email-settings'" class="lead my-2" />
       <div class="form-group">
         <div>
-          <input class="form-control" placeholder="vpiši svoj e-naslov" />
+          <input class="form-control" placeholder="Vpiši svoj e-naslov" />
         </div>
         <div class="mt-2">
           <more-button block :to="'LOL'" :text="'Pošlji'" :color="color" />
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
-      <div class="lead my-2">A še kje nismo frendi?</div>
+      <div v-t="'footer.are-we-friends'" class="lead my-2" />
       <div class="buttons">
         <circle-icon-button
           :color="color"
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
-      <div class="lead my-2">Vsa naša koda je online. Izvoli!</div>
+      <div v-t="'footer.our-code-is-online'" class="lead my-2" />
       <div class="buttons">
         <circle-icon-button :color="color" icon="github" href="https://github.com/danesjenovdan" />
       </div>
@@ -42,7 +42,7 @@
         <br />
         <strong>vsi@danesjenovdan.si</strong>
         <br />
-        <strong>+386 64 147 823</strong> (med 10:00 in 16:00)
+        <strong>+386 64 147 823</strong> (med 10. in 16. uro)
       </div>
     </div>
   </footer>

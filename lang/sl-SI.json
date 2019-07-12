@@ -32,7 +32,7 @@
     "description": "TODO: landing.description"
   },
   "projects": {
-    "description": "Živimo, kar delamo. Delamo, v kar verjamemo. Verjamemo, kar govorimo. Govorimo, kar nočete slišati. Slišite, ker vam znamo povedati. Povemo vam, ker je to naša dolžnost. Vaša dolžnost je, da poveste naprej.",
+    "description": "Živimo, kar delamo. Delamo, v kar verjamemo. Verjamemo, kar govorimo. Govorimo, kar je težko slišati. Slišite, ker vam znamo povedati. Povemo vam, ker je to naša dolžnost. Vaša dolžnost je, da poveste naprej.",
     "more": "več pozivov",
     "social-bar": {
       "follow-us": "Pofollowaj nas, da ti takšne akcije nikoli več ne uidejo!"
@@ -178,5 +178,10 @@
         "button_text": "Pokadi kaj..."
       }
     }
+  },
+  "footer": {
+    "edit-email-settings": "Uredi svoje nastavitve e-pošte",
+    "are-we-friends": "Smo že prijatelji?",
+    "our-code-is-online": "Vsa naša koda je objavljena na spletu. Postrezi si!"
   }
 }
