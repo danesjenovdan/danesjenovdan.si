@@ -1003,7 +1003,7 @@ $(document).ready(function () {
 
   // documents
   $('#akt').on('click', function () {
-    window.open('./dokumenti/Akt%20o%20ustanovitvi.pdf', '_blank');
+    window.open('./dokumenti/akt-o-ustanovitvi-spremenjen.pdf', '_blank');
   });
   $('#statut').on('click', function () {
     window.open('./dokumenti/Statut.pdf', '_blank');
