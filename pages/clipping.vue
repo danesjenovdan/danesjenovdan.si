@@ -7,8 +7,8 @@
         <div class="lds-dual-ring" />
       </div>
     </div>
-    <div v-else>
-      <div v-for="clip of clips" :key="clip.order">{{ clip }}</div>
+    <div v-else class="mt-4">
+      <clip-tile v-for="clip of clips" :key="clip.order" :clip="clip" />
       <pagination
         v-if="count > perPage"
         :page="page"
@@ -24,6 +24,7 @@
 import { CancelToken, isCancel } from 'axios';
 import PageTitle from '~/components/PageTitle.vue';
 import ClippingFilter from '~/components/ClippingFilter.vue';
+import ClipTile from '~/components/ClipTile.vue';
 import Pagination from '~/components/Pagination.vue';
 
 const PAGE_SIZE = 10;
@@ -40,6 +41,7 @@ export default {
   components: {
     PageTitle,
     ClippingFilter,
+    ClipTile,
     Pagination,
   },
   data() {

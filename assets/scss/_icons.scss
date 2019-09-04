@@ -80,6 +80,17 @@
   @return encode-svg(string-replace(fs-readFile('static/icons/values/inclusion.svg'), '#000', '#{$color}'));
 }
 
+// CLIP TYPES
+@function icon-clip-audio($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/clips/audio.svg'), '#000', '#{$color}'));
+}
+@function icon-clip-video($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/clips/video.svg'), '#000', '#{$color}'));
+}
+@function icon-clip-text($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/clips/text.svg'), '#000', '#{$color}'));
+}
+
 .icon {
   background-repeat: no-repeat;
   background-position: center;
@@ -164,4 +175,15 @@
   .icon-value-inclusion--#{$color-name} {
     background-image: url(#{icon-value-inclusion($color)});
   }
+}
+
+// CLIP TYPES
+.icon-clip-audio {
+  background-image: url(#{icon-clip-audio($body-color)});
+}
+.icon-clip-video {
+  background-image: url(#{icon-clip-video($body-color)});
+}
+.icon-clip-text {
+  background-image: url(#{icon-clip-text($body-color)});
 }
