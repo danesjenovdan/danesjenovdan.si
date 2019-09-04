@@ -7,7 +7,7 @@
         <div class="lds-dual-ring" />
       </div>
     </div>
-    <div v-else class="mt-4">
+    <div v-else class="mt-4 mt-xl-5">
       <clip-tile v-for="clip of clips" :key="clip.order" :clip="clip" />
       <pagination
         v-if="count > perPage"
