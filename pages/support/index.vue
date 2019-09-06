@@ -19,7 +19,9 @@
     <div class="section-header-container">
       <section-header text="Podpri projekt!" />
     </div>
-    <progress-rocket />
+    <div class="py-5 bg-white" style="margin: 0 -1.5rem; padding: 0 1.5rem">
+      <progress-rocket />
+    </div>
   </div>
 </template>
 

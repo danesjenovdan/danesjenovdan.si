@@ -14,6 +14,9 @@
 @function icon-confetti-popper($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/confetti-popper.svg'), '#000', '#{$color}'));
 }
+@function icon-rocket($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/rocket.svg'), '#000', '#{$color}'));
+}
 
 // SECTIONS
 @function icon-section-agrument($color) {
@@ -113,6 +116,9 @@
   }
   .icon-confetti-popper--#{$color-name} {
     background-image: url(#{icon-confetti-popper($color)});
+  }
+  .icon-rocket--#{$color-name} {
+    background-image: url(#{icon-rocket($color)});
   }
   // SECTIONS
   .icon-section-agrument--#{$color-name} {
