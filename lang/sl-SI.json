@@ -24,7 +24,7 @@
     "values": "Vrednote",
     "clipping": "Pojavljanja",
     "shop": "Trgovina",
-    "sign-up": "Včlani se",
+    "support": "Včlani se",
     "search": "Išči"
   },
   "hello": "Zdravo",
@@ -178,6 +178,10 @@
         "button_text": "Pokadi kaj..."
       }
     }
+  },
+  "support": {
+    "title": "DJND TE POTREBUJE!",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim, nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "footer": {
     "edit-email-settings": "Uredi svoje nastavitve e-pošte",
