@@ -59,7 +59,7 @@ module.exports = {
       {
         locales: [
           { code: 'sl', iso: 'sl-SI', file: 'sl-SI.json', name: 'Slovenščina' },
-          // { code: 'en', iso: 'en-US', file: 'en-US.js', name: 'English' },
+          { code: 'en', iso: 'en-US', file: 'en-US.json', name: 'English' },
         ],
         defaultLocale: 'sl',
         encodePaths: false,

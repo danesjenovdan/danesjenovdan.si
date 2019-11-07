@@ -27,11 +27,11 @@
     <div class="logo__type">
       <nuxt-link :to="localePath('index')">{{ $t('danes-je-nov-dan') }}</nuxt-link>
     </div>
-    <!-- <nuxt-link
+    <nuxt-link
       v-for="locale in availableLocales"
       :key="locale.code"
       :to="switchLocalePath(locale.code)"
-    >{{ locale.name }}</nuxt-link>-->
+    >{{ locale.name }}</nuxt-link>
   </header>
 </template>
 

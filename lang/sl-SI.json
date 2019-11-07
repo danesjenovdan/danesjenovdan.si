@@ -33,6 +33,19 @@
   "projects": {
     "description": "Živimo, kar delamo. Delamo, v kar verjamemo. Verjamemo, kar govorimo. Govorimo, česar nočeš slišati. Slišiš, ker ti znamo povedati. Povemo ti, ker je to naša dolžnost. Tvoja dolžnost je, da poveš naprej.",
     "more": "Več",
+    "tags": {
+      "pravičnost": "Pravičnost",
+      "okolje": "Okolje",
+      "demokracija": "Demokracija",
+      "internet": "Internet",
+      "sodelovanje": "Sodelovanje",
+      "peticija": "Peticija",
+      "kampanja": "Kampanja",
+      "dogodek": "Dogodek",
+      "branje": "Branje",
+      "igra": "Igra",
+      "knjiga": "Knjiga"
+    },
     "social-bar": {
       "follow-us": "Spremljaj nas na družbenih omrežjih in ujemi naslednjo akcijo v živo!"
     }

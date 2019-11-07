@@ -41,18 +41,17 @@ export default {
   data() {
     return {
       filters: [
-        { id: 'pravičnost', label: 'Pravičnost', active: false },
-        { id: 'okolje', label: 'Okolje', active: false },
-        { id: 'demokracija', label: 'Demokracija', active: false },
-        { id: 'internet', label: 'Internet', active: false },
-        { id: 'sodelovanje', label: 'Sodelovanje', active: false },
-        { id: 'peticija', label: 'Peticija', active: false },
-        { id: 'kampanja', label: 'Kampanja', active: false },
-        { id: 'dogodek', label: 'Dogodek', active: false },
-        { id: 'branje', label: 'Branje', active: false },
-        // { id: 'igra', label: 'Igra (invisible tag)', active: false },
-        // { id: 'knjiga', label: 'Knjiga (invisible tag)', active: false },
-        // TODO: i18n labels
+        { id: 'pravičnost', label: this.$t('projects.tags.pravičnost'), active: false },
+        { id: 'okolje', label: this.$t('projects.tags.okolje'), active: false },
+        { id: 'demokracija', label: this.$t('projects.tags.demokracija'), active: false },
+        { id: 'internet', label: this.$t('projects.tags.internet'), active: false },
+        { id: 'sodelovanje', label: this.$t('projects.tags.sodelovanje'), active: false },
+        { id: 'peticija', label: this.$t('projects.tags.peticija'), active: false },
+        { id: 'kampanja', label: this.$t('projects.tags.kampanja'), active: false },
+        { id: 'dogodek', label: this.$t('projects.tags.dogodek'), active: false },
+        { id: 'branje', label: this.$t('projects.tags.branje'), active: false },
+        // { id: 'igra', label: this.$t('projects.tags.igra'), active: false },
+        // { id: 'knjiga', label: this.$t('projects.tags.knjiga'), active: false },
       ],
     };
   },
