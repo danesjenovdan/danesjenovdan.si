@@ -43,6 +43,14 @@
               </label>
               <ShortLinkInput :value="post.url" />
             </div>
+            <div class="form-group">
+              <more-button
+                :to="localePath('support')"
+                text="Podpri nas!"
+                color="primary"
+                icon="heart"
+              />
+            </div>
           </form>
         </div>
       </div>
@@ -52,12 +60,14 @@
 
 <script>
 import ShortLinkInput from './ShortLinkInput.vue';
+import MoreButton from './MoreButton.vue';
 import dateMixin from '~/mixins/date.js';
 
 export default {
-  name: '',
+  name: 'AgrumentArticle',
   components: {
     ShortLinkInput,
+    MoreButton,
   },
   mixins: [dateMixin],
   props: {
@@ -231,10 +241,17 @@ article {
     .article__share {
       .form-group {
         margin-bottom: 0.25rem;
+        margin-right: 1rem;
       }
 
       em {
-        margin-right: 2rem;
+        margin-right: 1rem;
+      }
+
+      .more-button {
+        font-size: 1rem;
+        height: calc(1.5rem + 0.75rem + 2px);
+        padding: 0.375rem 1.25rem 0.375rem 1rem;
       }
     }
   }

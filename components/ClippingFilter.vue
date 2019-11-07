@@ -17,10 +17,10 @@
           />
         </svg>
       </div>
-      <filter-checkboxes v-model="typeFilters" title="Tip gostovanja" />
-      <filter-checkboxes v-model="formatFilters" title="Format" />
-      <filter-checkboxes v-model="languageFilters" title="Jezik" />
-      <filter-checkboxes v-model="tagFilters" title="Oznake" />
+      <filter-checkboxes v-model="typeFilters" :title="$t('clipping.tags.type.title')" />
+      <filter-checkboxes v-model="formatFilters" :title="$t('clipping.tags.format.title')" />
+      <filter-checkboxes v-model="languageFilters" :title="$t('clipping.tags.language.title')" />
+      <filter-checkboxes v-model="tagFilters" :title="$t('clipping.tags.tag.title')" />
     </div>
   </div>
 </template>
@@ -65,8 +65,8 @@ export default {
 
     const tagFilters = (this.filters.tags || []).map(tagName => ({
       id: tagName,
-      label: this.$te(`clipping.tags.tags.${tagName}`)
-        ? this.$t(`clipping.tags.tags.${tagName}`)
+      label: this.$te(`clipping.tags.tag.${tagName}`)
+        ? this.$t(`clipping.tags.tag.${tagName}`)
         : tagName,
       active: false,
     }));

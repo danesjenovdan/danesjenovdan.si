@@ -81,7 +81,7 @@
     <div class="row my-3" />
     <div class="row">
       <div class="col-12">
-        <section-header text="Radi sodelujemo z ..." />
+        <section-header :text="$t('about.our-partners')" />
       </div>
     </div>
     <div class="wrapping-flex-tiles logos">
@@ -110,7 +110,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header text="Donorji" />
+        <section-header :text="$t('about.our-donators')" />
       </div>
     </div>
     <div class="wrapping-flex-tiles logos">
@@ -127,7 +127,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header text="Formalnosti" />
+        <section-header :text="$t('about.formalities')" />
       </div>
     </div>
     <div class="row formalities">
@@ -141,7 +141,7 @@
         <p>
           TRR:
           <strong>SI56 6100 0000 5740 710</strong>
-          <br />(Delavska hranilnica d.d. Ljubljana)
+          <br />(Delavska hranilnica d.d., Ljubljana)
         </p>
         <p>
           Po odločbi Ministrstva za javno upravo

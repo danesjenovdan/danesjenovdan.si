@@ -78,10 +78,10 @@ export default {
       iframeLoaded: false,
       filters: [
         { id: 'all', label: 'Vsi', active: true },
-        { id: 'dogodek', label: 'dogodek', active: false },
-        { id: 'inspiracija', label: 'inspiracija', active: false },
-        { id: 'provokacija', label: 'provokacija', active: false },
-        { id: 'razlaga', label: 'razlaga', active: false },
+        { id: 'dogodek', label: 'Dogodek', active: false },
+        { id: 'inspiracija', label: 'Inspiracija', active: false },
+        { id: 'provokacija', label: 'Provokacija', active: false },
+        { id: 'razlaga', label: 'Razlaga', active: false },
         // TODO: i18n labels
       ],
     };

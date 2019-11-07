@@ -41,17 +41,17 @@ export default {
   data() {
     return {
       filters: [
-        { id: 'pravičnost', label: 'pravičnost', active: false },
-        { id: 'okolje', label: 'okolje', active: false },
-        { id: 'demokracija', label: 'demokracija', active: false },
-        { id: 'internet', label: 'internet', active: false },
-        { id: 'sodelovanje', label: 'sodelovanje', active: false },
-        { id: 'peticija', label: 'peticija', active: false },
-        { id: 'kampanja', label: 'kampanja', active: false },
-        { id: 'dogodek', label: 'dogodek', active: false },
-        { id: 'branje', label: 'branje', active: false },
-        // { id: 'igra', label: 'igra (invisible tag)', active: false },
-        // { id: 'knjiga', label: 'knjiga (invisible tag)', active: false },
+        { id: 'pravičnost', label: 'Pravičnost', active: false },
+        { id: 'okolje', label: 'Okolje', active: false },
+        { id: 'demokracija', label: 'Demokracija', active: false },
+        { id: 'internet', label: 'Internet', active: false },
+        { id: 'sodelovanje', label: 'Sodelovanje', active: false },
+        { id: 'peticija', label: 'Peticija', active: false },
+        { id: 'kampanja', label: 'Kampanja', active: false },
+        { id: 'dogodek', label: 'Dogodek', active: false },
+        { id: 'branje', label: 'Branje', active: false },
+        // { id: 'igra', label: 'Igra (invisible tag)', active: false },
+        // { id: 'knjiga', label: 'Knjiga (invisible tag)', active: false },
         // TODO: i18n labels
       ],
     };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-title :title="$t('hello')" :text="$t('landing.description')" />
+    <page-title :title="$t('danes-je-nov-dan')" :text="$t('landing.description')" />
     <div v-if="infopush && infopush.visible">
       <info-push
         :image="infopush.image"
@@ -76,6 +76,11 @@
     </div>
     <div class="d-flex justify-content-center">
       <more-button :to="localePath('clipping')" :text="$t('clipping.more')" />
+    </div>
+    <div class="row mobile-no-gap">
+      <div class="col-12 my-5">
+        <shop-bar />
+      </div>
     </div>
     <div class="row">
       <div class="col-12">
@@ -202,11 +207,6 @@
     </div>
     <div class="d-flex justify-content-center">
       <more-button :to="localePath('tools')" :text="$t('tools.more')" color="warning" />
-    </div>
-    <div class="row mobile-no-gap">
-      <div class="col-12 my-5">
-        <shop-bar />
-      </div>
     </div>
   </div>
 </template>

@@ -27,30 +27,29 @@
     "support": "Včlani se",
     "search": "Išči"
   },
-  "hello": "Zdravo",
   "landing": {
-    "description": "TODO: landing.description"
+    "description": "Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja."
   },
   "projects": {
-    "description": "Živimo, kar delamo. Delamo, v kar verjamemo. Verjamemo, kar govorimo. Govorimo, kar je težko slišati. Slišite, ker vam znamo povedati. Povemo vam, ker je to naša dolžnost. Vaša dolžnost je, da poveste naprej.",
-    "more": "več pozivov",
+    "description": "Živimo, kar delamo. Delamo, v kar verjamemo. Verjamemo, kar govorimo. Govorimo, česar nočeš slišati. Slišiš, ker ti znamo povedati. Povemo ti, ker je to naša dolžnost. Tvoja dolžnost je, da poveš naprej.",
+    "more": "Več",
     "social-bar": {
-      "follow-us": "Pofollowaj nas, da ti takšne akcije nikoli več ne uidejo!"
+      "follow-us": "Spremljaj nas na družbenih omrežjih in ujemi naslednjo akcijo v živo!"
     }
   },
   "agrument": {
-    "description": "Dnevni odzivi, komentarji in pomisleki v 1000 znakih, v katerih gojimo divjo misel kiselkastega okusa. Vsi naši natipki so sveži, pripravljeni po lastni recepturi in ne vsebujejo €-jev. Agrument je kolektiven projekt uredništva s 15+ člani.",
+    "description": "Dnevni odzivi, komentarji in pomisleki v 1000 znakih, v katerih gojimo divjo misel kiselkastega okusa. Vsi naši natipki so sveži, pripravljeni po lastni recepturi in ne vsebujejo €-jev. Agrument je kolektiven projekt uredništva z več kot petnajstimi člani.",
     "subscribe-bar": {
       "subscribe-to": "Naroči se na objave!",
       "deliver-it": "Želim, da mi sveže spisan agrument vsak delovni dan dostavite na mejl!",
-      "email-address": "e-naslov",
+      "email-address": "Vpiši svoj e-naslov",
       "subscribe-action": "Naroči!"
     },
-    "more": "več agrumentov"
+    "more": "Več"
   },
   "tools": {
     "description": "TODO: tools.description",
-    "more": "več orodij",
+    "more": "Več",
     "parlameter": {
       "title": "Parlameter",
       "short_description": "A complete solution for any organization aiming for full transparency and digitalization of sessions."
@@ -65,24 +64,28 @@
     }
   },
   "clipping": {
-    "description": "TODO: clipping.description",
-    "more": "več pojavljan",
+    "description": "Tole je okno, skozi katerega merimo vate z vodnimi balončki oz. seznam javnih in medijskih pojavljanj projektov inštituta in oseb, ki z njim sodelujejo. Izpis je mogoče prilagoditi glede na različne parametre.",
+    "more": "Več",
     "tags": {
       "type": {
+        "title": "Vrsta gostovanja",
         "interview": "Intervju",
         "talk": "Predavanje"
       },
       "format": {
+        "title": "Format",
         "audio": "Avdio",
         "video": "Video",
         "text": "Besedilo"
       },
       "language": {
+        "title": "Jezik",
         "sl": "Slovenščina",
         "hr": "Hrvaščina",
         "en": "Angleščina"
       },
-      "tags": {
+      "tag": {
+        "title": "Oznake",
         "copyright": "Avtorsko pravo",
         "tedx": "TedX"
       }
@@ -118,7 +121,7 @@
     }
   },
   "people": {
-    "description": "Ker iskreno verjamemo, da je treba vsebinam dati prednost pred obrazi, bi radi, da nas poznate le po delu. Da pa ne bi teoretikom zarote, spin medicini in Sovi povzročali preveč sivih las, evo nas. A nismo srčkani?",
+    "description": "Ker iskreno verjamemo, da je treba vsebinam dati prednost pred obrazi, bi radi, da nas poznate le po delu. Da pa ne bi teoretikom zarote, spin medicini in Sovi povzročali preveč sivih las, evo nas. Kaj nismo srčkani?",
     "people": {
       "zigaaljaz": { "description": "zadolžen za zadolževanje " },
       "tea": { "description": "zadolžena za teženje medijem in sajenje buč" },
@@ -156,19 +159,23 @@
     }
   },
   "about": {
-    "description": "TODO: about.description"
+    "description": "Prvi spletni portal Danes je nov dan je nastal jeseni 2012 kot sopotnik, integralni del in podpornik vstajniških gibanj. Od oktobra 2013 delujemo kot inštitut, ki se osredotoča na (digitalno) politično participacijo, transparentnost in nadzor.",
+    "our-partners": "Naši partnerji",
+    "our-donators": "Naši donatorji",
+    "formalities": "Pomembni podatki"
   },
   "videos": {
-    "description": "TODO: videos.description",
-    "more": "več videov",
+    "description": "Nekatere videe smo ustvarili za predstavitev svojih orodij, akcij in vsebin, v drugih nastopamo kot protagonisti, nekateri so satirični kolaži drugih medijskih vsebin, spet tretji pa odražajo naše vrednote in veselje do življenja.",
+    "more": "Več",
     "social-bar": {
-      "follow-us": "Sledi nam na Youtubu in Vimeo!"
+      "follow-us": "Naroči se na naše video kanale, da ne zamudiš naslednje vsebine!"
     }
   },
   "shop": {
+    "description": "Naša demokracija je polna računalniških hroščev, vsiljive birokracije in spletnih virusov. Država, ki jo poganja, ni niti dovolj zmogljiva niti zainteresirana za to, da bi jih odpravila. Nam se da. Prispevaj za pips!",
     "promo-bar": {
-      "support-us": "Podpri naše delovanje!",
-      "button-text": "Preveri naš šop!"
+      "support-us": "Omogoči naše nadaljnje delovanje!",
+      "button-text": "Podpri nas z nakupom!"
     },
     "products": {
       "1": {
