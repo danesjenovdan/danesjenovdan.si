@@ -1,8 +1,8 @@
 <template>
-  <a href="#" class="box-link">
+  <nuxt-link :to="to" class="box-link">
     <div class="box-link__content">
       <h3>
-        POSADKA
+        {{ title }}
         <span class="arrow">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="30 18 40 64" fill="currentColor">
             <path
@@ -11,11 +11,30 @@
           </svg>
         </span>
       </h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+      <p>{{ text }}</p>
       <div class="box-link__image" :style="{'background-image': 'url(/img/about-people.svg)'}" />
     </div>
-  </a>
+  </nuxt-link>
 </template>
+
+<script>
+export default {
+  props: {
+    to: {
+      type: String,
+      default: null,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    text: {
+      type: String,
+      required: true,
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .box-link {

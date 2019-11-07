@@ -69,13 +69,25 @@
     <div class="row my-3 py-xl-3" />
     <div class="row box-links">
       <div class="col-12 col-sm-6 col-md-12 col-lg-6 col-xxl-4">
-        <box-link />
+        <box-link
+          :to="localePath('people')"
+          :title="$t('menu.people')"
+          :text="$t('about.descriptions.people')"
+        />
       </div>
       <div class="col-12 col-sm-6 col-md-12 col-lg-6 col-xxl-4">
-        <box-link />
+        <box-link
+          :to="localePath('values')"
+          :title="$t('menu.values')"
+          :text="$t('about.descriptions.values')"
+        />
       </div>
       <div class="col-12 col-sm-6 col-md-12 col-lg-6 col-xxl-4">
-        <box-link />
+        <box-link
+          :to="localePath('clipping')"
+          :title="$t('menu.clipping')"
+          :text="$t('about.descriptions.clipping')"
+        />
       </div>
     </div>
     <div class="row my-3" />
