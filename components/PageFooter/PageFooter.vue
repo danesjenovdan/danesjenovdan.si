@@ -20,8 +20,12 @@
           href="https://facebook.com/danesjenovdan"
         />
         <circle-icon-button :color="color" icon="twitter" href="https://twitter.com/danesjenovdan" />
-        <circle-icon-button :color="color" icon="youtube" href="https://youtube.com/danesjenovdan" />
-        <circle-icon-button :color="color" icon="vimeo" href="https://vimeo.com/danesjenovdan" />
+        <circle-icon-button
+          :color="color"
+          icon="youtube"
+          href="https://www.youtube.com/channel/UCWMqx3p_QtWjdDRq58Hfh_w"
+        />
+        <circle-icon-button :color="color" icon="vimeo" href="https://vimeo.com/user26914674" />
       </div>
     </div>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">

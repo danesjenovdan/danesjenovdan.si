@@ -164,8 +164,8 @@
           color="warning"
           :text="$t('videos.social-bar.follow-us')"
           :icons="[
-            { icon: 'youtube', url: 'https://youtube.com/danesjenovdan' },
-            { icon: 'vimeo', url: 'https://vimeo.com/danesjenovdan' },
+            { icon: 'youtube', url: 'https://www.youtube.com/channel/UCWMqx3p_QtWjdDRq58Hfh_w' },
+            { icon: 'vimeo', url: 'https://vimeo.com/user26914674' },
           ]"
         />
       </div>
