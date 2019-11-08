@@ -163,6 +163,11 @@
         </p>
       </div>
     </div>
+    <div class="row">
+      <div class="col-12">
+        <more-button icon="papers" to="https://www.google.com/" :text="$t('about.papers')" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -171,6 +176,7 @@ import PageTitle from '~/components/PageTitle.vue';
 import BoxLink from '~/components/BoxLink.vue';
 import SectionHeader from '~/components/SectionHeader.vue';
 import LogoBox from '~/components/LogoBox.vue';
+import MoreButton from '~/components/MoreButton.vue';
 
 export default {
   nuxtI18n: {
@@ -184,6 +190,7 @@ export default {
     BoxLink,
     SectionHeader,
     LogoBox,
+    MoreButton,
   },
   head() {
     return {

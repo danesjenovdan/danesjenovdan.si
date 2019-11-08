@@ -17,6 +17,9 @@
 @function icon-rocket($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/rocket.svg'), '#000', '#{$color}'));
 }
+@function icon-papers($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/papers.svg'), '#000', '#{$color}'));
+}
 
 // SECTIONS
 @function icon-section-agrument($color) {
@@ -119,6 +122,9 @@
   }
   .icon-rocket--#{$color-name} {
     background-image: url(#{icon-rocket($color)});
+  }
+  .icon-papers--#{$color-name} {
+    background-image: url(#{icon-papers($color)});
   }
   // SECTIONS
   .icon-section-agrument--#{$color-name} {
