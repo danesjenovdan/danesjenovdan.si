@@ -54,7 +54,7 @@ export default {
 <style lang="scss" scoped>
 .side-menu {
   position: fixed;
-  top: calc(66px + 2.4rem);
+  top: calc(#{$top-bar-height} + 2rem);
   left: 0;
   bottom: 0;
   z-index: 120;

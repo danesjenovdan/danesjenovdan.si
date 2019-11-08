@@ -97,11 +97,12 @@ ul {
   list-style-type: none;
 
   li {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
+    line-height: 1.1;
     font-weight: 300;
     text-transform: uppercase;
     color: inherit;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
 
     &:first-child {
       margin-top: 0;
@@ -109,6 +110,7 @@ ul {
 
     @include media-breakpoint-up(md) {
       font-size: 1.5rem;
+      line-height: 1.5;
       margin: 0;
     }
 

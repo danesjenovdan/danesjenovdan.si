@@ -14,6 +14,7 @@ $color-yellow: #cdac54;
 
 $side-menu-width: 250px;
 $content-mobile-padding: 1.5rem;
+$top-bar-height: 48px;
 
 @mixin wrapping-flex-tiles($width: 320px, $gap: 1.75rem, $width-xl: $width) {
   display: flex;

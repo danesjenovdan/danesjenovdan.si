@@ -57,7 +57,7 @@ export default {
   .content {
     flex: 1;
     margin-left: 0;
-    margin-top: calc(66px + 2.4rem);
+    margin-top: calc(#{$top-bar-height} + 2rem);
 
     @include media-breakpoint-up(md) {
       margin-left: $side-menu-width;
