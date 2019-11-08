@@ -1,4 +1,3 @@
-const pkg = require('./package.json');
 const scssCustomFunctions = require('./plugins/scss-functions.js');
 
 module.exports = {
@@ -14,8 +13,27 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      // hid is used as unique identifier if you want to override a tag in components
-      { hid: 'description', name: 'description', content: pkg.description },
+      // {
+      //   hid: 'description',
+      //   name: 'description',
+      //   content: '',
+      // },
+      { name: 'theme-color', content: '#ffffff' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: 'Danes je nov dan' },
+      // { property: 'og:description', content: '' },
+      {
+        property: 'og:image',
+        content: 'http://nov.djnd.si/djnd-og.png',
+      },
+      { name: 'twitter:creator', content: '@danesjenovdan' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Danes je nov dan' },
+      // { name: 'twitter:description', content: '' },
+      {
+        name: 'twitter:image',
+        content: 'http://nov.djnd.si/djnd-og.png',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
