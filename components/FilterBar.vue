@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white filter-bar">
     <div class="scroll-container">
-      <div class="icon">
+      <div :class="['icon', `text-${color}`]">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="24 27 52 46" fill="currentColor">
           <path
             d="M38 39.4c-3.3 0-6-2.7-6-5.9 0-3.3 2.7-5.9 6-5.9s6 2.7 6 5.9-2.7 5.9-6 5.9zm0-8.9c-1.7 0-3 1.3-3 2.9 0 1.6 1.3 2.9 3 2.9s3-1.3 3-2.9c0-1.6-1.3-2.9-3-2.9z"
@@ -46,6 +46,10 @@ export default {
     everythingId: {
       type: String,
       default: null,
+    },
+    color: {
+      type: String,
+      default: 'primary',
     },
   },
   methods: {

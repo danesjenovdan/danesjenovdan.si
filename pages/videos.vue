@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <filter-bar v-model="filters" everything-id="all" />
+    <filter-bar v-model="filters" everything-id="all" color="warning" />
     <div v-if="videos && videos.length" class="wrapping-flex-tiles">
       <div v-for="video in filteredVideos" :key="`${video.url}`" class="flex-tile">
         <preview-tile
