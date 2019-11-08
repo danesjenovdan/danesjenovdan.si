@@ -57,6 +57,7 @@
         <section-header
           :to="localePath('clipping')"
           :text="$t('menu.clipping')"
+          color="warning"
           icon="section-clipping"
         />
       </div>
@@ -75,7 +76,7 @@
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('clipping')" :text="$t('clipping.more')" />
+      <more-button :to="localePath('clipping')" :text="$t('clipping.more')" color="warning" />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
