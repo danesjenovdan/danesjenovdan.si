@@ -65,7 +65,7 @@ export default {
   will-change: transform;
   transform: translateX(-102%);
   transition: transform 0.15s ease-in-out;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   &.open {
     transform: none;
