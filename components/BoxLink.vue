@@ -44,6 +44,7 @@ export default {
   position: relative;
   margin-bottom: 2.5rem;
   color: inherit;
+  transition: background-color 0.15s;
 
   @include media-breakpoint-up(md) {
     padding-top: 70%;
@@ -88,6 +89,7 @@ export default {
           position: relative;
           top: -0.1em;
           transform: rotate(-90deg);
+          transition: transform 0.15s;
         }
       }
     }
@@ -116,6 +118,18 @@ export default {
 
       @include media-breakpoint-up(lg) {
         width: 60%;
+      }
+    }
+  }
+
+  &:hover {
+    background-color: rgba($color-green, 0.15);
+
+    .box-link__content {
+      h3 {
+        .arrow svg {
+          transform: rotate(-90deg) translateY(1.5rem);
+        }
       }
     }
   }

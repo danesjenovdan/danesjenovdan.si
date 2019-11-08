@@ -58,6 +58,7 @@ export default {
   font-weight: 600;
   color: inherit;
   text-decoration: none;
+  transition: background-color 0.15s;
 
   &.more-button--block {
     width: 100%;
