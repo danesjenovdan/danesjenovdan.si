@@ -126,7 +126,7 @@ export default {
     }
 
     .project-tile__content {
-      padding: 2rem;
+      padding: 1.75rem 2rem;
 
       .project-tile__title {
         font-weight: 700;
@@ -139,7 +139,7 @@ export default {
       }
 
       .project-tile__text {
-        font-size: 1.5rem;
+        font-size: 1.125rem;
         font-weight: 200;
         line-height: 1.2;
         margin-top: 1rem;
