@@ -20,6 +20,12 @@
 @function icon-papers($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/papers.svg'), '#000', '#{$color}'));
 }
+@function icon-language($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/language.svg'), '#000', '#{$color}'));
+}
+@function icon-dropdown-arrow($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/dropdown-arrow.svg'), '#000', '#{$color}'));
+}
 
 // SECTIONS
 @function icon-section-agrument($color) {
@@ -106,96 +112,102 @@
 @each $color-name, $color in $theme-colors {
   // GENERAL
   .icon-arrow--#{$color-name} {
-    background-image: url(#{icon-arrow($color)});
+    background-image: url(#{icon-arrow($color)}) !important;
   }
   .icon-heart--#{$color-name} {
-    background-image: url(#{icon-heart($color)});
+    background-image: url(#{icon-heart($color)}) !important;
   }
   .icon-friendship--#{$color-name} {
-    background-image: url(#{icon-friendship($color)});
+    background-image: url(#{icon-friendship($color)}) !important;
   }
   .icon-trash--#{$color-name} {
-    background-image: url(#{icon-trash($color)});
+    background-image: url(#{icon-trash($color)}) !important;
   }
   .icon-confetti-popper--#{$color-name} {
-    background-image: url(#{icon-confetti-popper($color)});
+    background-image: url(#{icon-confetti-popper($color)}) !important;
   }
   .icon-rocket--#{$color-name} {
-    background-image: url(#{icon-rocket($color)});
+    background-image: url(#{icon-rocket($color)}) !important;
   }
   .icon-papers--#{$color-name} {
-    background-image: url(#{icon-papers($color)});
+    background-image: url(#{icon-papers($color)}) !important;
+  }
+  .icon-language--#{$color-name} {
+    background-image: url(#{icon-language($color)}) !important;
+  }
+  .icon-dropdown-arrow--#{$color-name} {
+    background-image: url(#{icon-dropdown-arrow($color)}) !important;
   }
   // SECTIONS
   .icon-section-agrument--#{$color-name} {
-    background-image: url(#{icon-section-agrument($color)});
+    background-image: url(#{icon-section-agrument($color)}) !important;
   }
   .icon-section-clipping--#{$color-name} {
-    background-image: url(#{icon-section-clipping($color)});
+    background-image: url(#{icon-section-clipping($color)}) !important;
   }
   .icon-section-projects--#{$color-name} {
-    background-image: url(#{icon-section-projects($color)});
+    background-image: url(#{icon-section-projects($color)}) !important;
   }
   .icon-section-videos--#{$color-name} {
-    background-image: url(#{icon-section-videos($color)});
+    background-image: url(#{icon-section-videos($color)}) !important;
   }
   .icon-section-tools--#{$color-name} {
-    background-image: url(#{icon-section-tools($color)});
+    background-image: url(#{icon-section-tools($color)}) !important;
   }
   // SOCIAL
   .icon-facebook--#{$color-name} {
-    background-image: url(#{icon-facebook($color)});
+    background-image: url(#{icon-facebook($color)}) !important;
   }
   .icon-twitter--#{$color-name} {
-    background-image: url(#{icon-twitter($color)});
+    background-image: url(#{icon-twitter($color)}) !important;
   }
   .icon-youtube--#{$color-name} {
-    background-image: url(#{icon-youtube($color)});
+    background-image: url(#{icon-youtube($color)}) !important;
   }
   .icon-vimeo--#{$color-name} {
-    background-image: url(#{icon-vimeo($color)});
+    background-image: url(#{icon-vimeo($color)}) !important;
   }
   .icon-github--#{$color-name} {
-    background-image: url(#{icon-github($color)});
+    background-image: url(#{icon-github($color)}) !important;
   }
   // TOOLS
   .icon-tool-parlameter--#{$color-name} {
-    background-image: url(#{icon-tool-parlameter($color)});
+    background-image: url(#{icon-tool-parlameter($color)}) !important;
   }
   .icon-tool-commentality--#{$color-name} {
-    background-image: url(#{icon-tool-commentality($color)});
+    background-image: url(#{icon-tool-commentality($color)}) !important;
   }
   .icon-tool-consul--#{$color-name} {
-    background-image: url(#{icon-tool-consul($color)});
+    background-image: url(#{icon-tool-consul($color)}) !important;
   }
   // VALUES
   .icon-value-solidarity--#{$color-name} {
-    background-image: url(#{icon-value-solidarity($color)});
+    background-image: url(#{icon-value-solidarity($color)}) !important;
   }
   .icon-value-commons--#{$color-name} {
-    background-image: url(#{icon-value-commons($color)});
+    background-image: url(#{icon-value-commons($color)}) !important;
   }
   .icon-value-political--#{$color-name} {
-    background-image: url(#{icon-value-political($color)});
+    background-image: url(#{icon-value-political($color)}) !important;
   }
   .icon-value-nature--#{$color-name} {
-    background-image: url(#{icon-value-nature($color)});
+    background-image: url(#{icon-value-nature($color)}) !important;
   }
   .icon-value-economy--#{$color-name} {
-    background-image: url(#{icon-value-economy($color)});
+    background-image: url(#{icon-value-economy($color)}) !important;
   }
   .icon-value-inclusion--#{$color-name} {
-    background-image: url(#{icon-value-inclusion($color)});
+    background-image: url(#{icon-value-inclusion($color)}) !important;
   }
 }
 
 // CLIP TYPES
 .icon-clip-audio {
-  background-image: url(#{icon-clip-audio($body-color)});
+  background-image: url(#{icon-clip-audio($body-color)}) !important;
 }
 .icon-clip-video {
-  background-image: url(#{icon-clip-video($body-color)});
+  background-image: url(#{icon-clip-video($body-color)}) !important;
 }
 .icon-clip-text {
-  background-image: url(#{icon-clip-text($body-color)});
+  background-image: url(#{icon-clip-text($body-color)}) !important;
 }

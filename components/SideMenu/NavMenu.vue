@@ -185,7 +185,7 @@ ul {
 
   .search-form {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 
     .search-input {
       margin-top: 2rem;

@@ -5,7 +5,14 @@
   >
     <nav ref="sideMenu" class="side-menu__nav">
       <nav-logo />
-      <nav-menu />
+      <div>
+        <nav-menu />
+        <div class="lang-license">
+          <language-switcher />
+          <hr />
+          <license />
+        </div>
+      </div>
     </nav>
   </section>
 </template>
@@ -13,12 +20,16 @@
 <script>
 import NavLogo from './NavLogo.vue';
 import NavMenu from './NavMenu.vue';
+import License from './License.vue';
+import LanguageSwitcher from './LanguageSwitcher.vue';
 
 export default {
   name: 'SideMenu',
   components: {
     NavLogo,
     NavMenu,
+    License,
+    LanguageSwitcher,
   },
   data() {
     return {
@@ -86,6 +97,14 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+
+    .lang-license {
+      margin-bottom: 2rem;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 </style>
