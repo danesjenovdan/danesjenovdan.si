@@ -98,7 +98,42 @@ export default {
     overflow-y: visible;
     overflow-x: auto;
     display: flex;
-    padding: 0.8rem 1rem;
+    padding: 0.75rem 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-image: linear-gradient(
+        to bottom,
+        rgba(#ccc, 0.6) 0px,
+        rgba(#ccc, 0.6) 1px,
+        #ccc 1px,
+        #ccc 6px,
+        rgba(#ccc, 0.6) 6px,
+        rgba(#ccc, 0.6) 7px
+      );
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-image: linear-gradient(
+        to bottom,
+        rgba(#a5a5a5, 0.6) 0px,
+        rgba(#a5a5a5, 0.6) 1px,
+        #a5a5a5 1px,
+        #a5a5a5 6px,
+        rgba(#a5a5a5, 0.6) 6px,
+        rgba(#a5a5a5, 0.6) 7px
+      );
+    }
 
     .icon {
       width: 1.5rem;
