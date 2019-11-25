@@ -12,26 +12,23 @@
       spoznali z dnevnimi agrumenti, novostmi na
       Parlametru in drugimi projekti.
     </p>
-    <div class="row justify-content-center">
+    <div v-if="showForm" class="row justify-content-center">
       <div class="col form-col">
         <p>
           Da bomo vedeli, čigave nastavitve urejaš, prosimo vpiši svoj e-naslov. Na ta naslov ti
           bomo poslali personalizirano povezavo do spletne strani za urejanje nastavitev.
         </p>
         <form @submit.prevent="submitForm">
-          <template v-if="!success">
-            <input
-              v-model="email"
-              type="email"
-              class="form-control mt-4 mb-4"
-              placeholder="Vpiši svoj e-naslov"
-            />
-          </template>
-          <template v-if="message">
-            <p>
-              <strong>{{ message }}</strong>
-            </p>
-          </template>
+          <input
+            v-if="!success"
+            v-model="email"
+            type="email"
+            class="form-control mt-4 mb-4"
+            placeholder="Vpiši svoj e-naslov"
+          />
+          <p v-if="message">
+            <strong>{{ message }}</strong>
+          </p>
           <more-button
             v-if="!success"
             :disabled="loading || !email.length || email.indexOf('@') === -1"
@@ -41,6 +38,16 @@
             @click.native="submitForm"
           />
         </form>
+      </div>
+    </div>
+    <div v-else-if="settings" class="row">
+      <div v-for="key in settingKeys" :key="key">
+        <h2>{{ key }}</h2>
+        <div class="custom-control custom-switch">
+          <input :id="`switch-${key}`" type="checkbox" class="custom-control-input" />
+          <label :for="`switch-${key}`" class="custom-control-label">Toggle this switch element</label>
+        </div>
+        {{ settings[key].name }}
       </div>
     </div>
   </div>
@@ -67,6 +74,34 @@ export default {
       loading: false,
       success: false,
       message: '',
+    };
+  },
+  computed: {
+    settingKeys() {
+      if (!this.settings) {
+        return [];
+      }
+      return Object.keys(this.settings);
+    },
+  },
+  async asyncData({ $axios, query }) {
+    let showForm = true;
+    let settings = null;
+    let name = null;
+    if (query.email && query.token) {
+      const token = encodeURIComponent(query.token);
+      const email = encodeURIComponent(query.email);
+      const endpoint = `https://spam.djnd.si/get-settings/?token=${token}&email=${email}`;
+      const response = await $axios.$get(endpoint);
+      if (response && typeof response === 'object') {
+        showForm = false;
+        ({ name, ...settings } = response);
+      }
+    }
+    return {
+      showForm,
+      settings,
+      name,
     };
   },
   methods: {
