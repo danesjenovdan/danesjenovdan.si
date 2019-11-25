@@ -1,7 +1,7 @@
 <template>
   <div class="tool-tile bg-white">
     <div class="row">
-      <div :class="['col-lg-12', 'col-xxl-6', 'left-col', { open }]">
+      <div :class="['left-col', { open }]">
         <div class="d-flex flex-column justify-content-center h-100">
           <div class="d-flex align-items-center flex-column flex-lg-row">
             <div class="icon">
@@ -22,9 +22,20 @@
           <div class="d-none d-xxl-flex">
             <div class="icon" />
             <div class="links">
-              <ul>
+              <ul v-if="links.length">
                 <li v-for="link in links" :key="link.url">
                   <a :href="link.url" target="_blank">{{ link.label }}</a>
+                </li>
+              </ul>
+              <ul
+                v-if="email && email.address && email.address.indexOf('@') !== -1"
+                class="contact"
+              >
+                <li>
+                  <a
+                    :href="`mailto:${email.address}?subject=${email.subject}`"
+                    target="_blank"
+                  >{{ email.label }}</a>
                 </li>
               </ul>
             </div>
@@ -34,13 +45,26 @@
       <div class="open-arrow-container">
         <button :class="['btn', 'btn-warning', 'open-arrow', { open }]" @click="open = true" />
       </div>
-      <div :class="['col-lg-12', 'col-xxl-6', 'right-col', { open }]">
+      <div :class="['right-col', { open }]">
         <p v-for="paragraph in paragraphs" :key="paragraph" v-text="paragraph" />
-        <div class="d-flex d-xxl-none">
-          <div class="links">
+        <div class="d-flex flex-column d-xxl-none">
+          <div v-if="links.length" class="links">
             <ul>
               <li v-for="link in links" :key="link.url">
                 <a :href="link.url" target="_blank">{{ link.label }}</a>
+              </li>
+            </ul>
+          </div>
+          <div
+            v-if="email && email.address && email.address.indexOf('@') !== -1"
+            class="links contact"
+          >
+            <ul>
+              <li>
+                <a
+                  :href="`mailto:${email.address}?subject=${email.subject}`"
+                  target="_blank"
+                >{{ email.label }}</a>
               </li>
             </ul>
           </div>
@@ -70,6 +94,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    email: {
+      type: Object,
+      default: null,
+    },
   },
   data() {
     return {
@@ -91,14 +119,21 @@ export default {
 
   .left-col,
   .right-col {
+    flex: 1 1 100%;
+    max-width: initial;
     padding: 0;
 
     @include media-breakpoint-up(lg) {
       padding: 1.5rem 0;
     }
+
+    @include media-breakpoint-up(xxl) {
+      flex-basis: 0%;
+    }
   }
 
   .left-col {
+    flex-grow: 1.25;
     padding-bottom: 3.5rem;
 
     &.open {
@@ -149,7 +184,7 @@ export default {
         text-align: center;
 
         @include media-breakpoint-up(lg) {
-          font-size: 4.3rem;
+          font-size: 3.5rem;
           text-align: left;
         }
       }
@@ -248,6 +283,7 @@ export default {
       padding: 0;
       display: flex;
       flex-wrap: wrap;
+      line-height: 1.2;
 
       li {
         flex-basis: 100%;
@@ -269,6 +305,9 @@ export default {
           color: inherit;
           text-decoration: underline;
           font-style: italic;
+          display: block;
+          position: relative;
+          padding-left: 1.75rem;
 
           &:hover {
             text-decoration: none;
@@ -276,14 +315,16 @@ export default {
 
           &::before {
             content: '';
-            display: inline-block;
+            display: block;
             width: 1.7rem;
-            height: 100%;
+            height: calc(1em * 1.2); // font size * line height
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M89.333 30.938l-20.271-20.27a5.54 5.54 0 0 0-3.892-1.613 5.553 5.553 0 0 0-3.886 1.613L41.958 29.995a5.455 5.455 0 0 0-1.612 3.889 5.458 5.458 0 0 0 1.611 3.89 5.46 5.46 0 0 0 3.889 1.611c1.47 0 2.851-.572 3.888-1.611l15.439-15.439 12.493 12.492-15.438 15.439c-1.039 1.039-1.611 2.42-1.611 3.89s.572 2.851 1.61 3.887a5.462 5.462 0 0 0 3.89 1.614h.003a5.472 5.472 0 0 0 3.886-1.613l19.328-19.326a5.508 5.508 0 0 0-.001-7.78zm-2.121 5.658L67.883 55.923c-.938.942-2.585.95-3.535-.002a2.478 2.478 0 0 1-.731-1.766c0-.668.26-1.296.732-1.769l16.499-16.5a1.5 1.5 0 0 0 0-2.122L66.233 19.152c-.293-.293-.677-.439-1.061-.439s-.768.146-1.061.439l-16.5 16.501c-.942.944-2.588.944-3.534-.002a2.483 2.483 0 0 1-.731-1.768c0-.667.26-1.295.732-1.767l19.327-19.328c.933-.931 2.603-.933 3.535 0l20.271 20.27c.976.975.976 2.562.001 3.538zM54.155 60.615a5.455 5.455 0 0 0-3.889 1.611l-15.439 15.44-12.493-12.492 15.438-15.438a5.457 5.457 0 0 0 1.612-3.889 5.465 5.465 0 0 0-1.61-3.89c-1.038-1.039-2.42-1.611-3.89-1.611s-2.852.572-3.889 1.611L10.667 61.285a5.464 5.464 0 0 0-1.611 3.889c0 1.47.573 2.851 1.612 3.889l20.269 20.269a5.474 5.474 0 0 0 3.888 1.614h.006a5.462 5.462 0 0 0 3.886-1.613l19.327-19.327a5.454 5.454 0 0 0 1.611-3.89c0-1.469-.572-2.85-1.61-3.888a5.46 5.46 0 0 0-3.89-1.613zm1.768 7.268l-19.33 19.33a2.499 2.499 0 0 1-3.535-.002L12.788 66.94c-.465-.465-.732-1.109-.732-1.767s.267-1.302.732-1.768l19.329-19.329c.471-.472 1.099-.731 1.767-.731s1.296.26 1.769.732c.472.473.731 1.101.731 1.769 0 .667-.26 1.295-.732 1.767l-16.499 16.5a1.5 1.5 0 0 0 0 2.122l14.614 14.613a1.5 1.5 0 0 0 2.121 0l16.501-16.501c.941-.942 2.589-.944 3.533.001.473.473.732 1.101.733 1.769 0 .667-.259 1.294-.732 1.766zm-26.979-2.327c0 1.469.571 2.851 1.61 3.89s2.42 1.611 3.89 1.611c1.469 0 2.85-.572 3.889-1.611l31.11-31.112c1.04-1.038 1.612-2.42 1.612-3.89s-.572-2.852-1.61-3.888a5.46 5.46 0 0 0-3.89-1.612 5.462 5.462 0 0 0-3.889 1.611l-31.11 31.112a5.461 5.461 0 0 0-1.612 3.889zm3.733-1.767l31.111-31.113c.473-.473 1.1-.732 1.768-.732s1.296.26 1.769.733c.472.471.731 1.099.731 1.767s-.26 1.296-.732 1.768L36.212 67.324c-.946.946-2.592.944-3.536 0a2.483 2.483 0 0 1-.731-1.769 2.476 2.476 0 0 1 .732-1.766z"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
-            position: relative;
-            top: 0.35rem;
+            background-position: left center;
+            position: absolute;
+            top: 0;
+            left: 0;
           }
 
           &[href^="https://github.com"]::before {
@@ -299,6 +340,18 @@ export default {
           }
         }
       }
+    }
+  }
+
+  .links.contact,
+  .links ul + ul.contact {
+    padding-top: 1.75rem;
+  }
+
+  .links.contact,
+  .links ul.contact {
+    li {
+      flex-basis: 100%;
     }
   }
 }

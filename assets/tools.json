@@ -9,7 +9,8 @@
         { "url": "https://parlametr.pl", "label": "parlametr.pl" },
         { "url": "https://blog.parlameter.si", "label": "Blog" },
         { "url": "https://github.com/danesjenovdan", "label": "GitHub" }
-      ]
+      ],
+      "email": "info@parlameter.si"
     },
     {
       "id": "commentality",
@@ -18,24 +19,30 @@
           "url": "https://commentality.djnd.si/",
           "label": "commentality.djnd.si"
         }
-      ]
+      ],
+      "email": "vsi@danesjenovdan.si"
     },
     {
-      "id": "consul"
+      "id": "consul",
+      "email": "vsi@danesjenovdan.si"
     },
     {
       "id": "medijski-besedogled",
-      "links": [{ "url": "https://github.com/danesjenovdan/SCANner", "label": "GitHub" }]
+      "links": [{ "url": "https://github.com/danesjenovdan/SCANner", "label": "GitHub" }],
+      "email": "vsi@danesjenovdan.si"
     },
     {
-      "id": "parlatube"
+      "id": "parlatube",
+      "email": "vsi@danesjenovdan.si"
     },
     {
       "id": "humans-vote",
-      "links": [{ "url": "danesjenovdan.si/humans.vote", "label": "humans.vote" }]
+      "links": [{ "url": "danesjenovdan.si/humans.vote", "label": "humans.vote" }],
+      "email": "vsi@danesjenovdan.si"
     },
     {
-      "id": "predlogi"
+      "id": "predlogi",
+      "email": "vsi@danesjenovdan.si"
     }
   ]
 }

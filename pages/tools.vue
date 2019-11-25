@@ -9,6 +9,11 @@
           :description="$t(`tools.tools.${tool.id}.description`)"
           :paragraphs="$t(`tools.tools.${tool.id}.paragraphs`)"
           :links="tool.links"
+          :email="{
+            address: tool.email,
+            label: $t(`tools.tools.${tool.id}.contact`),
+            subject: $t(`tools.tools.${tool.id}.email-subject`),
+          }"
         />
       </div>
     </div>
