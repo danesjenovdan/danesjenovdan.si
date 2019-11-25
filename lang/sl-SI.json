@@ -61,19 +61,65 @@
     "more": "Več"
   },
   "tools": {
-    "description": "TODO: tools.description",
+    "description": "Ponudba vročih žemljic in uporabnih rešitev, digitalno skladišče, odprtokodna knjižnica in portfolio. Ropotarnica idej, arhiv aktivističnih potrebščin, spletnih rekvizitov in drugih angažiranih pripomočkov za aktivno državljanstvo ter kritično mišljenje.",
     "more": "Več",
-    "parlameter": {
-      "title": "Parlameter",
-      "short_description": "A complete solution for any organization aiming for full transparency and digitalization of sessions."
-    },
-    "commentality": {
-      "title": "Commentality",
-      "short_description": "Consensus driven commenting system for a civil internet debate."
-    },
-    "consul": {
-      "title": "Consul",
-      "short_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut."
+    "tools": {
+      "parlameter": {
+        "title": "Parlameter",
+        "description": "Celovita rešitev za vsako organizacijo, ki stremi k transparentnosti in digitalizacijo postopkov.",
+        "paragraphs": [
+          "Parlameter upravlja s transkripti in evidencami glasovanj, vse od njihovega pridobivanja do organizacije, vizualizacije in objave. V obliki, v kateri živi trenutno, Parlameter zbira in analizira podatke o parlamentarnih glasovanjih, transkripte sej, pa tudi siceršnje aktivnosti poslancev in poslanskih skupin, in sicer v Sloveniji, na Hrvaškem, na Poljskem in v Bosni in Hercegovini.",
+          "Vrednost projekta pripoznavajo strokovna, novinarska, pa tudi tuja nevladniška javnost. Nagrajen je bil z nagrado Brumen in veliko nagrado Diggit, njegov razvoj in implementacijo v druge države pa sta finančno podprla Google DNI in NED."
+        ]
+      },
+      "commentality": {
+        "title": "Commentality",
+        "description": "(Ne)komentatorska platforma, ki meri javno mnenje na podlagi angažmaja uporabnikov v obliki reakcij.",
+        "paragraphs": [
+          "Commentality učinkovito, natančno in uporabnikom prijazno meri javno mnenje na spletu. Commentality ni sistem za komentiranje. Je inovativna zamisel, kako angažirati občinstvo in se izogniti nevarnostim sovražnega govora, oglaševanja, manipulacije javnega mnenja, astroturfinga, zlorabe osebnih podatkov in trolanja.",
+          "V dobi, ko na družbenih medijih klasično komentiranje vse bolj zamenjuje možnost všečkov in drugih reakcij, smo se domislili, da bi na podoben način organizirali tudi debato o medijskih vsebinah. Platforma je načrtovana tako, da išče konsenz, izpostavlja argumente in gradi na skupnih idejah v spletnih debatah."
+        ]
+      },
+      "consul": {
+        "title": "Consul",
+        "description": "Consul je odprtokodna platforma za izvedbo participativnega proračuna, prilagojena in nadgrajena za slovenske potrebe.",
+        "paragraphs": [
+          "Consul je razvila občina Madrid, mi pa smo ga prevedli in dodelali v sklopu širše kampanje za uvedbo participativnega proračuna pri nas. Smo tudi soustanovitelji mednarodne fundacije Consul, v kateri poteka nadaljnji razvoj orodja.",
+          "Consul uporablja že več kot 100 institucij v 33 državah, med njimi pa je tudi nekaj slovenskih občin. Odprtokodna aplikacija ima privlačen dizajn in zagotavlja prijetno uporabniško izkušnjo. Če želite, da mi poskrbimo za gostovanje, programsko opremo, baze in poštni strežnik, pomagamo pri vnašanju podatkov in organizaciji ter treningu ljudi, ki bodo izvajali participativni proračun, pa nas kontaktirajte za ponudbo."
+        ]
+      },
+      "medijski-besedogled": {
+        "title": "Medijski besedogled",
+        "description": "Polavtomatizacija aplikacije preiskovalne metode SCAN na besedila, prirejena za slovenski jezik.",
+        "paragraphs": [
+          "Gre za pametno semantično orodje, avtomatski označevalnik besedil glede na kazalnike metode SCAN, ki se z rabo uči, kar olajša nadaljnjo vsebinsko analizo. Slednjo je v okviru skupnega projekta Google DNI opravil inštitut EBSI. Bistvo projekta kot celote je bila implementacija preiskovalne metode SCAN na govore gostov oddaje Odmevi.",
+          "Projekt je pokazal, kako je mogoče bdeti nad higieno javnega in medijskega govora, kako deluje naše orodje, pa kažejo primeri, ki opozarjajo na nekonsistentnosti v posameznih govorih, te pa nakazujejo na vprašljivo vsebino izjavljenega."
+        ]
+      },
+      "parlatube": {
+        "title": "Parlatube",
+        "description": "Priročno orodje za citiranje, remiksanje in duhovito postprodukcijo ter deljenje spletnih videov.",
+        "paragraphs": [
+          "Parlatube je zabavno platno in ostre škarje obenem. Nastal je zaradi specifičnega spleta okoliščin, povezanega s Parlametrom. Med razvojem slednjega smo namreč želeli vanj vključiti video posnetke sej DZ, vendar zaenkrat nismo uspeli pridobiti posnetkov RTV.",
+          "Polni frustracij na to temo smo se kar naenkrat znašli v kolaboraciji s POP TV na temo predsedniških volitev 2017. Dogovorili smo se, da bodo soočenje prenašali na YouTube, mi pa smo naredili parlatube, orodje, zaradi katerega je bilo soočenje veliko bolj zabavno in viralno – ljudje so množično delili nebuloze kandidatov in jih opremljali z emoji komentarji."
+        ]
+      },
+      "humans-vote": {
+        "title": "Humans vote",
+        "description": "Varna odprtokodna blockchain rešitev za digitalne volitve oz. vsakršno odločanje na podlagi glasovanja.",
+        "paragraphs": [
+          "Orodje humans.vote je rezultat 48-urnega programerskega maratona v okviru blockchain hackatona. Aplikacija omogoča varno glasovanje s pomočjo blockchain tehnologije, zastavljena pa je tako, da jo lahko vsakdo enostavno namesti. Organizacije in posamezniki imajo pri implementaciji različnih mehanizmov odločanja raznolike potrebe, zato smo aplikacijo oblikovali tako, da je sposobna delovati z vsakršnim glasovalnim sistemom.",
+          "V 48 urah smo realizirali zastavljen projekt in spisali dokumentacijo ter temeljita navodila za namestitev in uporabo, vse pa smo objavili na portalu GitHub. Do rešitve na ključ manjka le uporabniški vmesnik."
+        ]
+      },
+      "predlogi": {
+        "title": "Predlogi",
+        "description": "Orodje za spletno participacijo, skupnostno odločanje in debato ter organizacijo delovnih procesov.",
+        "paragraphs": [
+          "Predlogi, platforma za konstruktivno, varno in vključujočo razpravo, predstavljajo točko, kjer se je za Danes je nov dan vse začelo. So mesto, kjer se je porodila sprva neformalna skupnost, ki danes deluje v okviru inštituta. Orodje smo začeli koncipirati ob začetku protestov novembra 2012, prvo, zelo rudimentarno verzijo, pa smo objavili že ob protestih na začetku decembra istega leta.",
+          "Platforma se je odtlej vsebinsko napolnila, funkcionalno razvila in posodobila, trenutno pa je arhivirana in čaka na nove konstruktivne načine uporabe. Načrtujemo, da jo v prihodnosti namenimo pomoči participativnemu odločanju mladih."
+        ]
+      }
     }
   },
   "clipping": {

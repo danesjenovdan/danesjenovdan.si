@@ -2,11 +2,14 @@
   <div>
     <page-title :title="$t('menu.tools')" :text="$t('tools.description')" color="warning" />
     <div class="row">
-      <div class="col-12">
-        <tool-tile />
-      </div>
-      <div class="col-12">
-        <tool-tile />
+      <div v-for="tool in tools" :key="tool.id" class="col-12">
+        <tool-tile
+          :icon="`tool-${tool.id}`"
+          :title="$t(`tools.tools.${tool.id}.title`)"
+          :description="$t(`tools.tools.${tool.id}.description`)"
+          :paragraphs="$t(`tools.tools.${tool.id}.paragraphs`)"
+          :links="tool.links"
+        />
       </div>
     </div>
   </div>
@@ -15,6 +18,7 @@
 <script>
 import PageTitle from '~/components/PageTitle.vue';
 import ToolTile from '~/components/ToolTile.vue';
+import toolsJson from '~/assets/tools.json';
 
 export default {
   pageColor: 'warning',
@@ -30,12 +34,7 @@ export default {
   },
   data() {
     return {
-      filters: [
-        { key: 'okolje', label: 'Okolje', active: false },
-        { key: 'pravice', label: 'Človekove pravice', active: true },
-        { key: 'demokracija', label: 'Demokracija', active: false },
-        { key: 'lulz', label: 'For the lulz', active: false },
-      ],
+      tools: toolsJson.tools,
     };
   },
   head() {
@@ -45,6 +44,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

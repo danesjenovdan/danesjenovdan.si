@@ -1,0 +1,41 @@
+{
+  "tools": [
+    {
+      "id": "parlameter",
+      "links": [
+        { "url": "https://parlameter.org", "label": "parlameter.org" },
+        { "url": "https://parlameter.si", "label": "parlameter.si" },
+        { "url": "https://parlametar.hr", "label": "parlametar.hr" },
+        { "url": "https://parlametr.pl", "label": "parlametr.pl" },
+        { "url": "https://blog.parlameter.si", "label": "Blog" },
+        { "url": "https://github.com/danesjenovdan", "label": "GitHub" }
+      ]
+    },
+    {
+      "id": "commentality",
+      "links": [
+        {
+          "url": "https://commentality.djnd.si/",
+          "label": "commentality.djnd.si"
+        }
+      ]
+    },
+    {
+      "id": "consul"
+    },
+    {
+      "id": "medijski-besedogled",
+      "links": [{ "url": "https://github.com/danesjenovdan/SCANner", "label": "GitHub" }]
+    },
+    {
+      "id": "parlatube"
+    },
+    {
+      "id": "humans-vote",
+      "links": [{ "url": "danesjenovdan.si/humans.vote", "label": "humans.vote" }]
+    },
+    {
+      "id": "predlogi"
+    }
+  ]
+}

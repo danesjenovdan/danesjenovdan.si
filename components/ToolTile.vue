@@ -15,31 +15,16 @@
               </svg>
             </div>
             <div class="title d-flex flex-column">
-              <h2>Parlameter</h2>
-              <h3>A complete solution for any organization aiming for full transparency and digitalization of sessions.</h3>
+              <h2 v-text="title" />
+              <h3 v-text="description" />
             </div>
           </div>
           <div class="d-none d-xxl-flex">
             <div class="icon" />
             <div class="links">
               <ul>
-                <li>
-                  <a href="#" target="_blank">parlameter.si</a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">parlameter.si</a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">parlameter.si</a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">parlameter.si</a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">parlameter.si</a>
-                </li>
-                <li>
-                  <a href="https://github.com/danesjenovdan" target="_blank">GitHub</a>
+                <li v-for="link in links" :key="link.url">
+                  <a :href="link.url" target="_blank">{{ link.label }}</a>
                 </li>
               </ul>
             </div>
@@ -50,30 +35,12 @@
         <button :class="['btn', 'btn-warning', 'open-arrow', { open }]" @click="open = true" />
       </div>
       <div :class="['col-lg-12', 'col-xxl-6', 'right-col', { open }]">
-        <p>Parlameter nudi transparenten vpogled in enostavno dostopnost ter preglednost informacij o delu parlamenta. Zbiramo in analiziramo podatke o glasovanjih, transkripte sej, pa tudi siceršnje aktivnosti poslancev ter poslanskih skupin.</p>
-        <p>Podatki so urejeni na strojem in ljudem prijazen način: za prve so tu API klici, za druge pa kartični dizajn oz. inovativna organizacija podatkov. Vsak kos vsebine Parlametra namreč živi v obliki samostojne kartice, ki jo uporabnik lahko deli z drugimi ali vdela v svoje spletno mesto.</p>
-        <p>Razvoj Parlametra je podprl Google DNI, njegovo samostojno življenje pa trenutno lajša še štipendija NED.</p>
-        <p>Vrednost projekta pripoznavajo strokovna (nagrada Brumen, velika nagrada Diggit), novinarska (vdelan je na STA), pa tudi tuja nevladniška javnost: kmalu Parlameter prihaja tudi na Hrvaško, v Bosno in v Veliko Britanijo.</p>
+        <p v-for="paragraph in paragraphs" :key="paragraph" v-text="paragraph" />
         <div class="d-flex d-xxl-none">
           <div class="links">
             <ul>
-              <li>
-                <a href="#" target="_blank">parlameter.si</a>
-              </li>
-              <li>
-                <a href="#" target="_blank">parlameter.si</a>
-              </li>
-              <li>
-                <a href="#" target="_blank">parlameter.si</a>
-              </li>
-              <li>
-                <a href="#" target="_blank">parlameter.si</a>
-              </li>
-              <li>
-                <a href="#" target="_blank">parlameter.si</a>
-              </li>
-              <li>
-                <a href="https://github.com/danesjenovdan" target="_blank">GitHub</a>
+              <li v-for="link in links" :key="link.url">
+                <a :href="link.url" target="_blank">{{ link.label }}</a>
               </li>
             </ul>
           </div>
@@ -86,6 +53,24 @@
 <script>
 export default {
   name: 'ToolTile',
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    paragraphs: {
+      type: Array,
+      required: true,
+    },
+    links: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
       open: false,
@@ -303,6 +288,12 @@ export default {
 
           &[href^="https://github.com"]::before {
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="1363.2 -4345.45 325.79 317.749"><path d="M1526.08-4345.45c-89.94 0-162.88 72.93-162.88 162.9 0 71.96 46.67 133.02 111.4 154.57 8.15 1.49 11.12-3.54 11.12-7.86 0-3.87-.14-14.11-.22-27.7-45.31 9.84-54.87-21.84-54.87-21.84-7.41-18.82-18.09-23.83-18.09-23.83-14.79-10.1 1.12-9.9 1.12-9.9 16.35 1.15 24.95 16.79 24.95 16.79 14.53 24.89 38.13 17.7 47.41 13.53 1.48-10.52 5.69-17.7 10.34-21.77-36.17-4.12-74.2-18.09-74.2-80.51 0-17.79 6.35-32.32 16.77-43.71-1.68-4.12-7.27-20.68 1.6-43.11 0 0 13.67-4.38 44.79 16.69 12.99-3.61 26.93-5.41 40.78-5.48 13.84.07 27.77 1.87 40.78 5.48 31.1-21.07 44.75-16.69 44.75-16.69 8.89 22.43 3.3 38.99 1.63 43.11 10.44 11.39 16.74 25.92 16.74 43.71 0 62.58-38.09 76.35-74.37 80.38 5.84 5.03 11.05 14.97 11.05 30.17 0 21.77-.2 39.34-.2 44.68 0 4.36 2.94 9.43 11.2 7.84 64.68-21.59 111.31-82.6 111.31-154.55 0-89.97-72.94-162.9-162.91-162.9" fill-rule="evenodd"/></svg>');
+            background-size: 80% 80%;
+            background-position: left center;
+          }
+
+          &[href^='mailto:']::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="11.026 11.026 77.949 77.949"><path d="M50 11.026c-21.525 0-38.974 17.449-38.974 38.974 0 12.283 5.688 23.232 14.567 30.376l-14.567 8.599H50c21.525 0 38.975-17.449 38.975-38.975 0-21.525-17.452-38.974-38.975-38.974zm-.001 74.481H23.961l8.242-4.786C21.617 74.574 14.493 63.123 14.493 50c0-19.61 15.896-35.506 35.506-35.506S85.506 30.39 85.506 50c0 19.609-15.897 35.507-35.507 35.507z"/><path d="M50 31.062c-10.459 0-18.938 8.479-18.938 18.938S39.541 68.938 50 68.938c3.921 0 7.655-1.319 10.688-3.374.2-.088.38-.21.535-.359l.009-.006-.001-.001a1.833 1.833 0 00-1.277-3.148c-.362 0-.698.108-.982.289l-.007-.009c-2.52 1.836-5.608 2.938-8.965 2.938-8.432 0-15.267-6.836-15.267-15.268S41.568 34.733 50 34.733 65.268 41.568 65.268 50c0 1.274-.158 2.511-.455 3.692-.059.234-.146.456-.216.686-.446 1.17-1.21 1.825-2.368 1.825a2.48 2.48 0 01-2.479-2.479c0-.011.003-.021.003-.031h-.003V43.132h-.011a1.753 1.753 0 00-1.748-1.657c-.752 0-1.389.473-1.641 1.136a9.685 9.685 0 00-6.35-2.36c-5.384 0-9.749 4.365-9.749 9.749s4.365 9.749 9.749 9.749a9.717 9.717 0 007.049-3.025 6.049 6.049 0 0010.271.337c1.227-1.828 1.617-4.563 1.617-7.062.001-10.458-8.478-18.937-18.937-18.937zm0 25.168a6.23 6.23 0 110-12.46 6.23 6.23 0 010 12.46z"/></svg>');
             background-size: 80% 80%;
             background-position: left center;
           }
