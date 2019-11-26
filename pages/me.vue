@@ -40,16 +40,28 @@
         </form>
       </div>
     </div>
-    <div v-else-if="settings" class="row">
-      <div v-for="key in settingKeys" :key="key">
-        <h2>{{ key }}</h2>
-        <div class="custom-control custom-switch">
-          <input :id="`switch-${key}`" type="checkbox" class="custom-control-input" />
-          <label :for="`switch-${key}`" class="custom-control-label">Toggle this switch element</label>
+    <template v-else-if="settings">
+      <div class="row justify-content-center">
+        <div class="col form-col">
+          <p>
+            <strong>{{ email }}</strong>, pripravili smo vse možne različne scenarije bodoče e-komunikacije s
+            tabo, ti pa se moraš le opredeliti do vsakega od njih!
+          </p>
         </div>
-        {{ settings[key].name }}
       </div>
-    </div>
+      <div class="row">
+        <div v-for="key in settingKeys" :key="key" class="col-12">
+          <div>
+            <h2>{{ key }}</h2>
+            <div class="custom-control custom-switch">
+              <input :id="`switch-${key}`" type="checkbox" class="custom-control-input" />
+              <label :for="`switch-${key}`" class="custom-control-label">Toggle this switch element</label>
+            </div>
+            {{ settings[key].name }}
+          </div>
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -70,7 +82,6 @@ export default {
   },
   data() {
     return {
-      email: '',
       loading: false,
       success: false,
       message: '',
@@ -102,6 +113,7 @@ export default {
       showForm,
       settings,
       name,
+      email: query.email || '',
     };
   },
   methods: {
@@ -138,9 +150,13 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 1.25rem;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 2rem;
+  }
 
   .lead {
-    margin-top: 1.25rem;
     margin-bottom: 2rem;
     font-size: 1.75rem;
     font-weight: 200;
