@@ -1,20 +1,26 @@
 <template>
   <div class="agrument-subscribe-bar bg-white">
     <div class="bar-container">
-      <form class="form-inline">
+      <form class="form-inline" @submit.prevent="onSubscribe">
         <strong v-t="'agrument.subscribe-bar.subscribe-to'" />
         <span v-t="'agrument.subscribe-bar.deliver-it'" class="description" />
         <div class="email-controls d-flex">
           <div class="form-group my-2 mr-2">
             <input
               id="subscribe-email"
+              v-model="email"
               type="email"
               class="form-control"
               :placeholder="$t('agrument.subscribe-bar.email-address')"
             />
           </div>
-          <button type="submit" class="btn btn-primary my-2 px-3">
-            <span v-t="'agrument.subscribe-bar.subscribe-action'" />
+          <button
+            type="submit"
+            class="btn btn-primary my-2 px-3"
+            :disabled="loading || !email || email.indexOf('@') === -1"
+          >
+            <span v-if="!loading" v-t="'agrument.subscribe-bar.subscribe-action'" />
+            <div v-else class="lds-dual-ring" />
           </button>
           <a
             href="https://agrument.danesjenovdan.si/rss/"
@@ -63,8 +69,100 @@
         </span>
       </a>
     </div>
+    <transition name="fade-modal">
+      <div
+        v-if="showSuccessModal"
+        class="modal show"
+        tabindex="-1"
+        role="dialog"
+        style="display:block"
+      >
+        <div role="document" class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="embed-responsive embed-responsive-1by1">
+              <div class="embed-responsive-item">
+                <video
+                  v-if="!videoEnded"
+                  muted
+                  autoplay
+                  src="/img/success-rocket.mp4"
+                  @ended="onVideoEnded"
+                />
+                <div v-else class="modal-body text-center">
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    @click="toggleModal(false)"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h2>Hvala!</h2>
+                  <p>Sporočilo poslano na e-naslov!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
+    <transition name="fade-backdrop">
+      <div v-if="showSuccessModal" class="modal-backdrop show" />
+    </transition>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      loading: false,
+      email: '',
+      showSuccessModal: false,
+      videoEnded: false,
+    };
+  },
+  beforeDestroy() {
+    this.toggleModal(false);
+  },
+  methods: {
+    toggleModal(show = !this.showSuccessModal) {
+      if (typeof window !== 'undefined' && document.body.classList) {
+        if (show) {
+          document.body.classList.add('modal-open');
+        } else {
+          document.body.classList.remove('modal-open');
+        }
+      }
+      this.showSuccessModal = show;
+      this.videoEnded = false;
+    },
+    async onSubscribe(event) {
+      if (!this.loading && this.email && this.email.indexOf('@') !== -1) {
+        this.loading = true;
+        try {
+          const response = await this.$axios.$get('https://spam.djnd.si/deliver-email/', {
+            params: {
+              email: this.email,
+            },
+          });
+          // axios can return a number, so cast to string just in case
+          if (String(response) === '1') {
+            await this.toggleModal(true);
+          }
+        } catch {
+        } finally {
+          this.loading = false;
+        }
+      }
+    },
+    onVideoEnded(event) {
+      this.videoEnded = true;
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .agrument-subscribe-bar {
@@ -135,6 +233,19 @@
       font-weight: 600;
       width: 100px;
 
+      .lds-dual-ring {
+        margin-top: -0.25rem;
+        margin-bottom: -0.25rem;
+
+        &,
+        &::after {
+          width: 1.25em;
+          height: 1.25em;
+          border-color: #fff transparent #fff transparent;
+          border-width: 2px;
+        }
+      }
+
       &.rss {
         width: 80px;
         flex-shrink: 0;
@@ -159,5 +270,68 @@
       }
     }
   }
+}
+
+.modal {
+  .modal-content {
+    video {
+      object-fit: cover;
+    }
+
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+
+      .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 2rem;
+        opacity: 1;
+        color: #333;
+        width: 2rem;
+        height: 2rem;
+        line-height: 1;
+        display: inline-block;
+        overflow: hidden;
+      }
+
+      h2 {
+        font-size: 3rem;
+        font-weight: 200;
+      }
+
+      p {
+        font-size: 1.5rem;
+        font-weight: 200;
+      }
+    }
+  }
+}
+
+// transition styles
+.fade-backdrop-enter-active,
+.fade-backdrop-leave-active {
+  transition: opacity 0.15s linear;
+}
+.fade-backdrop-leave-active {
+  transition-delay: 0.15s;
+}
+.fade-backdrop-enter,
+.fade-backdrop-leave-to {
+  opacity: 0;
+}
+.fade-modal-enter-active,
+.fade-modal-leave-active {
+  transition: opacity 0.15s linear;
+}
+.fade-modal-enter-active {
+  transition-delay: 0.15s;
+}
+.fade-modal-enter,
+.fade-modal-leave-to {
+  opacity: 0;
 }
 </style>
