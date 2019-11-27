@@ -103,7 +103,8 @@ button:focus {
 }
 
 @each $color-name, $color in $theme-colors {
-  .page--#{$color-name} {
+  .page.page--#{$color-name},
+  .page .section--#{$color-name} {
     .form-control,
     button {
       &:focus {
