@@ -49,8 +49,8 @@
           </p>
         </div>
       </div>
-      <div class="row">
-        <div v-for="key in settingKeys" :key="key" class="col-12">
+      <div class="row justify-content-center">
+        <div v-for="key in settingKeys" :key="key" class="col-12 settings-col">
           <email-subscription-tile
             :title="$t(`me.settings.${key}.title`)"
             :description="$t(`me.settings.${key}.description`)"
@@ -66,7 +66,7 @@
               <input
                 v-model="name"
                 type="text"
-                class="form-control"
+                class="form-control name-input"
                 :placeholder="$t(`me.settings.${key}.enter-name`)"
               />
             </div>
@@ -217,8 +217,17 @@ export default {
         // axios can return a number, so cast to string just in case
         if (String(response) === '1') {
           this.settings[key].permission = newValue;
+        } else {
+          this.settings[key].permission = newValue;
+          this.$nextTick(() => {
+            this.settings[key].permission = !newValue;
+          });
         }
       } catch {
+        this.settings[key].permission = newValue;
+        this.$nextTick(() => {
+          this.settings[key].permission = !newValue;
+        });
       } finally {
         this.meta[key].loading = false;
       }
@@ -275,6 +284,10 @@ export default {
         width: auto;
       }
     }
+  }
+
+  .name-input {
+    margin-top: 1.5rem;
   }
 }
 </style>
