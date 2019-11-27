@@ -61,7 +61,16 @@
             :checked="settings[key].permission"
             :loading="meta[key].loading"
             @change="onSettingChange(key, $event)"
-          />
+          >
+            <div v-if="key === 'konsenz'">
+              <input
+                v-model="name"
+                type="text"
+                class="form-control"
+                :placeholder="$t(`me.settings.${key}.enter-name`)"
+              />
+            </div>
+          </email-subscription-tile>
         </div>
       </div>
     </template>
@@ -188,27 +197,30 @@ export default {
       }
     },
     async onSettingChange(key, newValue) {
-      if (key !== 'konsenz') {
-        try {
-          this.meta[key].loading = true;
-          const response = await this.$axios.$get(`https://spam.djnd.si/confirm-${key}/`, {
-            params: {
-              token: this.token,
-              email: this.email,
-              permission: newValue,
-            },
-          });
-          // axios can return a number, so cast to string just in case
-          if (String(response) === '1') {
-            this.settings[key].permission = newValue;
-          }
-        } catch {
-        } finally {
-          this.meta[key].loading = false;
+      const params = {
+        token: this.token,
+        email: this.email,
+        permission: newValue,
+      };
+      if (key === 'konsenz') {
+        if (!this.name) {
+          alert(this.$t(`me.settings.${key}.invalid-name`));
+          return;
         }
-      } else {
-        // TODO: konsenz, check name not empty
-        // url = 'https://spam.djnd.si/confirm-' + target + '/?token=' + paramObject.token + '&email=' + paramObject.email + '&name=' + $('#konsenzname').val() + '&permission=' + checked;
+        params.name = this.name;
+      }
+      try {
+        this.meta[key].loading = true;
+        const response = await this.$axios.$get(`https://spam.djnd.si/confirm-${key}/`, {
+          params,
+        });
+        // axios can return a number, so cast to string just in case
+        if (String(response) === '1') {
+          this.settings[key].permission = newValue;
+        }
+      } catch {
+      } finally {
+        this.meta[key].loading = false;
       }
     },
   },

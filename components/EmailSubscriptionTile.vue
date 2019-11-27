@@ -7,6 +7,7 @@
       </div>
       <div class="right-col">
         <p>{{ description }}</p>
+        <slot />
         <div :class="['switch-container', `switch-container--${color}`]">
           <div v-if="loading" class="loader-container">
             <div class="lds-dual-ring" />
@@ -135,7 +136,7 @@ export default {
     }
 
     .switch-container {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       padding: 1rem;
       display: flex;
 

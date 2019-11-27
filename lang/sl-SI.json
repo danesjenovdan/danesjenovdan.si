@@ -286,7 +286,9 @@
         "title": "Konsenz",
         "description": "Danes je nov dan deluje na podlagi 6 pravic, ki predstavljajo nekakšno skupnostno ustavo in usmerjajo naše aktivnosti. Doslej je za 6 pravic svoja imena javno zastavilo skoraj 1800 ljudi in vabimo te, da se nam s podpisom pridružiš tudi ti!",
         "label-off": "Podpišite me!",
-        "label-on": "Podpisano!"
+        "label-on": "Podpisano!",
+        "enter-name": "Ime in priimek",
+        "invalid-name": "Da te lahko podpišemo, nam moraš povedati kako ti je ime."
       },
       "parlameter": {
         "title": "Novice v zvezi s Parlametrom",
