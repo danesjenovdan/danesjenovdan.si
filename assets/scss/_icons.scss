@@ -103,6 +103,23 @@
   @return encode-svg(string-replace(fs-readFile('static/icons/clips/text.svg'), '#000', '#{$color}'));
 }
 
+// EMAIL SUB SETTINGS
+@function icon-sub-agrument($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/subscriptions/agrument.svg'), '#000', '#{$color}'));
+}
+@function icon-sub-djnd($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/subscriptions/djnd.svg'), '#000', '#{$color}'));
+}
+@function icon-sub-parlameter($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/subscriptions/parlameter.svg'), '#000', '#{$color}'));
+}
+@function icon-sub-konsenz($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/subscriptions/konsenz.svg'), '#000', '#{$color}'));
+}
+@function icon-sub-supporter($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/subscriptions/supporter.svg'), '#000', '#{$color}'));
+}
+
 .icon {
   background-repeat: no-repeat;
   background-position: center;
@@ -210,4 +227,21 @@
 }
 .icon-clip-text {
   background-image: url(#{icon-clip-text($body-color)}) !important;
+}
+
+// EMAIL SUB SETTINGS
+.icon-sub-agrument {
+  background-image: url(#{icon-sub-agrument($color-green)}) !important;
+}
+.icon-sub-djnd {
+  background-image: url(#{icon-sub-djnd($color-red)}) !important;
+}
+.icon-sub-parlameter {
+  background-image: url(#{icon-sub-parlameter($color-parlameter)}) !important;
+}
+.icon-sub-konsenz {
+  background-image: url(#{icon-sub-konsenz($color-green)}) !important;
+}
+.icon-sub-supporter {
+  background-image: url(#{icon-sub-supporter($color-red)}) !important;
 }
