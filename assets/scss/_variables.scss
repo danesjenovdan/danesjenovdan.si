@@ -12,6 +12,8 @@ $color-green: #6ba8a0;
 $color-red: #dd786b;
 $color-yellow: #cdac54;
 
+$color-parlameter: #009cdd;
+
 $side-menu-width: 250px;
 $content-mobile-padding: 1.5rem;
 $top-bar-height: 48px;
@@ -52,6 +54,10 @@ $top-bar-height: 48px;
 $primary: $color-green;
 $secondary: $color-red;
 $warning: $color-yellow;
+
+$theme-colors: (
+  'parlameter': $color-parlameter,
+);
 
 $font-family-sans-serif: 'acumin-pro', sans-serif;
 $body-color: #333;
