@@ -61,17 +61,6 @@
   @return encode-svg(string-replace(fs-readFile('static/icons/social/github.svg'), '#000', '#{$color}'));
 }
 
-// TOOLS
-@function icon-tool-parlameter($color) {
-  @return encode-svg(string-replace(fs-readFile('static/icons/tool-parlameter.svg'), '#000', '#{$color}'));
-}
-@function icon-tool-commentality($color) {
-  @return encode-svg(string-replace(fs-readFile('static/icons/tool-commentality.svg'), '#000', '#{$color}'));
-}
-@function icon-tool-consul($color) {
-  @return encode-svg(string-replace(fs-readFile('static/icons/tool-consul.svg'), '#000', '#{$color}'));
-}
-
 // VALUES
 @function icon-value-solidarity($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/values/solidarity.svg'), '#000', '#{$color}'));
@@ -186,16 +175,6 @@
   }
   .icon-github--#{$color-name} {
     background-image: url(#{icon-github($color)}) !important;
-  }
-  // TOOLS
-  .icon-tool-parlameter--#{$color-name} {
-    background-image: url(#{icon-tool-parlameter($color)}) !important;
-  }
-  .icon-tool-commentality--#{$color-name} {
-    background-image: url(#{icon-tool-commentality($color)}) !important;
-  }
-  .icon-tool-consul--#{$color-name} {
-    background-image: url(#{icon-tool-consul($color)}) !important;
   }
   // VALUES
   .icon-value-solidarity--#{$color-name} {

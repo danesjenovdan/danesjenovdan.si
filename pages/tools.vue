@@ -4,7 +4,7 @@
     <div class="row">
       <div v-for="tool in tools" :key="tool.id" class="col-12">
         <tool-tile
-          :icon="`tool-${tool.id}`"
+          :icon="tool.id"
           :title="$t(`tools.tools.${tool.id}.title`)"
           :description="$t(`tools.tools.${tool.id}.description`)"
           :paragraphs="$t(`tools.tools.${tool.id}.paragraphs`)"
