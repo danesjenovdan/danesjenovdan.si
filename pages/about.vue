@@ -73,6 +73,7 @@
           :to="localePath('people')"
           :title="$t('menu.people')"
           :text="$t('about.descriptions.people')"
+          image="/img/about/people.svg"
         />
       </div>
       <div class="col-12 col-sm-6 col-md-12 col-lg-6 col-xxl-4">
@@ -80,6 +81,7 @@
           :to="localePath('values')"
           :title="$t('menu.values')"
           :text="$t('about.descriptions.values')"
+          image="/img/about/values.svg"
         />
       </div>
       <div class="col-12 col-sm-6 col-md-12 col-lg-6 col-xxl-4">
@@ -87,6 +89,7 @@
           :to="localePath('clipping')"
           :title="$t('menu.clipping')"
           :text="$t('about.descriptions.clipping')"
+          image="/img/about/clipping.svg"
         />
       </div>
     </div>
@@ -304,6 +307,12 @@ export default {
     strong {
       font-weight: 500;
     }
+  }
+}
+
+.box-links {
+  .col-12 {
+    display: flex;
   }
 }
 </style>
