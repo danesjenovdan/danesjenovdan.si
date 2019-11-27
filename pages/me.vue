@@ -51,14 +51,17 @@
       </div>
       <div class="row">
         <div v-for="key in settingKeys" :key="key" class="col-12">
-          <div>
-            <h2>{{ key }}</h2>
-            <div class="custom-control custom-switch">
-              <input :id="`switch-${key}`" type="checkbox" class="custom-control-input" />
-              <label :for="`switch-${key}`" class="custom-control-label">Toggle this switch element</label>
-            </div>
-            {{ settings[key].name }}
-          </div>
+          <email-subscription-tile
+            :title="$t(`me.settings.${key}.title`)"
+            :description="$t(`me.settings.${key}.description`)"
+            :icon="key"
+            :color="meta[key].color"
+            :label-off="$t(`me.settings.${key}.label-off`)"
+            :label-on="$t(`me.settings.${key}.label-on`)"
+            :checked="settings[key].permission"
+            :loading="meta[key].loading"
+            @change="onSettingChange(key, $event)"
+          />
         </div>
       </div>
     </template>
@@ -67,6 +70,7 @@
 
 <script>
 import MoreButton from '~/components/MoreButton.vue';
+import EmailSubscriptionTile from '~/components/EmailSubscriptionTile.vue';
 
 export default {
   pageColor: 'primary',
@@ -79,12 +83,50 @@ export default {
   layout: 'checkout',
   components: {
     MoreButton,
+    EmailSubscriptionTile,
   },
   data() {
     return {
       loading: false,
       success: false,
       message: '',
+      meta: {
+        supporter: {
+          show: true,
+          color: 'secondary',
+          order: 100,
+          loading: false,
+        },
+        pp: {
+          show: false,
+          order: 200,
+          loading: false,
+        },
+        agrument: {
+          show: true,
+          color: 'primary',
+          order: 300,
+          loading: false,
+        },
+        djnd: {
+          show: true,
+          color: 'secondary',
+          order: 400,
+          loading: false,
+        },
+        parlameter: {
+          show: true,
+          color: 'parlameter',
+          order: 500,
+          loading: false,
+        },
+        konsenz: {
+          show: true,
+          color: 'primary',
+          order: 600,
+          loading: false,
+        },
+      },
     };
   },
   computed: {
@@ -92,7 +134,9 @@ export default {
       if (!this.settings) {
         return [];
       }
-      return Object.keys(this.settings);
+      return Object.keys(this.settings)
+        .filter(a => this.meta[a] && this.meta[a].show)
+        .sort((a, b) => this.meta[a].order - this.meta[b].order);
     },
   },
   async asyncData({ $axios, query }) {
@@ -114,16 +158,19 @@ export default {
       settings,
       name,
       email: query.email || '',
+      token: query.token || '',
     };
   },
   methods: {
     async submitForm() {
-      if (!this.loading || this.email) {
+      if (!this.loading && this.email && this.email.indexOf('@') !== -1) {
         this.loading = true;
         try {
-          const response = await this.$axios.$get(
-            `https://spam.djnd.si/deliver-email/?email=${this.email}`,
-          );
+          const response = await this.$axios.$get('https://spam.djnd.si/deliver-email/', {
+            params: {
+              email: this.email,
+            },
+          });
           // axios can return a number, so cast to string just in case
           if (String(response) === '1') {
             this.success = true;
@@ -138,6 +185,30 @@ export default {
         } finally {
           this.loading = false;
         }
+      }
+    },
+    async onSettingChange(key, newValue) {
+      if (key !== 'konsenz') {
+        try {
+          this.meta[key].loading = true;
+          const response = await this.$axios.$get(`https://spam.djnd.si/confirm-${key}/`, {
+            params: {
+              token: this.token,
+              email: this.email,
+              permission: newValue,
+            },
+          });
+          // axios can return a number, so cast to string just in case
+          if (String(response) === '1') {
+            this.settings[key].permission = newValue;
+          }
+        } catch {
+        } finally {
+          this.meta[key].loading = false;
+        }
+      } else {
+        // TODO: konsenz, check name not empty
+        // url = 'https://spam.djnd.si/confirm-' + target + '/?token=' + paramObject.token + '&email=' + paramObject.email + '&name=' + $('#konsenzname').val() + '&permission=' + checked;
       }
     },
   },
