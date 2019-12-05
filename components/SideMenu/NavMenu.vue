@@ -5,7 +5,7 @@
       :key="item.key"
       :class="{ 'has-children': item.children && item.children.length }"
     >
-      <nuxt-link :to="localePath(item.key)">
+      <nuxt-link :to="localePath(item.route ? item.route : item.key)">
         {{ $t(`menu.${item.key}`) }}
         <svg
           v-if="item.children && item.children.length"
@@ -20,7 +20,7 @@
       </nuxt-link>
       <ul v-if="item.children && item.children.length">
         <li v-for="childItem in item.children" :key="childItem.key">
-          <nuxt-link :to="localePath(childItem.key)">
+          <nuxt-link :to="localePath(childItem.route ? childItem.route : childItem.key)">
             {{ $t(`menu.${childItem.key}`) }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       menuItems: [
-        { key: 'agrument-date' },
+        { key: 'agrument', route: 'agrument-date' },
         { key: 'projects' },
         { key: 'tools' },
         { key: 'videos' },
