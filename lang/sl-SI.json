@@ -228,7 +228,10 @@
       "martin": { "description": "zadolžen za besedičenje in fensi gvante" },
       "maja_c": { "description": "zadolžena za vse in nič" },
       "jan": { "description": "zadolžen za kripto in tofu" },
-      "neza": { "description": "zadolžena za pravice in krivice" }
+      "neza": { "description": "zadolžena za pravice in krivice" },
+      "nejc": { "description": "zadolžen za odgovore in odgovornost" },
+      "zala": { "description": "zadolžena za dolgove in valove" },
+      "jure": { "description": "zadolžen za gredice in pravice" }
     }
   },
   "about": {

@@ -2,222 +2,169 @@
   "people": [
     {
       "id": "zigaaljaz",
-      "name": "Žiga Aljaž",
-      "desc": "zadolžen za zadolževanje ",
-      "desc_en": "responsible for responibilities"
+      "name": "Žiga Aljaž"
     },
     {
       "id": "tea",
-      "name": "Tea Dežman",
-      "desc": "zadolžena za teženje medijem in sajenje buč",
-      "desc_en": "responsible for nagging the media and blabbering"
+      "name": "Tea Dežman"
     },
     {
       "id": "filip",
       "name": "Filip Muki Dobranić",
-      "desc": "zadolžen za hekanje in <3",
-      "desc_en": "responsible for hacking and <3",
       "mail": "filip@danesjenovdan.si",
       "tags": ["founder"]
     },
     {
       "id": "tine",
-      "name": "Tine Eržen",
-      "desc": "zadolžen za fotografsko in emocionalno podporo",
-      "desc_en": "responsible for photographic and emotional support"
+      "name": "Tine Eržen"
     },
     {
       "id": "matej",
-      "name": "Matej Holc",
-      "desc": "zadolžen za molekule in muziko",
-      "desc_en": "responsible for molecules and music"
+      "name": "Matej Holc"
     },
     {
       "id": "juric",
-      "name": "Tomaž Jurič",
-      "desc": "zadolžen za backend in samozavest",
-      "desc_en": "responsible for back-end and self-confidence"
+      "name": "Tomaž Jurič"
     },
     {
       "id": "zeljka",
-      "name": "Željka Kelkedi",
-      "desc": "zadolžena za toplo vodo in hladen tuš",
-      "desc_en": "responsible for reinventing the wheel and the Real"
+      "name": "Željka Kelkedi"
     },
     {
       "id": "skornc",
-      "name": "Primož Klemenšek",
-      "desc": "zadolžen za rézanja in trančiranja",
-      "desc_en": "responsible for cuts and slices"
+      "name": "Primož Klemenšek"
     },
     {
       "id": "mirt",
       "name": "Mirt Komel",
-      "desc": "zadolžen za mišljevine, softistiko in prečke",
-      "desc_en": "responsible for thoughtings, sophistry, and traverses",
       "tags": ["science"]
     },
     {
       "id": "kunst",
       "name": "Tomaž Kunst",
-      "desc": "zadoložen za django in snežake",
-      "desc_en": "responsible for django and building snowmen",
       "mail": "tomaz@danesjenovdan.si"
     },
     {
       "id": "miha",
       "name": "Miha Lepej",
-      "desc": "zadolžen za avtomatizacijo in prevračanje miz",
-      "desc_en": "responsible for automation and flipping tables",
       "mail": "miha@danesjenovdan.si"
     },
     {
       "id": "nika",
       "name": "Nika Mahnič",
-      "desc": "zadolžena za povezovanje in ples",
-      "desc_en": "responsible for networking and dance",
       "mail": "nika@danesjenovdan.si",
       "tags": ["founder", "council"]
     },
     {
       "id": "darja",
       "name": "Darja Matjašec",
-      "desc": "zadolžena za prostor v glavah in izven",
-      "desc_en": "responsible for space inside and outside of our heads",
       "tags": ["science"]
     },
     {
       "id": "mlacnik",
-      "name": "Primož Mlačnik",
-      "desc": "zadolžen za kafkomat in pick 'n' roll",
-      "desc_en": "responsible for kafkettle and pick 'n' roll"
+      "name": "Primož Mlačnik"
     },
     {
       "id": "jasmina",
       "name": "Jasmina Ploštajner",
-      "desc": "zadolžena za barvice in piškote",
-      "desc_en": "resposible for crayons and biscuits",
       "mail": "jasmina@danesjenovdan.si",
       "tags": ["founder", "council"]
     },
     {
       "id": "kaja",
-      "name": "Kaja Poteko",
-      "desc": "zadolžena za šoping in doping",
-      "desc_en": "responsible for shopping and doping"
+      "name": "Kaja Poteko"
     },
     {
       "id": "karmen",
       "name": "Karmen Šterk",
-      "desc": "zadolžena za filozofsko kulinariko",
-      "desc_en": "resposible for philosophical gastronomy",
       "tags": ["founder"]
     },
     {
       "id": "katja",
-      "name": "Katja Stojnić",
-      "desc": "zadolžena za dvom in lovljenje frekvenc",
-      "desc_en": "responsible for doubting and shouting"
+      "name": "Katja Stojnić"
     },
     {
       "id": "evas",
-      "name": "Eva Stopar",
-      "desc": "zadolžena za semiotiko in harmonije",
-      "desc_en": "responsible for semiotics and harmonies"
+      "name": "Eva Stopar"
     },
     {
       "id": "tadej",
       "name": "Tadej Štrok",
-      "desc": "zadolžen za igrifikacijo in kalifornizacijo",
-      "desc_en": "responsible for gamification and californication",
       "mail": "tadej@danesjenovdan.si",
       "tags": ["science"]
     },
     {
       "id": "anja_t",
-      "name": "Anja Tomašević",
-      "desc": "zadolžena za zdrav duh in telo",
-      "desc_en": "responsible for healthy minds and bodies"
+      "name": "Anja Tomašević"
     },
     {
       "id": "eva",
       "name": "Eva Vrtačič",
-      "desc": "zadolžena za besedotvorje in ribolov",
-      "desc_en": "responsible for words and fishing",
       "mail": "eva@danesjenovdan.si",
       "tags": ["founder", "council"]
     },
     {
       "id": "ziga",
       "name": "Žiga Vrtačič",
-      "desc": "zadolžen za downvoteanje in techno",
-      "desc_en": "responsible for downvoting and techno",
       "mail": "ziga@danesjenovdan.si",
       "tags": ["founder"]
     },
     {
       "id": "mato",
-      "name": "Mato Žgajner",
-      "desc": "zadolžen za frontend in enolončnice",
-      "desc_en": "responsible for frontend and stews"
+      "name": "Mato Žgajner"
     },
     {
       "id": "franci",
       "name": "Franci Zidar",
-      "desc": "zadolžen za javascript in teženje na redditu",
-      "desc_en": "javascript ninja and reddit troll",
       "tags": ["council"]
     },
     {
       "id": "dominik",
-      "name": "Dominik Vuković",
-      "desc": "zadolžen za delovni in prosti čas",
-      "desc_en": "responsible for work and leasure"
+      "name": "Dominik Vuković"
     },
     {
       "id": "miha_s",
-      "name": "Miha Sušnik",
-      "desc": "zadolžen za spletke in krotenje zmajev",
-      "desc_en": "responsible for intrigue and chasing dragons"
+      "name": "Miha Sušnik"
     },
     {
       "id": "sara",
-      "name": "Sara Kosirnik",
-      "desc": "zadolžena za podvprašanja in teorije zarot",
-      "desc_en": "responsible for questioning and conspiracy theories"
+      "name": "Sara Kosirnik"
     },
     {
       "id": "maja_p",
-      "name": "Maja Perpar",
-      "desc": "zadolžena za red in druge discipline",
-      "desc_en": "responsible for order and other disciples"
+      "name": "Maja Perpar"
     },
     {
       "id": "martin",
       "name": "Martin Kovač",
-      "desc": "zadolžen za besedičenje in fensi gvante",
-      "desc_en": "responsible for blamer and suiting up",
       "tags": ["council"]
     },
     {
       "id": "maja_c",
       "name": "Maja Cimerman",
-      "desc": "zadolžena za vse in nič",
-      "desc_en": "responsible for all and nothing",
       "mail": "maja@danesjenovdan.si",
       "tags": ["council"]
     },
     {
       "id": "jan",
-      "name": "Jan Vidic",
-      "desc": "zadolžen za kripto in tofu",
-      "desc_en": "responsible for crypto and tofu"
+      "name": "Jan Vidic"
     },
     {
       "id": "neza",
-      "name": "Neža Oder",
-      "desc": "zadolžena za pravice in krivice",
-      "desc_en": "responsible for rights and wrongs"
+      "name": "Neža Oder"
+    },
+    {
+      "id": "nejc",
+      "name": "Nejc Horvat"
+    },
+    {
+      "id": "zala",
+      "name": "Zala Primc",
+      "tags": ["council"]
+    },
+    {
+      "id": "jure",
+      "name": "Jure Jelovčan"
     }
   ]
 }
