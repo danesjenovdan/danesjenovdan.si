@@ -1,16 +1,21 @@
 <template>
   <footer class="footer row">
-    <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
+    <form class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3" @submit.prevent="onEmailConfirm">
       <div v-t="'footer.edit-email-settings'" class="lead my-2" />
       <div class="form-group">
         <div>
-          <input class="form-control" placeholder="Vpiši svoj e-naslov" />
+          <input
+            v-model="email"
+            type="email"
+            class="form-control"
+            placeholder="Vpiši svoj e-naslov"
+          />
         </div>
         <div class="mt-2">
-          <more-button block :to="'LOL'" :text="'Pošlji'" :color="color" />
+          <more-button block to="#" :text="'Nadaljuj'" :color="color" @click.native="onEmailConfirm" />
         </div>
       </div>
-    </div>
+    </form>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
       <div v-t="'footer.are-we-friends'" class="lead my-2" />
       <div class="buttons">
@@ -73,6 +78,16 @@ export default {
     color: {
       type: String,
       default: 'primary',
+    },
+  },
+  data() {
+    return {
+      email: '',
+    };
+  },
+  methods: {
+    onEmailConfirm() {
+      this.$router.push(this.localePath({ name: 'me', query: { email: this.email } }));
     },
   },
 };
