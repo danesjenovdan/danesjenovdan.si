@@ -36,7 +36,7 @@
       </ul>
     </li>
     <li>
-      <form :action="localePath('search')" class="search-form">
+      <form :action="'TODO'" class="search-form">
         <input
           class="form-control search-input"
           type="text"
@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       menuItems: [
-        { key: 'agrument' },
+        { key: 'agrument-date' },
         { key: 'projects' },
         { key: 'tools' },
         { key: 'videos' },

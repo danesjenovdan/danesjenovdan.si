@@ -9,6 +9,12 @@ export default {
         .reverse()
         .join('. ');
     },
+    toSloUrlDate(isoTime) {
+      return this.toIsoDate(isoTime)
+        .split('-')
+        .reverse()
+        .join('.');
+    },
     toMonthYear(isoTime) {
       const [year, month] = this.toIsoDate(isoTime)
         .split('-')

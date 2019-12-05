@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-12">
         <section-header
-          :to="localePath('agrument')"
+          :to="localePath('agrument-date')"
           :text="$t('menu.agrument')"
           icon="section-agrument"
         />
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('agrument')" :text="$t('agrument.more')" />
+      <more-button :to="localePath('agrument-date')" :text="$t('agrument.more')" />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">

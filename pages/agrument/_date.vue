@@ -7,7 +7,19 @@
         <agrument-subscribe-bar />
       </div>
     </div>
-    <agrument-article v-for="post in posts.slice(1)" :key="post.id" :post="post" />
+    <agrument-article
+      v-for="post in posts.slice(1)"
+      :key="post.id"
+      v-waypoint="{
+        active: true,
+        callback: onArticleWaypoint(post),
+        options: {
+          rootMargin: '-35%',
+          threshold: 0,
+        },
+      }"
+      :post="post"
+    />
     <div
       v-waypoint="{
         active: true,
@@ -26,6 +38,7 @@ import { uniqBy } from 'lodash';
 import PageTitle from '~/components/PageTitle.vue';
 import AgrumentArticle from '~/components/AgrumentArticle.vue';
 import AgrumentSubscribeBar from '~/components/AgrumentSubscribeBar.vue';
+import dateMixin from '~/mixins/date.js';
 
 export default {
   components: {
@@ -33,6 +46,7 @@ export default {
     AgrumentArticle,
     AgrumentSubscribeBar,
   },
+  mixins: [dateMixin],
   async asyncData({ $axios, params, error }) {
     const agrumentResponse = await $axios.$get(
       'https://agrument.danesjenovdan.si/api/v2/posts?limit=5',
@@ -56,6 +70,23 @@ export default {
       if (going === this.$waypointMap.GOING_IN && direction === this.$waypointMap.DIRECTION_TOP) {
         this.fetchNextPage();
       }
+    },
+    onArticleWaypoint(post) {
+      return ({ going, direction, el }) => {
+        if (!direction) {
+          // ignore initial page load
+          return;
+        }
+        if (going === this.$waypointMap.GOING_IN) {
+          const path = this.localePath({
+            name: 'agrument-date',
+            params: { date: this.toSloUrlDate(post.datetime) },
+          });
+          if (typeof window !== 'undefined') {
+            window.history.replaceState(window.history.state, null, path);
+          }
+        }
+      };
     },
   },
   head() {
