@@ -185,11 +185,20 @@ article {
       padding-top: $bg-offset;
 
       h2 {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
         font-weight: 600;
+        line-height: 1;
 
         @include media-breakpoint-up(xl) {
-          font-size: 4.3rem;
+          font-size: 3.5rem;
+
+          // clamp to max 8 lines
+          display: -webkit-box;
+          -webkit-line-clamp: 8;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          // fix overflow: hidden cutting off overhang letters like jgq
+          padding-bottom: 0.175em;
         }
       }
 
