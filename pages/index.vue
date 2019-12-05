@@ -184,23 +184,23 @@
       <div class="wrapping-flex-tiles">
         <div class="flex-tile">
           <tool-preview-tile
-            icon="tool-parlameter"
-            :title="$t('tools.parlameter.title')"
-            :text="$t('tools.parlameter.short_description')"
+            icon="parlameter"
+            :title="$t('tools.tools.parlameter.title')"
+            :text="$t('tools.tools.parlameter.description')"
           />
         </div>
         <div class="flex-tile">
           <tool-preview-tile
-            icon="tool-commentality"
-            :title="$t('tools.commentality.title')"
-            :text="$t('tools.commentality.short_description')"
+            icon="commentality"
+            :title="$t('tools.tools.commentality.title')"
+            :text="$t('tools.tools.commentality.description')"
           />
         </div>
         <div class="flex-tile">
           <tool-preview-tile
-            icon="tool-consul"
-            :title="$t('tools.consul.title')"
-            :text="$t('tools.consul.short_description')"
+            icon="consul"
+            :title="$t('tools.tools.consul.title')"
+            :text="$t('tools.tools.consul.description')"
           />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />

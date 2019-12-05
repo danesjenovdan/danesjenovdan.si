@@ -1,10 +1,10 @@
 <template>
-  <div class="tool-tile bg-white">
+  <nuxt-link :to="localePath('tools')" class="tool-tile bg-white">
     <div class="row">
       <div class="left-col">
         <div class="d-flex flex-column justify-content-center h-100">
           <div class="d-flex align-items-center flex-column">
-            <div :class="['icon', `icon-${icon}--warning`]" />
+            <div class="icon" :style="{'background-image': `url(/icons/tools/${icon}.svg`}" />
             <div class="title d-flex flex-column">
               <h2 v-text="title" />
               <h3 v-text="text" />
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -40,6 +40,9 @@ export default {
   padding: 2.5rem 2rem;
   margin-bottom: 2rem;
   position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
 
   .left-col {
     .icon {
