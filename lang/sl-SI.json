@@ -24,7 +24,7 @@
     "values": "Vrednote",
     "clipping": "Pojavljanja",
     "shop": "Trgovina",
-    "support": "Včlani se",
+    "donate": "Doniraj",
     "search": "Išči"
   },
   "landing": {
@@ -268,9 +268,9 @@
       }
     }
   },
-  "support": {
-    "title": "DJND TE POTREBUJE!",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim, nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  "donate": {
+    "title": "TODO: donate title",
+    "description": "TODO: donate desc"
   },
   "footer": {
     "edit-email-settings": "Uredi svoje nastavitve e-pošte",

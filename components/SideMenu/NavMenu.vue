@@ -83,7 +83,7 @@ export default {
           children: [{ key: 'people' }, { key: 'values' }, { key: 'clipping' }],
         },
         { key: 'shop' },
-        { key: 'support' },
+        { key: 'donate' },
       ],
     };
   },

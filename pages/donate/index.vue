@@ -32,6 +32,12 @@ import ProgressRocket from '~/components/ProgressRocket.vue';
 
 export default {
   pageColor: 'primary',
+  nuxtI18n: {
+    paths: {
+      sl: '/doniraj',
+      en: '/donate',
+    },
+  },
   components: {
     PageTitle,
     SectionHeader,

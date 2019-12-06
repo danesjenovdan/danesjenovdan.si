@@ -45,7 +45,7 @@
             </div>
             <div class="form-group">
               <more-button
-                :to="localePath('support')"
+                :to="localePath('donate')"
                 text="Podpri nas!"
                 color="primary"
                 icon="heart"

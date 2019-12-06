@@ -1,7 +1,7 @@
 <template>
   <div class="support-bar">
     <div class="bar-container">
-      <more-button :to="localePath('support')" text="Podpri nas!" :color="color" icon="heart" />
+      <more-button :to="localePath('donate')" text="Podpri nas!" :color="color" icon="heart" />
       <!-- <more-button
         :to="localePath('support')"
         text="Pridruži se nam!"
