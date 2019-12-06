@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-title :title="'Error'" :text="error" />
+    <page-title :title="'Error'" :text="JSON.stringify(error)" />
   </div>
 </template>
 
