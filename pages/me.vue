@@ -1,79 +1,86 @@
 <template>
   <div class="me-container">
-    <p class="lead">
-      <strong>Danes je nov dan</strong> je neprofiten inštitut,
-      ki skrbi za varen, vključujoč in sodoben splet
-      − in svet. Ne trolamo, ne pošiljamo neželene
-      pošte, ne težimo in ne žicamo.
-    </p>
-    <p class="lead">
-      Radi bi ti pisali, kadar naredimo kaj dobrega,
-      kadar se dogaja kaj pomembnega, radi bi te
-      spoznali z dnevnimi agrumenti, novostmi na
-      Parlametru in drugimi projekti.
-    </p>
-    <div v-if="showForm" class="row justify-content-center">
-      <div class="col form-col">
-        <p>
-          Da bomo vedeli, čigave nastavitve urejaš, prosimo vpiši svoj e-naslov. Na ta naslov ti
-          bomo poslali personalizirano povezavo do spletne strani za urejanje nastavitev.
-        </p>
-        <form @submit.prevent="submitForm">
-          <input
-            v-if="!success"
-            v-model="email"
-            type="email"
-            class="form-control mt-4 mb-4"
-            placeholder="Vpiši svoj e-naslov"
-          />
-          <p v-if="message">
-            <strong>{{ message }}</strong>
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="intro">
+          <p class="lead">
+            <strong>Danes je nov dan</strong> je neprofiten inštitut,
+            ki skrbi za varen, vključujoč in sodoben splet
+            − in svet. Ne trolamo, ne pošiljamo neželene
+            pošte, ne težimo in ne žicamo.
           </p>
-          <more-button
-            v-if="!success"
-            :disabled="loading || !email.length || email.indexOf('@') === -1"
-            icon="heart"
-            :to="localePath('me')"
-            :text="'POTRDI'"
-            @click.native="submitForm"
-          />
-        </form>
+          <p class="lead">
+            Radi bi ti pisali, kadar naredimo kaj dobrega,
+            kadar se dogaja kaj pomembnega, radi bi te
+            spoznali z dnevnimi agrumenti, novostmi na
+            Parlametru in drugimi projekti.
+          </p>
+        </div>
+        <div v-if="showForm" class="row justify-content-center">
+          <div class="col form-col">
+            <p>
+              Da bomo vedeli, čigave nastavitve urejaš, prosimo vpiši svoj e-naslov. Na ta naslov ti
+              bomo poslali personalizirano povezavo do spletne strani za urejanje nastavitev.
+            </p>
+            <form @submit.prevent="submitForm">
+              <input
+                v-if="!success"
+                v-model="email"
+                type="email"
+                class="form-control form-control-lg mt-4 mb-4"
+                placeholder="Vpiši svoj e-naslov"
+              />
+              <p v-if="message">
+                <strong>{{ message }}</strong>
+              </p>
+              <more-button
+                v-if="!success"
+                :disabled="loading || !email.length || email.indexOf('@') === -1"
+                icon="heart"
+                :to="localePath('me')"
+                :text="'POTRDI'"
+                large
+                @click.native="submitForm"
+              />
+            </form>
+          </div>
+        </div>
+        <template v-else-if="settings">
+          <div class="row justify-content-center">
+            <div class="col form-col">
+              <p>
+                <strong>{{ email }}</strong>, pripravili smo vse možne različne scenarije bodoče e-komunikacije s
+                tabo, ti pa se moraš le opredeliti do vsakega od njih!
+              </p>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div v-for="key in settingKeys" :key="key" class="col-12 settings-col">
+              <email-subscription-tile
+                :title="$t(`me.settings.${key}.title`)"
+                :description="$t(`me.settings.${key}.description`)"
+                :icon="key"
+                :color="meta[key].color"
+                :label-off="$t(`me.settings.${key}.label-off`)"
+                :label-on="$t(`me.settings.${key}.label-on`)"
+                :checked="settings[key].permission"
+                :loading="meta[key].loading"
+                @change="onSettingChange(key, $event)"
+              >
+                <div v-if="key === 'konsenz'">
+                  <input
+                    v-model="name"
+                    type="text"
+                    class="form-control name-input"
+                    :placeholder="$t(`me.settings.${key}.enter-name`)"
+                  />
+                </div>
+              </email-subscription-tile>
+            </div>
+          </div>
+        </template>
       </div>
     </div>
-    <template v-else-if="settings">
-      <div class="row justify-content-center">
-        <div class="col form-col">
-          <p>
-            <strong>{{ email }}</strong>, pripravili smo vse možne različne scenarije bodoče e-komunikacije s
-            tabo, ti pa se moraš le opredeliti do vsakega od njih!
-          </p>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div v-for="key in settingKeys" :key="key" class="col-12 settings-col">
-          <email-subscription-tile
-            :title="$t(`me.settings.${key}.title`)"
-            :description="$t(`me.settings.${key}.description`)"
-            :icon="key"
-            :color="meta[key].color"
-            :label-off="$t(`me.settings.${key}.label-off`)"
-            :label-on="$t(`me.settings.${key}.label-on`)"
-            :checked="settings[key].permission"
-            :loading="meta[key].loading"
-            @change="onSettingChange(key, $event)"
-          >
-            <div v-if="key === 'konsenz'">
-              <input
-                v-model="name"
-                type="text"
-                class="form-control name-input"
-                :placeholder="$t(`me.settings.${key}.enter-name`)"
-              />
-            </div>
-          </email-subscription-tile>
-        </div>
-      </div>
-    </template>
   </div>
 </template>
 
@@ -244,23 +251,25 @@ export default {
   justify-content: center;
   padding-top: 1.25rem;
 
-  @include media-breakpoint-up(lg) {
-    padding-top: 2rem;
-  }
-
-  .lead {
-    margin-bottom: 2rem;
-    font-size: 1.75rem;
-    font-weight: 200;
-    line-height: 1.3;
-
+  .intro {
     @include media-breakpoint-up(lg) {
-      font-size: 3rem;
-      line-height: 1.1;
+      margin: 0 0 6rem;
     }
 
-    strong {
-      font-weight: 600;
+    .lead {
+      margin-bottom: 2rem;
+      font-size: 1.75rem;
+      font-weight: 200;
+      line-height: 1.3;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 2.5rem;
+        line-height: 1.1;
+      }
+
+      strong {
+        font-weight: 600;
+      }
     }
   }
 
@@ -268,19 +277,21 @@ export default {
     max-width: 550px;
     margin-bottom: 1.5rem;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
       text-align: center;
     }
 
     p {
       font-size: 1.25rem;
       font-weight: 200;
+      line-height: 1.2;
+      margin-bottom: 2rem;
     }
 
     .more-button {
       width: 100%;
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(md) {
         width: auto;
       }
     }
