@@ -102,7 +102,7 @@ export default {
       margin-bottom: 2rem;
 
       @include media-breakpoint-up(md) {
-        margin-bottom: 0;
+        margin-bottom: 1rem;
       }
     }
   }
