@@ -2,7 +2,11 @@
   <div class="bg-white filter-bar">
     <div class="scroll-container">
       <div :class="['icon', `text-${color}`]">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="24 27 52 46" fill="currentColor">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="24 27 52 46"
+          fill="currentColor"
+        >
           <path
             d="M38 39.4c-3.3 0-6-2.7-6-5.9 0-3.3 2.7-5.9 6-5.9s6 2.7 6 5.9-2.7 5.9-6 5.9zm0-8.9c-1.7 0-3 1.3-3 2.9 0 1.6 1.3 2.9 3 2.9s3-1.3 3-2.9c0-1.6-1.3-2.9-3-2.9z"
           />
@@ -18,13 +22,23 @@
         </svg>
       </div>
       <ul class="filter-list">
-        <li v-for="item in value" :key="item.id" :class="{ active: item.active }">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
+        <li
+          v-for="item in value"
+          :key="item.id"
+          :class="{ active: item.active }"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
             <path
               d="M13.94 25.94a1.09 1.09 0 0 1-.77-.32l-9.45-9.45a1.09 1.09 0 0 1 0-1.54l3.37-3.37a1.12 1.12 0 0 1 1.54 0L14 16.63 24.24 6.39a1.09 1.09 0 0 1 1.52 0l3.46 3.28a1.09 1.09 0 0 1 0 1.56L14.87 25.59a1.08 1.08 0 0 1-.68.32 1.09 1.09 0 0 1-.26 0M6 15.4l8 8 12.91-12.94L25 8.68 14.77 18.94a1.12 1.12 0 0 1-1.54 0l-5.37-5.37z"
             />
           </svg>
-          <a :href="`#${item.id}`" @click="toggleFilter($event, item.id)">{{ item.label }}</a>
+          <a :href="`#${item.id}`" @click="toggleFilter($event, item.id)">{{
+            item.label
+          }}</a>
         </li>
       </ul>
     </div>
@@ -56,17 +70,22 @@ export default {
     toggleFilter(event, itemId) {
       event.preventDefault();
       const clone = JSON.parse(JSON.stringify(this.value));
-      const item = clone.find(item => item.id === itemId);
+      const item = clone.find((item) => item.id === itemId);
       if (item) {
-        if (this.single || (this.everythingId && this.everythingId === itemId)) {
-          clone.forEach(item => {
+        if (
+          this.single ||
+          (this.everythingId && this.everythingId === itemId)
+        ) {
+          clone.forEach((item) => {
             item.active = false;
           });
         }
         item.active = !item.active;
         if (this.everythingId && this.everythingId !== itemId) {
-          const numActive = !clone.filter(i => i.active).length;
-          const everythingItem = clone.find(item => item.id === this.everythingId);
+          const numActive = !clone.filter((i) => i.active).length;
+          const everythingItem = clone.find(
+            (item) => item.id === this.everythingId,
+          );
           if (everythingItem) {
             everythingItem.active = !!numActive;
           }

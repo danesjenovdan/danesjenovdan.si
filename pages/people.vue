@@ -1,6 +1,10 @@
 <template>
   <div>
-    <page-title :title="$t('menu.people')" :text="$t('people.description')" color="secondary" />
+    <page-title
+      :title="$t('menu.people')"
+      :text="$t('people.description')"
+      color="secondary"
+    />
     <filter-bar v-model="filters" single color="secondary" />
     <div class="wrapping-flex-tiles">
       <div v-for="person in filteredPeople" :key="person.id" class="flex-tile">
@@ -11,7 +15,11 @@
     <div class="row justify-content-center">
       <div class="col volunteer">
         <div class="volunteer__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            fill="currentColor"
+          >
             <path
               d="M439.954 445.992H166.375c-5.523 0-10-4.478-10-10s4.477-10 10-10h263.579V316.747l-83.154-29.73-66.636 40.669a10.003 10.003 0 0 1-10.866-.29l-58.831-40.354-90.512 29.889v109.722a10.001 10.001 0 0 1 6.42 9.34c0 5.522-4.477 10-10 10h-6.42c-5.523 0-10-4.478-10-10v-126.29a10 10 0 0 1 6.864-9.496l102.082-33.71a10.001 10.001 0 0 1 8.792 1.25l57.578 39.494 65.187-39.784a9.996 9.996 0 0 1 8.576-.88l94.286 33.71a9.999 9.999 0 0 1 6.634 9.416v126.29c0 5.522-4.477 9.999-10 9.999z"
             />
@@ -27,12 +35,15 @@
           </svg>
         </div>
         <p class="volunteer__text">
-          Če si brez denarja, še ne pomeni, da ne moreš nič narediti. Zavihaj rokave, zgubaj čelo in napni mišice. Če se nam želiš pridružiti kot prosovoljec, nam piši na
+          Če si brez denarja, še ne pomeni, da ne moreš nič narediti. Zavihaj
+          rokave, zgubaj čelo in napni mišice. Če se nam želiš pridružiti kot
+          prosovoljec, nam piši na
           <a
             href="mailto:vsi@danesjenovdan.si"
             target="_blank"
             rel="noopener noreferrer"
-          >vsi@danesjenovdan.si</a>.
+            >vsi@danesjenovdan.si</a
+          >.
         </p>
       </div>
     </div>
@@ -75,13 +86,15 @@ export default {
   },
   computed: {
     activeFilter() {
-      return this.filters.filter(f => f.active).map(f => f.id)[0];
+      return this.filters.filter((f) => f.active).map((f) => f.id)[0];
     },
     filteredPeople() {
       if (!this.activeFilter || this.activeFilter === 'all') {
         return this.people;
       }
-      return this.people.filter(person => person.tags && person.tags.includes(this.activeFilter));
+      return this.people.filter(
+        (person) => person.tags && person.tags.includes(this.activeFilter),
+      );
     },
   },
   head() {

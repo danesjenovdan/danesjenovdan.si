@@ -2,7 +2,7 @@ export default {
   directives: {
     clickOutside: {
       bind(el, binding) {
-        const handler = e => {
+        const handler = (e) => {
           if (!el.contains(e.target) && el !== e.target) {
             binding.value(e);
           }

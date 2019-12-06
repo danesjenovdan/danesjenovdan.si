@@ -4,7 +4,10 @@
       <div class="left-col">
         <div class="d-flex flex-column justify-content-center h-100">
           <div class="d-flex align-items-center flex-column">
-            <div class="icon" :style="{'background-image': `url(/icons/tools/${icon}.svg`}" />
+            <div
+              :style="{ 'background-image': `url(/icons/tools/${icon}.svg` }"
+              class="icon"
+            />
             <div class="title d-flex flex-column">
               <h2 v-text="title" />
               <h3 v-text="text" />

@@ -6,8 +6,8 @@
           <div class="embed-responsive embed-responsive-1200by630">
             <div class="embed-responsive-item d-flex align-items-center">
               <div
+                :style="{ 'background-image': `url('${post.image_url}')` }"
                 class="background-image blurred"
-                :style="{'background-image': `url('${post.image_url}')`}"
               />
               <img :src="post.image_url" class="img-fluid" />
             </div>
@@ -17,7 +17,8 @@
               :href="post.image_source_url"
               target="_blank"
               rel="noopener noreferrer"
-            >{{ post.image_source }}</a>
+              >{{ post.image_source }}</a
+            >
           </figcaption>
         </figure>
       </div>
@@ -33,7 +34,7 @@
     <div class="col-xl-9">
       <div class="article__content">
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="article__text" v-html="post.content_html" />
+        <div v-html="post.content_html" class="article__text" />
         <hr />
         <div class="article__share">
           <div class="share__link">

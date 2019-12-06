@@ -4,8 +4,15 @@
       <div class="clip-tile__image-container">
         <div class="embed-responsive embed-responsive-1200by630">
           <div class="embed-responsive-item d-flex align-items-center">
-            <div class="clip-tile__image" :style="{'background-image': `url('${clip.image}')`}">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="30 18 40 64" fill="currentColor">
+            <div
+              :style="{ 'background-image': `url('${clip.image}')` }"
+              class="clip-tile__image"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="30 18 40 64"
+                fill="currentColor"
+              >
                 <path
                   d="M50.005 82c.715-.028 1.542-.322 2.063-.812l17-16c.975-1.085 1.377-3.164.25-4.375-1.109-1.194-3.26-1.159-4.375.03l-11.938 11.25V21a3 3 0 0 0-6 0v51.094l-11.938-11.25c-1.025-1.024-3.253-1.213-4.375-.031-1.122 1.181-.764 3.335.25 4.375l17 16a2.885 2.885 0 0 0 2.063.812z"
                 />
@@ -33,7 +40,7 @@
             {{ clip.types.join(', ') }}
           </div>
         </div>
-        <h2 class="clip-tile__title" v-text="clip.title" />
+        <h2 v-text="clip.title" class="clip-tile__title" />
         <div class="clip-tile__text">
           <p v-text="clip.desc" />
         </div>

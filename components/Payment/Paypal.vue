@@ -44,7 +44,9 @@ export default {
         const options = {
           client: clientInstance,
         };
-        const paypalCheckoutInstance = await braintree.paypalCheckout.create(options);
+        const paypalCheckoutInstance = await braintree.paypalCheckout.create(
+          options,
+        );
         return paypal.Button.render(
           {
             env: 'sandbox', // TODO: production
@@ -64,15 +66,17 @@ export default {
               });
             },
             onAuthorize: (data, options) => {
-              return paypalCheckoutInstance.tokenizePayment(options).then(payload => {
-                this.error = null;
-                this.$emit('success', { nonce: payload.nonce });
-              });
+              return paypalCheckoutInstance
+                .tokenizePayment(options)
+                .then((payload) => {
+                  this.error = null;
+                  this.$emit('success', { nonce: payload.nonce });
+                });
             },
-            onCancel: data => {
+            onCancel: (data) => {
               this.error = 'Payment Cancelled';
             },
-            onError: error => {
+            onError: (error) => {
               // eslint-disable-next-line no-console
               console.error(error);
               this.error = error.message;

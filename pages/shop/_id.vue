@@ -4,7 +4,11 @@
       <h1 v-text="getDisplayName(product)" />
       <h2 class="price">{{ formatPrice(product.price) }}</h2>
       <template v-if="$te(`shop.products.${product.id}.images`)">
-        <img v-for="img in $t(`shop.products.${product.id}.images`)" :key="img" :src="img" />
+        <img
+          v-for="img in $t(`shop.products.${product.id}.images`)"
+          :key="img"
+          :src="img"
+        />
       </template>
       <template v-else>
         <img :src="`/img/products/${product.id}.jpg`" />
@@ -13,11 +17,16 @@
       <hr />
       <div>TODO: variants</div>
       <hr />
-      <more-button block color="secondary" icon="heart" :text="'KUPI'" @click="addAndCheckout" />
+      <more-button
+        :text="'KUPI'"
+        @click="addAndCheckout"
+        block
+        color="secondary"
+        icon="heart"
+      />
       <div class="add-to-basket">
         <nuxt-link to="#">
-          Dodaj v voziček in še malo pobrskaj po
-          policah
+          Dodaj v voziček in še malo pobrskaj po policah
         </nuxt-link>
       </div>
     </div>
@@ -46,9 +55,11 @@ export default {
     };
   },
   async asyncData({ $axios, params }) {
-    const products = await $axios.$get('https://podpri.djnd.si/api/shop/products/');
+    const products = await $axios.$get(
+      'https://podpri.djnd.si/api/shop/products/',
+    );
     return {
-      product: products.find(p => p.id === Number(params.id)),
+      product: products.find((p) => p.id === Number(params.id)),
       params,
     };
   },

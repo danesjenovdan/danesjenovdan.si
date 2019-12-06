@@ -1,7 +1,12 @@
 <template>
   <div class="support-bar">
     <div class="bar-container">
-      <more-button :to="localePath('donate')" text="Podpri nas!" :color="color" icon="heart" />
+      <more-button
+        :to="localePath('donate')"
+        :color="color"
+        text="Podpri nas!"
+        icon="heart"
+      />
       <!-- <more-button
         :to="localePath('support')"
         text="Pridruži se nam!"
@@ -27,7 +32,6 @@ export default {
   },
 };
 </script>
-
 
 <style lang="scss" scoped>
 .support-bar {

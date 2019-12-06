@@ -12,8 +12,14 @@
                   allowfullscreen
                 />
               </div>
-              <div v-else class="embed-responsive-item d-flex align-items-center">
-                <div class="background-image" :style="{'background-image': `url('${image}')`}">
+              <div
+                v-else
+                class="embed-responsive-item d-flex align-items-center"
+              >
+                <div
+                  :style="{ 'background-image': `url('${image}')` }"
+                  class="background-image"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="30 18 40 64"
@@ -30,7 +36,7 @@
         </div>
         <div class="col-xl-5 promoted-tile__content-col">
           <div class="promoted-tile__content">
-            <h3 class="promoted-tile__title" v-text="title" />
+            <h3 v-text="title" class="promoted-tile__title" />
             <div v-if="byline" class="promoted-tile__byline">
               <i v-text="byline" />
             </div>

@@ -1,25 +1,33 @@
 <template>
-  <div v-click-outside="() => dropdownOpen = false" class="filter">
+  <div v-click-outside="() => (dropdownOpen = false)" class="filter">
     <button
-      class="filter__title icon-arrow--dark"
       :tabindex="titleTabIndex"
       @click="toggleDropdown"
       v-text="title"
+      class="filter__title icon-arrow--dark"
     />
     <div
       ref="filterOptions"
       :class="['filter__options', { open: dropdownOpen }]"
       @focusout="onFocusOut"
     >
-      <div v-for="item in value" :key="`type-${item.id}`" class="custom-control custom-checkbox">
+      <div
+        v-for="item in value"
+        :key="`type-${item.id}`"
+        class="custom-control custom-checkbox"
+      >
         <input
           :id="`type-${item.id}`"
           v-model="item.active"
+          @change="toggleItem($event, item.id)"
           type="checkbox"
           class="custom-control-input"
-          @change="toggleItem($event, item.id)"
         />
-        <label :for="`type-${item.id}`" class="custom-control-label" v-text="item.label" />
+        <label
+          :for="`type-${item.id}`"
+          v-text="item.label"
+          class="custom-control-label"
+        />
       </div>
     </div>
   </div>
@@ -53,12 +61,14 @@ export default {
       if (this.dropdownOpen) {
         // move focus to the first item
         this.$nextTick(() => {
-          this.$refs.filterOptions.querySelector('input[type="checkbox"]').focus();
+          this.$refs.filterOptions
+            .querySelector('input[type="checkbox"]')
+            .focus();
         });
       }
     },
     toggleItem(event, itemId) {
-      const newItems = this.value.map(item => ({
+      const newItems = this.value.map((item) => ({
         ...item,
         active: item.id === itemId ? event.target.checked : item.active,
       }));
@@ -69,7 +79,10 @@ export default {
       this.titleTabIndex = w <= 767 ? 0 : -1;
     },
     onFocusOut(event) {
-      if (event.relatedTarget && !event.currentTarget.contains(event.relatedTarget)) {
+      if (
+        event.relatedTarget &&
+        !event.currentTarget.contains(event.relatedTarget)
+      ) {
         this.dropdownOpen = false;
       }
     },

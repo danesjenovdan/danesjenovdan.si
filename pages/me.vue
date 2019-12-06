@@ -4,23 +4,22 @@
       <div class="col-xl-10">
         <div class="intro">
           <p class="lead">
-            <strong>Danes je nov dan</strong> je neprofiten inštitut,
-            ki skrbi za varen, vključujoč in sodoben splet
-            − in svet. Ne trolamo, ne pošiljamo neželene
-            pošte, ne težimo in ne žicamo.
+            <strong>Danes je nov dan</strong> je neprofiten inštitut, ki skrbi
+            za varen, vključujoč in sodoben splet − in svet. Ne trolamo, ne
+            pošiljamo neželene pošte, ne težimo in ne žicamo.
           </p>
           <p class="lead">
-            Radi bi ti pisali, kadar naredimo kaj dobrega,
-            kadar se dogaja kaj pomembnega, radi bi te
-            spoznali z dnevnimi agrumenti, novostmi na
+            Radi bi ti pisali, kadar naredimo kaj dobrega, kadar se dogaja kaj
+            pomembnega, radi bi te spoznali z dnevnimi agrumenti, novostmi na
             Parlametru in drugimi projekti.
           </p>
         </div>
         <div v-if="showForm" class="row justify-content-center">
           <div class="col form-col">
             <p>
-              Da bomo vedeli, čigave nastavitve urejaš, prosimo vpiši svoj e-naslov. Na ta naslov ti
-              bomo poslali personalizirano povezavo do spletne strani za urejanje nastavitev.
+              Da bomo vedeli, čigave nastavitve urejaš, prosimo vpiši svoj
+              e-naslov. Na ta naslov ti bomo poslali personalizirano povezavo do
+              spletne strani za urejanje nastavitev.
             </p>
             <form @submit.prevent="submitForm">
               <input
@@ -35,12 +34,14 @@
               </p>
               <more-button
                 v-if="!success"
-                :disabled="loading || !email.length || email.indexOf('@') === -1"
-                icon="heart"
+                :disabled="
+                  loading || !email.length || email.indexOf('@') === -1
+                "
                 :to="localePath('me')"
                 :text="'POTRDI'"
-                large
                 @click.native="submitForm"
+                icon="heart"
+                large
               />
             </form>
           </div>
@@ -49,13 +50,19 @@
           <div class="row justify-content-center">
             <div class="col form-col">
               <p>
-                <strong>{{ email }}</strong>, pripravili smo vse možne različne scenarije bodoče e-komunikacije s
-                tabo, ti pa se moraš le opredeliti do vsakega od njih!
+                <strong>{{ email }}</strong
+                >, pripravili smo vse možne različne scenarije bodoče
+                e-komunikacije s tabo, ti pa se moraš le opredeliti do vsakega
+                od njih!
               </p>
             </div>
           </div>
           <div class="row justify-content-center">
-            <div v-for="key in settingKeys" :key="key" class="col-12 settings-col">
+            <div
+              v-for="key in settingKeys"
+              :key="key"
+              class="col-12 settings-col"
+            >
               <email-subscription-tile
                 :title="$t(`me.settings.${key}.title`)"
                 :description="$t(`me.settings.${key}.description`)"
@@ -70,9 +77,9 @@
                 <div v-if="key === 'konsenz'">
                   <input
                     v-model="name"
+                    :placeholder="$t(`me.settings.${key}.enter-name`)"
                     type="text"
                     class="form-control name-input"
-                    :placeholder="$t(`me.settings.${key}.enter-name`)"
                   />
                 </div>
               </email-subscription-tile>
@@ -151,7 +158,7 @@ export default {
         return [];
       }
       return Object.keys(this.settings)
-        .filter(a => this.meta[a] && this.meta[a].show)
+        .filter((a) => this.meta[a] && this.meta[a].show)
         .sort((a, b) => this.meta[a].order - this.meta[b].order);
     },
   },
@@ -179,14 +186,17 @@ export default {
   },
   methods: {
     async submitForm() {
-      if (!this.loading && this.email && this.email.indexOf('@') !== -1) {
+      if (!this.loading && this.email && this.email.includes('@')) {
         this.loading = true;
         try {
-          const response = await this.$axios.$get('https://spam.djnd.si/deliver-email/', {
-            params: {
-              email: this.email,
+          const response = await this.$axios.$get(
+            'https://spam.djnd.si/deliver-email/',
+            {
+              params: {
+                email: this.email,
+              },
             },
-          });
+          );
           // axios can return a number, so cast to string just in case
           if (String(response) === '1') {
             this.success = true;
@@ -218,9 +228,12 @@ export default {
       }
       try {
         this.meta[key].loading = true;
-        const response = await this.$axios.$get(`https://spam.djnd.si/confirm-${key}/`, {
-          params,
-        });
+        const response = await this.$axios.$get(
+          `https://spam.djnd.si/confirm-${key}/`,
+          {
+            params,
+          },
+        );
         // axios can return a number, so cast to string just in case
         if (String(response) === '1') {
           this.settings[key].permission = newValue;

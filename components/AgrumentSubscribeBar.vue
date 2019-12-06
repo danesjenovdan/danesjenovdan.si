@@ -1,7 +1,7 @@
 <template>
   <div class="agrument-subscribe-bar bg-white">
     <div class="bar-container">
-      <form class="form-inline" @submit.prevent="onSubscribe">
+      <form @submit.prevent="onSubscribe" class="form-inline">
         <strong v-t="'agrument.subscribe-bar.subscribe-to'" />
         <span v-t="'agrument.subscribe-bar.deliver-it'" class="description" />
         <div class="email-controls d-flex">
@@ -9,17 +9,20 @@
             <input
               id="subscribe-email"
               v-model="email"
+              :placeholder="$t('agrument.subscribe-bar.email-address')"
               type="email"
               class="form-control"
-              :placeholder="$t('agrument.subscribe-bar.email-address')"
             />
           </div>
           <button
+            :disabled="loading || !email || email.indexOf('@') === -1"
             type="submit"
             class="btn btn-primary my-2 px-3"
-            :disabled="loading || !email || email.indexOf('@') === -1"
           >
-            <span v-if="!loading" v-t="'agrument.subscribe-bar.subscribe-action'" />
+            <span
+              v-if="!loading"
+              v-t="'agrument.subscribe-bar.subscribe-action'"
+            />
             <div v-else class="lds-dual-ring" />
           </button>
           <a
@@ -55,7 +58,11 @@
       >
         <span>RSS</span>
         <span class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.25 81.18" fill="currentColor">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 81.25 81.18"
+            fill="currentColor"
+          >
             <path
               d="M13 81.18a13 13 0 1 1 13-13 13 13 0 0 1-13 13zm0-22.05a9 9 0 1 0 9 9 9 9 0 0 0-9-9z"
             />
@@ -83,18 +90,18 @@
               <div class="embed-responsive-item">
                 <video
                   v-if="!videoEnded"
+                  @ended="onVideoEnded"
                   muted
                   autoplay
                   src="/img/success-rocket.mp4"
-                  @ended="onVideoEnded"
                 />
                 <div v-else class="modal-body text-center">
                   <button
+                    @click="toggleModal(false)"
                     type="button"
                     class="close"
                     data-dismiss="modal"
                     aria-label="Close"
-                    @click="toggleModal(false)"
                   >
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -139,14 +146,17 @@ export default {
       this.videoEnded = false;
     },
     async onSubscribe(event) {
-      if (!this.loading && this.email && this.email.indexOf('@') !== -1) {
+      if (!this.loading && this.email && this.email.includes('@')) {
         this.loading = true;
         try {
-          const response = await this.$axios.$get('https://spam.djnd.si/deliver-email/', {
-            params: {
-              email: this.email,
+          const response = await this.$axios.$get(
+            'https://spam.djnd.si/deliver-email/',
+            {
+              params: {
+                email: this.email,
+              },
             },
-          });
+          );
           // axios can return a number, so cast to string just in case
           if (String(response) === '1') {
             await this.toggleModal(true);

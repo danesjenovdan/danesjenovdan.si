@@ -34,7 +34,7 @@ export default {
   computed: {
     pageColor() {
       // https://github.com/nuxt/nuxt.js/issues/722#issuecomment-301762247
-      return this.$route.matched.map(r => {
+      return this.$route.matched.map((r) => {
         return r.components.default.options
           ? r.components.default.options.pageColor
           : r.components.default.pageColor;

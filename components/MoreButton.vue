@@ -2,12 +2,21 @@
   <dynamic-link
     v-bind="$attrs"
     :to="to"
-    :class="['more-button', `more-button--${color}`, { 'more-button--block': block, 'more-button--sm': small, 'more-button--lg': large, disabled: disabled }]"
+    :class="[
+      'more-button',
+      `more-button--${color}`,
+      {
+        'more-button--block': block,
+        'more-button--sm': small,
+        'more-button--lg': large,
+        disabled: disabled,
+      },
+    ]"
     :disabled="disabled"
     v-on="$listeners"
   >
     <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]" />
-    <span class="text" v-text="text" />
+    <span v-text="text" class="text" />
     <div class="arrow">
       <span :class="['icon', `icon-arrow--${color}`]" />
     </div>

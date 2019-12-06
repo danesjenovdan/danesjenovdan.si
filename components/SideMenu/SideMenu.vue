@@ -1,7 +1,7 @@
 <template>
   <section
-    :class="{ 'side-menu': true, 'open': menuOpen }"
-    :style="{ 'visibility': menuVisible ? 'visible' : 'hidden' }"
+    :class="{ 'side-menu': true, open: menuOpen }"
+    :style="{ visibility: menuVisible ? 'visible' : 'hidden' }"
   >
     <nav ref="sideMenu" class="side-menu__nav">
       <nav-logo />

@@ -27,7 +27,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
 .shop-bar {
   padding: 1rem $content-mobile-padding 1.2rem;

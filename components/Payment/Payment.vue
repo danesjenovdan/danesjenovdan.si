@@ -4,8 +4,10 @@
       <div class="card bg-light">
         <div class="card-header">Payment Information</div>
         <div class="card-body">
-          <div class="alert alert-success" v-if="nonce">Successfully generated nonce.</div>
-          <div class="alert alert-danger" v-if="error">{{ error }}</div>
+          <div v-if="nonce" class="alert alert-success">
+            Successfully generated nonce.
+          </div>
+          <div v-if="error" class="alert alert-danger">{{ error }}</div>
           <form>
             <div class="form-group">
               <label for="amount">Amount</label>
@@ -14,15 +16,15 @@
                   <span class="input-group-text">$</span>
                 </div>
                 <input
-                  type="number"
                   id="amount"
                   v-model="amount"
+                  type="number"
                   class="form-control"
                   placeholder="Enter Amount"
-                >
+                />
               </div>
             </div>
-            <hr>
+            <hr />
             <div class="form-group">
               <label>Credit Card Number</label>
               <div id="creditCardNumber" class="form-control"></div>
@@ -40,10 +42,12 @@
               </div>
             </div>
             <button
-              class="btn btn-primary btn-block"
               @click.prevent="payWithCreditCard"
-            >Pay with Credit Card</button>
-            <hr>
+              class="btn btn-primary btn-block"
+            >
+              Pay with Credit Card
+            </button>
+            <hr />
             <div id="paypalButton"></div>
           </form>
         </div>
@@ -70,30 +74,12 @@ export default {
       amount: 10,
     };
   },
-  methods: {
-    payWithCreditCard() {
-      if (this.hostedFieldInstance) {
-        this.error = '';
-        this.nonce = '';
-        this.hostedFieldInstance
-          .tokenize()
-          .then(payload => {
-            console.log(payload);
-            this.nonce = payload.nonce;
-          })
-          .catch(err => {
-            console.error(err);
-            this.error = err.message;
-          });
-      }
-    },
-  },
   mounted() {
     braintree.client
       .create({
         authorization: 'sandbox_93smtrz3_bbgx4xf7h8bx24xg',
       })
-      .then(clientInstance => {
+      .then((clientInstance) => {
         const options = {
           client: clientInstance,
           styles: {
@@ -122,7 +108,7 @@ export default {
           braintree.paypalCheckout.create({ client: clientInstance }),
         ]);
       })
-      .then(instances => {
+      .then((instances) => {
         const hostedFieldInstance = instances[0];
         const paypalCheckoutInstance = instances[1];
         // Use hostedFieldInstance to send data to Braintree
@@ -146,30 +132,50 @@ export default {
               });
             },
             onAuthorize: (data, options) => {
-              return paypalCheckoutInstance.tokenizePayment(options).then(payload => {
-                console.log(payload);
-                this.error = '';
-                this.nonce = payload.nonce;
-              });
+              return paypalCheckoutInstance
+                .tokenizePayment(options)
+                .then((payload) => {
+                  console.log(payload);
+                  this.error = '';
+                  this.nonce = payload.nonce;
+                });
             },
-            onCancel: data => {
+            onCancel: (data) => {
               console.log(data);
               console.log('Payment Cancelled');
             },
-            onError: err => {
+            onError: (err) => {
               console.error(err);
-              this.error = 'An error occurred while processing the paypal payment.';
+              this.error =
+                'An error occurred while processing the paypal payment.';
             },
           },
           '#paypalButton',
         );
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
+  },
+  methods: {
+    payWithCreditCard() {
+      if (this.hostedFieldInstance) {
+        this.error = '';
+        this.nonce = '';
+        this.hostedFieldInstance
+          .tokenize()
+          .then((payload) => {
+            console.log(payload);
+            this.nonce = payload.nonce;
+          })
+          .catch((err) => {
+            console.error(err);
+            this.error = err.message;
+          });
+      }
+    },
   },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

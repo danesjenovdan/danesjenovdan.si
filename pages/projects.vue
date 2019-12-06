@@ -1,9 +1,17 @@
 <template>
   <div>
-    <page-title :title="$t('menu.projects')" :text="$t('projects.description')" color="secondary" />
+    <page-title
+      :title="$t('menu.projects')"
+      :text="$t('projects.description')"
+      color="secondary"
+    />
     <filter-bar v-model="filters" everything-id="all" color="secondary" />
     <div v-if="projects && projects.length" class="wrapping-flex-tiles">
-      <div v-for="project in filteredProjects" :key="`${project.url}`" class="flex-tile">
+      <div
+        v-for="project in filteredProjects"
+        :key="`${project.url}`"
+        class="flex-tile"
+      >
         <project-tile
           :image="project.image"
           :title="project.title"
@@ -41,14 +49,42 @@ export default {
   data() {
     return {
       filters: [
-        { id: 'pravičnost', label: this.$t('projects.tags.pravičnost'), active: false },
+        {
+          id: 'pravičnost',
+          label: this.$t('projects.tags.pravičnost'),
+          active: false,
+        },
         { id: 'okolje', label: this.$t('projects.tags.okolje'), active: false },
-        { id: 'demokracija', label: this.$t('projects.tags.demokracija'), active: false },
-        { id: 'internet', label: this.$t('projects.tags.internet'), active: false },
-        { id: 'sodelovanje', label: this.$t('projects.tags.sodelovanje'), active: false },
-        { id: 'peticija', label: this.$t('projects.tags.peticija'), active: false },
-        { id: 'kampanja', label: this.$t('projects.tags.kampanja'), active: false },
-        { id: 'dogodek', label: this.$t('projects.tags.dogodek'), active: false },
+        {
+          id: 'demokracija',
+          label: this.$t('projects.tags.demokracija'),
+          active: false,
+        },
+        {
+          id: 'internet',
+          label: this.$t('projects.tags.internet'),
+          active: false,
+        },
+        {
+          id: 'sodelovanje',
+          label: this.$t('projects.tags.sodelovanje'),
+          active: false,
+        },
+        {
+          id: 'peticija',
+          label: this.$t('projects.tags.peticija'),
+          active: false,
+        },
+        {
+          id: 'kampanja',
+          label: this.$t('projects.tags.kampanja'),
+          active: false,
+        },
+        {
+          id: 'dogodek',
+          label: this.$t('projects.tags.dogodek'),
+          active: false,
+        },
         { id: 'branje', label: this.$t('projects.tags.branje'), active: false },
         // { id: 'igra', label: this.$t('projects.tags.igra'), active: false },
         // { id: 'knjiga', label: this.$t('projects.tags.knjiga'), active: false },
@@ -57,7 +93,7 @@ export default {
   },
   computed: {
     activeFilters() {
-      return this.filters.filter(f => f.active).map(f => f.id);
+      return this.filters.filter((f) => f.active).map((f) => f.id);
     },
     filteredProjects() {
       if (
@@ -67,7 +103,8 @@ export default {
         return this.projects;
       }
       return this.projects.filter(
-        proj => proj.tags && intersection(proj.tags, this.activeFilters).length,
+        (proj) =>
+          proj.tags && intersection(proj.tags, this.activeFilters).length,
       );
     },
   },

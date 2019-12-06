@@ -1,6 +1,9 @@
 <template>
   <div>
-    <page-title :title="$t('menu.agrument')" :text="$t('agrument.description')" />
+    <page-title
+      :title="$t('menu.agrument')"
+      :text="$t('agrument.description')"
+    />
     <agrument-article :post="posts[0]" />
     <div class="row mobile-no-gap">
       <div class="col-12 mb-3 mb-md-5">
@@ -67,7 +70,10 @@ export default {
       }
     },
     onWaypoint({ going, direction }) {
-      if (going === this.$waypointMap.GOING_IN && direction === this.$waypointMap.DIRECTION_TOP) {
+      if (
+        going === this.$waypointMap.GOING_IN &&
+        direction === this.$waypointMap.DIRECTION_TOP
+      ) {
         this.fetchNextPage();
       }
     },

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <page-title :title="$t('danes-je-nov-dan')" :text="$t('landing.description')" />
+    <page-title
+      :title="$t('danes-je-nov-dan')"
+      :text="$t('landing.description')"
+    />
     <div v-if="infopush && infopush.visible">
       <info-push
         :image="infopush.image"
@@ -45,7 +48,10 @@
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('agrument-date')" :text="$t('agrument.more')" />
+      <more-button
+        :to="localePath('agrument-date')"
+        :text="$t('agrument.more')"
+      />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
@@ -64,7 +70,11 @@
     </div>
     <div>
       <div v-if="clippings && clippings.length" class="wrapping-flex-tiles">
-        <div v-for="clip in clippings.slice(0, 3)" :key="`${clip.url}`" class="flex-tile">
+        <div
+          v-for="clip in clippings.slice(0, 3)"
+          :key="`${clip.url}`"
+          class="flex-tile"
+        >
           <preview-tile
             :image="clip.image"
             :title="clip.title"
@@ -76,7 +86,11 @@
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('clipping')" :text="$t('clipping.more')" color="warning" />
+      <more-button
+        :to="localePath('clipping')"
+        :text="$t('clipping.more')"
+        color="warning"
+      />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
@@ -95,7 +109,11 @@
     </div>
     <div>
       <div v-if="projects && projects.length" class="wrapping-flex-tiles">
-        <div v-for="project in projects.slice(0, 3)" :key="`${project.url}`" class="flex-tile">
+        <div
+          v-for="project in projects.slice(0, 3)"
+          :key="`${project.url}`"
+          class="flex-tile"
+        >
           <project-tile
             :image="project.image"
             :title="project.title"
@@ -108,17 +126,21 @@
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('projects')" :text="$t('projects.more')" color="secondary" />
+      <more-button
+        :to="localePath('projects')"
+        :text="$t('projects.more')"
+        color="secondary"
+      />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
         <social-media-bar
-          color="secondary"
           :text="$t('projects.social-bar.follow-us')"
           :icons="[
             { icon: 'facebook', url: 'https://facebook.com/danesjenovdan' },
             { icon: 'twitter', url: 'https://twitter.com/danesjenovdan' },
           ]"
+          color="secondary"
         />
       </div>
     </div>
@@ -134,39 +156,50 @@
     </div>
     <div v-if="videos && videos.length" class="mt-4">
       <promoted-tile
-        color="warning"
         :image="videos[0].image"
         :title="videos[0].title"
         :byline="toSloDate(videos[0].date)"
         :text="videos[0].desc"
         :url="localePath({ name: 'videos', query: { video: videos[0].url } })"
         :video="videos[0].url"
+        color="warning"
       />
       <div class="wrapping-flex-tiles">
-        <div v-for="video in videos.slice(1, 4)" :key="`${video.url}`" class="flex-tile">
+        <div
+          v-for="video in videos.slice(1, 4)"
+          :key="`${video.url}`"
+          class="flex-tile"
+        >
           <preview-tile
-            color="warning"
             :image="video.image"
             :title="video.title"
             :byline="toSloDate(video.date)"
             :url="localePath({ name: 'videos', query: { video: video.url } })"
+            color="warning"
           />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('videos')" :text="$t('videos.more')" color="warning" />
+      <more-button
+        :to="localePath('videos')"
+        :text="$t('videos.more')"
+        color="warning"
+      />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
         <social-media-bar
-          color="warning"
           :text="$t('videos.social-bar.follow-us')"
           :icons="[
-            { icon: 'youtube', url: 'https://www.youtube.com/channel/UCWMqx3p_QtWjdDRq58Hfh_w' },
+            {
+              icon: 'youtube',
+              url: 'https://www.youtube.com/channel/UCWMqx3p_QtWjdDRq58Hfh_w',
+            },
             { icon: 'vimeo', url: 'https://vimeo.com/user26914674' },
           ]"
+          color="warning"
         />
       </div>
     </div>
@@ -184,30 +217,34 @@
       <div class="wrapping-flex-tiles">
         <div class="flex-tile">
           <tool-preview-tile
-            icon="parlameter"
             :title="$t('tools.tools.parlameter.title')"
             :text="$t('tools.tools.parlameter.description')"
+            icon="parlameter"
           />
         </div>
         <div class="flex-tile">
           <tool-preview-tile
-            icon="commentality"
             :title="$t('tools.tools.commentality.title')"
             :text="$t('tools.tools.commentality.description')"
+            icon="commentality"
           />
         </div>
         <div class="flex-tile">
           <tool-preview-tile
-            icon="consul"
             :title="$t('tools.tools.consul.title')"
             :text="$t('tools.tools.consul.description')"
+            icon="consul"
           />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <more-button :to="localePath('tools')" :text="$t('tools.more')" color="warning" />
+      <more-button
+        :to="localePath('tools')"
+        :text="$t('tools.more')"
+        color="warning"
+      />
     </div>
   </div>
 </template>

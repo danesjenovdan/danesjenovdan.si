@@ -1,6 +1,9 @@
 <template>
   <footer class="footer row">
-    <form class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3" @submit.prevent="onEmailConfirm">
+    <form
+      @submit.prevent="onEmailConfirm"
+      class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3"
+    >
       <div v-t="'footer.edit-email-settings'" class="lead my-2" />
       <div class="form-group">
         <div>
@@ -13,12 +16,12 @@
         </div>
         <div class="mt-2">
           <more-button
-            block
-            small
-            to="#"
             :text="'Nadaljuj'"
             :color="color"
             @click.native="onEmailConfirm"
+            block
+            small
+            to="#"
           />
         </div>
       </div>
@@ -44,14 +47,22 @@
             icon="youtube"
             href="https://www.youtube.com/channel/UCWMqx3p_QtWjdDRq58Hfh_w"
           />
-          <circle-icon-button :color="color" icon="vimeo" href="https://vimeo.com/user26914674" />
+          <circle-icon-button
+            :color="color"
+            icon="vimeo"
+            href="https://vimeo.com/user26914674"
+          />
         </div>
       </div>
     </div>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
       <div v-t="'footer.our-code-is-online'" class="lead my-2" />
       <div class="buttons">
-        <circle-icon-button :color="color" icon="github" href="https://github.com/danesjenovdan" />
+        <circle-icon-button
+          :color="color"
+          icon="github"
+          href="https://github.com/danesjenovdan"
+        />
       </div>
     </div>
     <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
@@ -94,7 +105,9 @@ export default {
   },
   methods: {
     onEmailConfirm() {
-      this.$router.push(this.localePath({ name: 'me', query: { email: this.email } }));
+      this.$router.push(
+        this.localePath({ name: 'me', query: { email: this.email } }),
+      );
     },
   },
 };

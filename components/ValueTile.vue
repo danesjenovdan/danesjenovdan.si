@@ -37,7 +37,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
 .value-tile {
   padding: 2.5rem 2rem;

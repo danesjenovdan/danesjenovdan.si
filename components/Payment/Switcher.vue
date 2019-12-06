@@ -3,24 +3,30 @@
     <nav class="nav nav-pills justify-content-center">
       <div class="nav-item">
         <button
-          type="button"
           :class="['nav-link', { active: active === 'card' }]"
           @click="changeActive('card')"
-        >Kartica</button>
+          type="button"
+        >
+          Kartica
+        </button>
       </div>
       <div class="nav-item">
         <button
-          type="button"
           :class="['nav-link', { active: active === 'paypal' }]"
           @click="changeActive('paypal')"
-        >PayPal</button>
+          type="button"
+        >
+          PayPal
+        </button>
       </div>
       <div class="nav-item">
         <button
-          type="button"
           :class="['nav-link', { active: active === 'upn' }]"
           @click="changeActive('upn')"
-        >Položnica</button>
+          type="button"
+        >
+          Položnica
+        </button>
       </div>
     </nav>
   </div>

@@ -6,8 +6,8 @@
           <div class="d-flex align-items-center flex-column flex-lg-row">
             <div
               v-if="icon"
+              :style="{ 'background-image': `url(/icons/tools/${icon}.svg` }"
               class="icon"
-              :style="{'background-image': `url(/icons/tools/${icon}.svg`}"
             />
             <div class="title d-flex flex-column">
               <h2 v-text="title" />
@@ -23,14 +23,17 @@
                 </li>
               </ul>
               <ul
-                v-if="email && email.address && email.address.indexOf('@') !== -1"
+                v-if="
+                  email && email.address && email.address.indexOf('@') !== -1
+                "
                 class="contact"
               >
                 <li>
                   <a
                     :href="`mailto:${email.address}?subject=${email.subject}`"
                     target="_blank"
-                  >{{ email.label }}</a>
+                    >{{ email.label }}</a
+                  >
                 </li>
               </ul>
             </div>
@@ -38,10 +41,17 @@
         </div>
       </div>
       <div class="open-arrow-container">
-        <button :class="['btn', 'btn-warning', 'open-arrow', { open }]" @click="open = true" />
+        <button
+          :class="['btn', 'btn-warning', 'open-arrow', { open }]"
+          @click="open = true"
+        />
       </div>
       <div :class="['right-col', { open }]">
-        <p v-for="paragraph in paragraphs" :key="paragraph" v-text="paragraph" />
+        <p
+          v-for="paragraph in paragraphs"
+          :key="paragraph"
+          v-text="paragraph"
+        />
         <div class="d-flex flex-column d-xxl-none">
           <div v-if="links.length" class="links">
             <ul>
@@ -59,7 +69,8 @@
                 <a
                   :href="`mailto:${email.address}?subject=${email.subject}`"
                   target="_blank"
-                >{{ email.label }}</a>
+                  >{{ email.label }}</a
+                >
               </li>
             </ul>
           </div>

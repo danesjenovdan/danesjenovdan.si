@@ -6,8 +6,10 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: titleChunk => {
-      return titleChunk ? `${titleChunk} - Danes je nov dan` : 'Danes je nov dan';
+    titleTemplate: (titleChunk) => {
+      return titleChunk
+        ? `${titleChunk} - Danes je nov dan`
+        : 'Danes je nov dan';
     },
     meta: [
       { charset: 'utf-8' },
@@ -111,10 +113,14 @@ export default {
      */
     extend(config, ctx) {
       // inject variables import to all scss modules
-      const scssRule = config.module.rules.find(e => e.test.toString() === '/\\.scss$/i');
-      const scssUses = scssRule.oneOf ? scssRule.oneOf.map(r => r.use) : [scssRule.use];
-      scssUses.forEach(use => {
-        const sassLoader = use.find(e => e.loader === 'sass-loader');
+      const scssRule = config.module.rules.find(
+        (e) => e.test.toString() === '/\\.scss$/i',
+      );
+      const scssUses = scssRule.oneOf
+        ? scssRule.oneOf.map((r) => r.use)
+        : [scssRule.use];
+      scssUses.forEach((use) => {
+        const sassLoader = use.find((e) => e.loader === 'sass-loader');
         if (sassLoader) {
           sassLoader.options = sassLoader.options || {};
           sassLoader.options.sassOptions = sassLoader.options.sassOptions || {};

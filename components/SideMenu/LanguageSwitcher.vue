@@ -1,13 +1,17 @@
 <template>
   <div class="language-switcher">
     <i class="icon icon-language--dark" />
-    <select class="form-control custom-select icon-dropdown-arrow--dark" @change="onLocaleChange">
+    <select
+      @change="onLocaleChange"
+      class="form-control custom-select icon-dropdown-arrow--dark"
+    >
       <option
         v-for="locale in $i18n.locales"
         :key="locale.code"
         :value="locale.code"
         :selected="locale.code === $i18n.locale"
-      >{{ locale.name }}</option>
+        >{{ locale.name }}</option
+      >
     </select>
   </div>
 </template>

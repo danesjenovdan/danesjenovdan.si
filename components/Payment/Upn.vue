@@ -1,18 +1,20 @@
 <template>
   <div class="card-payment">
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    <div v-if="nonce" class="alert alert-success">Successfully generated nonce.</div>
+    <div v-if="nonce" class="alert alert-success">
+      Successfully generated nonce.
+    </div>
     <form v-else>
       <div class="form-group">
         <label>Po e-pošti ti bomo poslali položnico</label>
       </div>
       <more-button
-        block
-        color="secondary"
-        icon="heart"
         :to="localePath('shop-checkout')"
         :text="'KUPI'"
         @click.native="sendUPN"
+        block
+        color="secondary"
+        icon="heart"
       />
     </form>
   </div>

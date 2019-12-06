@@ -1,19 +1,23 @@
 <template>
   <div>
-    <page-title :title="$t('menu.videos')" :text="$t('videos.description')" color="warning" />
+    <page-title
+      :title="$t('menu.videos')"
+      :text="$t('videos.description')"
+      color="warning"
+    />
     <div ref="bigVideo" class="big-video">
       <div class="embed-responsive embed-responsive-16by9">
         <div
+          :style="{ 'background-image': `url(${bigVideo.image})` }"
           class="embed-responsive-item background-image"
-          :style="{'background-image': `url(${bigVideo.image})`}"
         />
         <div v-if="bigVideo" class="embed-responsive-item">
           <iframe
             :src="embedUrl(bigVideo.url)"
+            :class="['big-video__iframe', { loaded: iframeLoaded }]"
+            @load="onIframeLoad"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            :class="['big-video__iframe', { 'loaded': iframeLoaded }]"
-            @load="onIframeLoad"
           />
         </div>
       </div>
@@ -37,13 +41,17 @@
     </div>
     <filter-bar v-model="filters" everything-id="all" color="warning" />
     <div v-if="videos && videos.length" class="wrapping-flex-tiles">
-      <div v-for="video in filteredVideos" :key="`${video.url}`" class="flex-tile">
+      <div
+        v-for="video in filteredVideos"
+        :key="`${video.url}`"
+        class="flex-tile"
+      >
         <preview-tile
-          color="warning"
           :image="video.image"
           :title="video.title"
           :byline="toSloDate(video.date)"
           :url="localePath({ name: 'videos', query: { video: video.url } })"
+          color="warning"
         />
       </div>
       <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
@@ -88,7 +96,7 @@ export default {
   },
   computed: {
     activeFilters() {
-      return this.filters.filter(f => f.active).map(f => f.id);
+      return this.filters.filter((f) => f.active).map((f) => f.id);
     },
     filteredVideos() {
       if (
@@ -98,13 +106,16 @@ export default {
         return this.videos;
       }
       return this.videos.filter(
-        video => video.tags && intersection(video.tags, this.activeFilters).length,
+        (video) =>
+          video.tags && intersection(video.tags, this.activeFilters).length,
       );
     },
   },
   watch: {
     '$route.query'() {
-      const videoObj = this.videos.find(v => v.url === this.$route.query.video);
+      const videoObj = this.videos.find(
+        (v) => v.url === this.$route.query.video,
+      );
       this.bigVideo = videoObj || (this.videos.length && this.videos[0]);
       this.iframeLoaded = false;
       this.$refs.bigVideo.scrollIntoView();
@@ -114,7 +125,7 @@ export default {
     const videoRes = await $axios.$get(
       'https://djnapi.djnd.si/djnd.si/videos/?ordering=-date&size=500',
     );
-    const videoObj = videoRes.results.find(v => v.url === query.video);
+    const videoObj = videoRes.results.find((v) => v.url === query.video);
     return {
       bigVideo: videoObj || (videoRes.results.length && videoRes.results[0]),
       videos: videoRes.results,

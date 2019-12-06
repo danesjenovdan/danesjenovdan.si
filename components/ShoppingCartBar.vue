@@ -1,16 +1,23 @@
 <template>
   <div v-show="itemAmount > 0" class="bg-white shopping-cart-bar">
     <div class="bar-container">
-      <div v-click-outside="() => toggleCartPreview(null, false)" class="cart-preview-container">
-        <button type="button" class="cart" @click="toggleCartPreview">
+      <div
+        v-click-outside="() => toggleCartPreview(null, false)"
+        class="cart-preview-container"
+      >
+        <button @click="toggleCartPreview" type="button" class="cart">
           <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              fill="currentColor"
+            >
               <path
                 d="M8.016 10a3 3 0 1 0 0 6h9.562l10.313 48.656c.408 1.832 1.608 3.356 3.125 3.344h50c1.585.022 3.043-1.415 3.043-3s-1.458-3.022-3.043-3H33.453l-1.28-6h52.843c1.343-.01 2.612-1.033 2.906-2.344l7-30c.39-1.74-1.122-3.643-2.906-3.656H24.578l-1.625-7.625c-.283-1.332-1.575-2.376-2.937-2.375zm17.812 16h62.407L82.64 50H30.922zm15.188 44c-5.487 0-10 4.513-10 10s4.513 10 10 10 10-4.513 10-10-4.513-10-10-10zm30 0c-5.487 0-10 4.513-10 10s4.513 10 10 10 10-4.513 10-10-4.513-10-10-10zm-30 6c2.245 0 4 1.755 4 4s-1.755 4-4 4-4-1.755-4-4 1.755-4 4-4zm30 0c2.245 0 4 1.755 4 4s-1.755 4-4 4-4-1.755-4-4 1.755-4 4-4z"
               />
             </svg>
           </div>
-          <div class="amount" v-text="itemAmount" />
+          <div v-text="itemAmount" class="amount" />
         </button>
         <div v-if="cartPreviewShown" class="cart-preview">
           <div class="arrow" />
@@ -20,12 +27,16 @@
               <cart-product
                 :key="`${item.id}`"
                 :image="`/img/products/${item.article.id}.jpg`"
-                :title="$te(`shop.products.${item.article.id}.display_name`) ? $t(`shop.products.${item.article.id}.display_name`) : item.article.name"
-                text="TODO: variant text"
+                :title="
+                  $te(`shop.products.${item.article.id}.display_name`)
+                    ? $t(`shop.products.${item.article.id}.display_name`)
+                    : item.article.name
+                "
                 :price="item.article.price"
                 :amount="item.quantity"
-                show-modify
                 @change-amount="changeAmount(item.id, $event)"
+                text="TODO: variant text"
+                show-modify
               />
               <hr :key="`${item.id}-hr`" />
             </template>
@@ -34,20 +45,20 @@
               <i>{{ totalPrice }} €</i>
             </div>
             <more-button
-              block
-              color="secondary"
               :to="localePath('shop-checkout')"
               :text="'Zaključi nakup'"
+              block
+              color="secondary"
             />
           </div>
         </div>
       </div>
       <div class="checkout">
         <more-button
-          small
-          color="secondary"
           :to="localePath('shop-checkout')"
           :text="'Zaključi nakup'"
+          small
+          color="secondary"
         />
       </div>
     </div>
@@ -91,7 +102,10 @@ export default {
       if (!this.items || !this.items.length) {
         return 0;
       }
-      return this.items.reduce((acc, cur) => acc + cur.quantity * cur.article.price, 0);
+      return this.items.reduce(
+        (acc, cur) => acc + cur.quantity * cur.article.price,
+        0,
+      );
     },
   },
   methods: {

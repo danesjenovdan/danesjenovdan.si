@@ -1,16 +1,36 @@
 <template>
   <div>
-    <page-title :title="$t('menu.shop')" :text="$t('shop.description')" color="secondary" />
-    <shopping-cart-bar :order-key="orderKey" :items="basketItems" @change-amount="onChangeAmount" />
+    <page-title
+      :title="$t('menu.shop')"
+      :text="$t('shop.description')"
+      color="secondary"
+    />
+    <shopping-cart-bar
+      :order-key="orderKey"
+      :items="basketItems"
+      @change-amount="onChangeAmount"
+    />
     <div class="product-tiles row">
-      <div v-for="product in stockedProducts" :key="`${product.id}`" class="col-12 col-lg-6">
+      <div
+        v-for="product in stockedProducts"
+        :key="`${product.id}`"
+        class="col-12 col-lg-6"
+      >
         <product-tile
-          color="secondary"
           :image="`/img/products/${product.id}.jpg`"
           :title="getDisplayName(product)"
           :text="$t(`shop.products.${product.id}.short_description`)"
           :button-text="$t(`shop.products.${product.id}.button_text`)"
-          :button-url="localePath({ name: 'shop-id', params: { id: product.id, slug: slugify(getDisplayName(product)) } })"
+          :button-url="
+            localePath({
+              name: 'shop-id',
+              params: {
+                id: product.id,
+                slug: slugify(getDisplayName(product)),
+              },
+            })
+          "
+          color="secondary"
         />
       </div>
     </div>
@@ -46,11 +66,13 @@ export default {
   },
   computed: {
     stockedProducts() {
-      return this.products.filter(p => p.stock > 0);
+      return this.products.filter((p) => p.stock > 0);
     },
   },
   async asyncData({ $axios }) {
-    const products = await $axios.$get('https://podpri.djnd.si/api/shop/products/');
+    const products = await $axios.$get(
+      'https://podpri.djnd.si/api/shop/products/',
+    );
     return {
       products,
     };

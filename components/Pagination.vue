@@ -2,16 +2,35 @@
   <nav class="pagination-container">
     <ul class="pagination">
       <li :class="['prev', { disabled: page === 1 }]" :disabled="page === 1">
-        <a href="#" class="icon icon-arrow--warning" aria-label="Previous" @click="pageChange($event, page - 1)">
+        <a
+          @click="pageChange($event, page - 1)"
+          href="#"
+          class="icon icon-arrow--warning"
+          aria-label="Previous"
+        >
           <span aria-hidden="true">&nbsp;</span>
         </a>
       </li>
-      <li v-for="pageNum in pagesDisplay" :key="pageNum" :class="{ active: pageNum === page }">
+      <li
+        v-for="pageNum in pagesDisplay"
+        :key="pageNum"
+        :class="{ active: pageNum === page }"
+      >
         <span v-if="pageNum < 0" class="separator">...</span>
-        <a v-else href="#" @click="pageChange($event, pageNum)">{{ pageNum }}</a>
+        <a v-else @click="pageChange($event, pageNum)" href="#">{{
+          pageNum
+        }}</a>
       </li>
-      <li :class="['next', { disabled: page >= pages }]" :disabled="page >= pages">
-        <a href="#" class="icon icon-arrow--warning" aria-label="Next" @click="pageChange($event, page + 1)">
+      <li
+        :class="['next', { disabled: page >= pages }]"
+        :disabled="page >= pages"
+      >
+        <a
+          @click="pageChange($event, page + 1)"
+          href="#"
+          class="icon icon-arrow--warning"
+          aria-label="Next"
+        >
           <span aria-hidden="true">&nbsp;</span>
         </a>
       </li>

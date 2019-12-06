@@ -4,7 +4,10 @@
       <div class="product-tile__image">
         <div class="embed-responsive embed-responsive-1by1">
           <div class="embed-responsive-item d-flex align-items-center">
-            <div class="background-image" :style="{'background-image': `url('${image}')`}" />
+            <div
+              :style="{ 'background-image': `url('${image}')` }"
+              class="background-image"
+            />
           </div>
         </div>
       </div>
@@ -16,8 +19,8 @@
     </div>
     <div class="col-xl-9 offset-xl-1">
       <div class="product-tile__content">
-        <p class="product-tile__text" v-text="text" />
-        <more-button color="secondary" :to="buttonUrl" :text="buttonText" />
+        <p v-text="text" class="product-tile__text" />
+        <more-button :to="buttonUrl" :text="buttonText" color="secondary" />
       </div>
     </div>
   </div>

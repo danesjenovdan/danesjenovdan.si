@@ -6,7 +6,14 @@
           <div :class="['icon', `icon-sub-${icon}`]" />
           <h2>{{ title }}</h2>
         </div>
-        <div :class="['d-none', 'd-lg-flex', 'switch-container', `switch-container--${color}`]">
+        <div
+          :class="[
+            'd-none',
+            'd-lg-flex',
+            'switch-container',
+            `switch-container--${color}`,
+          ]"
+        >
           <div v-if="loading" class="loader-container">
             <div class="lds-dual-ring" />
           </div>
@@ -14,10 +21,10 @@
           <div class="custom-control custom-switch">
             <input
               :id="uid1"
-              type="checkbox"
-              class="custom-control-input"
               :checked="checked"
               @change="$emit('change', $event.target.checked)"
+              type="checkbox"
+              class="custom-control-input"
             />
             <label :for="uid1" class="custom-control-label" />
           </div>
@@ -26,7 +33,14 @@
       <div class="right-col">
         <p class="description">{{ description }}</p>
         <slot />
-        <div :class="['d-flex', 'd-lg-none', 'switch-container', `switch-container--${color}`]">
+        <div
+          :class="[
+            'd-flex',
+            'd-lg-none',
+            'switch-container',
+            `switch-container--${color}`,
+          ]"
+        >
           <div v-if="loading" class="loader-container">
             <div class="lds-dual-ring" />
           </div>
@@ -34,10 +48,10 @@
           <div class="custom-control custom-switch">
             <input
               :id="uid2"
-              type="checkbox"
-              class="custom-control-input"
               :checked="checked"
               @change="$emit('change', $event.target.checked)"
+              type="checkbox"
+              class="custom-control-input"
             />
             <label :for="uid2" class="custom-control-label" />
           </div>

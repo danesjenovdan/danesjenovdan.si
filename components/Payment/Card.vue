@@ -3,26 +3,36 @@
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     <form v-else>
       <div class="form-group">
-        <div id="cc-number" :class="['form-control', 'form-control-lg', { focus: numberFocused }]" />
+        <div
+          id="cc-number"
+          :class="['form-control', 'form-control-lg', { focus: numberFocused }]"
+        />
       </div>
       <div class="form-group">
         <div
           id="cc-expirationDate"
-          :class="['form-control', 'form-control-lg', { focus: expirationDateFocused }]"
+          :class="[
+            'form-control',
+            'form-control-lg',
+            { focus: expirationDateFocused },
+          ]"
         />
       </div>
       <div class="form-group">
-        <div id="cc-cvv" :class="['form-control', 'form-control-lg', { focus: cvvFocused }]" />
+        <div
+          id="cc-cvv"
+          :class="['form-control', 'form-control-lg', { focus: cvvFocused }]"
+        />
       </div>
       <more-button
         v-if="!paymentInProgress"
         :disabled="!formValid"
-        block
-        color="secondary"
-        icon="heart"
         :to="localePath('shop-checkout')"
         :text="'KUPI'"
         @click.native="payWithCreditCard"
+        block
+        color="secondary"
+        icon="heart"
       />
       <template v-else>
         <div class="loader-container load-container--small">
@@ -105,16 +115,18 @@ export default {
             },
           },
         };
-        this.hostedFieldsInstance = await braintree.hostedFields.create(options);
+        this.hostedFieldsInstance = await braintree.hostedFields.create(
+          options,
+        );
 
-        this.hostedFieldsInstance.on('focus', event => {
+        this.hostedFieldsInstance.on('focus', (event) => {
           this[`${event.emittedBy}Focused`] = true;
         });
-        this.hostedFieldsInstance.on('blur', event => {
+        this.hostedFieldsInstance.on('blur', (event) => {
           this[`${event.emittedBy}Focused`] = false;
         });
-        this.hostedFieldsInstance.on('validityChange', event => {
-          const formValid = Object.keys(event.fields).every(key => {
+        this.hostedFieldsInstance.on('validityChange', (event) => {
+          const formValid = Object.keys(event.fields).every((key) => {
             return event.fields[key].isValid;
           });
           this.formValid = formValid;
@@ -136,10 +148,10 @@ export default {
         this.error = null;
         this.hostedFieldsInstance
           .tokenize()
-          .then(payload => {
+          .then((payload) => {
             this.$emit('success', { nonce: payload.nonce });
           })
-          .catch(error => {
+          .catch((error) => {
             // eslint-disable-next-line no-console
             console.error(error);
             this.error = error.message;

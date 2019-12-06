@@ -2,7 +2,11 @@
   <div class="clipping-filter">
     <div class="filters">
       <div class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="24 27 52 46" fill="currentColor">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="24 27 52 46"
+          fill="currentColor"
+        >
           <path
             d="M38 39.4c-3.3 0-6-2.7-6-5.9 0-3.3 2.7-5.9 6-5.9s6 2.7 6 5.9-2.7 5.9-6 5.9zm0-8.9c-1.7 0-3 1.3-3 2.9 0 1.6 1.3 2.9 3 2.9s3-1.3 3-2.9c0-1.6-1.3-2.9-3-2.9z"
           />
@@ -17,10 +21,22 @@
           />
         </svg>
       </div>
-      <filter-checkboxes v-model="typeFilters" :title="$t('clipping.tags.type.title')" />
-      <filter-checkboxes v-model="formatFilters" :title="$t('clipping.tags.format.title')" />
-      <filter-checkboxes v-model="languageFilters" :title="$t('clipping.tags.language.title')" />
-      <filter-checkboxes v-model="tagFilters" :title="$t('clipping.tags.tag.title')" />
+      <filter-checkboxes
+        v-model="typeFilters"
+        :title="$t('clipping.tags.type.title')"
+      />
+      <filter-checkboxes
+        v-model="formatFilters"
+        :title="$t('clipping.tags.format.title')"
+      />
+      <filter-checkboxes
+        v-model="languageFilters"
+        :title="$t('clipping.tags.language.title')"
+      />
+      <filter-checkboxes
+        v-model="tagFilters"
+        :title="$t('clipping.tags.tag.title')"
+      />
     </div>
   </div>
 </template>
@@ -39,7 +55,7 @@ export default {
     },
   },
   data() {
-    const typeFilters = (this.filters.types || []).map(tagName => ({
+    const typeFilters = (this.filters.types || []).map((tagName) => ({
       id: tagName,
       label: this.$te(`clipping.tags.type.${tagName}`)
         ? this.$t(`clipping.tags.type.${tagName}`)
@@ -47,7 +63,7 @@ export default {
       active: false,
     }));
 
-    const formatFilters = (this.filters.formats || []).map(tagName => ({
+    const formatFilters = (this.filters.formats || []).map((tagName) => ({
       id: tagName,
       label: this.$te(`clipping.tags.format.${tagName}`)
         ? this.$t(`clipping.tags.format.${tagName}`)
@@ -55,7 +71,7 @@ export default {
       active: false,
     }));
 
-    const languageFilters = (this.filters.languages || []).map(tagName => ({
+    const languageFilters = (this.filters.languages || []).map((tagName) => ({
       id: tagName,
       label: this.$te(`clipping.tags.language.${tagName}`)
         ? this.$t(`clipping.tags.language.${tagName}`)
@@ -63,7 +79,7 @@ export default {
       active: false,
     }));
 
-    const tagFilters = (this.filters.tags || []).map(tagName => ({
+    const tagFilters = (this.filters.tags || []).map((tagName) => ({
       id: tagName,
       label: this.$te(`clipping.tags.tag.${tagName}`)
         ? this.$t(`clipping.tags.tag.${tagName}`)
@@ -80,16 +96,16 @@ export default {
   },
   computed: {
     activeTypeFilters() {
-      return this.typeFilters.filter(f => f.active).map(f => f.id);
+      return this.typeFilters.filter((f) => f.active).map((f) => f.id);
     },
     activeFormatFilters() {
-      return this.formatFilters.filter(f => f.active).map(f => f.id);
+      return this.formatFilters.filter((f) => f.active).map((f) => f.id);
     },
     activeLanguageFilters() {
-      return this.languageFilters.filter(f => f.active).map(f => f.id);
+      return this.languageFilters.filter((f) => f.active).map((f) => f.id);
     },
     activeTagFilters() {
-      return this.tagFilters.filter(f => f.active).map(f => f.id);
+      return this.tagFilters.filter((f) => f.active).map((f) => f.id);
     },
     queryString() {
       const query = {

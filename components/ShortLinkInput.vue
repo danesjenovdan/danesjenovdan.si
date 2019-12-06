@@ -1,5 +1,5 @@
 <template>
-  <input :id="id" class="form-control" :value="link" onfocus="this.select()" />
+  <input :id="id" :value="link" class="form-control" onfocus="this.select()" />
 </template>
 
 <script>
@@ -37,7 +37,9 @@ export default {
   },
   methods: {
     fetchShortUrl(url) {
-      return this.$axios.$get(`${SHORTENER_URL}?fatmama=${encodeURIComponent(url)}`);
+      return this.$axios.$get(
+        `${SHORTENER_URL}?fatmama=${encodeURIComponent(url)}`,
+      );
     },
   },
 };

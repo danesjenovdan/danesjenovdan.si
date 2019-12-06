@@ -20,7 +20,9 @@
       </nuxt-link>
       <ul v-if="item.children && item.children.length">
         <li v-for="childItem in item.children" :key="childItem.key">
-          <nuxt-link :to="localePath(childItem.route ? childItem.route : childItem.key)">
+          <nuxt-link
+            :to="localePath(childItem.route ? childItem.route : childItem.key)"
+          >
             {{ $t(`menu.${childItem.key}`) }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -38,10 +40,10 @@
     <li>
       <form :action="'TODO'" class="search-form">
         <input
+          :placeholder="$t('menu.search')"
           class="form-control search-input"
           type="text"
           name="q"
-          :placeholder="$t('menu.search')"
         />
         <button>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">

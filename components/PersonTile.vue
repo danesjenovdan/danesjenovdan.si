@@ -1,21 +1,21 @@
 <template>
   <div class="person-tile bg-white">
     <div
-      class="person-tile__image"
       :style="`background-image: url('/img/people/${person.id}.jpg')`"
+      class="person-tile__image"
     />
     <div
-      class="person-tile__image-hover"
       :style="`background-image: url('/img/people/${person.id}_hover.jpg')`"
+      class="person-tile__image-hover"
     />
     <div class="person-tile__content">
-      <h1 class="person-tile__name" v-text="person.name" />
+      <h1 v-text="person.name" class="person-tile__name" />
       <div class="person-tile__text">
         <a
           v-if="person.mail"
-          class="person-tile__email"
           :href="`mailto:${person.mail}`"
           v-text="person.mail"
+          class="person-tile__email"
         />
         <span v-else class="person-tile__email">&nbsp;</span>
         <p v-t="`people.people.${person.id}.description`" />

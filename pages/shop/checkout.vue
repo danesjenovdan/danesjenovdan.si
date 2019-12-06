@@ -14,10 +14,14 @@
           <cart-product
             :key="`${item.id}`"
             :image="`/img/products/${item.article.id}.jpg`"
-            :title="$te(`shop.products.${item.article.id}.display_name`) ? $t(`shop.products.${item.article.id}.display_name`) : item.article.name"
-            text="TODO: variant text"
+            :title="
+              $te(`shop.products.${item.article.id}.display_name`)
+                ? $t(`shop.products.${item.article.id}.display_name`)
+                : item.article.name
+            "
             :price="item.article.price"
             :amount="item.quantity"
+            text="TODO: variant text"
           />
           <hr :key="`${item.id}-hr`" />
         </template>
@@ -27,12 +31,12 @@
         </div>
         <more-button
           key="next-summary"
-          block
-          color="secondary"
-          icon="heart"
           :to="localePath('shop-checkout')"
           :text="'KUPI'"
           @click.native="continueToDelivery"
+          block
+          color="secondary"
+          icon="heart"
         />
       </template>
     </div>
@@ -48,7 +52,9 @@
             class="custom-control-input"
             value="pickup"
           />
-          <label class="custom-control-label" for="delivery-pickup">Osebni prevzem</label>
+          <label class="custom-control-label" for="delivery-pickup"
+            >Osebni prevzem</label
+          >
         </div>
         <div class="custom-control custom-radio">
           <input
@@ -59,7 +65,9 @@
             class="custom-control-input"
             value="post"
           />
-          <label class="custom-control-label" for="delivery-post">Pošlji po pošti</label>
+          <label class="custom-control-label" for="delivery-post"
+            >Pošlji po pošti</label
+          >
         </div>
         <template v-if="delivery">
           <div class="form-group">
@@ -103,15 +111,15 @@
         <input type="submit" hidden />
       </form>
       <more-button
-        v-if="!checkoutLoading"
         key="next-delivery"
-        block
-        color="secondary"
-        icon="heart"
+        v-if="!checkoutLoading"
         :to="localePath('shop-checkout')"
         :text="'KUPI'"
         :disabled="!canContinueToPayment"
         @click.native="continueToPayment"
+        block
+        color="secondary"
+        icon="heart"
       />
       <template v-else>
         <div class="loader-container load-container--small">
@@ -126,7 +134,11 @@
         <card-payment :token="token" @success="paymentSuccess" />
       </template>
       <template v-if="payment === 'paypal'">
-        <paypal-payment :token="token" :amount="totalPrice" @success="paymentSuccess" />
+        <paypal-payment
+          :token="token"
+          :amount="totalPrice"
+          @success="paymentSuccess"
+        />
       </template>
       <template v-if="payment === 'upn'">
         <upn-payment />
@@ -139,11 +151,16 @@
         </div>
         <h1 class="checkout__title">Hvala!</h1>
         <div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vitae similique, ad quis iste veniam voluptates.</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vitae
+            similique, ad quis iste veniam voluptates.
+          </p>
         </div>
       </div>
       <div class="thankyou__close">
-        <nuxt-link :to="localePath('shop')" class="close-button">ZAPRI</nuxt-link>
+        <nuxt-link :to="localePath('shop')" class="close-button"
+          >ZAPRI</nuxt-link
+        >
       </div>
     </div>
     <div v-if="stage !== 'thankyou'" class="terms">
@@ -204,7 +221,10 @@ export default {
       if (!this.items || !this.items.length) {
         return 0;
       }
-      return this.items.reduce((acc, cur) => acc + cur.quantity * cur.article.price, 0);
+      return this.items.reduce(
+        (acc, cur) => acc + cur.quantity * cur.article.price,
+        0,
+      );
     },
     canContinueToPayment() {
       if (!this.delivery) {
@@ -273,10 +293,13 @@ export default {
     },
     async paymentSuccess({ nonce } = {}) {
       try {
-        await this.$axios.$post(`https://podpri.djnd.si/api/shop/pay/?order_key=${this.orderKey}`, {
-          payment_type: nonce ? 'braintree' : 'upn',
-          nonce,
-        });
+        await this.$axios.$post(
+          `https://podpri.djnd.si/api/shop/pay/?order_key=${this.orderKey}`,
+          {
+            payment_type: nonce ? 'braintree' : 'upn',
+            nonce,
+          },
+        );
         window.localStorage.removeItem('order_key');
         this.stage = 'thankyou';
       } catch (error) {

@@ -1,6 +1,10 @@
 <template>
   <div>
-    <page-title :title="$t('support.title')" :text="$t('support.description')" color="primary" />
+    <page-title
+      :title="$t('support.title')"
+      :text="$t('support.description')"
+      color="primary"
+    />
     <div class="support-drawing">
       <img src="/img/support-drawing.png" alt="support drawing" />
     </div>

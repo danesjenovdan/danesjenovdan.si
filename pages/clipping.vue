@@ -1,6 +1,10 @@
 <template>
   <div>
-    <page-title :title="$t('menu.clipping')" :text="$t('clipping.description')" color="warning" />
+    <page-title
+      :title="$t('menu.clipping')"
+      :text="$t('clipping.description')"
+      color="warning"
+    />
     <clipping-filter :filters="filters" @qs-change="onQueryChange" />
     <div v-if="loading">
       <div class="loader-container text-center pt-5">
@@ -59,7 +63,9 @@ export default {
     const endpoint = 'https://djnapi.djnd.si/djnd.si/clips/';
     const filterQuery = '';
     const pageQuery = `page=${INITIAL_PAGE}&size=${PAGE_SIZE}`;
-    const clips = await $axios.$get(`${endpoint}?${[filterQuery, pageQuery].join('&')}`);
+    const clips = await $axios.$get(
+      `${endpoint}?${[filterQuery, pageQuery].join('&')}`,
+    );
     return {
       endpoint,
       filterQuery,
@@ -90,9 +96,12 @@ export default {
           this.cancelSource.cancel();
         }
         this.cancelSource = CancelToken.source();
-        const clips = await this.$axios.$get(`${this.endpoint}${this.queryString}`, {
-          cancelToken: this.cancelSource.token,
-        });
+        const clips = await this.$axios.$get(
+          `${this.endpoint}${this.queryString}`,
+          {
+            cancelToken: this.cancelSource.token,
+          },
+        );
         this.clips = clips.results;
         this.count = clips.count;
       } catch (error) {
@@ -114,5 +123,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

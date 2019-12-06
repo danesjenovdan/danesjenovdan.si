@@ -11,7 +11,9 @@ export default {
     async getOrderKey() {
       const orderKey = window.localStorage.getItem('order_key') || null;
       if (!orderKey) {
-        const newBasket = await this.$axios.$get('https://podpri.djnd.si/api/shop/basket/');
+        const newBasket = await this.$axios.$get(
+          'https://podpri.djnd.si/api/shop/basket/',
+        );
         window.localStorage.setItem('order_key', newBasket.order_key);
         return newBasket.order_key;
       }

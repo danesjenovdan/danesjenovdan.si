@@ -1,9 +1,14 @@
 <template>
   <a
     :href="href"
+    :class="[
+      'circle-icon-button',
+      `circle-icon-button--${color}`,
+      'icon',
+      `icon-${icon}--${color}`,
+    ]"
     target="_blank"
     rel="noopener noreferrer"
-    :class="['circle-icon-button', `circle-icon-button--${color}`, 'icon', `icon-${icon}--${color}`]"
   />
 </template>
 
@@ -25,7 +30,6 @@ export default {
   },
 };
 </script>
-
 
 <style lang="scss" scoped>
 .circle-icon-button {

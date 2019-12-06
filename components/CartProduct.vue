@@ -4,34 +4,41 @@
       <div class="col-5">
         <div class="embed-responsive embed-responsive-1by1">
           <div class="embed-responsive-item d-flex align-items-center">
-            <div class="background-image" :style="{'background-image': `url('${image}')`}" />
+            <div
+              :style="{ 'background-image': `url('${image}')` }"
+              class="background-image"
+            />
           </div>
         </div>
       </div>
       <div class="col-7 cart-product__desc-col">
-        <div class="cart-product__title" v-text="title" />
+        <div v-text="title" class="cart-product__title" />
         <div class="cart-product__price">
           <span v-if="!showModify">
             <strong>{{ amount }}</strong> &times;
           </span>
           <strong>{{ formatPrice(price) }}</strong>
         </div>
-        <div v-if="text" class="cart-product__variation" v-text="text" />
+        <div v-if="text" v-text="text" class="cart-product__variation" />
         <div v-else class="cart-product__variation">&nbsp;</div>
         <div v-if="showModify" class="cart-product__modify">
           <button
-            class="remove-product icon icon-trash--secondary"
             @click="$emit('change-amount', 0)"
+            class="remove-product icon icon-trash--secondary"
           />
           <button
-            class="modify-amount modify-amount--minus"
             @click="$emit('change-amount', amount - 1)"
-          >&ndash;</button>
-          <span class="amount" v-text="amount" />
+            class="modify-amount modify-amount--minus"
+          >
+            &ndash;
+          </button>
+          <span v-text="amount" class="amount" />
           <button
-            class="modify-amount modify-amount--plus"
             @click="$emit('change-amount', amount + 1)"
-          >+</button>
+            class="modify-amount modify-amount--plus"
+          >
+            +
+          </button>
         </div>
       </div>
     </div>

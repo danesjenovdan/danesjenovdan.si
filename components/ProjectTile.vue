@@ -1,10 +1,22 @@
 <template>
   <div class="project-tile bg-white">
-    <a :href="url" target="_blank" rel="noopener noreferrer" class="project-tile__link">
+    <a
+      :href="url"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="project-tile__link"
+    >
       <div class="embed-responsive embed-responsive-1200by630">
         <div class="embed-responsive-item d-flex align-items-center">
-          <div class="project-tile__image" :style="{'background-image': `url('${image}')`}">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="30 18 40 64" fill="currentColor">
+          <div
+            :style="{ 'background-image': `url('${image}')` }"
+            class="project-tile__image"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="30 18 40 64"
+              fill="currentColor"
+            >
               <path
                 d="M50.005 82c.715-.028 1.542-.322 2.063-.812l17-16c.975-1.085 1.377-3.164.25-4.375-1.109-1.194-3.26-1.159-4.375.03l-11.938 11.25V21a3 3 0 0 0-6 0v51.094l-11.938-11.25c-1.025-1.024-3.253-1.213-4.375-.031-1.122 1.181-.764 3.335.25 4.375l17 16a2.885 2.885 0 0 0 2.063.812z"
               />
@@ -13,7 +25,7 @@
         </div>
       </div>
       <div class="project-tile__content">
-        <h1 class="project-tile__title" v-text="title" />
+        <h1 v-text="title" class="project-tile__title" />
         <div v-if="byline" class="project-tile__byline">
           <i v-text="byline" />
         </div>
