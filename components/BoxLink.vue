@@ -19,7 +19,7 @@
         <p>{{ text }}</p>
         <div
           v-if="image"
-          :style="{ 'background-image': `url(${image}` }"
+          :style="{ 'background-image': `url(${image})` }"
           class="box-link__image"
         />
       </div>
