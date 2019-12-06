@@ -1,11 +1,10 @@
-const scssCustomFunctions = require('./plugins/scss-functions.js');
+import scssCustomFunctions from './plugins/scss-functions.js';
 
-module.exports = {
+export default {
   mode: 'universal',
-
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     titleTemplate: titleChunk => {
       return titleChunk ? `${titleChunk} - Danes je nov dan` : 'Danes je nov dan';
@@ -49,29 +48,32 @@ module.exports = {
       },
     ],
   },
-
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: { color: '#fff' },
-
   /*
-  ** Global CSS
-  */
+   ** Global CSS
+   */
   css: ['~/assets/scss/main.scss'],
-
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [{ src: '~/plugins/vue-waypoint', ssr: false }],
-
+   ** Plugins to load before mounting the App
+   */
+  plugins: [{ src: '~/plugins/vue-waypoint.js', mode: 'client' }],
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js dev-modules
+   */
+  buildModules: [
+    // Doc: https://github.com/nuxt-community/eslint-module
+    '@nuxtjs/eslint-module',
+  ],
+  /*
+   ** Nuxt.js modules
+   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/style-resources',
     [
       'nuxt-i18n',
       {
@@ -88,30 +90,26 @@ module.exports = {
     ],
   ],
   /*
-  ** Axios module configuration
-  */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+   ** Nuxt Style Resources
+   ** See https://github.com/nuxt-community/style-resources-module
+   */
+  styleResources: {
+    scss: ['~/assets/scss/_variables.scss'],
   },
   /*
-  ** Build configuration
-  */
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  axios: {},
+  /*
+   ** Build configuration
+   */
   build: {
     extractCSS: true,
     /*
-    ** You can extend webpack config here
-    */
+     ** You can extend webpack config here
+     */
     extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-        });
-      }
-
       // inject variables import to all scss modules
       const scssRule = config.module.rules.find(e => e.test.toString() === '/\\.scss$/i');
       const scssUses = scssRule.oneOf ? scssRule.oneOf.map(r => r.use) : [scssRule.use];
@@ -119,10 +117,8 @@ module.exports = {
         const sassLoader = use.find(e => e.loader === 'sass-loader');
         if (sassLoader) {
           sassLoader.options = sassLoader.options || {};
-          sassLoader.options.data = `
-            @import '~/assets/scss/_variables.scss';
-          `;
-          sassLoader.options.functions = scssCustomFunctions;
+          sassLoader.options.sassOptions = sassLoader.options.sassOptions || {};
+          sassLoader.options.sassOptions.functions = scssCustomFunctions;
         }
       });
     },

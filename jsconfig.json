@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "./", // all paths are relative to the baseUrl
+    "baseUrl": ".",
     "paths": {
-      "~/*": ["*"] // resolve any `~/foo/bar` to `<baseUrl>/foo/bar`
+      "~/*": ["./*"],
+      "@/*": ["./*"],
+      "~~/*": ["./*"],
+      "@@/*": ["./*"]
     }
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", ".nuxt", "dist"]
 }

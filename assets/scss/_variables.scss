@@ -85,6 +85,6 @@ $progress-bg: #f0efef;
 // Import bootstrap functions and variables so that you can @import this file
 // and use bootstrap breakpoint mixins
 // ---
-@import 'bootstrap/scss/_functions.scss';
-@import 'bootstrap/scss/_variables.scss';
-@import 'bootstrap/scss/mixins/_breakpoints.scss';
+@import '~bootstrap/scss/_functions.scss';
+@import '~bootstrap/scss/_variables.scss';
+@import '~bootstrap/scss/mixins/_breakpoints.scss';
