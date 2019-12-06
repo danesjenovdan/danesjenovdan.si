@@ -12,7 +12,14 @@
           />
         </div>
         <div class="mt-2">
-          <more-button block to="#" :text="'Nadaljuj'" :color="color" @click.native="onEmailConfirm" />
+          <more-button
+            block
+            small
+            to="#"
+            :text="'Nadaljuj'"
+            :color="color"
+            @click.native="onEmailConfirm"
+          />
         </div>
       </div>
     </form>
@@ -141,11 +148,6 @@ export default {
       margin-bottom: 0;
       max-width: 300px;
       margin: 0 auto;
-    }
-
-    .more-button {
-      font-size: 1.25rem;
-      padding: 0.2rem 1.5rem 0.2rem 0.75rem;
     }
 
     .buttons {

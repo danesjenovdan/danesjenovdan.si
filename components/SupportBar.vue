@@ -47,16 +47,6 @@ export default {
       flex-direction: row;
       justify-content: center;
     }
-
-    .more-button {
-      margin: 0.5rem 0;
-      width: 100%;
-
-      @include media-breakpoint-up(lg) {
-        width: auto;
-        margin: 0.5rem 0.5rem;
-      }
-    }
   }
 }
 </style>

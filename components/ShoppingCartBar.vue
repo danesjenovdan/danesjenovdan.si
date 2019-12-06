@@ -43,7 +43,12 @@
         </div>
       </div>
       <div class="checkout">
-        <more-button color="secondary" :to="localePath('shop-checkout')" :text="'Zaključi nakup'" />
+        <more-button
+          small
+          color="secondary"
+          :to="localePath('shop-checkout')"
+          :text="'Zaključi nakup'"
+        />
       </div>
     </div>
   </div>
@@ -210,13 +215,8 @@ export default {
     }
 
     .checkout {
-      margin-top: -0.2rem;
-      margin-bottom: -0.2rem;
-
-      .more-button {
-        font-size: 1rem;
-        padding: 0.2rem 1.5rem 0.2rem 0.75rem;
-      }
+      margin-top: -0.35rem;
+      margin-bottom: -0.35rem;
     }
   }
 }
