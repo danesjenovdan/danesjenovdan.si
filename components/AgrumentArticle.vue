@@ -48,6 +48,7 @@
               text="Podpri nas!"
               color="primary"
               icon="heart"
+              small
             />
           </div>
         </div>
@@ -274,9 +275,6 @@ article {
         flex: 1;
 
         .more-button {
-          font-size: 1rem;
-          height: calc(1.5rem + 0.75rem + 2px);
-          padding: 0.375rem 1.25rem 0.375rem 1rem;
           white-space: nowrap;
         }
       }

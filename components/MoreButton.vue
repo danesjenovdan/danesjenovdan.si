@@ -2,7 +2,7 @@
   <dynamic-link
     v-bind="$attrs"
     :to="to"
-    :class="['more-button', `more-button--${color}`, { 'more-button--block': block, 'more-button--lg': large, disabled: disabled }]"
+    :class="['more-button', `more-button--${color}`, { 'more-button--block': block, 'more-button--sm': small, 'more-button--lg': large, disabled: disabled }]"
     :disabled="disabled"
     v-on="$listeners"
   >
@@ -50,6 +50,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    small: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -71,9 +75,9 @@ export default {
 
   .icon {
     display: block;
-    height: 1em;
-    width: 1em;
-    margin-right: 1.25rem;
+    height: 1.2em;
+    width: 1.2em;
+    margin-right: 1.125rem;
   }
 
   .text {
@@ -110,28 +114,32 @@ export default {
     background-color: #ccc;
   }
 
+  &.more-button--sm {
+    font-size: 1rem;
+    padding: 0.525rem 1rem 0.525rem 1rem;
+
+    .icon {
+      margin-right: 0.75rem;
+    }
+
+    .arrow {
+      margin-left: 0.75rem;
+    }
+  }
+
   &.more-button--lg {
-    font-size: 2rem;
+    @include media-breakpoint-up(md) {
+      .icon {
+        width: 1em;
+        height: 1em;
+      }
+
+      font-size: 2rem;
+    }
   }
 
   &.more-button--block {
     width: 100%;
-    position: relative;
-
-    .arrow {
-      position: absolute;
-      right: 1.75rem;
-      top: 50%;
-      transform: rotate(-90deg) translateX(45%);
-    }
-
-    &:hover {
-      .arrow {
-        .icon {
-          transform: rotate(-90deg) translateX(45%) translateY(1rem);
-        }
-      }
-    }
   }
 
   @each $color-name, $color in $theme-colors {
