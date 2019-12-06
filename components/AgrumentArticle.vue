@@ -1,5 +1,5 @@
 <template>
-  <article class="row agrument-article">
+  <article class="row justify-content-center agrument-article">
     <div class="col-xl-7">
       <div class="article__image">
         <figure>
@@ -30,28 +30,26 @@
         </div>
       </div>
     </div>
-    <div class="col-xl-8 offset-xl-2">
+    <div class="col-xl-9">
       <div class="article__content">
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="article__text" v-html="post.content_html" />
         <hr />
         <div class="article__share">
-          <form class="form-inline">
-            <div class="form-group">
-              <label for="share-link">
-                <em>Skopiraj povezavo!</em>
-              </label>
-              <ShortLinkInput :value="post.url" />
-            </div>
-            <div class="form-group">
-              <more-button
-                :to="localePath('donate')"
-                text="Podpri nas!"
-                color="primary"
-                icon="heart"
-              />
-            </div>
-          </form>
+          <div class="share__link">
+            <label :for="`share-link-${post.id}`">
+              <em>Skopiraj povezavo!</em>
+            </label>
+            <short-link-input :id="`share-link-${post.id}`" :value="post.url" />
+          </div>
+          <div class="share__support">
+            <more-button
+              :to="localePath('donate')"
+              text="Podpri nas!"
+              color="primary"
+              icon="heart"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -216,7 +214,7 @@ article {
       padding-right: 8rem;
       background-color: #fff;
 
-      $bg-offset: 40%;
+      $bg-offset: 35%;
       margin-top: -$bg-offset;
       padding-top: calc(2rem + #{$bg-offset});
     }
@@ -248,19 +246,39 @@ article {
     }
 
     .article__share {
-      .form-group {
-        margin-bottom: 0.25rem;
-        margin-right: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+
+      .share__link,
+      .share__support {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.5rem;
       }
 
-      em {
-        margin-right: 1rem;
+      .share__link {
+        flex: 1.6;
+
+        label {
+          margin: 0;
+          margin-right: 1rem;
+        }
+
+        input {
+          width: 180px;
+        }
       }
 
-      .more-button {
-        font-size: 1rem;
-        height: calc(1.5rem + 0.75rem + 2px);
-        padding: 0.375rem 1.25rem 0.375rem 1rem;
+      .share__support {
+        flex: 1;
+
+        .more-button {
+          font-size: 1rem;
+          height: calc(1.5rem + 0.75rem + 2px);
+          padding: 0.375rem 1.25rem 0.375rem 1rem;
+          white-space: nowrap;
+        }
       }
     }
   }

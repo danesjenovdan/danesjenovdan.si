@@ -1,5 +1,5 @@
 <template>
-  <input id="share-link" class="form-control" :value="link" onfocus="this.select()" />
+  <input :id="id" class="form-control" :value="link" onfocus="this.select()" />
 </template>
 
 <script>
@@ -9,6 +9,10 @@ export default {
   name: 'ShortLinkInput',
   props: {
     value: {
+      type: String,
+      required: true,
+    },
+    id: {
       type: String,
       required: true,
     },
