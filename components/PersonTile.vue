@@ -86,7 +86,7 @@ export default {
 
     .person-tile__name {
       font-size: 1.25rem;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: uppercase;
       text-align: center;
       margin: 0;
