@@ -7,6 +7,7 @@
   >
     <slot />
   </nuxt-link>
+  <!-- eslint-disable-next-line vue/valid-template-root -->
   <a
     v-else
     v-bind="$attrs"
