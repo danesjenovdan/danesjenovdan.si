@@ -159,11 +159,6 @@ export default {
         .circle-icon-button {
           display: inline-block;
           margin: 0 0.25rem 0.5rem;
-
-          @include media-breakpoint-up(xl) {
-            width: 3.5rem;
-            height: 3.5rem;
-          }
         }
       }
     }
