@@ -11,6 +11,7 @@
         :to="localePath('shop')"
         :text="$t('shop.promo-bar.button-text')"
         color="secondary"
+        small
       />
     </div>
   </div>
@@ -65,16 +66,6 @@ export default {
       width: calc(100% + #{$content-mobile-padding * 2});
       max-width: calc(100% + #{$content-mobile-padding * 2});
       margin: 0 #{-$content-mobile-padding};
-    }
-
-    .more-button {
-      margin-top: 1rem;
-      font-size: 1rem;
-      padding: 0.3rem 1.5rem 0.3rem 1rem;
-
-      @include media-breakpoint-up(xl) {
-        margin-top: 0;
-      }
     }
   }
 }
