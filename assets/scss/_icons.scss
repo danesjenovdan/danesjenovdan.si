@@ -112,7 +112,9 @@
 .icon {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  // size seems to be int rounded so "cover" and "100%" can sometimes cutoff a pixel
+  // used only for svg icons, so just absolute and svg will take care of ratio
+  background-size: 99% 99%;
 }
 
 @each $color-name, $color in $theme-colors {
