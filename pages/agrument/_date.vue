@@ -4,7 +4,27 @@
       :title="$t('menu.agrument')"
       :text="$t('agrument.description')"
     />
-    <agrument-article :post="posts[0]" />
+    <div
+      v-waypoint="{
+        active: true,
+        callback: onTopWaypoint,
+        options: {
+          rootMargin: '15%',
+          threshold: 0,
+        },
+      }"
+    />
+    <agrument-article
+      v-waypoint="{
+        active: true,
+        callback: onArticleWaypoint(posts[0]),
+        options: {
+          rootMargin: '-35%',
+          threshold: 0,
+        },
+      }"
+      :post="posts[0]"
+    />
     <div class="row mobile-no-gap">
       <div class="col-12 mb-3 mb-md-5">
         <agrument-subscribe-bar />
@@ -50,10 +70,21 @@ export default {
     AgrumentSubscribeBar,
   },
   mixins: [dateMixin],
+  validate({ params }) {
+    if (params.date == null) {
+      return true;
+    }
+    return /^\d{1,2}\.\d{1,2}\.\d{4}$/g.test(params.date);
+  },
   async asyncData({ $axios, params, error }) {
-    const agrumentResponse = await $axios.$get(
-      'https://agrument.danesjenovdan.si/api/v2/posts?limit=5',
-    );
+    const apiUrl = 'https://agrument.danesjenovdan.si/api/v2/posts';
+    const apiParams = {
+      limit: 5,
+      start_date: params.date,
+    };
+    const agrumentResponse = await $axios.$get(apiUrl, {
+      params: apiParams,
+    });
     const posts = [...agrumentResponse.data];
     const nextPageLink = agrumentResponse.links.next;
     return {
@@ -75,6 +106,17 @@ export default {
         direction === this.$waypointMap.DIRECTION_TOP
       ) {
         this.fetchNextPage();
+      }
+    },
+    onTopWaypoint({ going, direction }) {
+      if (
+        going === this.$waypointMap.GOING_IN &&
+        direction === this.$waypointMap.DIRECTION_BOTTOM
+      ) {
+        const path = this.localePath('agrument-date');
+        if (typeof window !== 'undefined') {
+          window.history.replaceState(window.history.state, null, path);
+        }
       }
     },
     onArticleWaypoint(post) {
