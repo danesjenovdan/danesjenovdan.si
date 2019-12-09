@@ -65,15 +65,17 @@
           </div>
         </div>
       </div>
-      <more-button
-        key="next-summary"
-        :to="localePath('donate-checkout')"
-        :text="'KUPI'"
-        @click.native="continueToPayment"
-        block
-        color="secondary"
-        icon="heart"
-      />
+      <div class="confirm-button-container">
+        <confirm-button
+          key="next-summary"
+          :to="''"
+          :text="'Podpri'"
+          @click.native="continueToPayment"
+          color="secondary"
+          arrow
+          hearts
+        />
+      </div>
     </div>
     <div v-if="stage !== 'thankyou'" class="terms">
       <nuxt-link to="#">Pogoji poslovanja</nuxt-link>
@@ -83,7 +85,7 @@
 
 <script>
 import shopMixin from '~/mixins/shop.js';
-import MoreButton from '~/components/MoreButton.vue';
+import ConfirmButton from '~/components/ConfirmButton.vue';
 // import PaymentSwitcher from '~/components/Payment/Switcher.vue';
 // import CardPayment from '~/components/Payment/Card.vue';
 // import PaypalPayment from '~/components/Payment/Paypal.vue';
@@ -103,7 +105,7 @@ export default {
   layout: 'checkout',
   pageColor: 'secondary',
   components: {
-    MoreButton,
+    ConfirmButton,
     // PaymentSwitcher,
     // CardPayment,
     // PaypalPayment,
@@ -176,6 +178,10 @@ export default {
     text-align: center;
     font-weight: 600;
     margin: 3rem 0;
+  }
+
+  .confirm-button-container {
+    text-align: center;
   }
 
   .donation-option {
