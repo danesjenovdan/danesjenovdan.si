@@ -139,9 +139,7 @@
 
     <div v-else-if="stage === 'select-avatar'" class="checkout__select-avatar">
       <h2 class="checkout__title">Dodaj svojo sliko ali izberi avatar!</h2>
-      <div style="height: 300px; background: #ccc">
-        SELECTOR
-      </div>
+      <avatar-selector />
       <div class="confirm-button-container">
         <confirm-button
           key="next-select-avatar"
@@ -162,6 +160,7 @@ import CardPayment from '~/components/Payment/Card.vue';
 import PaypalPayment from '~/components/Payment/Paypal.vue';
 import UpnPayment from '~/components/Payment/Upn.vue';
 import DonationOption from '~/components/DonationOption.vue';
+import AvatarSelector from '~/components/AvatarSelector.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -183,13 +182,14 @@ export default {
     PaypalPayment,
     UpnPayment,
     DonationOption,
+    AvatarSelector,
   },
   mixins: [shopMixin],
   data() {
     return {
       error: null,
       // stage: 'select-donation',
-      stage: 'thankyou',
+      stage: 'select-avatar',
       donationPresets: [
         {
           amount: 11,
