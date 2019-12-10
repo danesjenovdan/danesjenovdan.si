@@ -189,7 +189,7 @@ export default {
     return {
       error: null,
       // stage: 'select-donation',
-      stage: 'select-avatar',
+      stage: 'thankyou',
       donationPresets: [
         {
           amount: 11,

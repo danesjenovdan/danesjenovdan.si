@@ -15,16 +15,19 @@
     </div>
     <div class="select-file">
       <div class="custom-file">
-        <input
-          id="customFile"
-          @change="onImageChange"
-          type="file"
-          class="custom-file-input"
-        />
+        <input id="customFile" type="file" class="custom-file-input" />
         <label class="custom-file-label" for="customFile"
           >naloži svojo fotko</label
         >
       </div>
+      <client-only placeholder="Loading...">
+        <img :src="userAvatar" alt="" />
+        <avatar-cropper
+          :labels="{ submit: 'OK', cancel: 'Cancel' }"
+          :upload-handler="handleUpload"
+          trigger="#customFile"
+        />
+      </client-only>
     </div>
   </div>
 </template>
@@ -34,13 +37,26 @@ export default {
   data() {
     return {
       selectedIndex: 3,
+      userAvatar: undefined,
+      showCropper: true,
     };
   },
   methods: {
-    onImageChange(event) {
-      if (event.target.files && event.target.files[0]) {
-        console.log(event.target.files[0]);
-      }
+    // handleUploading(form, xhr) {
+    //   form.append('foo', 'bar');
+    // },
+    // handleUploaded(resp) {
+    //   this.userAvatar = resp.relative_url;
+    // },
+    handleUpload(cropper) {
+      this.userAvatar = cropper
+        .getCroppedCanvas({
+          width: 200,
+          height: 200,
+          maxWidth: 2048,
+          maxHeight: 2048,
+        })
+        .toDataURL('image/jpeg', 0.6);
     },
   },
 };
