@@ -24,16 +24,16 @@
           :class="['form-control', 'form-control-lg', { focus: cvvFocused }]"
         />
       </div>
-      <more-button
-        v-if="!paymentInProgress"
-        :disabled="!formValid"
-        :to="localePath('shop-checkout')"
-        :text="'KUPI'"
-        @click.native="payWithCreditCard"
-        block
-        color="secondary"
-        icon="heart"
-      />
+      <div v-if="!paymentInProgress" class="confirm-button-container">
+        <confirm-button
+          :disabled="!formValid"
+          @click.native="payWithCreditCard"
+          text="Plačaj"
+          color="secondary"
+          arrow
+          hearts
+        />
+      </div>
       <template v-else>
         <div class="loader-container load-container--small">
           <div class="lds-dual-ring" />
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import MoreButton from '~/components/MoreButton.vue';
+import ConfirmButton from '~/components/ConfirmButton.vue';
 
 let braintree = null;
 if (typeof window !== 'undefined') {
@@ -53,7 +53,7 @@ if (typeof window !== 'undefined') {
 
 export default {
   components: {
-    MoreButton,
+    ConfirmButton,
   },
   props: {
     token: {
@@ -166,6 +166,11 @@ export default {
 .focus {
   border: 1px solid $color-red;
   box-shadow: 0 0 0 0.2rem rgba($color-red, 0.25);
+}
+
+.confirm-button-container {
+  margin-top: 2rem;
+  text-align: center;
 }
 
 .loader-container {

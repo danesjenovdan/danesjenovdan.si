@@ -134,7 +134,7 @@ export default {
   &:disabled {
     pointer-events: none;
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.6;
   }
 
   &.confirm-button--arrow {
