@@ -70,7 +70,7 @@
                 :color="meta[key].color"
                 :label-off="$t(`me.settings.${key}.label-off`)"
                 :label-on="$t(`me.settings.${key}.label-on`)"
-                :checked="settings[key].permission"
+                :checked="settings[key]"
                 :loading="meta[key].loading"
                 @change="onSettingChange(key, $event)"
               >
@@ -120,33 +120,22 @@ export default {
           order: 100,
           loading: false,
         },
-        pp: {
-          show: false,
-          order: 200,
-          loading: false,
-        },
         agrument: {
           show: true,
           color: 'primary',
-          order: 300,
+          order: 200,
           loading: false,
         },
-        djnd: {
+        general: {
           show: true,
           color: 'secondary',
-          order: 400,
+          order: 300,
           loading: false,
         },
         parlameter: {
           show: true,
           color: 'parlameter',
-          order: 500,
-          loading: false,
-        },
-        konsenz: {
-          show: true,
-          color: 'primary',
-          order: 600,
+          order: 400,
           loading: false,
         },
       },
@@ -157,6 +146,7 @@ export default {
       if (!this.settings) {
         return [];
       }
+      console.log('settings', this.settings);
       return Object.keys(this.settings)
         .filter((a) => this.meta[a] && this.meta[a].show)
         .sort((a, b) => this.meta[a].order - this.meta[b].order);
@@ -164,22 +154,27 @@ export default {
   },
   async asyncData({ $axios, query }) {
     let showForm = true;
-    let settings = null;
-    let name = null;
+    const settings = {
+      agrument: false,
+      general: false,
+      parlameter: false,
+    };
     if (query.email && query.token) {
       const token = encodeURIComponent(query.token);
       const email = encodeURIComponent(query.email);
-      const endpoint = `https://spam.djnd.si/get-settings/?token=${token}&email=${email}`;
+      const endpoint = `https://podpri.djnd.si/api/segments/my?token=${token}&email=${email}`;
       const response = await $axios.$get(endpoint);
+      console.log(response);
       if (response && typeof response === 'object') {
         showForm = false;
-        ({ name, ...settings } = response);
+        response.segments.forEach((s) => {
+          settings[s.alias] = s.manuallyAdded;
+        });
       }
     }
     return {
       showForm,
       settings,
-      name,
       email: query.email || '',
       token: query.token || '',
     };
@@ -189,16 +184,13 @@ export default {
       if (!this.loading && this.email && this.email.includes('@')) {
         this.loading = true;
         try {
-          const response = await this.$axios.$get(
-            'https://spam.djnd.si/deliver-email/',
+          const response = await this.$axios.$post(
+            'https://podpri.djnd.si/api/subscribe/',
             {
-              params: {
-                email: this.email,
-              },
+              email: this.email,
             },
           );
-          // axios can return a number, so cast to string just in case
-          if (String(response) === '1') {
+          if (response.email) {
             this.success = true;
             this.message = 'Sporočilo poslano na e-naslov!';
           } else {
@@ -214,39 +206,24 @@ export default {
       }
     },
     async onSettingChange(key, newValue) {
-      const params = {
-        token: this.token,
-        email: this.email,
-        permission: newValue,
-      };
-      if (key === 'konsenz') {
-        if (!this.name) {
-          alert(this.$t(`me.settings.${key}.invalid-name`));
-          return;
-        }
-        params.name = this.name;
-      }
       try {
         this.meta[key].loading = true;
-        const response = await this.$axios.$get(
-          `https://spam.djnd.si/confirm-${key}/`,
-          {
-            params,
-          },
-        );
-        // axios can return a number, so cast to string just in case
-        if (String(response) === '1') {
-          this.settings[key].permission = newValue;
+        const reqUrl = `https://podpri.djnd.si/api/segments/${key}/contact/?email=${this.email}&token=${this.token}`;
+        const response = newValue
+          ? await this.$axios.$post(reqUrl)
+          : await this.$axios.$delete(reqUrl);
+        if (response.success) {
+          this.settings[key] = newValue;
         } else {
-          this.settings[key].permission = newValue;
+          this.settings[key] = newValue;
           this.$nextTick(() => {
-            this.settings[key].permission = !newValue;
+            this.settings[key] = !newValue;
           });
         }
       } catch {
-        this.settings[key].permission = newValue;
+        this.settings[key] = newValue;
         this.$nextTick(() => {
-          this.settings[key].permission = !newValue;
+          this.settings[key] = !newValue;
         });
       } finally {
         this.meta[key].loading = false;
