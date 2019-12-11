@@ -3,14 +3,19 @@
     <div class="preset-scroller">
       <div class="arrow-top"></div>
       <div class="arrow-bottom"></div>
-      <div class="images">
-        <button
-          v-for="i in 5"
-          :key="i"
-          :class="['avatar-image', { selected: i === selectedIndex }]"
-          @click="selectedIndex = i"
-          type="button"
-        ></button>
+      <div class="images-container">
+        <div
+          :style="{ transform: `translateX(${imagesOffset}px)` }"
+          class="images"
+        >
+          <button
+            v-for="i in 5"
+            :key="i"
+            :class="['avatar-image', { selected: i === selectedIndex }]"
+            @click="selectedIndex = i"
+            type="button"
+          ></button>
+        </div>
       </div>
     </div>
     <div class="select-file">
@@ -23,7 +28,7 @@
       <client-only placeholder="Loading...">
         <img :src="userAvatar" alt="" />
         <avatar-cropper
-          :labels="{ submit: 'OK', cancel: 'Cancel' }"
+          :labels="{ submit: 'Izberi', cancel: 'Prekliči' }"
           :upload-handler="handleUpload"
           trigger="#customFile"
         />
@@ -39,16 +44,21 @@ export default {
       selectedIndex: 3,
       userAvatar: undefined,
       showCropper: true,
+      imagesOffset: 0,
     };
   },
+  watch: {
+    selectedIndex(newValue) {
+      // average of (big image + margin) and (small image + margin) + 8 (no idea why)
+      const avg = (80 + 12 + 64 + 12 + 8) / 2;
+      const centerIndex = newValue - 3;
+      this.imagesOffset = centerIndex * avg * -1;
+      console.log(this.imagesOffset);
+    },
+  },
   methods: {
-    // handleUploading(form, xhr) {
-    //   form.append('foo', 'bar');
-    // },
-    // handleUploaded(resp) {
-    //   this.userAvatar = resp.relative_url;
-    // },
     handleUpload(cropper) {
+      // TODO: use to blob and toblob polyfill
       this.userAvatar = cropper
         .getCroppedCanvas({
           width: 200,
@@ -83,8 +93,6 @@ export default {
       border-style: solid;
       border-width: 1.25rem 0.75rem 0 0.75rem;
       border-color: $color-red transparent transparent transparent;
-      // TODO: show arrows when selected image scrolls to center
-      display: none;
     }
 
     .arrow-bottom {
@@ -94,46 +102,56 @@ export default {
       border-color: transparent transparent $color-red transparent;
     }
 
-    .images {
+    .images-container {
       display: flex;
+      justify-content: center;
+      overflow: hidden;
+      max-width: 100vw;
       height: 100%;
-      align-items: center;
-      justify-content: space-between;
 
-      .avatar-image {
-        width: 4rem;
-        height: 4rem;
-        border: none;
-        background-color: #fff;
-        background-size: 80% 80%;
-        background-position: center bottom;
-        background-repeat: no-repeat;
+      .images {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
 
-        &:focus {
-          outline: 0;
+        .avatar-image {
+          width: 4rem;
+          height: 4rem;
+          border: none;
+          background-color: #fff;
+          background-size: 80% 80%;
+          background-position: center bottom;
+          background-repeat: no-repeat;
+          margin: 0 0.75rem;
+          padding: 0;
+
+          &:focus {
+            outline: 0;
+          }
+
+          &.selected {
+            width: 5rem;
+            height: 5rem;
+            border: 2px solid $color-red;
+          }
         }
 
-        &.selected {
-          width: 5rem;
-          height: 5rem;
-          border: 2px solid $color-red;
+        .avatar-image:nth-of-type(1) {
+          background-image: url('/avatars/avatar_dinosaur.svg');
         }
-      }
-
-      .avatar-image:nth-of-type(1) {
-        background-image: url('/avatars/avatar_dinosaur.svg');
-      }
-      .avatar-image:nth-of-type(2) {
-        background-image: url('/avatars/avatar_ninja.svg');
-      }
-      .avatar-image:nth-of-type(3) {
-        background-image: url('/avatars/avatar_astronaut.svg');
-      }
-      .avatar-image:nth-of-type(4) {
-        background-image: url('/avatars/avatar_icecream.svg');
-      }
-      .avatar-image:nth-of-type(5) {
-        background-image: url('/avatars/avatar_ghost.svg');
+        .avatar-image:nth-of-type(2) {
+          background-image: url('/avatars/avatar_ninja.svg');
+        }
+        .avatar-image:nth-of-type(3) {
+          background-image: url('/avatars/avatar_astronaut.svg');
+        }
+        .avatar-image:nth-of-type(4) {
+          background-image: url('/avatars/avatar_icecream.svg');
+        }
+        .avatar-image:nth-of-type(5) {
+          background-image: url('/avatars/avatar_ghost.svg');
+        }
       }
     }
   }
@@ -141,16 +159,22 @@ export default {
   .select-file {
     margin-top: 2rem;
 
-    .custom-file-label {
-      border: none;
-      background: transparent;
-      text-align: center;
-      font-weight: 600;
-      font-style: italic;
-      text-decoration: underline;
+    .custom-file {
+      width: 200px;
+      margin: 0 auto;
+      display: block;
 
-      &::after {
-        display: none;
+      .custom-file-label {
+        border: none;
+        background: transparent;
+        text-align: center;
+        font-weight: 600;
+        font-style: italic;
+        text-decoration: underline;
+
+        &::after {
+          display: none;
+        }
       }
     }
   }

@@ -24,7 +24,9 @@
           arrow
         />
         <div class="bottom-back-link">
-          <nuxt-link @click="stage = 'share'" to="#">Preskoči</nuxt-link>
+          <dynamic-link @click="stage = 'share'">
+            Preskoči
+          </dynamic-link>
         </div>
       </div>
     </div>
@@ -92,6 +94,7 @@
 <script>
 import ConfirmButton from '~/components/ConfirmButton.vue';
 import AvatarSelector from '~/components/AvatarSelector.vue';
+import DynamicLink from '~/components/DynamicLink.vue';
 
 export default {
   nuxtI18n: {
@@ -105,12 +108,13 @@ export default {
   components: {
     ConfirmButton,
     AvatarSelector,
+    DynamicLink,
   },
   data() {
     return {
       error: null,
       // stage: 'thankyou',
-      stage: 'share',
+      stage: 'thankyou',
       displayMySupport: false,
     };
   },
