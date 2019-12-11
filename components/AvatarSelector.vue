@@ -120,20 +120,20 @@ export default {
         }
       }
 
-      .avatar-image:first-of-type {
-        background-image: url('/avatars/avatar_astronaut.svg');
-      }
-      .avatar-image:nth-of-type(2) {
+      .avatar-image:nth-of-type(1) {
         background-image: url('/avatars/avatar_dinosaur.svg');
       }
+      .avatar-image:nth-of-type(2) {
+        background-image: url('/avatars/avatar_ninja.svg');
+      }
       .avatar-image:nth-of-type(3) {
-        background-image: url('/avatars/avatar_ghost.svg');
+        background-image: url('/avatars/avatar_astronaut.svg');
       }
       .avatar-image:nth-of-type(4) {
         background-image: url('/avatars/avatar_icecream.svg');
       }
       .avatar-image:nth-of-type(5) {
-        background-image: url('/avatars/avatar_ninja.svg');
+        background-image: url('/avatars/avatar_ghost.svg');
       }
     }
   }
