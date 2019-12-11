@@ -125,25 +125,196 @@
     </div>
     <div class="wrapping-flex-tiles logos">
       <div class="flex-tile">
-        <logo-box />
+        <logo-box
+          name="AcessInfo"
+          url="https://www.access-info.org/"
+          image="/img/partners/access-info.png"
+        />
       </div>
       <div class="flex-tile">
-        <logo-box />
+        <logo-box
+          name="Battle for Humanity"
+          url="https://www.battle4humanity.com/"
+          image="/img/partners/battle-for-humanity.jpg"
+        />
       </div>
       <div class="flex-tile">
-        <logo-box />
+        <logo-box
+          name="Cnvos"
+          url="https://www.cnvos.si/"
+          image="/img/partners/cnvos.png"
+        />
       </div>
       <div class="flex-tile">
-        <logo-box />
+        <logo-box
+          name="Code for All"
+          url="https://codeforall.org/"
+          image="/img/partners/code-for-all.png"
+        />
       </div>
       <div class="flex-tile">
-        <logo-box />
+        <logo-box
+          name="DCN"
+          url="http://www.digicomnet.org/"
+          image="/img/partners/dcn.jpg"
+        />
       </div>
       <div class="flex-tile">
-        <logo-box />
+        <logo-box
+          name="Digidem Lab"
+          url="https://digidemlab.org/"
+          image="/img/partners/digidemlab.svg"
+        />
       </div>
       <div class="flex-tile">
-        <logo-box />
+        <logo-box
+          name="Društvo novinarjev Slovenije"
+          url="https://novinar.com/"
+          image="/img/partners/dns.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Društvo za zaščito živali"
+          url="https://www.dzzz.si/"
+          image="/img/partners/dzzz.png"
+          class="invert-logo"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Državljan D"
+          url="https://www.drzavljand.si/"
+          image="/img/partners/drzavljand.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="ePanstwo"
+          url="https://epf.org.pl/en/"
+          image="/img/partners/epanstwo.svg"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Focus"
+          url="https://focus.si/"
+          image="/img/partners/focus.jpg"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Gong"
+          url="https://www.gong.hr/hr/"
+          image="/img/partners/gong.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Greenpeace Slovenija"
+          url="https://www.greenpeace.org/slovenia/"
+          image="/img/partners/greenpeace.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Inštitut za delavske študije"
+          url="http://www.delavske-studije.si/"
+          image="/img/partners/ids.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Inštitut za intelektualno lastnino"
+          url="https://www.ipi.si/"
+          image="/img/partners/ipi.svg"
+          class="invert-logo"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="IPOP"
+          url="https://ipop.si/"
+          image="/img/partners/ipop.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Kje bomo pa jutri spali"
+          url="https://www.facebook.com/kjebomopajutrispali/"
+          image="/img/partners/kbpjs.jpg"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Mehr Demokratie"
+          url="https://www.mehr-demokratie.de/"
+          image="/img/partners/mehr-demokratie.jpg"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Mirovni inštitut"
+          url="http://www.mirovni-institut.si/"
+          image="/img/partners/mirovni-institut.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Mladi za podnebno pravičnost"
+          url="https://zapodnebnopravicnost.si/"
+          image="/img/partners/mzpp.jpg"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Netwerk Democratie"
+          url="https://netdem.nl/en/"
+          image="/img/partners/netwerk-democratie.gif"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Open Source Initiative"
+          url="https://opensource.org/"
+          image="/img/partners/osi.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Oštro"
+          url="https://www.ostro.si/"
+          image="/img/partners/ostro.png"
+          class="invert-logo"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="PIC"
+          url="http://pic.si/"
+          image="/img/partners/pic.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Pod Črto"
+          url="https://podcrto.si/"
+          image="/img/partners/pod-crto.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="Umanotera"
+          url="https://www.umanotera.org/"
+          image="/img/partners/umanotera.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="ZaštoNe"
+          url="https://zastone.ba/"
+          image="/img/partners/zasto-ne.png"
+        />
       </div>
       <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
     </div>
@@ -154,13 +325,33 @@
     </div>
     <div class="wrapping-flex-tiles logos">
       <div class="flex-tile">
-        <logo-box />
+        <logo-box
+          name="Google Digital News Initiative"
+          url="https://newsinitiative.withgoogle.com/dnifund/"
+          image="/img/donators/google-dni.png"
+        />
       </div>
       <div class="flex-tile">
-        <logo-box />
+        <logo-box
+          name="Ministrstvo za javno upravo"
+          url="https://www.gov.si/drzavni-organi/ministrstva/ministrstvo-za-javno-upravo/o-ministrstvu-za-javno-upravo/"
+          image="/img/donators/mju.png"
+          class="mju-logo"
+        />
       </div>
       <div class="flex-tile">
-        <logo-box />
+        <logo-box
+          name="National Endowment for Democracy"
+          url="https://www.ned.org/"
+          image="/img/donators/ned.png"
+        />
+      </div>
+      <div class="flex-tile">
+        <logo-box
+          name="U.S. Embassy Ljubljana"
+          url="https://si.usembassy.gov/"
+          image="/img/donators/us-embassy.png"
+        />
       </div>
       <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
     </div>
@@ -341,5 +532,13 @@ export default {
   .col-12 {
     display: flex;
   }
+}
+
+.mju-logo /deep/ .logo-box__content {
+  padding: 0;
+}
+
+.invert-logo /deep/ .logo-box__content {
+  filter: invert(100%);
 }
 </style>

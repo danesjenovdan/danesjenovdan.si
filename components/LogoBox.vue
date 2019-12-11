@@ -1,10 +1,34 @@
 <template>
-  <div class="logo-box">
-    <div class="logo-box__content">
-      <img src="/img/logo_gong.png" alt="gong logo" />
-    </div>
+  <div :title="name" class="logo-box">
+    <a
+      :href="url"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="logo-box__content"
+    >
+      <img :src="image" :alt="`${name} logo`" />
+    </a>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    image: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .logo-box {
@@ -28,7 +52,8 @@
 
     img {
       width: 100%;
-      filter: brightness(0);
+      mix-blend-mode: darken;
+      filter: grayscale(100%);
     }
   }
 }
