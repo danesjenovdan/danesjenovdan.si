@@ -55,25 +55,11 @@
         </div>
         <div class="custom-control custom-checkbox">
           <input
-            id="info-display-support"
-            v-model="displayMySupport"
-            type="checkbox"
-            name="delivery"
-            class="custom-control-input"
-            value="pickup"
-          />
-          <label class="custom-control-label" for="info-display-support"
-            >Prikažite me na seznamu podpornikov</label
-          >
-        </div>
-        <div class="custom-control custom-checkbox">
-          <input
             id="info-newsletter"
             v-model="subscribeNewsletter"
             type="checkbox"
-            name="delivery"
+            name="subscribeNewsletter"
             class="custom-control-input"
-            value="post"
           />
           <label class="custom-control-label" for="info-newsletter"
             >Želim prejemati newsletter</label
@@ -184,7 +170,6 @@ export default {
       donationGifts: [],
       name: null,
       email: null,
-      displayMySupport: false,
       subscribeNewsletter: false,
       checkoutLoading: false,
       token: null,
@@ -281,8 +266,6 @@ export default {
             amount: this.selectedDonationAmount,
             name: this.name,
             email: this.email,
-            // TODO: move this to image upload step
-            // displayMySupport: this.displayMySupport,
             mailing: this.subscribeNewsletter,
             gifts_amounts: giftAmounts,
           },

@@ -34,10 +34,48 @@
     <div v-else-if="stage === 'select-avatar'" class="checkout__select-avatar">
       <h2 class="checkout__subtitle">Dodaj svojo sliko ali izberi avatar!</h2>
       <avatar-selector />
+      <hr />
+      <div class="form-group">
+        <label for="info-url"
+          >TODO: Add a link to show next to your avatar</label
+        >
+        <input
+          id="info-url"
+          v-model="url"
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="URL"
+        />
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input
+          id="info-display-support"
+          v-model="displayMySupport"
+          type="checkbox"
+          name="displayMySupport"
+          class="custom-control-input"
+        />
+        <label class="custom-control-label" for="info-display-support"
+          >Prikažite me na seznamu podpornikov</label
+        >
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input
+          id="info-image-legal"
+          v-model="imageIsLegal"
+          type="checkbox"
+          name="imageIsLegal"
+          class="custom-control-input"
+        />
+        <label class="custom-control-label" for="info-image-legal"
+          >TODO: image is legal, we're not liable etc.</label
+        >
+      </div>
       <div class="confirm-button-container">
         <confirm-button
           key="next-select-avatar"
-          @click.native="stage = 'share'"
+          :disabled="!canUploadImage"
+          @click.native="uploadImage"
           text="Potrdi"
           color="secondary"
         />
@@ -113,10 +151,16 @@ export default {
   data() {
     return {
       error: null,
-      // stage: 'thankyou',
       stage: 'thankyou',
+      url: null,
       displayMySupport: false,
+      imageIsLegal: false,
     };
+  },
+  computed: {
+    canUploadImage() {
+      return this.displayMySupport && this.imageIsLegal;
+    },
   },
   asyncData({ query }) {
     const token = query.token === 'true' || query.token === '1';
@@ -124,7 +168,14 @@ export default {
       token,
     };
   },
-  methods: {},
+  methods: {
+    uploadImage() {
+      if (this.canUploadImage) {
+        // TODO: upload
+        this.stage = 'share';
+      }
+    },
+  },
 };
 </script>
 
@@ -169,10 +220,6 @@ export default {
     }
   }
 
-  .payment-switcher {
-    margin-bottom: 2rem;
-  }
-
   .checkout__thankyou {
     min-height: 100%;
     display: flex;
@@ -206,7 +253,11 @@ export default {
       font-style: normal;
       font-weight: 300;
       max-width: 250px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 2rem;
+    }
+
+    hr {
+      margin: 2rem -1.5rem;
     }
   }
 

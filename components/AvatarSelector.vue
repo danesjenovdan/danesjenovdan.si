@@ -202,12 +202,7 @@ export default {
       background-color: rgba(#000, 0.5);
 
       .avatar-cropper-close {
-        color: #000;
-        font-weight: 700;
-        line-height: 1;
-        width: 1em;
-        height: 1em;
-        padding: 0;
+        display: none;
       }
     }
 
