@@ -45,6 +45,7 @@ export default {
       @include media-breakpoint-up(md) {
         padding-left: 3rem;
         padding-right: 3rem;
+        max-width: 1600px;
       }
     }
   }
