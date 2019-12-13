@@ -56,7 +56,7 @@ export default {
   },
   computed: {
     queryString() {
-      return `?${[this.filterQuery, this.pageQuery].join('&')}`;
+      return `?${[this.filterQuery, this.pageQuery].join('&')}&ordering=-date`;
     },
   },
   async asyncData({ $axios }) {
