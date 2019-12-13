@@ -146,7 +146,6 @@ export default {
       if (!this.settings) {
         return [];
       }
-      console.log('settings', this.settings);
       return Object.keys(this.settings)
         .filter((a) => this.meta[a] && this.meta[a].show)
         .sort((a, b) => this.meta[a].order - this.meta[b].order);
@@ -164,7 +163,6 @@ export default {
       const email = encodeURIComponent(query.email);
       const endpoint = `https://podpri.djnd.si/api/segments/my?token=${token}&email=${email}`;
       const response = await $axios.$get(endpoint);
-      console.log(response);
       if (response && typeof response === 'object') {
         showForm = false;
         response.segments.forEach((s) => {
