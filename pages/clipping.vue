@@ -64,7 +64,7 @@ export default {
     const filterQuery = '';
     const pageQuery = `page=${INITIAL_PAGE}&size=${PAGE_SIZE}`;
     const clips = await $axios.$get(
-      `${endpoint}?${[filterQuery, pageQuery].join('&')}`,
+      `${endpoint}?${[filterQuery, pageQuery].join('&')}&ordering=-date`,
     );
     return {
       endpoint,
