@@ -47,7 +47,7 @@ export default {
         const paypalCheckoutInstance = await braintree.paypalCheckout.create(
           options,
         );
-        return paypal.Button.render(
+        await paypal.Button.render(
           {
             env: 'sandbox', // TODO: production
             style: {
@@ -66,6 +66,7 @@ export default {
               });
             },
             onAuthorize: (data, options) => {
+              this.$emit('payment-start');
               return paypalCheckoutInstance
                 .tokenizePayment(options)
                 .then((payload) => {
@@ -84,6 +85,7 @@ export default {
           },
           '#paypal-button',
         );
+        this.$emit('ready');
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);

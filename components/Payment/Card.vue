@@ -24,37 +24,17 @@
           :class="['form-control', 'form-control-lg', { focus: cvvFocused }]"
         />
       </div>
-      <div v-if="!paymentInProgress" class="confirm-button-container">
-        <confirm-button
-          :disabled="!formValid"
-          @click.native="payWithCreditCard"
-          text="Plačaj"
-          color="secondary"
-          arrow
-          hearts
-        />
-      </div>
-      <template v-else>
-        <div class="loader-container load-container--small">
-          <div class="lds-dual-ring" />
-        </div>
-      </template>
     </form>
   </div>
 </template>
 
 <script>
-import ConfirmButton from '~/components/ConfirmButton.vue';
-
 let braintree = null;
 if (typeof window !== 'undefined') {
   braintree = require('braintree-web');
 }
 
 export default {
-  components: {
-    ConfirmButton,
-  },
   props: {
     token: {
       type: String,
@@ -130,10 +110,13 @@ export default {
             return event.fields[key].isValid;
           });
           this.formValid = formValid;
+          this.$emit('validity-change', formValid);
         });
         this.hostedFieldsInstance.on('inputSubmitRequest', () => {
           this.payWithCreditCard();
         });
+
+        this.$emit('ready', { pay: this.payWithCreditCard });
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
@@ -145,6 +128,7 @@ export default {
     payWithCreditCard() {
       if (this.hostedFieldsInstance && !this.paymentInProgress) {
         this.paymentInProgress = true;
+        this.$emit('payment-start');
         this.error = null;
         this.hostedFieldsInstance
           .tokenize()

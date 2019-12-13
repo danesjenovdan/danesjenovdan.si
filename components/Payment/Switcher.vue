@@ -19,7 +19,7 @@
           PayPal
         </button>
       </div>
-      <div class="nav-item">
+      <!-- <div class="nav-item">
         <button
           :class="['nav-link', { active: active === 'upn' }]"
           @click="changeActive('upn')"
@@ -27,7 +27,7 @@
         >
           Položnica
         </button>
-      </div>
+      </div> -->
     </nav>
   </div>
 </template>
@@ -52,38 +52,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav {
-  margin: 0 #{-$content-mobile-padding};
+.payment-switcher {
+  margin-bottom: 1.5rem;
 
-  .nav-item {
-    position: relative;
-    margin: 0 0.5rem;
+  .nav {
+    margin: 0 #{-$content-mobile-padding};
 
-    &:not(:first-child)::before {
-      content: '';
-      background-color: #333;
-      display: block;
-      width: 1px;
-      position: absolute;
-      top: -0.25rem;
-      bottom: -0.25rem;
-      left: -0.5rem;
-    }
+    .nav-item {
+      position: relative;
+      margin: 0 0.5rem;
 
-    .nav-link {
-      border-radius: 4px;
-      border: 0;
-      background: transparent;
-      color: #333;
-      text-transform: uppercase;
-      font-weight: 300;
-
-      &.active {
-        background-color: rgba($color-red, 0.3);
+      &:not(:first-child)::before {
+        content: '';
+        background-color: #333;
+        display: block;
+        width: 1px;
+        position: absolute;
+        top: -0.25rem;
+        bottom: -0.25rem;
+        left: -0.5rem;
       }
 
-      &:focus {
-        box-shadow: none;
+      .nav-link {
+        border-radius: 4px;
+        border: 0;
+        background: transparent;
+        color: #333;
+        text-transform: uppercase;
+        font-weight: 300;
+
+        &.active {
+          background-color: rgba($color-red, 0.3);
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
       }
     }
   }
