@@ -71,31 +71,15 @@
       "tags": ["founder", "council"]
     },
     {
-      "id": "kaja",
-      "name": "Kaja Poteko"
-    },
-    {
       "id": "karmen",
       "name": "Karmen Šterk",
       "tags": ["founder"]
-    },
-    {
-      "id": "katja",
-      "name": "Katja Stojnić"
-    },
-    {
-      "id": "evas",
-      "name": "Eva Stopar"
     },
     {
       "id": "tadej",
       "name": "Tadej Štrok",
       "mail": "tadej@danesjenovdan.si",
       "tags": ["science"]
-    },
-    {
-      "id": "anja_t",
-      "name": "Anja Tomašević"
     },
     {
       "id": "eva",
@@ -129,10 +113,6 @@
     {
       "id": "sara",
       "name": "Sara Kosirnik"
-    },
-    {
-      "id": "maja_p",
-      "name": "Maja Perpar"
     },
     {
       "id": "martin",
