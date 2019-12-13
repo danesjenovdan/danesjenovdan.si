@@ -51,23 +51,26 @@ export default {
   data() {
     const avatars = [
       {
-        image: '/avatars/avatar_dinosaur.svg',
+        image: '/img/avatars/avatar_dinosaur.png',
       },
       {
-        image: '/avatars/avatar_ninja.svg',
+        image: '/img/avatars/avatar_ninja.png',
       },
       {
-        image: '/avatars/avatar_astronaut.svg',
+        image: '/img/avatars/avatar_astronaut.png',
       },
       {
-        image: '/avatars/avatar_icecream.svg',
+        image: '/img/avatars/avatar_icecream.png',
       },
       {
-        image: '/avatars/avatar_ghost.svg',
+        image: '/img/avatars/avatar_ghost.png',
+      },
+      {
+        image: '/img/avatars/avatar_gift.png',
       },
     ];
     return {
-      selectedIndex: Math.floor(avatars.length / 2),
+      selectedIndex: -1,
       avatars,
     };
   },
@@ -75,7 +78,6 @@ export default {
     imagesOffset() {
       // average of (big image + margin) and (small image + margin) + 8 (no idea why)
       let avg = (80 + 12 + 64 + 12 + 8) / 2;
-
       const ps = this.$refs.presetScroller;
       if (ps && ps.clientHeight > 150) {
         avg = (128 + 16 + 104 + 16 + 8) / 2;
@@ -89,6 +91,10 @@ export default {
       }
       return shifted * avg * -1;
     },
+  },
+  mounted() {
+    // force recalculation of offset when we have dom
+    this.selectedIndex = Math.floor(this.avatars.length / 2) - 1;
   },
   methods: {
     handleUpload(cropper) {
