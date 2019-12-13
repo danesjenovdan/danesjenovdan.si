@@ -2,7 +2,10 @@
   <button
     :class="[
       'donation-option',
-      { 'donation-option--selected': donationPreset.selected },
+      {
+        'donation-option--selected': donationPreset.selected,
+        'donation-option--amount-only': amountOnly,
+      },
     ]"
     @click.prevent="onClick"
     type="button"
@@ -26,7 +29,7 @@
           {{ donationPreset.description }}
         </div>
       </div>
-      <div class="donation-option__icon">
+      <div :class="['donation-option__icon', { 'amount-only': amountOnly }]">
         <div class="icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +61,10 @@ export default {
       type: Object,
       required: true,
     },
+    amountOnly: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     onClick(event) {
@@ -79,6 +86,7 @@ export default {
   background: transparent;
   padding: 0;
   margin-bottom: 1.5rem;
+  width: 100%;
 
   &:focus {
     border: 0 !important;
@@ -102,6 +110,17 @@ export default {
     }
   }
 
+  &.donation-option--amount-only {
+    .donation-option__content {
+      display: flex;
+      align-items: center;
+
+      .donation-option__description {
+        display: none;
+      }
+    }
+  }
+
   .donation-option__content-wrapper {
     display: flex;
     align-items: stretch;
@@ -117,6 +136,11 @@ export default {
       rgba($color-red, 0.2) 100%
     );
 
+    @include media-breakpoint-up(md) {
+      padding: 1.5rem;
+      flex-direction: column;
+    }
+
     .donation-option__content {
       flex: 1;
 
@@ -124,6 +148,11 @@ export default {
         font-size: 2rem;
         font-weight: 600;
         line-height: 1;
+
+        @include media-breakpoint-up(md) {
+          font-size: 2.25rem;
+          margin-bottom: 1.25rem;
+        }
 
         .custom-amount {
           margin-top: 0.5rem;
@@ -153,6 +182,10 @@ export default {
         font-weight: 300;
         font-style: italic;
         margin-top: 0.5rem;
+
+        @include media-breakpoint-up(md) {
+          font-size: 1.25rem;
+        }
       }
     }
 
@@ -160,9 +193,21 @@ export default {
       display: flex;
       align-items: center;
 
+      &:not(.amount-only) {
+        @include media-breakpoint-up(md) {
+          flex-direction: column;
+          align-items: flex-end;
+          margin: 1.5rem -0.75rem -0.75rem -0.75rem;
+        }
+      }
+
       .icon {
         width: 2.5rem;
         color: mix($color-red, #fff, 70%);
+
+        @include media-breakpoint-up(md) {
+          width: 3rem;
+        }
 
         svg {
           width: 100%;
