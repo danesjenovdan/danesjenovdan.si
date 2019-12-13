@@ -336,6 +336,7 @@ export default {
             // const response = await this.$axios.$patch(
             //   `https://podpri.djnd.si/api/donate${this.gift ? '-gift' : ''}/`,
             //   {
+            //     nonce: this.nonce,
             //     gifts_amounts: giftAmounts,
             //     name: this.name,
             //     email: this.email,

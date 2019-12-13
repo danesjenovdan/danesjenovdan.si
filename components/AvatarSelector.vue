@@ -1,6 +1,6 @@
 <template>
   <div class="avatar-selector">
-    <div class="preset-scroller">
+    <div ref="presetScroller" class="preset-scroller">
       <div class="arrow-top"></div>
       <div class="arrow-bottom"></div>
       <div class="images-container">
@@ -74,7 +74,13 @@ export default {
   computed: {
     imagesOffset() {
       // average of (big image + margin) and (small image + margin) + 8 (no idea why)
-      const avg = (80 + 12 + 64 + 12 + 8) / 2;
+      let avg = (80 + 12 + 64 + 12 + 8) / 2;
+
+      const ps = this.$refs.presetScroller;
+      if (ps && ps.clientHeight > 150) {
+        avg = (128 + 16 + 104 + 16 + 8) / 2;
+      }
+
       // this shifts 0...x indexes to -x/2...x/2 with 0 in the middle
       let shifted = this.selectedIndex - Math.floor(this.avatars.length / 2);
       if (this.avatars.length % 2 === 0) {
@@ -107,6 +113,11 @@ export default {
 
 <style lang="scss" scoped>
 .avatar-selector {
+  @include media-breakpoint-up(md) {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
   .preset-scroller {
     margin: 0 -1.5rem;
     height: 8rem;
@@ -116,6 +127,10 @@ export default {
       rgba($color-red, 0.7) 100%
     );
     position: relative;
+
+    @include media-breakpoint-up(md) {
+      height: 12rem;
+    }
 
     .arrow-top,
     .arrow-bottom {
@@ -160,6 +175,12 @@ export default {
           margin: 0 0.75rem;
           padding: 0;
 
+          @include media-breakpoint-up(md) {
+            width: 6.5rem;
+            height: 6.5rem;
+            margin: 0 1rem;
+          }
+
           &:focus {
             outline: 0;
           }
@@ -168,6 +189,11 @@ export default {
             width: 5rem;
             height: 5rem;
             border: 2px solid $color-red;
+
+            @include media-breakpoint-up(md) {
+              width: 8rem;
+              height: 8rem;
+            }
           }
         }
       }
@@ -175,12 +201,17 @@ export default {
   }
 
   .select-file {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 
     .custom-file {
       width: 200px;
       margin: 0 auto;
       display: block;
+
+      @include media-breakpoint-up(md) {
+        width: 400px;
+        height: 3rem;
+      }
 
       .custom-file-label {
         border: none;
@@ -189,6 +220,11 @@ export default {
         font-weight: 600;
         font-style: italic;
         text-decoration: underline;
+
+        @include media-breakpoint-up(md) {
+          font-size: 1.5rem;
+          height: 3rem;
+        }
 
         &::after {
           display: none;
@@ -214,6 +250,10 @@ export default {
 
     .cropper-line,
     .cropper-point {
+      background-color: $color-red;
+    }
+
+    .avatar-cropper-btn:hover {
       background-color: $color-red;
     }
   }
