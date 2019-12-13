@@ -172,6 +172,7 @@ button:focus {
   display: inline-block;
   width: 47px;
   height: 47px;
+  color: #333;
 
   &::after {
     content: ' ';
@@ -179,8 +180,8 @@ button:focus {
     width: 47px;
     height: 47px;
     border-radius: 50%;
-    border: 5px solid #333;
-    border-color: #333 transparent #333 transparent;
+    border: 5px solid currentColor;
+    border-color: currentColor transparent currentColor transparent;
     animation: lds-dual-ring 1.75s linear infinite;
   }
 }
