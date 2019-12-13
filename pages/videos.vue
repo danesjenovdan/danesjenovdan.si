@@ -13,7 +13,7 @@
         />
         <div v-if="bigVideo" class="embed-responsive-item">
           <iframe
-            :src="embedUrl(bigVideo.url)"
+            :src="embedUrl(bigVideo.url, autoplay)"
             :class="['big-video__iframe', { loaded: iframeLoaded }]"
             @load="onIframeLoad"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -92,6 +92,7 @@ export default {
         { id: 'razlaga', label: 'Razlaga', active: false },
         // TODO: i18n labels
       ],
+      autoplay: false,
     };
   },
   computed: {
@@ -119,6 +120,7 @@ export default {
       this.bigVideo = videoObj || (this.videos.length && this.videos[0]);
       this.iframeLoaded = false;
       this.$refs.bigVideo.scrollIntoView();
+      this.autoplay = true;
     },
   },
   async asyncData({ $axios, params, query, error }) {
@@ -146,17 +148,24 @@ export default {
 
 <style lang="scss" scoped>
 .big-video {
-  .background-image {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+  .embed-responsive {
+    @include media-breakpoint-up(lg) {
+      width: 75%;
+      margin: 0 auto;
+    }
 
-  iframe {
-    opacity: 0;
+    .background-image {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 
-    &.loaded {
-      opacity: 1;
+    iframe {
+      opacity: 0;
+
+      &.loaded {
+        opacity: 1;
+      }
     }
   }
 
