@@ -9,12 +9,16 @@
         'confirm-button--block': block,
         'confirm-button--arrow': arrow,
         'confirm-button--hearts': hearts,
-        disabled: disabled,
+        loading: loading,
+        disabled: disabled || loading,
       },
     ]"
-    :disabled="disabled"
+    :disabled="disabled || loading"
     v-on="$listeners"
   >
+    <div v-if="loading" class="loader-container">
+      <div class="lds-dual-ring" />
+    </div>
     <div v-if="arrow" class="arrow">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -79,6 +83,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -101,6 +109,44 @@ export default {
   position: relative;
   overflow: hidden;
 
+  @include media-breakpoint-up(md) {
+    font-size: 3rem;
+  }
+
+  &.loading {
+    .text,
+    .arrow,
+    .hearts {
+      opacity: 0;
+    }
+  }
+
+  .loader-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .lds-dual-ring {
+      color: #fff;
+
+      &,
+      &::after {
+        width: 2rem;
+        height: 2rem;
+
+        @include media-breakpoint-up(md) {
+          width: 3rem;
+          height: 3rem;
+        }
+      }
+    }
+  }
+
   .text {
     flex: 1;
     position: relative;
@@ -111,6 +157,10 @@ export default {
     margin: -1em 0.5rem -1em -3.5rem;
     display: flex;
     height: 1.125em;
+
+    @include media-breakpoint-up(md) {
+      height: 0.75em;
+    }
 
     svg {
       height: 100%;
@@ -123,6 +173,10 @@ export default {
     .heart {
       height: 1.75em;
       display: inline-block;
+
+      @include media-breakpoint-up(md) {
+        height: 1.25em;
+      }
 
       svg {
         height: 100%;
@@ -152,10 +206,6 @@ export default {
   @each $color-name, $color in $theme-colors {
     &--#{$color-name} {
       background-color: $color;
-
-      // &:hover {
-      //   background-color: rgba($color, 0.15);
-      // }
     }
   }
 }
