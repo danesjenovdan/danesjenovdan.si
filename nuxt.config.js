@@ -14,15 +14,20 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      // {
-      //   hid: 'description',
-      //   name: 'description',
-      //   content: '',
-      // },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
+      },
       { name: 'theme-color', content: '#ffffff' },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Danes je nov dan' },
-      // { property: 'og:description', content: '' },
+      {
+        property: 'og:description',
+        content:
+          'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
+      },
       {
         property: 'og:image',
         content: 'http://nov.djnd.si/djnd-og.png',
@@ -30,7 +35,11 @@ export default {
       { name: 'twitter:creator', content: '@danesjenovdan' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Danes je nov dan' },
-      // { name: 'twitter:description', content: '' },
+      {
+        name: 'twitter:description',
+        content:
+          'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
+      },
       {
         name: 'twitter:image',
         content: 'http://nov.djnd.si/djnd-og.png',
