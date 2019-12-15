@@ -110,7 +110,7 @@
         <h2 class="share__subtitle">Več nas bo, prej bomo na cilju...</h2>
         <h1 class="share__title">POVEJ NAPREJ!</h1>
         <div class="share__buttons">
-          <button type="button">
+          <button @click="onShareClick($event, 'fb')" type="button">
             <svg
               fill="currentColor"
               viewBox="0 0 1792 1792"
@@ -121,7 +121,7 @@
               ></path>
             </svg>
           </button>
-          <button type="button">
+          <button @click="onShareClick($event, 'tw')" type="button">
             <svg
               fill="currentColor"
               viewBox="0 0 1792 1792"
@@ -132,7 +132,7 @@
               ></path>
             </svg>
           </button>
-          <button type="button">
+          <button @click="onShareClick($event, 'mail')" type="button">
             <svg
               fill="currentColor"
               viewBox="0 0 1792 1792"
@@ -222,6 +222,29 @@ export default {
         );
         this.stage = 'share';
       }
+    },
+    onShareClick(event, type) {
+      const shareLink = 'https://danesjenovdan.si/doniraj';
+      const shareText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
+      const shareHashtag = '';
+      this.openSocialShareLink(type, shareText, shareLink, shareHashtag);
+    },
+    openSocialShareLink(type, shareText, shareLink, shareHashtag) {
+      let url = '';
+      const title = encodeURIComponent(shareText);
+      if (type === 'fb') {
+        const link = encodeURIComponent(shareLink);
+        url = `https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=${link}&link=${link}&ref=responsive&name=${title}`;
+      } else if (type === 'tw') {
+        const text = encodeURIComponent(
+          `${shareText} ${shareHashtag} ${shareLink}`,
+        );
+        url = `https://twitter.com/intent/tweet?text=${text}`;
+      } else if (type === 'mail') {
+        const text = `${shareText} ${shareLink}`;
+        url = `mailto:?subject=${title}&body=${text}`;
+      }
+      window.open(url, '_blank');
     },
   },
 };
