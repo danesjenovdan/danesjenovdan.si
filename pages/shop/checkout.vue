@@ -10,7 +10,7 @@
       </template>
       <template v-else>
         <template v-for="item in items">
-          <!-- TODO: variant text -->
+          <!-- TODO: text="variant text" -->
           <cart-product
             :key="`${item.id}`"
             :image="`/img/products/${item.article.id}.jpg`"
@@ -21,7 +21,7 @@
             "
             :price="item.article.price"
             :amount="item.quantity"
-            text="TODO: variant text"
+            text=""
           />
           <hr :key="`${item.id}-hr`" />
         </template>

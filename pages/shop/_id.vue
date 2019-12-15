@@ -15,8 +15,8 @@
       </template>
       <p v-t="`shop.products.${product.id}.description`" />
       <hr />
-      <div>TODO: variants</div>
-      <hr />
+      <!-- <div>TODO: variants</div>
+      <hr /> -->
       <more-button
         :text="'KUPI'"
         @click="addAndCheckout"
@@ -79,51 +79,66 @@ export default {
 
 <style lang="scss" scoped>
 .product {
-  h1 {
-    margin: 3rem 0 1rem;
-    text-align: center;
-    font-size: 1.85rem;
-    font-weight: 600;
-  }
+  .product__container {
+    @include media-breakpoint-up(md) {
+      max-width: 540px;
+      margin: 0 auto;
+    }
 
-  h2 {
-    margin: 1rem 0 2rem;
-    text-align: center;
-    font-size: 1.85rem;
-    font-weight: 300;
-    font-style: italic;
-  }
+    h1 {
+      margin: 3rem 0 1rem;
+      text-align: center;
+      font-size: 1.85rem;
+      font-weight: 600;
+    }
 
-  img {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  p {
-    font-size: 1.2rem;
-    font-weight: 300;
-    font-style: italic;
-  }
-
-  hr {
-    border-top-color: #686d6e;
-    margin-top: 1.75rem;
-    margin-bottom: 1.75rem;
-  }
-
-  .add-to-basket {
-    margin: 2rem 0 1rem;
-    color: #333;
-
-    a {
-      text-decoration: underline;
-      color: inherit;
-      font-style: italic;
+    h2 {
+      margin: 1rem 0 2rem;
+      text-align: center;
+      font-size: 1.85rem;
       font-weight: 300;
+      font-style: italic;
+    }
 
-      &:hover {
-        text-decoration: none;
+    img {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 2rem;
+
+      @include media-breakpoint-up(md) {
+        display: block;
+        max-width: 370px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    hr {
+      border-top-color: #686d6e;
+      margin-top: 1.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .add-to-basket {
+      margin: 2rem 0 1rem;
+      color: #333;
+      text-align: center;
+
+      a {
+        text-decoration: underline;
+        color: inherit;
+        font-style: italic;
+        font-weight: 300;
+
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
   }

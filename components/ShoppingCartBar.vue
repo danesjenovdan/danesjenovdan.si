@@ -23,7 +23,7 @@
           <div class="arrow" />
           <div class="cart-preview__content">
             <template v-for="item in items">
-              <!-- TODO: variant text -->
+              <!-- TODO: text="variant text" -->
               <cart-product
                 :key="`${item.id}`"
                 :image="`/img/products/${item.article.id}.jpg`"
@@ -35,7 +35,7 @@
                 :price="item.article.price"
                 :amount="item.quantity"
                 @change-amount="changeAmount(item.id, $event)"
-                text="TODO: variant text"
+                text=""
                 show-modify
               />
               <hr :key="`${item.id}-hr`" />
