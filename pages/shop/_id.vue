@@ -25,9 +25,9 @@
         icon="heart"
       />
       <div class="add-to-basket">
-        <nuxt-link to="#">
+        <a @click.prevent="addAndBack" href="#">
           Dodaj v voziček in še malo pobrskaj po policah
-        </nuxt-link>
+        </a>
       </div>
     </div>
   </div>
@@ -72,6 +72,10 @@ export default {
     async addAndCheckout() {
       await this.addToBasket(this.orderKey, this.product.id, 1);
       this.$router.push(this.localePath('shop-checkout'));
+    },
+    async addAndBack() {
+      await this.addToBasket(this.orderKey, this.product.id, 1);
+      this.$router.push(this.localePath('shop'));
     },
   },
 };

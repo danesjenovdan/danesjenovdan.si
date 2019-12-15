@@ -1,6 +1,7 @@
 <template>
   <div class="checkout">
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
+
     <div v-else-if="stage === 'summary'" class="checkout__summary">
       <h1 class="checkout__title">Povzetek naročila</h1>
       <template v-if="summaryLoading">
@@ -40,6 +41,7 @@
         />
       </template>
     </div>
+
     <div v-else-if="stage === 'delivery'" class="checkout__delivery">
       <h1 class="checkout__title">Prevzem</h1>
       <form @submit.prevent="continueToPayment">
@@ -127,23 +129,56 @@
         </div>
       </template>
     </div>
-    <div v-else-if="stage === 'payment'" class="checkout__payment">
-      <h1 class="checkout__title">Plačilo</h1>
-      <payment-switcher @change="onPaymentChange" />
-      <template v-if="payment === 'card'">
-        <card-payment :token="token" @success="paymentSuccess" />
+
+    <checkout-stage v-if="stage === 'payment'">
+      <template slot="title">
+        Plačilo
       </template>
-      <template v-if="payment === 'paypal'">
-        <paypal-payment
-          :token="token"
-          :amount="totalPrice"
-          @success="paymentSuccess"
-        />
+      <template slot="content">
+        <div class="payment-container">
+          <payment-switcher @change="onPaymentChange" />
+          <div v-if="checkoutLoading" class="payment-loader">
+            <div class="lds-dual-ring" />
+          </div>
+          <template v-if="payment === 'card'">
+            <card-payment
+              :token="token"
+              @ready="onPaymentReady"
+              @validity-change="paymentInfoValid = $event"
+              @payment-start="paymentInProgress = true"
+              @success="paymentSuccess"
+            />
+          </template>
+          <template v-if="payment === 'paypal'">
+            <paypal-payment
+              :token="token"
+              :amount="totalPrice"
+              @ready="onPaymentReady"
+              @payment-start="paymentInProgress = true"
+              @success="paymentSuccess"
+            />
+          </template>
+          <template v-if="payment === 'upn'">
+            <upn-payment />
+          </template>
+        </div>
       </template>
-      <template v-if="payment === 'upn'">
-        <upn-payment />
+      <template slot="footer">
+        <div class="confirm-button-container">
+          <confirm-button
+            key="next-payment"
+            :disabled="!canContinueToNextStage"
+            :loading="paymentInProgress"
+            @click.native="continueToNextStage"
+            text="Plačaj"
+            color="secondary"
+            arrow
+            hearts
+          />
+        </div>
       </template>
-    </div>
+    </checkout-stage>
+
     <div v-else-if="stage === 'thankyou'" class="checkout__thankyou">
       <div class="thankyou__content">
         <div>
@@ -163,6 +198,7 @@
         >
       </div>
     </div>
+
     <div v-if="stage !== 'thankyou'" class="terms">
       <nuxt-link to="#">Pogoji poslovanja</nuxt-link>
     </div>
@@ -177,6 +213,8 @@ import PaymentSwitcher from '~/components/Payment/Switcher.vue';
 import CardPayment from '~/components/Payment/Card.vue';
 import PaypalPayment from '~/components/Payment/Paypal.vue';
 import UpnPayment from '~/components/Payment/Upn.vue';
+import CheckoutStage from '~/components/CheckoutStage.vue';
+import ConfirmButton from '~/components/ConfirmButton.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -197,6 +235,8 @@ export default {
     CardPayment,
     PaypalPayment,
     UpnPayment,
+    CheckoutStage,
+    ConfirmButton,
   },
   mixins: [shopMixin],
   data() {
@@ -209,10 +249,13 @@ export default {
       email: null,
       address: null,
       addressPost: null,
+      payFunction: undefined,
+      paymentInfoValid: false,
+      paymentInProgress: false,
+      token: null,
       payment: null,
       orderKey: null,
       items: null,
-      token: null,
       error: null,
     };
   },
@@ -245,6 +288,12 @@ export default {
         }
       }
       return true;
+    },
+    canContinueToNextStage() {
+      if (this.stage === 'payment') {
+        return this.payFunction && this.paymentInfoValid;
+      }
+      return false;
     },
   },
   async mounted() {
@@ -279,7 +328,6 @@ export default {
           },
         );
         this.token = checkoutResponse.token;
-        this.checkoutLoading = false;
 
         this.stage = 'payment';
       } catch (error) {
@@ -288,7 +336,23 @@ export default {
         this.error = error;
       }
     },
+    continueToNextStage() {
+      if (this.canContinueToNextStage) {
+        if (this.stage === 'payment') {
+          if (this.payFunction) {
+            this.payFunction();
+          }
+        }
+      }
+    },
+    onPaymentReady({ pay } = {}) {
+      this.checkoutLoading = false;
+      this.paymentInfoValid = false;
+      this.payFunction = pay;
+    },
     onPaymentChange(payment) {
+      this.checkoutLoading = true;
+      this.paymentInfoValid = false;
       this.payment = payment;
     },
     async paymentSuccess({ nonce } = {}) {
@@ -323,6 +387,46 @@ export default {
   }
 }
 
+// temp styles
+.checkout__summary,
+.checkout__delivery,
+.checkout__payment,
+.checkout__thankyou {
+  @include media-breakpoint-up(md) {
+    width: 540px;
+    margin: 0 auto;
+  }
+}
+
+// new styles
+.checkout {
+  .confirm-button-container {
+    text-align: center;
+  }
+
+  .payment-container {
+    .payment-loader {
+      position: fixed;
+      top: -1rem;
+      left: -0.5rem;
+      bottom: -0.5rem;
+      right: -0.5rem;
+      z-index: 999999;
+      background: rgba(#333, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .payment-container,
+  .info-content {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+}
+
+// old styles
 .checkout {
   min-height: 100vh;
   display: flex;
