@@ -385,7 +385,7 @@
         <more-button
           :text="$t('about.papers')"
           icon="papers"
-          to="https://www.google.com/"
+          to="https://drive.google.com/drive/folders/1J9OeRGe_P2nIlz3_C_H-v265droKTnr9"
         />
       </div>
     </div>
