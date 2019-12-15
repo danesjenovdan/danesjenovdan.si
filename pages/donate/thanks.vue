@@ -76,7 +76,9 @@
               class="custom-control-input"
             />
             <label class="custom-control-label" for="info-image-legal"
-              >TODO: image is legal, we're not liable etc.</label
+              >Razumem, da lahko naložim le sliko, ki je izdana pod CC licenco
+              ali katere avtorske pravice nosim sam/-a. DJND zavrača odgovornost
+              za vsebine, ki jih naložijo uporabniki.</label
             >
           </div>
         </div>

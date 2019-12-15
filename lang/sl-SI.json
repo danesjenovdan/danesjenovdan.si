@@ -143,7 +143,10 @@
       "type": {
         "title": "Vrsta gostovanja",
         "interview": "Intervju",
-        "talk": "Predavanje"
+        "lecture": "Predavanje",
+        "round-table": "Okrogla miza",
+        "scientific": "Znanstveni članki",
+        "reporting": "Poročanje"
       },
       "format": {
         "title": "Format",
@@ -270,37 +273,37 @@
         "__display_name": "remove __ to override name",
         "description": "Skupnost je izglasovala slogan, mi smo ga ilustrirali. Naša prva majica prinaša natančno analizo stanja v državi. Da ne pozabimo, v čem je fora.",
         "short_description": "Ker moda je komunikacija",
-        "button_text": "TODO: button text"
+        "button_text": "Več"
       },
       "3": {
         "__display_name": "remove __ to override name",
         "description": "Z nakupom poskrbiš za simpatičen vnos tekočih poživil, kot so kava, čaj ali vroča čokolada, pa tudi za poživitev našega delovanja.",
         "short_description": "Da te zjutraj opomni, da je danes nov dan",
-        "button_text": "TODO: button text"
+        "button_text": "Več"
       },
       "4": {
         "__display_name": "remove __ to override name",
         "description": "Igrifikacija spoznavanja politikov in poigravanje z njihovimi statistikami, ki pomaga delovanju inštituta in našega paradnega projekta Parlameter.",
         "short_description": "Da preizkusiš edino politično igro, ki ne škodi ljudstvu",
-        "button_text": "TODO: button text"
+        "button_text": "Več"
       },
       "5": {
         "__display_name": "remove __ to override name",
         "description": "Prva edicija tematskega agrumenta, ki je na spletu izhajal ob sobotah in slovaril filozofske koncepte. Z užitkom v mišljenju podpri prostovoljski projekt!",
         "short_description": "Tematski agrumenti - Filozofski abecedarij",
-        "button_text": "TODO: button text"
+        "button_text": "Več"
       },
       "6": {
         "__display_name": "remove __ to override name",
         "description": "Pri naši drugi majici oz. paru majic je iz skupnosti prišel dizajn, mi pa smo zrihtali (sito)tisk. Ker je nov dan vedno lahko le tisto, kar naredimo skupaj, najsi tulimo v luno ali pa mežikamo v sonce. Tokrat v omejeni izdaji. P.S. Kroj je univerzalen, neteliran, velikosti pa bolj \"moške\".",
         "short_description": "Ker moda je komunikacija",
-        "button_text": "TODO: button text"
+        "button_text": "Več"
       },
       "7": {
         "__display_name": "remove __ to override name",
         "description": "Pri naši drugi majici oz. paru majic je iz skupnosti prišel dizajn, mi pa smo zrihtali (sito)tisk. Ker je nov dan vedno lahko le tisto, kar naredimo skupaj, najsi tulimo v luno ali pa mežikamo v sonce. Tokrat v omejeni izdaji. P.S. Kroj je univerzalen, neteliran, velikosti pa bolj \"moške\".",
         "short_description": "Ker moda je komunikacija",
-        "button_text": "TODO: button text"
+        "button_text": "Več"
       }
     }
   },

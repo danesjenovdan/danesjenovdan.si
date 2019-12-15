@@ -33,10 +33,10 @@
         v-model="languageFilters"
         :title="$t('clipping.tags.language.title')"
       />
-      <filter-checkboxes
+      <!-- <filter-checkboxes
         v-model="tagFilters"
         :title="$t('clipping.tags.tag.title')"
-      />
+      /> -->
     </div>
   </div>
 </template>
