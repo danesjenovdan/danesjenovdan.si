@@ -47,7 +47,7 @@
             :disabled="!canContinueToNextStage"
             :loading="checkoutLoading"
             @click.native="continueToNextStage"
-            text="Podpri"
+            text="PODPRI NAS"
             color="secondary"
             arrow
             hearts
@@ -96,7 +96,7 @@
             :disabled="!canContinueToNextStage"
             :loading="paymentInProgress"
             @click.native="continueToNextStage"
-            text="Plačaj"
+            text="DONIRAJ"
             color="secondary"
             arrow
             hearts
@@ -107,8 +107,7 @@
 
     <checkout-stage v-if="stage === 'info'">
       <template slot="title">
-        Hvala!<br />
-        Kam ti pošljemo zahvalo?
+        Hvala za plačilo!<br />Kam ti pošljemo presenečenje?
       </template>
       <template slot="content">
         <div class="info-content">
@@ -134,7 +133,7 @@
               id="email"
               v-model="email"
               type="email"
-              placeholder="Email"
+              placeholder="E-naslov"
               class="form-control form-control-lg"
             />
           </div>
@@ -147,7 +146,7 @@
               class="custom-control-input"
             />
             <label class="custom-control-label" for="info-newsletter"
-              >Želim prejemati newsletter</label
+              >Želim se naročiti na e-novice.</label
             >
           </div>
         </div>
@@ -159,7 +158,7 @@
             :disabled="!canContinueToNextStage"
             :loading="infoSubmitting"
             @click.native="continueToNextStage"
-            text="Potrdi"
+            text="Naprej"
             color="secondary"
             arrow
             hearts
@@ -207,28 +206,28 @@ export default {
       donationPresets: [
         {
           amount: 11,
-          description: 'TODO: this text',
+          description: 'Čaka te mini presenečenje!',
           selected: false,
         },
         {
           amount: 24,
-          description: 'TODO: this text',
+          description: 'Čaka te majhno presenečenje!',
           selected: false,
         },
         {
           amount: 47,
-          description: 'TODO: this text',
+          description: 'Čaka te presečenje!',
           selected: false,
         },
         {
-          amount: 100,
-          description: 'TODO: this text',
+          amount: 101,
+          description: 'Ti si presenečenje! In čaka te ornk presenečenje :)',
           selected: false,
         },
         {
           custom: true,
           amount: null,
-          description: 'TODO: this text',
+          description: 'Vnesi poljuben znesek!',
           selected: false,
         },
       ],
@@ -349,15 +348,12 @@ export default {
                 }),
               );
             } else if (response.owner_token) {
-              console.log(response);
-              // TODO: redirect to page
-              // this.$router.push(
-              //   this.localePath({
-              //     name: 'donate-gifts',
-              //     query: { token: response.owner_token },
-              //   }),
-              // );
-              // [GET] https://podpri.djnd.si/api/assign-gift/ed79f46269ee4794b813d8ea419e8ee9/
+              this.$router.push(
+                this.localePath({
+                  name: 'donate-gifts',
+                  query: { token: response.owner_token },
+                }),
+              );
             }
           } catch (error) {
             // eslint-disable-next-line no-console

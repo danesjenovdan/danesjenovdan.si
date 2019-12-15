@@ -23,7 +23,7 @@
       <div class="custom-file">
         <input id="customFile" type="file" class="custom-file-input" />
         <label class="custom-file-label" for="customFile"
-          >naloži svojo fotko</label
+          >naloži sliko s svojega računalnika</label
         >
       </div>
       <client-only placeholder="Loading...">
@@ -244,12 +244,12 @@ export default {
     margin-top: 1.5rem;
 
     .custom-file {
-      width: 200px;
+      // width: 400px;
       margin: 0 auto;
       display: block;
 
       @include media-breakpoint-up(md) {
-        width: 400px;
+        // width: 600px;
         height: 3rem;
       }
 

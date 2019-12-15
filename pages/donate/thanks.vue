@@ -9,9 +9,9 @@
         </div>
         <h1 class="thankyou__title">
           <div class="icon icon-heart--secondary" />
-          Hvala za podporo!
+          Hvala za donacijo!
         </h1>
-        <h2 class="thankyou__subtitle">S tvojo pomočjo smo močnejši.</h2>
+        <h2 class="thankyou__subtitle">Skupaj bomo prevagali.</h2>
         <div class="thankyou__faces">
           <div style="height: 200px; background: #ccc">
             TEHTNICA
@@ -23,7 +23,7 @@
           <confirm-button
             key="next-thankyou"
             @click.native="stage = 'avatar'"
-            text="Dodaj svoj obraz"
+            text="Dodaj svoj obraz na tehtnico"
             color="secondary"
             arrow
           />
@@ -38,13 +38,14 @@
 
     <checkout-stage v-if="stage === 'avatar'" no-header>
       <template slot="content">
-        <h2 class="avatar__title">Dodaj svojo sliko ali izberi avatar!</h2>
+        <h2 class="avatar__title">Dodaj svojo sliko ali si izberi avatar!</h2>
         <avatar-selector @change="onAvatarChange" />
         <hr class="avatar__hr" />
         <div class="avatar__info">
           <div class="form-group">
             <label for="info-url"
-              >TODO: prilepi link ki bo pri tvojem avatarju.</label
+              >Lahko dodaš URL do svoje spletne strani ali profila na družbenih
+              medijih</label
             >
             <input
               id="info-url"
@@ -63,7 +64,7 @@
               class="custom-control-input"
             />
             <label class="custom-control-label" for="info-display-support"
-              >Prikažite me na seznamu podpornikov</label
+              >Želim, da me dodate na seznam donatorjev.</label
             >
           </div>
           <div class="custom-control custom-checkbox">
@@ -106,7 +107,7 @@
             TEHTNICA
           </div>
         </div>
-        <h2 class="share__subtitle">Več nas bo, prej bomo na cilju!</h2>
+        <h2 class="share__subtitle">Več nas bo, prej bomo na cilju...</h2>
         <h1 class="share__title">POVEJ NAPREJ!</h1>
         <div class="share__buttons">
           <button type="button">
@@ -195,6 +196,11 @@ export default {
     return {
       token,
     };
+  },
+  created() {
+    if (!this.token) {
+      this.stage = 'share';
+    }
   },
   methods: {
     onAvatarChange(blob) {
@@ -317,6 +323,11 @@ export default {
   .avatar__info {
     max-width: 540px;
     margin: 0 auto;
+
+    label[for='info-url'] {
+      font-weight: 300;
+      font-style: italic;
+    }
   }
 
   .custom-checkbox {
