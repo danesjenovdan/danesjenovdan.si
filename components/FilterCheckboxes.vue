@@ -117,7 +117,7 @@ export default {
       border: 0;
       padding: 0;
       margin-bottom: 1.25rem;
-      background-image: none;
+      background-image: none !important;
       pointer-events: none;
     }
   }
