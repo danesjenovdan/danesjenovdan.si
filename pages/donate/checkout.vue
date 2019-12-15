@@ -381,7 +381,7 @@ export default {
           ? this.donationGifts.map((g) => g.amount)
           : undefined;
 
-        const response = await this.$axios.$post(
+        await this.$axios.$post(
           `https://podpri.djnd.si/api/donate${this.gift ? '-gift' : ''}/`,
           {
             // payment_type: this.nonce ? 'braintree' : 'upn',
@@ -390,7 +390,6 @@ export default {
             gifts_amounts: giftAmounts,
           },
         );
-        console.log(response);
 
         this.paymentInProgress = false;
         this.stage = 'info';
