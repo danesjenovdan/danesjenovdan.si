@@ -329,33 +329,27 @@ export default {
           }
         } else if (this.stage === 'info') {
           try {
-            // const giftAmounts = this.gift
-            //   ? this.donationGifts.map((g) => g.amount)
-            //   : undefined;
-
-            // const response = await this.$axios.$patch(
-            //   `https://podpri.djnd.si/api/donate${this.gift ? '-gift' : ''}/`,
-            //   {
-            //     nonce: this.nonce,
-            //     gifts_amounts: giftAmounts,
-            //     name: this.name,
-            //     email: this.email,
-            //     address: this.address,
-            //     mailing: this.subscribeNewsletter,
-            //   },
-            // );
-            const response = {};
+            this.infoSubmitting = true;
+            const response = await this.$axios.$post(
+              `https://podpri.djnd.si/api/donate${this.gift ? '-gift' : ''}/`,
+              {
+                nonce: this.nonce,
+                name: this.name,
+                email: this.email,
+                address: this.address,
+                mailing: this.subscribeNewsletter,
+              },
+            );
 
             if (response.upload_token) {
-              // TODO: redirect to page
-              // this.$router.push(
-              //   this.localePath({
-              //     name: 'donate-thanks',
-              //     query: { token: response.upload_token },
-              //   }),
-              // );
-              // [PATCH] https://podpri.djnd.si/api/images/9cdd6ed1c061d8182b8ceabfb57f2a52/
+              this.$router.push(
+                this.localePath({
+                  name: 'donate-thanks',
+                  query: { token: response.upload_token },
+                }),
+              );
             } else if (response.owner_token) {
+              console.log(response);
               // TODO: redirect to page
               // this.$router.push(
               //   this.localePath({
@@ -387,16 +381,20 @@ export default {
       this.nonce = nonce;
 
       try {
-        // const response = await this.$axios.$post(
-        //   `https://podpri.djnd.si/api/donate${this.gift ? '-gift' : ''}/`,
-        //   {
-        //     payment_type: this.nonce ? 'braintree' : 'upn',
-        //     nonce: this.nonce,
-        //     amount: this.selectedDonationAmount,
-        //   },
-        // );
-        // TODO: get some token or something to know where to patch in the next step
-        await 0;
+        const giftAmounts = this.gift
+          ? this.donationGifts.map((g) => g.amount)
+          : undefined;
+
+        const response = await this.$axios.$post(
+          `https://podpri.djnd.si/api/donate${this.gift ? '-gift' : ''}/`,
+          {
+            // payment_type: this.nonce ? 'braintree' : 'upn',
+            nonce: this.nonce,
+            amount: this.selectedDonationAmount,
+            gifts_amounts: giftAmounts,
+          },
+        );
+        console.log(response);
 
         this.paymentInProgress = false;
         this.stage = 'info';

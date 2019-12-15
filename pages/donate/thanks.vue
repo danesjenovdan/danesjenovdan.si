@@ -39,7 +39,7 @@
     <checkout-stage v-if="stage === 'avatar'" no-header>
       <template slot="content">
         <h2 class="avatar__title">Dodaj svojo sliko ali izberi avatar!</h2>
-        <avatar-selector />
+        <avatar-selector @change="onAvatarChange" />
         <hr class="avatar__hr" />
         <div class="avatar__info">
           <div class="form-group">
@@ -85,6 +85,7 @@
           <confirm-button
             key="next-avatar"
             :disabled="!canUploadImage"
+            :loading="imageUploading"
             @click.native="uploadImage"
             text="Potrdi"
             color="secondary"
@@ -175,11 +176,18 @@ export default {
       url: null,
       displayMySupport: false,
       imageIsLegal: false,
+      imageUploading: false,
+      imageBlob: null,
     };
   },
   computed: {
     canUploadImage() {
-      return this.token && this.displayMySupport && this.imageIsLegal;
+      return (
+        this.token &&
+        this.displayMySupport &&
+        this.imageIsLegal &&
+        this.imageBlob
+      );
     },
   },
   asyncData({ query }) {
@@ -189,9 +197,23 @@ export default {
     };
   },
   methods: {
-    uploadImage() {
+    onAvatarChange(blob) {
+      this.imageBlob = blob;
+    },
+    async uploadImage() {
       if (this.canUploadImage) {
-        // TODO: upload
+        this.imageUploading = true;
+        const formData = new FormData();
+        formData.append('url', this.url);
+        formData.append(
+          'image',
+          this.imageBlob,
+          Date.now().toString(36) + '.jpg',
+        );
+        await this.$axios.$patch(
+          `https://podpri.djnd.si/api/images/${this.token}/`,
+          formData,
+        );
         this.stage = 'share';
       }
     },

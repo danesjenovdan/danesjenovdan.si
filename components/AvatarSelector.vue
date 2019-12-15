@@ -92,6 +92,33 @@ export default {
       return shifted * avg * -1;
     },
   },
+  watch: {
+    selectedIndex(newVal) {
+      const selectedAvatar = this.avatars[newVal];
+      if (!selectedAvatar.blob) {
+        const that = this;
+        const img = new Image();
+        const c = document.createElement('canvas');
+        const ctx = c.getContext('2d');
+        img.onload = function() {
+          c.width = this.naturalWidth; // update canvas size to match image
+          c.height = this.naturalHeight;
+          ctx.drawImage(this, 0, 0); // draw in image
+          c.toBlob(
+            function(blob) {
+              selectedAvatar.blob = blob;
+              that.$emit('change', selectedAvatar.blob);
+            },
+            'image/jpeg',
+            0.7,
+          );
+        };
+        img.src = selectedAvatar.image;
+      } else {
+        this.$emit('change', selectedAvatar.blob);
+      }
+    },
+  },
   mounted() {
     // force recalculation of offset when we have dom
     this.selectedIndex = Math.floor(this.avatars.length / 2) - 1;
@@ -99,7 +126,7 @@ export default {
   methods: {
     handleUpload(cropper) {
       // TODO: use to blob and toblob polyfill
-      const userAvatar = cropper
+      cropper
         .getCroppedCanvas({
           width: 400,
           height: 400,
@@ -107,11 +134,18 @@ export default {
           maxHeight: 2048,
           fillColor: '#fff',
         })
-        .toDataURL('image/jpeg', 0.7);
-      this.avatars.push({
-        image: userAvatar,
-      });
-      this.selectedIndex = this.avatars.length - 1;
+        .toBlob(
+          (blob) => {
+            const blobUrl = URL.createObjectURL(blob);
+            this.avatars.push({
+              image: blobUrl,
+              blob,
+            });
+            this.selectedIndex = this.avatars.length - 1;
+          },
+          'image/jpeg',
+          0.7,
+        );
     },
   },
 };
