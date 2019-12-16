@@ -1,5 +1,11 @@
 <template>
-  <div :class="['checkout-stage', { 'checkout-stage--no-header': noHeader }]">
+  <div
+    :class="[
+      'checkout-stage',
+      `checkout-stage-${stage}`,
+      { 'checkout-stage--no-header': noHeader },
+    ]"
+  >
     <div class="checkout-stage__header">
       <slot name="header">
         <h1 class="checkout-stage__title">
@@ -23,6 +29,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    stage: {
+      type: String,
+      default: 'default',
+    },
   },
 };
 </script>
@@ -33,6 +43,20 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  &.checkout-stage-payment {
+    .checkout-stage__content {
+      max-width: 450px;
+      margin: auto;
+    }
+  }
+
+  &.checkout-stage-default {
+    .checkout-stage__content {
+      max-width: 500px;
+      margin: auto;
+    }
+  }
 
   &.checkout-stage--no-header {
     .checkout-stage__header {

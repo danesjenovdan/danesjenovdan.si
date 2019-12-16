@@ -60,7 +60,7 @@ export default {
       milestones: [
         {
           number: 10,
-          text: 'ljudi potrebnih za vzpostavitev verske skupnosti',
+          text: 'ljudi, potrebnih za vzpostavitev verske skupnosti',
           icon: '1_verskaskupnost',
         },
         {

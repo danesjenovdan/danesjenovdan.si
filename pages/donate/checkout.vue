@@ -2,7 +2,7 @@
   <div class="checkout">
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
 
-    <checkout-stage v-if="stage === 'select-amount'">
+    <checkout-stage v-if="stage === 'select-amount'" :stage="stage">
       <template slot="title">
         Izberi višino donacije!
       </template>
@@ -56,7 +56,7 @@
       </template>
     </checkout-stage>
 
-    <checkout-stage v-if="stage === 'payment'">
+    <checkout-stage v-if="stage === 'payment'" :stage="stage">
       <template slot="title">
         Plačilo
       </template>
@@ -105,7 +105,7 @@
       </template>
     </checkout-stage>
 
-    <checkout-stage v-if="stage === 'info'">
+    <checkout-stage v-if="stage === 'info'" :stage="stage">
       <template slot="title">
         Hvala za plačilo!<br />Kam ti pošljemo presenečenje?
       </template>

@@ -29,6 +29,8 @@ export default {
   min-height: 100vh;
   outline: 1px solid gold;
 
+  background-color: #ffffff;
+
   .content {
     flex: 1;
     margin-left: 0;
