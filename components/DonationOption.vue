@@ -17,7 +17,7 @@
             <input
               id="custom-amount"
               v-model="donationPreset.amount"
-              @keyup="onClick"
+              @keyup.enter="onClick"
               type="number"
               class="form-control"
             />

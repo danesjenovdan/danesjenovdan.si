@@ -1,37 +1,45 @@
 <template>
   <div class="donation-landing-container">
     <donation-logo />
-    <h1 class="mega-header">
-      Dragi <span class="strikethrough">Dedek Mraz</span><br />dobri človek!
-    </h1>
-    <div class="embed-responsive embed-responsive-16by9">
-      <div class="embed-responsive-item d-flex align-items-center">
-        <iframe
-          src="https://www.youtube.com/watch?v=Sb30U8DVGtU"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        />
+    <div class="pb-5 row justify-content-center">
+      <div class="limit-like-p">
+        <h1 class="mega-header">
+          Dragi <span class="strikethrough">Dedek Mraz</span><br />dobri človek!
+        </h1>
+        <div class="embed-responsive embed-responsive-16by9">
+          <div class="embed-responsive-item d-flex align-items-center">
+            <iframe
+              src="https://www.youtube.com/watch?v=Sb30U8DVGtU"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </div>
+        </div>
       </div>
     </div>
     <div class="py-5 row justify-content-center">
-      <div class="col-sm limit-like-p">
-        <confirm-button
-          key="next-summary"
-          :to="''"
-          :text="'Podpri'"
-          @click.native="$router.push('/doniraj/placaj')"
-          color="secondary"
-          arrow
-          hearts
-        />
-      </div>
-      <div class="col-sm limit-like-p">
-        <a href="/doniraj/placaj?gift=1" class="donate-href"
-          >ali
-          <span class="underline"
-            >Podari podporo DJND kot novoletno darilo</span
-          ></a
-        >
+      <div class="col limit-like-p d-flex">
+        <div class="row">
+          <div class="col-sm">
+            <confirm-button
+              key="next-summary"
+              :to="''"
+              :text="'Podpri'"
+              @click.native="$router.push('/doniraj/placaj')"
+              color="secondary"
+              arrow
+              hearts
+            />
+          </div>
+          <div class="col-sm">
+            <a href="/doniraj/placaj?gift=1" class="donate-href"
+              >ali
+              <span class="underline"
+                >Podari podporo DJND kot novoletno darilo</span
+              ></a
+            >
+          </div>
+        </div>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -72,27 +80,35 @@
       <p>
         Obdaruj nas v svojem ali v imenu svojih bližnjih!
       </p>
-      <h1 class="limit-like-p">Doniraj za nov dan!</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col limit-like-p d-flex">
+        <h1>Doniraj za nov dan!</h1>
+      </div>
     </div>
     <div class="py-5 row justify-content-center">
-      <div class="col-sm limit-like-p">
-        <confirm-button
-          key="next-summary"
-          :to="''"
-          :text="'Podpri'"
-          @click.native="$router.push('/doniraj/placaj')"
-          color="secondary"
-          arrow
-          hearts
-        />
-      </div>
-      <div class="col-sm limit-like-p">
-        <a href="/doniraj/placaj?gift=1" class="donate-href"
-          >ali
-          <span class="underline"
-            >Podari podporo DJND kot novoletno darilo</span
-          ></a
-        >
+      <div class="col limit-like-p d-flex">
+        <div class="row">
+          <div class="col-sm">
+            <confirm-button
+              key="next-summary"
+              :to="''"
+              :text="'Podpri'"
+              @click.native="$router.push('/doniraj/placaj')"
+              color="secondary"
+              arrow
+              hearts
+            />
+          </div>
+          <div class="col-sm">
+            <a href="/doniraj/placaj?gift=1" class="donate-href"
+              >ali
+              <span class="underline"
+                >Podari podporo DJND kot novoletno darilo</span
+              ></a
+            >
+          </div>
+        </div>
       </div>
     </div>
     <div class="row vec-nas-je-kot">
@@ -111,7 +127,7 @@
         />
       </div>
       <div class="col">
-        <donation-campaign-progress />
+        <donation-campaign-progress :end-date="new Date('2020-01-06')" />
       </div>
     </div>
     <div
@@ -171,8 +187,8 @@
         <div class="partnerships">
           V partnerstvu s <span class="partner">PIC</span>,
           <span class="partner">Focus</span>,
-          <span class="partner">Umanotera</span>,
-          <span class="partner">Greenpeace Slovenija</span>
+          <!-- <span class="partner">Umanotera</span>,
+          <span class="partner">Greenpeace Slovenija</span> -->
         </div>
         <div class="partnership-images">
           <img src="/img/partners/pic.png" />
@@ -413,8 +429,12 @@ export default {
 //     padding-right: 150px;
 //   }
 // }
-.logo {
-  width: 300px;
+/deep/ .logo {
+  width: 230px;
+
+  @include media-breakpoint-up(sm) {
+    width: 300px;
+  }
 }
 .donate-href {
   width: 100%;
@@ -438,6 +458,7 @@ export default {
   }
 }
 .mega-header {
+  position: relative;
   font-size: 50px;
   line-height: 60px;
   color: rgba(223, 120, 108, 0.98);
@@ -446,9 +467,9 @@ export default {
   text-shadow: -1px 1px 0 #333333, 1px 1px 0 #333333, 1px -1px 0 #333333,
     -1px -1px 0 #333333;
 
-  margin-bottom: -10px;
-  padding-left: 75px;
-  z-index: 100;
+  margin-bottom: -20px;
+  padding-left: 50px;
+  z-index: 200;
 
   .strikethrough {
     position: relative;
@@ -466,7 +487,7 @@ export default {
 
   @include media-breakpoint-up(md) {
     font-size: 90px;
-    line-height: 120px;
+    line-height: 90px;
   }
 }
 .embed-responsive {
@@ -488,7 +509,7 @@ p {
   color: #333333;
   font-weight: 200;
   width: 100%;
-  max-width: 902px;
+  max-width: 872px;
   margin-top: 1em;
   margin-bottom: 1em;
   padding-left: 30px;
@@ -502,7 +523,6 @@ p {
 .limit-like-p {
   width: 100%;
   max-width: 902px;
-  display: flex;
 }
 .donation-info-box {
   @include media-breakpoint-up(md) {
@@ -513,12 +533,20 @@ p {
 .vec-nas-je-kot {
   margin-top: 50px;
   margin-bottom: 50px;
+  margin-left: -1.5em;
+  margin-right: -1.5em;
   background-image: linear-gradient(
     to right,
     rgba(205, 172, 84, 0.2) 0%,
     rgba(223, 120, 108, 0.2) 100%
   );
-  padding: 20px 0;
+  padding: 20px 1.5em 20px 1.5em;
+
+  @include media-breakpoint-up(md) {
+    margin-left: -3em;
+    margin-right: -3em;
+    padding: 20px 3em 20px 3em;
+  }
 }
 .under-vec-nas-je-kot {
   margin-top: 50px;
@@ -558,7 +586,7 @@ p {
   }
 
   h2 {
-    font-weight: 500;
+    font-weight: 600;
     font-style: italic;
     font-size: 40px;
     min-width: 250px;

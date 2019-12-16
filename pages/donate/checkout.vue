@@ -256,6 +256,13 @@ export default {
     },
     canContinueToNextStage() {
       if (this.stage === 'select-amount') {
+        if (this.selectedDonationAmount >= 1) {
+          return true;
+        } else if (
+          parseInt(this.donationPresets.find((dp) => dp.custom).amount) > 0
+        ) {
+          return true;
+        }
         return this.selectedDonationAmount >= 1;
       }
       if (this.stage === 'payment') {
@@ -296,7 +303,7 @@ export default {
     },
     addDonationGift(dp) {
       this.donationGifts.unshift({
-        amount: dp.amount,
+        amount: parseInt(dp.amount),
         selected: true,
       });
       if (dp.custom) {
@@ -310,6 +317,9 @@ export default {
     async continueToNextStage() {
       if (this.canContinueToNextStage) {
         if (this.stage === 'select-amount') {
+          if (!this.selectedDonationAmount) {
+            this.donationPresets.find((dp) => dp.custom).selected = true;
+          }
           try {
             this.checkoutLoading = true;
             const checkoutResponse = await this.$axios.$get(

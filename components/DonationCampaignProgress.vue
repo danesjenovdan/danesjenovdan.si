@@ -44,7 +44,7 @@ export default {
     totalDays: {
       type: Number,
       required: true,
-      default: 12,
+      default: 21,
     },
   },
 

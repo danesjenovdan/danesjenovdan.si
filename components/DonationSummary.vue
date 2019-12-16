@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 .donation-summary {
-  text-align: center;
+  text-align: left;
   .donation-summary-title {
     font-size: 16px;
     font-style: italic;
@@ -46,6 +46,12 @@ export default {
     color: #df786c;
     font-weight: 900;
     line-height: 40px;
+    margin-bottom: 30px;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 90px;
+      line-height: 50px;
+    }
   }
 
   @include media-breakpoint-up(md) {
@@ -53,10 +59,10 @@ export default {
       content: '';
       display: block;
       position: absolute;
-      top: 20px;
+      top: 24px;
       right: 0;
       width: 4px;
-      height: 50px;
+      height: 60px;
       border-right: 1px solid #333333;
       border-left: 1px solid #333333;
     }

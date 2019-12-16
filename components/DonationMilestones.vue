@@ -60,13 +60,13 @@ export default {
       milestones: [
         {
           number: 10,
-          text: 'število ljudi potrebnih za vzpostavitev verske skupnosti',
+          text: 'ljudi potrebnih za vzpostavitev verske skupnosti',
           icon: '1_verskaskupnost',
         },
         {
           number: 26,
           text:
-            'znanih Slovencev, ki je oktobra 2011 podprlo Jankovićevo kandidaturo na parlamentarnih volitvah',
+            'znanih Slovencev, ki so oktobra 2011 podprli Jankovićevo kandidaturo na parlamentarnih volitvah',
           icon: '2_jankovic',
         },
         {
@@ -112,7 +112,7 @@ export default {
 
 <style lang="scss" scoped>
 .donation-milestones-container {
-  padding: 30px;
+  padding-left: 15px;
 
   h1 {
     font-size: 60px;
