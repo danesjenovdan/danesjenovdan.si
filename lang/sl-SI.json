@@ -146,7 +146,9 @@
         "lecture": "Predavanje",
         "round-table": "Okrogla miza",
         "scientific": "Znanstveni članki",
-        "reporting": "Poročanje"
+        "reporting": "Poročanje",
+        "trolanje": "Trolanje",
+        "kolumna": "Kolumna"
       },
       "format": {
         "title": "Format",

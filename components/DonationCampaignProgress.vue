@@ -1,18 +1,18 @@
 <template>
   <div class="donation-campaign-progress row justify-content-center">
-    <div class="col-xs-auto">
+    <div class="col-sm-auto">
       <div class="circle-wrap">
         <div class="circle">
           <div class="mask full">
             <div
-              class="fill"
               :style="{ transform: `rotate(${firstHalfRotate}deg)` }"
+              class="fill"
             ></div>
           </div>
           <div class="mask half">
             <div
-              class="fill"
               :style="{ transform: `rotate(${secondHalfRotate}deg)` }"
+              class="fill"
             ></div>
           </div>
           <div class="inside-circle">
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-auto">
+    <div class="col-sm-auto">
       <p class="countdown-text">dni do konca kampanje</p>
     </div>
   </div>
@@ -108,11 +108,12 @@ export default {
 
   .circle-wrap .circle .mask .fill {
     clip: rect(0px, 75px, 150px, 0px);
-    background-image: linear-gradient(
-      to right,
-      rgba(205, 172, 84, 1) 0%,
-      rgba(223, 120, 108, 1) 100%
-    );
+    // background-image: linear-gradient(
+    //   to right,
+    //   rgba(205, 172, 84, 1) 0%,
+    //   rgba(223, 120, 108, 1) 100%
+    // );
+    background-color: $secondary;
   }
   .circle-wrap .circle .mask.full,
   .circle-wrap .circle .fill {
@@ -123,13 +124,13 @@ export default {
   .circle-wrap .circle .mask.half {
     transform: rotate(-180deg);
     // TODO calculate appropriate linear gradient
-    .fill {
-      background-image: linear-gradient(
-        to left,
-        rgba(205, 172, 84, 1) 0%,
-        rgba(223, 120, 108, 1) 100%
-      );
-    }
+    // .fill {
+    //   background-image: linear-gradient(
+    //     to left,
+    //     rgba(205, 172, 84, 1) 0%,
+    //     rgba(223, 120, 108, 1) 100%
+    //   );
+    // }
   }
 
   .circle-wrap .inside-circle {
@@ -157,10 +158,14 @@ export default {
     text-align: center;
 
     @include media-breakpoint-up(lg) {
-      padding-top: 70px;
+      padding-top: 55px;
       text-align: left;
       margin-left: 30px;
     }
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 600px;
   }
 }
 </style>

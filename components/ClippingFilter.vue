@@ -55,13 +55,15 @@ export default {
     },
   },
   data() {
-    const typeFilters = (this.filters.types || []).map((tagName) => ({
-      id: tagName,
-      label: this.$te(`clipping.tags.type.${tagName}`)
-        ? this.$t(`clipping.tags.type.${tagName}`)
-        : tagName,
-      active: false,
-    }));
+    const typeFilters = (this.filters.types || [])
+      .map((tagName) => ({
+        id: tagName,
+        label: this.$te(`clipping.tags.type.${tagName}`)
+          ? this.$t(`clipping.tags.type.${tagName}`)
+          : tagName,
+        active: false,
+      }))
+      .sort((a, b) => (a.id === 'trolanje' ? 1 : -1));
 
     const formatFilters = (this.filters.formats || []).map((tagName) => ({
       id: tagName,

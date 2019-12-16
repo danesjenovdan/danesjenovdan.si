@@ -7,7 +7,7 @@
     <div class="embed-responsive embed-responsive-16by9">
       <div class="embed-responsive-item d-flex align-items-center">
         <iframe
-          src="https://player.vimeo.com/video/92594621"
+          src="https://www.youtube.com/watch?v=goHomMXBaJE"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         />
@@ -23,6 +23,12 @@
         arrow
         hearts
       />
+      <a href="/doniraj/placaj?gift=1" class="donate-href"
+        >ali
+        <span class="underline"
+          >Podari podporo DJND kot novoletno darilo</span
+        ></a
+      >
     </div>
     <div class="row justify-content-center">
       <p>
@@ -74,6 +80,12 @@
         arrow
         hearts
       />
+      <a href="/doniraj/placaj?gift=1" class="donate-href"
+        >ali
+        <span class="underline"
+          >Podari podporo DJND kot novoletno darilo</span
+        ></a
+      >
     </div>
     <div class="row vec-nas-je-kot">
       <div class="col-lg-6">
@@ -107,7 +119,10 @@
       />
     </div>
     <div class="row">
-      <p>S tvojo podporo bomo uresničili spodnje projekte:</p>
+      <p>
+        S tvojo podporo bomo še naprej objavljali agrumente in skrbeli za
+        Parlameter, uresničili pa bomo tudi spodnje projekte:
+      </p>
     </div>
     <div class="row project-line">
       <div class="col-xs-auto">
@@ -116,15 +131,18 @@
       <div class="col">
         <h2>Ustavimo oglaševanje ob sovražnih vsebinah</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Nadaljujemo boj proti neodgovornim oglaševalcem, ki posredno podpirajo
+          sovraštvo. Pritiskali bomo na Slovensko oglaševalsko zbornico, da v
+          kodeksu prepove oglaševanje ob sovražnih vsebinah, na gospodarsko
+          ministrstvo, da to terja od podjetij v lasti države, in na vas, da
+          glasujete s svojimi evri.
         </p>
         <div class="partnerships">
           V partnerstvu z <span class="partner">Državljan D</span>
         </div>
-        <div class="partnership-images"></div>
+        <div class="partnership-images">
+          <img src="/img/partners/drzavljand.png" />
+        </div>
       </div>
     </div>
     <div class="row project-line">
@@ -132,12 +150,13 @@
         <img src="/icons/projects/okolje_barvno.svg" />
       </div>
       <div class="col">
-        <h2>Razglasimo podnebno krizo</h2>
+        <h2>Zahtevajmo ukrepe za preprečevanje podnebnih sprememb</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Po vzoru Evropske unije bo po naših informacijah tudi Slovenija kmalu
+          razglasila podnebno krizo. Ne bomo pustili politiki, da nas odpravi z
+          deklarativnimi obljubami, ki jim ne bo sledila akcija. Obljubimo, da
+          bomo izvoljenim predstavnikom skupaj dihali za ovratnik še bolj kot
+          doslej!
         </p>
         <div class="partnerships">
           V partnerstvu s <span class="partner">PIC</span>,
@@ -145,7 +164,12 @@
           <span class="partner">Umanotera</span>,
           <span class="partner">Greenpeace Slovenija</span>
         </div>
-        <div class="partnership-images"></div>
+        <div class="partnership-images">
+          <img src="/img/partners/pic.png" />
+          <img src="/img/partners/focus.jpg" />
+          <img src="/img/partners/umanotera.png" style="width: 100px" />
+          <img src="/img/partners/greenpeace.png" style="width: 100px" />
+        </div>
       </div>
     </div>
     <div class="row project-line">
@@ -153,12 +177,15 @@
         <img src="/icons/projects/obcinski_podatki_barvno.svg" />
       </div>
       <div class="col">
-        <h2>Odpiranje občinskih podatkov</h2>
+        <h2>Odprimo občinske podatke</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Župani in županje premnogih slovenskih občin so težki lokalni šerifi
+          tudi zato, ker lahko po 36. členu Zakona o lokalni samoupravi občinski
+          sveti sami opredelijo, kako in katere podatke povezane s svojim
+          delovanjem bodo prikazovali javnosti. Večina občinskih svetov vzdržuje
+          status quo oz. zastarele prakse prikazovanja skopih informacij. Enak
+          vpogled, kot ga imamo v parlamentarno dogajanje, zahtevajmo tudi na od
+          občinskih oblasti.
         </p>
         <div class="partnerships"></div>
         <div class="partnership-images"></div>
@@ -169,17 +196,21 @@
         <img src="/icons/projects/nepremicninski_davek_barvno.svg" />
       </div>
       <div class="col">
-        <h2>Kje je nepremičninski davek?</h2>
+        <h2>Uvedimo nepremičninski davek</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Nepremičnine v Sloveniji so prava davčna oaza. Medtem, ko se
+          investitorji igrajo Monopoli in služijo na AirBnb gostih, stanovanjska
+          situacija postaja popolnoma nevzdržna. Davčna politika oziroma njeno
+          pomanjkanje vzdržuje stanovanjsko krizo in ustvarja resnično človeško
+          stisko. Pritiskali bomo na Marjana, da izpolni, kar je obljubil pred
+          volitvami.
         </p>
         <div class="partnerships">
           V partnerstvu s <span class="partner">Kje bomo pa jutri spali?</span>
         </div>
-        <div class="partnership-images"></div>
+        <div class="partnership-images">
+          <img src="/img/partners/kbpjs.jpg" />
+        </div>
       </div>
     </div>
     <div class="row project-line">
@@ -187,20 +218,24 @@
         <img src="/icons/projects/medijska_reprezentacija_barvno.svg" />
       </div>
       <div class="col">
-        <h2>Zastopanost spolov v medijih</h2>
+        <h2>Analizirajmo zastopanost spolov v medijih</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Kljub temu, da gre počasi na boljše, smo še vedno izjemno patriarhalna
+          družba, k čemur precej pripomorejo tudi mediji. Gledali bomo vse
+          ključne dnevno informativne oddaje in primerjali reprezentacijo
+          spolov. Kdo govori, kdaj govori, kaj govori, kdo sprašuje, kaj
+          sprašuje, kdo odgovarja, kdo komentira, kdo si vzame besedo in komu jo
+          vzamejo drugi?
         </p>
         <div class="partnerships"></div>
         <div class="partnership-images"></div>
       </div>
     </div>
-    <div class="row">
+    <div class="row row-social">
       <div class="col">
-        <h1>Več nas bo, prej bomo na cilju! POVEJ NAPREJ!</h1>
+        <h1>
+          Več nas bo, prej bomo na cilju! POVEJ NAPREJ!
+        </h1>
       </div>
     </div>
     <div class="row justify-content-center donation-social">
@@ -298,6 +333,23 @@ export default {
 .logo {
   width: 300px;
 }
+.donate-href {
+  width: 100%;
+  max-width: 250px;
+  font-style: italic;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 32px;
+  text-decoration: underline;
+  color: $black;
+
+  margin: 20px;
+  text-decoration: none;
+
+  .underline {
+    text-decoration: underline;
+  }
+}
 .mega-header {
   font-size: 50px;
   line-height: 60px;
@@ -334,19 +386,38 @@ export default {
 }
 h1 {
   font-size: 90px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 100px;
   font-style: italic;
+  letter-spacing: -1px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 p {
-  font-size: 40px;
+  font-size: 20px;
   color: #333333;
   font-weight: 200;
   width: 100%;
   max-width: 902px;
+  margin-top: 1em;
   margin-bottom: 1em;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  @include media-breakpoint-up(md) {
+    font-size: 30px;
+    padding: 0;
+  }
+}
+.donation-info-box {
+  @include media-breakpoint-up(md) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 }
 .vec-nas-je-kot {
+  margin-top: 50px;
+  margin-bottom: 50px;
   background-image: linear-gradient(
     to right,
     rgba(205, 172, 84, 0.2) 0%,
@@ -355,6 +426,8 @@ p {
   padding: 20px 0;
 }
 .under-vec-nas-je-kot {
+  margin-top: 50px;
+  margin-bottom: 70px;
   background-image: linear-gradient(
     to right,
     rgba(205, 172, 84, 0.2) 0%,
@@ -368,24 +441,30 @@ p {
     font-weight: 500;
     line-height: 100px;
     font-style: italic;
-    margin-right: 30px;
+    @include media-breakpoint-up(xl) {
+      margin-right: 60px;
+    }
   }
 }
 .project-line {
   background-color: rgba(223, 120, 108, 0.05);
-  padding: 60px;
+  padding: 30px;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
 
   img {
     width: 90px;
     height: auto;
     margin-right: 30px;
+    margin-bottom: 20px;
   }
 
   h2 {
     font-weight: 500;
     font-style: italic;
     font-size: 30px;
+    min-width: 250px;
   }
 
   p {
@@ -399,11 +478,55 @@ p {
       font-weight: 700;
     }
   }
+
+  .partnership-images {
+    img {
+      margin-top: 20px;
+      width: 50px;
+      height: auto;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: 60px;
+  }
+}
+.row-social {
+  h1 {
+    font-size: 50px;
+    line-height: 60px;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      font-size: 90px;
+      line-height: 110px;
+    }
+  }
 }
 .square-icon-button {
   display: inline-block;
+  width: 100px;
+  height: 100px;
+
+  @include media-breakpoint-up(md) {
+    width: 150px;
+    height: 150px;
+  }
 }
 .donation-social {
   margin-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 20px;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-bottom: 4px solid $black;
+    opacity: 0.2;
+  }
 }
 </style>

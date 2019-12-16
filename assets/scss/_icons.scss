@@ -44,7 +44,7 @@
   @return encode-svg(string-replace(fs-readFile('static/icons/sections/tools.svg'), '#000', '#{$color}'));
 }
 @function icon-section-coding($color) {
-  @return encode-svg(string-replace(fs-readFile('static/icons/sections/coding.svg'), '#000', '#{$color}'));
+  @return encode-svg(fs-readFile('static/icons/sections/coding.svg'));
 }
 
 // SOCIAL
@@ -175,7 +175,7 @@
     background-image: url(#{icon-section-tools($color)}) !important;
   }
   .icon-section-coding--#{$color-name} {
-    background-image: url(#{icon-section-coding($color)}) !important;
+    background-image: url('/icons/sections/coding.svg') !important;
   }
   // SOCIAL
   .icon-facebook--#{$color-name} {

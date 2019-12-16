@@ -41,7 +41,7 @@ export default {
     display: block;
     min-width: 100%;
     height: 100px;
-    margin-top: 40px;
+    margin-top: 25px;
   }
 
   p {

@@ -37,7 +37,7 @@
         </li>
       </ul>
     </li>
-    <li>
+    <!-- <li>
       <form :action="'TODO'" class="search-form">
         <input
           :placeholder="$t('menu.search')"
@@ -66,7 +66,7 @@
           </svg>
         </button>
       </form>
-    </li>
+    </li> -->
   </ul>
 </template>
 
