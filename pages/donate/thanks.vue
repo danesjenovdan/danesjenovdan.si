@@ -13,9 +13,7 @@
         </h1>
         <h2 class="thankyou__subtitle">Skupaj bomo prevagali.</h2>
         <div class="thankyou__faces">
-          <div style="height: 200px; background: #ccc">
-            TEHTNICA
-          </div>
+          <donation-images :images="images" />
         </div>
       </template>
       <template slot="footer">
@@ -64,7 +62,7 @@
               class="custom-control-input"
             />
             <label class="custom-control-label" for="info-display-support"
-              >Želim, da me dodate na seznam donatorjev.</label
+              >Dovolim, da moj avatar dodate na seznam donatorjev.</label
             >
           </div>
           <div class="custom-control custom-checkbox">
@@ -105,9 +103,7 @@
     <checkout-stage v-if="stage === 'share'" no-header>
       <template slot="content">
         <div class="share__faces">
-          <div style="height: 200px; background: #ccc">
-            TEHTNICA
-          </div>
+          <donation-images :images="images" />
         </div>
         <h2 class="share__subtitle">Več nas bo, prej bomo na cilju...</h2>
         <h1 class="share__title">POVEJ NAPREJ!</h1>
@@ -156,6 +152,7 @@ import ConfirmButton from '~/components/ConfirmButton.vue';
 import AvatarSelector from '~/components/AvatarSelector.vue';
 import DynamicLink from '~/components/DynamicLink.vue';
 import CheckoutStage from '~/components/CheckoutStage.vue';
+import DonationImages from '~/components/DonationImages.vue';
 
 export default {
   nuxtI18n: {
@@ -171,6 +168,7 @@ export default {
     AvatarSelector,
     DynamicLink,
     CheckoutStage,
+    DonationImages,
   },
   data() {
     return {
@@ -181,6 +179,7 @@ export default {
       imageIsLegal: false,
       imageUploading: false,
       imageBlob: null,
+      images: [],
     };
   },
   computed: {
@@ -204,6 +203,9 @@ export default {
       this.stage = 'share';
     }
   },
+  async mounted() {
+    this.images = await this.$axios.$get('https://podpri.djnd.si/api/images/');
+  },
   methods: {
     onAvatarChange(blob) {
       this.imageBlob = blob;
@@ -223,6 +225,9 @@ export default {
           formData,
         );
         this.stage = 'share';
+        this.images = await this.$axios.$get(
+          'https://podpri.djnd.si/api/images/',
+        );
       }
     },
     onShareClick(event, type) {
@@ -436,6 +441,12 @@ export default {
         height: 100%;
       }
     }
+  }
+
+  .donation-scale-container {
+    max-width: 900px;
+    margin: auto;
+    margin-top: 100px;
   }
 }
 </style>
