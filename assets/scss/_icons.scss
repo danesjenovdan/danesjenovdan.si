@@ -43,6 +43,9 @@
 @function icon-section-tools($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/sections/tools.svg'), '#000', '#{$color}'));
 }
+@function icon-section-coding($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/sections/coding.svg'), '#000', '#{$color}'));
+}
 
 // SOCIAL
 @function icon-facebook($color) {
@@ -59,6 +62,15 @@
 }
 @function icon-github($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/social/github.svg'), '#000', '#{$color}'));
+}
+@function square-icon-facebook($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/facebook.svg'), '#ffffff', '#{$color}'));
+}
+@function square-icon-twitter($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/twitter.svg'), '#ffffff', '#{$color}'));
+}
+@function square-icon-email($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/email.svg'), '#ffffff', '#{$color}'));
 }
 
 // VALUES
@@ -162,6 +174,9 @@
   .icon-section-tools--#{$color-name} {
     background-image: url(#{icon-section-tools($color)}) !important;
   }
+  .icon-section-coding--#{$color-name} {
+    background-image: url(#{icon-section-coding($color)}) !important;
+  }
   // SOCIAL
   .icon-facebook--#{$color-name} {
     background-image: url(#{icon-facebook($color)}) !important;
@@ -177,6 +192,18 @@
   }
   .icon-github--#{$color-name} {
     background-image: url(#{icon-github($color)}) !important;
+  }
+  // SQUARE SOCIAL
+  .square-icon-facebook--#{$color-name} {
+    background-image: url(#{square-icon-facebook($color)}) !important;
+    filter: invert(100%); // TODO this is a hack
+  }
+  .square-icon-twitter--#{$color-name} {
+    background-image: url(#{square-icon-twitter($color)}) !important;
+    filter: invert(100%); // TODO this is a hack
+  }
+  .square-icon-email--#{$color-name} {
+    background-image: url(#{square-icon-email($color)}) !important;
   }
   // VALUES
   .icon-value-solidarity--#{$color-name} {
