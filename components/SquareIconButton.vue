@@ -44,6 +44,8 @@ export default {
   padding: 40px;
   background-size: 50%;
 
+  cursor: pointer;
+
   &:hover {
     transform: scale(0.95);
   }

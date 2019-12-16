@@ -214,7 +214,9 @@ export default {
       if (this.canUploadImage) {
         this.imageUploading = true;
         const formData = new FormData();
-        formData.append('url', this.url);
+        if (this.url && this.url !== '') {
+          formData.append('url', this.url);
+        }
         formData.append(
           'image',
           this.imageBlob,

@@ -75,7 +75,7 @@
         key="next-summary"
         :to="''"
         :text="'Podpri'"
-        @click.native="$router.push('/doniraj')"
+        @click.native="$router.push('/doniraj/placaj')"
         color="secondary"
         arrow
         hearts
@@ -167,8 +167,8 @@
         <div class="partnership-images">
           <img src="/img/partners/pic.png" />
           <img src="/img/partners/focus.jpg" />
-          <img src="/img/partners/umanotera.png" style="width: 100px" />
-          <img src="/img/partners/greenpeace.png" style="width: 100px" />
+          <!-- <img src="/img/partners/umanotera.png" style="width: 100px" />
+          <img src="/img/partners/greenpeace.png" style="width: 100px" /> -->
         </div>
       </div>
     </div>
@@ -243,21 +243,21 @@
         <square-icon-button
           :color="'#228794'"
           icon="facebook"
-          href="https://facebook.com/danesjenovdan"
+          @click.native="onShareClick($event, 'fb')"
         />
       </div>
       <div class="col-xs-auto">
         <square-icon-button
           :color="'#228794'"
           icon="twitter"
-          href="https://facebook.com/danesjenovdan"
+          @click.native="onShareClick($event, 'tw')"
         />
       </div>
       <div class="col-xs-auto">
         <square-icon-button
           :color="'#df786c'"
           icon="email"
-          href="https://facebook.com/danesjenovdan"
+          @click.native="onShareClick($event, 'mail')"
         />
       </div>
     </div>
@@ -318,6 +318,32 @@ export default {
           curr.donation_amount > prev ? curr.donation_amount : prev,
         0,
       );
+    },
+  },
+
+  methods: {
+    onShareClick(event, type) {
+      const shareLink = 'https://danesjenovdan.si/doniraj';
+      const shareText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
+      const shareHashtag = '';
+      this.openSocialShareLink(type, shareText, shareLink, shareHashtag);
+    },
+    openSocialShareLink(type, shareText, shareLink, shareHashtag) {
+      let url = '';
+      const title = encodeURIComponent(shareText);
+      if (type === 'fb') {
+        const link = encodeURIComponent(shareLink);
+        url = `https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=${link}&link=${link}&ref=responsive&name=${title}`;
+      } else if (type === 'tw') {
+        const text = encodeURIComponent(
+          `${shareText} ${shareHashtag} ${shareLink}`,
+        );
+        url = `https://twitter.com/intent/tweet?text=${text}`;
+      } else if (type === 'mail') {
+        const text = `${shareText} ${shareLink}`;
+        url = `mailto:?subject=${title}&body=${text}`;
+      }
+      window.open(url, '_blank');
     },
   },
 };
