@@ -286,6 +286,53 @@ export default {
     },
   },
 
+  head() {
+    return {
+      title: 'Doniraj za nov dan!',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Ob sedemletnici delovanja zbiramo donacije za aktivistične projekte v letu 2020. Pridruži se boju in podpri Danes je nov dan!',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Doniraj za nov dan!',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Ob sedemletnici delovanja zbiramo donacije za aktivistične projekte v letu 2020. Pridruži se boju in podpri Danes je nov dan!',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://danesjenovdan.si/djnd-og-doniraj.png',
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: 'Doniraj za nov dan!',
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content:
+            'Ob sedemletnici delovanja zbiramo donacije za aktivistične projekte v letu 2020. Pridruži se boju in podpri Danes je nov dan!',
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: 'https://danesjenovdan.si/djnd-og-doniraj.png',
+        },
+      ],
+    };
+  },
+
   components: {
     DonationLogo,
     ConfirmButton,
