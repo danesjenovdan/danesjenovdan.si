@@ -31,7 +31,7 @@
               hearts
             />
           </div>
-          <div class="col-sm">
+          <div class="col-sm d-flex">
             <a href="/doniraj/placaj?gift=1" class="donate-href"
               >ali
               <span class="underline"
@@ -100,7 +100,7 @@
               hearts
             />
           </div>
-          <div class="col-sm">
+          <div class="col-sm d-flex">
             <a href="/doniraj/placaj?gift=1" class="donate-href"
               >ali
               <span class="underline"
@@ -186,7 +186,7 @@
         </p>
         <div class="partnerships">
           V partnerstvu s <span class="partner">PIC</span>,
-          <span class="partner">Focus</span>,
+          <span class="partner">Focus</span>
           <!-- <span class="partner">Umanotera</span>,
           <span class="partner">Greenpeace Slovenija</span> -->
         </div>
