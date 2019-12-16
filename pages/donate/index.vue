@@ -7,28 +7,32 @@
     <div class="embed-responsive embed-responsive-16by9">
       <div class="embed-responsive-item d-flex align-items-center">
         <iframe
-          src="https://www.youtube.com/watch?v=goHomMXBaJE"
+          src="https://www.youtube.com/watch?v=Sb30U8DVGtU"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         />
       </div>
     </div>
     <div class="py-5 row justify-content-center">
-      <confirm-button
-        key="next-summary"
-        :to="''"
-        :text="'Podpri'"
-        @click.native="$router.push('/doniraj/placaj')"
-        color="secondary"
-        arrow
-        hearts
-      />
-      <a href="/doniraj/placaj?gift=1" class="donate-href"
-        >ali
-        <span class="underline"
-          >Podari podporo DJND kot novoletno darilo</span
-        ></a
-      >
+      <div class="col-sm limit-like-p">
+        <confirm-button
+          key="next-summary"
+          :to="''"
+          :text="'Podpri'"
+          @click.native="$router.push('/doniraj/placaj')"
+          color="secondary"
+          arrow
+          hearts
+        />
+      </div>
+      <div class="col-sm limit-like-p">
+        <a href="/doniraj/placaj?gift=1" class="donate-href"
+          >ali
+          <span class="underline"
+            >Podari podporo DJND kot novoletno darilo</span
+          ></a
+        >
+      </div>
     </div>
     <div class="row justify-content-center">
       <p>
@@ -68,30 +72,34 @@
       <p>
         Obdaruj nas v svojem ali v imenu svojih bližnjih!
       </p>
-      <h1>Doniraj za nov dan!</h1>
+      <h1 class="limit-like-p">Doniraj za nov dan!</h1>
     </div>
     <div class="py-5 row justify-content-center">
-      <confirm-button
-        key="next-summary"
-        :to="''"
-        :text="'Podpri'"
-        @click.native="$router.push('/doniraj/placaj')"
-        color="secondary"
-        arrow
-        hearts
-      />
-      <a href="/doniraj/placaj?gift=1" class="donate-href"
-        >ali
-        <span class="underline"
-          >Podari podporo DJND kot novoletno darilo</span
-        ></a
-      >
+      <div class="col-sm limit-like-p">
+        <confirm-button
+          key="next-summary"
+          :to="''"
+          :text="'Podpri'"
+          @click.native="$router.push('/doniraj/placaj')"
+          color="secondary"
+          arrow
+          hearts
+        />
+      </div>
+      <div class="col-sm limit-like-p">
+        <a href="/doniraj/placaj?gift=1" class="donate-href"
+          >ali
+          <span class="underline"
+            >Podari podporo DJND kot novoletno darilo</span
+          ></a
+        >
+      </div>
     </div>
     <div class="row vec-nas-je-kot">
-      <div class="col-lg-6">
+      <div class="col-md-6">
         <donation-images :images="images" />
       </div>
-      <div class="col-lg-6">
+      <div class="col-md-6">
         <donation-milestones :number-of-donations="images.length" />
       </div>
     </div>
@@ -106,7 +114,9 @@
         <donation-campaign-progress />
       </div>
     </div>
-    <div class="py-5 row justify-content-center under-vec-nas-je-kot">
+    <div
+      class="py-5 row justify-content-center align-items-center under-vec-nas-je-kot"
+    >
       <h1>Doniraj za nov dan!</h1>
       <confirm-button
         key="next-summary"
@@ -422,6 +432,10 @@ export default {
   .underline {
     text-decoration: underline;
   }
+
+  @include media-breakpoint-up(lg) {
+    margin-left: 80px;
+  }
 }
 .mega-header {
   font-size: 50px;
@@ -433,6 +447,7 @@ export default {
     -1px -1px 0 #333333;
 
   margin-bottom: -10px;
+  padding-left: 75px;
   z-index: 100;
 
   .strikethrough {
@@ -450,7 +465,7 @@ export default {
   }
 
   @include media-breakpoint-up(md) {
-    font-size: 110px;
+    font-size: 90px;
     line-height: 120px;
   }
 }
@@ -458,13 +473,15 @@ export default {
   z-index: 1;
 }
 h1 {
-  font-size: 90px;
+  font-size: 80px;
   font-weight: 600;
   line-height: 100px;
   font-style: italic;
   letter-spacing: -1px;
   margin-top: 50px;
   margin-bottom: 50px;
+  text-align: left;
+  width: 100%;
 }
 p {
   font-size: 20px;
@@ -481,6 +498,11 @@ p {
     font-size: 30px;
     padding: 0;
   }
+}
+.limit-like-p {
+  width: 100%;
+  max-width: 902px;
+  display: flex;
 }
 .donation-info-box {
   @include media-breakpoint-up(md) {
@@ -510,8 +532,10 @@ p {
   padding: 20px;
 
   h1 {
+    width: auto;
     font-size: 60px;
-    font-weight: 500;
+    line-height: 140px;
+    font-weight: 700;
     line-height: 100px;
     font-style: italic;
     @include media-breakpoint-up(xl) {
@@ -536,12 +560,14 @@ p {
   h2 {
     font-weight: 500;
     font-style: italic;
-    font-size: 30px;
+    font-size: 40px;
     min-width: 250px;
   }
 
   p {
     font-size: 20px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .partnerships {
@@ -600,6 +626,27 @@ p {
     bottom: 0;
     border-bottom: 4px solid $black;
     opacity: 0.2;
+  }
+}
+.confirm-button {
+  height: 100px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+
+  @include media-breakpoint-up(md) {
+    height: 150px;
+    width: 500px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+.donation-scale-container {
+  margin-bottom: 100px;
+
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    bottom: 40px;
+    margin-bottom: 0;
   }
 }
 </style>

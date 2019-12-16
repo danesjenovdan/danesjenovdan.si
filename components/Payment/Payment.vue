@@ -77,7 +77,8 @@ export default {
   mounted() {
     braintree.client
       .create({
-        authorization: 'sandbox_93smtrz3_bbgx4xf7h8bx24xg',
+        authorization:
+          'access_token$production$xqc6s4m264c254ss$90e4174554564d4f45376a6c0128beef',
       })
       .then((clientInstance) => {
         const options = {

@@ -139,6 +139,32 @@ export default {
           transform: translate(0, -20px);
         }
       }
+
+      @include media-breakpoint-up(md) {
+        bottom: calc(40% - 45px);
+        font-size: 16px;
+
+        .measure-number {
+          font-size: 45px;
+        }
+
+        .measure-unit {
+          transform: translate(0, -10px);
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        bottom: calc(40% - 90px);
+        font-size: 30px;
+
+        .measure-number {
+          font-size: 90px;
+        }
+
+        .measure-unit {
+          transform: translate(0, -20px);
+        }
+      }
     }
 
     img {

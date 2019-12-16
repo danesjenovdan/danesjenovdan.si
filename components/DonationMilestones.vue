@@ -1,5 +1,6 @@
 <template>
   <div class="donation-milestones-container">
+    <h1>Več nas je kot</h1>
     <div
       v-for="milestone in reachedMilestones"
       :key="milestone.icon"
@@ -112,6 +113,16 @@ export default {
 <style lang="scss" scoped>
 .donation-milestones-container {
   padding: 30px;
+
+  h1 {
+    font-size: 60px;
+    color: rgba(223, 120, 108, 0.98);
+    font-weight: 700;
+    font-style: italic;
+    text-shadow: -1px 1px 0 #333333, 1px 1px 0 #333333, 1px -1px 0 #333333,
+      -1px -1px 0 #333333;
+    margin-top: -90px;
+  }
 
   .donation-milestone {
     background-color: #ffffff;
