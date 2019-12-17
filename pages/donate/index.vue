@@ -1,7 +1,7 @@
 <template>
   <div class="donation-landing-container">
     <donation-logo />
-    <div class="pb-5 row justify-content-center">
+    <div class="row justify-content-center">
       <div class="limit-like-p">
         <h1 class="mega-header">
           Dragi <span class="strikethrough">Dedek Mraz</span><br />dobri človek!
@@ -9,7 +9,9 @@
         <div class="embed-responsive embed-responsive-16by9">
           <div class="embed-responsive-item d-flex align-items-center">
             <iframe
-              src="https://www.youtube.com/watch?v=Sb30U8DVGtU"
+              :src="
+                embedUrl('https://www.youtube.com/watch?v=Sb30U8DVGtU', false)
+              "
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             />
@@ -299,6 +301,7 @@ import DonationMilestones from '~/components/DonationMilestones.vue';
 import DonationSummary from '~/components/DonationSummary.vue';
 import DonationCampaignProgress from '~/components/DonationCampaignProgress.vue';
 import SquareIconButton from '~/components/SquareIconButton.vue';
+import videoMixin from '~/mixins/video.js';
 
 export default {
   layout: 'donate',
@@ -358,6 +361,8 @@ export default {
       ],
     };
   },
+
+  mixins: [videoMixin],
 
   components: {
     DonationLogo,
