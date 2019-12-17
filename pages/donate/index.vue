@@ -57,15 +57,15 @@
       <donation-info-box icon="agrument" text="Napisali 1592 agrumentov." />
       <donation-info-box
         icon="coding"
-        text="V javno domeno dali več kot 1 726 000 vrstic kode"
+        text="V javno domeno dali več kot 1 726 000 vrstic kode."
       />
       <donation-info-box
         icon="projects"
-        text="Objavili več kot 30 spletnih kampanj brez proračuna"
+        text="Objavili več kot 30 spletnih kampanj brez proračuna."
       />
       <donation-info-box
         icon="videos"
-        text="Z video parodijo bežali pred cenzuro SDS na 3 platformah"
+        text="Z video parodijo bežali pred cenzuro SDS na 3 platformah."
       />
     </div>
     <div class="row justify-content-center">
