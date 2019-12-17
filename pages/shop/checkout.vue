@@ -185,12 +185,12 @@
           <div class="icon icon-confetti-popper--secondary" />
         </div>
         <h1 class="checkout__title">Hvala!</h1>
-        <div>
+        <!-- <div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vitae
             similique, ad quis iste veniam voluptates.
           </p>
-        </div>
+        </div> -->
       </div>
       <div class="thankyou__close">
         <nuxt-link :to="localePath('shop')" class="close-button"

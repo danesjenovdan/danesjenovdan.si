@@ -144,6 +144,7 @@ export default {
       font-weight: 600;
       padding-left: 30px;
       padding-right: 30px;
+      width: 100%;
       max-width: 400px;
 
       @include media-breakpoint-up(md) {

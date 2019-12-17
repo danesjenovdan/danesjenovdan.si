@@ -247,13 +247,21 @@ export default {
     },
     onShareClick(event, type) {
       const shareLink = 'https://danesjenovdan.si/doniraj';
-      const shareText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
+      const shareText =
+        'Danes je nov dan ob sedemletnici delovanja zbira donacije za aktivistične projekte v letu 2020. Pridruži se boju in jih podpri!';
+      const titleText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
       const shareHashtag = '';
-      this.openSocialShareLink(type, shareText, shareLink, shareHashtag);
+      this.openSocialShareLink(
+        type,
+        titleText,
+        shareText,
+        shareLink,
+        shareHashtag,
+      );
     },
-    openSocialShareLink(type, shareText, shareLink, shareHashtag) {
+    openSocialShareLink(type, titleText, shareText, shareLink, shareHashtag) {
       let url = '';
-      const title = encodeURIComponent(shareText);
+      const title = encodeURIComponent(titleText);
       if (type === 'fb') {
         const link = encodeURIComponent(shareLink);
         url = `https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=${link}&link=${link}&ref=responsive&name=${title}`;
