@@ -49,7 +49,7 @@ export default {
         );
         await paypal.Button.render(
           {
-            env: 'sandbox', // TODO: production
+            env: 'production',
             style: {
               label: 'paypal',
               size: 'responsive',
