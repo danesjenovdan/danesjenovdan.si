@@ -78,7 +78,8 @@ export default {
       .donation-image-tooltip {
         display: none;
         position: absolute;
-        bottom: -195px;
+        // bottom: -195px;
+        bottom: 10px;
         left: -75px;
         width: 210px;
         height: 210px;
