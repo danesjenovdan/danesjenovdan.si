@@ -115,10 +115,10 @@
 
     <checkout-stage v-if="stage === 'share'" no-header>
       <template slot="content">
+        <h2 class="share__subtitle">Več nas bo, prej bomo na cilju ...</h2>
         <div class="share__faces">
           <donation-images :images="images" />
         </div>
-        <h2 class="share__subtitle">Več nas bo, prej bomo na cilju ...</h2>
         <h1 class="share__title">POVEJ NAPREJ!</h1>
         <div class="share__buttons">
           <button @click="onShareClick($event, 'fb')" type="button">

@@ -2,11 +2,11 @@
   <div class="donation-summary">
     <div class="row">
       <div class="col">
-        <h1 class="donation-summary-title">ZBRANIH</h1>
+        <h1 class="donation-summary-title">ZBRANO ŽE</h1>
         <p class="donation-summary-number">{{ totalDonations }}&nbsp;€</p>
       </div>
       <div class="col">
-        <h1 class="donation-summary-title">NAJVEČJA&nbsp;DONACIJA</h1>
+        <h1 class="donation-summary-title">NAJVIŠJA&nbsp;DONACIJA</h1>
         <p class="donation-summary-number">{{ maxDonation }}&nbsp;€</p>
       </div>
     </div>

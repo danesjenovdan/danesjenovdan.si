@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
       <div class="limit-like-p">
         <h1 class="mega-header">
-          Dragi <span class="strikethrough">Dedek Mraz</span><br />dobri človek!
+          Dragi <span class="strikethrough">dedek Mraz</span><br />dobri človek!
         </h1>
         <div class="embed-responsive embed-responsive-16by9">
           <div class="embed-responsive-item d-flex align-items-center">
@@ -26,7 +26,7 @@
             <confirm-button
               key="next-summary"
               :to="''"
-              :text="'Podpri'"
+              :text="'Doniraj'"
               @click.native="$router.push('/doniraj/placaj')"
               color="secondary"
               arrow
@@ -36,9 +36,7 @@
           <div class="col-sm d-flex">
             <a href="/doniraj/placaj?gift=1" class="donate-href"
               >ali
-              <span class="underline"
-                >Podari podporo DJND kot novoletno darilo</span
-              ></a
+              <span class="underline">Obdaruj bližnje z donacijo DJND</span></a
             >
           </div>
         </div>
@@ -53,21 +51,21 @@
         in sodelavcev, od redno zaposlenih pa vse do prostovoljnih popoldancev
         in vikendašic.
       </p>
-      <p>V sedmih letih obstoja smo med drugim:</p>
+      <p>V sedmih letih obstoja smo tako:</p>
     </div>
     <div class="row justify-content-center">
-      <donation-info-box icon="agrument" text="Spisali 1600 agrumentov." />
+      <donation-info-box icon="agrument" text="Napisali 1592 agrumentov." />
       <donation-info-box
         icon="coding"
-        text="V javno domeno dali več kot 1726000 vrstic kode."
+        text="V javno domeno dali več kot 1 726 000 vrstic kode"
       />
       <donation-info-box
         icon="projects"
-        text="Objavili več kot 30 kampanj brez proračuna."
+        text="Objavili več kot 30 spletnih kampanj brez proračuna"
       />
       <donation-info-box
         icon="videos"
-        text="Z video parodijo bežali cenzuri SDS na 3 video platformah."
+        text="Z video parodijo bežali pred cenzuro SDS na 3 platformah"
       />
     </div>
     <div class="row justify-content-center">
@@ -85,7 +83,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col limit-like-p d-flex">
-        <h1>Doniraj za nov dan!</h1>
+        <h1>Doniraj za nov dan</h1>
       </div>
     </div>
     <div class="py-5 row justify-content-center">
@@ -95,7 +93,7 @@
             <confirm-button
               key="next-summary"
               :to="''"
-              :text="'Podpri'"
+              :text="'Podpri nas'"
               @click.native="$router.push('/doniraj/placaj')"
               color="secondary"
               arrow
@@ -105,9 +103,7 @@
           <div class="col-sm d-flex">
             <a href="/doniraj/placaj?gift=1" class="donate-href"
               >ali
-              <span class="underline"
-                >Podari podporo DJND kot novoletno darilo</span
-              ></a
+              <span class="underline">Obdaruj bližnje z donacijo DJND</span></a
             >
           </div>
         </div>
@@ -135,11 +131,11 @@
     <div
       class="py-5 row justify-content-center align-items-center under-vec-nas-je-kot"
     >
-      <h1>Doniraj za nov dan!</h1>
+      <h1>Doniraj za nov dan</h1>
       <confirm-button
         key="next-summary"
         :to="''"
-        :text="'Podpri'"
+        :text="'Podpri nas'"
         @click.native="$router.push('/doniraj/placaj')"
         color="secondary"
         arrow
@@ -159,11 +155,12 @@
       <div class="col">
         <h2>Ustavimo oglaševanje ob sovražnih vsebinah</h2>
         <p>
-          Nadaljujemo boj proti neodgovornim oglaševalcem, ki posredno podpirajo
-          sovraštvo. Pritiskali bomo na Slovensko oglaševalsko zbornico, da v
-          kodeksu prepove oglaševanje ob sovražnih vsebinah, na gospodarsko
-          ministrstvo, da to terja od podjetij v lasti države, in na vas, da
-          glasujete s svojimi evri.
+          Nadaljujemo boj proti neodgovornim oglaševalcem, ki z oglaševanjem ob
+          spornih vsebinah posredno podpirajo sovraštvo. Pritiskali bomo na
+          Slovensko oglaševalsko zbornico, da v svojem kodeksu prepove
+          oglaševanje ob sovražnih vsebinah, na gospodarsko ministrstvo, da to
+          terja od podjetij v lasti države, in na vas, da glasujete s svojimi
+          evri.
         </p>
         <div class="partnerships">
           V partnerstvu z <span class="partner">Državljan D</span>
@@ -181,10 +178,10 @@
         <h2>Zahtevajmo ukrepe za preprečevanje podnebnih sprememb</h2>
         <p>
           Po vzoru Evropske unije bo po naših informacijah tudi Slovenija kmalu
-          razglasila podnebno krizo. Ne bomo pustili politiki, da nas odpravi z
-          deklarativnimi obljubami, ki jim ne bo sledila akcija. Obljubimo, da
-          bomo izvoljenim predstavnikom skupaj dihali za ovratnik še bolj kot
-          doslej!
+          razglasila podnebno krizo. Ne bomo pustili politiki, da nas vlada
+          odpravi zgolj z deklarativnimi obljubami, ampak bomo terjali tudi
+          konkretna dejanja. Obljubimo, da bomo izvoljenim predstavnikom skupaj
+          dihali za ovratnik še bolj kot doslej!
         </p>
         <div class="partnerships">
           V partnerstvu s <span class="partner">PIC</span>,
@@ -207,13 +204,13 @@
       <div class="col">
         <h2>Odprimo občinske podatke</h2>
         <p>
-          Župani in županje premnogih slovenskih občin so težki lokalni šerifi
-          tudi zato, ker lahko po 36. členu Zakona o lokalni samoupravi občinski
-          sveti sami opredelijo, kako in katere podatke povezane s svojim
-          delovanjem bodo prikazovali javnosti. Večina občinskih svetov vzdržuje
-          status quo oz. zastarele prakse prikazovanja skopih informacij. Enak
-          vpogled, kot ga imamo v parlamentarno dogajanje, zahtevajmo tudi na od
-          občinskih oblasti.
+          Nekateri župani in županje slovenskih občin se obnašajo kot lokalni
+          šerifi tudi zato, ker lahko po 36. členu Zakona o lokalni samoupravi
+          občinski sveti sami opredelijo, kako in katere podatke, povezane s
+          svojim delovanjem, bodo prikazovali javnosti. Večina občinskih svetov
+          vzdržuje status quo oz. zastarele prakse prikazovanja skopih
+          informacij. Enak vpogled, kot ga imamo v parlamentarno dogajanje,
+          zahtevajmo tudi od občinskih oblasti.
         </p>
         <div class="partnerships"></div>
         <div class="partnership-images"></div>
@@ -224,13 +221,13 @@
         <img src="/icons/projects/nepremicninski_davek_barvno.svg" />
       </div>
       <div class="col">
-        <h2>Uvedimo nepremičninski davek</h2>
+        <h2>Pogovorimo se o davku na nepremičnine</h2>
         <p>
-          Nepremičnine v Sloveniji so prava davčna oaza. Medtem, ko se
-          investitorji igrajo Monopoli in služijo na AirBnb gostih, stanovanjska
+          Nepremičnine v Sloveniji so prava davčna oaza. Medtem ko se
+          investitorji igrajo monopoli in služijo na AirBnb gostih, stanovanjska
           situacija postaja popolnoma nevzdržna. Davčna politika oziroma njeno
           pomanjkanje vzdržuje stanovanjsko krizo in ustvarja resnično človeško
-          stisko. Pritiskali bomo na Marjana, da izpolni, kar je obljubil pred
+          stisko. Pritiskali bomo na Šarca, da izpolni, kar je obljubil pred
           volitvami.
         </p>
         <div class="partnerships">
@@ -246,14 +243,14 @@
         <img src="/icons/projects/medijska_reprezentacija_barvno.svg" />
       </div>
       <div class="col">
-        <h2>Analizirajmo zastopanost spolov v medijih</h2>
+        <h2>Raziščimo zastopanost spolov na televiziji</h2>
         <p>
-          Kljub temu, da gre počasi na boljše, smo še vedno izjemno patriarhalna
-          družba, k čemur precej pripomorejo tudi mediji. Gledali bomo vse
-          ključne dnevno informativne oddaje in primerjali reprezentacijo
-          spolov. Kdo govori, kdaj govori, kaj govori, kdo sprašuje, kaj
-          sprašuje, kdo odgovarja, kdo komentira, kdo si vzame besedo in komu jo
-          vzamejo drugi?
+          Kljub temu, da gre počasi na boljše, smo še vedno izrazito
+          patriarhalna družba, k čemur precej pripomorejo tudi mediji. Gledali
+          bomo vse ključne dnevno informativne oddaje in primerjali
+          reprezentacijo spolov v njih. Kdo govori, kdaj govori, kaj govori, kdo
+          sprašuje, kaj sprašuje, kdo odgovarja, kdo komentira, kdo si vzame
+          besedo in komu jo vzamejo drugi?
         </p>
         <div class="partnerships"></div>
         <div class="partnership-images"></div>
@@ -262,7 +259,7 @@
     <div class="row row-social">
       <div class="col">
         <h1>
-          Več nas bo, prej bomo na cilju! POVEJ NAPREJ!
+          Več nas bo, prej bomo na&nbsp;cilju&nbsp;...
         </h1>
       </div>
     </div>

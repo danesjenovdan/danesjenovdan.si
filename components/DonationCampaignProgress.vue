@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="col-sm-auto">
-      <p class="countdown-text">dni do konca kampanje</p>
+      <p class="countdown-text">dni do izteka kampanje</p>
     </div>
   </div>
 </template>

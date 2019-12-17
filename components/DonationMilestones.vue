@@ -1,6 +1,6 @@
 <template>
   <div class="donation-milestones-container">
-    <h1>Več nas je kot</h1>
+    <h1>Nas je že več kot</h1>
     <div
       v-for="milestone in reachedMilestones"
       :key="milestone.icon"
@@ -66,12 +66,12 @@ export default {
         {
           number: 26,
           text:
-            'znanih Slovencev, ki so oktobra 2011 podprli Jankovićevo kandidaturo na parlamentarnih volitvah',
+            'znanih oseb, ki so oktobra 2011 podprle Jankovićevo kandidaturo na parlamentarnih volitvah',
           icon: '2_jankovic',
         },
         {
           number: 50,
-          text: 'članov štajerske varde',
+          text: 'članov Štajerske varde',
           icon: '3_varda',
         },
         {
@@ -81,12 +81,13 @@ export default {
         },
         {
           number: 99,
-          text: 'članov skupščine GZS',
+          text: 'članov skupščine Gospodarske Zbornice Slovenije',
           icon: '5_gzs',
         },
         {
           number: 134,
-          text: 'ljudi, ki imajo vsaj 3 stanovanja na Airbnb v Ljubljani',
+          text:
+            'posameznikov, ki na Airbnb oddajajo več kot 2 stanovanji v Ljubljani',
           icon: '6_lastniki',
         },
       ],
