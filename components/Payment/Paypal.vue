@@ -65,14 +65,19 @@ export default {
                 currency: 'EUR',
               });
             },
-            onAuthorize: (data, options) => {
+            onAuthorize: (data, actions) => {
               this.$emit('payment-start');
-              return paypalCheckoutInstance
-                .tokenizePayment(options)
-                .then((payload) => {
-                  this.error = null;
+              return paypalCheckoutInstance.tokenizePayment(
+                data,
+                (error, payload) => {
+                  this.error = error;
                   this.$emit('success', { nonce: payload.nonce });
-                });
+                },
+              );
+              // .then((payload) => {
+              //   this.error = null;
+              //   this.$emit('success', { nonce: payload.nonce });
+              // });
             },
             onCancel: (data) => {
               this.error = 'Payment Cancelled';
