@@ -1,6 +1,19 @@
 <template>
   <div class="checkout">
-    <div v-if="error" class="alert alert-danger">{{ error }}</div>
+    <div v-if="error" class="alert alert-danger">
+      <p>
+        Zgodila se je napaka št. {{ error.status }}. Naš strežnik je ni mogel
+        rešiti, prejel je naslednje sporočilo:
+        <strong>{{ error.data.msg }}</strong>
+      </p>
+      <p>
+        Zaračunali ti nismo ničesar, ves denar je še vedno na tvoji kartici.
+        Predlagamo, da osvežiš stran in poskusiš ponovno. Če ne bo šlo, nam piši
+        na
+        <a href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a> in ti
+        bomo poskusili pomagati.
+      </p>
+    </div>
 
     <div v-else-if="stage === 'summary'" class="checkout__summary">
       <h1 class="checkout__title">Povzetek naročila</h1>
@@ -332,8 +345,8 @@ export default {
         this.stage = 'payment';
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.error(error);
-        this.error = error;
+        console.error(error.response);
+        this.error = error.response;
       }
     },
     continueToNextStage() {
@@ -368,8 +381,8 @@ export default {
         this.stage = 'thankyou';
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.error(error);
-        this.error = error;
+        console.error(error.response);
+        this.error = error.response;
       }
     },
   },
