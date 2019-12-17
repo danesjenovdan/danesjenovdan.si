@@ -8,7 +8,7 @@
         <div class="gift-content">
           <div class="form-group row">
             <div class="d-flex align-items-center col-3">
-              <span class="name-label">Dragi/a</span>
+              <span class="name-label">Dragi/-a</span>
             </div>
             <div class="col-9">
               <input
@@ -71,6 +71,7 @@ import ConfirmButton from '~/components/ConfirmButton.vue';
 const defaultMessage = `Med prazniki se vse prevečkrat obdarujemo zato, ker se pač tako spodobi, zapravljamo denar za stvari, ki jih obdarovanci ne potrebujejo ali si jih ne želijo, ter tudi sami prejemamo tovrstna darila. Tako v imenu nenapisane dolžnosti prispevamo k hiperprodukciji, onesnaževanju in nepotrebnemu trošenju.
 
 Letos se upiram taki praksi in ti za novo leto podarjam donacijo inštitutu Danes je nov dan v tvojem imenu. Zbirajo za pet različnih aktivističnih projektov z raznolikimi partnerji.
+
 Donatorji lahko na njihovo spletno stran naložijo svojo slikico ali si izberejo katero od prednaloženih. S klikom na to povezavo lahko to urediš zase in deliš svoje darilo na družbenih omrežjih :)
 
 Namesto kupovanja nepotrebnih daril tudi ti rajši prispevaj za tiste socialne problematike, ki so ti najbližje!
