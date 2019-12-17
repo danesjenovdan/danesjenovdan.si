@@ -122,7 +122,7 @@
       <template slot="title">
         Hvala za plačilo!<br /><span v-if="selectedDonationAmount >= 11"
           >Kam ti pošljemo presenečenje?</span
-        >
+        ><span v-else>Kam ti pošljemo potrdilo?</span>
       </template>
       <template slot="content">
         <div class="info-content">

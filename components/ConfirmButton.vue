@@ -183,6 +183,7 @@ export default {
     flex: 1;
     position: relative;
     top: -0.05em;
+    letter-spacing: 1px;
   }
 
   .arrow {

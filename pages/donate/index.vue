@@ -4,7 +4,8 @@
     <div class="row justify-content-center">
       <div class="limit-like-p">
         <h1 class="mega-header">
-          Dragi <span class="strikethrough">dedek Mraz</span><br />dobri človek!
+          Dragi <span class="strikethrough">dedek&nbsp;Mraz</span><br />dobri
+          človek!
         </h1>
         <div class="embed-responsive embed-responsive-16by9">
           <div class="embed-responsive-item d-flex align-items-center">
