@@ -107,7 +107,9 @@
 
     <checkout-stage v-if="stage === 'info'" :stage="stage">
       <template slot="title">
-        Hvala za plačilo!<br />Kam ti pošljemo presenečenje?
+        Hvala za plačilo!<br /><span v-if="selectedDonationAmount >= 11"
+          >Kam ti pošljemo presenečenje?</span
+        >
       </template>
       <template slot="content">
         <div class="info-content">
@@ -126,6 +128,7 @@
               type="address"
               placeholder="Naslov"
               class="form-control form-control-lg"
+              v-if="selectedDonationAmount >= 11"
             />
           </div>
           <div class="form-group">
@@ -274,7 +277,8 @@ export default {
       return false;
     },
     infoValid() {
-      if (!this.name || !this.email || !this.address) {
+      if (!this.name || !this.email) {
+        // USED TO BE ALSO || !this.address) {
         return false;
       }
       if (!EMAIL_REGEX.test(this.email)) {
@@ -319,6 +323,10 @@ export default {
         if (this.stage === 'select-amount') {
           if (!this.selectedDonationAmount) {
             this.donationPresets.find((dp) => dp.custom).selected = true;
+            if (this.gift) {
+              const selected = this.donationPresets.find((dp) => dp.selected);
+              this.addDonationGift(selected);
+            }
           }
           try {
             this.checkoutLoading = true;

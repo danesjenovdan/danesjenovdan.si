@@ -70,9 +70,10 @@ export default {
     },
   },
   async asyncData({ $axios }) {
-    const products = await $axios.$get(
+    let products = await $axios.$get(
       'https://podpri.djnd.si/api/shop/products/',
     );
+    products = products.sort((a, b) => b.id - a.id);
     return {
       products,
     };

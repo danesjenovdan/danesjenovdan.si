@@ -154,6 +154,19 @@ export default {
       }
 
       @include media-breakpoint-up(lg) {
+        bottom: calc(40% - 70px);
+        font-size: 24px;
+
+        .measure-number {
+          font-size: 70px;
+        }
+
+        .measure-unit {
+          transform: translate(0, -15px);
+        }
+      }
+
+      @include media-breakpoint-up(xl) {
         bottom: calc(40% - 90px);
         font-size: 30px;
 

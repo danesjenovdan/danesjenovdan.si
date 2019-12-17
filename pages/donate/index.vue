@@ -111,9 +111,9 @@
         </div>
       </div>
     </div>
-    <div class="row vec-nas-je-kot">
+    <div class="row vec-nas-je-kot align-items-center">
       <div class="col-md-6">
-        <donation-images :images="images" />
+        <donation-images :images="images" class="pr-md-5" />
       </div>
       <div class="col-md-6">
         <donation-milestones :number-of-donations="images.length" />
@@ -186,15 +186,15 @@
         </p>
         <div class="partnerships">
           V partnerstvu s <span class="partner">PIC</span>,
-          <span class="partner">Focus</span>
-          <!-- <span class="partner">Umanotera</span>,
-          <span class="partner">Greenpeace Slovenija</span> -->
+          <span class="partner">Focus</span>,
+          <!-- <span class="partner">Umanotera</span>, -->
+          <span class="partner">Greenpeace Slovenija</span>
         </div>
         <div class="partnership-images">
           <img src="/img/partners/pic.png" />
           <img src="/img/partners/focus.jpg" />
-          <!-- <img src="/img/partners/umanotera.png" style="width: 100px" />
-          <img src="/img/partners/greenpeace.png" style="width: 100px" /> -->
+          <!-- <img src="/img/partners/umanotera.png" style="width: 100px" /> -->
+          <img src="/img/partners/greenpeace.png" style="width: 100px" />
         </div>
       </div>
     </div>
@@ -540,12 +540,12 @@ p {
     rgba(205, 172, 84, 0.2) 0%,
     rgba(223, 120, 108, 0.2) 100%
   );
-  padding: 20px 1.5em 20px 1.5em;
+  padding: 40px 1.5em 20px 1.5em;
 
   @include media-breakpoint-up(md) {
     margin-left: -3em;
     margin-right: -3em;
-    padding: 20px 3em 20px 3em;
+    padding: 40px 3em 20px 3em;
   }
 }
 .under-vec-nas-je-kot {
@@ -669,11 +669,11 @@ p {
   }
 }
 .donation-scale-container {
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 
   @include media-breakpoint-up(md) {
-    position: absolute;
-    bottom: 40px;
+    // position: absolute;
+    // bottom: 40px;
     margin-bottom: 0;
   }
 }

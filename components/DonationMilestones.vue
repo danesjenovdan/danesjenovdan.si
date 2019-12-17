@@ -95,7 +95,7 @@ export default {
 
   computed: {
     reachedMilestones() {
-      return this.milestones.filter((m) => m.number < this.numberOfDonations);
+      return this.milestones.filter((m) => m.number <= this.numberOfDonations);
     },
     nextMilestone() {
       const potentialNextMilestone = this.milestones

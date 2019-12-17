@@ -117,6 +117,7 @@ export default {
     stopAnimatingHearts() {
       window.clearInterval(this.timer);
       this.heartFills = ['transparent', 'transparent', 'transparent'];
+      this.heartIndex = 0;
     },
   },
 };
@@ -242,6 +243,11 @@ export default {
     &--#{$color-name} {
       background-color: $color;
     }
+  }
+
+  transition: all 0.15s ease;
+  &:hover {
+    transform: scale(0.95);
   }
 }
 </style>
