@@ -25,6 +25,12 @@
         />
       </div>
     </form>
+    <div class="card-info">
+      Informacij o tvoji kartici ne pošiljamo na svoj strežnik in ne
+      shranjujemo. Za varnost plačila skrbi<br /><img
+        src="/img/braintree.png"
+      />
+    </div>
   </div>
 </template>
 
@@ -164,6 +170,21 @@ export default {
 
   &.load-container--small {
     margin: 1rem 0;
+  }
+}
+
+.card-info {
+  font-weight: 300;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
+  max-width: 350px;
+
+  img {
+    display: inline-block;
+    width: 100px;
+    height: auto;
+    margin-top: 8px;
   }
 }
 </style>
