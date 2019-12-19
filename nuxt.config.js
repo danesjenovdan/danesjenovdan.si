@@ -115,6 +115,10 @@ export default {
       src: '~/plugins/vue-avatar-cropper.js',
       mode: 'client'
     },
+    {
+      src: '~/plugins/matomo.js',
+      ssr: false,
+    },
   ],
   /*
    ** Nuxt.js dev-modules

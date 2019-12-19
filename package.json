@@ -24,7 +24,8 @@
     "nuxt": "^2.10.2",
     "nuxt-i18n": "^5.12.7",
     "paypal-checkout": "^4.0.280",
-    "standard-slugify": "^1.0.0"
+    "standard-slugify": "^1.0.0",
+    "vue-matomo": "^3.13.0-0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
