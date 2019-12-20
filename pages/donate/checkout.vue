@@ -224,27 +224,32 @@ export default {
           amount: 11,
           description: 'Čaka te mini presenečenje!',
           selected: false,
+          eventName: 'eleven',
         },
         {
           amount: 24,
           description: 'Čaka te majhno presenečenje!',
           selected: false,
+          eventName: 'twentyfour',
         },
         {
           amount: 47,
           description: 'Čaka te presečenje!',
           selected: false,
+          eventName: 'fortyseven',
         },
         {
           amount: 101,
           description: 'Ti si presenečenje! In čaka te ornk presenečenje :)',
           selected: false,
+          eventName: 'whale',
         },
         {
           custom: true,
           amount: null,
           description: 'Vnesi poljuben znesek!',
           selected: false,
+          eventName: 'aeleven',
         },
       ],
       donationGifts: [],
@@ -346,6 +351,19 @@ export default {
             const checkoutResponse = await this.$axios.$get(
               'https://podpri.djnd.si/api/donate/',
             );
+            try {
+              window._paq.push([
+                'trackEvent', // function
+                'donation', // category
+                'payment', // action
+                this.selectedDonationAmount < 11
+                  ? 'ueleven'
+                  : this.donationPresets.find((dp) => dp.selected).eventName,
+                this.selectedDonationAmount,
+              ]);
+            } catch (error) {
+              console.log(error);
+            }
             this.token = checkoutResponse.token;
             this.stage = 'payment';
           } catch (error) {
