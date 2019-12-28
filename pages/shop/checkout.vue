@@ -212,8 +212,8 @@
       </div>
     </div>
 
-    <div v-if="stage !== 'thankyou'" class="terms">
-      <nuxt-link to="#">Pogoji poslovanja</nuxt-link>
+    <div class="terms">
+      <nuxt-link target="_blank" to="/pogoji">Pogoji poslovanja</nuxt-link>
     </div>
   </div>
 </template>

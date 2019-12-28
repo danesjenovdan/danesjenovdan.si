@@ -182,6 +182,9 @@
         </div>
       </template>
     </checkout-stage>
+    <div class="terms">
+      <nuxt-link target="_blank" to="/pogoji">Pogoji poslovanja</nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -536,6 +539,23 @@ export default {
       min-height: 2rem;
       display: flex;
       align-items: center;
+    }
+  }
+}
+
+.terms {
+  text-align: center;
+  margin: 2.5rem 0 1rem;
+  color: #333;
+
+  a {
+    text-decoration: underline;
+    color: inherit;
+    font-style: italic;
+    font-weight: 300;
+
+    &:hover {
+      text-decoration: none;
     }
   }
 }
