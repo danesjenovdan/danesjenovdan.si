@@ -16,7 +16,8 @@
             ></div>
           </div>
           <div class="inside-circle">
-            {{ daysLeft }}
+            0
+            <!-- used to be {{ daysLeft }} -->
           </div>
         </div>
       </div>
@@ -59,7 +60,9 @@ export default {
       return (this.daysLeft / this.totalDays) * 100;
     },
 
+    /* eslint-disable no-unreachable */
     firstHalfRotate() {
+      return 0; // after campaign is over
       if (this.percentage <= 50) {
         return this.percentageToDegrees(this.percentage);
       } else {
@@ -68,12 +71,14 @@ export default {
     },
 
     secondHalfRotate() {
+      return 0; // after campaign is over
       if (this.percentage > 50) {
         return this.percentageToDegrees(this.percentage) - 180;
       } else {
         return 0;
       }
     },
+    /* eslint-enable no-unreachable */
   },
 
   methods: {
