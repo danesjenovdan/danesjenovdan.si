@@ -15,8 +15,24 @@
       </template>
       <p v-t="`shop.products.${product.id}.description`" />
       <hr />
-      <!-- <div>TODO: variants</div>
-      <hr /> -->
+      <!-- <div>TODO: variants</div> -->
+      <div class="product__variant">
+        <h3 class="variant__title">Količina</h3>
+        <button
+          class="modify-amount modify-amount--minus"
+          @click="changeAmount(amount - 1)"
+        >
+          &ndash;
+        </button>
+        <span class="amount" v-text="amount" />
+        <button
+          class="modify-amount modify-amount--plus"
+          @click="changeAmount(amount + 1)"
+        >
+          +
+        </button>
+      </div>
+      <hr />
       <more-button
         :text="'KUPI'"
         block
@@ -61,6 +77,7 @@ export default {
   data() {
     return {
       orderKey: null,
+      amount: 1,
     };
   },
   async mounted() {
@@ -69,12 +86,22 @@ export default {
     }
   },
   methods: {
+    changeAmount(newAmount) {
+      this.amount = newAmount;
+      if (this.amount < 1) {
+        this.amount = 1;
+      }
+    },
     async addAndCheckout() {
-      await this.addToBasket(this.orderKey, this.product.id, 1);
+      if (this.amount > 0) {
+        await this.addToBasket(this.orderKey, this.product.id, this.amount);
+      }
       this.$router.push(this.localePath('shop-checkout'));
     },
     async addAndBack() {
-      await this.addToBasket(this.orderKey, this.product.id, 1);
+      if (this.amount > 0) {
+        await this.addToBasket(this.orderKey, this.product.id, this.amount);
+      }
       this.$router.push(this.localePath('shop'));
     },
   },
@@ -127,6 +154,44 @@ export default {
       border-top-color: #686d6e;
       margin-top: 1.75rem;
       margin-bottom: 1.75rem;
+    }
+
+    .product__variant {
+      .variant__title {
+        font-size: 1.25rem;
+      }
+
+      button {
+        background-color: transparent;
+        border: 0;
+        height: 1.75rem;
+        width: 1.75rem;
+      }
+
+      .modify-amount {
+        font-weight: 700;
+        color: $color-red;
+        border: 1px solid $color-red;
+        text-align: center;
+      }
+
+      .amount {
+        display: inline-block;
+        text-align: center;
+        line-height: 1;
+        padding: 0.125rem 0.75rem;
+        font-weight: 600;
+      }
+
+      input[type='number']::-webkit-outer-spin-button,
+      input[type='number']::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type='number'] {
+        -moz-appearance: textfield;
+      }
     }
 
     .add-to-basket {
