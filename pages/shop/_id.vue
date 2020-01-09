@@ -1,49 +1,58 @@
 <template>
   <div class="product">
-    <div class="product__container">
-      <h1 v-text="getDisplayName(product)" />
-      <h2 class="price">{{ formatPrice(product.price) }}</h2>
-      <template v-if="$te(`shop.products.${product.id}.images`)">
-        <img
-          v-for="img in $t(`shop.products.${product.id}.images`)"
-          :key="img"
-          :src="img"
-        />
-      </template>
-      <template v-else>
-        <img :src="`/img/products/${product.id}.jpg`" />
-      </template>
-      <p v-t="`shop.products.${product.id}.description`" />
-      <hr />
-      <!-- <div>TODO: variants</div> -->
-      <div class="product__variant">
-        <h3 class="variant__title">Količina</h3>
-        <button
-          class="modify-amount modify-amount--minus"
-          @click="changeAmount(amount - 1)"
-        >
-          &ndash;
-        </button>
-        <span class="amount" v-text="amount" />
-        <button
-          class="modify-amount modify-amount--plus"
-          @click="changeAmount(amount + 1)"
-        >
-          +
-        </button>
+    <div class="product__container row no-gutters">
+      <div class="d-none d-md-block col-md-4">
+        &nbsp;
       </div>
-      <hr />
-      <more-button
-        :text="'KUPI'"
-        block
-        color="secondary"
-        icon="heart"
-        @click="addAndCheckout"
-      />
-      <div class="add-to-basket">
-        <a href="#" @click.prevent="addAndBack">
-          Dodaj v voziček in še malo pobrskaj po policah
-        </a>
+      <div class="col-12 col-md-8 product__name">
+        <h1 v-text="getDisplayName(product)" />
+        <h2 class="price">{{ formatPrice(product.price) }}</h2>
+      </div>
+      <div class="col-12 col-md-4">
+        <template v-if="$te(`shop.products.${product.id}.images`)">
+          <img
+            v-for="img in $t(`shop.products.${product.id}.images`)"
+            :key="img"
+            :src="img"
+          />
+        </template>
+        <template v-else>
+          <img :src="`/img/products/${product.id}.jpg`" />
+        </template>
+      </div>
+      <div class="col-12 col-md-8 product__description">
+        <p v-t="`shop.products.${product.id}.description`" />
+        <hr />
+        <!-- <div>TODO: variants</div> -->
+        <div class="product__variant">
+          <h3 class="variant__title">Količina</h3>
+          <button
+            class="modify-amount modify-amount--minus"
+            @click="changeAmount(amount - 1)"
+          >
+            &ndash;
+          </button>
+          <span class="amount" v-text="amount" />
+          <button
+            class="modify-amount modify-amount--plus"
+            @click="changeAmount(amount + 1)"
+          >
+            +
+          </button>
+        </div>
+        <hr />
+        <more-button
+          :text="'KUPI'"
+          block
+          color="secondary"
+          icon="heart"
+          @click="addAndCheckout"
+        />
+        <div class="add-to-basket">
+          <a href="#" @click.prevent="addAndBack">
+            Dodaj v voziček in še malo pobrskaj po policah
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -112,7 +121,7 @@ export default {
 .product {
   .product__container {
     @include media-breakpoint-up(md) {
-      max-width: 540px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
@@ -121,6 +130,12 @@ export default {
       text-align: center;
       font-size: 1.85rem;
       font-weight: 600;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+        text-align: left;
+        font-size: 2.5rem;
+      }
     }
 
     h2 {
@@ -129,6 +144,13 @@ export default {
       font-size: 1.85rem;
       font-weight: 300;
       font-style: italic;
+
+      @include media-breakpoint-up(md) {
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: left;
+        font-size: 2.5rem;
+      }
     }
 
     img {
@@ -144,10 +166,34 @@ export default {
       }
     }
 
+    .product__name {
+      @include media-breakpoint-up(md) {
+        margin-left: -1.8rem;
+        padding: 0 1.8rem 0 3.8rem;
+      }
+    }
+
+    .product__description {
+      @include media-breakpoint-up(md) {
+        margin-left: -1.8rem;
+        margin-right: 0rem;
+        margin-top: 1.8rem;
+        padding: 1.8rem 2.3rem 1.8rem;
+        padding-left: 3.8rem;
+        background-color: #fff;
+        z-index: -1;
+      }
+    }
+
     p {
       font-size: 1.2rem;
       font-weight: 300;
+      line-height: 1.4;
       font-style: italic;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.5rem;
+      }
     }
 
     hr {
