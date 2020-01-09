@@ -19,7 +19,7 @@
     </div>
     <div class="col-xl-9 offset-xl-1">
       <div class="product-tile__content">
-        <p v-text="text" class="product-tile__text" />
+        <p class="product-tile__text" v-text="text" />
         <more-button :to="buttonUrl" :text="buttonText" color="secondary" />
       </div>
     </div>

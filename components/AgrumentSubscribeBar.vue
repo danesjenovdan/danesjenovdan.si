@@ -1,7 +1,7 @@
 <template>
   <div class="agrument-subscribe-bar bg-white">
     <div class="bar-container">
-      <form @submit.prevent="onSubscribe" class="form-inline">
+      <form class="form-inline" @submit.prevent="onSubscribe">
         <strong v-t="'agrument.subscribe-bar.subscribe-to'" />
         <span v-t="'agrument.subscribe-bar.deliver-it'" class="description" />
         <div class="email-controls d-flex">
@@ -90,18 +90,18 @@
               <div class="embed-responsive-item">
                 <video
                   v-if="!videoEnded"
-                  @ended="onVideoEnded"
                   muted
                   autoplay
                   src="/img/success-rocket.mp4"
+                  @ended="onVideoEnded"
                 />
                 <div v-else class="modal-body text-center">
                   <button
-                    @click="toggleModal(false)"
                     type="button"
                     class="close"
                     data-dismiss="modal"
                     aria-label="Close"
+                    @click="toggleModal(false)"
                   >
                     <span aria-hidden="true">&times;</span>
                   </button>

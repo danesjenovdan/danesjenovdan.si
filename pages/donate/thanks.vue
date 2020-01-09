@@ -11,13 +11,13 @@
           <div class="icon">
             <svg viewBox="12.005 16.033 75.99 67.934" fill="#dd786b">
               <path
-                d="M31.756 16.033c-5.075 0-10.122 2.005-13.969 6.031-7.693 8.051-7.715 20.974-.03 29.031l30.78 32.282c.746.787 2.162.787 2.907 0 10.268-10.746 20.513-21.504 30.781-32.25 7.693-8.052 7.693-20.98 0-29.032-7.694-8.051-20.275-8.051-27.969 0l-4.25 4.407-4.25-4.438c-4.147-4.357-9.286-6.052-14-6.031zm0 3.937c3.999 0 8.019 1.625 11.125 4.875l5.687 5.97c.746.787 2.162.787 2.907 0l5.656-5.938c6.212-6.502 16.007-6.501 22.219 0 6.212 6.5 6.212 16.999 0 23.5C69.57 58.61 59.786 68.86 50.006 79.095l-29.344-30.75c-6.207-6.509-6.212-16.999 0-23.5 3.106-3.25 7.095-4.875 11.094-4.875z"
                 id="path2"
+                d="M31.756 16.033c-5.075 0-10.122 2.005-13.969 6.031-7.693 8.051-7.715 20.974-.03 29.031l30.78 32.282c.746.787 2.162.787 2.907 0 10.268-10.746 20.513-21.504 30.781-32.25 7.693-8.052 7.693-20.98 0-29.032-7.694-8.051-20.275-8.051-27.969 0l-4.25 4.407-4.25-4.438c-4.147-4.357-9.286-6.052-14-6.031zm0 3.937c3.999 0 8.019 1.625 11.125 4.875l5.687 5.97c.746.787 2.162.787 2.907 0l5.656-5.938c6.212-6.502 16.007-6.501 22.219 0 6.212 6.5 6.212 16.999 0 23.5C69.57 58.61 59.786 68.86 50.006 79.095l-29.344-30.75c-6.207-6.509-6.212-16.999 0-23.5 3.106-3.25 7.095-4.875 11.094-4.875z"
               />
               <path
+                id="path12"
                 style="fill:transparent;stroke-width:0.30070534"
                 d="M 37.342652,67.767099 C 18.090047,46.826364 18.134724,46.877597 16.973735,44.409678 c -1.344773,-2.85859 -1.920544,-5.305628 -1.915189,-8.139595 0.0086,-4.56069 1.508983,-8.704631 4.317498,-11.924728 3.302805,-3.786823 6.989467,-5.546676 11.61956,-5.546676 5.242144,0 7.873474,1.476455 13.852388,7.772658 3.348548,3.526253 4.10063,4.173099 4.851999,4.173099 0.749401,0 1.611575,-0.735442 5.483968,-4.677862 4.822118,-4.909325 6.28592,-5.976108 9.328474,-6.798363 5.302958,-1.433133 10.830326,0.210955 14.897861,4.431292 2.249881,2.334398 3.625629,4.861192 4.435424,8.146396 1.06796,4.332548 0.507725,9.059656 -1.549861,13.077342 C 81.742592,46.003554 80.187686,48.058365 78.6601,49.7279 77.19211,51.332301 70.230527,58.916512 63.189912,66.581706 56.1493,74.246899 50.243163,80.683736 50.065167,80.885788 49.821604,81.162266 46.674044,77.916694 37.342652,67.767099 Z"
-                id="path12"
                 inkscape:connector-curvature="0"
               />
             </svg>
@@ -33,10 +33,10 @@
         <div class="confirm-button-container">
           <confirm-button
             key="next-thankyou"
-            @click.native="stage = 'avatar'"
             text="Dodaj svoj obraz na tehtnico"
             color="secondary"
             arrow
+            @click.native="stage = 'avatar'"
           />
           <div class="bottom-back-link">
             <dynamic-link @click="stage = 'share'">
@@ -100,9 +100,9 @@
             key="next-avatar"
             :disabled="!canUploadImage"
             :loading="imageUploading"
-            @click.native="uploadImage"
             text="Potrdi"
             color="secondary"
+            @click.native="uploadImage"
           />
           <div class="bottom-back-link">
             <dynamic-link @click="stage = 'share'">
@@ -121,7 +121,7 @@
         </div>
         <h1 class="share__title">POVEJ NAPREJ!</h1>
         <div class="share__buttons">
-          <button @click="onShareClick($event, 'fb')" type="button">
+          <button type="button" @click="onShareClick($event, 'fb')">
             <svg
               fill="currentColor"
               viewBox="0 0 1792 1792"
@@ -132,7 +132,7 @@
               ></path>
             </svg>
           </button>
-          <button @click="onShareClick($event, 'tw')" type="button">
+          <button type="button" @click="onShareClick($event, 'tw')">
             <svg
               fill="currentColor"
               viewBox="0 0 1792 1792"
@@ -143,7 +143,7 @@
               ></path>
             </svg>
           </button>
-          <button @click="onShareClick($event, 'mail')" type="button">
+          <button type="button" @click="onShareClick($event, 'mail')">
             <svg
               fill="currentColor"
               viewBox="0 0 1792 1792"
@@ -183,6 +183,12 @@ export default {
     CheckoutStage,
     DonationImages,
   },
+  asyncData({ query }) {
+    const token = query.token;
+    return {
+      token,
+    };
+  },
   data() {
     return {
       error: null,
@@ -204,12 +210,6 @@ export default {
         this.imageBlob
       );
     },
-  },
-  asyncData({ query }) {
-    const token = query.token;
-    return {
-      token,
-    };
   },
   created() {
     if (!this.token) {

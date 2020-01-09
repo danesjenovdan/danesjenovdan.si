@@ -22,9 +22,9 @@
             <input
               :id="uid1"
               :checked="checked"
-              @change="$emit('change', $event.target.checked)"
               type="checkbox"
               class="custom-control-input"
+              @change="$emit('change', $event.target.checked)"
             />
             <label :for="uid1" class="custom-control-label" />
           </div>
@@ -49,9 +49,9 @@
             <input
               :id="uid2"
               :checked="checked"
-              @change="$emit('change', $event.target.checked)"
               type="checkbox"
               class="custom-control-input"
+              @change="$emit('change', $event.target.checked)"
             />
             <label :for="uid2" class="custom-control-label" />
           </div>

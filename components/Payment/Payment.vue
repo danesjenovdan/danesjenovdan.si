@@ -42,8 +42,8 @@
               </div>
             </div>
             <button
-              @click.prevent="payWithCreditCard"
               class="btn btn-primary btn-block"
+              @click.prevent="payWithCreditCard"
             >
               Pay with Credit Card
             </button>

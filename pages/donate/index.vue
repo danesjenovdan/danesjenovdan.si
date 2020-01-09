@@ -28,10 +28,10 @@
               key="next-summary"
               :to="''"
               :text="'Doniraj'"
-              @click.native="$router.push('/doniraj/placaj')"
               color="secondary"
               arrow
               hearts
+              @click.native="$router.push('/doniraj/placaj')"
             />
           </div>
           <div class="col-sm d-flex">
@@ -95,10 +95,10 @@
               key="next-summary"
               :to="''"
               :text="'Podpri nas'"
-              @click.native="$router.push('/doniraj/placaj')"
               color="secondary"
               arrow
               hearts
+              @click.native="$router.push('/doniraj/placaj')"
             />
           </div>
           <div class="col-sm d-flex">
@@ -137,10 +137,10 @@
         key="next-summary"
         :to="''"
         :text="'Podpri nas'"
-        @click.native="$router.push('/doniraj/placaj')"
         color="secondary"
         arrow
         hearts
+        @click.native="$router.push('/doniraj/placaj')"
       />
     </div>
     <div class="row">
@@ -313,6 +313,77 @@ export default {
     },
   },
 
+  components: {
+    DonationLogo,
+    ConfirmButton,
+    DonationInfoBox,
+    DonationImages,
+    DonationMilestones,
+    DonationSummary,
+    DonationCampaignProgress,
+    SquareIconButton,
+  },
+
+  mixins: [videoMixin],
+
+  data() {
+    return {
+      images: [],
+    };
+  },
+
+  computed: {
+    totalDonations() {
+      return this.images.reduce((prev, curr) => prev + curr.donation_amount, 0);
+    },
+
+    maxDonation() {
+      return this.images.reduce(
+        (prev, curr) =>
+          curr.donation_amount > prev ? curr.donation_amount : prev,
+        0,
+      );
+    },
+  },
+
+  async mounted() {
+    this.images = await this.$axios.$get('https://podpri.djnd.si/api/images/');
+  },
+
+  methods: {
+    onShareClick(event, type) {
+      const shareLink = 'https://danesjenovdan.si/doniraj';
+      const shareText =
+        'Danes je nov dan ob sedemletnici delovanja zbira donacije za aktivistične projekte v letu 2020. Pridruži se boju in jih podpri!';
+      const titleText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
+      const shareHashtag = '';
+      this.openSocialShareLink(
+        type,
+        titleText,
+        shareText,
+        shareLink,
+        shareHashtag,
+      );
+    },
+    openSocialShareLink(type, titleText, shareText, shareLink, shareHashtag) {
+      let url = '';
+      const title = encodeURIComponent(titleText);
+      if (type === 'fb') {
+        const link = encodeURIComponent(shareLink);
+        url = `https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=${link}&link=${link}&ref=responsive&name=${title}`;
+      } else if (type === 'tw') {
+        const text = encodeURIComponent(
+          `${shareText} ${shareHashtag} ${shareLink}`,
+        );
+        url = `https://twitter.com/intent/tweet?text=${text}`;
+      } else if (type === 'mail') {
+        const text = `${shareText} ${shareLink}`;
+        url = `mailto:?subject=${title}&body=${text}`;
+      }
+      window.open(url, '_blank');
+    },
+  },
+
   head() {
     return {
       title: 'Doniraj za nov dan!',
@@ -358,77 +429,6 @@ export default {
         },
       ],
     };
-  },
-
-  mixins: [videoMixin],
-
-  components: {
-    DonationLogo,
-    ConfirmButton,
-    DonationInfoBox,
-    DonationImages,
-    DonationMilestones,
-    DonationSummary,
-    DonationCampaignProgress,
-    SquareIconButton,
-  },
-
-  data() {
-    return {
-      images: [],
-    };
-  },
-
-  async mounted() {
-    this.images = await this.$axios.$get('https://podpri.djnd.si/api/images/');
-  },
-
-  computed: {
-    totalDonations() {
-      return this.images.reduce((prev, curr) => prev + curr.donation_amount, 0);
-    },
-
-    maxDonation() {
-      return this.images.reduce(
-        (prev, curr) =>
-          curr.donation_amount > prev ? curr.donation_amount : prev,
-        0,
-      );
-    },
-  },
-
-  methods: {
-    onShareClick(event, type) {
-      const shareLink = 'https://danesjenovdan.si/doniraj';
-      const shareText =
-        'Danes je nov dan ob sedemletnici delovanja zbira donacije za aktivistične projekte v letu 2020. Pridruži se boju in jih podpri!';
-      const titleText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
-      const shareHashtag = '';
-      this.openSocialShareLink(
-        type,
-        titleText,
-        shareText,
-        shareLink,
-        shareHashtag,
-      );
-    },
-    openSocialShareLink(type, titleText, shareText, shareLink, shareHashtag) {
-      let url = '';
-      const title = encodeURIComponent(titleText);
-      if (type === 'fb') {
-        const link = encodeURIComponent(shareLink);
-        url = `https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=${link}&link=${link}&ref=responsive&name=${title}`;
-      } else if (type === 'tw') {
-        const text = encodeURIComponent(
-          `${shareText} ${shareHashtag} ${shareLink}`,
-        );
-        url = `https://twitter.com/intent/tweet?text=${text}`;
-      } else if (type === 'mail') {
-        const text = `${shareText} ${shareLink}`;
-        url = `mailto:?subject=${title}&body=${text}`;
-      }
-      window.open(url, '_blank');
-    },
   },
 };
 </script>

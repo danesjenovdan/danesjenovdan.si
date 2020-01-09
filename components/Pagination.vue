@@ -3,10 +3,10 @@
     <ul class="pagination">
       <li :class="['prev', { disabled: page === 1 }]" :disabled="page === 1">
         <a
-          @click="pageChange($event, page - 1)"
           href="#"
           class="icon icon-arrow--warning"
           aria-label="Previous"
+          @click="pageChange($event, page - 1)"
         >
           <span aria-hidden="true">&nbsp;</span>
         </a>
@@ -17,7 +17,7 @@
         :class="{ active: pageNum === page }"
       >
         <span v-if="pageNum < 0" class="separator">...</span>
-        <a v-else @click="pageChange($event, pageNum)" href="#">{{
+        <a v-else href="#" @click="pageChange($event, pageNum)">{{
           pageNum
         }}</a>
       </li>
@@ -26,10 +26,10 @@
         :disabled="page >= pages"
       >
         <a
-          @click="pageChange($event, page + 1)"
           href="#"
           class="icon icon-arrow--warning"
           aria-label="Next"
+          @click="pageChange($event, page + 1)"
         >
           <span aria-hidden="true">&nbsp;</span>
         </a>

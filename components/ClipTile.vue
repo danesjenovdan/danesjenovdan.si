@@ -40,7 +40,7 @@
             {{ clip.types.join(', ') }}
           </div>
         </div>
-        <h2 v-text="clip.title" class="clip-tile__title" />
+        <h2 class="clip-tile__title" v-text="clip.title" />
         <div class="clip-tile__text">
           <p v-text="clip.desc" />
         </div>

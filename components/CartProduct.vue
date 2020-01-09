@@ -12,30 +12,30 @@
         </div>
       </div>
       <div class="col-7 cart-product__desc-col">
-        <div v-text="title" class="cart-product__title" />
+        <div class="cart-product__title" v-text="title" />
         <div class="cart-product__price">
           <span v-if="!showModify">
             <strong>{{ amount }}</strong> &times;
           </span>
           <strong>{{ formatPrice(price) }}</strong>
         </div>
-        <div v-if="text" v-text="text" class="cart-product__variation" />
+        <div v-if="text" class="cart-product__variation" v-text="text" />
         <div v-else class="cart-product__variation">&nbsp;</div>
         <div v-if="showModify" class="cart-product__modify">
           <button
-            @click="$emit('change-amount', 0)"
             class="remove-product icon icon-trash--secondary"
+            @click="$emit('change-amount', 0)"
           />
           <button
-            @click="$emit('change-amount', amount - 1)"
             class="modify-amount modify-amount--minus"
+            @click="$emit('change-amount', amount - 1)"
           >
             &ndash;
           </button>
-          <span v-text="amount" class="amount" />
+          <span class="amount" v-text="amount" />
           <button
-            @click="$emit('change-amount', amount + 1)"
             class="modify-amount modify-amount--plus"
+            @click="$emit('change-amount', amount + 1)"
           >
             +
           </button>

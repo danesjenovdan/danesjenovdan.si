@@ -19,13 +19,13 @@
       <hr /> -->
       <more-button
         :text="'KUPI'"
-        @click="addAndCheckout"
         block
         color="secondary"
         icon="heart"
+        @click="addAndCheckout"
       />
       <div class="add-to-basket">
-        <a @click.prevent="addAndBack" href="#">
+        <a href="#" @click.prevent="addAndBack">
           Dodaj v voziček in še malo pobrskaj po policah
         </a>
       </div>
@@ -49,11 +49,6 @@ export default {
     MoreButton,
   },
   mixins: [shopMixin],
-  data() {
-    return {
-      orderKey: null,
-    };
-  },
   async asyncData({ $axios, params }) {
     const products = await $axios.$get(
       'https://podpri.djnd.si/api/shop/products/',
@@ -61,6 +56,11 @@ export default {
     return {
       product: products.find((p) => p.id === Number(params.id)),
       params,
+    };
+  },
+  data() {
+    return {
+      orderKey: null,
     };
   },
   async mounted() {

@@ -49,7 +49,6 @@
             :key="`next-gift-${giftIndex}`"
             :disabled="!canUpdateGift"
             :loading="giftUpdating"
-            @click.native="updateGift"
             :text="
               giftIndex === gifts.length - 1
                 ? 'Zaključi z obdarovanjem'
@@ -57,6 +56,7 @@
             "
             color="secondary"
             arrow
+            @click.native="updateGift"
           />
         </div>
       </template>
@@ -94,6 +94,16 @@ export default {
     CheckoutStage,
     ConfirmButton,
   },
+  async asyncData({ query, $axios }) {
+    const token = query.token;
+    const giftsResponse = await $axios.$get(
+      `https://podpri.djnd.si/api/assign-gift/${token}/`,
+    );
+    return {
+      token,
+      gifts: giftsResponse.gifts || [],
+    };
+  },
   data() {
     return {
       error: null,
@@ -126,16 +136,6 @@ export default {
       }
       return true;
     },
-  },
-  async asyncData({ query, $axios }) {
-    const token = query.token;
-    const giftsResponse = await $axios.$get(
-      `https://podpri.djnd.si/api/assign-gift/${token}/`,
-    );
-    return {
-      token,
-      gifts: giftsResponse.gifts || [],
-    };
   },
   created() {
     if (!this.token || !this.gifts || !this.gifts.length) {

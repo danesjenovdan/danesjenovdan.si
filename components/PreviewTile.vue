@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="preview-tile__content">
-        <h3 v-text="title" class="preview-tile__title" />
+        <h3 class="preview-tile__title" v-text="title" />
         <div v-if="byline" class="preview-tile__byline">
           <i v-text="byline" />
         </div>

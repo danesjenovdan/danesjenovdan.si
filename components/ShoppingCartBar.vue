@@ -5,7 +5,7 @@
         v-click-outside="() => toggleCartPreview(null, false)"
         class="cart-preview-container"
       >
-        <button @click="toggleCartPreview" type="button" class="cart">
+        <button type="button" class="cart" @click="toggleCartPreview">
           <div class="icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@
               />
             </svg>
           </div>
-          <div v-text="itemAmount" class="amount" />
+          <div class="amount" v-text="itemAmount" />
         </button>
         <div v-if="cartPreviewShown" class="cart-preview">
           <div class="arrow" />
@@ -34,9 +34,9 @@
                 "
                 :price="item.article.price"
                 :amount="item.quantity"
-                @change-amount="changeAmount(item.id, $event)"
                 text=""
                 show-modify
+                @change-amount="changeAmount(item.id, $event)"
               />
               <hr :key="`${item.id}-hr`" />
             </template>

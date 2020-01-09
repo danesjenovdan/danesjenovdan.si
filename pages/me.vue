@@ -39,9 +39,9 @@
                 "
                 :to="localePath('me')"
                 :text="'POTRDI'"
-                @click.native="submitForm"
                 icon="heart"
                 large
+                @click.native="submitForm"
               />
             </form>
           </div>
@@ -114,6 +114,32 @@ export default {
     MoreButton,
     EmailSubscriptionTile,
   },
+  async asyncData({ $axios, query }) {
+    let showForm = true;
+    const settings = {
+      agrument: false,
+      general: false,
+      parlameter: false,
+    };
+    if (query.email && query.token) {
+      const token = encodeURIComponent(query.token);
+      const email = encodeURIComponent(query.email);
+      const endpoint = `https://podpri.djnd.si/api/segments/my?token=${token}&email=${email}`;
+      const response = await $axios.$get(endpoint);
+      if (response && typeof response === 'object') {
+        showForm = false;
+        response.segments.forEach((s) => {
+          settings[s.alias] = s.manuallyAdded;
+        });
+      }
+    }
+    return {
+      showForm,
+      settings,
+      email: query.email || '',
+      token: query.token || '',
+    };
+  },
   data() {
     return {
       loading: false,
@@ -156,32 +182,6 @@ export default {
         .filter((a) => this.meta[a] && this.meta[a].show)
         .sort((a, b) => this.meta[a].order - this.meta[b].order);
     },
-  },
-  async asyncData({ $axios, query }) {
-    let showForm = true;
-    const settings = {
-      agrument: false,
-      general: false,
-      parlameter: false,
-    };
-    if (query.email && query.token) {
-      const token = encodeURIComponent(query.token);
-      const email = encodeURIComponent(query.email);
-      const endpoint = `https://podpri.djnd.si/api/segments/my?token=${token}&email=${email}`;
-      const response = await $axios.$get(endpoint);
-      if (response && typeof response === 'object') {
-        showForm = false;
-        response.segments.forEach((s) => {
-          settings[s.alias] = s.manuallyAdded;
-        });
-      }
-    }
-    return {
-      showForm,
-      settings,
-      email: query.email || '',
-      token: query.token || '',
-    };
   },
   methods: {
     async submitForm() {

@@ -46,6 +46,14 @@ export default {
     ProjectTile,
   },
   mixins: [dateMixin],
+  async asyncData({ $axios, params, error }) {
+    const projectsResponse = await $axios.$get(
+      'https://djnapi.djnd.si/djnd.si/projects/?ordering=-date&size=500',
+    );
+    return {
+      projects: projectsResponse.results,
+    };
+  },
   data() {
     return {
       filters: [
@@ -107,14 +115,6 @@ export default {
           proj.tags && intersection(proj.tags, this.activeFilters).length,
       );
     },
-  },
-  async asyncData({ $axios, params, error }) {
-    const projectsResponse = await $axios.$get(
-      'https://djnapi.djnd.si/djnd.si/projects/?ordering=-date&size=500',
-    );
-    return {
-      projects: projectsResponse.results,
-    };
   },
   head() {
     return {

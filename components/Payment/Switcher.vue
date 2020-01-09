@@ -4,8 +4,8 @@
       <div class="nav-item">
         <button
           :class="['nav-link', { active: active === 'card' }]"
-          @click="changeActive('card')"
           type="button"
+          @click="changeActive('card')"
         >
           Kartica
         </button>
@@ -13,8 +13,8 @@
       <div class="nav-item">
         <button
           :class="['nav-link', { active: active === 'paypal' }]"
-          @click="changeActive('paypal')"
           type="button"
+          @click="changeActive('paypal')"
         >
           PayPal
         </button>

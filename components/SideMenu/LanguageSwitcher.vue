@@ -2,8 +2,8 @@
   <div class="language-switcher">
     <i class="icon icon-language--dark" />
     <select
-      @change="onLocaleChange"
       class="form-control custom-select icon-dropdown-arrow--dark"
+      @change="onLocaleChange"
     >
       <option
         v-for="locale in $i18n.locales"

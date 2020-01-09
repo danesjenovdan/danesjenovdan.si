@@ -13,8 +13,8 @@
             :key="avatar.image"
             :class="['avatar-image', { selected: i === selectedIndex }]"
             :style="{ backgroundImage: `url('${avatar.image}')` }"
-            @click="selectedIndex = i"
             type="button"
+            @click="selectedIndex = i"
           ></button>
         </div>
       </div>

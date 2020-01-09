@@ -36,7 +36,7 @@
         </div>
         <div class="col-xl-5 promoted-tile__content-col">
           <div class="promoted-tile__content">
-            <h3 v-text="title" class="promoted-tile__title" />
+            <h3 class="promoted-tile__title" v-text="title" />
             <div v-if="byline" class="promoted-tile__byline">
               <i v-text="byline" />
             </div>

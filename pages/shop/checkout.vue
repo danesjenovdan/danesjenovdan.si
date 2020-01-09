@@ -47,10 +47,10 @@
           key="next-summary"
           :to="localePath('shop-checkout')"
           :text="'KUPI'"
-          @click.native="continueToDelivery"
           block
           color="secondary"
           icon="heart"
+          @click.native="continueToDelivery"
         />
       </template>
     </div>
@@ -126,15 +126,15 @@
         <input type="submit" hidden />
       </form>
       <more-button
-        key="next-delivery"
         v-if="!checkoutLoading"
+        key="next-delivery"
         :to="localePath('shop-checkout')"
         :text="'KUPI'"
         :disabled="!canContinueToPayment"
-        @click.native="continueToPayment"
         block
         color="secondary"
         icon="heart"
+        @click.native="continueToPayment"
       />
       <template v-else>
         <div class="loader-container load-container--small">
@@ -182,11 +182,11 @@
             key="next-payment"
             :disabled="!canContinueToNextStage"
             :loading="paymentInProgress"
-            @click.native="continueToNextStage"
             text="Plačaj"
             color="secondary"
             arrow
             hearts
+            @click.native="continueToNextStage"
           />
         </div>
       </template>

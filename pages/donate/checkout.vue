@@ -24,7 +24,7 @@
           <donation-option
             v-for="(dp, i) in donationPresets"
             :key="`presets-${i}`"
-            :donationPreset="dp"
+            :donation-preset="dp"
             @select="gift ? addDonationGift(dp) : selectDonationPreset(dp)"
           />
           <div
@@ -41,9 +41,9 @@
             <donation-option
               v-for="(dg, i) in donationGifts"
               :key="`gifts-${i}`"
-              :donationPreset="dg"
-              @select="removeDonationGift(dg)"
+              :donation-preset="dg"
               amount-only
+              @select="removeDonationGift(dg)"
             />
             <div
               v-for="n in 10"
@@ -59,11 +59,11 @@
             key="next-select-amount"
             :disabled="!canContinueToNextStage"
             :loading="checkoutLoading"
-            @click.native="continueToNextStage"
             text="PODPRI NAS"
             color="secondary"
             arrow
             hearts
+            @click.native="continueToNextStage"
           />
         </div>
       </template>
@@ -108,11 +108,11 @@
             key="next-payment"
             :disabled="!canContinueToNextStage"
             :loading="paymentInProgress"
-            @click.native="continueToNextStage"
             text="DONIRAJ"
             color="secondary"
             arrow
             hearts
+            @click.native="continueToNextStage"
           />
         </div>
       </template>
@@ -136,12 +136,12 @@
           </div>
           <div class="form-group">
             <input
+              v-if="selectedDonationAmount >= 11"
               id="address"
               v-model="address"
               type="address"
               placeholder="Naslov"
               class="form-control form-control-lg"
-              v-if="selectedDonationAmount >= 11"
             />
           </div>
           <div class="form-group">
@@ -173,11 +173,11 @@
             key="next-info"
             :disabled="!canContinueToNextStage"
             :loading="infoSubmitting"
-            @click.native="continueToNextStage"
             text="Naprej"
             color="secondary"
             arrow
             hearts
+            @click.native="continueToNextStage"
           />
         </div>
       </template>
@@ -217,6 +217,12 @@ export default {
     UpnPayment,
     DonationOption,
     CheckoutStage,
+  },
+  asyncData({ query }) {
+    const gift = query.gift === 'true' || query.gift === '1';
+    return {
+      gift,
+    };
   },
   data() {
     return {
@@ -313,12 +319,6 @@ export default {
       }
       return true;
     },
-  },
-  asyncData({ query }) {
-    const gift = query.gift === 'true' || query.gift === '1';
-    return {
-      gift,
-    };
   },
   methods: {
     selectDonationPreset(sdp) {

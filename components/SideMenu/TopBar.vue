@@ -48,7 +48,7 @@
         </nuxt-link>
       </div>
       <div class="menu-toggle">
-        <button @click="emitToggleMenu" class="btn" href="#menu">
+        <button class="btn" href="#menu" @click="emitToggleMenu">
           <svg
             v-if="!menuOpen"
             xmlns="http://www.w3.org/2000/svg"

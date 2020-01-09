@@ -5,7 +5,7 @@
       <hr :class="`border-${color}`" />
     </div>
     <div class="col-xl-8">
-      <p v-text="text" class="lead" />
+      <p class="lead" v-text="text" />
     </div>
   </header>
 </template>

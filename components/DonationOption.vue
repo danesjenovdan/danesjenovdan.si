@@ -7,8 +7,8 @@
         'donation-option--amount-only': amountOnly,
       },
     ]"
-    @click.prevent="onClick"
     type="button"
+    @click.prevent="onClick"
   >
     <div class="donation-option__content-wrapper">
       <div class="donation-option__content">
@@ -17,9 +17,9 @@
             <input
               id="custom-amount"
               v-model="donationPreset.amount"
-              @keyup.enter="onClick"
               type="number"
               class="form-control"
+              @keyup.enter="onClick"
             />
             <label for="custom-amount">€</label>
           </div>

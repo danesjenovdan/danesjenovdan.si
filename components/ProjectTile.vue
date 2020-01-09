@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="project-tile__content">
-        <h1 v-text="title" class="project-tile__title" />
+        <h1 class="project-tile__title" v-text="title" />
         <div v-if="byline" class="project-tile__byline">
           <i v-text="byline" />
         </div>

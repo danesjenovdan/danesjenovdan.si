@@ -34,7 +34,7 @@
     <div class="col-xl-9">
       <div class="article__content">
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <div v-html="post.content_html" class="article__text" />
+        <div class="article__text" v-html="post.content_html" />
         <hr />
         <div class="article__share">
           <div class="share__link">

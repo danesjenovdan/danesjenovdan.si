@@ -58,6 +58,15 @@ export default {
     ProductTile,
   },
   mixins: [shopMixin],
+  async asyncData({ $axios }) {
+    let products = await $axios.$get(
+      'https://podpri.djnd.si/api/shop/products/',
+    );
+    products = products.sort((a, b) => b.id - a.id);
+    return {
+      products,
+    };
+  },
   data() {
     return {
       orderKey: null,
@@ -68,15 +77,6 @@ export default {
     stockedProducts() {
       return this.products.filter((p) => p.stock > 0);
     },
-  },
-  async asyncData({ $axios }) {
-    let products = await $axios.$get(
-      'https://podpri.djnd.si/api/shop/products/',
-    );
-    products = products.sort((a, b) => b.id - a.id);
-    return {
-      products,
-    };
   },
   async mounted() {
     if (typeof window !== 'undefined') {

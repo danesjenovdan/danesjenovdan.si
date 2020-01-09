@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xl-7">
         <div class="info-push__content">
-          <h3 v-if="title" v-text="title" class="info-push__title" />
+          <h3 v-if="title" class="info-push__title" v-text="title" />
           <div v-if="text || buttonText || buttonUrl" class="info-push__text">
             <p v-if="text" v-text="text" />
             <more-button

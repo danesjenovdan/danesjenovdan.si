@@ -15,9 +15,9 @@
           <iframe
             :src="embedUrl(bigVideo.url, autoplay)"
             :class="['big-video__iframe', { loaded: iframeLoaded }]"
-            @load="onIframeLoad"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
+            @load="onIframeLoad"
           />
         </div>
       </div>
@@ -81,6 +81,16 @@ export default {
     FilterBar,
   },
   mixins: [dateMixin, videoMixin],
+  async asyncData({ $axios, params, query, error }) {
+    const videoRes = await $axios.$get(
+      'https://djnapi.djnd.si/djnd.si/videos/?ordering=-date&size=500',
+    );
+    const videoObj = videoRes.results.find((v) => v.url === query.video);
+    return {
+      bigVideo: videoObj || (videoRes.results.length && videoRes.results[0]),
+      videos: videoRes.results,
+    };
+  },
   data() {
     return {
       iframeLoaded: false,
@@ -122,16 +132,6 @@ export default {
       this.$refs.bigVideo.scrollIntoView();
       this.autoplay = true;
     },
-  },
-  async asyncData({ $axios, params, query, error }) {
-    const videoRes = await $axios.$get(
-      'https://djnapi.djnd.si/djnd.si/videos/?ordering=-date&size=500',
-    );
-    const videoObj = videoRes.results.find((v) => v.url === query.video);
-    return {
-      bigVideo: videoObj || (videoRes.results.length && videoRes.results[0]),
-      videos: videoRes.results,
-    };
   },
   methods: {
     onIframeLoad() {

@@ -2,9 +2,9 @@
   <div v-click-outside="() => (dropdownOpen = false)" class="filter">
     <button
       :tabindex="titleTabIndex"
+      class="filter__title icon-arrow--dark"
       @click="toggleDropdown"
       v-text="title"
-      class="filter__title icon-arrow--dark"
     />
     <div
       ref="filterOptions"
@@ -19,14 +19,14 @@
         <input
           :id="`type-${item.id}`"
           v-model="item.active"
-          @change="toggleItem($event, item.id)"
           type="checkbox"
           class="custom-control-input"
+          @change="toggleItem($event, item.id)"
         />
         <label
           :for="`type-${item.id}`"
-          v-text="item.label"
           class="custom-control-label"
+          v-text="item.label"
         />
       </div>
     </div>

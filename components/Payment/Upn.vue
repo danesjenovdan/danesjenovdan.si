@@ -11,10 +11,10 @@
       <more-button
         :to="localePath('shop-checkout')"
         :text="'KUPI'"
-        @click.native="sendUPN"
         block
         color="secondary"
         icon="heart"
+        @click.native="sendUPN"
       />
     </form>
   </div>

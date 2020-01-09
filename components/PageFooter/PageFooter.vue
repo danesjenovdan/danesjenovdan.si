@@ -1,8 +1,8 @@
 <template>
   <footer class="footer row">
     <form
-      @submit.prevent="onEmailConfirm"
       class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3"
+      @submit.prevent="onEmailConfirm"
     >
       <div v-t="'footer.edit-email-settings'" class="lead my-2" />
       <div class="form-group">
@@ -18,10 +18,10 @@
           <more-button
             :text="'Nadaljuj'"
             :color="color"
-            @click.native="onEmailConfirm"
             block
             small
             to="#"
+            @click.native="onEmailConfirm"
           />
         </div>
       </div>

@@ -16,7 +16,7 @@
     v-on="$listeners"
   >
     <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]" />
-    <span v-text="text" class="text" />
+    <span class="text" v-text="text" />
     <div class="arrow">
       <span :class="['icon', `icon-arrow--${color}`]" />
     </div>

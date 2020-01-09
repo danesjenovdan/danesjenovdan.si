@@ -48,17 +48,6 @@ export default {
     ClipTile,
     Pagination,
   },
-  data() {
-    return {
-      loading: false,
-      cancelSource: null,
-    };
-  },
-  computed: {
-    queryString() {
-      return `?${[this.filterQuery, this.pageQuery].join('&')}&ordering=-date`;
-    },
-  },
   async asyncData({ $axios }) {
     const endpoint = 'https://djnapi.djnd.si/djnd.si/clips/';
     const filterQuery = '';
@@ -76,6 +65,17 @@ export default {
       page: 1,
       perPage: PAGE_SIZE,
     };
+  },
+  data() {
+    return {
+      loading: false,
+      cancelSource: null,
+    };
+  },
+  computed: {
+    queryString() {
+      return `?${[this.filterQuery, this.pageQuery].join('&')}&ordering=-date`;
+    },
   },
   methods: {
     onQueryChange(newQuery) {
