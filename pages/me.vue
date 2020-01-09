@@ -84,6 +84,12 @@
                 </div>
               </email-subscription-tile>
             </div>
+            <button
+              class="btn btn-primary mt-2 mb-5 px-3 font-weight-bold"
+              @click="onSaveClick"
+            >
+              SHRANI
+            </button>
           </div>
         </template>
       </div>
@@ -188,7 +194,7 @@ export default {
               email: this.email,
             },
           );
-          if (response.email) {
+          if (response.msg === 'mail sent') {
             this.success = true;
             this.message = 'Sporočilo poslano na e-naslov!';
           } else {
@@ -226,6 +232,9 @@ export default {
       } finally {
         this.meta[key].loading = false;
       }
+    },
+    onSaveClick() {
+      alert('Nastavitve so shranjene!');
     },
   },
 };
