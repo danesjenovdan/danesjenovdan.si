@@ -47,22 +47,23 @@ export default {
   text-decoration: none;
   color: inherit;
 
-  &::before,
-  &::after {
+  &::before {
     position: absolute;
-    left: 1.5rem;
-    top: 0.4rem;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
     display: block;
     content: '';
-    background-color: $color-green;
-    width: 100%;
-    height: 1px;
-    transition: all 0.15s ease;
+    border: 1px solid $color-green;
+    border-width: 1px 0 1px 0;
+    transition: transform 0.15s ease;
+    transform: translate(1.5rem, 0.4rem);
   }
 
   &::after {
     top: auto;
-    bottom: -0.4rem;
+    bottom: 0;
   }
 
   .icon {
@@ -82,24 +83,16 @@ export default {
     &--#{$color-name} {
       background-color: rgba($color, 0.15);
 
-      &::before,
-      &::after {
-        background-color: $color;
+      &::before {
+        border-color: $color;
       }
     }
   }
 }
 
 a.section-header:hover {
-  &::before,
-  &::after {
-    top: 0;
-    left: 0;
-  }
-
-  &::after {
-    top: auto;
-    bottom: 0;
+  &::before {
+    transform: translate(0, 0);
   }
 
   span {
