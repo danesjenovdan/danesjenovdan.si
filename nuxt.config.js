@@ -7,39 +7,42 @@ export default {
    */
   head: {
     titleTemplate: (titleChunk) => {
-      return titleChunk ?
-        `${titleChunk} - Danes je nov dan` :
-        'Danes je nov dan';
+      return titleChunk
+        ? `${titleChunk} - Danes je nov dan`
+        : 'Danes je nov dan';
     },
-    meta: [{
-        charset: 'utf-8'
+    meta: [
+      {
+        charset: 'utf-8',
       },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        content: 'width=device-width, initial-scale=1',
       },
       {
         hid: 'description',
         name: 'description',
-        content: 'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
+        content:
+          'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
       },
       {
         name: 'theme-color',
-        content: '#ffffff'
+        content: '#ffffff',
       },
       {
         property: 'og:type',
-        content: 'website'
+        content: 'website',
       },
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Danes je nov dan'
+        content: 'Danes je nov dan',
       },
       {
         hid: 'og:description',
         property: 'og:description',
-        content: 'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
+        content:
+          'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
       },
       {
         hid: 'og:image',
@@ -48,21 +51,22 @@ export default {
       },
       {
         name: 'twitter:creator',
-        content: '@danesjenovdan'
+        content: '@danesjenovdan',
       },
       {
         name: 'twitter:card',
-        content: 'summary_large_image'
+        content: 'summary_large_image',
       },
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: 'Danes je nov dan'
+        content: 'Danes je nov dan',
       },
       {
         hid: 'twitter:description',
         name: 'twitter:description',
-        content: 'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
+        content:
+          'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
       },
       {
         hid: 'twitter:image',
@@ -70,10 +74,11 @@ export default {
         content: 'https://danesjenovdan.si/djnd-og.png',
       },
     ],
-    link: [{
+    link: [
+      {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon.ico'
+        href: '/favicon.ico',
       },
       {
         rel: 'icon',
@@ -98,7 +103,7 @@ export default {
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#fff'
+    color: '#fff',
   },
   /*
    ** Global CSS
@@ -107,13 +112,14 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{
+  plugins: [
+    {
       src: '~/plugins/vue-waypoint.js',
-      mode: 'client'
+      mode: 'client',
     },
     {
       src: '~/plugins/vue-avatar-cropper.js',
-      mode: 'client'
+      mode: 'client',
     },
     {
       src: '~/plugins/matomo.js',
@@ -137,11 +143,12 @@ export default {
     [
       'nuxt-i18n',
       {
-        locales: [{
+        locales: [
+          {
             code: 'sl',
             iso: 'sl-SI',
             file: 'sl-SI.json',
-            name: 'Slovenščina'
+            name: 'Slovenščina',
           },
           // { code: 'en', iso: 'en-US', file: 'en-US.json', name: 'English' },
         ],
@@ -178,8 +185,9 @@ export default {
       const scssRule = config.module.rules.find(
         (e) => e.test.toString() === '/\\.scss$/i',
       );
-      const scssUses = scssRule.oneOf ?
-        scssRule.oneOf.map((r) => r.use) : [scssRule.use];
+      const scssUses = scssRule.oneOf
+        ? scssRule.oneOf.map((r) => r.use)
+        : [scssRule.use];
       scssUses.forEach((use) => {
         const sassLoader = use.find((e) => e.loader === 'sass-loader');
         if (sassLoader) {
