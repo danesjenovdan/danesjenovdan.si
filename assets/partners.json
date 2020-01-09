@@ -1,0 +1,162 @@
+{
+  "partners": [
+    {
+      "name": "AcessInfo",
+      "url": "https://www.access-info.org/",
+      "image": "/img/partners/access-info.png"
+    },
+    {
+      "name": "Battle for Humanity",
+      "url": "https://www.battle4humanity.com/",
+      "image": "/img/partners/battle-for-humanity.jpg"
+    },
+    {
+      "name": "CNVOS",
+      "url": "https://www.cnvos.si/",
+      "image": "/img/partners/cnvos.png"
+    },
+    {
+      "name": "Code for All",
+      "url": "https://codeforall.org/",
+      "image": "/img/partners/code-for-all.png"
+    },
+    {
+      "name": "DCN",
+      "url": "http://www.digicomnet.org/",
+      "image": "/img/partners/dcn.jpg"
+    },
+    {
+      "name": "Digidem Lab",
+      "url": "https://digidemlab.org/",
+      "image": "/img/partners/digidemlab.svg"
+    },
+    {
+      "name": "Društvo novinarjev Slovenije",
+      "url": "https://novinar.com/",
+      "image": "/img/partners/dns.png"
+    },
+    {
+      "name": "Društvo za zaščito živali",
+      "url": "https://www.dzzz.si/",
+      "image": "/img/partners/dzzz.png"
+    },
+    {
+      "name": "Državljan D",
+      "url": "https://www.drzavljand.si/",
+      "image": "/img/partners/drzavljand.png"
+    },
+    {
+      "name": "ePanstwo",
+      "url": "https://epf.org.pl/en/",
+      "image": "/img/partners/epanstwo.svg"
+    },
+    {
+      "name": "Focus",
+      "url": "https://focus.si/",
+      "image": "/img/partners/focus.jpg"
+    },
+    {
+      "name": "Gong",
+      "url": "https://www.gong.hr/hr/",
+      "image": "/img/partners/gong.png"
+    },
+    {
+      "name": "Greenpeace Slovenija",
+      "url": "https://www.greenpeace.org/slovenia/",
+      "image": "/img/partners/greenpeace.png"
+    },
+    {
+      "name": "Inštitut za delavske študije",
+      "url": "http://www.delavske-studije.si/",
+      "image": "/img/partners/ids.png"
+    },
+    {
+      "name": "Inštitut za intelektualno lastnino",
+      "url": "https://www.ipi.si/",
+      "image": "/img/partners/ipi.svg"
+    },
+    {
+      "name": "IPOP",
+      "url": "https://ipop.si/",
+      "image": "/img/partners/ipop.png"
+    },
+    {
+      "name": "Kje bomo pa jutri spali",
+      "url": "https://www.facebook.com/kjebomopajutrispali/",
+      "image": "/img/partners/kbpjs.jpg"
+    },
+    {
+      "name": "Mehr Demokratie",
+      "url": "https://www.mehr-demokratie.de/",
+      "image": "/img/partners/mehr-demokratie.jpg"
+    },
+    {
+      "name": "Mirovni inštitut",
+      "url": "http://www.mirovni-institut.si/",
+      "image": "/img/partners/mirovni-institut.png"
+    },
+    {
+      "name": "Mladi za podnebno pravičnost",
+      "url": "https://zapodnebnopravicnost.si/",
+      "image": "/img/partners/mzpp.jpg"
+    },
+    {
+      "name": "Netwerk Democratie",
+      "url": "https://netdem.nl/en/",
+      "image": "/img/partners/netwerk-democratie.gif"
+    },
+    {
+      "name": "Open Source Initiative",
+      "url": "https://opensource.org/",
+      "image": "/img/partners/osi.png"
+    },
+    {
+      "name": "Oštro",
+      "url": "https://www.ostro.si/",
+      "image": "/img/partners/ostro.png"
+    },
+    {
+      "name": "PIC",
+      "url": "http://pic.si/",
+      "image": "/img/partners/pic.png"
+    },
+    {
+      "name": "Pod Črto",
+      "url": "https://podcrto.si/",
+      "image": "/img/partners/pod-crto.png"
+    },
+    {
+      "name": "Umanotera",
+      "url": "https://www.umanotera.org/",
+      "image": "/img/partners/umanotera.png"
+    },
+    {
+      "name": "ZaštoNe",
+      "url": "https://zastone.ba/",
+      "image": "/img/partners/zasto-ne.png"
+    }
+  ],
+  "donators": [
+    {
+      "name": "Google News Initiative",
+      "url": "https://newsinitiative.withgoogle.com/dnifund/",
+      "image": "/img/donators/google-news-initiative.svg"
+    },
+    {
+      "name": "Ministrstvo za javno upravo",
+      "url": "https://www.gov.si/drzavni-organi/ministrstva/ministrstvo-za-javno-upravo/o-ministrstvu-za-javno-upravo/",
+      "image": "/img/donators/mju.png",
+      "class": "p-0"
+    },
+    {
+      "name": "National Endowment for Democracy",
+      "url": "https://www.ned.org/",
+      "image": "/img/donators/ned.png"
+    },
+    {
+      "name": "U.S. Embassy Ljubljana",
+      "url": "https://si.usembassy.gov/",
+      "image": "/img/donators/us-embassy.png"
+    }
+  ]
+}
