@@ -119,17 +119,22 @@ export default {
         right: 0;
         width: 12rem;
         height: 100%;
+        transition: transform 0.15s;
       }
     }
 
     &:hover {
-      background-color: rgba($color-green, 0.15);
+      background-color: rgba($color-green, 0.2);
 
       .box-link__content {
         h3 {
           .arrow svg {
             transform: rotate(-90deg) translateY(1.5rem);
           }
+        }
+
+        .box-link__image {
+          transform: scale(1.075) rotate(4deg);
         }
       }
     }
