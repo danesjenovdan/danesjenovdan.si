@@ -106,7 +106,6 @@ export default {
           ctx.drawImage(this, 0, 0); // draw in image
           c.toBlob(
             function(blob) {
-              console.log(blob);
               selectedAvatar.blob = blob;
               that.$emit('change', selectedAvatar.blob);
             },
