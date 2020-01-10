@@ -177,22 +177,6 @@
   .icon-section-coding--#{$color-name} {
     background-image: url('/icons/sections/coding.svg') !important;
   }
-  // SOCIAL
-  .icon-facebook--#{$color-name} {
-    background-image: url(#{icon-facebook($color)}) !important;
-  }
-  .icon-twitter--#{$color-name} {
-    background-image: url(#{icon-twitter($color)}) !important;
-  }
-  .icon-youtube--#{$color-name} {
-    background-image: url(#{icon-youtube($color)}) !important;
-  }
-  .icon-vimeo--#{$color-name} {
-    background-image: url(#{icon-vimeo($color)}) !important;
-  }
-  .icon-github--#{$color-name} {
-    background-image: url(#{icon-github($color)}) !important;
-  }
   // SQUARE SOCIAL
   .square-icon-facebook--#{$color-name} {
     background-image: url(#{square-icon-facebook($color)}) !important;
@@ -224,6 +208,23 @@
   .icon-value-inclusion--#{$color-name} {
     background-image: url(#{icon-value-inclusion($color)}) !important;
   }
+}
+
+// SOCIAL
+.icon-facebook {
+  background-image: url(#{icon-facebook(#fff)}) !important;
+}
+.icon-twitter {
+  background-image: url(#{icon-twitter(#fff)}) !important;
+}
+.icon-youtube {
+  background-image: url(#{icon-youtube(#fff)}) !important;
+}
+.icon-vimeo {
+  background-image: url(#{icon-vimeo(#fff)}) !important;
+}
+.icon-github {
+  background-image: url(#{icon-github(#fff)}) !important;
 }
 
 // CLIP TYPES
