@@ -114,7 +114,7 @@ export default {
     MoreButton,
     EmailSubscriptionTile,
   },
-  async asyncData({ $axios, query }) {
+  async asyncData({ $axios, query, error }) {
     let showForm = true;
     const settings = {
       agrument: false,
@@ -125,12 +125,24 @@ export default {
       const token = encodeURIComponent(query.token);
       const email = encodeURIComponent(query.email);
       const endpoint = `https://podpri.djnd.si/api/segments/my?token=${token}&email=${email}`;
-      const response = await $axios.$get(endpoint);
-      if (response && typeof response === 'object') {
-        showForm = false;
-        response.segments.forEach((s) => {
-          settings[s.alias] = s.manuallyAdded;
-        });
+      try {
+        const response = await $axios.$get(endpoint);
+        if (response && typeof response === 'object') {
+          showForm = false;
+          response.segments.forEach((s) => {
+            settings[s.alias] = s.manuallyAdded;
+          });
+        }
+      } catch (err) {
+        if (err.response) {
+          error({
+            statusCode: err.response.status,
+            message: err.response.data,
+          });
+          return;
+        }
+        error({ statusCode: 500, message: err.message });
+        return;
       }
     }
     return {
