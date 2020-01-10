@@ -146,6 +146,9 @@ export default {
         title: this.$t('menu.agrument'),
       };
     }
+    // create canonical url for og tag, trim trailing slash from path
+    const path = this.$route.path.replace(/^(.+?)\/*?$/, '$1');
+    const canonicalUrl = `https://danesjenovdan.si${path}`;
     return {
       title: `${this.activePost.title} - ${this.$t('menu.agrument')}`,
       meta: [
@@ -173,6 +176,11 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content: this.activePost.image_url,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: canonicalUrl,
         },
         {
           hid: 'twitter:creator',

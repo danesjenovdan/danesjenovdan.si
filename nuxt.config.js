@@ -30,6 +30,16 @@ export default {
           'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
       },
       {
+        hid: 'fb:app_id',
+        property: 'fb:app_id',
+        content: '415115695237226',
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'Danes je nov dan',
+      },
+      {
         hid: 'og:type',
         property: 'og:type',
         content: 'website',
