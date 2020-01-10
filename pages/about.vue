@@ -157,6 +157,7 @@
     </div>
     <div class="row formalities">
       <div class="col-12 mt-3">
+        <p>Sedež podjetja: <strong>Parmova ulica 20, 1000 Ljubljana</strong></p>
         <p>
           Davčna številka:
           <strong>SI54561710</strong>
