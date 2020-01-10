@@ -5,11 +5,19 @@
         <figure>
           <div class="embed-responsive embed-responsive-1200by630">
             <div class="embed-responsive-item d-flex align-items-center">
-              <div
-                :style="{ 'background-image': `url('${post.image_url}')` }"
-                class="background-image blurred"
+              <iframe
+                v-if="post.image_source_url.includes('youtube.com/embed/')"
+                :src="post.image_source_url"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
               />
-              <img :src="post.image_url" class="img-fluid" />
+              <template v-else>
+                <div
+                  :style="{ 'background-image': `url('${post.image_url}')` }"
+                  class="background-image blurred"
+                />
+                <img :src="post.image_url" class="img-fluid" />
+              </template>
             </div>
           </div>
           <figcaption>
