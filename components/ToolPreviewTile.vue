@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="localePath('tools')" class="tool-tile bg-white">
+  <nuxt-link :to="localePath('tools')" class="tool-tile">
     <div class="row">
       <div class="left-col">
         <div class="d-flex flex-column justify-content-center h-100">
@@ -46,6 +46,12 @@ export default {
   display: block;
   text-decoration: none;
   color: inherit;
+  background-color: #fff;
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: rgba($color-yellow, 0.15);
+  }
 
   .left-col {
     .icon {
