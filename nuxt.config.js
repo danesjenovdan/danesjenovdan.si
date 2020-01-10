@@ -32,7 +32,7 @@ export default {
       {
         hid: 'fb:app_id',
         property: 'fb:app_id',
-        content: '415115695237226',
+        content: '301375193309601',
       },
       {
         hid: 'og:site_name',
