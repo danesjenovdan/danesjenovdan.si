@@ -20,16 +20,17 @@ export default {
         content: 'width=device-width, initial-scale=1',
       },
       {
+        name: 'theme-color',
+        content: '#ffffff',
+      },
+      {
         hid: 'description',
         name: 'description',
         content:
           'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan. Skrbimo za varen, vključujoč in sodoben splet. In svet. Verjamemo v skupnost. Naše merilo je veselje do življenja.',
       },
       {
-        name: 'theme-color',
-        content: '#ffffff',
-      },
-      {
+        hid: 'og:type',
         property: 'og:type',
         content: 'website',
       },
@@ -50,10 +51,12 @@ export default {
         content: 'https://danesjenovdan.si/djnd-og.png',
       },
       {
+        hid: 'twitter:creator',
         name: 'twitter:creator',
         content: '@danesjenovdan',
       },
       {
+        hid: 'twitter:card',
         name: 'twitter:card',
         content: 'summary_large_image',
       },

@@ -90,6 +90,7 @@ export default {
     return {
       posts,
       nextPageLink,
+      activePost: posts[0],
     };
   },
   methods: {
@@ -114,6 +115,7 @@ export default {
         direction === this.$waypointMap.DIRECTION_BOTTOM
       ) {
         const path = this.localePath('agrument-date');
+        this.activePost = this.posts[0];
         if (typeof window !== 'undefined') {
           window.history.replaceState(window.history.state, null, path);
         }
@@ -130,6 +132,7 @@ export default {
             name: 'agrument-date',
             params: { date: this.toSloUrlDate(post.datetime) },
           });
+          this.activePost = post;
           if (typeof window !== 'undefined') {
             window.history.replaceState(window.history.state, null, path);
           }
@@ -138,8 +141,65 @@ export default {
     },
   },
   head() {
+    if (!this.activePost) {
+      return {
+        title: this.$t('menu.agrument'),
+      };
+    }
     return {
-      title: this.$t('menu.agrument'),
+      title: `${this.activePost.title} - ${this.$t('menu.agrument')}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.activePost.description,
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.activePost.title,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.activePost.description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.activePost.image_url,
+        },
+        {
+          hid: 'twitter:creator',
+          name: 'twitter:creator',
+          content: '@danesjenovdan',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.activePost.title,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.activePost.description,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.activePost.image_url,
+        },
+      ],
     };
   },
 };
