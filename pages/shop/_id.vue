@@ -63,6 +63,7 @@ import MoreButton from '~/components/MoreButton.vue';
 import shopMixin from '~/mixins/shop.js';
 
 export default {
+  pageColor: 'secondary',
   nuxtI18n: {
     paths: {
       sl: '/trgovina/:id/:slug?',

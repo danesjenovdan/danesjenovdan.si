@@ -234,6 +234,7 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-
 const ADDRESS_POST_REGEX = /^\d{4}\s.+/;
 
 export default {
+  pageColor: 'secondary',
   nuxtI18n: {
     paths: {
       sl: '/trgovina/blagajna',
