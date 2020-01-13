@@ -8,7 +8,7 @@
         <h1 v-text="getDisplayName(product)" />
         <h2 class="price">{{ formatPrice(product.price) }}</h2>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4 product__images">
         <template v-if="$te(`shop.products.${product.id}.images`)">
           <img
             v-for="img in $t(`shop.products.${product.id}.images`)"
@@ -173,6 +173,12 @@ export default {
       }
     }
 
+    .product__images {
+      @include media-breakpoint-up(md) {
+        z-index: 1;
+      }
+    }
+
     .product__description {
       @include media-breakpoint-up(md) {
         margin-left: -1.8rem;
@@ -181,7 +187,7 @@ export default {
         padding: 1.8rem 2.3rem 1.8rem;
         padding-left: 3.8rem;
         background-color: #fff;
-        z-index: -1;
+        z-index: 0;
       }
     }
 
