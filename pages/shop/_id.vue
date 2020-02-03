@@ -61,6 +61,7 @@
 <script>
 import MoreButton from '~/components/MoreButton.vue';
 import shopMixin from '~/mixins/shop.js';
+import { catchError } from '~/helpers/async.js';
 
 export default {
   pageColor: 'secondary',
@@ -75,15 +76,14 @@ export default {
     MoreButton,
   },
   mixins: [shopMixin],
-  async asyncData({ $axios, params }) {
-    const products = await $axios.$get(
-      'https://podpri.djnd.si/api/shop/products/',
+  asyncData: catchError(async ({ $axios, params }) => {
+    const product = await $axios.$get(
+      `https://podpri.djnd.si/api/shop/products/${params.id}/`,
     );
     return {
-      product: products.find((p) => p.id === Number(params.id)),
-      params,
+      product,
     };
-  },
+  }),
   data() {
     return {
       orderKey: null,
