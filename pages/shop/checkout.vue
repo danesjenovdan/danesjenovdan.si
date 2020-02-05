@@ -28,11 +28,7 @@
           <cart-product
             :key="`${item.id}`"
             :image="`/img/products/${item.article.id}.jpg`"
-            :title="
-              $te(`shop.products.${item.article.id}.display_name`)
-                ? $t(`shop.products.${item.article.id}.display_name`)
-                : item.article.name
-            "
+            :title="item.article.name"
             :price="item.article.price"
             :amount="item.quantity"
             text=""

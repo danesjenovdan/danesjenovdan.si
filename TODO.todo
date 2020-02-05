@@ -1,0 +1,32 @@
+to enable 3d secure 2:
+  ☐ read docs: https://developers.braintreepayments.com/guides/3d-secure/client-side/javascript/v3
+  ☐ run back-end locally https://github.com/danesjenovdan/djndonacije
+    ☐ enable braintree sandbox
+  ☐ use local back-end, for client development
+  ☐ update braintree-web and paypal-checkout deps
+  ☐ change payment flow to collect extra information before payment
+    ☐ billingAddress
+      ☐ givenName: 'Jill', // ASCII-printable characters required, else will throw a validation error
+      ☐ surname: 'Doe', // ASCII-printable characters required, else will throw a validation error
+      ☐ phoneNumber: '8101234567',
+      ☐ streetAddress: '555 Smith St.',
+      ☐ extendedAddress: '#5',
+      ☐ locality: 'Oakland',
+      ☐ region: 'CA',
+      ☐ postalCode: '12345',
+      ☐ countryCodeAlpha2: 'US'
+    ☐ additionalInformation
+      ☐ workPhoneNumber: '8101234567',
+      ☐ shippingGivenName: 'Jill',
+      ☐ shippingSurname: 'Doe',
+      ☐ shippingPhone: '8101234567',
+      ☐ shippingAddress
+        ☐ streetAddress: '555 Smith St.',
+        ☐ extendedAddress: '#5',
+        ☐ locality: 'Oakland',
+        ☐ region: 'CA',
+        ☐ postalCode: '12345',
+        ☐ countryCodeAlpha2: 'US'
+  ☐ implement 3ds flow
+  ☐ SERVER SIDE
+    ☐ add "submit_for_settlement": True to sale()

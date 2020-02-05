@@ -4,9 +4,13 @@ export default {
       return `${parseInt(price, 10)} €`;
     },
     getDisplayName(product) {
-      return this.$te(`shop.products.${product.id}.display_name`)
-        ? this.$t(`shop.products.${product.id}.display_name`)
-        : product.name;
+      return product.name;
+    },
+    getDisplayImage(product) {
+      if (product.images && product.images.length) {
+        return product.images[0];
+      }
+      return `/img/products/${product.id}.jpg`;
     },
     async getOrderKey() {
       const orderKey = window.localStorage.getItem('order_key') || null;
