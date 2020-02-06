@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import slugify from 'standard-slugify';
+import { slugify } from '~/helpers/slugify.js';
 import shopMixin from '~/mixins/shop.js';
 import PageTitle from '~/components/PageTitle.vue';
 import ShoppingCartBar from '~/components/ShoppingCartBar.vue';
