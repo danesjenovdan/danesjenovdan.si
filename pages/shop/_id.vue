@@ -57,18 +57,25 @@
           </div>
         </div>
         <hr />
-        <more-button
-          :text="'KUPI'"
-          block
-          color="secondary"
-          icon="heart"
-          :disabled="!variant"
-          @click="addAndCheckout"
-        />
-        <div class="add-to-basket">
-          <a href="#" @click.prevent="addAndBack">
-            Dodaj v voziček in še malo pobrskaj po policah
-          </a>
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <more-button
+              :text="'KUPI'"
+              block
+              color="secondary"
+              icon="heart"
+              large
+              :disabled="!variant"
+              @click="addAndCheckout"
+            />
+          </div>
+          <div class="col-12 col-lg-6 d-flex align-items-center">
+            <div class="add-to-basket">
+              <a href="#" @click.prevent="addAndBack">
+                Dodaj v voziček in še malo pobrskaj po policah
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -324,9 +331,12 @@ export default {
     }
 
     .add-to-basket {
-      margin: 2rem 0 1rem;
+      margin: 1.5rem 0;
       color: #333;
-      text-align: center;
+
+      @include media-breakpoint-up(lg) {
+        margin: 0;
+      }
 
       a {
         text-decoration: underline;
