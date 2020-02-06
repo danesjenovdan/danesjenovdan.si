@@ -30,3 +30,30 @@ to enable 3d secure 2:
   ☐ implement 3ds flow
   ☐ SERVER SIDE
     ☐ add "submit_for_settlement": True to sale()
+
+// try {
+//   this.checkoutLoading = true;
+//   const checkoutResponse = await this.$axios.$get(
+//     'https://podpri.djnd.si/api/donate/',
+//   );
+//   try {
+//     window._paq.push([
+//       'trackEvent', // function
+//       'donation', // category
+//       'payment', // action
+//       this.selectedDonationAmount < 11
+//         ? 'ueleven'
+//         : this.donationPresets.find((dp) => dp.selected).eventName,
+//       this.selectedDonationAmount,
+//     ]);
+//   } catch (error) {
+//     // eslint-disable-next-line no-console
+//     console.log(error);
+//   }
+//   this.token = checkoutResponse.token;
+//   this.stage = 'payment';
+// } catch (error) {
+//   // eslint-disable-next-line no-console
+//   console.error(error.response);
+//   this.error = error.response;
+// }

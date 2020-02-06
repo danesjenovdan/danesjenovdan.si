@@ -4,7 +4,9 @@
       <p>
         Zgodila se je napaka št. {{ error.status }}. Naš strežnik je ni mogel
         rešiti, prejel je naslednje sporočilo:
-        <strong>{{ error.data.msg }}</strong>
+        <strong>{{
+          error.data && error.data.msg ? error.data.msg : error.message
+        }}</strong>
       </p>
       <p>
         Zaračunali ti nismo ničesar, ves denar je še vedno na tvoji kartici.
@@ -41,55 +43,6 @@
             :disabled="!canContinueToNextStage"
             :loading="checkoutLoading"
             text="PODPRI NAS"
-            color="secondary"
-            arrow
-            hearts
-            @click.native="continueToNextStage"
-          />
-        </div>
-      </template>
-    </checkout-stage>
-
-    <checkout-stage v-if="stage === 'payment'" :stage="stage">
-      <template slot="title">
-        Plačilo
-      </template>
-      <template slot="content">
-        <div class="payment-container">
-          <payment-switcher @change="onPaymentChange" />
-          <div v-if="checkoutLoading" class="payment-loader">
-            <div class="lds-dual-ring" />
-          </div>
-          <template v-if="payment === 'card'">
-            <card-payment
-              :token="token"
-              @ready="onPaymentReady"
-              @validity-change="paymentInfoValid = $event"
-              @payment-start="paymentInProgress = true"
-              @success="paymentSuccess"
-            />
-          </template>
-          <template v-if="payment === 'paypal'">
-            <paypal-payment
-              :token="token"
-              :amount="selectedDonationAmount"
-              @ready="onPaymentReady"
-              @payment-start="paymentInProgress = true"
-              @success="paymentSuccess"
-            />
-          </template>
-          <template v-if="payment === 'upn'">
-            <upn-payment />
-          </template>
-        </div>
-      </template>
-      <template slot="footer">
-        <div class="confirm-button-container">
-          <confirm-button
-            key="next-payment"
-            :disabled="!canContinueToNextStage"
-            :loading="paymentInProgress"
-            text="DONIRAJ"
             color="secondary"
             arrow
             hearts
@@ -163,9 +116,55 @@
         </div>
       </template>
     </checkout-stage>
-    <div class="terms">
-      <nuxt-link target="_blank" to="/pogoji">Pogoji poslovanja</nuxt-link>
-    </div>
+
+    <checkout-stage v-if="stage === 'payment'" :stage="stage">
+      <template slot="title">
+        Plačilo
+      </template>
+      <template slot="content">
+        <div class="payment-container">
+          <payment-switcher @change="onPaymentChange" />
+          <div v-if="checkoutLoading" class="payment-loader">
+            <div class="lds-dual-ring" />
+          </div>
+          <template v-if="payment === 'card'">
+            <card-payment
+              :token="token"
+              @ready="onPaymentReady"
+              @validity-change="paymentInfoValid = $event"
+              @payment-start="paymentInProgress = true"
+              @success="paymentSuccess"
+            />
+          </template>
+          <template v-if="payment === 'paypal'">
+            <paypal-payment
+              :token="token"
+              :amount="selectedDonationAmount"
+              @ready="onPaymentReady"
+              @payment-start="paymentInProgress = true"
+              @success="paymentSuccess"
+            />
+          </template>
+          <template v-if="payment === 'upn'">
+            <upn-payment />
+          </template>
+        </div>
+      </template>
+      <template slot="footer">
+        <div class="confirm-button-container">
+          <confirm-button
+            key="next-payment"
+            :disabled="!canContinueToNextStage"
+            :loading="paymentInProgress"
+            text="DONIRAJ"
+            color="secondary"
+            arrow
+            hearts
+            @click.native="continueToNextStage"
+          />
+        </div>
+      </template>
+    </checkout-stage>
   </div>
 </template>
 
@@ -253,24 +252,17 @@ export default {
   computed: {
     selectedDonationAmount() {
       const selected = this.donationPresets.find((dp) => dp.selected);
-      return selected ? selected.amount : 0;
+      return selected ? Number(selected.amount) : 0;
     },
     canContinueToNextStage() {
       if (this.stage === 'select-amount') {
-        if (this.selectedDonationAmount >= 1) {
-          return true;
-        } else if (
-          parseInt(this.donationPresets.find((dp) => dp.custom).amount) > 0
-        ) {
-          return true;
-        }
         return this.selectedDonationAmount >= 1;
-      }
-      if (this.stage === 'payment') {
-        return this.payFunction && this.paymentInfoValid;
       }
       if (this.stage === 'info') {
         return this.infoValid;
+      }
+      if (this.stage === 'payment') {
+        return this.payFunction && this.paymentInfoValid;
       }
       return false;
     },
@@ -300,39 +292,7 @@ export default {
     async continueToNextStage() {
       if (this.canContinueToNextStage) {
         if (this.stage === 'select-amount') {
-          if (!this.selectedDonationAmount) {
-            this.donationPresets.find((dp) => dp.custom).selected = true;
-          }
-          try {
-            this.checkoutLoading = true;
-            const checkoutResponse = await this.$axios.$get(
-              'https://podpri.djnd.si/api/donate/',
-            );
-            try {
-              window._paq.push([
-                'trackEvent', // function
-                'donation', // category
-                'payment', // action
-                this.selectedDonationAmount < 11
-                  ? 'ueleven'
-                  : this.donationPresets.find((dp) => dp.selected).eventName,
-                this.selectedDonationAmount,
-              ]);
-            } catch (error) {
-              // eslint-disable-next-line no-console
-              console.log(error);
-            }
-            this.token = checkoutResponse.token;
-            this.stage = 'payment';
-          } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error(error.response);
-            this.error = error.response;
-          }
-        } else if (this.stage === 'payment') {
-          if (this.payFunction) {
-            this.payFunction();
-          }
+          this.stage = 'info';
         } else if (this.stage === 'info') {
           try {
             this.infoSubmitting = true;
@@ -360,6 +320,10 @@ export default {
             // eslint-disable-next-line no-console
             console.error(error.response);
             this.error = error.response;
+          }
+        } else if (this.stage === 'payment') {
+          if (this.payFunction) {
+            this.payFunction();
           }
         }
       }
@@ -454,23 +418,6 @@ export default {
       min-height: 2rem;
       display: flex;
       align-items: center;
-    }
-  }
-}
-
-.terms {
-  text-align: center;
-  margin: 2.5rem 0 1rem;
-  color: #333;
-
-  a {
-    text-decoration: underline;
-    color: inherit;
-    font-style: italic;
-    font-weight: 300;
-
-    &:hover {
-      text-decoration: none;
     }
   }
 }
