@@ -18,8 +18,9 @@
               id="custom-amount"
               v-model="donationPreset.amount"
               type="number"
+              min="1"
               class="form-control"
-              @keyup.enter="onClick"
+              @keyup="onClick"
             />
             <label for="custom-amount">€</label>
           </div>
@@ -67,12 +68,7 @@ export default {
   },
   methods: {
     onClick(event) {
-      if (event.type === 'keyup' || event.target.tagName !== 'INPUT') {
-        if (this.donationPreset.custom && this.donationPreset.amount < 1) {
-          return;
-        }
-        this.$emit('select');
-      }
+      this.$emit('select');
     },
   },
 };
