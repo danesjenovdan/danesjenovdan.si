@@ -25,7 +25,7 @@
             v-for="(dp, i) in donationPresets"
             :key="`presets-${i}`"
             :donation-preset="dp"
-            @select="gift ? addDonationGift(dp) : selectDonationPreset(dp)"
+            @select="selectDonationPreset(dp)"
           />
           <div
             v-for="n in 10"
@@ -33,25 +33,6 @@
             class="donation-option"
           />
         </div>
-        <template v-if="gift">
-          <h2 class="donation-gifts-title">
-            Obstoječa darila ({{ donationGifts.length }})
-          </h2>
-          <div class="donation-options donation-gifts">
-            <donation-option
-              v-for="(dg, i) in donationGifts"
-              :key="`gifts-${i}`"
-              :donation-preset="dg"
-              amount-only
-              @select="removeDonationGift(dg)"
-            />
-            <div
-              v-for="n in 10"
-              :key="`flex-spacer-${n}`"
-              class="donation-option"
-            />
-          </div>
-        </template>
       </template>
       <template slot="footer">
         <div class="confirm-button-container">
@@ -218,12 +199,6 @@ export default {
     DonationOption,
     CheckoutStage,
   },
-  asyncData({ query }) {
-    const gift = query.gift === 'true' || query.gift === '1';
-    return {
-      gift,
-    };
-  },
   data() {
     return {
       error: null,
@@ -261,7 +236,6 @@ export default {
           eventName: 'aeleven',
         },
       ],
-      donationGifts: [],
       checkoutLoading: false,
       payFunction: undefined,
       paymentInfoValid: false,
@@ -278,9 +252,6 @@ export default {
   },
   computed: {
     selectedDonationAmount() {
-      if (this.gift) {
-        return this.donationGifts.reduce((acc, dg) => acc + dg.amount, 0);
-      }
       const selected = this.donationPresets.find((dp) => dp.selected);
       return selected ? selected.amount : 0;
     },
@@ -326,28 +297,11 @@ export default {
         dp.selected = dp === sdp;
       });
     },
-    addDonationGift(dp) {
-      this.donationGifts.unshift({
-        amount: parseInt(dp.amount),
-        selected: true,
-      });
-      if (dp.custom) {
-        dp.amount = null;
-      }
-    },
-    removeDonationGift(dg) {
-      const i = this.donationGifts.findIndex((d) => d === dg);
-      this.donationGifts.splice(i, 1);
-    },
     async continueToNextStage() {
       if (this.canContinueToNextStage) {
         if (this.stage === 'select-amount') {
           if (!this.selectedDonationAmount) {
             this.donationPresets.find((dp) => dp.custom).selected = true;
-            if (this.gift) {
-              const selected = this.donationPresets.find((dp) => dp.selected);
-              this.addDonationGift(selected);
-            }
           }
           try {
             this.checkoutLoading = true;
@@ -383,7 +337,7 @@ export default {
           try {
             this.infoSubmitting = true;
             const response = await this.$axios.$post(
-              `https://podpri.djnd.si/api/donate${this.gift ? '-gift' : ''}/`,
+              `https://podpri.djnd.si/api/donate/`,
               {
                 nonce: this.nonce,
                 name: this.name,
@@ -393,18 +347,12 @@ export default {
               },
             );
 
+            // TODO: does this work now that we dont have avatar uploads anymore?
             if (response.upload_token) {
               this.$router.push(
                 this.localePath({
                   name: 'donate-thanks',
                   query: { token: response.upload_token },
-                }),
-              );
-            } else if (response.owner_token) {
-              this.$router.push(
-                this.localePath({
-                  name: 'donate-gifts',
-                  query: { token: response.owner_token },
                 }),
               );
             }
@@ -430,19 +378,11 @@ export default {
       this.nonce = nonce;
 
       try {
-        const giftAmounts = this.gift
-          ? this.donationGifts.map((g) => g.amount)
-          : undefined;
-
-        await this.$axios.$post(
-          `https://podpri.djnd.si/api/donate${this.gift ? '-gift' : ''}/`,
-          {
-            // payment_type: this.nonce ? 'braintree' : 'upn',
-            nonce: this.nonce,
-            amount: this.selectedDonationAmount,
-            gifts_amounts: giftAmounts,
-          },
-        );
+        await this.$axios.$post(`https://podpri.djnd.si/api/donate/`, {
+          // payment_type: this.nonce ? 'braintree' : 'upn',
+          nonce: this.nonce,
+          amount: this.selectedDonationAmount,
+        });
 
         this.paymentInProgress = false;
         this.stage = 'info';
@@ -477,32 +417,6 @@ export default {
         margin-left: 0.75rem;
         margin-right: 0.75rem;
       }
-    }
-
-    &.donation-gifts {
-      .donation-option /deep/ .donation-option__content-wrapper {
-        @include media-breakpoint-up(md) {
-          flex-direction: row;
-          min-height: auto;
-
-          .donation-option__amount {
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-  }
-
-  .donation-gifts-title {
-    font-size: 1.25rem;
-    text-align: left;
-    font-weight: 300;
-    margin: 1rem 0 2rem 0;
-    text-transform: uppercase;
-
-    @include media-breakpoint-up(md) {
-      font-size: 1.5rem;
-      margin-left: 1rem;
     }
   }
 
