@@ -12,6 +12,12 @@ export default {
       }
       return `/img/products/${product.id}.jpg`;
     },
+    getDisplayImages(product) {
+      if (product.images && product.images.length) {
+        return product.images;
+      }
+      return [`/img/products/${product.id}.jpg`];
+    },
     async getOrderKey() {
       const orderKey = window.localStorage.getItem('order_key') || null;
       if (!orderKey) {

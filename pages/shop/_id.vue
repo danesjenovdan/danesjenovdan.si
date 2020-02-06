@@ -9,12 +9,7 @@
         <h2 class="price">{{ formatPrice(product.price) }}</h2>
       </div>
       <div class="col-12 col-md-4 product__images">
-        <template v-if="product.images && product.images.length">
-          <img v-for="img in product.images" :key="img" :src="img" />
-        </template>
-        <template v-else>
-          <img :src="`/img/products/${product.id}.jpg`" />
-        </template>
+        <img v-for="img in getDisplayImages(product)" :key="img" :src="img" />
       </div>
       <div class="col-12 col-md-8 product__description">
         <p v-t="`shop.products.${product.id}.description`" />
@@ -23,7 +18,7 @@
           v-if="product.variants && product.variants.length"
           class="product__variant row"
         >
-          <div class="col-3">
+          <div class="col-12 col-md-3">
             <span class="variant__title">Velikost</span>
           </div>
           <div class="col d-flex align-items-center">
@@ -42,7 +37,7 @@
           </div>
         </div>
         <div class="product__variant row">
-          <div class="col-3">
+          <div class="col-12 col-md-3">
             <span class="variant__title">Količina</span>
           </div>
           <div class="col d-flex align-items-center">
@@ -263,9 +258,15 @@ export default {
 
       .variant__title {
         display: inline-block;
-        margin-right: 1rem;
-        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+        font-size: 1.25rem;
         font-weight: 600;
+
+        @include media-breakpoint-up(md) {
+          font-size: 1.5rem;
+          margin-bottom: 0;
+          margin-right: 1rem;
+        }
       }
 
       button {

@@ -24,14 +24,13 @@
       </template>
       <template v-else>
         <template v-for="item in items">
-          <!-- TODO: text="variant text" -->
           <cart-product
-            :key="`${item.id}`"
-            :image="`/img/products/${item.article.id}.jpg`"
-            :title="item.article.name"
+            :key="item.id"
+            :image="getDisplayImage(item.article)"
+            :title="getDisplayName(item.article)"
             :price="item.article.price"
             :amount="item.quantity"
-            text=""
+            :text="item.article.variant || ''"
           />
           <hr :key="`${item.id}-hr`" />
         </template>
