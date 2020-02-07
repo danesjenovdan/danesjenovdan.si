@@ -47,6 +47,7 @@ button:focus {
 
   .custom-control-label::before {
     border-color: #333;
+    background-color: transparent;
   }
 
   &.custom-checkbox,
@@ -130,6 +131,11 @@ button:focus {
         .custom-control-input:focus ~ .custom-control-label::before {
           border-color: $color;
           box-shadow: 0 0 0 0.2rem rgba($color, 0.25);
+        }
+
+        .custom-control-input:active ~ .custom-control-label::before {
+          background-color: rgba($color, 0.25);
+          border-color: rgba($color, 0.25);
         }
       }
 
@@ -230,7 +236,7 @@ button:focus {
   }
 
   // Firefox
-  input[type="number"] {
-    -moz-appearance:textfield;
+  input[type='number'] {
+    -moz-appearance: textfield;
   }
 }

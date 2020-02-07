@@ -201,7 +201,7 @@ export default {
         @include media-breakpoint-up(md) {
           flex-direction: column;
           align-items: flex-end;
-          margin: 1.5rem -0.75rem -0.75rem -0.75rem;
+          margin: 1rem -0.75rem -0.75rem -0.75rem;
         }
       }
 

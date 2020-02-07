@@ -49,34 +49,62 @@
             @click.native="continueToNextStage"
           />
         </div>
+        <div class="secondary-link">
+          <!-- TODO: link to monthly -->
+          <nuxt-link :to="localePath({})">
+            Želiš darovati mesečno?
+          </nuxt-link>
+        </div>
       </template>
     </checkout-stage>
 
     <checkout-stage v-if="stage === 'info'" :stage="stage">
       <template slot="title">
-        Hvala za plačilo!<br /><span v-if="selectedDonationAmount >= 11"
-          >Kam ti pošljemo presenečenje?</span
-        ><span v-else>Kam ti pošljemo potrdilo?</span>
+        Podatki
       </template>
       <template slot="content">
         <div class="info-content">
           <div class="form-group">
             <input
-              id="name"
-              v-model="name"
-              placeholder="Ime in priimek"
+              id="firstName"
+              v-model="firstName"
+              placeholder="Ime"
               class="form-control form-control-lg"
             />
           </div>
           <div class="form-group">
             <input
-              v-if="selectedDonationAmount >= 11"
-              id="address"
-              v-model="address"
-              type="address"
-              placeholder="Naslov"
+              id="lastName"
+              v-model="lastName"
+              placeholder="Priimek"
               class="form-control form-control-lg"
             />
+          </div>
+          <div class="form-group">
+            <input
+              id="streetAddress"
+              v-model="streetAddress"
+              placeholder="Ulica in hišna številka"
+              class="form-control form-control-lg"
+            />
+          </div>
+          <div class="form-group form-row">
+            <div class="col-4">
+              <input
+                id="postalCode"
+                v-model="postalCode"
+                placeholder="Poštna številka"
+                class="form-control form-control-lg"
+              />
+            </div>
+            <div class="col-8">
+              <input
+                id="post"
+                v-model="post"
+                placeholder="Pošta"
+                class="form-control form-control-lg"
+              />
+            </div>
           </div>
           <div class="form-group">
             <input
@@ -113,6 +141,11 @@
             hearts
             @click.native="continueToNextStage"
           />
+        </div>
+        <div class="secondary-link">
+          <nuxt-link :to="localePath({})">
+            Nazaj
+          </nuxt-link>
         </div>
       </template>
     </checkout-stage>
@@ -242,8 +275,11 @@ export default {
       token: null,
       payment: null,
       nonce: undefined,
-      name: null,
-      address: null,
+      firstName: null,
+      lastName: null,
+      streetAddress: null,
+      postalCode: null,
+      post: null,
       email: null,
       subscribeNewsletter: false,
       infoSubmitting: false,
@@ -259,7 +295,7 @@ export default {
         return this.selectedDonationAmount >= 1;
       }
       if (this.stage === 'info') {
-        return this.infoValid;
+        return this.infoValid && !this.checkoutLoading;
       }
       if (this.stage === 'payment') {
         return this.payFunction && this.paymentInfoValid;
@@ -267,11 +303,7 @@ export default {
       return false;
     },
     infoValid() {
-      if (!this.name || !this.email) {
-        // USED TO BE ALSO || !this.address) {
-        return false;
-      }
-      if (!EMAIL_REGEX.test(this.email)) {
+      if (!this.email || !EMAIL_REGEX.test(this.email)) {
         return false;
       }
       // mautic fails after payment if invalid email
@@ -293,39 +325,30 @@ export default {
       if (this.canContinueToNextStage) {
         if (this.stage === 'select-amount') {
           this.stage = 'info';
-        } else if (this.stage === 'info') {
+          return;
+        }
+        if (this.stage === 'info') {
           try {
-            this.infoSubmitting = true;
-            const response = await this.$axios.$post(
-              `https://podpri.djnd.si/api/donate/`,
-              {
-                nonce: this.nonce,
-                name: this.name,
-                email: this.email,
-                address: this.address,
-                mailing: this.subscribeNewsletter,
-              },
+            this.checkoutLoading = true;
+            const checkoutResponse = await this.$axios.$get(
+              'https://podpri.djnd.si/api/donate/',
             );
-
-            // TODO: does this work now that we dont have avatar uploads anymore?
-            if (response.upload_token) {
-              this.$router.push(
-                this.localePath({
-                  name: 'donate-thanks',
-                  query: { token: response.upload_token },
-                }),
-              );
-            }
+            this.token = checkoutResponse.token;
+            this.stage = 'payment';
           } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.response);
             this.error = error.response;
           }
-        } else if (this.stage === 'payment') {
+          return;
+        }
+        if (this.stage === 'payment') {
           if (this.payFunction) {
             this.payFunction();
           }
+          return;
         }
+        return undefined;
       }
     },
     onPaymentReady({ pay } = {}) {
@@ -386,6 +409,23 @@ export default {
 
   .confirm-button-container {
     text-align: center;
+  }
+
+  .secondary-link {
+    text-align: center;
+    margin-top: 1.5rem;
+
+    a {
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-style: italic;
+      color: inherit;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   .payment-container {
