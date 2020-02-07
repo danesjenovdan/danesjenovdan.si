@@ -143,6 +143,7 @@
           />
         </div>
         <div class="secondary-link">
+          <!-- TODO: go back -->
           <nuxt-link :to="localePath({})">
             Nazaj
           </nuxt-link>
@@ -179,7 +180,10 @@
             />
           </template>
           <template v-if="payment === 'upn'">
-            <upn-payment />
+            <upn-payment
+              :amount="selectedDonationAmount"
+              @ready="onPaymentReady"
+            />
           </template>
         </div>
       </template>
@@ -195,6 +199,12 @@
             hearts
             @click.native="continueToNextStage"
           />
+        </div>
+        <div class="secondary-link">
+          <!-- TODO: go back -->
+          <nuxt-link :to="localePath({})">
+            Nazaj
+          </nuxt-link>
         </div>
       </template>
     </checkout-stage>

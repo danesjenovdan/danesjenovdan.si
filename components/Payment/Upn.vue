@@ -1,9 +1,6 @@
 <template>
-  <div class="card-payment">
+  <div class="upn-payment">
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    <div v-if="nonce" class="alert alert-success">
-      Successfully generated nonce.
-    </div>
     <form v-else>
       <div class="form-group">
         <label>Po e-pošti ti bomo poslali položnico</label>
@@ -27,6 +24,14 @@ export default {
   components: {
     MoreButton,
   },
+  data() {
+    return {
+      error: null,
+    };
+  },
+  mounted() {
+    this.$emit('ready');
+  },
   methods: {
     sendUPN() {
       // eslint-disable-next-line no-console
@@ -37,10 +42,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-label {
-  font-size: 1.25rem;
-  font-weight: 300;
-  text-align: center;
-  display: block;
+.upn-payment {
+  max-width: 350px;
+  margin: 0 auto;
+
+  label {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+    display: block;
+  }
 }
 </style>

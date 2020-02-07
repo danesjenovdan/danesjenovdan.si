@@ -32,6 +32,34 @@ to enable 3d secure 2:
     ☐ add "submit_for_settlement": True to sale()
 
 // try {
+//   this.infoSubmitting = true;
+//   const response = await this.$axios.$post(
+//     `https://podpri.djnd.si/api/donate/`,
+//     {
+//       nonce: this.nonce,
+//       name: this.name,
+//       email: this.email,
+//       address: this.address,
+//       mailing: this.subscribeNewsletter,
+//     },
+//   );
+
+//   // TODO: does this work now that we dont have avatar uploads anymore?
+//   if (response.upload_token) {
+//     this.$router.push(
+//       this.localePath({
+//         name: 'donate-thanks',
+//         query: { token: response.upload_token },
+//       }),
+//     );
+//   }
+// } catch (error) {
+//   // eslint-disable-next-line no-console
+//   console.error(error.response);
+//   this.error = error.response;
+// }
+
+// try {
 //   this.checkoutLoading = true;
 //   const checkoutResponse = await this.$axios.$get(
 //     'https://podpri.djnd.si/api/donate/',
