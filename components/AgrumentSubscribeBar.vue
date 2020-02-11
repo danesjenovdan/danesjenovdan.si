@@ -149,16 +149,13 @@ export default {
       if (!this.loading && this.email && this.email.includes('@')) {
         this.loading = true;
         try {
-          const response = await this.$axios.$get(
-            'https://spam.djnd.si/deliver-email/',
+          const response = await this.$axios.$post(
+            'https://podpri.djnd.si/api/subscribe/',
             {
-              params: {
-                email: this.email,
-              },
+              email: this.email,
             },
           );
-          // axios can return a number, so cast to string just in case
-          if (String(response) === '1') {
+          if (response.msg === 'mail sent') {
             await this.toggleModal(true);
           }
         } catch {
