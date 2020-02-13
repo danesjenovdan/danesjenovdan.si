@@ -105,6 +105,11 @@ export default {
       strong {
         font-weight: 600;
       }
+
+      hr {
+        border-top-color: #333;
+        margin: 3rem 0;
+      }
     }
   }
 }
