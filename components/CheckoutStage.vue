@@ -67,11 +67,11 @@ export default {
       display: flex;
       flex-direction: column;
       // flex: 1;
-      margin-bottom: auto;
+      // margin-bottom: auto;
+      min-height: 27rem;
 
       @include media-breakpoint-up(md) {
-        margin-bottom: 0;
-        min-height: 28rem;
+        // margin-bottom: 0;
       }
     }
 
@@ -108,10 +108,14 @@ export default {
 
     a {
       color: inherit;
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: 300;
       font-style: italic;
       text-decoration: underline;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.25rem;
+      }
 
       &:hover {
         text-decoration: none;

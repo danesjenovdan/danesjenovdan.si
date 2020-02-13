@@ -26,9 +26,9 @@
       </div>
     </form>
     <div class="card-info">
-      Informacij o tvoji kartici ne pošiljamo na svoj strežnik in ne
+      <!-- Informacij o tvoji kartici ne pošiljamo na svoj strežnik in ne
       shranjujemo. Za varnost plačila skrbi
-      <br />
+      <br /> -->
       <img
         src="https://s3.amazonaws.com/braintree-badges/braintree-badge-light.png"
         width="164px"

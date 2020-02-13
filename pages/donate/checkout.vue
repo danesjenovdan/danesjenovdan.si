@@ -437,12 +437,16 @@ export default {
     margin-top: 1.5rem;
 
     a {
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: 600;
       font-style: italic;
       color: inherit;
       text-decoration: underline;
       cursor: pointer;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.5rem;
+      }
 
       &:hover {
         text-decoration: none;
