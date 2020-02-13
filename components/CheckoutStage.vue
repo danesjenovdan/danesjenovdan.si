@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="checkout-stage__terms">
-      <nuxt-link :to="localePath('articles-terms')">
+      <nuxt-link target="_blank" :to="localePath('articles-terms')">
         Pogoji poslovanja
       </nuxt-link>
     </div>
@@ -64,14 +64,14 @@ export default {
     flex: 1;
 
     .checkout-stage__content {
-      // display: flex;
-      // flex-direction: column;
+      display: flex;
+      flex-direction: column;
       // flex: 1;
       margin-bottom: auto;
 
       @include media-breakpoint-up(md) {
         margin-bottom: 0;
-        min-height: 30rem;
+        min-height: 28rem;
       }
     }
 

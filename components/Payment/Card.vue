@@ -158,6 +158,7 @@ export default {
 
 <style lang="scss" scoped>
 .card-payment {
+  width: 100%;
   max-width: 350px;
   margin: 0 auto;
 

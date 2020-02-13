@@ -143,10 +143,7 @@
           />
         </div>
         <div class="secondary-link">
-          <!-- TODO: go back -->
-          <nuxt-link :to="localePath({})">
-            Nazaj
-          </nuxt-link>
+          <dynamic-link @click="goBack">Nazaj</dynamic-link>
         </div>
       </template>
     </checkout-stage>
@@ -185,6 +182,10 @@
               @ready="onPaymentReady"
             />
           </template>
+          <div class="cart-total">
+            <span>Znesek za plačilo</span>
+            <i>{{ selectedDonationAmount }} €</i>
+          </div>
         </div>
       </template>
       <template slot="footer">
@@ -201,10 +202,7 @@
           />
         </div>
         <div class="secondary-link">
-          <!-- TODO: go back -->
-          <nuxt-link :to="localePath({})">
-            Nazaj
-          </nuxt-link>
+          <dynamic-link @click="goBack">Nazaj</dynamic-link>
         </div>
       </template>
     </checkout-stage>
@@ -219,6 +217,7 @@ import PaypalPayment from '~/components/Payment/Paypal.vue';
 import UpnPayment from '~/components/Payment/Upn.vue';
 import DonationOption from '~/components/DonationOption.vue';
 import CheckoutStage from '~/components/CheckoutStage.vue';
+import DynamicLink from '~/components/DynamicLink.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -240,6 +239,7 @@ export default {
     UpnPayment,
     DonationOption,
     CheckoutStage,
+    DynamicLink,
   },
   data() {
     return {
@@ -361,6 +361,17 @@ export default {
         return undefined;
       }
     },
+    goBack() {
+      if (this.stage === 'payment') {
+        this.stage = 'info';
+        return;
+      }
+      if (this.stage === 'info') {
+        this.stage = 'select-amount';
+        return;
+      }
+      return undefined;
+    },
     onPaymentReady({ pay } = {}) {
       this.checkoutLoading = false;
       this.paymentInfoValid = false;
@@ -431,6 +442,7 @@ export default {
       font-style: italic;
       color: inherit;
       text-decoration: underline;
+      cursor: pointer;
 
       &:hover {
         text-decoration: none;
@@ -438,7 +450,18 @@ export default {
     }
   }
 
+  .payment-container,
+  .info-content {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
   .payment-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
     .payment-loader {
       position: fixed;
       top: -1rem;
@@ -451,12 +474,22 @@ export default {
       justify-content: center;
       align-items: center;
     }
-  }
 
-  .payment-container,
-  .info-content {
-    max-width: 540px;
-    margin: 0 auto;
+    .cart-total {
+      text-align: right;
+      background-color: rgba($color-red, 0.15);
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      max-width: 350px;
+      margin: auto auto 0 auto;
+
+      i {
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-left: 0.25rem;
+      }
+    }
   }
 
   .custom-checkbox {
