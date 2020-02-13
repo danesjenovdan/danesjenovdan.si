@@ -208,7 +208,9 @@
     </div>
 
     <div class="terms">
-      <nuxt-link target="_blank" to="/pogoji">Pogoji poslovanja</nuxt-link>
+      <nuxt-link target="_blank" :to="localePath('articles-terms')">
+        Pogoji poslovanja
+      </nuxt-link>
     </div>
   </div>
 </template>

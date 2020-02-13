@@ -22,7 +22,9 @@
       </div>
     </div>
     <div class="checkout-stage__terms">
-      <nuxt-link :to="localePath('donate-terms')">Pogoji poslovanja</nuxt-link>
+      <nuxt-link :to="localePath('articles-terms')">
+        Pogoji poslovanja
+      </nuxt-link>
     </div>
   </div>
 </template>
