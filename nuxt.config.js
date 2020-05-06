@@ -3,6 +3,12 @@ import scssCustomFunctions from './plugins/scss-functions.js';
 export default {
   mode: 'universal',
   /*
+   ** Server configuration
+   */
+  server: {
+    port: 3001, // default: 3000
+  },
+  /*
    ** Headers of the page
    */
   head: {
