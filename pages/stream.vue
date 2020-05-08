@@ -27,7 +27,7 @@
 import videoMixin from '~/mixins/video.js';
 
 export default {
-  layout: 'donate',
+  layout: 'default',
 
   pageColor: 'secondary',
 
