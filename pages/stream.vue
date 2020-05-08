@@ -10,7 +10,7 @@
           <div class="embed-responsive-item d-flex align-items-center">
             <iframe
               :src="
-                embedUrl('https://www.youtube.com/watch?v=Sb30U8DVGtU', false)
+                embedUrl('https://www.youtube.com/watch?v=mPY0h_6qUww', false)
               "
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
