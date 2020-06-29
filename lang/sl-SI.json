@@ -142,29 +142,29 @@
     "tags": {
       "type": {
         "title": "Vrsta gostovanja",
-        "interview": "Intervju",
-        "lecture": "Predavanje",
-        "round-table": "Okrogla miza",
-        "scientific": "Znanstveni članki",
-        "reporting": "Poročanje",
-        "trolanje": "Trolanje",
-        "kolumna": "Kolumna"
+        "interview": "intervju",
+        "lecture": "predavanje",
+        "round-table": "okrogla miza",
+        "scientific": "znanstveni članki",
+        "reporting": "poročanje",
+        "trolanje": "trolanje",
+        "kolumna": "kolumna"
       },
       "format": {
         "title": "Format",
-        "audio": "Avdio",
-        "video": "Video",
-        "text": "Besedilo"
+        "audio": "avdio",
+        "video": "video",
+        "text": "besedilo"
       },
       "language": {
         "title": "Jezik",
-        "sl": "Slovenščina",
-        "hr": "Hrvaščina",
-        "en": "Angleščina"
+        "sl": "slovenščina",
+        "hr": "hrvaščina",
+        "en": "angleščina"
       },
       "tag": {
         "title": "Oznake",
-        "copyright": "Avtorsko pravo",
+        "copyright": "avtorsko pravo",
         "tedx": "TedX"
       }
     }

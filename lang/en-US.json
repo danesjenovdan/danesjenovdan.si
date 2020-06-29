@@ -94,5 +94,31 @@
       "zala": { "description": "responsible for climate and changes" },
       "jure": { "description": "responsible for insights and rights" }
     }
+  },
+  "clipping": {
+    "tags": {
+      "type": {
+        "title": "Type",
+        "interview": "interview",
+        "lecture": "lecture",
+        "round-table": "roundtable",
+        "scientific": "scientific",
+        "reporting": "reporting",
+        "trolanje": "trolling",
+        "kolumna": "column"
+      },
+      "format": {
+        "title": "Format",
+        "audio": "avdio",
+        "video": "video",
+        "text": "text"
+      },
+      "language": {
+        "title": "Language",
+        "sl": "Slovenian",
+        "hr": "Croatian",
+        "en": "English"
+      }
+    }
   }
 }

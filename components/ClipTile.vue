@@ -34,10 +34,10 @@
             {{ clip.publisher }}
             <span class="info-divider">/</span>
             {{ toSloDate(clip.date) }}
+            <!-- <span class="info-divider">/</span>
+            {{ clip.tags.join(', ') }} -->
             <span class="info-divider">/</span>
-            {{ clip.tags.join(', ') }}
-            <span class="info-divider">/</span>
-            {{ clip.types.join(', ') }}
+            {{ types.join(', ') }}
           </div>
         </div>
         <h2 class="clip-tile__title" v-text="clip.title" />
@@ -62,6 +62,15 @@ export default {
     clip: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    types() {
+      return (this.clip.types || []).map((type) =>
+        this.$te(`clipping.tags.type.${type}`)
+          ? this.$t(`clipping.tags.type.${type}`)
+          : type,
+      );
     },
   },
 };
