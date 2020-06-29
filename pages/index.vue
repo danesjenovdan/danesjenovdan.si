@@ -13,51 +13,53 @@
         :button-url="infopush.cta_url"
       />
     </div>
-    <div class="row">
-      <div class="col-12">
-        <section-header
-          :to="localePath('agrument-date')"
-          :text="$t('menu.agrument')"
-          icon="section-agrument"
-        />
-      </div>
-    </div>
-    <div v-if="agrumentPosts && agrumentPosts.length" class="mt-4">
-      <promoted-tile
-        :image="agrumentPosts[0].image_url"
-        :title="agrumentPosts[0].title"
-        :byline="toSloDate(agrumentPosts[0].datetime)"
-        :text="agrumentPosts[0].description"
-        :url="agrumentPosts[0].url"
-      />
-      <div class="wrapping-flex-tiles">
-        <div
-          v-for="agrumentPost in agrumentPosts.slice(1, 4)"
-          :key="`${agrumentPost.id}`"
-          class="flex-tile"
-        >
-          <preview-tile
-            :image="agrumentPost.image_url"
-            :title="agrumentPost.title"
-            :byline="toSloDate(agrumentPost.datetime)"
-            :text="agrumentPost.description"
-            :url="agrumentPost.url"
+    <template v-if="$i18n.locale !== 'en'">
+      <div class="row">
+        <div class="col-12">
+          <section-header
+            :to="localePath('agrument-date')"
+            :text="$t('menu.agrument')"
+            icon="section-agrument"
           />
         </div>
-        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
       </div>
-    </div>
-    <div class="d-flex justify-content-center">
-      <more-button
-        :to="localePath('agrument-date')"
-        :text="$t('agrument.more')"
-      />
-    </div>
-    <div class="row mobile-no-gap">
-      <div class="col-12 my-5">
-        <agrument-subscribe-bar />
+      <div v-if="agrumentPosts && agrumentPosts.length" class="mt-4">
+        <promoted-tile
+          :image="agrumentPosts[0].image_url"
+          :title="agrumentPosts[0].title"
+          :byline="toSloDate(agrumentPosts[0].datetime)"
+          :text="agrumentPosts[0].description"
+          :url="agrumentPosts[0].url"
+        />
+        <div class="wrapping-flex-tiles">
+          <div
+            v-for="agrumentPost in agrumentPosts.slice(1, 4)"
+            :key="`${agrumentPost.id}`"
+            class="flex-tile"
+          >
+            <preview-tile
+              :image="agrumentPost.image_url"
+              :title="agrumentPost.title"
+              :byline="toSloDate(agrumentPost.datetime)"
+              :text="agrumentPost.description"
+              :url="agrumentPost.url"
+            />
+          </div>
+          <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
+        </div>
       </div>
-    </div>
+      <div class="d-flex justify-content-center">
+        <more-button
+          :to="localePath('agrument-date')"
+          :text="$t('agrument.more')"
+        />
+      </div>
+      <div class="row mobile-no-gap">
+        <div class="col-12 my-5">
+          <agrument-subscribe-bar />
+        </div>
+      </div>
+    </template>
     <div class="row">
       <div class="col-12">
         <section-header
