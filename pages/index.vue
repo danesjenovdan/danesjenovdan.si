@@ -96,7 +96,7 @@
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
-        <shop-bar />
+        <shop-bar v-if="$i18n.locale !== 'en'" />
       </div>
     </div>
     <div class="row">
