@@ -73,9 +73,9 @@
 <script>
 export default {
   name: 'NavMenu',
-  data() {
-    return {
-      menuItems: [
+  computed: {
+    menuItems() {
+      const items = [
         { key: 'agrument', route: 'agrument-date' },
         { key: 'projects' },
         { key: 'tools' },
@@ -86,8 +86,16 @@ export default {
         },
         { key: 'shop' },
         // { key: 'donate' },
-      ],
-    };
+      ];
+
+      if (this.$i18n.locale === 'en') {
+        return items.filter(
+          (e) => !['agrument', 'shop', 'donate'].includes(e.key),
+        );
+      }
+
+      return items;
+    },
   },
 };
 </script>
