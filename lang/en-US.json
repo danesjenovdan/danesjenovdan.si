@@ -27,8 +27,12 @@
     "donate": "Donate",
     "search": "Search"
   },
+  "landing": {
+    "description": "Cultivating critical thought. Posing other questions. Hacking a new day. Nurturing a safe, inclusive and modern web. And world, too. We believe in community. Our measure is pleasure."
+  },
   "projects": {
-    "description": "We live what we do. We do what we believe. We believe what we say. We say what you don't want to hear. You do hear, because we know how to say it. We say it because it's our duty. Your duty is to spread the word.",
+    "description": "We live what we do. We do what we believe in. We believe in what we're saying. We're saying what you might not want to hear. You still hear it, because we know how to tell you. It's our duty to tell you. Your duty is to spread the word.",
+    "more": "Load more",
     "tags": {
       "pravičnost": "Social Justice",
       "okolje": "Environment",
@@ -41,9 +45,13 @@
       "branje": "Reading",
       "igra": "Game",
       "knjiga": "Book"
+    },
+    "social-bar": {
+      "follow-us": "Follow us on social media and catch our next campaign live!"
     }
   },
   "people": {
+    "description": "We sincerely believe that content comes before persons and would like for you to know us only by our work. But if you really do insist ... here we are. Aren't we cute?",
     "people": {
       "zigaaljaz": { "description": "responsible for responibilities" },
       "tea": { "description": "responsible for nagging the media and blabbering" },
@@ -96,6 +104,8 @@
     }
   },
   "clipping": {
+    "description": "This is the window from which we throw water balloons at social problems. It's a list of public and media appearances of our team as well as reports on our projects and collaborations. You can adjust the view according to various parameters.",
+    "more": "Load more",
     "tags": {
       "type": {
         "title": "Type",
@@ -118,6 +128,72 @@
         "sl": "Slovenian",
         "hr": "Croatian",
         "en": "English"
+      }
+    }
+  },
+  "videos": {
+    "description": "Some of these videos have been created to showcase our tools and campaigns, in others we act as protagonists, some are satirical reworks of other media content, and if you look closely, you will also find some that reflect our values and demonstrate our joie de vivre.",
+    "more": "Load more",
+    "social-bar": {
+      "follow-us": "Subscribe to our video channels so you don't miss anything important!"
+    }
+  },
+  "tools": {
+    "description": "Here are some of our digital solutions and ingenious ideas that take active citizenship to the next level. This is a portfolio, a digital storage, and an open source library. Look around for inspiration, activist supplies, and online props for digital activism and critical thinking.",
+    "more": "Load more",
+    "tools": {
+      "parlameter": {
+        "title": "Parlameter",
+        "description": "A complete solution for any organisation striving for full transparency and digitalisation of its sessions."
+      },
+      "commentality": {
+        "title": "Commentality",
+        "description": "Commentality is not a commenting system, but it does keep audiences engaged and it does measure public opinion."
+      },
+      "consul": {
+        "title": "Consul",
+        "description": "Consul is an open-source platform for participatory budgeting that we adapted and upgraded for local use in Slovenia."
+      }
+    }
+  },
+  "about": {
+    "description": "Today is a new day, Institute for other studies first came into being during the 2012 protests. We have been formally registered as an institute since 2013, focusing our efforts on (digital) political participation, transparency, and public oversight.",
+    "descriptions": {
+      "people": "The whole is greater than the sum of its parts. We are not an aggregate of persons, we are a community.",
+      "values": "Our measure is pleasure!",
+      "clipping": "A clipping of our public appearances. Look, ma, I made news!"
+    },
+    "our-partners": "Our partners",
+    "our-donators": "Our donors",
+    "formalities": "Important information",
+    "papers": "Documents"
+  },
+  "values": {
+    "description": "Our activities stem from the understanding of democracy as an ongoing process. The social contract should be a constant and inclusive debate. Political participation is the recognition of one's responsibility for one's own empowerment.",
+    "values": {
+      "solidarity": {
+        "title": "THE RIGHT TO GOOD LIFE AND SOLIDARITY",
+        "description": "Everybody has the right to proper healthcare, education, and housing. We should all live in an encouraging and supportive society, be able to exercise the right to free time and leisure, have a happy childhood, creative youth, fulfilled adulthood and safe elderliness. Everybody has the right to a future. The benchmark for success has too long been economic profit. Income should not be a condition for happiness. Our measure is pleasure."
+      },
+      "commons": {
+        "title": "THE RIGHT TO COMMONS",
+        "description": "The magnitude of our collective power is only visible when we join our individual powers. Thus, it is necessary to protect every commons and manage it in democratic and transparent ways that aim for universal well-being. We do not endorse privatisation or destruction of natural resources and public spaces."
+      },
+      "political": {
+        "title": "THE RIGHT TO DECENT POLITICAL AUTHORITIES",
+        "description": "Politics should not be perceived as struggle for power. Instead, it should be used to protect common interests. We demand an open political space, withdrawal of existing power elites and strict focus on content rather than form or popularity. The civil sphere should be allowed to access and have direct influence over decision-making mechanisms."
+      },
+      "nature": {
+        "title": "THE RIGHT TO/OF NATURE",
+        "description": "Nature is the subject of protection, the interest of the natural environment our common interest, and the animals have the right to dignity. Progress, development and economic growth should not be an excuse for irresponsible behavior towards our natural environment."
+      },
+      "economy": {
+        "title": "THE RIGHT TO PEOPLE-CENTRED ECONOMY",
+        "description": "Public debt is a direct result of private enterprises, thus it should not have beeen made public and offloaded to the people. We want to create an environment in which socially and environmentally responsive companies will flourish. Everybody has the right to fulfilling work and dignified life."
+      },
+      "inclusion": {
+        "title": "THE RIGHT TO INCLUSION",
+        "description": "We reject divisions based on personal circumstances. We should stop allowing the implementation of politics of exclusion that deny random social groups possibility to decent existence, push them to social margins, and appropriate their power. The right to equality, which is guaranteed by our Constitution, should be practised rather than just preached. The right to participation and human rights apply to everyone. To us, that is not subject to discussion."
       }
     }
   }
