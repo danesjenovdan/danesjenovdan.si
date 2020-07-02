@@ -272,5 +272,9 @@
         "description": "We reject divisions based on personal circumstances. We should stop allowing the implementation of politics of exclusion that deny random social groups possibility to decent existence, push them to social margins, and appropriate their power. The right to equality, which is guaranteed by our Constitution, should be practised rather than just preached. The right to participation and human rights apply to everyone. To us, that is not subject to discussion."
       }
     }
+  },
+  "footer": {
+    "are-we-friends": "Are we friends yet?",
+    "our-code-is-online": "We publish all our code online. Help yourself!"
   }
 }

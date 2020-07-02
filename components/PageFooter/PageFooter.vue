@@ -1,6 +1,7 @@
 <template>
   <footer class="footer row">
     <form
+      v-if="$i18n.locale === 'sl'"
       class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3"
       @submit.prevent="onEmailConfirm"
     >
@@ -65,7 +66,10 @@
         />
       </div>
     </div>
-    <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
+    <div
+      v-if="$i18n.locale === 'sl'"
+      class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3"
+    >
       <div class="about mt-3 mt-lg-2">
         <strong>
           Danes je nov dan,
@@ -78,6 +82,21 @@
         <strong>vsi@danesjenovdan.si</strong>
         <br />
         <strong>+386 64 147 823</strong> (med 10. in 16. uro)
+      </div>
+    </div>
+    <div v-else class="footer-col mt-3 mt-xl-0 col-12 col-lg-12 col-xl-6">
+      <div class="about mt-3 mt-lg-2">
+        <strong>
+          Danes je nov dan (Today is a new day),
+          <br />Inštitut za druga vprašanja (Institute for other studies)
+          <br />
+        </strong>
+        Tobačna ulica 5, 1000 Ljubljana, Slovenia
+        <br />
+        <br />
+        <strong>vsi@danesjenovdan.si</strong>
+        <br />
+        <strong>+386 64 147 823</strong> (10 am - 4 pm CET)
       </div>
     </div>
   </footer>
