@@ -157,15 +157,73 @@
     "tools": {
       "parlameter": {
         "title": "Parlameter",
-        "description": "A complete solution for any organisation striving for full transparency and digitalisation of its sessions."
+        "description": "Parlameter is a complete solution for any organisation striving for full transparency and digitalisation of its sessions.",
+        "paragraphs": [
+          "Parlameter collects and analyzes voting data, transcripts of sessions, as well as other activities of MPs and parliamentary groups. The data is arranged so that it is presented in machine and people friendly ways: for the former, there are open API calls, and for the latter innovative data organization in the form of card-based design. Each piece of Parlameter content resides in the form of a stand-alone card, which the user can share with others or embed in their own website.",
+          "The value of the project has been recognised by donors (Google DNI, NED), professionals (Brumen Grand Prix, Grand Diggit Award), journalists (its cards are embedded throughout the internet), and foreign NGOs, who are helping us bring transparency not only to the Slovenian parliament, but also to parliaments of Croatia and Bosnia and Herzegovina."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Parlameter"
       },
       "commentality": {
         "title": "Commentality",
-        "description": "Commentality is not a commenting system, but it does keep audiences engaged and it does measure public opinion."
+        "description": "Commentality is not a commenting system, but it does keep audiences engaged and it does measure public opinion.",
+        "paragraphs": [
+          "Commentality is not a commenting system but it does keep audiences engaged and it does measure public opinion. In doing so, it is effective, accurate and user-friendly, and it brings forth an innovative way of engaging audiences, whilst at the same time avoiding hate speech, advertising, manipulation, astroturfing, abuse of personal data, and trolling. The platform is designed to build on arguments and common ideas in online debates in order to seek consensus.",
+          "Commentality was developed with the help of a Google DNI grant and a prototype was thoroughly tested in partnership with Mladina, an independent current affairs magazine."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Commentality"
       },
       "consul": {
         "title": "Consul",
-        "description": "Consul is an open-source platform for participatory budgeting that we adapted and upgraded for local use in Slovenia."
+        "description": "Consul is an open-source platform for participatory budgeting that we adapted and upgraded for local use in Slovenia.",
+        "paragraphs": [
+          "Consul, used by more than 100 institutions in 35 different countries, was originally developed by Community of Madrid. We are proud to announce that several Slovenian municipalities are now successfully using it as well. We upgraded the software and translated it to Slovenian as part of our broader campaign to introduce participatory budgeting in Slovenia. The open-source application has an attractive design and provides a pleasant user experience, making participatory budgeting a modern and interactive experience that it should be.",
+          "We are co-founders of the international Consul Democracy foundation, which is responsible to maintain and further develop Consul. If you want to join the progressive crowd and implement Consul in your municipality or any other institution, we can take care of technology as well as provide help with data entry and training. Contact us!"
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Consul"
+      },
+      "medijski-besedogled": {
+        "title": "Media scanner",
+        "description": "Media scanner is a digital semantic tool for autromatic text markup according to indicators used by the SCAN investigative method.",
+        "paragraphs": [
+          "Media scanner was developed to aid researchers and journalists in identifying critical points in (transcribed) spoken statements, which can then be questioned and researched more thoroughly. It is a semi-automated application of the investigative method SCAN, which analyses statements according to their internal structural soundness by identifying parts of speech where the speaker significantly diverges from their characteristic structure.",
+          "The prototype, which was used to analyse and interpret select statements from the public TV evening news program “Odmevi”, was developed in partnership with EBSI Institute and funded by Google DNI."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Media scanner"
+      },
+      "parlatube": {
+        "title": "Parlatube",
+        "description": "Parlatube is a versatile tool for quoting, remixing, one click post-production, and easy sharing of online videos.",
+        "paragraphs": [
+          "Animated canvas and sharpened scissors all in one – meet Parlatube. The name comes from a specific set of circumstances in which it was created. While developing Parlameter, we planned to include videos of parliamentary sessions, which are provided by the national public broadaster. Unable to successfully convey the importance of transparency and public data, we were not granted permission to do so.",
+          "The tool proved useful in 2017, as we worked in partnership with commercial POP TV. They agreed to broadcast the presidental debate on YouTube and we enhanced the experience with Parlatube. People massively trolled the candidates; they cut clips of their empty statements, added emoji comments and shared them online."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Parlatube"
+      },
+      "humans-vote": {
+        "title": "Humans vote",
+        "description": "Humans.vote is an open-source blockchain solution for secure digital elections or any other decision-making process that is based on voting.",
+        "paragraphs": [
+          "Humans.vote, an app that facilicates secure voting, was developed in the course of a 48-hour blockchain hackaton Future Hack. It is easy to set up and use, and designed to work with any voting system. In the limited time available, we wrote the documentation, prepared detailed instructions for installation and a user manual, and published the code on Github. With the addition of a user interface the app will be a ready-made solution for blockchain voting.",
+          "We thoroughly tested the app within our own organisation and are waiting for an opportunity to complete its development and find a good use case scenario."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Humans vote"
+      },
+      "predlogi": {
+        "title": "Proposals",
+        "description": "Proposals is a platform for online participation and digital democracy. It facilitates and organises community decision-making, debate and work processes.",
+        "paragraphs": [
+          "Proposals is a platform for constructive, safe, and inclusive debate, and was conceived during the 2012 protests. It represents the entrance of Danes je nov dan, then an informal group of friends, to the Slovenian civic tech sector. We launched Proposals about a month in the protests and it was quickly filled with users and content, as we continued to develop and update its functionalities.",
+          "The platform is currently archived. Although in desperate need of code refactoring and updating to current web standard, its UX design is still on par with the best open source solutions on the internet. Should an opportunity present itself, we are keen to put it to new uses."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Proposals"
       }
     }
   },

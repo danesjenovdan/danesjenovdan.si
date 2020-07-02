@@ -6,7 +6,7 @@
         { "url": "https://parlameter.org", "label": "parlameter.org" },
         { "url": "https://parlameter.si", "label": "parlameter.si" },
         { "url": "https://parlametar.hr", "label": "parlametar.hr" },
-        { "url": "https://parlametr.pl", "label": "parlametr.pl" },
+        { "url": "https://ba.parlameter.si", "label": "parlametar bih" },
         { "url": "https://blog.parlameter.si", "label": "Blog" },
         { "url": "https://github.com/danesjenovdan", "label": "GitHub" }
       ],
@@ -37,7 +37,7 @@
     },
     {
       "id": "humans-vote",
-      "links": [{ "url": "danesjenovdan.si/humans.vote", "label": "humans.vote" }],
+      "links": [{ "url": "https://danesjenovdan.si/humans.vote", "label": "humans.vote" }],
       "email": "vsi@danesjenovdan.si"
     },
     {
