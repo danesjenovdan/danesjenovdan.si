@@ -1,4 +1,5 @@
 {
+  "TODO": "Primož Mlačnik v svet zavoda!",
   "people": [
     {
       "id": "zigaaljaz",
@@ -20,7 +21,8 @@
     },
     {
       "id": "matej",
-      "name": "Matej Holc"
+      "name": "Matej Holc",
+      "tags": ["science"]
     },
     {
       "id": "juric",
@@ -36,8 +38,7 @@
     },
     {
       "id": "mirt",
-      "name": "Mirt Komel",
-      "tags": ["science"]
+      "name": "Mirt Komel"
     },
     {
       "id": "kunst",
@@ -47,18 +48,18 @@
     {
       "id": "miha",
       "name": "Miha Lepej",
-      "mail": "miha@danesjenovdan.si"
+      "mail": "miha@danesjenovdan.si",
+      "tags": ["council"]
     },
     {
       "id": "nika",
       "name": "Nika Mahnič",
       "mail": "nika@danesjenovdan.si",
-      "tags": ["founder", "council"]
+      "tags": ["founder", "science"]
     },
     {
       "id": "darja",
-      "name": "Darja Matjašec",
-      "tags": ["science"]
+      "name": "Darja Matjašec"
     },
     {
       "id": "jasmina",
@@ -69,13 +70,12 @@
     {
       "id": "karmen",
       "name": "Karmen Šterk",
-      "tags": ["founder"]
+      "tags": ["founder", "science"]
     },
     {
       "id": "tadej",
       "name": "Tadej Štrok",
-      "mail": "tadej@danesjenovdan.si",
-      "tags": ["science"]
+      "mail": "tadej@danesjenovdan.si"
     },
     {
       "id": "eva",
@@ -87,7 +87,7 @@
       "id": "ziga",
       "name": "Žiga Vrtačič",
       "mail": "ziga@danesjenovdan.si",
-      "tags": ["founder"]
+      "tags": ["founder", "council"]
     },
     {
       "id": "mato",
@@ -95,12 +95,12 @@
     },
     {
       "id": "franci",
-      "name": "Franci Zidar",
-      "tags": ["council"]
+      "name": "Franci Zidar"
     },
     {
       "id": "dominik",
-      "name": "Dominik Vuković"
+      "name": "Dominik Vuković",
+      "tags": ["council"]
     },
     {
       "id": "miha_s",
@@ -112,14 +112,12 @@
     },
     {
       "id": "martin",
-      "name": "Martin Kovač",
-      "tags": ["council"]
+      "name": "Martin Kovač"
     },
     {
       "id": "maja_c",
       "name": "Maja Cimerman",
-      "mail": "maja@danesjenovdan.si",
-      "tags": ["council"]
+      "mail": "maja@danesjenovdan.si"
     },
     {
       "id": "jan",
