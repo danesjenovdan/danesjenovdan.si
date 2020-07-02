@@ -200,6 +200,11 @@
   },
   "people": {
     "description": "Ker iskreno verjamemo, da je treba vsebinam dati prednost pred obrazi, bi radi, da nas poznate le po delu. Da pa ne bi teoretikom zarote, spin medicini in Sovi povzročali preveč sivih las, evo nas. Kaj nismo srčkani?",
+    "tags": {
+      "all": "Vsi",
+      "council": "Svet zavoda",
+      "science": "Znanstveni svet zavoda"
+    },
     "people": {
       "zigaaljaz": { "description": "zadolžen za zadolževanje " },
       "tea": { "description": "zadolžena za teženje medijem in sajenje buč" },
@@ -237,7 +242,8 @@
       "nejc": { "description": "zadolžen za odgovore in odgovornost" },
       "zala": { "description": "zadolžena za dolgove in valove" },
       "jure": { "description": "zadolžen za gredice in pravice" }
-    }
+    },
+    "volunteer": "Če si brez denarja, še ne pomeni, da ne moreš nič narediti. Zavihaj rokave, zgubaj čelo in napni mišice. Če se nam želiš pridružiti kot prosovoljec, nam piši na {email}."
   },
   "about": {
     "description": "Prvi spletni portal Danes je nov dan je nastal jeseni 2012 kot sopotnik, integralni del in podpornik vstajniških gibanj. Od oktobra 2013 delujemo kot inštitut, ki se osredotoča na (digitalno) politično participacijo, transparentnost in nadzor.",
@@ -249,6 +255,11 @@
     "our-partners": "Naši partnerji",
     "our-donators": "Naši donatorji",
     "formalities": "Pomembni podatki",
+    "mailing-address": "Sedež podjetja:",
+    "tax-id": "Davčna številka:",
+    "registration-number": "Matična številka:",
+    "bank-account": "TRR:",
+    "ngo": "Po odločbi Ministrstva za javno upravo imamo status nevladne organizacije v javnem interesu na področju razvoja informacijske družbe.",
     "papers": "Papirji"
   },
   "videos": {
@@ -256,6 +267,13 @@
     "more": "Več",
     "social-bar": {
       "follow-us": "Naroči se na naše video kanale, da ne zamudiš naslednje vsebine!"
+    },
+    "tags": {
+      "all": "Vsi",
+      "event": "Dogodek",
+      "inspiration": "Inspiracija",
+      "provocation": "Provokacija",
+      "explanation": "Razlaga"
     }
   },
   "shop": {

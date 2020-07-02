@@ -52,6 +52,11 @@
   },
   "people": {
     "description": "We sincerely believe that content comes before persons and would like for you to know us only by our work. But if you really do insist ... here we are. Aren't we cute?",
+    "tags": {
+      "all": "Everyone",
+      "council": "Council",
+      "science": "Scientific council"
+    },
     "people": {
       "zigaaljaz": { "description": "responsible for responibilities" },
       "tea": { "description": "responsible for nagging the media and blabbering" },
@@ -101,7 +106,8 @@
       "nejc": { "description": "responsible for responses and responsibilities" },
       "zala": { "description": "responsible for climate and changes" },
       "jure": { "description": "responsible for insights and rights" }
-    }
+    },
+    "volunteer": "If you would like to support us, you can also do it in kind. Roll up your sleeves, flex your muscles, and find us at {email}."
   },
   "clipping": {
     "description": "This is the window from which we throw water balloons at social problems. It's a list of public and media appearances of our team as well as reports on our projects and collaborations. You can adjust the view according to various parameters.",
@@ -136,6 +142,13 @@
     "more": "Load more",
     "social-bar": {
       "follow-us": "Subscribe to our video channels so you don't miss anything important!"
+    },
+    "tags": {
+      "all": "See all",
+      "event": "Event",
+      "inspiration": "Inspiration",
+      "provocation": "Provocation",
+      "explanation": "Explanation"
     }
   },
   "tools": {
@@ -166,6 +179,11 @@
     "our-partners": "Our partners",
     "our-donators": "Our donors",
     "formalities": "Important information",
+    "mailing-address": "Mailing address:",
+    "tax-id": "Tax ID:",
+    "registration-number": "Registration number:",
+    "bank-account": "Bank account:",
+    "ngo": "Slovenian Ministry of Public Administration granted us the status of a non-governmental organization in the public interest in the field of information society development.",
     "papers": "Documents"
   },
   "values": {

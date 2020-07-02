@@ -157,23 +157,27 @@
     </div>
     <div class="row formalities">
       <div class="col-12 mt-3">
-        <p>Sedež podjetja: <strong>Parmova ulica 20, 1000 Ljubljana</strong></p>
         <p>
-          Davčna številka:
+          {{ $t('about.mailing-address') }}
+          <strong
+            >Parmova ulica 20, 1000 Ljubljana<template
+              v-if="$i18n.locale !== 'sl'"
+              >, Slovenia</template
+            ></strong
+          >
+        </p>
+        <p>
+          {{ $t('about.tax-id') }}
           <strong>SI54561710</strong>
-          <br />Matična številka:
+          <br />{{ $t('about.registration-number') }}
           <strong>6468594000</strong>
         </p>
         <p>
-          TRR:
+          {{ $t('about.bank-account') }}
           <strong>SI56 6100 0000 5740 710</strong>
           <br />(Delavska hranilnica d.d., Ljubljana)
         </p>
-        <p>
-          Po odločbi Ministrstva za javno upravo imamo status nevladne
-          organizacije v javnem interesu na področju razvoja informacijske
-          družbe.
-        </p>
+        <p v-t="'about.ngo'"></p>
       </div>
     </div>
     <div class="row">
