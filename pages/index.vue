@@ -63,45 +63,6 @@
     <div class="row">
       <div class="col-12">
         <section-header
-          :to="localePath('clipping')"
-          :text="$t('menu.clipping')"
-          color="warning"
-          icon="section-clipping"
-        />
-      </div>
-    </div>
-    <div>
-      <div v-if="clippings && clippings.length" class="wrapping-flex-tiles">
-        <div
-          v-for="clip in clippings.slice(0, 3)"
-          :key="`${clip.url}`"
-          class="flex-tile"
-        >
-          <preview-tile
-            :image="clip.image"
-            :title="clip.title"
-            :byline="`${clip.publisher}, ${toSloDate(clip.date)}`"
-            :url="clip.url"
-          />
-        </div>
-        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
-      </div>
-    </div>
-    <div class="d-flex justify-content-center">
-      <more-button
-        :to="localePath('clipping')"
-        :text="$t('clipping.more')"
-        color="warning"
-      />
-    </div>
-    <div class="row mobile-no-gap">
-      <div class="col-12 my-5">
-        <shop-bar v-if="$i18n.locale !== 'en'" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <section-header
           :to="localePath('projects')"
           :text="$t('menu.projects')"
           color="secondary"
@@ -132,6 +93,45 @@
         :to="localePath('projects')"
         :text="$t('projects.more')"
         color="secondary"
+      />
+    </div>
+    <div class="row mobile-no-gap">
+      <div class="col-12 my-5">
+        <shop-bar v-if="$i18n.locale !== 'en'" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <section-header
+          :to="localePath('clipping')"
+          :text="$t('menu.clipping')"
+          color="warning"
+          icon="section-clipping"
+        />
+      </div>
+    </div>
+    <div>
+      <div v-if="clippings && clippings.length" class="wrapping-flex-tiles">
+        <div
+          v-for="clip in clippings.slice(0, 3)"
+          :key="`${clip.url}`"
+          class="flex-tile"
+        >
+          <preview-tile
+            :image="clip.image"
+            :title="clip.title"
+            :byline="`${clip.publisher}, ${toSloDate(clip.date)}`"
+            :url="clip.url"
+          />
+        </div>
+        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <more-button
+        :to="localePath('clipping')"
+        :text="$t('clipping.more')"
+        color="warning"
       />
     </div>
     <div class="row mobile-no-gap">
