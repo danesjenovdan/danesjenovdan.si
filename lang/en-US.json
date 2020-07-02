@@ -206,14 +206,14 @@
         "email-subject": "Inquiry: Parlatube"
       },
       "humans-vote": {
-        "title": "Humans vote",
+        "title": "Humans.vote",
         "description": "Humans.vote is an open-source blockchain solution for secure digital elections or any other decision-making process that is based on voting.",
         "paragraphs": [
           "Humans.vote, an app that facilicates secure voting, was developed in the course of a 48-hour blockchain hackaton Future Hack. It is easy to set up and use, and designed to work with any voting system. In the limited time available, we wrote the documentation, prepared detailed instructions for installation and a user manual, and published the code on Github. With the addition of a user interface the app will be a ready-made solution for blockchain voting.",
           "We thoroughly tested the app within our own organisation and are waiting for an opportunity to complete its development and find a good use case scenario."
         ],
         "contact": "Contact us for installation options.",
-        "email-subject": "Inquiry: Humans vote"
+        "email-subject": "Inquiry: Humans.vote"
       },
       "predlogi": {
         "title": "Proposals",

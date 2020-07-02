@@ -14,7 +14,7 @@
       </a>
       odpoveduje vsem avtorskim in sorodnim pravicam glede
       <span property="dct:title">spletnega mesta danesjenovdan.si</span> z
-      izjemo vseh ikon in slik objavljenih na
+      izjemo vseh ikon in slik, objavljenih na
       <a href="https://agrument.danesjenovdan.si">Agrumentu</a>, ki jih nismo
       ustvarili na inštitutu.
     </div>
