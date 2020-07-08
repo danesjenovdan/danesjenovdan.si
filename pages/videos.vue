@@ -81,9 +81,9 @@ export default {
     FilterBar,
   },
   mixins: [dateMixin, videoMixin],
-  async asyncData({ $axios, params, query, error }) {
+  async asyncData({ app, $axios, params, query, error }) {
     const videoRes = await $axios.$get(
-      'https://djnapi.djnd.si/djnd.si/videos/?ordering=-date&size=500',
+      `https://djnapi.djnd.si/djnd.si/videos/?lang=${app.i18n.locale}&ordering=-date&size=500`,
     );
     const videoObj = videoRes.results.find((v) => v.url === query.video);
     return {

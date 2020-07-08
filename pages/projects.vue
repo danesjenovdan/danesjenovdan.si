@@ -46,9 +46,9 @@ export default {
     ProjectTile,
   },
   mixins: [dateMixin],
-  async asyncData({ $axios, params, error }) {
+  async asyncData({ app, $axios, params, error }) {
     const projectsResponse = await $axios.$get(
-      'https://djnapi.djnd.si/djnd.si/projects/?ordering=-date&size=500',
+      `https://djnapi.djnd.si/djnd.si/projects/?lang=${app.i18n.locale}&ordering=-date&size=500`,
     );
     return {
       projects: projectsResponse.results,

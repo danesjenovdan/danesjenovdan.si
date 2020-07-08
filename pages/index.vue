@@ -280,7 +280,9 @@ export default {
     InfoPush,
   },
   mixins: [dateMixin],
-  async asyncData({ $axios, params, error }) {
+  async asyncData({ app, $axios, params, error }) {
+    const lang = `lang=${app.i18n.locale}`;
+    const order = `ordering=-date`;
     const [
       agrumentResponse,
       clippingsResponse,
@@ -288,11 +290,11 @@ export default {
       videosResponse,
       infopushResponse,
     ] = await Promise.all([
-      $axios.$get('https://agrument.danesjenovdan.si/api/v2/posts?limit=5'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/clips/?ordering=-date'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/projects/?ordering=-date'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/videos/?ordering=-date'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/infopushes/'),
+      $axios.$get(`https://agrument.danesjenovdan.si/api/v2/posts?limit=5`),
+      $axios.$get(`https://djnapi.djnd.si/djnd.si/clips/?${lang}&${order}`),
+      $axios.$get(`https://djnapi.djnd.si/djnd.si/projects/?${lang}&${order}`),
+      $axios.$get(`https://djnapi.djnd.si/djnd.si/videos/?${lang}&${order}`),
+      $axios.$get(`https://djnapi.djnd.si/djnd.si/infopushes/?${lang}`),
     ]);
     return {
       agrumentPosts: agrumentResponse.data,
