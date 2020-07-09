@@ -42,7 +42,6 @@ export default {
   .custom-select {
     display: inline-block;
     width: auto;
-    border: 0;
     background-color: transparent;
     background-position: right 0.25rem top 60%;
     background-size: 0.5rem 0.5rem;
@@ -53,6 +52,10 @@ export default {
     padding: 0 1.25rem 0 0.25rem;
     line-height: 1.4;
     height: 1.75rem;
+
+    &:not(:focus) {
+      border: 0;
+    }
 
     option {
       font-weight: 300;
