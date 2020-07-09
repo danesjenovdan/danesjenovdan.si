@@ -11,6 +11,11 @@ button:focus {
   outline: 5px auto $color-green;
 }
 
+::selection {
+  background-color: rgba($color-green, 0.5);
+  color: #000;
+}
+
 .form-control {
   border-radius: 0;
   background: transparent;
@@ -105,6 +110,11 @@ button:focus {
 @each $color-name, $color in $theme-colors {
   .page.page--#{$color-name},
   .page .section--#{$color-name} {
+    ::selection {
+      background-color: rgba($color, 0.5);
+      color: #000;
+    }
+
     .form-control,
     button {
       &:focus {
