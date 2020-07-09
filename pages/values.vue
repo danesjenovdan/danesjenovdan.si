@@ -27,7 +27,7 @@ export default {
   nuxtI18n: {
     paths: {
       sl: '/vrednote',
-      en: '/values',
+      en: '/ethics',
     },
   },
   components: {

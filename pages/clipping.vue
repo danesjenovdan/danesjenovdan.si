@@ -39,7 +39,7 @@ export default {
   nuxtI18n: {
     paths: {
       sl: '/pojavljanja',
-      en: '/clipping',
+      en: '/appearances',
     },
   },
   components: {
