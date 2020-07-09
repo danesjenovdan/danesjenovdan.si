@@ -37,7 +37,7 @@
               <br />Inštitut za druga vprašanja
               <br />
             </strong>
-            Tobačna ulica 5, 1000 Ljubljana
+            Parmova ulica 20, 1000 Ljubljana
           </div>
           <div class="icon">
             <svg

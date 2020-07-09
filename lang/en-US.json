@@ -125,7 +125,7 @@
       },
       "format": {
         "title": "Format",
-        "audio": "avdio",
+        "audio": "audio",
         "video": "video",
         "text": "text"
       },

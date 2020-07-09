@@ -76,7 +76,7 @@
           <br />Inštitut za druga vprašanja
           <br />
         </strong>
-        Tobačna ulica 5, 1000 Ljubljana
+        Parmova ulica 20, 1000 Ljubljana
         <br />
         <br />
         <strong>vsi@danesjenovdan.si</strong>
@@ -91,7 +91,7 @@
           <br />Inštitut za druga vprašanja (Institute for other studies)
           <br />
         </strong>
-        Tobačna ulica 5, 1000 Ljubljana, Slovenia
+        Parmova ulica 20, 1000 Ljubljana, Slovenia
         <br />
         <br />
         <strong>vsi@danesjenovdan.si</strong>

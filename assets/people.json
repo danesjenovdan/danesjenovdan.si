@@ -139,6 +139,11 @@
     {
       "id": "jure",
       "name": "Jure Jelovčan"
+    },
+    {
+      "id": "mlacnik",
+      "name": "Primož Mlačnik",
+      "tags": ["council"]
     }
   ]
 }
