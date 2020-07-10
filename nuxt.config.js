@@ -1,4 +1,9 @@
 import scssCustomFunctions from './plugins/scss-functions.js';
+const dotenv = require('dotenv').config();
+
+if (dotenv.error) {
+  throw dotenv.error;
+}
 
 export default {
   /*
@@ -9,12 +14,6 @@ export default {
    ** Build mode
    */
   mode: 'universal',
-  /*
-   ** Server configuration
-   */
-  server: {
-    port: 3001, // default: 3000
-  },
   /*
    ** Headers of the page
    */
@@ -149,6 +148,8 @@ export default {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv',
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
   ],
@@ -173,7 +174,7 @@ export default {
         ],
         defaultLocale: 'sl',
         encodePaths: false,
-        baseUrl: 'http://nov.djnd.si',
+        baseUrl: process.env.BASE_URL,
         langDir: 'lang/',
         lazy: true,
       },
