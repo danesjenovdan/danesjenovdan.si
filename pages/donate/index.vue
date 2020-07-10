@@ -194,7 +194,7 @@
           <img src="/img/partners/pic.png" />
           <img src="/img/partners/focus.jpg" />
           <!-- <img src="/img/partners/umanotera.png" style="width: 100px" /> -->
-          <img src="/img/partners/greenpeace.png" style="width: 100px" />
+          <img src="/img/partners/greenpeace.png" style="width: 100px;" />
         </div>
       </div>
     </div>
