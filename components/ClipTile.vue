@@ -34,8 +34,6 @@
             {{ clip.publisher }}
             <span class="info-divider">/</span>
             {{ toSloDate(clip.date) }}
-            <!-- <span class="info-divider">/</span>
-            {{ clip.tags.join(', ') }} -->
             <span class="info-divider">/</span>
             {{ types.join(', ') }}
           </div>

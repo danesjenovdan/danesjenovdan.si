@@ -6,6 +6,7 @@
       color="warning"
     />
     <clipping-filter :filters="filters" @qs-change="onQueryChange" />
+    <div ref="pageTop"></div>
     <div v-if="loading">
       <div class="loader-container text-center pt-5">
         <div class="lds-dual-ring" />
@@ -118,6 +119,9 @@ export default {
       }
       this.cancelSource = null;
       this.loading = false;
+      this.$nextTick(() => {
+        this.$refs.pageTop.scrollIntoView();
+      });
     },
   },
   head() {

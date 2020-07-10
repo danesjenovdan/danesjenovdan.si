@@ -24,6 +24,7 @@
     "nuxt": "^2.11.0",
     "nuxt-i18n": "^6.4.1",
     "paypal-checkout": "^4.0.280",
+    "stable": "^0.1.8",
     "standard-slugify": "^1.0.0",
     "vue-matomo": "^3.13.0-0"
   },

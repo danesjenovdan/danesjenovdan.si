@@ -33,15 +33,12 @@
         v-model="languageFilters"
         :title="$t('clipping.tags.language.title')"
       />
-      <!-- <filter-checkboxes
-        v-model="tagFilters"
-        :title="$t('clipping.tags.tag.title')"
-      /> -->
     </div>
   </div>
 </template>
 
 <script>
+import stable from 'stable';
 import FilterCheckboxes from '~/components/FilterCheckboxes.vue';
 
 export default {
@@ -55,39 +52,51 @@ export default {
     },
   },
   data() {
-    const typeFilters = (this.filters.types || [])
-      .map((tagName) => ({
+    const comparator = (a, b) => a.label.localeCompare(b.label, 'sl');
+
+    const typeFilters = stable(
+      (this.filters.types || []).map((tagName) => ({
         id: tagName,
         label: this.$te(`clipping.tags.type.${tagName}`)
           ? this.$t(`clipping.tags.type.${tagName}`)
           : tagName,
         active: false,
-      }))
-      .sort((a, b) => (a.id === 'trolanje' ? 1 : -1));
+      })),
+      comparator,
+    );
 
-    const formatFilters = (this.filters.formats || []).map((tagName) => ({
-      id: tagName,
-      label: this.$te(`clipping.tags.format.${tagName}`)
-        ? this.$t(`clipping.tags.format.${tagName}`)
-        : tagName,
-      active: false,
-    }));
+    const formatFilters = stable(
+      (this.filters.formats || []).map((tagName) => ({
+        id: tagName,
+        label: this.$te(`clipping.tags.format.${tagName}`)
+          ? this.$t(`clipping.tags.format.${tagName}`)
+          : tagName,
+        active: false,
+      })),
+      comparator,
+    );
 
-    const languageFilters = (this.filters.languages || []).map((tagName) => ({
-      id: tagName,
-      label: this.$te(`clipping.tags.language.${tagName}`)
-        ? this.$t(`clipping.tags.language.${tagName}`)
-        : tagName,
-      active: false,
-    }));
+    const languageFilters = stable(
+      (this.filters.languages || []).map((tagName) => ({
+        id: tagName,
+        label: this.$te(`clipping.tags.language.${tagName}`)
+          ? this.$t(`clipping.tags.language.${tagName}`)
+          : tagName,
+        active: false,
+      })),
+      comparator,
+    );
 
-    const tagFilters = (this.filters.tags || []).map((tagName) => ({
-      id: tagName,
-      label: this.$te(`clipping.tags.tag.${tagName}`)
-        ? this.$t(`clipping.tags.tag.${tagName}`)
-        : tagName,
-      active: false,
-    }));
+    const tagFilters = stable(
+      (this.filters.tags || []).map((tagName) => ({
+        id: tagName,
+        label: this.$te(`clipping.tags.tag.${tagName}`)
+          ? this.$t(`clipping.tags.tag.${tagName}`)
+          : tagName,
+        active: false,
+      })),
+      comparator,
+    );
 
     return {
       typeFilters,
