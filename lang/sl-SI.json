@@ -64,6 +64,16 @@
     "description": "Ponudba vročih žemljic in uporabnih rešitev, digitalno skladišče, odprtokodna knjižnica in portfolio. Ropotarnica idej, arhiv aktivističnih potrebščin, spletnih rekvizitov in drugih angažiranih pripomočkov za aktivno državljanstvo ter kritično mišljenje.",
     "more": "Več",
     "tools": {
+      "newsgradient": {
+        "title": "Newsgradient",
+        "description": "Najboljši način za enostavno spremljanje novic na medijskem spektru glede na politično os.",
+        "paragraphs": [
+          "Newsgradient raziskuje razlike v medijskem poročanju o najpomembnejših dogodkih. Z njegovo pomočjo lahko hitro in enostavno spremljate dnevne novice in jih opazujete na političnem spektru. Medije smo razporedili na osi levo-desno s pomočjo napredne metodologije, razvrstili pa smo jih glede na faktorja (ne)pristranskosti in verodostojnosti.",
+          "Projekt Newsgradient je dobil finančno podporo s strani NED, razvijamo pa ga s partnerji Event Registry in Ad Fontes Media. Bosansko različico smo implementirali s pomočjo lokalnih partnerjev Zašto ne."
+        ],
+        "contact": "Za možnosti inštalacije nas kontaktiraj.",
+        "email-subject": "Povpraševanje: Newsgradient"
+      },
       "parlameter": {
         "title": "Parlameter",
         "description": "Celovita rešitev za vsako organizacijo, ki stremi k transparentnosti in digitalizacijo postopkov.",

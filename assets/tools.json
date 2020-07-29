@@ -1,6 +1,16 @@
 {
   "tools": [
     {
+      "id": "newsgradient",
+      "links": [
+        {
+          "url": "https://bih.newsgradient.org/",
+          "label": "bih.newsgradient.org"
+        }
+      ],
+      "email": "vsi@danesjenovdan.si"
+    },
+    {
       "id": "parlameter",
       "links": [
         { "url": "https://parlameter.org", "label": "parlameter.org" },

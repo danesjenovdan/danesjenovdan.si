@@ -219,16 +219,16 @@
       <div class="wrapping-flex-tiles">
         <div class="flex-tile">
           <tool-preview-tile
-            :title="$t('tools.tools.parlameter.title')"
-            :text="$t('tools.tools.parlameter.description')"
-            icon="parlameter"
+            :title="$t('tools.tools.newsgradient.title')"
+            :text="$t('tools.tools.newsgradient.description')"
+            icon="newsgradient"
           />
         </div>
         <div class="flex-tile">
           <tool-preview-tile
-            :title="$t('tools.tools.commentality.title')"
-            :text="$t('tools.tools.commentality.description')"
-            icon="commentality"
+            :title="$t('tools.tools.parlameter.title')"
+            :text="$t('tools.tools.parlameter.description')"
+            icon="parlameter"
           />
         </div>
         <div class="flex-tile">

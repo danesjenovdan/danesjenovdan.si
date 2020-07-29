@@ -155,6 +155,16 @@
     "description": "Here are some of our digital solutions and ingenious ideas that take active citizenship to the next level. This is a portfolio, a digital storage, and an open source library. Look around for inspiration, activist supplies, and online props for digital activism and critical thinking.",
     "more": "Load more",
     "tools": {
+      "newsgradient": {
+        "title": "Newsgradient",
+        "description": "Newsgradient is a powerful tool that allows you to view news on the political",
+        "paragraphs": [
+          "Newsgradient highlights the differences in media coverage of the most important events. It enables users to easily follow the daily news and observe it on the political spectrum. The media are arranged on the left-right axis and classified according to their bias and credibility.",
+          "Newsgradient has received financial support from NED. It has been developed with the help of partners Event Registry and Ad Fontes Media. The Bosnian version was implemented in cooperation with local partners Zašto ne."
+        ],
+        "contact": "Contact us for localization options.",
+        "email-subject": "Inquiry: Newsgradient"
+      },
       "parlameter": {
         "title": "Parlameter",
         "description": "Parlameter is a complete solution for any organisation striving for full transparency and digitalisation of its sessions.",
