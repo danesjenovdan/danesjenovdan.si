@@ -24,18 +24,13 @@
       </template>
       <template v-else>
         <template v-for="item in items">
-          <!-- TODO: text="variant text" -->
           <cart-product
-            :key="`${item.id}`"
-            :image="`/img/products/${item.article.id}.jpg`"
-            :title="
-              $te(`shop.products.${item.article.id}.display_name`)
-                ? $t(`shop.products.${item.article.id}.display_name`)
-                : item.article.name
-            "
+            :key="item.id"
+            :image="getDisplayImage(item.article)"
+            :title="getDisplayName(item.article)"
             :price="item.article.price"
             :amount="item.quantity"
-            text=""
+            :text="item.article.variant || ''"
           />
           <hr :key="`${item.id}-hr`" />
         </template>
@@ -213,7 +208,9 @@
     </div>
 
     <div class="terms">
-      <nuxt-link target="_blank" to="/pogoji">Pogoji poslovanja</nuxt-link>
+      <nuxt-link target="_blank" :to="localePath('articles-terms')">
+        Pogoji poslovanja
+      </nuxt-link>
     </div>
   </div>
 </template>

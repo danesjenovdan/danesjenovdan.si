@@ -23,18 +23,13 @@
           <div class="arrow" />
           <div class="cart-preview__content">
             <template v-for="item in items">
-              <!-- TODO: text="variant text" -->
               <cart-product
-                :key="`${item.id}`"
-                :image="`/img/products/${item.article.id}.jpg`"
-                :title="
-                  $te(`shop.products.${item.article.id}.display_name`)
-                    ? $t(`shop.products.${item.article.id}.display_name`)
-                    : item.article.name
-                "
+                :key="item.id"
+                :image="getDisplayImage(item.article)"
+                :title="getDisplayName(item.article)"
                 :price="item.article.price"
                 :amount="item.quantity"
-                text=""
+                :text="item.article.variant || ''"
                 show-modify
                 @change-amount="changeAmount(item.id, $event)"
               />
@@ -69,13 +64,14 @@
 import MoreButton from '~/components/MoreButton.vue';
 import CartProduct from '~/components/CartProduct.vue';
 import clickOutside from '~/mixins/clickOutside.js';
+import shopMixin from '~/mixins/shop.js';
 
 export default {
   components: {
     MoreButton,
     CartProduct,
   },
-  mixins: [clickOutside],
+  mixins: [clickOutside, shopMixin],
   props: {
     orderKey: {
       type: String,

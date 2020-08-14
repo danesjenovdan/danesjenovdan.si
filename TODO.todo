@@ -1,0 +1,87 @@
+to enable 3d secure 2:
+  ☐ read docs: https://developers.braintreepayments.com/guides/3d-secure/client-side/javascript/v3
+  ☐ run back-end locally https://github.com/danesjenovdan/djndonacije
+    ☐ enable braintree sandbox
+  ☐ use local back-end, for client development
+  ☐ update braintree-web and paypal-checkout deps
+  ☐ change payment flow to collect extra information before payment
+    ☐ billingAddress
+      ☐ givenName: 'Jill', // ASCII-printable characters required, else will throw a validation error
+      ☐ surname: 'Doe', // ASCII-printable characters required, else will throw a validation error
+      ☐ phoneNumber: '8101234567',
+      ☐ streetAddress: '555 Smith St.',
+      ☐ extendedAddress: '#5',
+      ☐ locality: 'Oakland',
+      ☐ region: 'CA',
+      ☐ postalCode: '12345',
+      ☐ countryCodeAlpha2: 'US'
+    ☐ additionalInformation
+      ☐ workPhoneNumber: '8101234567',
+      ☐ shippingGivenName: 'Jill',
+      ☐ shippingSurname: 'Doe',
+      ☐ shippingPhone: '8101234567',
+      ☐ shippingAddress
+        ☐ streetAddress: '555 Smith St.',
+        ☐ extendedAddress: '#5',
+        ☐ locality: 'Oakland',
+        ☐ region: 'CA',
+        ☐ postalCode: '12345',
+        ☐ countryCodeAlpha2: 'US'
+  ☐ implement 3ds flow
+  ☐ SERVER SIDE
+    ☐ add "submit_for_settlement": True to sale()
+
+// try {
+//   this.infoSubmitting = true;
+//   const response = await this.$axios.$post(
+//     `https://podpri.djnd.si/api/donate/`,
+//     {
+//       nonce: this.nonce,
+//       name: this.name,
+//       email: this.email,
+//       address: this.address,
+//       mailing: this.subscribeNewsletter,
+//     },
+//   );
+
+//   // TODO: does this work now that we dont have avatar uploads anymore?
+//   if (response.upload_token) {
+//     this.$router.push(
+//       this.localePath({
+//         name: 'donate-thanks',
+//         query: { token: response.upload_token },
+//       }),
+//     );
+//   }
+// } catch (error) {
+//   // eslint-disable-next-line no-console
+//   console.error(error.response);
+//   this.error = error.response;
+// }
+
+// try {
+//   this.checkoutLoading = true;
+//   const checkoutResponse = await this.$axios.$get(
+//     'https://podpri.djnd.si/api/donate/',
+//   );
+//   try {
+//     window._paq.push([
+//       'trackEvent', // function
+//       'donation', // category
+//       'payment', // action
+//       this.selectedDonationAmount < 11
+//         ? 'ueleven'
+//         : this.donationPresets.find((dp) => dp.selected).eventName,
+//       this.selectedDonationAmount,
+//     ]);
+//   } catch (error) {
+//     // eslint-disable-next-line no-console
+//     console.log(error);
+//   }
+//   this.token = checkoutResponse.token;
+//   this.stage = 'payment';
+// } catch (error) {
+//   // eslint-disable-next-line no-console
+//   console.error(error.response);
+//   this.error = error.response;
+// }

@@ -17,7 +17,7 @@
         class="col-12 col-lg-6"
       >
         <product-tile
-          :image="`/img/products/${product.id}.jpg`"
+          :image="getDisplayImage(product)"
           :title="getDisplayName(product)"
           :text="$t(`shop.products.${product.id}.short_description`)"
           :button-text="$t(`shop.products.${product.id}.button_text`)"
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import slugify from 'standard-slugify';
+import { slugify } from '~/helpers/slugify.js';
 import shopMixin from '~/mixins/shop.js';
 import PageTitle from '~/components/PageTitle.vue';
 import ShoppingCartBar from '~/components/ShoppingCartBar.vue';
