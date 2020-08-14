@@ -34,17 +34,15 @@
             />
           </svg>
         </div>
-        <p class="volunteer__text">
-          Če si brez denarja, še ne pomeni, da ne moreš nič narediti. Zavihaj
-          rokave, zgubaj čelo in napni mišice. Če se nam želiš pridružiti kot
-          prosovoljec, nam piši na
+        <i18n path="people.volunteer" tag="p" class="volunteer__text">
           <a
             href="mailto:vsi@danesjenovdan.si"
             target="_blank"
             rel="noopener noreferrer"
+            place="email"
             >vsi@danesjenovdan.si</a
-          >.
-        </p>
+          >
+        </i18n>
       </div>
     </div>
   </div>
@@ -77,9 +75,9 @@ export default {
     });
     return {
       filters: [
-        { id: 'all', label: 'Vsi', active: true },
-        { id: 'council', label: 'Svet zavoda', active: false },
-        { id: 'science', label: 'Znanstveni svet zavoda', active: false },
+        { id: 'all', label: this.$t('people.tags.all'), active: true },
+        { id: 'council', label: this.$t('people.tags.council'), active: false },
+        { id: 'science', label: this.$t('people.tags.science'), active: false },
       ],
       people: sortedPeople,
     };

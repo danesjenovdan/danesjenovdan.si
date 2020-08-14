@@ -18,10 +18,7 @@ module.exports = {
   },
   'string-replace($str, $find, $replace: "")': (str, find, replace) => {
     return sass.types.String(
-      str
-        .getValue()
-        .split(find.getValue())
-        .join(replace.getValue()),
+      str.getValue().split(find.getValue()).join(replace.getValue()),
     );
   },
 };

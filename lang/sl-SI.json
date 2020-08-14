@@ -64,6 +64,16 @@
     "description": "Ponudba vročih žemljic in uporabnih rešitev, digitalno skladišče, odprtokodna knjižnica in portfolio. Ropotarnica idej, arhiv aktivističnih potrebščin, spletnih rekvizitov in drugih angažiranih pripomočkov za aktivno državljanstvo ter kritično mišljenje.",
     "more": "Več",
     "tools": {
+      "newsgradient": {
+        "title": "Newsgradient",
+        "description": "Najboljši način za enostavno spremljanje novic na medijskem spektru glede na politično os.",
+        "paragraphs": [
+          "Newsgradient raziskuje razlike v medijskem poročanju o najpomembnejših dogodkih. Z njegovo pomočjo lahko hitro in enostavno spremljate dnevne novice in jih opazujete na političnem spektru. Medije smo razporedili na osi levo-desno s pomočjo napredne metodologije, razvrstili pa smo jih glede na faktorja (ne)pristranskosti in verodostojnosti.",
+          "Projekt Newsgradient je dobil finančno podporo s strani NED, razvijamo pa ga s partnerji Event Registry in Ad Fontes Media. Bosansko različico smo implementirali s pomočjo lokalnih partnerjev Zašto ne."
+        ],
+        "contact": "Za možnosti inštalacije nas kontaktiraj.",
+        "email-subject": "Povpraševanje: Newsgradient"
+      },
       "parlameter": {
         "title": "Parlameter",
         "description": "Celovita rešitev za vsako organizacijo, ki stremi k transparentnosti in digitalizacijo postopkov.",
@@ -89,7 +99,7 @@
         "description": "Consul je odprtokodna platforma za izvedbo participativnega proračuna, prilagojena in nadgrajena za slovenske potrebe.",
         "paragraphs": [
           "Consul je razvila občina Madrid, mi pa smo ga prevedli in dodelali v sklopu širše kampanje za uvedbo participativnega proračuna pri nas. Smo tudi soustanovitelji mednarodne fundacije Consul, v kateri poteka nadaljnji razvoj orodja.",
-          "Consul uporablja že več kot 100 institucij v 33 državah, med njimi pa je tudi nekaj slovenskih občin. Odprtokodna aplikacija ima privlačen dizajn in zagotavlja prijetno uporabniško izkušnjo. Če želite, da mi poskrbimo za gostovanje, programsko opremo, baze in poštni strežnik, pomagamo pri vnašanju podatkov in organizaciji ter treningu ljudi, ki bodo izvajali participativni proračun, pa nas kontaktirajte za ponudbo."
+          "Consul uporablja že več kot 100 institucij v 35 državah, med njimi pa je tudi nekaj slovenskih občin. Odprtokodna aplikacija ima privlačen dizajn in zagotavlja prijetno uporabniško izkušnjo. Če želite, da mi poskrbimo za gostovanje, programsko opremo, baze in poštni strežnik, pomagamo pri vnašanju podatkov in organizaciji ter treningu ljudi, ki bodo izvajali participativni proračun, pa nas kontaktirajte za ponudbo."
         ],
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Consul"
@@ -115,14 +125,14 @@
         "email-subject": "Povpraševanje: Parlatube"
       },
       "humans-vote": {
-        "title": "Humans vote",
+        "title": "Humans.vote",
         "description": "Varna odprtokodna blockchain rešitev za digitalne volitve oz. vsakršno odločanje na podlagi glasovanja.",
         "paragraphs": [
           "Orodje humans.vote je rezultat 48-urnega programerskega maratona v okviru blockchain hackatona. Aplikacija omogoča varno glasovanje s pomočjo blockchain tehnologije, zastavljena pa je tako, da jo lahko vsakdo enostavno namesti. Organizacije in posamezniki imajo pri implementaciji različnih mehanizmov odločanja raznolike potrebe, zato smo aplikacijo oblikovali tako, da je sposobna delovati z vsakršnim glasovalnim sistemom.",
           "V 48 urah smo realizirali zastavljen projekt in spisali dokumentacijo ter temeljita navodila za namestitev in uporabo, vse pa smo objavili na portalu GitHub. Do rešitve na ključ manjka le uporabniški vmesnik."
         ],
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
-        "email-subject": "Povpraševanje: Humans vote"
+        "email-subject": "Povpraševanje: Humans.vote"
       },
       "predlogi": {
         "title": "Predlogi",
@@ -142,29 +152,29 @@
     "tags": {
       "type": {
         "title": "Vrsta gostovanja",
-        "interview": "Intervju",
-        "lecture": "Predavanje",
-        "round-table": "Okrogla miza",
-        "scientific": "Znanstveni članki",
-        "reporting": "Poročanje",
-        "trolanje": "Trolanje",
-        "kolumna": "Kolumna"
+        "interview": "intervju",
+        "lecture": "predavanje",
+        "round-table": "okrogla miza",
+        "scientific": "znanstveni članki",
+        "reporting": "poročanje",
+        "trolanje": "trolanje",
+        "kolumna": "kolumna"
       },
       "format": {
         "title": "Format",
-        "audio": "Avdio",
-        "video": "Video",
-        "text": "Besedilo"
+        "audio": "avdio",
+        "video": "video",
+        "text": "besedilo"
       },
       "language": {
         "title": "Jezik",
-        "sl": "Slovenščina",
-        "hr": "Hrvaščina",
-        "en": "Angleščina"
+        "sl": "slovenščina",
+        "hr": "hrvaščina",
+        "en": "angleščina"
       },
       "tag": {
         "title": "Oznake",
-        "copyright": "Avtorsko pravo",
+        "copyright": "avtorsko pravo",
         "tedx": "TedX"
       }
     }
@@ -200,6 +210,11 @@
   },
   "people": {
     "description": "Ker iskreno verjamemo, da je treba vsebinam dati prednost pred obrazi, bi radi, da nas poznate le po delu. Da pa ne bi teoretikom zarote, spin medicini in Sovi povzročali preveč sivih las, evo nas. Kaj nismo srčkani?",
+    "tags": {
+      "all": "Vsi",
+      "council": "Svet zavoda",
+      "science": "Znanstveni svet zavoda"
+    },
     "people": {
       "zigaaljaz": { "description": "zadolžen za zadolževanje " },
       "tea": { "description": "zadolžena za teženje medijem in sajenje buč" },
@@ -237,25 +252,38 @@
       "nejc": { "description": "zadolžen za odgovore in odgovornost" },
       "zala": { "description": "zadolžena za dolgove in valove" },
       "jure": { "description": "zadolžen za gredice in pravice" }
-    }
+    },
+    "volunteer": "Če nam želiš pomagati, bomo veseli tudi tvojega dela. Zavihaj rokave, nagubaj čelo in napni mišice. Piši nam na {email}."
   },
   "about": {
     "description": "Prvi spletni portal Danes je nov dan je nastal jeseni 2012 kot sopotnik, integralni del in podpornik vstajniških gibanj. Od oktobra 2013 delujemo kot inštitut, ki se osredotoča na (digitalno) politično participacijo, transparentnost in nadzor.",
     "descriptions": {
-      "people": "Nismo seštevek oseb, ampak skupnost. Vsota delov je manj od celote.",
+      "people": "Vsota delov je manj od celote. Nismo seštevek oseb, ampak skupnost.",
       "values": "Naše merilo je veselje do življenja!",
       "clipping": "Kliping javnih pojavljanj: dober glas seže v deveto vas, slabega pa ne objavimo."
     },
     "our-partners": "Naši partnerji",
     "our-donators": "Naši donatorji",
     "formalities": "Pomembni podatki",
+    "mailing-address": "Sedež podjetja:",
+    "tax-id": "Davčna številka:",
+    "registration-number": "Matična številka:",
+    "bank-account": "TRR:",
+    "ngo": "Po odločbi Ministrstva za javno upravo imamo status nevladne organizacije v javnem interesu na področju razvoja informacijske družbe.",
     "papers": "Papirji"
   },
   "videos": {
     "description": "Nekatere videe smo ustvarili za predstavitev svojih orodij, akcij in vsebin, v drugih nastopamo kot protagonisti, nekateri so satirični kolaži drugih medijskih vsebin, spet tretji pa odražajo naše vrednote in veselje do življenja.",
     "more": "Več",
     "social-bar": {
-      "follow-us": "Naroči se na naše video kanale, da ne zamudiš naslednje vsebine!"
+      "follow-us": "Naroči se na naše video kanale in bodi na tekočem z nami še naprej."
+    },
+    "tags": {
+      "all": "Vsi",
+      "event": "Dogodek",
+      "inspiration": "Inspiracija",
+      "provocation": "Provokacija",
+      "explanation": "Razlaga"
     }
   },
   "shop": {

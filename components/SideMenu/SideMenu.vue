@@ -8,7 +8,7 @@
       <div>
         <nav-menu />
         <div class="lang-license">
-          <!-- <language-switcher /> -->
+          <language-switcher />
           <hr />
           <license />
         </div>
@@ -21,7 +21,7 @@
 import NavLogo from './NavLogo.vue';
 import NavMenu from './NavMenu.vue';
 import License from './License.vue';
-// import LanguageSwitcher from './LanguageSwitcher.vue';
+import LanguageSwitcher from './LanguageSwitcher.vue';
 
 export default {
   name: 'SideMenu',
@@ -29,7 +29,7 @@ export default {
     NavLogo,
     NavMenu,
     License,
-    // LanguageSwitcher,
+    LanguageSwitcher,
   },
   data() {
     return {

@@ -6,6 +6,7 @@
       color="warning"
     />
     <clipping-filter :filters="filters" @qs-change="onQueryChange" />
+    <div ref="pageTop"></div>
     <div v-if="loading">
       <div class="loader-container text-center pt-5">
         <div class="lds-dual-ring" />
@@ -39,7 +40,7 @@ export default {
   nuxtI18n: {
     paths: {
       sl: '/pojavljanja',
-      en: '/clipping',
+      en: '/appearances',
     },
   },
   components: {
@@ -48,12 +49,14 @@ export default {
     ClipTile,
     Pagination,
   },
-  async asyncData({ $axios }) {
+  async asyncData({ app, $axios }) {
     const endpoint = 'https://djnapi.djnd.si/djnd.si/clips/';
     const filterQuery = '';
     const pageQuery = `page=${INITIAL_PAGE}&size=${PAGE_SIZE}`;
     const clips = await $axios.$get(
-      `${endpoint}?${[filterQuery, pageQuery].join('&')}&ordering=-date`,
+      `${endpoint}?${[filterQuery, pageQuery].join('&')}&lang=${
+        app.i18n.locale
+      }&ordering=-date`,
     );
     return {
       endpoint,
@@ -74,7 +77,10 @@ export default {
   },
   computed: {
     queryString() {
-      return `?${[this.filterQuery, this.pageQuery].join('&')}&ordering=-date`;
+      return `?lang=${this.$i18n.locale}&${[
+        this.filterQuery,
+        this.pageQuery,
+      ].join('&')}&ordering=-date`;
     },
   },
   methods: {
@@ -113,6 +119,9 @@ export default {
       }
       this.cancelSource = null;
       this.loading = false;
+      this.$nextTick(() => {
+        this.$refs.pageTop.scrollIntoView();
+      });
     },
   },
   head() {

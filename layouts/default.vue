@@ -8,7 +8,7 @@
         <div>
           <div class="row mobile-no-gap">
             <div class="col-12 mt-5">
-              <support-bar :color="pageColor" />
+              <support-bar v-if="$i18n.locale !== 'en'" :color="pageColor" />
             </div>
           </div>
           <page-footer :color="pageColor" />

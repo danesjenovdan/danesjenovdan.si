@@ -13,35 +13,76 @@
         :button-url="infopush.cta_url"
       />
     </div>
+    <template v-if="$i18n.locale !== 'en'">
+      <div class="row">
+        <div class="col-12">
+          <section-header
+            :to="localePath('agrument-date')"
+            :text="$t('menu.agrument')"
+            icon="section-agrument"
+          />
+        </div>
+      </div>
+      <div v-if="agrumentPosts && agrumentPosts.length" class="mt-4">
+        <promoted-tile
+          :image="agrumentPosts[0].image_url"
+          :title="agrumentPosts[0].title"
+          :byline="toSloDate(agrumentPosts[0].datetime)"
+          :text="agrumentPosts[0].description"
+          :url="agrumentPosts[0].url"
+        />
+        <div class="wrapping-flex-tiles">
+          <div
+            v-for="agrumentPost in agrumentPosts.slice(1, 4)"
+            :key="`${agrumentPost.id}`"
+            class="flex-tile"
+          >
+            <preview-tile
+              :image="agrumentPost.image_url"
+              :title="agrumentPost.title"
+              :byline="toSloDate(agrumentPost.datetime)"
+              :text="agrumentPost.description"
+              :url="agrumentPost.url"
+            />
+          </div>
+          <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <more-button
+          :to="localePath('agrument-date')"
+          :text="$t('agrument.more')"
+        />
+      </div>
+      <div class="row mobile-no-gap">
+        <div class="col-12 my-5">
+          <agrument-subscribe-bar />
+        </div>
+      </div>
+    </template>
     <div class="row">
       <div class="col-12">
         <section-header
-          :to="localePath('agrument-date')"
-          :text="$t('menu.agrument')"
-          icon="section-agrument"
+          :to="localePath('projects')"
+          :text="$t('menu.projects')"
+          color="secondary"
+          icon="section-projects"
         />
       </div>
     </div>
-    <div v-if="agrumentPosts && agrumentPosts.length" class="mt-4">
-      <promoted-tile
-        :image="agrumentPosts[0].image_url"
-        :title="agrumentPosts[0].title"
-        :byline="toSloDate(agrumentPosts[0].datetime)"
-        :text="agrumentPosts[0].description"
-        :url="agrumentPosts[0].url"
-      />
-      <div class="wrapping-flex-tiles">
+    <div>
+      <div v-if="projects && projects.length" class="wrapping-flex-tiles">
         <div
-          v-for="agrumentPost in agrumentPosts.slice(1, 4)"
-          :key="`${agrumentPost.id}`"
+          v-for="project in projects.slice(0, 3)"
+          :key="`${project.url}`"
           class="flex-tile"
         >
-          <preview-tile
-            :image="agrumentPost.image_url"
-            :title="agrumentPost.title"
-            :byline="toSloDate(agrumentPost.datetime)"
-            :text="agrumentPost.description"
-            :url="agrumentPost.url"
+          <project-tile
+            :image="project.image"
+            :title="project.title"
+            :byline="toMonthYear(project.date)"
+            :text="project.desc"
+            :url="project.url"
           />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
@@ -49,13 +90,14 @@
     </div>
     <div class="d-flex justify-content-center">
       <more-button
-        :to="localePath('agrument-date')"
-        :text="$t('agrument.more')"
+        :to="localePath('projects')"
+        :text="$t('projects.more')"
+        color="secondary"
       />
     </div>
     <div class="row mobile-no-gap">
       <div class="col-12 my-5">
-        <agrument-subscribe-bar />
+        <shop-bar v-if="$i18n.locale !== 'en'" />
       </div>
     </div>
     <div class="row">
@@ -90,46 +132,6 @@
         :to="localePath('clipping')"
         :text="$t('clipping.more')"
         color="warning"
-      />
-    </div>
-    <div class="row mobile-no-gap">
-      <div class="col-12 my-5">
-        <shop-bar />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <section-header
-          :to="localePath('projects')"
-          :text="$t('menu.projects')"
-          color="secondary"
-          icon="section-projects"
-        />
-      </div>
-    </div>
-    <div>
-      <div v-if="projects && projects.length" class="wrapping-flex-tiles">
-        <div
-          v-for="project in projects.slice(0, 3)"
-          :key="`${project.url}`"
-          class="flex-tile"
-        >
-          <project-tile
-            :image="project.image"
-            :title="project.title"
-            :byline="toMonthYear(project.date)"
-            :text="project.desc"
-            :url="project.url"
-          />
-        </div>
-        <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
-      </div>
-    </div>
-    <div class="d-flex justify-content-center">
-      <more-button
-        :to="localePath('projects')"
-        :text="$t('projects.more')"
-        color="secondary"
       />
     </div>
     <div class="row mobile-no-gap">
@@ -217,16 +219,16 @@
       <div class="wrapping-flex-tiles">
         <div class="flex-tile">
           <tool-preview-tile
-            :title="$t('tools.tools.parlameter.title')"
-            :text="$t('tools.tools.parlameter.description')"
-            icon="parlameter"
+            :title="$t('tools.tools.newsgradient.title')"
+            :text="$t('tools.tools.newsgradient.description')"
+            icon="newsgradient"
           />
         </div>
         <div class="flex-tile">
           <tool-preview-tile
-            :title="$t('tools.tools.commentality.title')"
-            :text="$t('tools.tools.commentality.description')"
-            icon="commentality"
+            :title="$t('tools.tools.parlameter.title')"
+            :text="$t('tools.tools.parlameter.description')"
+            icon="parlameter"
           />
         </div>
         <div class="flex-tile">
@@ -278,7 +280,9 @@ export default {
     InfoPush,
   },
   mixins: [dateMixin],
-  async asyncData({ $axios, params, error }) {
+  async asyncData({ app, $axios, params, error }) {
+    const lang = `lang=${app.i18n.locale}`;
+    const order = `ordering=-date`;
     const [
       agrumentResponse,
       clippingsResponse,
@@ -286,11 +290,11 @@ export default {
       videosResponse,
       infopushResponse,
     ] = await Promise.all([
-      $axios.$get('https://agrument.danesjenovdan.si/api/v2/posts?limit=5'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/clips/?ordering=-date'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/projects/?ordering=-date'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/videos/?ordering=-date'),
-      $axios.$get('https://djnapi.djnd.si/djnd.si/infopushes/'),
+      $axios.$get(`https://agrument.danesjenovdan.si/api/v2/posts?limit=5`),
+      $axios.$get(`https://djnapi.djnd.si/djnd.si/clips/?${lang}&${order}`),
+      $axios.$get(`https://djnapi.djnd.si/djnd.si/projects/?${lang}&${order}`),
+      $axios.$get(`https://djnapi.djnd.si/djnd.si/videos/?${lang}&${order}`),
+      $axios.$get(`https://djnapi.djnd.si/djnd.si/infopushes/?${lang}`),
     ]);
     return {
       agrumentPosts: agrumentResponse.data,

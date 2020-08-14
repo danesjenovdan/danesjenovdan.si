@@ -1,7 +1,8 @@
 <template>
   <footer class="footer row">
     <form
-      class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3"
+      v-if="$i18n.locale === 'sl'"
+      :class="columnClasses()"
       @submit.prevent="onEmailConfirm"
     >
       <div v-t="'footer.edit-email-settings'" class="lead my-2" />
@@ -26,7 +27,7 @@
         </div>
       </div>
     </form>
-    <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
+    <div :class="columnClasses()">
       <div v-t="'footer.are-we-friends'" class="lead my-2" />
       <div class="buttons">
         <div class="button-row">
@@ -55,7 +56,7 @@
         </div>
       </div>
     </div>
-    <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
+    <div :class="columnClasses()">
       <div v-t="'footer.our-code-is-online'" class="lead my-2" />
       <div class="buttons">
         <circle-icon-button
@@ -65,19 +66,34 @@
         />
       </div>
     </div>
-    <div class="footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3">
+    <div v-if="$i18n.locale === 'sl'" :class="columnClasses()">
       <div class="about mt-3 mt-lg-2">
         <strong>
           Danes je nov dan,
           <br />Inštitut za druga vprašanja
           <br />
         </strong>
-        Tobačna ulica 5, 1000 Ljubljana
+        Parmova ulica 20, 1000 Ljubljana
         <br />
         <br />
         <strong>vsi@danesjenovdan.si</strong>
         <br />
         <strong>+386 64 147 823</strong> (med 10. in 16. uro)
+      </div>
+    </div>
+    <div v-else :class="columnClasses(true)">
+      <div class="about mt-3 mt-lg-2">
+        <strong>
+          Danes je nov dan (Today is a new day),
+          <br />Inštitut za druga vprašanja (Institute for other studies)
+          <br />
+        </strong>
+        Parmova ulica 20, 1000 Ljubljana, Slovenia
+        <br />
+        <br />
+        <strong>vsi@danesjenovdan.si</strong>
+        <br />
+        <strong>+386 64 147 823</strong> (10 am - 4 pm CET)
       </div>
     </div>
   </footer>
@@ -104,6 +120,15 @@ export default {
     };
   },
   methods: {
+    columnClasses(last) {
+      if (this.$i18n.locale === 'sl') {
+        return 'footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-3';
+      }
+      if (last) {
+        return 'footer-col mt-3 mt-xl-0 col-12 col-xl-4';
+      }
+      return 'footer-col mt-3 mt-xl-0 col-12 col-lg-6 col-xl-4';
+    },
     onEmailConfirm() {
       this.$router.push(
         this.localePath({ name: 'me', query: { email: this.email } }),
@@ -115,8 +140,12 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
+  border-top: 1px solid #333;
+  margin-top: 2rem;
+
   @include media-breakpoint-up(xl) {
     margin-top: 2rem;
+    padding-top: 2rem;
   }
 
   .footer-col {

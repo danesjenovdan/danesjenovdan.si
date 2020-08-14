@@ -1,6 +1,18 @@
 import scssCustomFunctions from './plugins/scss-functions.js';
+const dotenv = require('dotenv').config();
+
+if (dotenv.error) {
+  throw dotenv.error;
+}
 
 export default {
+  /*
+   ** Disable Nuxt telemetry
+   */
+  telemetry: false,
+  /*
+   ** Build mode
+   */
   mode: 'universal',
   /*
    ** Headers of the page
@@ -104,13 +116,6 @@ export default {
         href: 'https://use.typekit.net/aqx7lip.css',
       },
     ],
-    // script: [{
-    //     src: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'
-    //   },
-    //   {
-    //     src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js',
-    //   },
-    // ],
   },
   /*
    ** Customize the progress-bar color
@@ -143,6 +148,8 @@ export default {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv',
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
   ],
@@ -163,11 +170,11 @@ export default {
             file: 'sl-SI.json',
             name: 'Slovenščina',
           },
-          // { code: 'en', iso: 'en-US', file: 'en-US.json', name: 'English' },
+          { code: 'en', iso: 'en-US', file: 'en-US.json', name: 'English' },
         ],
         defaultLocale: 'sl',
         encodePaths: false,
-        baseUrl: 'https://danesjenovdan.si',
+        baseUrl: process.env.BASE_URL,
         langDir: 'lang/',
         lazy: true,
       },

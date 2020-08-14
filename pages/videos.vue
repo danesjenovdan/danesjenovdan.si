@@ -81,9 +81,9 @@ export default {
     FilterBar,
   },
   mixins: [dateMixin, videoMixin],
-  async asyncData({ $axios, params, query, error }) {
+  async asyncData({ app, $axios, params, query, error }) {
     const videoRes = await $axios.$get(
-      'https://djnapi.djnd.si/djnd.si/videos/?ordering=-date&size=500',
+      `https://djnapi.djnd.si/djnd.si/videos/?lang=${app.i18n.locale}&ordering=-date&size=500`,
     );
     const videoObj = videoRes.results.find((v) => v.url === query.video);
     return {
@@ -95,12 +95,23 @@ export default {
     return {
       iframeLoaded: false,
       filters: [
-        { id: 'all', label: 'Vsi', active: true },
-        { id: 'dogodek', label: 'Dogodek', active: false },
-        { id: 'inspiracija', label: 'Inspiracija', active: false },
-        { id: 'provokacija', label: 'Provokacija', active: false },
-        { id: 'razlaga', label: 'Razlaga', active: false },
-        // TODO: i18n labels
+        { id: 'all', label: this.$t('videos.tags.all'), active: true },
+        { id: 'dogodek', label: this.$t('videos.tags.event'), active: false },
+        {
+          id: 'inspiracija',
+          label: this.$t('videos.tags.inspiration'),
+          active: false,
+        },
+        {
+          id: 'provokacija',
+          label: this.$t('videos.tags.provocation'),
+          active: false,
+        },
+        {
+          id: 'razlaga',
+          label: this.$t('videos.tags.explanation'),
+          active: false,
+        },
       ],
       autoplay: false,
     };

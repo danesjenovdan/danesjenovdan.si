@@ -17,18 +17,22 @@
   "menu": {
     "agrument": "Agrument",
     "projects": "Calls",
-    "videos": "Video gallery",
+    "videos": "Videos",
     "tools": "Tools",
     "about": "About",
-    "people": "Crew",
+    "people": "People",
     "values": "Ethics",
     "clipping": "Appearances",
     "shop": "Store",
     "donate": "Donate",
     "search": "Search"
   },
+  "landing": {
+    "description": "Cultivating critical thought. Posing other questions. Hacking a new day. Nurturing a safe, inclusive and modern web. And world, too. We believe in community. Our measure is pleasure."
+  },
   "projects": {
-    "description": "We live what we do. We do what we believe. We believe what we say. We say what you don't want to hear. You do hear, because we know how to say it. We say it because it's our duty. Your duty is to spread the word.",
+    "description": "We live what we do. We do what we believe in. We believe in what we're saying. We're saying what you might not want to hear. You still hear it, because we know how to tell you. It's our duty to tell you. Your duty is to spread the word.",
+    "more": "Load more",
     "tags": {
       "pravičnost": "Social Justice",
       "okolje": "Environment",
@@ -41,9 +45,18 @@
       "branje": "Reading",
       "igra": "Game",
       "knjiga": "Book"
+    },
+    "social-bar": {
+      "follow-us": "Follow us on social media and catch our next campaign live!"
     }
   },
   "people": {
+    "description": "We sincerely believe that content comes before persons and would like for you to know us only by our work. But if you really do insist ... here we are. Aren't we cute?",
+    "tags": {
+      "all": "Everyone",
+      "council": "Council",
+      "science": "Scientific council"
+    },
     "people": {
       "zigaaljaz": { "description": "responsible for responibilities" },
       "tea": { "description": "responsible for nagging the media and blabbering" },
@@ -93,6 +106,185 @@
       "nejc": { "description": "responsible for responses and responsibilities" },
       "zala": { "description": "responsible for climate and changes" },
       "jure": { "description": "responsible for insights and rights" }
+    },
+    "volunteer": "If you would like to support us, you can also do it in kind. Roll up your sleeves, flex your muscles, and find us at {email}."
+  },
+  "clipping": {
+    "description": "This is the window from which we throw water balloons at social problems. It's a list of public and media appearances of our team as well as reports on our projects and collaborations. You can adjust the view according to various parameters.",
+    "more": "Load more",
+    "tags": {
+      "type": {
+        "title": "Type",
+        "interview": "interview",
+        "lecture": "lecture",
+        "round-table": "roundtable",
+        "scientific": "scientific",
+        "reporting": "reporting",
+        "trolanje": "trolling",
+        "kolumna": "column"
+      },
+      "format": {
+        "title": "Format",
+        "audio": "audio",
+        "video": "video",
+        "text": "text"
+      },
+      "language": {
+        "title": "Language",
+        "sl": "Slovenian",
+        "hr": "Croatian",
+        "en": "English"
+      }
     }
+  },
+  "videos": {
+    "description": "Some of these videos have been created to showcase our tools and campaigns, in others we act as protagonists, some are satirical reworks of other media content, and if you look closely, you will also find some that reflect our values and demonstrate our joie de vivre.",
+    "more": "Load more",
+    "social-bar": {
+      "follow-us": "Subscribe to our video channels so you don't miss anything important!"
+    },
+    "tags": {
+      "all": "See all",
+      "event": "Event",
+      "inspiration": "Inspiration",
+      "provocation": "Provocation",
+      "explanation": "Explanation"
+    }
+  },
+  "tools": {
+    "description": "Here are some of our digital solutions and ingenious ideas that take active citizenship to the next level. This is a portfolio, a digital storage, and an open source library. Look around for inspiration, activist supplies, and online props for digital activism and critical thinking.",
+    "more": "Load more",
+    "tools": {
+      "newsgradient": {
+        "title": "Newsgradient",
+        "description": "Newsgradient is a powerful tool that allows you to view news on the political",
+        "paragraphs": [
+          "Newsgradient highlights the differences in media coverage of the most important events. It enables users to easily follow the daily news and observe it on the political spectrum. The media are arranged on the left-right axis and classified according to their bias and credibility.",
+          "Newsgradient has received financial support from NED. It has been developed with the help of partners Event Registry and Ad Fontes Media. The Bosnian version was implemented in cooperation with local partners Zašto ne."
+        ],
+        "contact": "Contact us for localization options.",
+        "email-subject": "Inquiry: Newsgradient"
+      },
+      "parlameter": {
+        "title": "Parlameter",
+        "description": "Parlameter is a complete solution for any organisation striving for full transparency and digitalisation of its sessions.",
+        "paragraphs": [
+          "Parlameter collects and analyzes voting data, transcripts of sessions, as well as other activities of MPs and parliamentary groups. The data is arranged so that it is presented in machine and people friendly ways: for the former, there are open API calls, and for the latter innovative data organization in the form of card-based design. Each piece of Parlameter content resides in the form of a stand-alone card, which the user can share with others or embed in their own website.",
+          "The value of the project has been recognised by donors (Google DNI, NED), professionals (Brumen Grand Prix, Grand Diggit Award), journalists (its cards are embedded throughout the internet), and foreign NGOs, who are helping us bring transparency not only to the Slovenian parliament, but also to parliaments of Croatia and Bosnia and Herzegovina."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Parlameter"
+      },
+      "commentality": {
+        "title": "Commentality",
+        "description": "Commentality is not a commenting system, but it does keep audiences engaged and it does measure public opinion.",
+        "paragraphs": [
+          "Commentality is not a commenting system but it does keep audiences engaged and it does measure public opinion. In doing so, it is effective, accurate and user-friendly, and it brings forth an innovative way of engaging audiences, whilst at the same time avoiding hate speech, advertising, manipulation, astroturfing, abuse of personal data, and trolling. The platform is designed to build on arguments and common ideas in online debates in order to seek consensus.",
+          "Commentality was developed with the help of a Google DNI grant and a prototype was thoroughly tested in partnership with Mladina, an independent current affairs magazine."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Commentality"
+      },
+      "consul": {
+        "title": "Consul",
+        "description": "Consul is an open-source platform for participatory budgeting that we adapted and upgraded for local use in Slovenia.",
+        "paragraphs": [
+          "Consul, used by more than 100 institutions in 35 different countries, was originally developed by Community of Madrid. We are proud to announce that several Slovenian municipalities are now successfully using it as well. We upgraded the software and translated it to Slovenian as part of our broader campaign to introduce participatory budgeting in Slovenia. The open-source application has an attractive design and provides a pleasant user experience, making participatory budgeting a modern and interactive experience that it should be.",
+          "We are co-founders of the international Consul Democracy foundation, which is responsible to maintain and further develop Consul. If you want to join the progressive crowd and implement Consul in your municipality or any other institution, we can take care of technology as well as provide help with data entry and training. Contact us!"
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Consul"
+      },
+      "medijski-besedogled": {
+        "title": "Media scanner",
+        "description": "Media scanner is a digital semantic tool for autromatic text markup according to indicators used by the SCAN investigative method.",
+        "paragraphs": [
+          "Media scanner was developed to aid researchers and journalists in identifying critical points in (transcribed) spoken statements, which can then be questioned and researched more thoroughly. It is a semi-automated application of the investigative method SCAN, which analyses statements according to their internal structural soundness by identifying parts of speech where the speaker significantly diverges from their characteristic structure.",
+          "The prototype, which was used to analyse and interpret select statements from the public TV evening news program “Odmevi”, was developed in partnership with EBSI Institute and funded by Google DNI."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Media scanner"
+      },
+      "parlatube": {
+        "title": "Parlatube",
+        "description": "Parlatube is a versatile tool for quoting, remixing, one click post-production, and easy sharing of online videos.",
+        "paragraphs": [
+          "Animated canvas and sharpened scissors all in one – meet Parlatube. The name comes from a specific set of circumstances in which it was created. While developing Parlameter, we planned to include videos of parliamentary sessions, which are provided by the national public broadaster. Unable to successfully convey the importance of transparency and public data, we were not granted permission to do so.",
+          "The tool proved useful in 2017, as we worked in partnership with commercial POP TV. They agreed to broadcast the presidental debate on YouTube and we enhanced the experience with Parlatube. People massively trolled the candidates; they cut clips of their empty statements, added emoji comments and shared them online."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Parlatube"
+      },
+      "humans-vote": {
+        "title": "Humans.vote",
+        "description": "Humans.vote is an open-source blockchain solution for secure digital elections or any other decision-making process that is based on voting.",
+        "paragraphs": [
+          "Humans.vote, an app that facilicates secure voting, was developed in the course of a 48-hour blockchain hackaton Future Hack. It is easy to set up and use, and designed to work with any voting system. In the limited time available, we wrote the documentation, prepared detailed instructions for installation and a user manual, and published the code on Github. With the addition of a user interface the app will be a ready-made solution for blockchain voting.",
+          "We thoroughly tested the app within our own organisation and are waiting for an opportunity to complete its development and find a good use case scenario."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Humans.vote"
+      },
+      "predlogi": {
+        "title": "Proposals",
+        "description": "Proposals is a platform for online participation and digital democracy. It facilitates and organises community decision-making, debate and work processes.",
+        "paragraphs": [
+          "Proposals is a platform for constructive, safe, and inclusive debate, and was conceived during the 2012 protests. It represents the entrance of Danes je nov dan, then an informal group of friends, to the Slovenian civic tech sector. We launched Proposals about a month in the protests and it was quickly filled with users and content, as we continued to develop and update its functionalities.",
+          "The platform is currently archived. Although in desperate need of code refactoring and updating to current web standard, its UX design is still on par with the best open source solutions on the internet. Should an opportunity present itself, we are keen to put it to new uses."
+        ],
+        "contact": "Contact us for installation options.",
+        "email-subject": "Inquiry: Proposals"
+      }
+    }
+  },
+  "about": {
+    "description": "Today is a new day, Institute for other studies first came into being during the 2012 protests. We have been formally registered as an institute since 2013, focusing our efforts on (digital) political participation, transparency, and public oversight.",
+    "descriptions": {
+      "people": "The whole is greater than the sum of its parts. We are not an aggregate of persons, we are a community.",
+      "values": "Our measure is pleasure!",
+      "clipping": "A clipping of our public appearances. Look, ma, I made news!"
+    },
+    "our-partners": "Our partners",
+    "our-donators": "Our donors",
+    "formalities": "Important information",
+    "mailing-address": "Mailing address:",
+    "tax-id": "Tax ID:",
+    "registration-number": "Registration number:",
+    "bank-account": "Bank account:",
+    "ngo": "Slovenian Ministry of Public Administration granted us the status of a non-governmental organization in the public interest in the field of information society development.",
+    "papers": "Documents"
+  },
+  "values": {
+    "description": "Our activities stem from the understanding of democracy as an ongoing process. The social contract should be a constant and inclusive debate. Political participation is the recognition of one's responsibility for one's own empowerment.",
+    "values": {
+      "solidarity": {
+        "title": "THE RIGHT TO GOOD LIFE AND SOLIDARITY",
+        "description": "Everybody has the right to proper healthcare, education, and housing. We should all live in an encouraging and supportive society, be able to exercise the right to free time and leisure, have a happy childhood, creative youth, fulfilled adulthood and safe elderliness. Everybody has the right to a future. The benchmark for success has too long been economic profit. Income should not be a condition for happiness. Our measure is pleasure."
+      },
+      "commons": {
+        "title": "THE RIGHT TO COMMONS",
+        "description": "The magnitude of our collective power is only visible when we join our individual powers. Thus, it is necessary to protect every commons and manage it in democratic and transparent ways that aim for universal well-being. We do not endorse privatisation or destruction of natural resources and public spaces."
+      },
+      "political": {
+        "title": "THE RIGHT TO DECENT POLITICAL AUTHORITIES",
+        "description": "Politics should not be perceived as struggle for power. Instead, it should be used to protect common interests. We demand an open political space, withdrawal of existing power elites and strict focus on content rather than form or popularity. The civil sphere should be allowed to access and have direct influence over decision-making mechanisms."
+      },
+      "nature": {
+        "title": "THE RIGHT TO/OF NATURE",
+        "description": "Nature is the subject of protection, the interest of the natural environment our common interest, and the animals have the right to dignity. Progress, development and economic growth should not be an excuse for irresponsible behavior towards our natural environment."
+      },
+      "economy": {
+        "title": "THE RIGHT TO PEOPLE-CENTRED ECONOMY",
+        "description": "Public debt is a direct result of private enterprises, thus it should not have beeen made public and offloaded to the people. We want to create an environment in which socially and environmentally responsive companies will flourish. Everybody has the right to fulfilling work and dignified life."
+      },
+      "inclusion": {
+        "title": "THE RIGHT TO INCLUSION",
+        "description": "We reject divisions based on personal circumstances. We should stop allowing the implementation of politics of exclusion that deny random social groups possibility to decent existence, push them to social margins, and appropriate their power. The right to equality, which is guaranteed by our Constitution, should be practised rather than just preached. The right to participation and human rights apply to everyone. To us, that is not subject to discussion."
+      }
+    }
+  },
+  "footer": {
+    "are-we-friends": "Are we friends yet?",
+    "our-code-is-online": "We publish all our code online. Help yourself!"
   }
 }
