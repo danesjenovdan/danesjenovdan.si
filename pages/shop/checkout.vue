@@ -167,7 +167,11 @@
             />
           </template>
           <template v-if="payment === 'upn'">
-            <upn-payment />
+            <upn-payment
+              :amount="totalPrice"
+              @ready="onPaymentReady"
+              @success="paymentSuccess"
+            />
           </template>
         </div>
       </template>
