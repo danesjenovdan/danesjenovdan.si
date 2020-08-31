@@ -4,7 +4,9 @@
       <p>
         Zgodila se je napaka št. {{ error.status }}. Naš strežnik je ni mogel
         rešiti, prejel je naslednje sporočilo:
-        <strong>{{ error.data.msg }}</strong>
+        <strong>{{
+          error.data && error.data.msg ? error.data.msg : error.message
+        }}</strong>
       </p>
       <p>
         Zaračunali ti nismo ničesar, ves denar je še vedno na tvoji kartici.
@@ -25,7 +27,7 @@
             v-for="(dp, i) in donationPresets"
             :key="`presets-${i}`"
             :donation-preset="dp"
-            @select="gift ? addDonationGift(dp) : selectDonationPreset(dp)"
+            @select="selectDonationPreset(dp)"
           />
           <div
             v-for="n in 10"
@@ -33,25 +35,6 @@
             class="donation-option"
           />
         </div>
-        <template v-if="gift">
-          <h2 class="donation-gifts-title">
-            Obstoječa darila ({{ donationGifts.length }})
-          </h2>
-          <div class="donation-options donation-gifts">
-            <donation-option
-              v-for="(dg, i) in donationGifts"
-              :key="`gifts-${i}`"
-              :donation-preset="dg"
-              amount-only
-              @select="removeDonationGift(dg)"
-            />
-            <div
-              v-for="n in 10"
-              :key="`flex-spacer-${n}`"
-              class="donation-option"
-            />
-          </div>
-        </template>
       </template>
       <template slot="footer">
         <div class="confirm-button-container">
@@ -66,83 +49,62 @@
             @click.native="continueToNextStage"
           />
         </div>
-      </template>
-    </checkout-stage>
-
-    <checkout-stage v-if="stage === 'payment'" :stage="stage">
-      <template slot="title">
-        Plačilo
-      </template>
-      <template slot="content">
-        <div class="payment-container">
-          <payment-switcher @change="onPaymentChange" />
-          <div v-if="checkoutLoading" class="payment-loader">
-            <div class="lds-dual-ring" />
-          </div>
-          <template v-if="payment === 'card'">
-            <card-payment
-              :token="token"
-              @ready="onPaymentReady"
-              @validity-change="paymentInfoValid = $event"
-              @payment-start="paymentInProgress = true"
-              @success="paymentSuccess"
-            />
-          </template>
-          <template v-if="payment === 'paypal'">
-            <paypal-payment
-              :token="token"
-              :amount="selectedDonationAmount"
-              @ready="onPaymentReady"
-              @payment-start="paymentInProgress = true"
-              @success="paymentSuccess"
-            />
-          </template>
-          <template v-if="payment === 'upn'">
-            <upn-payment />
-          </template>
-        </div>
-      </template>
-      <template slot="footer">
-        <div class="confirm-button-container">
-          <confirm-button
-            key="next-payment"
-            :disabled="!canContinueToNextStage"
-            :loading="paymentInProgress"
-            text="DONIRAJ"
-            color="secondary"
-            arrow
-            hearts
-            @click.native="continueToNextStage"
-          />
+        <div class="secondary-link">
+          <!-- TODO: link to monthly -->
+          <nuxt-link :to="localePath({})">
+            Želiš darovati mesečno?
+          </nuxt-link>
         </div>
       </template>
     </checkout-stage>
 
     <checkout-stage v-if="stage === 'info'" :stage="stage">
       <template slot="title">
-        Hvala za plačilo!<br /><span v-if="selectedDonationAmount >= 11"
-          >Kam ti pošljemo presenečenje?</span
-        ><span v-else>Kam ti pošljemo potrdilo?</span>
+        Podatki
       </template>
       <template slot="content">
         <div class="info-content">
           <div class="form-group">
             <input
-              id="name"
-              v-model="name"
-              placeholder="Ime in priimek"
+              id="firstName"
+              v-model="firstName"
+              placeholder="Ime"
               class="form-control form-control-lg"
             />
           </div>
           <div class="form-group">
             <input
-              v-if="selectedDonationAmount >= 11"
-              id="address"
-              v-model="address"
-              type="address"
-              placeholder="Naslov"
+              id="lastName"
+              v-model="lastName"
+              placeholder="Priimek"
               class="form-control form-control-lg"
             />
+          </div>
+          <div class="form-group">
+            <input
+              id="streetAddress"
+              v-model="streetAddress"
+              placeholder="Ulica in hišna številka"
+              class="form-control form-control-lg"
+            />
+          </div>
+          <div class="form-group form-row">
+            <div class="col-4">
+              <input
+                id="postalCode"
+                v-model="postalCode"
+                placeholder="Poštna številka"
+                class="form-control form-control-lg"
+              />
+            </div>
+            <div class="col-8">
+              <input
+                id="post"
+                v-model="post"
+                placeholder="Pošta"
+                class="form-control form-control-lg"
+              />
+            </div>
           </div>
           <div class="form-group">
             <input
@@ -180,11 +142,70 @@
             @click.native="continueToNextStage"
           />
         </div>
+        <div class="secondary-link">
+          <dynamic-link @click="goBack">Nazaj</dynamic-link>
+        </div>
       </template>
     </checkout-stage>
-    <div class="terms">
-      <nuxt-link target="_blank" to="/pogoji">Pogoji poslovanja</nuxt-link>
-    </div>
+
+    <checkout-stage v-if="stage === 'payment'" :stage="stage">
+      <template slot="title">
+        Plačilo
+      </template>
+      <template slot="content">
+        <div class="payment-container">
+          <payment-switcher @change="onPaymentChange" />
+          <div v-if="checkoutLoading" class="payment-loader">
+            <div class="lds-dual-ring" />
+          </div>
+          <template v-if="payment === 'card'">
+            <card-payment
+              :token="token"
+              @ready="onPaymentReady"
+              @validity-change="paymentInfoValid = $event"
+              @payment-start="paymentInProgress = true"
+              @success="paymentSuccess"
+            />
+          </template>
+          <template v-if="payment === 'paypal'">
+            <paypal-payment
+              :token="token"
+              :amount="selectedDonationAmount"
+              @ready="onPaymentReady"
+              @payment-start="paymentInProgress = true"
+              @success="paymentSuccess"
+            />
+          </template>
+          <template v-if="payment === 'upn'">
+            <upn-payment
+              :amount="selectedDonationAmount"
+              @ready="onPaymentReady"
+            />
+          </template>
+          <div class="cart-total">
+            <span>Znesek za plačilo</span>
+            <i>{{ selectedDonationAmount }} €</i>
+          </div>
+        </div>
+      </template>
+      <template slot="footer">
+        <div class="confirm-button-container">
+          <confirm-button
+            key="next-payment"
+            :disabled="!canContinueToNextStage"
+            :loading="paymentInProgress"
+            text="DONIRAJ"
+            color="secondary"
+            arrow
+            hearts
+            @click.native="continueToNextStage"
+          />
+        </div>
+        <div class="secondary-link">
+          <dynamic-link @click="goBack">Nazaj</dynamic-link>
+        </div>
+      </template>
+    </checkout-stage>
   </div>
 </template>
 
@@ -196,6 +217,7 @@ import PaypalPayment from '~/components/Payment/Paypal.vue';
 import UpnPayment from '~/components/Payment/Upn.vue';
 import DonationOption from '~/components/DonationOption.vue';
 import CheckoutStage from '~/components/CheckoutStage.vue';
+import DynamicLink from '~/components/DynamicLink.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -217,12 +239,7 @@ export default {
     UpnPayment,
     DonationOption,
     CheckoutStage,
-  },
-  asyncData({ query }) {
-    const gift = query.gift === 'true' || query.gift === '1';
-    return {
-      gift,
-    };
+    DynamicLink,
   },
   data() {
     return {
@@ -261,7 +278,6 @@ export default {
           eventName: 'aeleven',
         },
       ],
-      donationGifts: [],
       checkoutLoading: false,
       payFunction: undefined,
       paymentInfoValid: false,
@@ -269,8 +285,11 @@ export default {
       token: null,
       payment: null,
       nonce: undefined,
-      name: null,
-      address: null,
+      firstName: null,
+      lastName: null,
+      streetAddress: null,
+      postalCode: null,
+      post: null,
       email: null,
       subscribeNewsletter: false,
       infoSubmitting: false,
@@ -278,37 +297,23 @@ export default {
   },
   computed: {
     selectedDonationAmount() {
-      if (this.gift) {
-        return this.donationGifts.reduce((acc, dg) => acc + dg.amount, 0);
-      }
       const selected = this.donationPresets.find((dp) => dp.selected);
-      return selected ? selected.amount : 0;
+      return selected ? Number(selected.amount) : 0;
     },
     canContinueToNextStage() {
       if (this.stage === 'select-amount') {
-        if (this.selectedDonationAmount >= 1) {
-          return true;
-        } else if (
-          parseInt(this.donationPresets.find((dp) => dp.custom).amount) > 0
-        ) {
-          return true;
-        }
         return this.selectedDonationAmount >= 1;
+      }
+      if (this.stage === 'info') {
+        return this.infoValid && !this.checkoutLoading;
       }
       if (this.stage === 'payment') {
         return this.payFunction && this.paymentInfoValid;
       }
-      if (this.stage === 'info') {
-        return this.infoValid;
-      }
       return false;
     },
     infoValid() {
-      if (!this.name || !this.email) {
-        // USED TO BE ALSO || !this.address) {
-        return false;
-      }
-      if (!EMAIL_REGEX.test(this.email)) {
+      if (!this.email || !EMAIL_REGEX.test(this.email)) {
         return false;
       }
       // mautic fails after payment if invalid email
@@ -326,48 +331,18 @@ export default {
         dp.selected = dp === sdp;
       });
     },
-    addDonationGift(dp) {
-      this.donationGifts.unshift({
-        amount: parseInt(dp.amount),
-        selected: true,
-      });
-      if (dp.custom) {
-        dp.amount = null;
-      }
-    },
-    removeDonationGift(dg) {
-      const i = this.donationGifts.findIndex((d) => d === dg);
-      this.donationGifts.splice(i, 1);
-    },
     async continueToNextStage() {
       if (this.canContinueToNextStage) {
         if (this.stage === 'select-amount') {
-          if (!this.selectedDonationAmount) {
-            this.donationPresets.find((dp) => dp.custom).selected = true;
-            if (this.gift) {
-              const selected = this.donationPresets.find((dp) => dp.selected);
-              this.addDonationGift(selected);
-            }
-          }
+          this.stage = 'info';
+          return;
+        }
+        if (this.stage === 'info') {
           try {
             this.checkoutLoading = true;
             const checkoutResponse = await this.$axios.$get(
               'https://podpri.djnd.si/api/donate/',
             );
-            try {
-              window._paq.push([
-                'trackEvent', // function
-                'donation', // category
-                'payment', // action
-                this.selectedDonationAmount < 11
-                  ? 'ueleven'
-                  : this.donationPresets.find((dp) => dp.selected).eventName,
-                this.selectedDonationAmount,
-              ]);
-            } catch (error) {
-              // eslint-disable-next-line no-console
-              console.log(error);
-            }
             this.token = checkoutResponse.token;
             this.stage = 'payment';
           } catch (error) {
@@ -375,46 +350,27 @@ export default {
             console.error(error.response);
             this.error = error.response;
           }
-        } else if (this.stage === 'payment') {
+          return;
+        }
+        if (this.stage === 'payment') {
           if (this.payFunction) {
             this.payFunction();
           }
-        } else if (this.stage === 'info') {
-          try {
-            this.infoSubmitting = true;
-            const response = await this.$axios.$post(
-              `https://podpri.djnd.si/api/donate${this.gift ? '-gift' : ''}/`,
-              {
-                nonce: this.nonce,
-                name: this.name,
-                email: this.email,
-                address: this.address,
-                mailing: this.subscribeNewsletter,
-              },
-            );
-
-            if (response.upload_token) {
-              this.$router.push(
-                this.localePath({
-                  name: 'donate-thanks',
-                  query: { token: response.upload_token },
-                }),
-              );
-            } else if (response.owner_token) {
-              this.$router.push(
-                this.localePath({
-                  name: 'donate-gifts',
-                  query: { token: response.owner_token },
-                }),
-              );
-            }
-          } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error(error.response);
-            this.error = error.response;
-          }
+          return;
         }
+        return undefined;
       }
+    },
+    goBack() {
+      if (this.stage === 'payment') {
+        this.stage = 'info';
+        return;
+      }
+      if (this.stage === 'info') {
+        this.stage = 'select-amount';
+        return;
+      }
+      return undefined;
     },
     onPaymentReady({ pay } = {}) {
       this.checkoutLoading = false;
@@ -430,19 +386,11 @@ export default {
       this.nonce = nonce;
 
       try {
-        const giftAmounts = this.gift
-          ? this.donationGifts.map((g) => g.amount)
-          : undefined;
-
-        await this.$axios.$post(
-          `https://podpri.djnd.si/api/donate${this.gift ? '-gift' : ''}/`,
-          {
-            // payment_type: this.nonce ? 'braintree' : 'upn',
-            nonce: this.nonce,
-            amount: this.selectedDonationAmount,
-            gifts_amounts: giftAmounts,
-          },
-        );
+        await this.$axios.$post(`https://podpri.djnd.si/api/donate/`, {
+          // payment_type: this.nonce ? 'braintree' : 'upn',
+          nonce: this.nonce,
+          amount: this.selectedDonationAmount,
+        });
 
         this.paymentInProgress = false;
         this.stage = 'info';
@@ -478,39 +426,46 @@ export default {
         margin-right: 0.75rem;
       }
     }
-
-    &.donation-gifts {
-      .donation-option /deep/ .donation-option__content-wrapper {
-        @include media-breakpoint-up(md) {
-          flex-direction: row;
-          min-height: auto;
-
-          .donation-option__amount {
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-  }
-
-  .donation-gifts-title {
-    font-size: 1.25rem;
-    text-align: left;
-    font-weight: 300;
-    margin: 1rem 0 2rem 0;
-    text-transform: uppercase;
-
-    @include media-breakpoint-up(md) {
-      font-size: 1.5rem;
-      margin-left: 1rem;
-    }
   }
 
   .confirm-button-container {
     text-align: center;
   }
 
+  .secondary-link {
+    text-align: center;
+    margin-top: 1.5rem;
+
+    a {
+      font-size: 1rem;
+      font-weight: 600;
+      font-style: italic;
+      color: inherit;
+      text-decoration: underline;
+      cursor: pointer;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.5rem;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .payment-container,
+  .info-content {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
   .payment-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
     .payment-loader {
       position: fixed;
       top: -1rem;
@@ -523,12 +478,22 @@ export default {
       justify-content: center;
       align-items: center;
     }
-  }
 
-  .payment-container,
-  .info-content {
-    max-width: 540px;
-    margin: 0 auto;
+    .cart-total {
+      text-align: right;
+      background-color: rgba($color-red, 0.15);
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      max-width: 350px;
+      margin: auto auto 0 auto;
+
+      i {
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-left: 0.25rem;
+      }
+    }
   }
 
   .custom-checkbox {
@@ -540,23 +505,6 @@ export default {
       min-height: 2rem;
       display: flex;
       align-items: center;
-    }
-  }
-}
-
-.terms {
-  text-align: center;
-  margin: 2.5rem 0 1rem;
-  color: #333;
-
-  a {
-    text-decoration: underline;
-    color: inherit;
-    font-style: italic;
-    font-weight: 300;
-
-    &:hover {
-      text-decoration: none;
     }
   }
 }

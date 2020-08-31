@@ -3,7 +3,7 @@
     <div class="col col-xl-9">
       <div class="article__title">
         <h2>{{ title }}</h2>
-        <div class="article__date">
+        <div v-if="date" class="article__date">
           <time :datetime="toIsoDate(date)">{{ toSloDate(date) }}</time>
         </div>
       </div>
@@ -28,7 +28,7 @@ export default {
     },
     date: {
       type: String,
-      required: true,
+      default: null,
     },
   },
 };
@@ -104,6 +104,11 @@ export default {
       b,
       strong {
         font-weight: 600;
+      }
+
+      hr {
+        border-top-color: #333;
+        margin: 3rem 0;
       }
     }
   }

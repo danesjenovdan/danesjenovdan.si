@@ -19,15 +19,15 @@
           PayPal
         </button>
       </div>
-      <!-- <div class="nav-item">
+      <div class="nav-item">
         <button
           :class="['nav-link', { active: active === 'upn' }]"
-          @click="changeActive('upn')"
           type="button"
+          @click="changeActive('upn')"
         >
           Položnica
         </button>
-      </div> -->
+      </div>
     </nav>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="card-payment">
+  <div class="paypal-payment">
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     <form v-else>
       <div class="form-group">
@@ -70,14 +70,13 @@ export default {
               return paypalCheckoutInstance.tokenizePayment(
                 data,
                 (error, payload) => {
-                  this.error = error;
-                  this.$emit('success', { nonce: payload.nonce });
+                  if (error) {
+                    this.error = error;
+                  } else {
+                    this.$emit('success', { nonce: payload.nonce });
+                  }
                 },
               );
-              // .then((payload) => {
-              //   this.error = null;
-              //   this.$emit('success', { nonce: payload.nonce });
-              // });
             },
             onCancel: (data) => {
               this.error = 'Payment Cancelled';
@@ -102,10 +101,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-label {
-  font-size: 1.25rem;
-  font-weight: 300;
-  text-align: center;
-  display: block;
+.paypal-payment {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+
+  label {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+    display: block;
+  }
 }
 </style>

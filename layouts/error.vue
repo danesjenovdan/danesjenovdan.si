@@ -12,6 +12,7 @@ import PageTitle from '~/components/PageTitle.vue';
 //                                                                            //
 
 export default {
+  layout: 'default',
   components: {
     PageTitle,
   },
