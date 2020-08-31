@@ -35,7 +35,7 @@ export default {
   methods: {
     sendUPN() {
       // eslint-disable-next-line no-console
-      console.log('SEND UPN');
+      this.$emit('success');
     },
   },
 };
