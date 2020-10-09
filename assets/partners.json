@@ -157,6 +157,18 @@
       "name": "U.S. Embassy Ljubljana",
       "url": "https://si.usembassy.gov/",
       "image": "/img/donators/us-embassy.png"
+    },
+    {
+      "name": "Erasmus+",
+      "url": "https://ec.europa.eu/programmes/erasmus-plus/node_sl",
+      "image": "/img/donators/erasmus+.png",
+      "class": "p-3"
+    },
+    {
+      "name": "Active Citizens Fund",
+      "url": "https://acfslovenia.si/",
+      "image": "/img/donators/acf.png",
+      "class": "p-3"
     }
   ]
 }
