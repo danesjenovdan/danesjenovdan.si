@@ -134,6 +134,140 @@
       "name": "ZaštoNe",
       "url": "https://zastone.ba/",
       "image": "/img/partners/zasto-ne.png"
+    },
+    {
+      "name": "Inštitut Jožef Štefan",
+      "url": "https://ijs.si/ijsw",
+      "image": "/img/partners/ijs.png"
+    },
+    {
+      "name": "Åpenhet",
+      "url": "https://www.apenhet.com/",
+      "image": "/img/partners/apenhet.png"
+    },
+    {
+      "name": "Občina Hrastnik",
+      "url": "https://www.hrastnik.si/",
+      "image": "/img/partners/hrastnik.png"
+    },
+    {
+      "name": "Občina Ajdovščina",
+      "url": "https://www.ajdovscina.si/",
+      "image": "/img/partners/ajdovscina.png"
+    },
+    {
+      "name": "Organizacija za participatorno družbo",
+      "url": "https://www.facebook.com/Organizacija-za-participatorno-dru%C5%BEbo-1618636031777654/",
+      "image": "/img/partners/opd.png"
+    },
+    {
+      "name": "OŠ Rada Robiča Limbuš",
+      "url": "https://www.oslimbus.si/",
+      "image": "/img/partners/os-rada-robica.png"
+    },
+    {
+      "name": "Za in proti, zavod za kulturo dialoga",
+      "url": "http://www.zainproti.com/",
+      "image": "/img/partners/za-in-proti.png"
+    },
+    {
+      "name": "Società Nazionale Debate Italia",
+      "url": "https://www.sn-di.it/",
+      "image": "/img/partners/sn-di.png"
+    },
+    {
+      "name": "Fundación Educativa Activa-T",
+      "url": "https://fundacionactivate.org/",
+      "image": "/img/partners/activa-t.png"
+    },
+    {
+      "name": "Molėtų gimnazija",
+      "url": "http://www.gimnazija.moletai.lt/",
+      "image": "/img/partners/moletu-gimnazija.png",
+      "class": "p-3"
+    },
+    {
+      "name": "Colegio Miralmonte SCOOP",
+      "url": "https://colegiomiralmonte.es/",
+      "image": "/img/partners/colegio-miralmonte.png"
+    },
+    {
+      "name": "Istituto Tecnico Economico \"Enrico Tosi\"",
+      "url": "https://www.etosi.edu.it/pvw/app/VAIT0005/pvw_sito.php",
+      "image": "/img/partners/ite-tosi.png"
+    },
+    {
+      "name": "Englantilainen Koulu",
+      "url": "https://www.engs.fi/",
+      "image": "/img/partners/engs.png"
+    },
+    {
+      "name": "Omladinski centar CK13",
+      "url": "https://ck13.org/youth-center-ck13/",
+      "image": "/img/partners/ck13.png"
+    },
+    {
+      "name": "Inicijativa mladih za ljudska prava",
+      "url": "http://yihr.hr/hr/",
+      "image": "/img/partners/yihr.png"
+    },
+    {
+      "name": "Yenilikçi Eğitimciler Derneği Hoşgeldiniz",
+      "url": "http://www.yenilikciegitimcilerdernegi.com/",
+      "image": "/img/partners/yedh.png",
+      "class": "p-3"
+    },
+    {
+      "name": "Universidad de Granada",
+      "url": "https://www.ugr.es/",
+      "image": "/img/partners/universidad-de-granada.png"
+    },
+    {
+      "name": "Middle East Technical University",
+      "url": "https://www.metu.edu.tr/",
+      "image": "/img/partners/middle-east-technical-university.png",
+      "class": "p-3"
+    },
+    {
+      "name": "Fundació Privada Trinijove",
+      "url": "http://trinijove.org/",
+      "image": "/img/partners/trinijove.png"
+    },
+    {
+      "name": "Institute of Computer Science, Polish Academy of Sciences",
+      "url": "https://ipipan.waw.pl/en/",
+      "image": "/img/partners/ipipan.png"
+    },
+    {
+      "name": "Università di Milano-Bicocca",
+      "url": "https://www.unimib.it/",
+      "image": "/img/partners/bicocca.png"
+    },
+    {
+      "name": "Consejería de Educación y Deporte de la Junta de Andalucía",
+      "url": "https://www.juntadeandalucia.es/educacion/portals/web/ced",
+      "image": "/img/partners/juntadeandalucia.png"
+    },
+    {
+      "name": "Fondazione Luigi Clerici",
+      "url": "https://www.clerici.lombardia.it/2.0/",
+      "image": "/img/partners/flc.png"
+    },
+    {
+      "name": "Inštitut za novejšo zgodovino",
+      "url": "https://www.inz.si/sl/",
+      "image": "/img/partners/inz.png",
+      "class": "p-3"
+    },
+    {
+      "name": "Institute of Information and Communication Technologies, Bulgarian Academy of Sciences",
+      "url": "http://www.iict.bas.bg/EN/",
+      "image": "/img/partners/iict.png"
+    },
+    {
+      "name": "University of Luxembourg",
+      "url": "https://wwwen.uni.lu/",
+      "image": "/img/partners/uni-luxembourg.png"
     }
   ],
   "donators": [
@@ -157,6 +291,18 @@
       "name": "U.S. Embassy Ljubljana",
       "url": "https://si.usembassy.gov/",
       "image": "/img/donators/us-embassy.png"
+    },
+    {
+      "name": "Erasmus+",
+      "url": "https://ec.europa.eu/programmes/erasmus-plus/node_sl",
+      "image": "/img/donators/erasmus+.png",
+      "class": "p-3"
+    },
+    {
+      "name": "Active Citizens Fund",
+      "url": "https://acfslovenia.si/",
+      "image": "/img/donators/acf.png",
+      "class": "p-3"
     }
   ]
 }
