@@ -27,6 +27,7 @@ export default {
 .page {
   display: flex;
   min-height: 100vh;
+  background-color: #fff;
 
   .content {
     flex: 1;
