@@ -22,19 +22,21 @@
         <div v-if="cartPreviewShown" class="cart-preview">
           <div class="arrow" />
           <div class="cart-preview__content">
-            <template v-for="item in items">
-              <cart-product
-                :key="item.id"
-                :image="getDisplayImage(item.article)"
-                :title="getDisplayName(item.article)"
-                :price="item.article.price"
-                :amount="item.quantity"
-                :text="item.article.variant || ''"
-                show-modify
-                @change-amount="changeAmount(item.id, $event)"
-              />
-              <hr :key="`${item.id}-hr`" />
-            </template>
+            <div class="cart-items">
+              <template v-for="(item, i) in items">
+                <cart-product
+                  :key="item.id"
+                  :image="getDisplayImage(item.article)"
+                  :title="getDisplayName(item.article)"
+                  :price="item.article.price"
+                  :amount="item.quantity"
+                  :text="item.article.variant || ''"
+                  show-modify
+                  @change-amount="changeAmount(item.id, $event)"
+                />
+                <hr v-if="i !== items.length - 1" :key="`${item.id}-hr`" />
+              </template>
+            </div>
             <div class="cart-total">
               <span>Skupaj</span>
               <i>{{ totalPrice }} €</i>
@@ -207,6 +209,16 @@ export default {
           background-color: #fff;
           padding: 1.5rem;
           box-shadow: $box-shadow;
+
+          .cart-items {
+            margin-bottom: 1rem;
+
+            hr {
+              border-top-color: #333;
+              margin-top: 1rem;
+              margin-bottom: 1rem;
+            }
+          }
 
           .cart-total {
             text-align: right;

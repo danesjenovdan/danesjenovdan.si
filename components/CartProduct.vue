@@ -1,7 +1,7 @@
 <template>
-  <div class="cart-product">
+  <div :class="['cart-product', { 'cart-product--large': large }]">
     <div class="row">
-      <div class="col-5">
+      <div class="col-6 cart-product__image-col">
         <div class="embed-responsive embed-responsive-1by1">
           <div class="embed-responsive-item d-flex align-items-center">
             <div
@@ -11,21 +11,19 @@
           </div>
         </div>
       </div>
-      <div class="col-7 cart-product__desc-col">
+      <div class="col-6 cart-product__desc-col">
         <div class="cart-product__title" v-text="title" />
-        <div class="cart-product__price">
-          <span v-if="!showModify">
-            <strong>{{ amount }}</strong> &times;
-          </span>
-          <strong>{{ formatPrice(price) }}</strong>
+        <div class="cart-product__variant-price">
+          <div v-if="text" class="cart-product__variant" v-text="text" />
+          <div v-else class="cart-product__variant">&nbsp;</div>
+          <div class="cart-product__price">
+            <span v-if="!showModify">
+              <strong>{{ amount }}</strong> &times;
+            </span>
+            <strong>{{ formatPrice(price) }}</strong>
+          </div>
         </div>
-        <div v-if="text" class="cart-product__variation" v-text="text" />
-        <div v-else class="cart-product__variation">&nbsp;</div>
         <div v-if="showModify" class="cart-product__modify">
-          <button
-            class="remove-product icon icon-trash--secondary"
-            @click="$emit('change-amount', 0)"
-          />
           <button
             class="modify-amount modify-amount--minus"
             @click="$emit('change-amount', amount - 1)"
@@ -39,6 +37,10 @@
           >
             +
           </button>
+          <button
+            class="remove-product icon icon-trash--secondary"
+            @click="$emit('change-amount', 0)"
+          />
         </div>
       </div>
     </div>
@@ -75,24 +77,32 @@ export default {
       type: Boolean,
       default: false,
     },
+    large: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .cart-product {
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  .cart-product__image-col {
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 
   .cart-product__desc-col {
+    display: flex;
+    flex-direction: column;
     padding-left: 0;
 
     .cart-product__title {
@@ -101,25 +111,29 @@ export default {
       line-height: 1.1;
     }
 
-    .cart-product__price {
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1;
-      margin-top: 0.6rem;
+    .cart-product__variant-price {
+      display: flex;
+      margin-top: 0.75rem;
 
-      strong {
-        font-weight: 600;
+      .cart-product__variant {
+        font-weight: 300;
+        line-height: 1;
+        margin-right: auto;
+      }
+
+      .cart-product__price {
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1;
+
+        strong {
+          font-weight: 600;
+        }
       }
     }
 
-    .cart-product__variation {
-      font-weight: 300;
-      line-height: 1;
-      margin-top: 0.75rem;
-    }
-
     .cart-product__modify {
-      margin-top: 1rem;
+      margin-top: auto;
       display: flex;
       align-items: center;
 
@@ -140,8 +154,8 @@ export default {
         border: 1px solid $color-red;
         text-align: center;
 
-        &.modify-amount--minus {
-          margin-left: 1.5rem;
+        &.modify-amount--plus {
+          margin-right: auto;
         }
       }
 
@@ -161,6 +175,32 @@ export default {
 
       input[type='number'] {
         -moz-appearance: textfield;
+      }
+    }
+  }
+
+  &.cart-product--large {
+    @include media-breakpoint-up(md) {
+      .cart-product__image-col {
+        flex-basis: 40%;
+        max-width: 40%;
+      }
+
+      .cart-product__desc-col {
+        flex-basis: 60%;
+        max-width: 60%;
+
+        .cart-product__title {
+          font-size: 1.75rem;
+        }
+
+        .cart-product__variant {
+          font-size: 1.75rem;
+        }
+
+        .cart-product__price {
+          font-size: 1.75rem;
+        }
       }
     }
   }

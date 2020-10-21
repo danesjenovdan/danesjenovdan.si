@@ -18,49 +18,58 @@
       </p>
     </div>
 
-    <checkout-stage v-else-if="stage === 'summary'">
-      <template slot="title">
-        Povzetek naročila
-      </template>
-      <template slot="content">
-        <template v-if="summaryLoading">
-          <div class="loader-container">
-            <div class="lds-dual-ring" />
-          </div>
-        </template>
-        <template v-else-if="items && items.length">
-          <div class="checkout__summary">
-            <template v-for="item in items">
-              <cart-product
-                :key="item.id"
-                :image="getDisplayImage(item.article)"
-                :title="getDisplayName(item.article)"
-                :price="item.article.price"
-                :amount="item.quantity"
-                :text="item.article.variant || ''"
-              />
-              <hr :key="`${item.id}-hr`" />
+    <template v-else-if="stage === 'summary'">
+      <div class="checkout__summary">
+        <checkout-stage>
+          <template slot="title">
+            Povzetek naročila
+          </template>
+          <template slot="content">
+            <template v-if="summaryLoading">
+              <div class="loader-container">
+                <div class="lds-dual-ring" />
+              </div>
             </template>
-            <div class="cart-total">
-              <span>Skupaj</span>
-              <i>{{ totalPrice }} €</i>
+            <template v-else-if="items && items.length">
+              <div class="cart-items">
+                <template v-for="(item, i) in items">
+                  <cart-product
+                    :key="item.id"
+                    :image="getDisplayImage(item.article)"
+                    :title="getDisplayName(item.article)"
+                    :price="item.article.price"
+                    :amount="item.quantity"
+                    :text="item.article.variant || ''"
+                    show-modify
+                    large
+                    @change-amount="onChangeAmount(item.id, $event)"
+                  />
+                  <hr v-if="i !== items.length - 1" :key="`${item.id}-hr`" />
+                </template>
+              </div>
+              <div class="cart-total">
+                <span>Znesek za plačilo</span>
+                <i>{{ totalPrice }} €</i>
+              </div>
+            </template>
+          </template>
+          <template slot="footer">
+            <div class="confirm-button-container">
+              <confirm-button
+                key="next-summary"
+                :disabled="!canContinueToNextStage"
+                text="Kupi"
+                color="secondary"
+                arrow
+                hearts
+                block
+                @click.native="continueToNextStage"
+              />
             </div>
-          </div>
-        </template>
-      </template>
-      <template slot="footer">
-        <div class="confirm-button-container">
-          <confirm-button
-            key="next-summary"
-            :disabled="!canContinueToNextStage"
-            text="Kupi"
-            color="secondary"
-            arrow
-            @click.native="continueToNextStage"
-          />
-        </div>
-      </template>
-    </checkout-stage>
+          </template>
+        </checkout-stage>
+      </div>
+    </template>
 
     <checkout-stage v-else-if="stage === 'delivery'">
       <template slot="title">
@@ -337,6 +346,10 @@ export default {
     }
   },
   methods: {
+    async onChangeAmount(itemId, newAmount) {
+      await this.changeAmount(this.orderKey, itemId, newAmount);
+      this.items = await this.getBasketItems(this.orderKey);
+    },
     async continueToPayment() {
       try {
         // TODO: shake invalid/empty fields
@@ -436,16 +449,55 @@ export default {
     }
   }
 
+  .cart-items {
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 2rem;
+    }
+
+    hr {
+      border-top-color: #333;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+
+      @include media-breakpoint-up(md) {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
   .cart-total {
     text-align: right;
     background-color: rgba($color-red, 0.15);
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
     margin-bottom: 1rem;
+    line-height: 1.25rem;
+
+    @include media-breakpoint-up(md) {
+      line-height: 1.75rem;
+    }
+
+    span {
+      font-size: 1rem;
+      line-height: 1rem;
+      font-weight: 300;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.25rem;
+      }
+    }
 
     i {
       font-weight: 600;
       font-size: 1.25rem;
-      margin-left: 0.25rem;
+      line-height: 1;
+      margin-left: 0.5rem;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.75rem;
+      }
     }
   }
 
