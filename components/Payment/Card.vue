@@ -1,51 +1,62 @@
 <template>
   <div class="card-payment">
-    <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    <form v-else>
-      <div class="form-group">
-        <div
-          id="cc-number"
-          :class="['form-control', 'form-control-lg', { focus: numberFocused }]"
+    <payment-error v-if="error" />
+    <template v-else>
+      <form>
+        <div class="form-group">
+          <div
+            id="cc-number"
+            :class="[
+              'form-control',
+              'form-control-lg',
+              { focus: numberFocused },
+            ]"
+          />
+        </div>
+        <div class="form-group">
+          <div
+            id="cc-expirationDate"
+            :class="[
+              'form-control',
+              'form-control-lg',
+              { focus: expirationDateFocused },
+            ]"
+          />
+        </div>
+        <div class="form-group">
+          <div
+            id="cc-cvv"
+            :class="['form-control', 'form-control-lg', { focus: cvvFocused }]"
+          />
+        </div>
+      </form>
+      <div class="card-info">
+        Informacij o tvoji kartici ne pošiljamo na svoj strežnik in ne
+        shranjujemo. Za varnost plačila skrbi
+        <br />
+        <img
+          src="https://s3.amazonaws.com/braintree-badges/braintree-badge-light.png"
+          width="164px"
+          height="44px"
+          border="0"
         />
       </div>
-      <div class="form-group">
-        <div
-          id="cc-expirationDate"
-          :class="[
-            'form-control',
-            'form-control-lg',
-            { focus: expirationDateFocused },
-          ]"
-        />
-      </div>
-      <div class="form-group">
-        <div
-          id="cc-cvv"
-          :class="['form-control', 'form-control-lg', { focus: cvvFocused }]"
-        />
-      </div>
-    </form>
-    <div class="card-info">
-      <!-- Informacij o tvoji kartici ne pošiljamo na svoj strežnik in ne
-      shranjujemo. Za varnost plačila skrbi
-      <br /> -->
-      <img
-        src="https://s3.amazonaws.com/braintree-badges/braintree-badge-light.png"
-        width="164px"
-        height="44px"
-        border="0"
-      />
-    </div>
+    </template>
   </div>
 </template>
 
 <script>
+import PaymentError from './Error.vue';
+
 let braintree = null;
 if (typeof window !== 'undefined') {
   braintree = require('braintree-web');
 }
 
 export default {
+  components: {
+    PaymentError,
+  },
   props: {
     token: {
       type: String,
@@ -131,6 +142,7 @@ export default {
         // eslint-disable-next-line no-console
         console.error(error);
         this.error = error.message;
+        this.$emit('error', { error });
       }
     }
   },
@@ -149,6 +161,7 @@ export default {
             // eslint-disable-next-line no-console
             console.error(error);
             this.error = error.message;
+            this.$emit('error', { error });
           });
       }
     },
