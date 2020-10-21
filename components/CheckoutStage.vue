@@ -68,7 +68,7 @@ export default {
       flex-direction: column;
       // flex: 1;
       // margin-bottom: auto;
-      min-height: 27rem;
+      min-height: 25rem;
 
       @include media-breakpoint-up(md) {
         // margin-bottom: 0;

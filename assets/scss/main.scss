@@ -131,6 +131,11 @@ button:focus {
     }
 
     .custom-control {
+      .custom-control-label::before,
+      .custom-control-label::after {
+        cursor: pointer;
+      }
+
       &.custom-checkbox,
       &.custom-radio {
         .custom-control-input:checked ~ .custom-control-label::before {

@@ -18,7 +18,7 @@
       </p>
     </div>
 
-    <template v-else-if="stage === 'summary'">
+    <template v-if="stage === 'summary'">
       <div class="checkout__summary">
         <checkout-stage>
           <template slot="title">
@@ -71,155 +71,178 @@
       </div>
     </template>
 
-    <checkout-stage v-else-if="stage === 'delivery'">
-      <template slot="title">
-        Prevzem
-      </template>
-      <template slot="content">
-        <div class="checkout__summary">
-          <form @submit.prevent="continueToPayment">
-            <div class="custom-control custom-radio">
-              <input
-                id="delivery-pickup"
-                v-model="delivery"
-                type="radio"
-                name="delivery"
-                class="custom-control-input"
-                value="pickup"
-              />
-              <label class="custom-control-label" for="delivery-pickup"
-                >Osebni prevzem</label
-              >
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                id="delivery-post"
-                v-model="delivery"
-                type="radio"
-                name="delivery"
-                class="custom-control-input"
-                value="post"
-              />
-              <label class="custom-control-label" for="delivery-post"
-                >Pošlji po pošti</label
-              >
-            </div>
-            <template v-if="delivery">
-              <div class="form-group">
+    <template v-else-if="stage === 'delivery'">
+      <div class="checkout__delivery">
+        <checkout-stage>
+          <template slot="title">
+            Prevzem
+          </template>
+          <template slot="content">
+            <form @submit.prevent="continueToPayment">
+              <div class="custom-control custom-radio">
                 <input
-                  id="name"
-                  v-model="name"
-                  placeholder="Ime in priimek"
-                  class="form-control form-control-lg"
+                  id="delivery-pickup"
+                  v-model="delivery"
+                  type="radio"
+                  name="delivery"
+                  class="custom-control-input"
+                  value="pickup"
                 />
+                <label class="custom-control-label" for="delivery-pickup"
+                  >Osebni prevzem</label
+                >
               </div>
-              <div class="form-group">
+              <div class="custom-control custom-radio">
                 <input
-                  id="email"
-                  v-model="email"
-                  type="email"
-                  placeholder="Email"
-                  class="form-control form-control-lg"
+                  id="delivery-post"
+                  v-model="delivery"
+                  type="radio"
+                  name="delivery"
+                  class="custom-control-input"
+                  value="post"
                 />
+                <label class="custom-control-label" for="delivery-post"
+                  >Pošlji po pošti</label
+                >
               </div>
-              <!-- TODO: preveri če rabimo naslov za izdajo računa tudi pri osebnem prevzemu? -->
-              <template v-if="delivery === 'post'">
+              <template v-if="delivery">
                 <div class="form-group">
                   <input
-                    id="address"
-                    v-model="address"
-                    placeholder="Naslov"
+                    id="name"
+                    v-model="name"
+                    placeholder="Ime in priimek"
                     class="form-control form-control-lg"
                   />
                 </div>
                 <div class="form-group">
                   <input
-                    id="address-post"
-                    v-model="addressPost"
-                    placeholder="Poštna številka in pošta"
+                    id="email"
+                    v-model="email"
+                    type="email"
+                    placeholder="Email"
                     class="form-control form-control-lg"
+                  />
+                </div>
+                <!-- TODO: preveri če rabimo naslov za izdajo računa tudi pri osebnem prevzemu? -->
+                <template v-if="delivery === 'post'">
+                  <div class="form-group">
+                    <input
+                      id="address"
+                      v-model="address"
+                      placeholder="Naslov"
+                      class="form-control form-control-lg"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      id="address-post"
+                      v-model="addressPost"
+                      placeholder="Poštna številka in pošta"
+                      class="form-control form-control-lg"
+                    />
+                  </div>
+                </template>
+              </template>
+              <!-- this is here so you can submit the form with the enter key -->
+              <input type="submit" hidden />
+            </form>
+          </template>
+          <template slot="footer">
+            <div class="confirm-button-container">
+              <confirm-button
+                key="next-delivery"
+                :disabled="!canContinueToPayment"
+                :loading="checkoutLoading"
+                text="Naprej"
+                color="secondary"
+                arrow
+                hearts
+                block
+                @click.native="continueToPayment"
+              />
+            </div>
+            <div class="bottom-back-link">
+              <dynamic-link @click="stage = 'summary'">Nazaj</dynamic-link>
+            </div>
+          </template>
+        </checkout-stage>
+      </div>
+    </template>
+
+    <template v-else-if="stage === 'payment'">
+      <div class="checkout__payment">
+        <checkout-stage>
+          <template slot="title">
+            Plačilo
+          </template>
+          <template slot="content">
+            <div class="payment-container">
+              <payment-switcher @change="onPaymentChange" />
+              <div v-if="checkoutLoading" class="payment-loader">
+                <div class="lds-dual-ring" />
+              </div>
+              <template v-if="payment === 'card'">
+                <div
+                  :class="['payment', { 'payment--loading': checkoutLoading }]"
+                >
+                  <card-payment
+                    :token="token"
+                    @ready="onPaymentReady"
+                    @error="onPaymentError"
+                    @validity-change="paymentInfoValid = $event"
+                    @payment-start="paymentInProgress = true"
+                    @success="paymentSuccess"
                   />
                 </div>
               </template>
-            </template>
-            <!-- this is here so you can submit the form with the enter key -->
-            <input type="submit" hidden />
-          </form>
-        </div>
-      </template>
-      <template slot="footer">
-        <div class="confirm-button-container">
-          <confirm-button
-            key="next-delivery"
-            :disabled="!canContinueToPayment"
-            :loading="checkoutLoading"
-            text="Kupi"
-            color="secondary"
-            arrow
-            @click.native="continueToPayment"
-          />
-        </div>
-      </template>
-    </checkout-stage>
-
-    <checkout-stage v-if="stage === 'payment'">
-      <template slot="title">
-        Plačilo
-      </template>
-      <template slot="content">
-        <div class="payment-container">
-          <payment-switcher @change="onPaymentChange" />
-          <div v-if="checkoutLoading" class="payment-loader">
-            <div class="lds-dual-ring" />
-          </div>
-          <template v-if="payment === 'card'">
-            <div :class="['payment', { 'payment--loading': checkoutLoading }]">
-              <card-payment
-                :token="token"
-                @ready="onPaymentReady"
-                @error="onPaymentError"
-                @validity-change="paymentInfoValid = $event"
-                @payment-start="paymentInProgress = true"
-                @success="paymentSuccess"
-              />
+              <template v-if="payment === 'paypal'">
+                <div
+                  :class="['payment', { 'payment--loading': checkoutLoading }]"
+                >
+                  <paypal-payment
+                    :token="token"
+                    :amount="totalPrice"
+                    @ready="onPaymentReady"
+                    @error="onPaymentError"
+                    @payment-start="paymentInProgress = true"
+                    @success="paymentSuccess"
+                  />
+                </div>
+              </template>
+              <template v-if="payment === 'upn'">
+                <upn-payment
+                  :amount="totalPrice"
+                  @ready="onPaymentReady"
+                  @success="paymentSuccess"
+                />
+              </template>
+            </div>
+            <div class="cart-total">
+              <span>Znesek za plačilo</span>
+              <i>{{ totalPrice }} €</i>
             </div>
           </template>
-          <template v-if="payment === 'paypal'">
-            <div :class="['payment', { 'payment--loading': checkoutLoading }]">
-              <paypal-payment
-                :token="token"
-                :amount="totalPrice"
-                @ready="onPaymentReady"
-                @error="onPaymentError"
-                @payment-start="paymentInProgress = true"
-                @success="paymentSuccess"
+          <template slot="footer">
+            <div class="confirm-button-container">
+              <confirm-button
+                key="next-payment"
+                :disabled="!canContinueToNextStage"
+                :loading="paymentInProgress"
+                text="Plačaj"
+                color="secondary"
+                arrow
+                hearts
+                block
+                @click.native="continueToNextStage"
               />
             </div>
+            <div class="bottom-back-link">
+              <dynamic-link @click="stage = 'delivery'">Nazaj</dynamic-link>
+            </div>
           </template>
-          <template v-if="payment === 'upn'">
-            <upn-payment
-              :amount="totalPrice"
-              @ready="onPaymentReady"
-              @success="paymentSuccess"
-            />
-          </template>
-        </div>
-      </template>
-      <template slot="footer">
-        <div class="confirm-button-container">
-          <confirm-button
-            key="next-payment"
-            :disabled="!canContinueToNextStage"
-            :loading="paymentInProgress"
-            text="Plačaj"
-            color="secondary"
-            arrow
-            hearts
-            @click.native="continueToNextStage"
-          />
-        </div>
-      </template>
-    </checkout-stage>
+        </checkout-stage>
+      </div>
+    </template>
 
     <div v-else-if="stage === 'thankyou'" class="checkout__thankyou">
       <div class="thankyou__content">
@@ -254,6 +277,7 @@ import PaypalPayment from '~/components/Payment/Paypal.vue';
 import UpnPayment from '~/components/Payment/Upn.vue';
 import CheckoutStage from '~/components/CheckoutStage.vue';
 import ConfirmButton from '~/components/ConfirmButton.vue';
+import DynamicLink from '~/components/DynamicLink.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -276,6 +300,7 @@ export default {
     UpnPayment,
     CheckoutStage,
     ConfirmButton,
+    DynamicLink,
   },
   mixins: [shopMixin],
   data() {
@@ -439,8 +464,8 @@ export default {
 }
 
 .checkout {
-  // .checkout__payment,
   .checkout__thankyou,
+  .checkout__payment,
   .checkout__delivery,
   .checkout__summary {
     @include media-breakpoint-up(md) {
@@ -472,6 +497,7 @@ export default {
     text-align: right;
     background-color: rgba($color-red, 0.15);
     padding: 0.75rem 1.5rem;
+    margin-top: auto;
     margin-bottom: 1rem;
     line-height: 1.25rem;
 
@@ -505,9 +531,29 @@ export default {
     text-align: center;
   }
 
+  .bottom-back-link {
+    margin-top: 1rem;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      font-size: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    a {
+      color: inherit;
+      font-style: italic;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+  }
+
   .payment-container {
+    flex: 1;
     max-width: 540px;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
+    display: flex;
+    flex-direction: column;
 
     .payment-loader {
       position: fixed;
@@ -523,6 +569,8 @@ export default {
     }
 
     .payment {
+      margin: auto 0;
+
       &.payment--loading {
         opacity: 0;
       }
