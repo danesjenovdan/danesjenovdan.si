@@ -37,7 +37,7 @@ export default {
   nuxtI18n: {
     paths: {
       sl: '/pozivi',
-      en: '/projects',
+      en: '/campaigns',
     },
   },
   components: {
