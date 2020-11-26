@@ -21,9 +21,7 @@
     <template v-if="stage === 'summary'">
       <div class="checkout__summary">
         <checkout-stage>
-          <template slot="title">
-            Povzetek naročila
-          </template>
+          <template slot="title"> Povzetek naročila </template>
           <template slot="content">
             <template v-if="summaryLoading">
               <div class="loader-container">
@@ -74,62 +72,32 @@
     <template v-else-if="stage === 'delivery'">
       <div class="checkout__delivery">
         <checkout-stage>
-          <template slot="title">
-            Prevzem
-          </template>
+          <template slot="title"> Podatki </template>
           <template slot="content">
             <form @submit.prevent="continueToPayment">
-              <div class="custom-control custom-radio">
-                <input
-                  id="delivery-pickup"
-                  v-model="delivery"
-                  type="radio"
-                  name="delivery"
-                  class="custom-control-input"
-                  value="pickup"
-                />
-                <label class="custom-control-label" for="delivery-pickup"
-                  >Osebni prevzem</label
-                >
-              </div>
-              <div class="custom-control custom-radio">
-                <input
-                  id="delivery-post"
-                  v-model="delivery"
-                  type="radio"
-                  name="delivery"
-                  class="custom-control-input"
-                  value="post"
-                />
-                <label class="custom-control-label" for="delivery-post"
-                  >Pošlji po pošti</label
-                >
-              </div>
               <template v-if="delivery">
                 <div class="form-group">
                   <input
                     id="name"
                     v-model="name"
-                    placeholder="Ime in priimek"
+                    placeholder="Ime"
                     class="form-control form-control-lg"
                   />
                 </div>
                 <div class="form-group">
                   <input
-                    id="email"
-                    v-model="email"
-                    type="email"
-                    placeholder="Email"
+                    id="last-name"
+                    v-model="lastName"
+                    placeholder="Priimek"
                     class="form-control form-control-lg"
                   />
                 </div>
-                <!-- TODO: preveri če rabimo naslov za izdajo računa tudi pri osebnem prevzemu? -->
                 <template v-if="delivery === 'post'">
                   <div class="form-group">
                     <input
                       id="address"
                       v-model="address"
-                      placeholder="Naslov"
+                      placeholder="Ulica in hišna številka"
                       class="form-control form-control-lg"
                     />
                   </div>
@@ -142,7 +110,27 @@
                     />
                   </div>
                 </template>
+                <div class="form-group">
+                  <input
+                    id="email"
+                    v-model="email"
+                    type="email"
+                    placeholder="Email"
+                    class="form-control form-control-lg"
+                  />
+                </div>
               </template>
+              <div class="custom-control custom-checkbox">
+                <input
+                  id="info-newsletter"
+                  v-model="newsletter"
+                  type="checkbox"
+                  class="custom-control-input"
+                />
+                <label class="custom-control-label" for="info-newsletter"
+                  >Želim se naročiti na e-novice.</label
+                >
+              </div>
               <!-- this is here so you can submit the form with the enter key -->
               <input type="submit" hidden />
             </form>
@@ -172,9 +160,7 @@
     <template v-else-if="stage === 'payment'">
       <div class="checkout__payment">
         <checkout-stage>
-          <template slot="title">
-            Plačilo
-          </template>
+          <template slot="title"> Plačilo </template>
           <template slot="content">
             <div class="payment-container">
               <payment-switcher @change="onPaymentChange" />
@@ -246,9 +232,7 @@
 
     <div v-else-if="stage === 'thankyou'" class="checkout__thankyou">
       <div class="thankyou__content">
-        <h1>
-          Hvala!
-        </h1>
+        <h1>Hvala!</h1>
         <div>
           <div class="icon icon-confetti-popper--secondary" />
         </div>
@@ -308,8 +292,9 @@ export default {
       stage: 'summary',
       summaryLoading: true,
       checkoutLoading: false,
-      delivery: null,
+      delivery: 'post',
       name: null,
+      lastName: null,
       email: null,
       address: null,
       addressPost: null,
@@ -321,6 +306,7 @@ export default {
       orderKey: null,
       items: null,
       error: null,
+      newsletter: false,
     };
   },
   computed: {
@@ -337,7 +323,7 @@ export default {
       if (!this.delivery) {
         return false;
       }
-      if (!this.name || !this.email) {
+      if (!this.name || !this.lastName || !this.email) {
         return false;
       }
       if (!EMAIL_REGEX.test(this.email)) {
@@ -387,7 +373,7 @@ export default {
         const checkoutResponse = await this.$axios.$post(
           `https://podpri.djnd.si/api/shop/checkout/?order_key=${this.orderKey}`,
           {
-            name: this.name,
+            name: `${this.name} ${this.lastName}`,
             email: this.email,
             address: this.address || '',
             post: this.addressPost || '',
@@ -627,6 +613,17 @@ export default {
           text-align: center;
         }
       }
+    }
+  }
+  .custom-checkbox {
+    margin-bottom: 1rem;
+
+    .custom-control-label {
+      font-size: 1rem;
+      line-height: 1.1;
+      min-height: 2rem;
+      display: flex;
+      align-items: center;
     }
   }
 }
