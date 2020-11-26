@@ -3,10 +3,7 @@
     <donation-logo />
     <div class="row justify-content-center">
       <div class="limit-like-p">
-        <h1 class="mega-header">
-          Dragi <span class="strikethrough">dedek&nbsp;Mraz</span><br />dobri
-          človek!
-        </h1>
+        <h1 class="mega-header">Podpri nas!</h1>
         <div class="embed-responsive embed-responsive-16by9">
           <div class="embed-responsive-item d-flex align-items-center">
             <iframe
@@ -16,29 +13,6 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="py-5 row justify-content-center">
-      <div class="col limit-like-p d-flex">
-        <div class="row">
-          <div class="col-sm">
-            <confirm-button
-              key="next-summary"
-              :to="''"
-              :text="'Doniraj'"
-              color="secondary"
-              arrow
-              hearts
-              @click.native="$router.push('/doniraj/placaj')"
-            />
-          </div>
-          <div class="col-sm d-flex">
-            <a href="/doniraj/placaj?gift=1" class="donate-href"
-              >ali
-              <span class="underline">Obdaruj bližnje z donacijo DJND</span></a
-            >
           </div>
         </div>
       </div>
@@ -78,9 +52,7 @@
         spodbujanje vključujoče politične participacije in krepitev
         marginaliziranih glasov.
       </p>
-      <p>
-        Obdaruj nas v svojem ali v imenu svojih bližnjih!
-      </p>
+      <p>Obdaruj nas v svojem ali v imenu svojih bližnjih!</p>
     </div>
     <div class="row justify-content-center">
       <div class="col limit-like-p d-flex">
@@ -194,7 +166,8 @@
           <img src="/img/partners/pic.png" />
           <img src="/img/partners/focus.jpg" />
           <!-- <img src="/img/partners/umanotera.png" style="width: 100px" /> -->
-          <img src="/img/partners/greenpeace.png" style="width: 100px;" />
+          <!-- TODO -->
+          <!-- <img src="/img/partners/greenpeace.png" style="width: 100px" /> -->
         </div>
       </div>
     </div>
@@ -259,9 +232,7 @@
     </div>
     <div class="row row-social">
       <div class="col">
-        <h1>
-          Več nas bo, prej bomo na&nbsp;cilju&nbsp;...
-        </h1>
+        <h1>Več nas bo, prej bomo na&nbsp;cilju&nbsp;...</h1>
       </div>
     </div>
     <div class="row justify-content-center donation-social">
@@ -478,7 +449,6 @@ export default {
   text-shadow: -1px 1px 0 #333333, 1px 1px 0 #333333, 1px -1px 0 #333333,
     -1px -1px 0 #333333;
 
-  margin-bottom: -20px;
   padding-left: 50px;
   z-index: 200;
 
