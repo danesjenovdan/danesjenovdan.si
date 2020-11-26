@@ -19,7 +19,7 @@
           PayPal
         </button>
       </div>
-      <div class="nav-item">
+      <div class="nav-item" v-if="!recurring">
         <button
           :class="['nav-link', { active: active === 'upn' }]"
           type="button"
@@ -34,6 +34,12 @@
 
 <script>
 export default {
+  props: {
+    recurring: {
+      default: false,
+      required: false,
+    },
+  },
   data() {
     return {
       active: 'card',

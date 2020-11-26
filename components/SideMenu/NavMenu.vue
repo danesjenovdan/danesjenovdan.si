@@ -85,7 +85,7 @@ export default {
           children: [{ key: 'people' }, { key: 'values' }, { key: 'clipping' }],
         },
         { key: 'shop' },
-        // { key: 'donate' },
+        { key: 'donate' },
       ];
 
       if (this.$i18n.locale === 'en') {

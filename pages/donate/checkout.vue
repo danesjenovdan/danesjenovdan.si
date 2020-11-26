@@ -19,12 +19,12 @@
 
     <checkout-stage v-if="stage === 'select-amount'" :stage="stage">
       <template slot="title">
-        Izberi višino donacije!
+        Izberi višino <strong v-if="monthlyDonation">mesečne</strong> donacije!
       </template>
       <template slot="content">
         <div class="donation-options">
           <donation-option
-            v-for="(dp, i) in donationPresets"
+            v-for="(dp, i) in filteredDonationPresets"
             :key="`presets-${i}`"
             :donation-preset="dp"
             @select="selectDonationPreset(dp)"
@@ -50,18 +50,18 @@
           />
         </div>
         <div class="secondary-link">
-          <!-- TODO: link to monthly -->
-          <nuxt-link :to="localePath({})">
+          <a v-if="monthlyDonation" @click.prevent="monthlyDonation = false">
+            Želiš darovati enkrat?
+          </a>
+          <a v-else @click.prevent="monthlyDonation = true">
             Želiš darovati mesečno?
-          </nuxt-link>
+          </a>
         </div>
       </template>
     </checkout-stage>
 
     <checkout-stage v-if="stage === 'info'" :stage="stage">
-      <template slot="title">
-        Podatki
-      </template>
+      <template slot="title"> Podatki </template>
       <template slot="content">
         <div class="info-content">
           <div class="form-group">
@@ -149,12 +149,13 @@
     </checkout-stage>
 
     <checkout-stage v-if="stage === 'payment'" :stage="stage">
-      <template slot="title">
-        Plačilo
-      </template>
+      <template slot="title"> Plačilo </template>
       <template slot="content">
         <div class="payment-container">
-          <payment-switcher @change="onPaymentChange" />
+          <payment-switcher
+            @change="onPaymentChange"
+            :recurring="monthlyDonation"
+          />
           <div v-if="checkoutLoading" class="payment-loader">
             <div class="lds-dual-ring" />
           </div>
@@ -247,28 +248,44 @@ export default {
       stage: 'select-amount',
       donationPresets: [
         {
+          amount: 5,
+          description: 'Čaka te mini presenečenje!',
+          selected: false,
+          eventName: 'five',
+          monthly: true,
+          oneTime: false,
+        },
+        {
           amount: 11,
           description: 'Čaka te mini presenečenje!',
           selected: false,
           eventName: 'eleven',
+          monthly: true,
+          oneTime: true,
         },
         {
           amount: 24,
           description: 'Čaka te majhno presenečenje!',
           selected: false,
           eventName: 'twentyfour',
+          monthly: true,
+          oneTime: true,
         },
         {
           amount: 47,
           description: 'Čaka te presečenje!',
           selected: false,
           eventName: 'fortyseven',
+          monthly: true,
+          oneTime: true,
         },
         {
           amount: 101,
           description: 'Ti si presenečenje! In čaka te ornk presenečenje :)',
           selected: false,
           eventName: 'whale',
+          monthly: false,
+          oneTime: true,
         },
         {
           custom: true,
@@ -276,6 +293,8 @@ export default {
           description: 'Vnesi poljuben znesek!',
           selected: false,
           eventName: 'aeleven',
+          monthly: true,
+          oneTime: true,
         },
       ],
       checkoutLoading: false,
@@ -293,9 +312,17 @@ export default {
       email: null,
       subscribeNewsletter: false,
       infoSubmitting: false,
+      monthlyDonation: false,
     };
   },
   computed: {
+    filteredDonationPresets() {
+      return this.donationPresets.filter((dp) =>
+        this.monthlyDonation
+          ? dp.monthly === this.monthlyDonation
+          : dp.oneTime !== this.monthlyDonation,
+      );
+    },
     selectedDonationAmount() {
       const selected = this.donationPresets.find((dp) => dp.selected);
       return selected ? Number(selected.amount) : 0;
