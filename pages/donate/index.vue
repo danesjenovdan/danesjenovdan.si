@@ -19,40 +19,38 @@
     </div>
     <div class="row justify-content-center">
       <p>
-        Smo tista skupina prijateljev, ki se je pozimi 2012-13 dobivala v kleti
-        za Bežigradom in vstajam nudila digitalno podporo ter infrastrukturo za
-        vsebinske pobude. V teh sedmih letih smo prostočasni aktivizem zamenjali
-        za ustanovitev inštituta Danes je nov dan, ki ima že več kot 30 sodelavk
-        in sodelavcev, od redno zaposlenih pa vse do prostovoljnih popoldancev
-        in vikendašic.
+        Smo tista skupina prijateljev, ki se je pozimi 2012–13 dobivala v neki
+        kleti za Bežigradom in vstajam nudila digitalno podporo ter
+        infrastrukturo za vsebinske pobude. Odtlej smo prostočasni aktivizem
+        zamenjali za ustanovitev inštituta Danes je nov dan, ki ima že več kot
+        30 sodelavk in sodelavcev, od redno zaposlenih pa vse do prostovoljnih
+        popoldancev in vikendašic.
       </p>
-      <p>V sedmih letih obstoja smo tako:</p>
+      <p>V tem času smo med drugim:</p>
     </div>
     <div class="row justify-content-center">
-      <donation-info-box icon="agrument" text="Napisali 1592 agrumentov." />
+      <donation-info-box
+        icon="agrument"
+        text="Vsak delovni dan od 10. 2. 2014 naprej objavili agrument"
+      />
       <donation-info-box
         icon="coding"
-        text="V javno domeno dali več kot 1 726 000 vrstic kode."
+        text="V javno domeno dali že skoraj 2 milijona vrstic kode"
       />
       <donation-info-box
         icon="projects"
-        text="Objavili več kot 30 spletnih kampanj brez proračuna."
+        text="Objavili več kot 30 kampanj brez proračuna"
       />
       <donation-info-box
         icon="videos"
-        text="Z video parodijo bežali pred cenzuro SDS na 3 platformah."
+        text="Z video parodijo bežali pred cenzuro SDS na 3 video platformah"
       />
     </div>
     <div class="row justify-content-center">
       <p>
-        Na inštitutu si želimo, da bi bili v 2020 manj odvisni od dela za
-        mednarodne naročnike, ki nam jemlje čas in odvrača fokus od lokalnega
-        aktivizma. Svoja znanja in veščine bi radi porabili za krepitev
-        raznolikih bojev, kultiviranje javnega, zlasti digitalnega prostora,
-        spodbujanje vključujoče politične participacije in krepitev
-        marginaliziranih glasov.
+        Za nadaljnje neodvisno delovanje potrebujemo tudi tvojo pomoč. Doniraš
+        nam lahko:
       </p>
-      <p>Obdaruj nas v svojem ali v imenu svojih bližnjih!</p>
     </div>
     <div class="row justify-content-center">
       <div class="col limit-like-p d-flex">
@@ -116,118 +114,8 @@
       />
     </div>
     <div class="row">
-      <p>
-        S tvojo podporo bomo še naprej objavljali agrumente in skrbeli za
-        Parlameter, uresničili pa bomo tudi spodnje projekte:
-      </p>
-    </div>
-    <div class="row project-line">
-      <div class="col-xs-auto">
-        <img src="/icons/projects/hate_speech_barvno.svg" />
-      </div>
       <div class="col">
-        <h2>Ustavimo oglaševanje ob sovražnih vsebinah</h2>
-        <p>
-          Nadaljujemo boj proti neodgovornim oglaševalcem, ki z oglaševanjem ob
-          spornih vsebinah posredno podpirajo sovraštvo. Pritiskali bomo na
-          Slovensko oglaševalsko zbornico, da v svojem kodeksu prepove
-          oglaševanje ob sovražnih vsebinah, na gospodarsko ministrstvo, da to
-          terja od podjetij v lasti države, in na vas, da glasujete s svojimi
-          evri.
-        </p>
-        <div class="partnerships">
-          V partnerstvu z <span class="partner">Državljan D</span>
-        </div>
-        <div class="partnership-images">
-          <img src="/img/partners/drzavljand.png" />
-        </div>
-      </div>
-    </div>
-    <div class="row project-line">
-      <div class="col-xs-auto">
-        <img src="/icons/projects/okolje_barvno.svg" />
-      </div>
-      <div class="col">
-        <h2>Zahtevajmo ukrepe za preprečevanje podnebnih sprememb</h2>
-        <p>
-          Po vzoru Evropske unije bo po naših informacijah tudi Slovenija kmalu
-          razglasila podnebno krizo. Ne bomo pustili politiki, da nas vlada
-          odpravi zgolj z deklarativnimi obljubami, ampak bomo terjali tudi
-          konkretna dejanja. Obljubimo, da bomo izvoljenim predstavnikom skupaj
-          dihali za ovratnik še bolj kot doslej!
-        </p>
-        <div class="partnerships">
-          V partnerstvu s <span class="partner">PIC</span>,
-          <span class="partner">Focus</span>,
-          <!-- <span class="partner">Umanotera</span>, -->
-          <span class="partner">Greenpeace Slovenija</span>
-        </div>
-        <div class="partnership-images">
-          <img src="/img/partners/pic.png" />
-          <img src="/img/partners/focus.jpg" />
-          <!-- <img src="/img/partners/umanotera.png" style="width: 100px" /> -->
-          <!-- TODO -->
-          <!-- <img src="/img/partners/greenpeace.png" style="width: 100px" /> -->
-        </div>
-      </div>
-    </div>
-    <div class="row project-line">
-      <div class="col-xs-auto">
-        <img src="/icons/projects/obcinski_podatki_barvno.svg" />
-      </div>
-      <div class="col">
-        <h2>Odprimo občinske podatke</h2>
-        <p>
-          Nekateri župani in županje slovenskih občin se obnašajo kot lokalni
-          šerifi tudi zato, ker lahko po 36. členu Zakona o lokalni samoupravi
-          občinski sveti sami opredelijo, kako in katere podatke, povezane s
-          svojim delovanjem, bodo prikazovali javnosti. Večina občinskih svetov
-          vzdržuje status quo oz. zastarele prakse prikazovanja skopih
-          informacij. Enak vpogled, kot ga imamo v parlamentarno dogajanje,
-          zahtevajmo tudi od občinskih oblasti.
-        </p>
-        <div class="partnerships"></div>
-        <div class="partnership-images"></div>
-      </div>
-    </div>
-    <div class="row project-line">
-      <div class="col-xs-auto">
-        <img src="/icons/projects/nepremicninski_davek_barvno.svg" />
-      </div>
-      <div class="col">
-        <h2>Pogovorimo se o davku na nepremičnine</h2>
-        <p>
-          Nepremičnine v Sloveniji so prava davčna oaza. Medtem ko se
-          investitorji igrajo monopoli in služijo na AirBnb gostih, stanovanjska
-          situacija postaja popolnoma nevzdržna. Davčna politika oziroma njeno
-          pomanjkanje vzdržuje stanovanjsko krizo in ustvarja resnično človeško
-          stisko. Pritiskali bomo na Šarca, da izpolni, kar je obljubil pred
-          volitvami.
-        </p>
-        <div class="partnerships">
-          V partnerstvu s <span class="partner">Kje bomo pa jutri spali?</span>
-        </div>
-        <div class="partnership-images">
-          <img src="/img/partners/kbpjs.jpg" />
-        </div>
-      </div>
-    </div>
-    <div class="row project-line">
-      <div class="col-xs-auto">
-        <img src="/icons/projects/medijska_reprezentacija_barvno.svg" />
-      </div>
-      <div class="col">
-        <h2>Raziščimo zastopanost spolov na televiziji</h2>
-        <p>
-          Kljub temu, da gre počasi na boljše, smo še vedno izrazito
-          patriarhalna družba, k čemur precej pripomorejo tudi mediji. Gledali
-          bomo vse ključne dnevno informativne oddaje in primerjali
-          reprezentacijo spolov v njih. Kdo govori, kdaj govori, kaj govori, kdo
-          sprašuje, kaj sprašuje, kdo odgovarja, kdo komentira, kdo si vzame
-          besedo in komu jo vzamejo drugi?
-        </p>
-        <div class="partnerships"></div>
-        <div class="partnership-images"></div>
+        <donation-choice-button />
       </div>
     </div>
     <div class="row row-social">
@@ -272,6 +160,8 @@ import DonationCampaignProgress from '~/components/DonationCampaignProgress.vue'
 import SquareIconButton from '~/components/SquareIconButton.vue';
 import videoMixin from '~/mixins/video.js';
 
+import DonationChoiceButton from '~/components/DonationChoiceButton.vue';
+
 export default {
   layout: 'donate',
 
@@ -293,6 +183,7 @@ export default {
     DonationSummary,
     DonationCampaignProgress,
     SquareIconButton,
+    DonationChoiceButton,
   },
 
   mixins: [videoMixin],
