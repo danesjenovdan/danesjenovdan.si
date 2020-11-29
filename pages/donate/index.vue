@@ -19,40 +19,38 @@
     </div>
     <div class="row justify-content-center">
       <p>
-        Smo tista skupina prijateljev, ki se je pozimi 2012-13 dobivala v kleti
-        za Bežigradom in vstajam nudila digitalno podporo ter infrastrukturo za
-        vsebinske pobude. V teh sedmih letih smo prostočasni aktivizem zamenjali
-        za ustanovitev inštituta Danes je nov dan, ki ima že več kot 30 sodelavk
-        in sodelavcev, od redno zaposlenih pa vse do prostovoljnih popoldancev
-        in vikendašic.
+        Smo tista skupina prijateljev, ki se je pozimi 2012–13 dobivala v neki
+        kleti za Bežigradom in vstajam nudila digitalno podporo ter
+        infrastrukturo za vsebinske pobude. Odtlej smo prostočasni aktivizem
+        zamenjali za ustanovitev inštituta Danes je nov dan, ki ima že več kot
+        30 sodelavk in sodelavcev, od redno zaposlenih pa vse do prostovoljnih
+        popoldancev in vikendašic.
       </p>
-      <p>V sedmih letih obstoja smo tako:</p>
+      <p>V tem času smo med drugim:</p>
     </div>
     <div class="row justify-content-center">
-      <donation-info-box icon="agrument" text="Napisali 1592 agrumentov." />
+      <donation-info-box
+        icon="agrument"
+        text="Vsak delovni dan od 10. 2. 2014 naprej objavili agrument"
+      />
       <donation-info-box
         icon="coding"
-        text="V javno domeno dali več kot 1 726 000 vrstic kode."
+        text="V javno domeno dali že skoraj 2 milijona vrstic kode"
       />
       <donation-info-box
         icon="projects"
-        text="Objavili več kot 30 spletnih kampanj brez proračuna."
+        text="Objavili več kot 30 kampanj brez proračuna"
       />
       <donation-info-box
         icon="videos"
-        text="Z video parodijo bežali pred cenzuro SDS na 3 platformah."
+        text="Z video parodijo bežali pred cenzuro SDS na 3 video platformah"
       />
     </div>
     <div class="row justify-content-center">
       <p>
-        Na inštitutu si želimo, da bi bili v 2020 manj odvisni od dela za
-        mednarodne naročnike, ki nam jemlje čas in odvrača fokus od lokalnega
-        aktivizma. Svoja znanja in veščine bi radi porabili za krepitev
-        raznolikih bojev, kultiviranje javnega, zlasti digitalnega prostora,
-        spodbujanje vključujoče politične participacije in krepitev
-        marginaliziranih glasov.
+        Za nadaljnje neodvisno delovanje potrebujemo tudi tvojo pomoč. Doniraš
+        nam lahko:
       </p>
-      <p>Obdaruj nas v svojem ali v imenu svojih bližnjih!</p>
     </div>
     <div class="row justify-content-center">
       <div class="col limit-like-p d-flex">
