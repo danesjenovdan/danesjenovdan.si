@@ -17,33 +17,8 @@
         <div v-if="showForm" class="row justify-content-center">
           <div class="col form-col">
             <p>
-              Da bomo vedeli, čigave nastavitve urejaš, prosimo vpiši svoj
-              e-naslov. Na ta naslov ti bomo poslali personalizirano povezavo do
-              spletne strani za urejanje nastavitev.
+              Nothing
             </p>
-            <form @submit.prevent="submitForm">
-              <input
-                v-if="!success"
-                v-model="email"
-                type="email"
-                class="form-control form-control-lg mt-4 mb-4"
-                placeholder="Vpiši svoj e-naslov"
-              />
-              <p v-if="message">
-                <strong>{{ message }}</strong>
-              </p>
-              <more-button
-                v-if="!success"
-                :disabled="
-                  loading || !email.length || email.indexOf('@') === -1
-                "
-                :to="localePath('me')"
-                :text="'POTRDI'"
-                icon="heart"
-                large
-                @click.native="submitForm"
-              />
-            </form>
           </div>
         </div>
         <template v-else-if="settings">
@@ -97,7 +72,7 @@
 </template>
 
 <script>
-import MoreButton from '~/components/MoreButton.vue';
+// import MoreButton from '~/components/MoreButton.vue';
 import EmailSubscriptionTile from '~/components/EmailSubscriptionTile.vue';
 
 export default {
@@ -110,7 +85,7 @@ export default {
   },
   layout: 'checkout',
   components: {
-    MoreButton,
+    // MoreButton,
     EmailSubscriptionTile,
   },
   async asyncData({ $axios, query, error }) {
@@ -142,6 +117,9 @@ export default {
         error({ statusCode: 500, message: err.message });
         return;
       }
+    } else {
+      error({ statusCode: 403, message: 'No token' });
+      return;
     }
     return {
       showForm,
