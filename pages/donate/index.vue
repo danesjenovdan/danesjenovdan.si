@@ -3,56 +3,125 @@
     <donation-logo />
     <div class="row justify-content-center">
       <div class="limit-like-p">
-        <h1 class="mega-header">Podpri nas!</h1>
-        <div class="embed-responsive embed-responsive-16by9">
-          <div class="embed-responsive-item d-flex align-items-center">
-            <iframe
-              :src="
-                embedUrl('https://www.youtube.com/watch?v=Sb30U8DVGtU', false)
-              "
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            />
-          </div>
-        </div>
+        <h1 class="mega-header">
+          Dragi <span class="strikethrough">Dedek Mraz</span> dobri človek!
+        </h1>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <p>Hvala, ker podpiraš Danes je nov dan!</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="limit-like-p">
+        <confirm-button
+          key="next-summary"
+          :to="''"
+          :text="'Podpri'"
+          color="secondary"
+          arrow
+          hearts
+          @click.native="$router.push('/doniraj/placaj')"
+        />
       </div>
     </div>
     <div class="row justify-content-center">
       <p>
-        Smo tista skupina prijateljev, ki se je pozimi 2012-13 dobivala v kleti
-        za Bežigradom in vstajam nudila digitalno podporo ter infrastrukturo za
-        vsebinske pobude. V teh sedmih letih smo prostočasni aktivizem zamenjali
-        za ustanovitev inštituta Danes je nov dan, ki ima že več kot 30 sodelavk
-        in sodelavcev, od redno zaposlenih pa vse do prostovoljnih popoldancev
-        in vikendašic.
+        Leto sklepamo tudi z vsebinsko bilanco oz. poročilom o opravljenem delu.
+        Izpostavljamo najpomembnejše dosežke in mejnike, ki smo jih dosegli
+        tekom zadnjega kroga okoli sonca.
       </p>
-      <p>V sedmih letih obstoja smo tako:</p>
     </div>
-    <div class="row justify-content-center">
-      <donation-info-box icon="agrument" text="Napisali 1592 agrumentov." />
-      <donation-info-box
-        icon="coding"
-        text="V javno domeno dali več kot 1 726 000 vrstic kode."
-      />
-      <donation-info-box
-        icon="projects"
-        text="Objavili več kot 30 spletnih kampanj brez proračuna."
-      />
-      <donation-info-box
-        icon="videos"
-        text="Z video parodijo bežali pred cenzuro SDS na 3 platformah."
-      />
+    <div class="row">
+      <div class="achievement-tiles-container">
+        <achievement-tile
+          icon="consul"
+          text="V 7 občinah smo namestili Consul."
+        />
+        <achievement-tile
+          icon="parlameter"
+          text="V 3 državah vzdržujemo Parlameter."
+        />
+        <achievement-tile
+          icon="pravnapomoc"
+          text="Do brezplačne pravne pomoči smo pomagali 89 protestnikom."
+        />
+        <achievement-tile
+          icon="boter"
+          text="Raziskovalno smo na sledi skupini 500 potencialnih Twitter trolov."
+        />
+        <achievement-tile
+          icon="stanovanja"
+          text="Izpostavili smo 6 korona kiksov na področju stanovanjske politike."
+        />
+        <achievement-tile
+          icon="narava"
+          text="Dosegli smo, da je peticijo Narave ne damo podpisalo več kot 36 000 ljudi."
+        />
+        <achievement-tile
+          icon="zenske"
+          text="Analizirali smo reprezentacijo spola v oddaji Odmevi."
+        />
+        <achievement-tile
+          icon="PP"
+          text="V zvezi s participativnim proračunom za besedo držimo 56 županov."
+        />
+        <achievement-tile
+          icon="brezstrahu"
+          text="Izpostavili smo dvoličnost SMC in DeSUS ob vstopu v Janševo vlado."
+        />
+        <achievement-tile
+          icon="fasizem"
+          text="V Fašizmu za telebane smo popisali 39 primerov fašizacije slovenske družbe."
+        />
+        <achievement-tile
+          icon="agrument"
+          text="Za letošnje agrumente smo do decembra porabili xy besed."
+        />
+        <achievement-tile
+          icon="knjiga1"
+          text="Izdali smo knjigo Abecedarij svobode govora."
+        />
+        <achievement-tile
+          icon="knjiga2"
+          text="Izdali smo knjigo Psihoanalitski agrument."
+        />
+        <achievement-tile
+          icon="pocivalsek"
+          text="Počivalškov govor ob vstopu SMC v vlado smo opremili s satiričnimi podnapisi in sprožili debato o pošteni uporabi avtorskih materialov."
+        />
+        <achievement-tile
+          icon="sodelovanje"
+          text="Sodelovali smo s številnimi domačimi in tujimi civilnodružbenimi in nevladnimi organizacijami."
+        />
+        <achievement-tile
+          icon="pojavljanja"
+          text="Kot strokovni sogovorniki smo pogosto nastopali v medijih"
+        />
+        <achievement-tile
+          icon="zicar"
+          text="Ob petletnici sramotne žice na meji smo lansirali spletno igro Žicar 2.0."
+        />
+        <achievement-tile
+          icon="zradirani"
+          text="V boju proti deložaciji smo podprli organizacije in ustvarjalce z Metelkove 6."
+        />
+        <achievement-tile
+          icon="newsgradient"
+          text="Objavili smo Newsgradient Bosna in Hercegovina."
+        />
+      </div>
     </div>
     <div class="row justify-content-center">
       <p>
-        Na inštitutu si želimo, da bi bili v 2020 manj odvisni od dela za
-        mednarodne naročnike, ki nam jemlje čas in odvrača fokus od lokalnega
-        aktivizma. Svoja znanja in veščine bi radi porabili za krepitev
-        raznolikih bojev, kultiviranje javnega, zlasti digitalnega prostora,
-        spodbujanje vključujoče politične participacije in krepitev
-        marginaliziranih glasov.
+        V letu 2021 bi na inštitutu radi nadaljevali z aktivnostmi, ki se
+        osredinjajo na spodbujanje politične participacije, sledenje političnih
+        obljub, promocijo človekovih pravic in vključenosti, kultiviranje
+        javnega in skupnega ter krepitev marginaliziranih glasov. Kombinacija
+        dogodkov v Tobačni in koronavirusa nas je izselila iz ljube pisarne,
+        zato je cilj za prihodnje leto tudi vnovična prostorska konsolidacija
+        Danes je nov dan.
       </p>
-      <p>Obdaruj nas v svojem ali v imenu svojih bližnjih!</p>
+      <p>Obdaruj nas!</p>
     </div>
     <div class="row justify-content-center">
       <div class="col limit-like-p d-flex">
@@ -73,12 +142,12 @@
               @click.native="$router.push('/doniraj/placaj')"
             />
           </div>
-          <div class="col-sm d-flex">
+          <!-- <div class="col-sm d-flex">
             <a href="/doniraj/placaj?gift=1" class="donate-href"
               >ali
               <span class="underline">Obdaruj bližnje z donacijo DJND</span></a
             >
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -98,7 +167,10 @@
         />
       </div>
       <div class="col">
-        <donation-campaign-progress :end-date="new Date('2020-01-06')" />
+        <donation-campaign-progress
+          :end-date="new Date('2021-01-06')"
+          :total-days="35"
+        />
       </div>
     </div>
     <div
@@ -116,118 +188,33 @@
       />
     </div>
     <div class="row">
-      <p>
-        S tvojo podporo bomo še naprej objavljali agrumente in skrbeli za
-        Parlameter, uresničili pa bomo tudi spodnje projekte:
-      </p>
-    </div>
-    <div class="row project-line">
-      <div class="col-xs-auto">
-        <img src="/icons/projects/hate_speech_barvno.svg" />
-      </div>
-      <div class="col">
-        <h2>Ustavimo oglaševanje ob sovražnih vsebinah</h2>
+      <div class="col-md problem-col">
         <p>
-          Nadaljujemo boj proti neodgovornim oglaševalcem, ki z oglaševanjem ob
-          spornih vsebinah posredno podpirajo sovraštvo. Pritiskali bomo na
-          Slovensko oglaševalsko zbornico, da v svojem kodeksu prepove
-          oglaševanje ob sovražnih vsebinah, na gospodarsko ministrstvo, da to
-          terja od podjetij v lasti države, in na vas, da glasujete s svojimi
-          evri.
+          S tvojo podporo bomo nadaljevali s temami, ki smo jih zastavili v
+          lanski donatorski kampanji.
         </p>
-        <div class="partnerships">
-          V partnerstvu z <span class="partner">Državljan D</span>
-        </div>
-        <div class="partnership-images">
-          <img src="/img/partners/drzavljand.png" />
-        </div>
+        <problem-tile
+          title="Sovražne vsebine"
+          description="V letu 2021 bo naš fokus v zvezi s sovražnimi bo predvsem na Twitterju. Že letos smo začeli s projektom Twito sledilnika, nadaljuje se Boter, ki išče inovativne načine pritiska na oglaševalce, da se umaknejo iz medijev, ki objavljajo sovražne vsebine, pozorni pa bomo tudi na aktualne pojavnosti sovražnosti v medijih in na spletu."
+        />
+        <problem-tile
+          title="Dostop do podatkov"
+          description="V letu 2021 se bomo v okviru tega področja v veliki meri fokusirali na vprašanje odprtosti lokalnih podatkov. Naš cilj je, da občinsko različico Parlametra spravimo v vsaj 4 občine ter da izdelamo lestvico transparentnosti slovenskih občin. Poleg tega bomo opravili regionalno analizo odprtosti parlamentarnih podatkov ter izpostavili pomembnost odprtih podatkov tudi v kontekstu slovenskega predsedovanja EU."
+        />
       </div>
-    </div>
-    <div class="row project-line">
-      <div class="col-xs-auto">
-        <img src="/icons/projects/okolje_barvno.svg" />
-      </div>
-      <div class="col">
-        <h2>Zahtevajmo ukrepe za preprečevanje podnebnih sprememb</h2>
-        <p>
-          Po vzoru Evropske unije bo po naših informacijah tudi Slovenija kmalu
-          razglasila podnebno krizo. Ne bomo pustili politiki, da nas vlada
-          odpravi zgolj z deklarativnimi obljubami, ampak bomo terjali tudi
-          konkretna dejanja. Obljubimo, da bomo izvoljenim predstavnikom skupaj
-          dihali za ovratnik še bolj kot doslej!
-        </p>
-        <div class="partnerships">
-          V partnerstvu s <span class="partner">PIC</span>,
-          <span class="partner">Focus</span>,
-          <!-- <span class="partner">Umanotera</span>, -->
-          <span class="partner">Greenpeace Slovenija</span>
-        </div>
-        <div class="partnership-images">
-          <img src="/img/partners/pic.png" />
-          <img src="/img/partners/focus.jpg" />
-          <!-- <img src="/img/partners/umanotera.png" style="width: 100px" /> -->
-          <!-- TODO -->
-          <!-- <img src="/img/partners/greenpeace.png" style="width: 100px" /> -->
-        </div>
-      </div>
-    </div>
-    <div class="row project-line">
-      <div class="col-xs-auto">
-        <img src="/icons/projects/obcinski_podatki_barvno.svg" />
-      </div>
-      <div class="col">
-        <h2>Odprimo občinske podatke</h2>
-        <p>
-          Nekateri župani in županje slovenskih občin se obnašajo kot lokalni
-          šerifi tudi zato, ker lahko po 36. členu Zakona o lokalni samoupravi
-          občinski sveti sami opredelijo, kako in katere podatke, povezane s
-          svojim delovanjem, bodo prikazovali javnosti. Večina občinskih svetov
-          vzdržuje status quo oz. zastarele prakse prikazovanja skopih
-          informacij. Enak vpogled, kot ga imamo v parlamentarno dogajanje,
-          zahtevajmo tudi od občinskih oblasti.
-        </p>
-        <div class="partnerships"></div>
-        <div class="partnership-images"></div>
-      </div>
-    </div>
-    <div class="row project-line">
-      <div class="col-xs-auto">
-        <img src="/icons/projects/nepremicninski_davek_barvno.svg" />
-      </div>
-      <div class="col">
-        <h2>Pogovorimo se o davku na nepremičnine</h2>
-        <p>
-          Nepremičnine v Sloveniji so prava davčna oaza. Medtem ko se
-          investitorji igrajo monopoli in služijo na AirBnb gostih, stanovanjska
-          situacija postaja popolnoma nevzdržna. Davčna politika oziroma njeno
-          pomanjkanje vzdržuje stanovanjsko krizo in ustvarja resnično človeško
-          stisko. Pritiskali bomo na Šarca, da izpolni, kar je obljubil pred
-          volitvami.
-        </p>
-        <div class="partnerships">
-          V partnerstvu s <span class="partner">Kje bomo pa jutri spali?</span>
-        </div>
-        <div class="partnership-images">
-          <img src="/img/partners/kbpjs.jpg" />
-        </div>
-      </div>
-    </div>
-    <div class="row project-line">
-      <div class="col-xs-auto">
-        <img src="/icons/projects/medijska_reprezentacija_barvno.svg" />
-      </div>
-      <div class="col">
-        <h2>Raziščimo zastopanost spolov na televiziji</h2>
-        <p>
-          Kljub temu, da gre počasi na boljše, smo še vedno izrazito
-          patriarhalna družba, k čemur precej pripomorejo tudi mediji. Gledali
-          bomo vse ključne dnevno informativne oddaje in primerjali
-          reprezentacijo spolov v njih. Kdo govori, kdaj govori, kaj govori, kdo
-          sprašuje, kaj sprašuje, kdo odgovarja, kdo komentira, kdo si vzame
-          besedo in komu jo vzamejo drugi?
-        </p>
-        <div class="partnerships"></div>
-        <div class="partnership-images"></div>
+      <div class="col-md">
+        <problem-tile
+          title="Narava"
+          description="Pravice narave in pravice do narave so že od začetka delovanja Danes je nov dan med našimi ključnimi prioritetami in nič drugače ne bo v letu 2021. Še naprej bomo sodelovali z nevladnimi in civilnodružbenimi organizacijami s tega področja ter z njihovo pomočjo dihali za ovratnik oblasti, ki na okolje rada pozabi oz. se v zvezi z okoljskimi vprašanji pogosto spreneveda."
+        />
+        <problem-tile
+          title="Stanovanjska kriza"
+          description="Tudi v prihodnjem letu bo eden od naših temeljnih fokusov vprašanje pomanjkanja dostopnih stanovanj oz. manko ustrezne stanovanjske politike. Ukvarjali se bomo s problemi pomanjkljive ter neustrezne zakonodaje, posebej natančno pa se bomo osredotočili na pravice najemojemalcev. Poskušali bomo torej opolnomočiti veliko, a eno najbolj ranljivih skupin prebivalstva."
+        />
+        <problem-tile
+          title="Enakost spolov"
+          description="Ena ključnih ugotovitev raziskave, v kateri smo analizirali Odmeve, je, da so ženske kot gostje izrazito podreprezentirane v medijih. Za leto 2021 pripravljamo feministični podkast; serijo pogovorov z ženskami, ki delujejo kot angažirane znanstvenice, aktivistke, premišljevalke ter strokovnjakinje. Poleg tega bo naš naslednji, že 4. po vrsti, tematski agrument 25 sobot zapovrstjo slovaril feministično terminologijo, pripravili in objavili pa bomo tudi feministični bralni seznam."
+        />
       </div>
     </div>
     <div class="row row-social">
@@ -264,13 +251,14 @@
 <script>
 import DonationLogo from '~/components/DonationLogo.vue';
 import ConfirmButton from '~/components/ConfirmButton.vue';
-import DonationInfoBox from '~/components/DonationInfoBox.vue';
 import DonationImages from '~/components/DonationImages.vue';
 import DonationMilestones from '~/components/DonationMilestones.vue';
 import DonationSummary from '~/components/DonationSummary.vue';
 import DonationCampaignProgress from '~/components/DonationCampaignProgress.vue';
 import SquareIconButton from '~/components/SquareIconButton.vue';
-import videoMixin from '~/mixins/video.js';
+
+import AchievementTile from '~/components/AchievementTile.vue';
+import ProblemTile from '~/components/ProblemTile.vue';
 
 export default {
   layout: 'donate',
@@ -287,15 +275,14 @@ export default {
   components: {
     DonationLogo,
     ConfirmButton,
-    DonationInfoBox,
     DonationImages,
     DonationMilestones,
     DonationSummary,
     DonationCampaignProgress,
     SquareIconButton,
+    AchievementTile,
+    ProblemTile,
   },
-
-  mixins: [videoMixin],
 
   data() {
     return {
@@ -364,7 +351,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Ob sedemletnici delovanja zbiramo donacije za aktivistične projekte v letu 2020. Pridruži se boju in podpri Danes je nov dan!',
+            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
         },
         {
           hid: 'og:title',
@@ -375,7 +362,7 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Ob sedemletnici delovanja zbiramo donacije za aktivistične projekte v letu 2020. Pridruži se boju in podpri Danes je nov dan!',
+            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
         },
         {
           hid: 'og:image',
@@ -503,7 +490,7 @@ p {
 }
 .limit-like-p {
   width: 100%;
-  max-width: 902px;
+  max-width: 872px;
 }
 .donation-info-box {
   @include media-breakpoint-up(md) {
@@ -635,6 +622,8 @@ p {
     bottom: 0;
     border-bottom: 4px solid $black;
     opacity: 0.2;
+
+    display: none;
   }
 }
 .confirm-button {
@@ -657,5 +646,26 @@ p {
     // bottom: 40px;
     margin-bottom: 0;
   }
+}
+
+.problem-col {
+  p {
+    color: #333333;
+    font-size: 27px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 33.33px;
+    text-align: left;
+    margin-bottom: 90px;
+  }
+}
+.achievement-tiles-container {
+  position: relative;
+  margin: auto;
+  display: block;
+  padding-left: 5vw;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 </style>

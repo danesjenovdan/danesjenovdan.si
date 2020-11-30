@@ -15,10 +15,7 @@
               class="fill"
             ></div>
           </div>
-          <div class="inside-circle">
-            0
-            <!-- used to be {{ daysLeft }} -->
-          </div>
+          <div class="inside-circle">{{ daysLeft }}</div>
         </div>
       </div>
     </div>
@@ -62,7 +59,7 @@ export default {
 
     /* eslint-disable no-unreachable */
     firstHalfRotate() {
-      return 0; // after campaign is over
+      // return 0; // after campaign is over
       if (this.percentage <= 50) {
         return this.percentageToDegrees(this.percentage);
       } else {
@@ -71,7 +68,7 @@ export default {
     },
 
     secondHalfRotate() {
-      return 0; // after campaign is over
+      // return 0; // after campaign is over
       if (this.percentage > 50) {
         return this.percentageToDegrees(this.percentage) - 180;
       } else {

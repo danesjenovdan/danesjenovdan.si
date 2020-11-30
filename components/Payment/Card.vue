@@ -153,7 +153,9 @@ export default {
         this.$emit('payment-start');
         this.error = null;
         this.hostedFieldsInstance
-          .tokenize()
+          .tokenize({
+            vault: true,
+          })
           .then((payload) => {
             this.$emit('success', { nonce: payload.nonce });
           })
