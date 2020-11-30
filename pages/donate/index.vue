@@ -3,13 +3,11 @@
     <donation-logo />
     <div class="row justify-content-center">
       <div class="limit-like-p">
-        <h1 class="mega-header">
-          Dragi <span class="strikethrough">Dedek Mraz</span> dobri človek!
-        </h1>
+        <h1 class="mega-header">Doniraj za nov dan!</h1>
       </div>
     </div>
     <div class="row justify-content-center">
-      <p>Hvala, ker podpiraš Danes je nov dan!</p>
+      <p>Podpri naše delo v 2021!</p>
     </div>
     <div class="row justify-content-center">
       <div class="limit-like-p">
@@ -36,26 +34,32 @@
         <achievement-tile
           icon="consul"
           text="V 7 občinah smo namestili Consul."
+          href="https://odlocamo-skupaj.nova-gorica.si/"
         />
         <achievement-tile
           icon="parlameter"
           text="V 3 državah vzdržujemo Parlameter."
+          href="https://parlameter.org/"
         />
         <achievement-tile
           icon="pravnapomoc"
           text="Do brezplačne pravne pomoči smo pomagali 89 protestnikom."
+          href="https://www.facebook.com/danesjenovdan/photos/a.415560015192794/3002029953212441"
         />
         <achievement-tile
           icon="boter"
           text="Raziskovalno smo na sledi skupini 500 potencialnih Twitter trolov."
+          href="https://acfslovenia.si/podprti-projekti/twitter-brigade/"
         />
         <achievement-tile
           icon="stanovanja"
           text="Izpostavili smo 6 korona kiksov na področju stanovanjske politike."
+          href="https://danesjenovdan.si/korona-kiks"
         />
         <achievement-tile
           icon="narava"
           text="Dosegli smo, da je peticijo Narave ne damo podpisalo več kot 36 000 ljudi."
+          href="https://www.naravenedamo.si/"
         />
         <achievement-tile
           icon="zenske"
@@ -64,18 +68,22 @@
         <achievement-tile
           icon="PP"
           text="V zvezi s participativnim proračunom za besedo držimo 56 županov."
+          href="https://danesjenovdan.si/participativni-proracun/"
         />
         <achievement-tile
           icon="brezstrahu"
           text="Izpostavili smo dvoličnost SMC in DeSUS ob vstopu v Janševo vlado."
+          href="https://brezstrahu.si/"
         />
         <achievement-tile
           icon="fasizem"
           text="V Fašizmu za telebane smo popisali 39 primerov fašizacije slovenske družbe."
+          href="https://fasizem.djnd.si/"
         />
         <achievement-tile
           icon="agrument"
           text="Za letošnje agrumente smo do decembra porabili xy besed."
+          href="https://danesjenovdan.si/agrument"
         />
         <achievement-tile
           icon="knjiga1"
@@ -88,26 +96,32 @@
         <achievement-tile
           icon="pocivalsek"
           text="Počivalškov govor ob vstopu SMC v vlado smo opremili s satiričnimi podnapisi in sprožili debato o pošteni uporabi avtorskih materialov."
+          href="https://danesjenovdan.si/videogalerija?video=https%3A%2F%2Fyoutu.be%2FMnUuwDKA5c4"
         />
         <achievement-tile
           icon="sodelovanje"
           text="Sodelovali smo s številnimi domačimi in tujimi civilnodružbenimi in nevladnimi organizacijami."
+          href="https://danesjenovdan.si/o-nas"
         />
         <achievement-tile
           icon="pojavljanja"
           text="Kot strokovni sogovorniki smo pogosto nastopali v medijih"
+          href="https://danesjenovdan.si/pojavljanja"
         />
         <achievement-tile
           icon="zicar"
           text="Ob petletnici sramotne žice na meji smo lansirali spletno igro Žicar 2.0."
+          href="https://danesjenovdan.si/zicar/"
         />
         <achievement-tile
           icon="zradirani"
           text="V boju proti deložaciji smo podprli organizacije in ustvarjalce z Metelkove 6."
+          href="https://www.zradirani-metelkova6.si/"
         />
         <achievement-tile
           icon="newsgradient"
           text="Objavili smo Newsgradient Bosna in Hercegovina."
+          href="http://newsgradient.org/"
         />
       </div>
     </div>
@@ -128,7 +142,7 @@
         <h1>Doniraj za nov dan</h1>
       </div>
     </div>
-    <div class="py-5 row justify-content-center">
+    <div class="row justify-content-center">
       <div class="col limit-like-p d-flex">
         <div class="row">
           <div class="col-sm">
@@ -367,7 +381,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://danesjenovdan.si/djnd-og-doniraj.png',
+          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
         },
         {
           hid: 'twitter:title',
@@ -383,7 +397,7 @@ export default {
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://danesjenovdan.si/djnd-og-doniraj.png',
+          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
         },
       ],
     };
@@ -436,7 +450,6 @@ export default {
   text-shadow: -1px 1px 0 #333333, 1px 1px 0 #333333, 1px -1px 0 #333333,
     -1px -1px 0 #333333;
 
-  padding-left: 50px;
   z-index: 200;
 
   .strikethrough {
@@ -471,6 +484,12 @@ h1 {
   margin-bottom: 50px;
   text-align: left;
   width: 100%;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 55px;
+    line-height: 70px;
+    margin-bottom: 0;
+  }
 }
 p {
   font-size: 20px;
@@ -536,6 +555,12 @@ p {
     font-style: italic;
     @include media-breakpoint-up(xl) {
       margin-right: 60px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 0;
+      font-size: 55px;
+      line-height: 70px;
     }
   }
 }
@@ -667,5 +692,11 @@ p {
   padding-left: 5vw;
   padding-top: 100px;
   padding-bottom: 100px;
+
+  @include media-breakpoint-down(sm) {
+    padding-left: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 </style>

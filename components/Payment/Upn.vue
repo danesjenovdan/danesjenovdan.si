@@ -6,36 +6,22 @@
       <div class="form-group">
         <label>Položnico za plačilo prejmeš na svoj e-naslov.</label>
       </div>
-      <more-button
-        :to="localePath('shop-checkout')"
-        :text="'KUPI'"
-        block
-        color="secondary"
-        icon="heart"
-        @click.native="sendUPN"
-      />
     </form>
   </div>
 </template>
 
 <script>
-import MoreButton from '~/components/MoreButton.vue';
-
 export default {
-  components: {
-    MoreButton,
-  },
   data() {
     return {
       error: null,
     };
   },
   mounted() {
-    this.$emit('ready');
+    this.$emit('ready', { pay: this.sendUPN });
   },
   methods: {
     sendUPN() {
-      // eslint-disable-next-line no-console
       this.$emit('success');
     },
   },

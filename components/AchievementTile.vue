@@ -1,9 +1,10 @@
 <template>
   <a
-    :class="['achievement-tile', { empty }]"
+    :class="['achievement-tile', { empty, href: href === '#' }]"
     :style="{ 'z-index': zIndex }"
     @mouseover="hover"
     @mouseleave="deHover"
+    :href="href"
   >
     <template v-if="!empty">
       <img class="achievement-icon" :src="`/icons/achievements/${icon}.svg`" />
@@ -26,6 +27,10 @@ export default {
     empty: {
       required: false,
       default: false,
+    },
+    href: {
+      required: false,
+      default: '#',
     },
   },
 
@@ -85,10 +90,15 @@ export default {
 
   &:hover {
     transform: translate(0, -10%) scale(1.2);
+    text-decoration: none;
 
     &::before {
-      opacity: 1;
+      opacity: 1 !important;
     }
+  }
+
+  &.href {
+    cursor: default;
   }
 
   &.empty {
@@ -131,6 +141,34 @@ export default {
     text-align: left;
     margin-top: 26px;
     z-index: 3;
+  }
+
+  @include media-breakpoint-down(sm) {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    .achievement-icon {
+      float: left;
+      width: 15%;
+      height: auto;
+      margin-right: 5%;
+    }
+
+    p {
+      float: left;
+      width: 80%;
+      margin-top: 16px;
+    }
+
+    &:nth-child(2n + 1)::before {
+      opacity: 0.03;
+    }
+
+    &:nth-child(2n)::before {
+      opacity: 0.08;
+    }
   }
 }
 </style>

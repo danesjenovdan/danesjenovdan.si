@@ -181,7 +181,8 @@
           <template v-if="payment === 'upn'">
             <upn-payment
               :amount="selectedDonationAmount"
-              @ready="onPaymentReady"
+              @ready="onUPNPaymentReady"
+              @success="paymentSuccess"
             />
           </template>
           <div class="cart-total">
@@ -250,7 +251,7 @@ export default {
       donationPresets: [
         {
           amount: 5,
-          description: 'Čaka te mini presenečenje!',
+          description: '',
           selected: false,
           eventName: 'five',
           monthly: true,
@@ -258,7 +259,7 @@ export default {
         },
         {
           amount: 11,
-          description: 'Čaka te mini presenečenje!',
+          description: '',
           selected: false,
           eventName: 'eleven',
           monthly: true,
@@ -266,7 +267,7 @@ export default {
         },
         {
           amount: 24,
-          description: 'Čaka te majhno presenečenje!',
+          description: '',
           selected: false,
           eventName: 'twentyfour',
           monthly: true,
@@ -274,7 +275,7 @@ export default {
         },
         {
           amount: 47,
-          description: 'Čaka te presečenje!',
+          description: '',
           selected: false,
           eventName: 'fortyseven',
           monthly: true,
@@ -282,7 +283,7 @@ export default {
         },
         {
           amount: 101,
-          description: 'Ti si presenečenje! In čaka te ornk presenečenje :)',
+          description: '',
           selected: false,
           eventName: 'whale',
           monthly: false,
@@ -413,6 +414,11 @@ export default {
       this.paymentInfoValid = false;
       this.payFunction = pay;
     },
+    onUPNPaymentReady({ pay } = {}) {
+      this.checkoutLoading = false;
+      this.paymentInfoValid = true;
+      this.payFunction = pay;
+    },
     onPaymentChange(payment) {
       this.checkoutLoading = true;
       this.paymentInfoValid = false;
@@ -529,10 +535,11 @@ export default {
       text-align: right;
       background-color: rgba($color-red, 0.15);
       padding: 0.5rem 1rem;
+      margin: auto auto 0 auto;
+      margin-top: 1.5rem;
       margin-bottom: 1rem;
       width: 100%;
       max-width: 350px;
-      margin: auto auto 0 auto;
 
       i {
         font-weight: 600;
