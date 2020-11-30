@@ -1,11 +1,11 @@
 <template>
   <div class="donation-summary">
     <div class="row">
-      <div class="col">
+      <div class="col-lg">
         <h1 class="donation-summary-title">ZBRANO ŽE</h1>
         <p class="donation-summary-number">{{ totalDonations }}&nbsp;€</p>
       </div>
-      <div class="col">
+      <div class="col-lg">
         <h1 class="donation-summary-title">NAJVIŠJA&nbsp;DONACIJA</h1>
         <p class="donation-summary-number">{{ maxDonation }}&nbsp;€</p>
       </div>
@@ -40,6 +40,7 @@ export default {
     font-style: italic;
     font-weight: 600;
     margin: 0;
+    margin-bottom: 5px;
   }
   .donation-summary-number {
     font-size: 50px;

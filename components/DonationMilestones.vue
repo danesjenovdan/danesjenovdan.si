@@ -19,7 +19,7 @@
       </div>
       <div
         :style="{
-          'background-image': `url(/img/milestones/${milestone.icon}.svg)`,
+          'background-image': `url(/icons/mejniki/${milestone.icon}.svg)`,
         }"
         class="donation-milestone-icon"
       ></div>
@@ -59,36 +59,39 @@ export default {
     return {
       milestones: [
         {
+          number: 5,
+          text:
+            'slovenskih EU poslancev, ki so glasovali za Direktivo o avtorski pravici na digitalnem enotnem trgu.',
+          icon: '1_euposlanci',
+        },
+        {
           number: 10,
-          text: 'ljudi, potrebnih za vzpostavitev verske skupnosti',
-          icon: '1_verskaskupnost',
-        },
-        {
-          number: 26,
           text:
-            'znanih oseb, ki so oktobra 2011 podprle Jankovićevo kandidaturo na parlamentarnih volitvah',
-          icon: '2_jankovic',
+            'mednarodnih voditeljev (vključujoč Janšo), ki so podprli Trumpovo kandidaturo.',
+          icon: '2_trump',
         },
         {
-          number: 50,
-          text: 'članov Štajerske varde',
-          icon: '3_varda',
-        },
-        {
-          number: 70,
-          text: 'ustanovnih delničarjev podjetja NOVATV24',
-          icon: '4_nova24',
-        },
-        {
-          number: 99,
-          text: 'članov skupščine Gospodarske Zbornice Slovenije',
-          icon: '5_gzs',
-        },
-        {
-          number: 134,
+          number: 14,
           text:
-            'posameznikov, ki na Airbnb oddajajo več kot 2 stanovanji v Ljubljani',
-          icon: '6_lastniki',
+            'poslancev DeSUS in SMC, ki so podprli Janeza Janšo za predsednika vlade',
+          icon: '3_jansa',
+        },
+        {
+          number: 32,
+          text:
+            'rumenih jopičev na antiproslavi ob letošnjem dnevu državnosti.',
+          icon: '4_rumenijopici',
+        },
+        {
+          number: 48,
+          text:
+            'poslancev, ki so glasovali za 780-milijonsko investicijo v vojsko.',
+          icon: '5_vojska',
+        },
+        {
+          number: 71,
+          text: 'lobistov, ki so obiskali Toninovo Ministrstvo za obrambo.',
+          icon: '6_lobisti',
         },
       ],
     };

@@ -153,8 +153,8 @@
       <template slot="content">
         <div class="payment-container">
           <payment-switcher
-            @change="onPaymentChange"
             :recurring="monthlyDonation"
+            @change="onPaymentChange"
           />
           <div v-if="checkoutLoading" class="payment-loader">
             <div class="lds-dual-ring" />
@@ -166,6 +166,7 @@
               @validity-change="paymentInfoValid = $event"
               @payment-start="paymentInProgress = true"
               @success="paymentSuccess"
+              @error="paymentError"
             />
           </template>
           <template v-if="payment === 'paypal'">
@@ -302,6 +303,7 @@ export default {
       paymentInfoValid: false,
       paymentInProgress: false,
       token: null,
+      customerId: null,
       payment: null,
       nonce: undefined,
       firstName: null,
@@ -353,6 +355,12 @@ export default {
     },
   },
   methods: {
+    paymentError(argument) {
+      // eslint-disable-next-line
+      console.log('ERROR VERY ERROR');
+      // eslint-disable-next-line
+      console.log(argument);
+    },
     selectDonationPreset(sdp) {
       this.donationPresets.forEach((dp) => {
         dp.selected = dp === sdp;
@@ -371,6 +379,7 @@ export default {
               'https://podpri.djnd.si/api/donate/',
             );
             this.token = checkoutResponse.token;
+            this.customerId = checkoutResponse.customer_id;
             this.stage = 'payment';
           } catch (error) {
             // eslint-disable-next-line no-console
@@ -411,16 +420,28 @@ export default {
     },
     async paymentSuccess({ nonce } = {}) {
       this.nonce = nonce;
-
+      const paymentURL = this.monthlyDonation
+        ? 'https://podpri.djnd.si/api/monthly-donation/'
+        : 'https://podpri.djnd.si/api/donate/';
+      // eslint-disable-next-line
+      console.log(paymentURL);
       try {
-        await this.$axios.$post(`https://podpri.djnd.si/api/donate/`, {
+        const response = await this.$axios.$post(paymentURL, {
           // payment_type: this.nonce ? 'braintree' : 'upn',
           nonce: this.nonce,
+          customer_id: this.customerId,
           amount: this.selectedDonationAmount,
+          email: this.email,
+          name: `${this.firstName} ${this.lastName}`,
+          address: `${this.streetAddress}, ${this.postalCode} ${this.post}`,
+          mailing: this.mailing,
         });
 
         this.paymentInProgress = false;
-        this.stage = 'info';
+        this.$router.push(
+          // this.localePath({ name: 'thanks', query: { token } }),
+          `/doniraj/hvala?token=${response.upload_token}`,
+        );
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error.response);
