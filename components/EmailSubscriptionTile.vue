@@ -1,5 +1,11 @@
 <template>
-  <div :class="['email-subscription-tile', `section--${color}`]">
+  <div
+    :class="[
+      'email-subscription-tile',
+      `section--${color}`,
+      { 'email-subscription-tile--alt': altLayout },
+    ]"
+  >
     <div class="row">
       <div class="left-col">
         <div class="header">
@@ -99,6 +105,10 @@ export default {
       default: false,
     },
     checked: {
+      type: Boolean,
+      default: false,
+    },
+    altLayout: {
       type: Boolean,
       default: false,
     },
@@ -237,6 +247,37 @@ export default {
     .custom-switch {
       margin-right: -0.75rem;
       margin-bottom: 0;
+    }
+  }
+}
+
+.email-subscription-tile.email-subscription-tile--alt {
+  .header {
+    .icon {
+      display: none;
+    }
+
+    h2 {
+      font-size: 2rem;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .left-col {
+    min-height: auto;
+
+    .switch-container {
+      display: none !important;
+    }
+  }
+
+  .right-col {
+    .switch-container {
+      display: flex !important;
+      margin-top: 0;
     }
   }
 }
