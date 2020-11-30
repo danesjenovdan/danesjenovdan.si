@@ -1,226 +1,259 @@
 <template>
   <div class="checkout">
-    <div v-if="error" class="alert alert-danger">
+    <div v-if="error" class="alert alert-danger text-center mt-2">
       <p>
-        Zgodila se je napaka št. {{ error.status }}. Naš strežnik je ni mogel
-        rešiti, prejel je naslednje sporočilo:
-        <strong>{{ error.data.msg }}</strong>
-      </p>
-      <p>
+        Zgodila se je napaka, ki je naš strežnik ni mogel rešiti.<br />
         Zaračunali ti nismo ničesar, ves denar je še vedno na tvoji kartici.
         Predlagamo, da osvežiš stran in poskusiš ponovno. Če ne bo šlo, nam piši
         na
-        <a href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a> in ti
-        bomo poskusili pomagati.
+        <a href="mailto:vsi@danesjenovdan.si" class="text-danger"
+          >vsi@danesjenovdan.si</a
+        >
+        in ti bomo poskusili pomagati.
+      </p>
+      <p class="small font-weight-bold mb-0">
+        Error: {{ error.status || error.code }} ({{
+          error.message || (error.data && error.data.msg)
+        }})
       </p>
     </div>
 
-    <div v-else-if="stage === 'summary'" class="checkout__summary">
-      <h1 class="checkout__title">Povzetek naročila</h1>
-      <template v-if="summaryLoading">
-        <div class="loader-container">
-          <div class="lds-dual-ring" />
-        </div>
-      </template>
-      <template v-else>
-        <template v-for="item in items">
-          <!-- TODO: text="variant text" -->
-          <cart-product
-            :key="`${item.id}`"
-            :image="`/img/products/${item.article.id}.jpg`"
-            :title="
-              $te(`shop.products.${item.article.id}.display_name`)
-                ? $t(`shop.products.${item.article.id}.display_name`)
-                : item.article.name
-            "
-            :price="item.article.price"
-            :amount="item.quantity"
-            text=""
-          />
-          <hr :key="`${item.id}-hr`" />
-        </template>
-        <div class="cart-total">
-          <span>Skupaj</span>
-          <i>{{ totalPrice }} €</i>
-        </div>
-        <more-button
-          key="next-summary"
-          :to="localePath('shop-checkout')"
-          :text="'KUPI'"
-          block
-          color="secondary"
-          icon="heart"
-          @click.native="continueToDelivery"
-        />
-      </template>
-    </div>
-
-    <div v-else-if="stage === 'delivery'" class="checkout__delivery">
-      <h1 class="checkout__title">Prevzem</h1>
-      <form @submit.prevent="continueToPayment">
-        <div class="custom-control custom-radio">
-          <input
-            id="delivery-pickup"
-            v-model="delivery"
-            type="radio"
-            name="delivery"
-            class="custom-control-input"
-            value="pickup"
-          />
-          <label class="custom-control-label" for="delivery-pickup"
-            >Osebni prevzem</label
-          >
-        </div>
-        <div class="custom-control custom-radio">
-          <input
-            id="delivery-post"
-            v-model="delivery"
-            type="radio"
-            name="delivery"
-            class="custom-control-input"
-            value="post"
-          />
-          <label class="custom-control-label" for="delivery-post"
-            >Pošlji po pošti</label
-          >
-        </div>
-        <template v-if="delivery">
-          <div class="form-group">
-            <input
-              id="name"
-              v-model="name"
-              placeholder="Ime in priimek"
-              class="form-control form-control-lg"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              id="email"
-              v-model="email"
-              type="email"
-              placeholder="Email"
-              class="form-control form-control-lg"
-            />
-          </div>
-          <!-- TODO: preveri če rabimo naslov za izdajo računa tudi pri osebnem prevzemu? -->
-          <template v-if="delivery === 'post'">
-            <div class="form-group">
-              <input
-                id="address"
-                v-model="address"
-                placeholder="Naslov"
-                class="form-control form-control-lg"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                id="address-post"
-                v-model="addressPost"
-                placeholder="Poštna številka in pošta"
-                class="form-control form-control-lg"
+    <template v-if="stage === 'summary'">
+      <div class="checkout__summary">
+        <checkout-stage>
+          <template slot="title"> Povzetek naročila </template>
+          <template slot="content">
+            <template v-if="summaryLoading">
+              <div class="loader-container">
+                <div class="lds-dual-ring" />
+              </div>
+            </template>
+            <template v-else-if="items && items.length">
+              <div class="cart-items">
+                <template v-for="(item, i) in items">
+                  <cart-product
+                    :key="item.id"
+                    :image="getDisplayImage(item.article)"
+                    :title="getDisplayName(item.article)"
+                    :price="item.article.price"
+                    :amount="item.quantity"
+                    :text="item.article.variant || ''"
+                    show-modify
+                    large
+                    @change-amount="onChangeAmount(item.id, $event)"
+                  />
+                  <hr v-if="i !== items.length - 1" :key="`${item.id}-hr`" />
+                </template>
+              </div>
+              <div class="cart-total">
+                <span>Znesek za plačilo</span>
+                <i>{{ totalPrice }} €</i>
+              </div>
+            </template>
+          </template>
+          <template slot="footer">
+            <div class="confirm-button-container">
+              <confirm-button
+                key="next-summary"
+                :disabled="!canContinueToNextStage"
+                text="Kupi"
+                color="secondary"
+                arrow
+                hearts
+                block
+                @click.native="continueToNextStage"
               />
             </div>
           </template>
-        </template>
-        <!-- this is here so you can submit the form with the enter key -->
-        <input type="submit" hidden />
-      </form>
-      <more-button
-        v-if="!checkoutLoading"
-        key="next-delivery"
-        :to="localePath('shop-checkout')"
-        :text="'KUPI'"
-        :disabled="!canContinueToPayment"
-        block
-        color="secondary"
-        icon="heart"
-        @click.native="continueToPayment"
-      />
-      <template v-else>
-        <div class="loader-container load-container--small">
-          <div class="lds-dual-ring" />
-        </div>
-      </template>
-    </div>
+        </checkout-stage>
+      </div>
+    </template>
 
-    <checkout-stage v-if="stage === 'payment'">
-      <template slot="title">
-        Plačilo
-      </template>
-      <template slot="content">
-        <div class="payment-container">
-          <payment-switcher @change="onPaymentChange" />
-          <div v-if="checkoutLoading" class="payment-loader">
-            <div class="lds-dual-ring" />
-          </div>
-          <template v-if="payment === 'card'">
-            <card-payment
-              :token="token"
-              @ready="onPaymentReady"
-              @validity-change="paymentInfoValid = $event"
-              @payment-start="paymentInProgress = true"
-              @success="paymentSuccess"
-            />
+    <template v-else-if="stage === 'delivery'">
+      <div class="checkout__delivery">
+        <checkout-stage>
+          <template slot="title"> Podatki </template>
+          <template slot="content">
+            <form @submit.prevent="continueToPayment">
+              <template v-if="delivery">
+                <div class="form-group">
+                  <input
+                    id="name"
+                    v-model="name"
+                    placeholder="Ime"
+                    class="form-control form-control-lg"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    id="last-name"
+                    v-model="lastName"
+                    placeholder="Priimek"
+                    class="form-control form-control-lg"
+                  />
+                </div>
+                <template v-if="delivery === 'post'">
+                  <div class="form-group">
+                    <input
+                      id="address"
+                      v-model="address"
+                      placeholder="Ulica in hišna številka"
+                      class="form-control form-control-lg"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      id="address-post"
+                      v-model="addressPost"
+                      placeholder="Poštna številka in pošta"
+                      class="form-control form-control-lg"
+                    />
+                  </div>
+                </template>
+                <div class="form-group">
+                  <input
+                    id="email"
+                    v-model="email"
+                    type="email"
+                    placeholder="Email"
+                    class="form-control form-control-lg"
+                  />
+                </div>
+              </template>
+              <div class="custom-control custom-checkbox">
+                <input
+                  id="info-newsletter"
+                  v-model="newsletter"
+                  type="checkbox"
+                  class="custom-control-input"
+                />
+                <label class="custom-control-label" for="info-newsletter"
+                  >Želim se naročiti na e-novice.</label
+                >
+              </div>
+              <!-- this is here so you can submit the form with the enter key -->
+              <input type="submit" hidden />
+            </form>
           </template>
-          <template v-if="payment === 'paypal'">
-            <paypal-payment
-              :token="token"
-              :amount="totalPrice"
-              @ready="onPaymentReady"
-              @payment-start="paymentInProgress = true"
-              @success="paymentSuccess"
-            />
+          <template slot="footer">
+            <div class="confirm-button-container">
+              <confirm-button
+                key="next-delivery"
+                :disabled="!canContinueToPayment"
+                :loading="checkoutLoading"
+                text="Naprej"
+                color="secondary"
+                arrow
+                hearts
+                block
+                @click.native="continueToPayment"
+              />
+            </div>
+            <div class="bottom-back-link">
+              <dynamic-link @click="stage = 'summary'">Nazaj</dynamic-link>
+            </div>
           </template>
-          <template v-if="payment === 'upn'">
-            <upn-payment />
+        </checkout-stage>
+      </div>
+    </template>
+
+    <template v-else-if="stage === 'payment'">
+      <div class="checkout__payment">
+        <checkout-stage>
+          <template slot="title"> Plačilo </template>
+          <template slot="content">
+            <div class="payment-container">
+              <payment-switcher @change="onPaymentChange" />
+              <div v-if="checkoutLoading" class="payment-loader">
+                <div class="lds-dual-ring" />
+              </div>
+              <template v-if="payment === 'card'">
+                <div
+                  :class="['payment', { 'payment--loading': checkoutLoading }]"
+                >
+                  <card-payment
+                    :token="token"
+                    @ready="onPaymentReady"
+                    @error="onPaymentError"
+                    @validity-change="paymentInfoValid = $event"
+                    @payment-start="paymentInProgress = true"
+                    @success="paymentSuccess"
+                  />
+                </div>
+              </template>
+              <template v-if="payment === 'paypal'">
+                <div
+                  :class="['payment', { 'payment--loading': checkoutLoading }]"
+                >
+                  <paypal-payment
+                    :token="token"
+                    :amount="totalPrice"
+                    @ready="onPaymentReady"
+                    @error="onPaymentError"
+                    @payment-start="paymentInProgress = true"
+                    @success="paymentSuccess"
+                  />
+                </div>
+              </template>
+              <template v-if="payment === 'upn'">
+                <upn-payment
+                  :amount="totalPrice"
+                  @ready="onPaymentReady"
+                  @success="paymentSuccess"
+                />
+              </template>
+            </div>
+            <div class="cart-total">
+              <span>Znesek za plačilo</span>
+              <i>{{ totalPrice }} €</i>
+            </div>
           </template>
-        </div>
-      </template>
-      <template slot="footer">
-        <div class="confirm-button-container">
-          <confirm-button
-            key="next-payment"
-            :disabled="!canContinueToNextStage"
-            :loading="paymentInProgress"
-            text="Plačaj"
-            color="secondary"
-            arrow
-            hearts
-            @click.native="continueToNextStage"
-          />
-        </div>
-      </template>
-    </checkout-stage>
+          <template slot="footer">
+            <div class="confirm-button-container">
+              <confirm-button
+                key="next-payment"
+                :disabled="!canContinueToNextStage"
+                :loading="paymentInProgress"
+                text="Plačaj"
+                color="secondary"
+                arrow
+                hearts
+                block
+                @click.native="continueToNextStage"
+              />
+            </div>
+            <div class="bottom-back-link">
+              <dynamic-link @click="stage = 'delivery'">Nazaj</dynamic-link>
+            </div>
+          </template>
+        </checkout-stage>
+      </div>
+    </template>
 
     <div v-else-if="stage === 'thankyou'" class="checkout__thankyou">
       <div class="thankyou__content">
+        <h1>Hvala!</h1>
         <div>
           <div class="icon icon-confetti-popper--secondary" />
         </div>
-        <h1 class="checkout__title">Hvala!</h1>
-        <!-- <div>
+        <div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vitae
             similique, ad quis iste veniam voluptates.
           </p>
-        </div> -->
+        </div>
+        <div class="thankyou__close">
+          <nuxt-link :to="localePath('shop')" class="close-button"
+            >ZAPRI</nuxt-link
+          >
+        </div>
       </div>
-      <div class="thankyou__close">
-        <nuxt-link :to="localePath('shop')" class="close-button"
-          >ZAPRI</nuxt-link
-        >
-      </div>
-    </div>
-
-    <div class="terms">
-      <nuxt-link target="_blank" to="/pogoji">Pogoji poslovanja</nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
 import shopMixin from '~/mixins/shop.js';
-import MoreButton from '~/components/MoreButton.vue';
 import CartProduct from '~/components/CartProduct.vue';
 import PaymentSwitcher from '~/components/Payment/Switcher.vue';
 import CardPayment from '~/components/Payment/Card.vue';
@@ -228,6 +261,7 @@ import PaypalPayment from '~/components/Payment/Paypal.vue';
 import UpnPayment from '~/components/Payment/Upn.vue';
 import CheckoutStage from '~/components/CheckoutStage.vue';
 import ConfirmButton from '~/components/ConfirmButton.vue';
+import DynamicLink from '~/components/DynamicLink.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -243,7 +277,6 @@ export default {
   },
   layout: 'checkout',
   components: {
-    MoreButton,
     CartProduct,
     PaymentSwitcher,
     CardPayment,
@@ -251,6 +284,7 @@ export default {
     UpnPayment,
     CheckoutStage,
     ConfirmButton,
+    DynamicLink,
   },
   mixins: [shopMixin],
   data() {
@@ -258,8 +292,9 @@ export default {
       stage: 'summary',
       summaryLoading: true,
       checkoutLoading: false,
-      delivery: null,
+      delivery: 'post',
       name: null,
+      lastName: null,
       email: null,
       address: null,
       addressPost: null,
@@ -271,6 +306,7 @@ export default {
       orderKey: null,
       items: null,
       error: null,
+      newsletter: false,
     };
   },
   computed: {
@@ -287,7 +323,7 @@ export default {
       if (!this.delivery) {
         return false;
       }
-      if (!this.name || !this.email) {
+      if (!this.name || !this.lastName || !this.email) {
         return false;
       }
       if (!EMAIL_REGEX.test(this.email)) {
@@ -304,8 +340,10 @@ export default {
       return true;
     },
     canContinueToNextStage() {
-      if (this.stage === 'payment') {
-        return this.payFunction && this.paymentInfoValid;
+      if (this.stage === 'summary') {
+        return this.items && this.items.length;
+      } else if (this.stage === 'payment') {
+        return this.payFunction && this.paymentInfoValid && !this.error;
       }
       return false;
     },
@@ -319,8 +357,9 @@ export default {
     }
   },
   methods: {
-    continueToDelivery() {
-      this.stage = 'delivery';
+    async onChangeAmount(itemId, newAmount) {
+      await this.changeAmount(this.orderKey, itemId, newAmount);
+      this.items = await this.getBasketItems(this.orderKey);
     },
     async continueToPayment() {
       try {
@@ -334,7 +373,7 @@ export default {
         const checkoutResponse = await this.$axios.$post(
           `https://podpri.djnd.si/api/shop/checkout/?order_key=${this.orderKey}`,
           {
-            name: this.name,
+            name: `${this.name} ${this.lastName}`,
             email: this.email,
             address: this.address || '',
             post: this.addressPost || '',
@@ -352,7 +391,9 @@ export default {
     },
     continueToNextStage() {
       if (this.canContinueToNextStage) {
-        if (this.stage === 'payment') {
+        if (this.stage === 'summary') {
+          this.stage = 'delivery';
+        } else if (this.stage === 'payment') {
           if (this.payFunction) {
             this.payFunction();
           }
@@ -364,7 +405,14 @@ export default {
       this.paymentInfoValid = false;
       this.payFunction = pay;
     },
+    onPaymentError({ error }) {
+      this.error = error;
+      this.checkoutLoading = false;
+      this.paymentInfoValid = false;
+      this.payFunction = null;
+    },
     onPaymentChange(payment) {
+      this.error = null;
       this.checkoutLoading = true;
       this.paymentInfoValid = false;
       this.payment = payment;
@@ -401,24 +449,98 @@ export default {
   }
 }
 
-// temp styles
-.checkout__summary,
-.checkout__delivery,
-.checkout__payment,
-.checkout__thankyou {
-  @include media-breakpoint-up(md) {
-    width: 540px;
-    margin: 0 auto;
-  }
-}
-
-// new styles
 .checkout {
+  .checkout__thankyou,
+  .checkout__payment,
+  .checkout__delivery,
+  .checkout__summary {
+    @include media-breakpoint-up(md) {
+      width: 540px;
+      margin: 0 auto;
+    }
+  }
+
+  .cart-items {
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 2rem;
+    }
+
+    hr {
+      border-top-color: #333;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+
+      @include media-breakpoint-up(md) {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .cart-total {
+    text-align: right;
+    background-color: rgba($color-red, 0.15);
+    padding: 0.75rem 1.5rem;
+    margin-top: auto;
+    margin-bottom: 1rem;
+    line-height: 1.25rem;
+
+    @include media-breakpoint-up(md) {
+      line-height: 1.75rem;
+    }
+
+    span {
+      font-size: 1rem;
+      line-height: 1rem;
+      font-weight: 300;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.25rem;
+      }
+    }
+
+    i {
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1;
+      margin-left: 0.5rem;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.75rem;
+      }
+    }
+  }
+
   .confirm-button-container {
     text-align: center;
   }
 
+  .bottom-back-link {
+    margin-top: 1rem;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      font-size: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    a {
+      color: inherit;
+      font-style: italic;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+  }
+
   .payment-container {
+    flex: 1;
+    max-width: 540px;
+    margin: 0 auto 1rem;
+    display: flex;
+    flex-direction: column;
+
     .payment-loader {
       position: fixed;
       top: -1rem;
@@ -431,44 +553,14 @@ export default {
       justify-content: center;
       align-items: center;
     }
-  }
 
-  .payment-container,
-  .info-content {
-    max-width: 540px;
-    margin: 0 auto;
-  }
-}
+    .payment {
+      margin: auto 0;
 
-// old styles
-.checkout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  h1 {
-    font-size: 1.85rem;
-    text-align: center;
-    font-weight: 600;
-    margin: 3rem 0;
-  }
-
-  .cart-total {
-    text-align: right;
-    background-color: rgba($color-red, 0.15);
-    padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
-
-    i {
-      font-weight: 600;
-      font-size: 1.25rem;
-      margin-left: 0.25rem;
+      &.payment--loading {
+        opacity: 0;
+      }
     }
-  }
-
-  .payment-switcher {
-    margin-bottom: 2rem;
   }
 
   .checkout__thankyou {
@@ -476,8 +568,6 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 250px;
-    margin: 0 auto;
 
     .thankyou__content {
       display: flex;
@@ -486,7 +576,7 @@ export default {
       flex: 1;
 
       .icon {
-        margin: 0 auto;
+        margin: 0 auto 1.5rem;
         width: 120px;
         height: 120px;
       }
@@ -495,6 +585,7 @@ export default {
         text-transform: uppercase;
         margin-top: 1.5rem;
         margin-bottom: 2rem;
+        text-align: center;
       }
 
       p {
@@ -502,41 +593,37 @@ export default {
         font-weight: 300;
         margin: 0 auto;
       }
-    }
 
-    .thankyou__close {
-      margin-bottom: 3rem;
+      .thankyou__close {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
 
-      .close-button {
-        display: block;
-        width: 100%;
-        border: 1px solid $color-red;
-        padding: 0.5rem 1.5rem;
-        font-size: 1.2rem;
-        font-style: italic;
-        font-weight: 600;
-        color: inherit;
-        text-decoration: none;
-        background: transparent;
-        text-align: center;
+        .close-button {
+          display: block;
+          width: 250px;
+          margin: 0 auto;
+          border: 1px solid $color-red;
+          padding: 0.5rem 1.5rem;
+          font-size: 1.2rem;
+          font-style: italic;
+          font-weight: 600;
+          color: inherit;
+          text-decoration: none;
+          background: transparent;
+          text-align: center;
+        }
       }
     }
   }
-}
+  .custom-checkbox {
+    margin-bottom: 1rem;
 
-.terms {
-  text-align: center;
-  margin: 2.5rem 0 1rem;
-  color: #333;
-
-  a {
-    text-decoration: underline;
-    color: inherit;
-    font-style: italic;
-    font-weight: 300;
-
-    &:hover {
-      text-decoration: none;
+    .custom-control-label {
+      font-size: 1rem;
+      line-height: 1.1;
+      min-height: 2rem;
+      display: flex;
+      align-items: center;
     }
   }
 }

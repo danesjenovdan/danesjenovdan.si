@@ -1,16 +1,21 @@
 <template>
-  <div class="card-payment">
-    <div v-if="error" class="alert alert-danger">{{ error }}</div>
+  <div class="paypal-payment">
+    <payment-error v-if="error" />
     <form v-else>
       <div class="form-group">
         <label>Nadaljuj s klikom na gumb</label>
         <div id="paypal-button" />
+      </div>
+      <div v-if="warning" class="form-group">
+        <div class="alert alert-warning">{{ warning }}</div>
       </div>
     </form>
   </div>
 </template>
 
 <script>
+import PaymentError from './Error.vue';
+
 let braintree = null;
 let paypal = null;
 if (typeof window !== 'undefined') {
@@ -19,6 +24,9 @@ if (typeof window !== 'undefined') {
 }
 
 export default {
+  components: {
+    PaymentError,
+  },
   props: {
     token: {
       type: String,
@@ -33,6 +41,7 @@ export default {
     return {
       hostedFieldsInstance: null,
       error: null,
+      warning: null,
     };
   },
   async mounted() {
@@ -66,26 +75,31 @@ export default {
               });
             },
             onAuthorize: (data, actions) => {
+              this.warning = null;
               this.$emit('payment-start');
               return paypalCheckoutInstance.tokenizePayment(
                 data,
                 (error, payload) => {
-                  this.error = error;
-                  this.$emit('success', { nonce: payload.nonce });
+                  if (error) {
+                    // eslint-disable-next-line no-console
+                    console.error(error);
+                    this.error = error;
+                    this.$emit('error', { error });
+                  } else {
+                    this.$emit('success', { nonce: payload.nonce });
+                  }
                 },
               );
-              // .then((payload) => {
-              //   this.error = null;
-              //   this.$emit('success', { nonce: payload.nonce });
-              // });
             },
             onCancel: (data) => {
-              this.error = 'Payment Cancelled';
+              this.warning = 'Payment Cancelled';
             },
             onError: (error) => {
+              this.warning = null;
               // eslint-disable-next-line no-console
               console.error(error);
               this.error = error.message;
+              this.$emit('error', { error });
             },
           },
           '#paypal-button',
@@ -95,6 +109,7 @@ export default {
         // eslint-disable-next-line no-console
         console.error(error);
         this.error = error.message;
+        this.$emit('error', { error });
       }
     }
   },
@@ -102,10 +117,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-label {
-  font-size: 1.25rem;
-  font-weight: 300;
-  text-align: center;
-  display: block;
+.paypal-payment {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+
+  label {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+    display: block;
+  }
 }
 </style>

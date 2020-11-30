@@ -19,21 +19,27 @@
           PayPal
         </button>
       </div>
-      <!-- <div class="nav-item">
+      <div class="nav-item" v-if="!recurring">
         <button
           :class="['nav-link', { active: active === 'upn' }]"
-          @click="changeActive('upn')"
           type="button"
+          @click="changeActive('upn')"
         >
           Položnica
         </button>
-      </div> -->
+      </div>
     </nav>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    recurring: {
+      default: false,
+      required: false,
+    },
+  },
   data() {
     return {
       active: 'card',

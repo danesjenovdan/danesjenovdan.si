@@ -27,12 +27,11 @@ export default {
 .page {
   display: flex;
   min-height: 100vh;
-  outline: 1px solid gold;
+  background-color: #fff;
 
   .content {
     flex: 1;
     margin-left: 0;
-    outline: 1px solid magenta;
 
     .content-container {
       padding-left: $content-mobile-padding;

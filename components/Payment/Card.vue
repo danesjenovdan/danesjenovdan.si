@@ -1,46 +1,62 @@
 <template>
   <div class="card-payment">
-    <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    <form v-else>
-      <div class="form-group">
-        <div
-          id="cc-number"
-          :class="['form-control', 'form-control-lg', { focus: numberFocused }]"
+    <payment-error v-if="error" />
+    <template v-else>
+      <form>
+        <div class="form-group">
+          <div
+            id="cc-number"
+            :class="[
+              'form-control',
+              'form-control-lg',
+              { focus: numberFocused },
+            ]"
+          />
+        </div>
+        <div class="form-group">
+          <div
+            id="cc-expirationDate"
+            :class="[
+              'form-control',
+              'form-control-lg',
+              { focus: expirationDateFocused },
+            ]"
+          />
+        </div>
+        <div class="form-group">
+          <div
+            id="cc-cvv"
+            :class="['form-control', 'form-control-lg', { focus: cvvFocused }]"
+          />
+        </div>
+      </form>
+      <div class="card-info">
+        Informacij o tvoji kartici ne pošiljamo na svoj strežnik in ne
+        shranjujemo. Za varnost plačila skrbi
+        <br />
+        <img
+          src="https://s3.amazonaws.com/braintree-badges/braintree-badge-light.png"
+          width="164px"
+          height="44px"
+          border="0"
         />
       </div>
-      <div class="form-group">
-        <div
-          id="cc-expirationDate"
-          :class="[
-            'form-control',
-            'form-control-lg',
-            { focus: expirationDateFocused },
-          ]"
-        />
-      </div>
-      <div class="form-group">
-        <div
-          id="cc-cvv"
-          :class="['form-control', 'form-control-lg', { focus: cvvFocused }]"
-        />
-      </div>
-    </form>
-    <div class="card-info">
-      Informacij o tvoji kartici ne pošiljamo na svoj strežnik in ne
-      shranjujemo. Za varnost plačila skrbi<br /><img
-        src="/img/braintree.png"
-      />
-    </div>
+    </template>
   </div>
 </template>
 
 <script>
+import PaymentError from './Error.vue';
+
 let braintree = null;
 if (typeof window !== 'undefined') {
   braintree = require('braintree-web');
 }
 
 export default {
+  components: {
+    PaymentError,
+  },
   props: {
     token: {
       type: String,
@@ -65,18 +81,17 @@ export default {
           authorization: this.token,
         });
         const placeholderStyle = {
-          'font-style': 'italic',
-          'font-weight': '300',
+          // 'font-style': 'italic',
+          // 'font-weight': '300',
           color: '#444',
-          'text-decoration': 'underline',
+          // 'text-decoration': 'underline',
         };
         const options = {
           client: clientInstance,
           styles: {
             input: {
               'font-size': '19.2px',
-              'font-family':
-                '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
+              'font-family': 'monospace',
             },
             'input.invalid': {
               color: '#dd786b',
@@ -127,6 +142,7 @@ export default {
         // eslint-disable-next-line no-console
         console.error(error);
         this.error = error.message;
+        this.$emit('error', { error });
       }
     }
   },
@@ -137,7 +153,9 @@ export default {
         this.$emit('payment-start');
         this.error = null;
         this.hostedFieldsInstance
-          .tokenize()
+          .tokenize({
+            vault: true,
+          })
           .then((payload) => {
             this.$emit('success', { nonce: payload.nonce });
           })
@@ -145,6 +163,7 @@ export default {
             // eslint-disable-next-line no-console
             console.error(error);
             this.error = error.message;
+            this.$emit('error', { error });
           });
       }
     },
@@ -153,38 +172,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.focus {
-  border: 1px solid $color-red;
-  box-shadow: 0 0 0 0.2rem rgba($color-red, 0.25);
-}
-
-.confirm-button-container {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.loader-container {
-  display: flex;
-  justify-content: center;
-  margin: 3rem 0;
-
-  &.load-container--small {
-    margin: 1rem 0;
-  }
-}
-
-.card-info {
-  font-weight: 300;
-  font-size: 16px;
-  text-align: center;
-  line-height: 24px;
+.card-payment {
+  width: 100%;
   max-width: 350px;
+  margin: 0 auto;
 
-  img {
-    display: inline-block;
-    width: 100px;
-    height: auto;
-    margin-top: 8px;
+  .focus {
+    border: 1px solid $color-red;
+    box-shadow: 0 0 0 0.2rem rgba($color-red, 0.25);
+  }
+
+  .confirm-button-container {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+
+    &.load-container--small {
+      margin: 1rem 0;
+    }
+  }
+
+  .card-info {
+    font-weight: 300;
+    font-size: 1rem;
+    text-align: center;
+
+    img {
+      margin-top: 0.5rem;
+    }
   }
 }
 </style>

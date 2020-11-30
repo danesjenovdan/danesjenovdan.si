@@ -9,49 +9,73 @@
         <h2 class="price">{{ formatPrice(product.price) }}</h2>
       </div>
       <div class="col-12 col-md-4 product__images">
-        <template v-if="$te(`shop.products.${product.id}.images`)">
-          <img
-            v-for="img in $t(`shop.products.${product.id}.images`)"
-            :key="img"
-            :src="img"
-          />
-        </template>
-        <template v-else>
-          <img :src="`/img/products/${product.id}.jpg`" />
-        </template>
+        <img v-for="img in getDisplayImages(product)" :key="img" :src="img" />
       </div>
       <div class="col-12 col-md-8 product__description">
         <p v-t="`shop.products.${product.id}.description`" />
         <hr />
-        <!-- <div>TODO: variants</div> -->
-        <div class="product__variant">
-          <h3 class="variant__title">Količina</h3>
-          <button
-            class="modify-amount modify-amount--minus"
-            @click="changeAmount(amount - 1)"
-          >
-            &ndash;
-          </button>
-          <span class="amount" v-text="amount" />
-          <button
-            class="modify-amount modify-amount--plus"
-            @click="changeAmount(amount + 1)"
-          >
-            +
-          </button>
+        <div
+          v-if="product.variants && product.variants.length"
+          class="product__variant row"
+        >
+          <div class="col-12 col-md-3">
+            <span class="variant__title">Velikost</span>
+          </div>
+          <div class="col d-flex align-items-center">
+            <button
+              v-for="v in sortedVariants"
+              :key="v.id"
+              :class="[
+                'modify-variant',
+                { active: variant && variant.id === v.id },
+              ]"
+              :disabled="v.stock <= 0"
+              @click="changeVariant(v)"
+            >
+              {{ v.variant }}
+            </button>
+          </div>
+        </div>
+        <div class="product__variant row">
+          <div class="col-12 col-md-3">
+            <span class="variant__title">Količina</span>
+          </div>
+          <div class="col d-flex align-items-center">
+            <button
+              class="modify-amount modify-amount--minus"
+              @click="changeAmount(amount - 1)"
+            >
+              &ndash;
+            </button>
+            <span class="amount" v-text="amount" />
+            <button
+              class="modify-amount modify-amount--plus"
+              @click="changeAmount(amount + 1)"
+            >
+              +
+            </button>
+          </div>
         </div>
         <hr />
-        <more-button
-          :text="'KUPI'"
-          block
-          color="secondary"
-          icon="heart"
-          @click="addAndCheckout"
-        />
-        <div class="add-to-basket">
-          <a href="#" @click.prevent="addAndBack">
-            Dodaj v voziček in še malo pobrskaj po policah
-          </a>
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <more-button
+              :text="'KUPI'"
+              block
+              color="secondary"
+              icon="heart"
+              large
+              :disabled="!variant"
+              @click="addAndCheckout"
+            />
+          </div>
+          <div class="col-12 col-lg-6 d-flex align-items-center">
+            <div class="add-to-basket">
+              <a href="#" @click.prevent="addAndBack">
+                Dodaj v voziček in še malo pobrskaj po policah
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -61,6 +85,7 @@
 <script>
 import MoreButton from '~/components/MoreButton.vue';
 import shopMixin from '~/mixins/shop.js';
+import { catchError } from '~/helpers/async.js';
 
 export default {
   pageColor: 'secondary',
@@ -75,24 +100,39 @@ export default {
     MoreButton,
   },
   mixins: [shopMixin],
-  async asyncData({ $axios, params }) {
-    const products = await $axios.$get(
-      'https://podpri.djnd.si/api/shop/products/',
+  asyncData: catchError(async ({ $axios, params }) => {
+    const product = await $axios.$get(
+      `https://podpri.djnd.si/api/shop/products/${params.id}/`,
     );
     return {
-      product: products.find((p) => p.id === Number(params.id)),
-      params,
+      product,
+      variant: product.variants && product.variants.length ? null : product,
     };
-  },
+  }),
   data() {
     return {
       orderKey: null,
       amount: 1,
     };
   },
+  computed: {
+    sortedVariants() {
+      const sizes = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
+      const variants = this.product.variants.slice() || [];
+      return variants.sort((a, b) => {
+        return (
+          sizes.indexOf(a.variant.toUpperCase()) -
+          sizes.indexOf(b.variant.toUpperCase())
+        );
+      });
+    },
+  },
   async mounted() {
     if (typeof window !== 'undefined') {
       this.orderKey = await this.getOrderKey();
+    }
+    if (!this.variant && this.sortedVariants.length) {
+      this.variant = this.sortedVariants.find((v) => v.stock > 0);
     }
   },
   methods: {
@@ -101,18 +141,29 @@ export default {
       if (this.amount < 1) {
         this.amount = 1;
       }
+      this.amount = Math.min(this.amount, this.variant.stock);
+    },
+    changeVariant(newVariant) {
+      if (newVariant.stock > 0) {
+        this.variant = newVariant;
+        this.amount = Math.min(this.amount, this.variant.stock);
+      }
     },
     async addAndCheckout() {
-      if (this.amount > 0) {
-        await this.addToBasket(this.orderKey, this.product.id, this.amount);
+      if (this.variant) {
+        if (this.amount > 0) {
+          await this.addToBasket(this.orderKey, this.variant.id, this.amount);
+        }
+        this.$router.push(this.localePath('shop-checkout'));
       }
-      this.$router.push(this.localePath('shop-checkout'));
     },
     async addAndBack() {
-      if (this.amount > 0) {
-        await this.addToBasket(this.orderKey, this.product.id, this.amount);
+      if (this.variant) {
+        if (this.amount > 0) {
+          await this.addToBasket(this.orderKey, this.variant.id, this.amount);
+        }
+        this.$router.push(this.localePath('shop'));
       }
-      this.$router.push(this.localePath('shop'));
     },
   },
 };
@@ -210,8 +261,19 @@ export default {
     }
 
     .product__variant {
+      margin-bottom: 1rem;
+
       .variant__title {
+        display: inline-block;
+        margin-bottom: 0.25rem;
         font-size: 1.25rem;
+        font-weight: 600;
+
+        @include media-breakpoint-up(md) {
+          font-size: 1.5rem;
+          margin-bottom: 0;
+          margin-right: 1rem;
+        }
       }
 
       button {
@@ -219,6 +281,7 @@ export default {
         border: 0;
         height: 1.75rem;
         width: 1.75rem;
+        outline: none;
       }
 
       .modify-amount {
@@ -234,6 +297,7 @@ export default {
         line-height: 1;
         padding: 0.125rem 0.75rem;
         font-weight: 600;
+        min-width: 2.75rem;
       }
 
       input[type='number']::-webkit-outer-spin-button,
@@ -245,12 +309,34 @@ export default {
       input[type='number'] {
         -moz-appearance: textfield;
       }
+
+      .modify-variant {
+        margin-right: 0.5rem;
+        border: 1px solid $color-red;
+        border-radius: 50%;
+        padding: 0.25rem;
+        height: 2.25rem;
+        width: 2.25rem;
+
+        &.active {
+          background-color: $color-red;
+        }
+
+        &.disabled,
+        &[disabled] {
+          filter: grayscale(1);
+          cursor: not-allowed;
+        }
+      }
     }
 
     .add-to-basket {
-      margin: 2rem 0 1rem;
+      margin: 1.5rem 0;
       color: #333;
-      text-align: center;
+
+      @include media-breakpoint-up(lg) {
+        margin: 0;
+      }
 
       a {
         text-decoration: underline;
