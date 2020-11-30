@@ -423,11 +423,9 @@ export default {
       const paymentURL = this.monthlyDonation
         ? 'https://podpri.djnd.si/api/monthly-donation/'
         : 'https://podpri.djnd.si/api/donate/';
-      // eslint-disable-next-line
-      console.log(paymentURL);
       try {
         const response = await this.$axios.$post(paymentURL, {
-          // payment_type: this.nonce ? 'braintree' : 'upn',
+          payment_type: this.nonce ? 'braintree' : 'upn',
           nonce: this.nonce,
           customer_id: this.customerId,
           amount: this.selectedDonationAmount,
