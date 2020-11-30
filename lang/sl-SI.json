@@ -381,8 +381,16 @@
         "label-on": "Naročeno!"
       },
       "general": {
-        "title": "Mesečne novice",
-        "description": "E-pošto s pregledom aktualnih in nedavnih projektov in akcij, ki jih izvajamo na inštitutu Danes je nov dan, pošiljamo največ enkrat mesečno. Če želiš biti na tekočem s tem, kar počnemo, se ti splača naročiti na mesečne novice, v katerih najdeš kratek povzetek naših aktivnosti s pripadajočimi povezavami na relevantna spletna mesta.",
+        "title": "Novice",
+        "alt_title": "Želim prejemati novice o novih kampanjah in projektih.",
+        "description": "E-pošta s pregledom aktualnih in nedavnih projektov in akcij, ki jih izvajamo na inštitutu Danes je nov dan. Če želiš biti na tekočem s tem, kar počnemo, se ti splača naročiti na novice, v katerih najdeš kratek povzetek naših aktivnosti s pripadajočimi povezavami na relevantna spletna mesta.",
+        "label-off": "Naročite me!",
+        "label-on": "Naročeno!"
+      },
+      "mesecne-novice-nov-segment": {
+        "title": "Novice",
+        "alt_title": "Želim prejemati mesečni pregled dogajanja.",
+        "description": "E-pošta s pregledom aktualnih in nedavnih projektov in akcij, ki jih izvajamo na inštitutu Danes je nov dan, pošiljamo največ enkrat mesečno. Če želiš biti na tekočem s tem, kar počnemo, se ti splača naročiti na mesečne novice, v katerih najdeš kratek povzetek naših aktivnosti s pripadajočimi povezavami na relevantna spletna mesta.",
         "label-off": "Naročite me!",
         "label-on": "Naročeno!"
       }
