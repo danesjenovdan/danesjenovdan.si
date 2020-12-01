@@ -5,6 +5,7 @@
     @mouseover="hover"
     @mouseleave="deHover"
     :href="href"
+    target="_blank"
   >
     <template v-if="!empty">
       <img class="achievement-icon" :src="`/icons/achievements/${icon}.svg`" />
