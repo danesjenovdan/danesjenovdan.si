@@ -124,7 +124,7 @@
               class="custom-control-input"
             />
             <label class="custom-control-label" for="info-newsletter"
-              >Želim se naročiti na e-novice.</label
+              >Obveščajte me o novih projektih in aktivnostih.</label
             >
           </div>
         </div>
@@ -425,6 +425,7 @@ export default {
       this.payment = payment;
     },
     async paymentSuccess({ nonce } = {}) {
+      this.paymentInProgress = true;
       this.nonce = nonce;
       const paymentURL = this.monthlyDonation
         ? 'https://podpri.djnd.si/api/monthly-donation/'
@@ -446,6 +447,7 @@ export default {
           // this.localePath({ name: 'thanks', query: { token } }),
           `/doniraj/hvala?token=${response.upload_token}`,
         );
+        this.paymentInProgress = true;
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error.response);
