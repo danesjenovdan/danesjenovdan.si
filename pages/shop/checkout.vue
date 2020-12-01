@@ -128,7 +128,7 @@
                   class="custom-control-input"
                 />
                 <label class="custom-control-label" for="info-newsletter"
-                  >Želim se naročiti na e-novice.</label
+                  >Obveščajte me o novih projektih in aktivnostih.</label
                 >
               </div>
               <!-- this is here so you can submit the form with the enter key -->
@@ -418,6 +418,7 @@ export default {
       this.payment = payment;
     },
     async paymentSuccess({ nonce } = {}) {
+      this.paymentInProgress = true;
       try {
         await this.$axios.$post(
           `https://podpri.djnd.si/api/shop/pay/?order_key=${this.orderKey}`,
@@ -427,6 +428,7 @@ export default {
           },
         );
         window.localStorage.removeItem('order_key');
+        this.paymentInProgress = false;
         this.stage = 'thankyou';
       } catch (error) {
         // eslint-disable-next-line no-console

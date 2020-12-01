@@ -1,6 +1,6 @@
 <template>
   <div class="donation-milestones-container">
-    <h1>Nas je že več kot</h1>
+    <h1>Več nas je kot</h1>
     <div
       v-for="milestone in reachedMilestones"
       :key="milestone.icon"
