@@ -58,7 +58,7 @@
         />
         <achievement-tile
           icon="narava"
-          text="Dosegli smo, da je peticijo Narave ne damo podpisalo več kot 36 000 ljudi."
+          text="Skupaj s koalicijo okoljskih NVO smo dosegli, da je peticijo Narave ne damo podpisalo več kot 36 000 ljudi."
           href="https://www.naravenedamo.si/"
         />
         <achievement-tile
