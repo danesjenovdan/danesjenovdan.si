@@ -397,7 +397,7 @@ export default {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'Ob sedemletnici delovanja zbiramo donacije za aktivistične projekte v letu 2020. Pridruži se boju in podpri Danes je nov dan!',
+            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
         },
         {
           hid: 'twitter:image',
