@@ -350,7 +350,10 @@ export default {
         url = `https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=${link}&link=${link}&ref=responsive&name=${title}`;
       } else if (type === 'tw') {
         const text = encodeURIComponent(
-          `${shareText} ${shareHashtag} ${shareLink}`,
+          `${shareText.replace(
+            ' Danes je nov dan',
+            ' @danesjenovdan',
+          )} ${shareHashtag} ${shareLink}`,
         );
         url = `https://twitter.com/intent/tweet?text=${text}`;
       } else if (type === 'mail') {
@@ -397,7 +400,7 @@ export default {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'Ob sedemletnici delovanja zbiramo donacije za aktivistične projekte v letu 2020. Pridruži se boju in podpri Danes je nov dan!',
+            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
         },
         {
           hid: 'twitter:image',
