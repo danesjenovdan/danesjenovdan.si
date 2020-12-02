@@ -258,7 +258,10 @@ export default {
         url = `https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=${link}&link=${link}&ref=responsive&name=${title}`;
       } else if (type === 'tw') {
         const text = encodeURIComponent(
-          `${shareText} ${shareHashtag} ${shareLink}`,
+          `${shareText.replace(
+            ' Danes je nov dan',
+            ' @danesjenovdan',
+          )} ${shareHashtag} ${shareLink}`,
         );
         url = `https://twitter.com/intent/tweet?text=${text}`;
       } else if (type === 'mail') {
