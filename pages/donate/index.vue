@@ -133,7 +133,7 @@
     <div class="row justify-content-center">
       <p>
         V letu 2021 bi na inštitutu radi nadaljevali z aktivnostmi, ki se
-        osredinjajo na spodbujanje politične participacije, sledenje političnih
+        osredotočajo na spodbujanje politične participacije, sledenje političnih
         obljub, promocijo človekovih pravic in vključenosti, kultiviranje
         javnega in skupnega ter krepitev marginaliziranih glasov.
       </p>
@@ -331,7 +331,7 @@ export default {
     onShareClick(event, type) {
       const shareLink = 'https://danesjenovdan.si/doniraj';
       const shareText =
-        'Danes je nov dan ob sedemletnici delovanja zbira donacije za aktivistične projekte v letu 2020. Pridruži se boju in jih podpri!';
+        'Danes je nov dan tudi letošnje leto sklepa z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!';
       const titleText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
       const shareHashtag = '';
       this.openSocialShareLink(
