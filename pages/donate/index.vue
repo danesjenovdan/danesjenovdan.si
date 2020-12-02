@@ -10,7 +10,7 @@
       <p>Podpri naše delo v 2021!</p>
     </div>
     <div class="row justify-content-center">
-      <div class="limit-like-p">
+      <div class="limit-like-p pad-like-p">
         <confirm-button
           key="next-summary"
           :to="''"
@@ -82,7 +82,7 @@
         />
         <achievement-tile
           icon="agrument"
-          text="Za letošnje agrumente smo do decembra porabili xy besed."
+          text="Za letošnje agrumente smo do decembra porabili 41569 besed."
           href="https://danesjenovdan.si/agrument"
         />
         <achievement-tile
@@ -121,19 +121,21 @@
         <achievement-tile
           icon="newsgradient"
           text="Objavili smo Newsgradient Bosna in Hercegovina."
-          href="http://newsgradient.org/"
+          href="https://newsgradient.org/"
+        />
+        <achievement-tile
+          icon="twito"
+          text="Beležimo in analiziramo Twitter aktivnost Janeza Janše."
+          href="https://twito.si/"
         />
       </div>
     </div>
     <div class="row justify-content-center">
       <p>
         V letu 2021 bi na inštitutu radi nadaljevali z aktivnostmi, ki se
-        osredinjajo na spodbujanje politične participacije, sledenje političnih
+        osredotočajo na spodbujanje politične participacije, sledenje političnih
         obljub, promocijo človekovih pravic in vključenosti, kultiviranje
-        javnega in skupnega ter krepitev marginaliziranih glasov. Kombinacija
-        dogodkov v Tobačni in koronavirusa nas je izselila iz ljube pisarne,
-        zato je cilj za prihodnje leto tudi vnovična prostorska konsolidacija
-        Danes je nov dan.
+        javnega in skupnega ter krepitev marginaliziranih glasov.
       </p>
       <p>Obdaruj nas!</p>
     </div>
@@ -209,10 +211,10 @@
         </p>
         <problem-tile
           title="Sovražne vsebine"
-          description="V letu 2021 bo naš fokus v zvezi s sovražnimi bo predvsem na Twitterju. Že letos smo začeli s projektom Twito sledilnika, nadaljuje se Boter, ki išče inovativne načine pritiska na oglaševalce, da se umaknejo iz medijev, ki objavljajo sovražne vsebine, pozorni pa bomo tudi na aktualne pojavnosti sovražnosti v medijih in na spletu."
+          description="V letu 2021 bo naš fokus v zvezi s sovražnimi bo predvsem na Twitterju. Že letos smo začeli s projektom Maršal Twito – Sledilnik, ki beleži in analizira Twitter aktivnost Janeza Janše, kmalu bomo objavili raziskavo Twitter brigade, ki razkriva sume o delovanju koordinirane propagandistične mreže Twitter profilov, pozorni pa bomo tudi na aktualne pojavnosti sovražnosti v medijih in na spletu."
         />
         <problem-tile
-          title="Dostop do podatkov"
+          title="Odprti podatki"
           description="V letu 2021 se bomo v okviru tega področja v veliki meri fokusirali na vprašanje odprtosti lokalnih podatkov. Naš cilj je, da občinsko različico Parlametra spravimo v vsaj 4 občine ter da izdelamo lestvico transparentnosti slovenskih občin. Poleg tega bomo opravili regionalno analizo odprtosti parlamentarnih podatkov ter izpostavili pomembnost odprtih podatkov tudi v kontekstu slovenskega predsedovanja EU."
         />
       </div>
@@ -241,21 +243,24 @@
         <square-icon-button
           :color="'#228794'"
           icon="facebook"
-          @click.native="onShareClick($event, 'fb')"
+          href="#"
+          @click.native.prevent="onShareClick($event, 'fb')"
         />
       </div>
       <div class="col-xs-auto">
         <square-icon-button
           :color="'#228794'"
           icon="twitter"
-          @click.native="onShareClick($event, 'tw')"
+          href="#"
+          @click.native.prevent="onShareClick($event, 'tw')"
         />
       </div>
       <div class="col-xs-auto">
         <square-icon-button
           :color="'#df786c'"
           icon="email"
-          @click.native="onShareClick($event, 'mail')"
+          href="#"
+          @click.native.prevent="onShareClick($event, 'mail')"
         />
       </div>
     </div>
@@ -326,7 +331,7 @@ export default {
     onShareClick(event, type) {
       const shareLink = 'https://danesjenovdan.si/doniraj';
       const shareText =
-        'Danes je nov dan ob sedemletnici delovanja zbira donacije za aktivistične projekte v letu 2020. Pridruži se boju in jih podpri!';
+        'Danes je nov dan tudi letošnje leto sklepa z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!';
       const titleText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
       const shareHashtag = '';
       this.openSocialShareLink(
@@ -449,6 +454,8 @@ export default {
   font-style: italic;
   text-shadow: -1px 1px 0 #333333, 1px 1px 0 #333333, 1px -1px 0 #333333,
     -1px -1px 0 #333333;
+  margin-top: 0;
+  padding-left: 30px;
 
   z-index: 200;
 
@@ -469,6 +476,8 @@ export default {
   @include media-breakpoint-up(md) {
     font-size: 90px;
     line-height: 90px;
+    margin-top: 50px;
+    padding-left: 0;
   }
 }
 .embed-responsive {
@@ -510,6 +519,10 @@ p {
 .limit-like-p {
   width: 100%;
   max-width: 872px;
+}
+.pad-like-p {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .donation-info-box {
   @include media-breakpoint-up(md) {

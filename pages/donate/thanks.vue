@@ -25,11 +25,6 @@
           Hvala za donacijo!
         </h1>
         <h2 class="thankyou__subtitle">Skupaj bomo prevagali.</h2>
-        <div class="thankyou__faces">
-          <donation-images :images="images" />
-        </div>
-      </template>
-      <template slot="footer">
         <div class="confirm-button-container">
           <confirm-button
             key="next-thankyou"
@@ -38,11 +33,9 @@
             arrow
             @click.native="stage = 'avatar'"
           />
-          <div class="bottom-back-link">
-            <dynamic-link @click="stage = 'share'">
-              Preskoči
-            </dynamic-link>
-          </div>
+        </div>
+        <div class="thankyou__faces">
+          <donation-images :images="images" />
         </div>
       </template>
     </checkout-stage>
@@ -105,9 +98,7 @@
             @click.native="uploadImage"
           />
           <div class="bottom-back-link">
-            <dynamic-link @click="stage = 'share'">
-              Preskoči
-            </dynamic-link>
+            <dynamic-link @click="stage = 'share'"> Preskoči </dynamic-link>
           </div>
         </div>
       </template>
@@ -115,7 +106,7 @@
 
     <checkout-stage v-if="stage === 'share'" no-header>
       <template slot="content">
-        <h2 class="share__subtitle">Več nas bo, prej bomo na cilju ...</h2>
+        <h2 class="thankyou__title">Več nas bo, prej bomo na cilju ...</h2>
         <div class="share__faces">
           <donation-images :images="images" />
         </div>
@@ -248,7 +239,7 @@ export default {
     onShareClick(event, type) {
       const shareLink = 'https://danesjenovdan.si/doniraj';
       const shareText =
-        'Danes je nov dan ob sedemletnici delovanja zbira donacije za aktivistične projekte v letu 2020. Pridruži se boju in jih podpri!';
+        'Danes je nov dan tudi letošnje leto sklepa z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!';
       const titleText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
       const shareHashtag = '';
       this.openSocialShareLink(
@@ -276,6 +267,52 @@ export default {
       }
       window.open(url, '_blank');
     },
+  },
+  head() {
+    return {
+      title: 'Doniram za nov dan!',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Z donacijo podpiram aktivistične projekte Danes je nov dan v prihodnjem letu. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Doniram za nov dan!',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Z donacijo podpiram aktivistične projekte Danes je nov dan v prihodnjem letu. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: 'Doniram za nov dan!',
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content:
+            'Z donacijo podpiram aktivistične projekte Danes je nov dan v prihodnjem letu. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
+        },
+      ],
+    };
   },
 };
 </script>
@@ -332,6 +369,12 @@ export default {
       font-size: 2.5rem;
       font-weight: 300;
     }
+  }
+
+  .thankyou__faces,
+  .share__faces {
+    max-width: 700px;
+    margin: auto;
   }
 
   .confirm-button-container {
@@ -444,6 +487,7 @@ export default {
       height: 4rem;
       color: #fff;
       margin: 0 1.5rem;
+      transition: all 0.15s ease;
 
       &:first-child {
         margin-left: 0;
@@ -457,6 +501,10 @@ export default {
         width: 8rem;
         height: 8rem;
         padding: 2rem;
+      }
+
+      &:hover {
+        transform: scale(0.95);
       }
 
       svg {
