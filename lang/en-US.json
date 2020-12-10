@@ -151,6 +151,63 @@
       "explanation": "Explanation"
     }
   },
+  "shop": {
+    "addToCart": "Add to cart and continue shopping",
+    "buy": "Buy",
+    "quantity": "Quantity",
+    "amountToPay": "Total",
+    "summary": "Overview",
+    "terms": "Terms and conditions",
+    "description": "Our democracy is riddled with computer bugs, hijacked by tiring birocracy and exposed to hateful viruses. The government responsible is neither capable of nor interested in eliminating them. We, however, are keen to do it. Help us out!",
+    "promo-bar": {
+      "support-us": "Omogoči naše nadaljnje delovanje!",
+      "button-text": "Podpri nas z nakupom!"
+    },
+    "products": {
+      "1": {
+        "title": "Rizle",
+        "description": "Obvezna oprema za hedonist(k)e in njihovo družbo. Imej jih vedno s sabo, ne le, da so lepe, preverjeno lahko rešijo Moreer.",
+        "short_description": "Ker se za dobrimi konji vedno kadi",
+        "button_text": "Pokadi kaj..."
+      },
+      "2": {
+        "title": "First DJND t-shirt",
+        "description": "The community has voted on a slogan, we illustrated it. Our first shirt brings a thorough analysis of the situation in the country. So we don't forget what's the point.",
+        "short_description": "Communicate with fashion!",
+        "button_text": "More"
+      },
+      "3": {
+        "title": "DJND mug",
+        "description": "Take care of your intake of liquid stimulants, such as coffee, tea, or hot chocolate, while you help to revitalise our activities. Cheers!",
+        "short_description": "Every morning is a new day!",
+        "button_text": "More"
+      },
+      "4": {
+        "title": "Card game Political playground",
+        "description": "Learn about Slovenian deputies from 2014-18 and their statistics through a gamified process, and at the same time support our institute and our flagship project Parlameter.",
+        "short_description": "Try the only political game that doesn’t hurt the people!",
+        "button_text": "More"
+      },
+      "5": {
+        "title": "Philosophical agrument book",
+        "description": "First edition of the thematic agrument, which was published online on Saturdays and explained philosophical concepts. If you indulge in thinking, then support our volunteer project!",
+        "short_description": "A collection of thematic agruments in a book!",
+        "button_text": "More"
+      },
+      "6": {
+        "title": "Second DJND t-shirt – sun",
+        "description": "Community produced the design and we took care of printing. Because a new day can only be what we do together, either we roar into the moon or squint at the sun. This time in a limited edition. P.S. The cut is universal, loose, and the size is more \"masculine\".",
+        "short_description": "Collaboration with Matija Medved!",
+        "button_text": "More"
+      },
+      "7": {
+        "title": "Second DJND t-shirt – moon",
+        "description": "Community produced the design and we took care of printing. Because a new day can only be what we do together, either we roar into the moon or squint at the sun. This time in a limited edition. P.S. The cut is universal, loose, and the size is more \"masculine\".",
+        "short_description": "Collaboration with Matija Medved!",
+        "button_text": "More"
+      }
+    }
+  },
   "tools": {
     "description": "Here are some of our digital solutions and ingenious ideas that take active citizenship to the next level. This is a portfolio, a digital storage, and an open source library. Look around for inspiration, activist supplies, and online props for digital activism and critical thinking.",
     "more": "Load more",

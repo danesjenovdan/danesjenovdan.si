@@ -287,6 +287,12 @@
     }
   },
   "shop": {
+    "addToCart": "Dodaj v voziček in še malo pobrskaj po policah",
+    "buy": "Kupi",
+    "quantity": "Količina",
+    "amountToPay": "Znesek za plačilo",
+    "summary": "Povzetek naročila",
+    "terms": "Pogoji poslovanja",
     "description": "Naša demokracija je polna računalniških hroščev, vsiljive birokracije in spletnih virusov. Država, ki jo poganja, ni niti dovolj zmogljiva niti zainteresirana za to, da bi jih odpravila. Nam se da. Prispevaj za pips!",
     "promo-bar": {
       "support-us": "Omogoči naše nadaljnje delovanje!",
@@ -294,38 +300,45 @@
     },
     "products": {
       "1": {
+        "title": "Rizle",
         "description": "Obvezna oprema za hedonist(k)e in njihovo družbo. Imej jih vedno s sabo, ne le, da so lepe, preverjeno lahko rešijo večer.",
         "short_description": "Ker se za dobrimi konji vedno kadi",
         "button_text": "Pokadi kaj..."
       },
       "2": {
+        "title": "Prva DJND majica",
         "description": "Skupnost je izglasovala slogan, mi smo ga ilustrirali. Naša prva majica prinaša natančno analizo stanja v državi. Da ne pozabimo, v čem je fora.",
-        "short_description": "Ker moda je komunikacija",
+        "short_description": "Komuniciraj z modo!",
         "button_text": "Več"
       },
       "3": {
-        "description": "Z nakupom poskrbiš za simpatičen vnos tekočih poživil, kot so kava, čaj ali vroča čokolada, pa tudi za poživitev našega delovanja.",
-        "short_description": "Da te zjutraj opomni, da je danes nov dan",
+        "title": "DJND šalčka",
+        "description": "Z nakupom poskrbiš za simpatičen vnos tekočih poživil, kot so kava, čaj ali vroča čokolada, pa tudi za poživitev našega delovanja. Na zdravje!",
+        "short_description": "Vsako jutro je nov dan!",
         "button_text": "Več"
       },
       "4": {
-        "description": "Igrifikacija spoznavanja politikov in poigravanje z njihovimi statistikami, ki pomaga delovanju inštituta in našega paradnega projekta Parlameter.",
-        "short_description": "Da preizkusiš edino politično igro, ki ne škodi ljudstvu",
+        "title": "Karte Politični parket",
+        "description": "Igrifikacija spoznavanja poslancev iz sklica 2014–18 in poigravanje z njihovimi statistikami, ki pomaga delovanju inštituta in pomaga poganjati naš paradni projekt Parlameter.",
+        "short_description": "Preizkusi edino politično igro, ki ne škodi ljudstvu!",
         "button_text": "Več"
       },
       "5": {
+        "title": "Knjiga Filozofski abecedarij",
         "description": "Prva edicija tematskega agrumenta, ki je na spletu izhajal ob sobotah in slovaril filozofske koncepte. Z užitkom v mišljenju podpri prostovoljski projekt!",
-        "short_description": "Tematski agrumenti - Filozofski abecedarij",
+        "short_description": "Tematski agrumenti v knjižni obliki!",
         "button_text": "Več"
       },
       "6": {
+        "title": "Druga DJND majica - sonce",
         "description": "Pri naši drugi majici oz. paru majic je iz skupnosti prišel dizajn, mi pa smo zrihtali (sito)tisk. Ker je nov dan vedno lahko le tisto, kar naredimo skupaj, najsi tulimo v luno ali pa mežikamo v sonce. Tokrat v omejeni izdaji. P.S. Kroj je univerzalen, neteliran, velikosti pa bolj \"moške\".",
-        "short_description": "Ker moda je komunikacija",
+        "short_description": "V sodelovanju z Matijo Medvedom!",
         "button_text": "Več"
       },
       "7": {
+        "title": "Druga DJND majica – luna",
         "description": "Pri naši drugi majici oz. paru majic je iz skupnosti prišel dizajn, mi pa smo zrihtali (sito)tisk. Ker je nov dan vedno lahko le tisto, kar naredimo skupaj, najsi tulimo v luno ali pa mežikamo v sonce. Tokrat v omejeni izdaji. P.S. Kroj je univerzalen, neteliran, velikosti pa bolj \"moške\".",
-        "short_description": "Ker moda je komunikacija",
+        "short_description": "V sodelovanju z Matijo Medvedom!",
         "button_text": "Več"
       }
     }
