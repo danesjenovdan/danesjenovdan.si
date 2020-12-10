@@ -45,7 +45,7 @@ export default {
     margin-bottom: 5px;
   }
   .donation-summary-number {
-    font-size: 50px;
+    font-size: 40px;
     color: #df786c;
     font-weight: 900;
     line-height: 40px;
