@@ -1,11 +1,13 @@
 <template>
   <div class="donation-summary">
     <div class="row">
-      <div class="col-lg">
+      <div class="col">
         <h1 class="donation-summary-title">ZBRANO ŽE</h1>
         <p class="donation-summary-number">{{ totalDonations }}&nbsp;€</p>
       </div>
-      <div class="col-lg">
+    </div>
+    <div class="row">
+      <div class="col">
         <h1 class="donation-summary-title">NAJVIŠJA&nbsp;DONACIJA</h1>
         <p class="donation-summary-number">{{ maxDonation }}&nbsp;€</p>
       </div>
@@ -57,7 +59,7 @@ export default {
 
   @include media-breakpoint-up(md) {
     .col:first-child::after {
-      content: '';
+      // content: '';
       display: block;
       position: absolute;
       top: 24px;

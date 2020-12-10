@@ -21,7 +21,7 @@
     <template v-if="stage === 'summary'">
       <div class="checkout__summary">
         <checkout-stage>
-          <template slot="title"> Povzetek naročila </template>
+          <template slot="title" v-t="'shop.summary'"></template>
           <template slot="content">
             <template v-if="summaryLoading">
               <div class="loader-container">
@@ -34,7 +34,7 @@
                   <cart-product
                     :key="item.id"
                     :image="getDisplayImage(item.article)"
-                    :title="getDisplayName(item.article)"
+                    :title="$t(`shop.products.${item.article.id}.title`)"
                     :price="item.article.price"
                     :amount="item.quantity"
                     :text="item.article.variant || ''"
@@ -46,7 +46,7 @@
                 </template>
               </div>
               <div class="cart-total">
-                <span>Znesek za plačilo</span>
+                <span v-t="'shop.amountToPay'"></span>
                 <i>{{ totalPrice }} €</i>
               </div>
             </template>
@@ -56,7 +56,7 @@
               <confirm-button
                 key="next-summary"
                 :disabled="!canContinueToNextStage"
-                text="Kupi"
+                :text="$t('shop.buy')"
                 color="secondary"
                 arrow
                 hearts
@@ -204,7 +204,7 @@
               </template>
             </div>
             <div class="cart-total">
-              <span>Znesek za plačilo</span>
+              <span v-t="'shop.amountToPay'"></span>
               <i>{{ totalPrice }} €</i>
             </div>
           </template>
