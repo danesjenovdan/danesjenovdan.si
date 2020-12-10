@@ -1,11 +1,9 @@
 <template>
   <div class="product">
     <div class="product__container row no-gutters">
-      <div class="d-none d-md-block col-md-4">
-        &nbsp;
-      </div>
+      <div class="d-none d-md-block col-md-4">&nbsp;</div>
       <div class="col-12 col-md-8 product__name">
-        <h1 v-text="getDisplayName(product)" />
+        <h1 v-t="`shop.products.${product.id}.title`" />
         <h2 class="price">{{ formatPrice(product.price) }}</h2>
       </div>
       <div class="col-12 col-md-4 product__images">
@@ -38,7 +36,7 @@
         </div>
         <div class="product__variant row">
           <div class="col-12 col-md-3">
-            <span class="variant__title">Količina</span>
+            <span class="variant__title" v-t="'shop.quantity'"></span>
           </div>
           <div class="col d-flex align-items-center">
             <button
@@ -60,7 +58,7 @@
         <div class="row">
           <div class="col-12 col-lg-6">
             <more-button
-              :text="'KUPI'"
+              :text="$t('shop.buy')"
               block
               color="secondary"
               icon="heart"
@@ -72,7 +70,7 @@
           <div class="col-12 col-lg-6 d-flex align-items-center">
             <div class="add-to-basket">
               <a href="#" @click.prevent="addAndBack">
-                Dodaj v voziček in še malo pobrskaj po policah
+                {{ $t('shop.addToCart') }}
               </a>
             </div>
           </div>

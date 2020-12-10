@@ -1,13 +1,19 @@
 <template>
   <div class="donation-summary">
     <div class="row">
-      <div class="col-lg">
+      <div class="col">
         <h1 class="donation-summary-title">ZBRANO ŽE</h1>
-        <p class="donation-summary-number">{{ totalDonations }}&nbsp;€</p>
+        <p class="donation-summary-number">
+          {{ totalDonations.toString().replace('.', ',') }}&nbsp;€
+        </p>
       </div>
-      <div class="col-lg">
+    </div>
+    <div class="row">
+      <div class="col">
         <h1 class="donation-summary-title">NAJVIŠJA&nbsp;DONACIJA</h1>
-        <p class="donation-summary-number">{{ maxDonation }}&nbsp;€</p>
+        <p class="donation-summary-number">
+          {{ maxDonation.toString().replace('.', ',') }}&nbsp;€
+        </p>
       </div>
     </div>
   </div>
@@ -43,7 +49,7 @@ export default {
     margin-bottom: 5px;
   }
   .donation-summary-number {
-    font-size: 50px;
+    font-size: 40px;
     color: #df786c;
     font-weight: 900;
     line-height: 40px;
@@ -57,7 +63,7 @@ export default {
 
   @include media-breakpoint-up(md) {
     .col:first-child::after {
-      content: '';
+      // content: '';
       display: block;
       position: absolute;
       top: 24px;

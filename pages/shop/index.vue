@@ -18,7 +18,7 @@
       >
         <product-tile
           :image="getDisplayImage(product)"
-          :title="getDisplayName(product)"
+          :title="$t(`shop.products.${product.id}.title`)"
           :text="$t(`shop.products.${product.id}.short_description`)"
           :button-text="$t(`shop.products.${product.id}.button_text`)"
           :button-url="
