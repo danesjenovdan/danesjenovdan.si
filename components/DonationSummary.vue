@@ -3,13 +3,17 @@
     <div class="row">
       <div class="col">
         <h1 class="donation-summary-title">ZBRANO ŽE</h1>
-        <p class="donation-summary-number">{{ totalDonations }}&nbsp;€</p>
+        <p class="donation-summary-number">
+          {{ totalDonations.toString().replace('.', ',') }}&nbsp;€
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <h1 class="donation-summary-title">NAJVIŠJA&nbsp;DONACIJA</h1>
-        <p class="donation-summary-number">{{ maxDonation }}&nbsp;€</p>
+        <p class="donation-summary-number">
+          {{ maxDonation.toString().replace('.', ',') }}&nbsp;€
+        </p>
       </div>
     </div>
   </div>
