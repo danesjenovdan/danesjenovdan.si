@@ -216,7 +216,7 @@
       "science": "Znanstveni svet zavoda"
     },
     "people": {
-      "zigaaljaz": { "description": "zadolžen za zadolževanje " },
+      "zigaaljaz": { "description": "zadolžen za zadolževanje in barve oljnih madežev" },
       "tea": { "description": "zadolžena za teženje medijem in sajenje buč" },
       "filip": { "description": "zadolžen za hekanje in <3" },
       "tine": { "description": "zadolžen za fotografsko in emocionalno podporo" },
@@ -224,7 +224,7 @@
       "juric": { "description": "zadolžen za backend in samozavest" },
       "zeljka": { "description": "zadolžena za toplo vodo in hladen tuš" },
       "skornc": { "description": "zadolžen za rézanja in trančiranja" },
-      "mirt": { "description": "zadolžen za mišljevine, softistiko in prečke" },
+      "mirt": { "description": "zadolžen za softistiko in plezalske prečke" },
       "kunst": { "description": "zadoložen za django in snežake" },
       "miha": { "description": "zadolžen za avtomatizacijo in prevračanje miz" },
       "nika": { "description": "zadolžena za povezovanje in ples" },
@@ -232,7 +232,7 @@
       "mlacnik": { "description": "zadolžen za kafkomat in pick 'n' roll" },
       "jasmina": { "description": "zadolžena za barvice in piškote" },
       "kaja": { "description": "zadolžena za šoping in doping" },
-      "karmen": { "description": "zadolžena za filozofsko kulinariko" },
+      "karmen": { "description": "zadolžena za filozofijo in kulinariko" },
       "katja": { "description": "zadolžena za dvom in lovljenje frekvenc" },
       "evas": { "description": "zadolžena za semiotiko in harmonije" },
       "tadej": { "description": "zadolžen za igrifikacijo in kalifornizacijo" },
@@ -326,19 +326,19 @@
       },
       "5": {
         "title": "Knjiga Filozofski abecedarij",
-        "description": "Prva edicija tematskega agrumenta, ki je na spletu izhajal ob sobotah in slovaril filozofske koncepte. Z užitkom v mišljenju podpri prostovoljski projekt!",
+        "description": "Prva knjiga v zbirki Agrument slovari filozofske koncepte. Z užitkom v mišljenju podpri prostovoljski projekt!",
         "short_description": "Tematski agrumenti v knjižni obliki!",
         "button_text": "Več"
       },
       "6": {
         "title": "Druga DJND majica - sonce",
-        "description": "Pri naši drugi majici oz. paru majic je iz skupnosti prišel dizajn, mi pa smo zrihtali (sito)tisk. Ker je nov dan vedno lahko le tisto, kar naredimo skupaj, najsi tulimo v luno ali pa mežikamo v sonce. Tokrat v omejeni izdaji. P.S. Kroj je univerzalen, neteliran, velikosti pa bolj \"moške\".",
+        "description": "Pri naši drugi majici oz. paru majic je iz skupnosti prišel dizajn, mi pa smo zrihtali (sito)tisk. Ker je nov dan vedno lahko le tisto, kar naredimo skupaj, najsi tulimo v luno ali pa mežikamo v sonce. Gre za omejeno izdajo. Kroj je univerzalen, neteliran, velikosti pa bolj \"moške\".",
         "short_description": "V sodelovanju z Matijo Medvedom!",
         "button_text": "Več"
       },
       "7": {
         "title": "Druga DJND majica – luna",
-        "description": "Pri naši drugi majici oz. paru majic je iz skupnosti prišel dizajn, mi pa smo zrihtali (sito)tisk. Ker je nov dan vedno lahko le tisto, kar naredimo skupaj, najsi tulimo v luno ali pa mežikamo v sonce. Tokrat v omejeni izdaji. P.S. Kroj je univerzalen, neteliran, velikosti pa bolj \"moške\".",
+        "description": "Pri naši drugi majici oz. paru majic je iz skupnosti prišel dizajn, mi pa smo zrihtali (sito)tisk. Ker je nov dan vedno lahko le tisto, kar naredimo skupaj, najsi tulimo v luno ali pa mežikamo v sonce. Gre za omejeno izdajo. Kroj je univerzalen, neteliran, velikosti pa bolj \"moške\".",
         "short_description": "V sodelovanju z Matijo Medvedom!",
         "button_text": "Več"
       }
@@ -349,7 +349,7 @@
       "lastName": "Priimek",
       "streetAndNum": "Ulica in hišna številka",
       "postAndNum": "Poštna številka in pošta",
-      "email": "Email",
+      "email": "E-naslov",
       "newsletter": "Obveščajte me o novih projektih in aktivnostih.",
       "continue": "Naprej",
       "back": "Nazaj",
@@ -359,8 +359,8 @@
       "cardNumber": "Številka kartice",
       "expirationDate": "Rok veljavnosti",
       "cvv": "CVV",
-      "paypalContinue": "Nadaljuj s klikom na gumb",
-      "upnContinue": "Položnico za plačilo prejmeš na svoj e-naslov.",
+      "paypalContinue": "Klikni na gumb in zaključi naročilo",
+      "upnContinue": "Položnico smo ti poslali po e-pošti.",
       "close": "Zapri"
     },
     "thanks": {
