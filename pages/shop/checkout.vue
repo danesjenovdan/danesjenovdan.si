@@ -21,7 +21,7 @@
     <template v-if="stage === 'summary'">
       <div class="checkout__summary">
         <checkout-stage>
-          <template slot="title" v-t="'shop.summary'"></template>
+          <template slot="title">{{ $t('shop.summary') }}</template>
           <template slot="content">
             <template v-if="summaryLoading">
               <div class="loader-container">
@@ -72,7 +72,7 @@
     <template v-else-if="stage === 'delivery'">
       <div class="checkout__delivery">
         <checkout-stage>
-          <template slot="title"> Podatki </template>
+          <template slot="title">{{ $t('shop.checkout.data') }}</template>
           <template slot="content">
             <form @submit.prevent="continueToPayment">
               <template v-if="delivery">
@@ -80,7 +80,7 @@
                   <input
                     id="name"
                     v-model="name"
-                    placeholder="Ime"
+                    :placeholder="$t('shop.checkout.name')"
                     class="form-control form-control-lg"
                   />
                 </div>
@@ -88,7 +88,7 @@
                   <input
                     id="last-name"
                     v-model="lastName"
-                    placeholder="Priimek"
+                    :placeholder="$t('shop.checkout.lastName')"
                     class="form-control form-control-lg"
                   />
                 </div>
@@ -97,7 +97,7 @@
                     <input
                       id="address"
                       v-model="address"
-                      placeholder="Ulica in hišna številka"
+                      :placeholder="$t('shop.checkout.streetAndNum')"
                       class="form-control form-control-lg"
                     />
                   </div>
@@ -105,7 +105,7 @@
                     <input
                       id="address-post"
                       v-model="addressPost"
-                      placeholder="Poštna številka in pošta"
+                      :placeholder="$t('shop.checkout.postAndNum')"
                       class="form-control form-control-lg"
                     />
                   </div>
@@ -115,7 +115,7 @@
                     id="email"
                     v-model="email"
                     type="email"
-                    placeholder="Email"
+                    :placeholder="$t('shop.checkout.email')"
                     class="form-control form-control-lg"
                   />
                 </div>
@@ -127,9 +127,11 @@
                   type="checkbox"
                   class="custom-control-input"
                 />
-                <label class="custom-control-label" for="info-newsletter"
-                  >Obveščajte me o novih projektih in aktivnostih.</label
-                >
+                <label
+                  class="custom-control-label"
+                  for="info-newsletter"
+                  v-t="'shop.checkout.newsletter'"
+                ></label>
               </div>
               <!-- this is here so you can submit the form with the enter key -->
               <input type="submit" hidden />
@@ -141,7 +143,7 @@
                 key="next-delivery"
                 :disabled="!canContinueToPayment"
                 :loading="checkoutLoading"
-                text="Naprej"
+                :text="$t('shop.checkout.continue')"
                 color="secondary"
                 arrow
                 hearts
@@ -150,7 +152,10 @@
               />
             </div>
             <div class="bottom-back-link">
-              <dynamic-link @click="stage = 'summary'">Nazaj</dynamic-link>
+              <dynamic-link
+                @click="stage = 'summary'"
+                v-t="'shop.checkout.back'"
+              ></dynamic-link>
             </div>
           </template>
         </checkout-stage>
@@ -198,7 +203,7 @@
               <template v-if="payment === 'upn'">
                 <upn-payment
                   :amount="totalPrice"
-                  @ready="onPaymentReady"
+                  @ready="onUPNPaymentReady"
                   @success="paymentSuccess"
                 />
               </template>
@@ -214,7 +219,7 @@
                 key="next-payment"
                 :disabled="!canContinueToNextStage"
                 :loading="paymentInProgress"
-                text="Plačaj"
+                :text="$t('shop.checkout.continue')"
                 color="secondary"
                 arrow
                 hearts
@@ -223,7 +228,10 @@
               />
             </div>
             <div class="bottom-back-link">
-              <dynamic-link @click="stage = 'delivery'">Nazaj</dynamic-link>
+              <dynamic-link
+                @click="stage = 'delivery'"
+                v-t="'shop.checkout.back'"
+              ></dynamic-link>
             </div>
           </template>
         </checkout-stage>
@@ -232,20 +240,19 @@
 
     <div v-else-if="stage === 'thankyou'" class="checkout__thankyou">
       <div class="thankyou__content">
-        <h1>Hvala!</h1>
+        <h1 v-t="'shop.thanks.title'"></h1>
         <div>
           <div class="icon icon-confetti-popper--secondary" />
         </div>
         <div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vitae
-            similique, ad quis iste veniam voluptates.
-          </p>
+          <p v-t="'shop.thanks.paragraph'"></p>
         </div>
         <div class="thankyou__close">
-          <nuxt-link :to="localePath('shop')" class="close-button"
-            >ZAPRI</nuxt-link
-          >
+          <nuxt-link
+            :to="localePath('shop')"
+            class="close-button"
+            v-t="'shop.checkout.close'"
+          ></nuxt-link>
         </div>
       </div>
     </div>
@@ -403,6 +410,11 @@ export default {
     onPaymentReady({ pay } = {}) {
       this.checkoutLoading = false;
       this.paymentInfoValid = false;
+      this.payFunction = pay;
+    },
+    onUPNPaymentReady({ pay } = {}) {
+      this.checkoutLoading = false;
+      this.paymentInfoValid = true;
       this.payFunction = pay;
     },
     onPaymentError({ error }) {

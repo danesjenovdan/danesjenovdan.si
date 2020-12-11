@@ -154,6 +154,7 @@
   "shop": {
     "addToCart": "Add to cart and continue shopping",
     "buy": "Buy",
+    "finish": "Finish and pay",
     "quantity": "Quantity",
     "amountToPay": "Total",
     "summary": "Overview",
@@ -172,40 +173,64 @@
       },
       "2": {
         "title": "First DJND t-shirt",
-        "description": "The community has voted on a slogan, we illustrated it. Our first shirt brings a thorough analysis of the situation in the country. So we don't forget what's the point.",
-        "short_description": "Communicate with fashion!",
+        "description": "The community voted on a slogan, we illustrated it. Our first shirt brings a thorough analysis of the situation at home, so we don't forget why we do this.",
+        "short_description": "Fashion is passion!",
         "button_text": "More"
       },
       "3": {
         "title": "DJND mug",
-        "description": "Take care of your intake of liquid stimulants, such as coffee, tea, or hot chocolate, while you help to revitalise our activities. Cheers!",
+        "description": "Take care of your intake of liquid stimulants while you help to sustain our activities. Cheers!",
         "short_description": "Every morning is a new day!",
         "button_text": "More"
       },
       "4": {
-        "title": "Card game Political playground",
-        "description": "Learn about Slovenian deputies from 2014-18 and their statistics through a gamified process, and at the same time support our institute and our flagship project Parlameter.",
+        "title": "Political Playground: The card game",
+        "description": "Learn about Slovenian members of parliament in the 2014-18 mandate through a table top game, and at the same time support our flagship project - Parlameter.",
         "short_description": "Try the only political game that doesn’t hurt the people!",
         "button_text": "More"
       },
       "5": {
         "title": "Philosophical agrument book",
-        "description": "First edition of the thematic agrument, which was published online on Saturdays and explained philosophical concepts. If you indulge in thinking, then support our volunteer project!",
+        "description": "The first edition of the thematic agrument, which was published online on Saturdays and examined philosophical concepts. If you indulge in thinking, then support our volunteer project!",
         "short_description": "A collection of thematic agruments in a book!",
         "button_text": "More"
       },
       "6": {
         "title": "Second DJND t-shirt – sun",
-        "description": "Community produced the design and we took care of printing. Because a new day can only be what we do together, either we roar into the moon or squint at the sun. This time in a limited edition. P.S. The cut is universal, loose, and the size is more \"masculine\".",
-        "short_description": "Collaboration with Matija Medved!",
+        "description": "Our community produced the design and we took care of printing. Because a new day can only be what we do together, either we roar into the moon or squint at the sun. This time in a limited edition. P.S. The cut is universal and loose, and the sizes \"manly\".",
+        "short_description": "In collaboration with Matija Medved!",
         "button_text": "More"
       },
       "7": {
         "title": "Second DJND t-shirt – moon",
-        "description": "Community produced the design and we took care of printing. Because a new day can only be what we do together, either we roar into the moon or squint at the sun. This time in a limited edition. P.S. The cut is universal, loose, and the size is more \"masculine\".",
-        "short_description": "Collaboration with Matija Medved!",
+        "description": "Our community produced the design and we took care of printing. Because a new day can only be what we do together, either we roar into the moon or squint at the sun. This time in a limited edition. P.S. The cut is universal and loose, and the sizes \"manly\".",
+        "short_description": "In collaboration with Matija Medved!",
         "button_text": "More"
       }
+    },
+    "checkout": {
+      "data": "Shipping and billing info",
+      "name": "Name",
+      "lastName": "Last name",
+      "streetAndNum": "Street name and number",
+      "postAndNum": "Post office and number",
+      "email": "Email",
+      "newsletter": "Please keep me informed about new project and activities.",
+      "continue": "Continue",
+      "back": "Back",
+      "card": "Card",
+      "paypal": "PayPal",
+      "upn": "Bank transfer",
+      "cardNumber": "Card number",
+      "expirationDate": "Expiration date",
+      "cvv": "CVV",
+      "paypalContinue": "Continue by clicking on the button",
+      "upnContinue": "We'll send you the payment instructions to your email.",
+      "close": "Close"
+    },
+    "thanks": {
+      "title": "Thank you!",
+      "paragraph": "Your purchase represents another piece of support in the mosaic of our work. We sincerely hope your purchase brings you joy and our projects pride."
     }
   },
   "tools": {
