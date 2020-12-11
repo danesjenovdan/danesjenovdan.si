@@ -58,7 +58,7 @@
       "science": "Scientific council"
     },
     "people": {
-      "zigaaljaz": { "description": "responsible for responibilities" },
+      "zigaaljaz": { "description": "responsible for responibilities and oil slick hair" },
       "tea": { "description": "responsible for nagging the media and blabbering" },
       "filip": { "description": "responsible for hacking and <3" },
       "tine": {
@@ -71,7 +71,7 @@
       },
       "skornc": { "description": "responsible for cuts and slices" },
       "mirt": {
-        "description": "responsible for thoughtings, sophistry, and traverses"
+        "description": "responsible for sophistry and traverse climbing"
       },
       "kunst": { "description": "responsible for django and building snowmen" },
       "miha": { "description": "responsible for automation and flipping tables" },
@@ -79,27 +79,27 @@
       "darja": {
         "description": "responsible for space inside and outside of our heads"
       },
-      "mlacnik": { "description": "responsible for kafkettle and pick 'n' roll" },
+      "mlacnik": { "description": "responsible for kafkakettles and pick 'n' roll" },
       "jasmina": { "description": "resposible for crayons and biscuits" },
       "kaja": { "description": "responsible for shopping and doping" },
-      "karmen": { "description": "resposible for philosophical gastronomy" },
+      "karmen": { "description": "resposible for philosophy and gastronomy" },
       "katja": { "description": "responsible for doubting and shouting" },
       "evas": { "description": "responsible for semiotics and harmonies" },
       "tadej": {
         "description": "responsible for gamification and californication"
       },
       "anja_t": { "description": "responsible for healthy minds and bodies" },
-      "eva": { "description": "responsible for words and fishing" },
+      "eva": { "description": "responsible for sentences and fishing" },
       "ziga": { "description": "responsible for downvoting and techno" },
       "mato": { "description": "responsible for frontend and stews" },
-      "franci": { "description": "javascript ninja and reddit troll" },
-      "dominik": { "description": "responsible for work and leasure" },
-      "miha_s": { "description": "responsible for intrigue and chasing dragons" },
+      "franci": { "description": "responsible for javascript and reddit trolling" },
+      "dominik": { "description": "responsible for work and leisure" },
+      "miha_s": { "description": "responsible for intrigues and chasing dragons" },
       "sara": {
         "description": "responsible for questioning and conspiracy theories"
       },
       "maja_p": { "description": "responsible for order and other disciples" },
-      "martin": { "description": "responsible for blamer and suiting up" },
+      "martin": { "description": "responsible for blabbering and suiting up" },
       "maja_c": { "description": "responsible for all and nothing" },
       "jan": { "description": "responsible for crypto and tofu" },
       "neza": { "description": "responsible for rights and wrongs" },
@@ -154,68 +154,68 @@
   "shop": {
     "addToCart": "Add to cart and continue shopping",
     "buy": "Buy",
-    "finish": "Finish and pay",
+    "finish": "Checkout",
     "quantity": "Quantity",
     "amountToPay": "Total",
     "summary": "Overview",
     "terms": "Terms and conditions",
-    "description": "Our democracy is riddled with computer bugs, hijacked by tiring birocracy and exposed to hateful viruses. The government responsible is neither capable of nor interested in eliminating them. We, however, are keen to do it. Help us out!",
+    "description": "Our democracy is riddled with computer bugs. It was hijacked by tiring bureaucracy and is vulnerable to hateful viruses. The government might be responsible for all these things but it is neither capable of nor interested in eliminating them. We, however, are keen to do it. Help us out!",
     "promo-bar": {
-      "support-us": "Omogoči naše nadaljnje delovanje!",
-      "button-text": "Podpri nas z nakupom!"
+      "support-us": "Support us and help us continue with our activities!",
+      "button-text": "Buy our merch!"
     },
     "products": {
       "1": {
-        "title": "Rizle",
-        "description": "Obvezna oprema za hedonist(k)e in njihovo družbo. Imej jih vedno s sabo, ne le, da so lepe, preverjeno lahko rešijo Moreer.",
-        "short_description": "Ker se za dobrimi konji vedno kadi",
-        "button_text": "Pokadi kaj..."
+        "title": "Rolling papers",
+        "description": "Mandatory equipment for all hedonists and their friends. Not only they look good, they can also help you out in times of crisis.",
+        "short_description": "Smokin' hot!",
+        "button_text": "More"
       },
       "2": {
-        "title": "First DJND t-shirt",
-        "description": "The community voted on a slogan, we illustrated it. Our first shirt brings a thorough analysis of the situation at home, so we don't forget why we do this.",
+        "title": "DJND tee no. 1",
+        "description": "The community chose a slogan and we illustrated it. Our first t-shirt design represents current Zeitgeist. Just to make sure we don't forget why we do this.",
         "short_description": "Fashion is passion!",
         "button_text": "More"
       },
       "3": {
         "title": "DJND mug",
-        "description": "Take care of your intake of liquid stimulants while you help to sustain our activities. Cheers!",
+        "description": "Take care of your intake of liquid stimulants while you help sustain our activities. Cheers!",
         "short_description": "Every morning is a new day!",
         "button_text": "More"
       },
       "4": {
-        "title": "Political Playground: The card game",
-        "description": "Learn about Slovenian members of parliament in the 2014-18 mandate through a table top game, and at the same time support our flagship project - Parlameter.",
-        "short_description": "Try the only political game that doesn’t hurt the people!",
+        "title": "Political playground: The card game",
+        "description": "Play a card game and learn about Slovenian parliament in the 2014-18 mandate. Earnings from the game are used to support our flagship project - Parlameter.",
+        "short_description": "Enjoy the only political game that doesn’t hurt anyone!",
         "button_text": "More"
       },
       "5": {
         "title": "Philosophical agrument book",
-        "description": "The first edition of the thematic agrument, which was published online on Saturdays and examined philosophical concepts. If you indulge in thinking, then support our volunteer project!",
-        "short_description": "A collection of thematic agruments in a book!",
+        "description": "The first book in the thematic agrument seriers. If you like to indulge in thinking, buy this book and support our volunteer project - Agrument!",
+        "short_description": "25 philosophical concepts in a book!",
         "button_text": "More"
       },
       "6": {
-        "title": "Second DJND t-shirt – sun",
-        "description": "Our community produced the design and we took care of printing. Because a new day can only be what we do together, either we roar into the moon or squint at the sun. This time in a limited edition. P.S. The cut is universal and loose, and the sizes \"manly\".",
+        "title": "DJND tee no. 2 – sun",
+        "description": "Because a new day can only be what we create together, either by howling at the moon or squinting at the sun. This is a limited edition unisex tee.",
         "short_description": "In collaboration with Matija Medved!",
         "button_text": "More"
       },
       "7": {
-        "title": "Second DJND t-shirt – moon",
-        "description": "Our community produced the design and we took care of printing. Because a new day can only be what we do together, either we roar into the moon or squint at the sun. This time in a limited edition. P.S. The cut is universal and loose, and the sizes \"manly\".",
+        "title": "DJND tee no. 2 – moon",
+        "description": "Because a new day can only be what we create together, either by howling at the moon or squinting at the sun. This is a limited edition unisex tee.",
         "short_description": "In collaboration with Matija Medved!",
         "button_text": "More"
       }
     },
     "checkout": {
       "data": "Shipping and billing info",
-      "name": "Name",
+      "name": "First name",
       "lastName": "Last name",
       "streetAndNum": "Street name and number",
-      "postAndNum": "Post office and number",
-      "email": "Email",
-      "newsletter": "Please keep me informed about new project and activities.",
+      "postAndNum": "Postcode and city",
+      "email": "Email address",
+      "newsletter": "Please keep me informed about new projects and activities.",
       "continue": "Continue",
       "back": "Back",
       "card": "Card",
@@ -224,13 +224,13 @@
       "cardNumber": "Card number",
       "expirationDate": "Expiration date",
       "cvv": "CVV",
-      "paypalContinue": "Continue by clicking on the button",
-      "upnContinue": "We'll send you the payment instructions to your email.",
+      "paypalContinue": "Click the button to finalize your purchase",
+      "upnContinue": "Check your email for payment instructions.",
       "close": "Close"
     },
     "thanks": {
       "title": "Thank you!",
-      "paragraph": "Your purchase represents another piece of support in the mosaic of our work. We sincerely hope your purchase brings you joy and our projects pride."
+      "paragraph": "Your purchase means the world to us. We sincerely hope it brings you joy."
     }
   },
   "tools": {
@@ -241,7 +241,7 @@
         "title": "Newsgradient",
         "description": "Newsgradient is a powerful tool that allows you to view news on the political spectrum.",
         "paragraphs": [
-          "Newsgradient highlights the differences in media coverage of the most important events. It enables users to easily follow the daily news and observe it on the political spectrum. The media are arranged on the left-right axis and classified according to their bias and credibility.",
+          "Newsgradient highlights the differences in media coverage of important events. It enables users to easily follow the daily news and observe it on the political spectrum. The media are arranged on the left-right axis and classified according to their bias and credibility.",
           "Newsgradient has received financial support from NED. It has been developed with the help of partners Event Registry and Ad Fontes Media. The Bosnian version was implemented in cooperation with local partners Zašto ne."
         ],
         "contact": "Contact us for localization options.",
