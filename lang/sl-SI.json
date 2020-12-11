@@ -289,6 +289,7 @@
   "shop": {
     "addToCart": "Dodaj v voziček in še malo pobrskaj po policah",
     "buy": "Kupi",
+    "finish": "Zaključi nakup",
     "quantity": "Količina",
     "amountToPay": "Znesek za plačilo",
     "summary": "Povzetek naročila",
@@ -341,6 +342,30 @@
         "short_description": "V sodelovanju z Matijo Medvedom!",
         "button_text": "Več"
       }
+    },
+    "checkout": {
+      "data": "Podatki",
+      "name": "Ime",
+      "lastName": "Priimek",
+      "streetAndNum": "Ulica in hišna številka",
+      "postAndNum": "Poštna številka in pošta",
+      "email": "Email",
+      "newsletter": "Obveščajte me o novih projektih in aktivnostih.",
+      "continue": "Naprej",
+      "back": "Nazaj",
+      "card": "Kartica",
+      "paypal": "PayPal",
+      "upn": "Položnica",
+      "cardNumber": "Številka kartice",
+      "expirationDate": "Rok veljavnosti",
+      "cvv": "CVV",
+      "paypalContinue": "Nadaljuj s klikom na gumb",
+      "upnContinue": "Položnico za plačilo prejmeš na svoj e-naslov.",
+      "close": "Zapri"
+    },
+    "thanks": {
+      "title": "Hvala!",
+      "paragraph": "Tvoj nakup predstavlja še en kamenček podpore v mozaiku našega delovanja. Iskreno upamo, da ti bo kupljeno v veselje, naši projekti pa v ponos!"
     }
   },
   "donate": {

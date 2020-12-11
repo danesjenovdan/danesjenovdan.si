@@ -6,27 +6,24 @@
           :class="['nav-link', { active: active === 'card' }]"
           type="button"
           @click="changeActive('card')"
-        >
-          Kartica
-        </button>
+          v-t="'shop.checkout.card'"
+        ></button>
       </div>
       <div class="nav-item">
         <button
           :class="['nav-link', { active: active === 'paypal' }]"
           type="button"
           @click="changeActive('paypal')"
-        >
-          PayPal
-        </button>
+          v-t="'shop.checkout.paypal'"
+        ></button>
       </div>
       <div class="nav-item" v-if="!recurring">
         <button
           :class="['nav-link', { active: active === 'upn' }]"
           type="button"
           @click="changeActive('upn')"
-        >
-          Položnica
-        </button>
+          v-t="'shop.checkout.upn'"
+        ></button>
       </div>
     </nav>
   </div>

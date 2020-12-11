@@ -43,7 +43,7 @@
             </div>
             <more-button
               :to="localePath('shop-checkout')"
-              :text="'Zaključi nakup'"
+              :text="$t('shop.finish')"
               block
               color="secondary"
             />
@@ -53,7 +53,7 @@
       <div class="checkout">
         <more-button
           :to="localePath('shop-checkout')"
-          :text="'Zaključi nakup'"
+          :text="$t('shop.finish')"
           small
           color="secondary"
         />

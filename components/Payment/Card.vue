@@ -104,15 +104,15 @@ export default {
           fields: {
             number: {
               selector: '#cc-number',
-              placeholder: 'Številka kartice',
+              placeholder: this.$t('shop.checkout.cardNumber'),
             },
             expirationDate: {
               selector: '#cc-expirationDate',
-              placeholder: 'Rok veljavnosti',
+              placeholder: this.$t('shop.checkout.expirationDate'),
             },
             cvv: {
               selector: '#cc-cvv',
-              placeholder: 'CVV',
+              placeholder: this.$t('shop.checkout.cvv'),
             },
           },
         };

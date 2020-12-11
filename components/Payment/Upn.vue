@@ -4,7 +4,7 @@
     <form v-else>
       <img src="/img/poloznica.png" id="poloznica-img" />
       <div class="form-group">
-        <label>Položnico za plačilo prejmeš na svoj e-naslov.</label>
+        <label v-t="'shop.checkout.upnContinue'"></label>
       </div>
     </form>
   </div>
