@@ -3,7 +3,7 @@
     <payment-error v-if="error" />
     <form v-else>
       <div class="form-group">
-        <label>Nadaljuj s klikom na gumb</label>
+        <label v-t="'shop.checkout.paypalContinue'"></label>
         <div id="paypal-button" />
       </div>
       <div v-if="warning" class="form-group">
