@@ -341,6 +341,18 @@
         "description": "Pri naši drugi majici oz. paru majic je iz skupnosti prišel dizajn, mi pa smo zrihtali (sito)tisk. Ker je nov dan vedno lahko le tisto, kar naredimo skupaj, najsi tulimo v luno ali pa mežikamo v sonce. Gre za omejeno izdajo. Kroj je univerzalen, neteliran, velikosti pa bolj \"moške\".",
         "short_description": "V sodelovanju z Matijo Medvedom!",
         "button_text": "Več"
+      },
+      "8": {
+        "title": "Knjiga Psihoanalitski abecedarij",
+        "description": "Druga knjiga v zbirki Agrument slovari psihoanalitske koncepte. Uživaj v svojem simptomu in podpri prostovoljski projekt!",
+        "short_description": "Tematski agrumenti v knjižni obliki!",
+        "button_text": "Več"
+      },
+      "9": {
+        "title": "Abecedarij svobode govora",
+        "description": "Tretja knjiga v zbirki Agrument slovari različne vidike svobode govora. Zavzemi odgovorno držo do te pravice in podpri prostovoljski projekt!",
+        "short_description": "Tematski agrumenti v knjižni obliki!",
+        "button_text": "Več"
       }
     },
     "checkout": {
