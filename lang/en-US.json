@@ -206,6 +206,18 @@
         "description": "Because a new day can only be what we create together, either by howling at the moon or squinting at the sun. This is a limited edition unisex tee.",
         "short_description": "In collaboration with Matija Medved!",
         "button_text": "More"
+      },
+      "8": {
+        "title": "Psychoanalytical agrument book",
+        "description": "The second book in the thematic agrument seriers. If you enjoy your symptoms, buy this book and support our volunteer project - Agrument!",
+        "short_description": "25 psychoanalytical concepts in a book!",
+        "button_text": "More"
+      },
+      "9": {
+        "title": "Freedom of speech agrument book",
+        "description": "The third book in the thematic agrument seriers. If you think freedom of speech is important, buy this book and support our volunteer project - Agrument!",
+        "short_description": "25 takes on freedom of speech in a book!",
+        "button_text": "More"
       }
     },
     "checkout": {
