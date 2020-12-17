@@ -64,6 +64,7 @@
         <achievement-tile
           icon="zenske"
           text="Analizirali smo reprezentacijo spola v oddaji Odmevi."
+          href="https://docs.google.com/spreadsheets/d/1VBe_QYF71K9nlUZW34OJDh2z2dPxoC_GG-zAUZ8A6y0/edit?usp=sharing"
         />
         <achievement-tile
           icon="PP"
