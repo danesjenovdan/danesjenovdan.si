@@ -232,8 +232,6 @@ export default {
       en: '/donate/checkout',
     },
   },
-  layout: 'checkout',
-  pageColor: 'secondary',
   components: {
     ConfirmButton,
     PaymentSwitcher,
@@ -244,6 +242,8 @@ export default {
     CheckoutStage,
     DynamicLink,
   },
+  layout: 'checkout',
+  pageColor: 'secondary',
   data() {
     return {
       error: null,

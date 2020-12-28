@@ -11,10 +11,6 @@ export default {
    */
   telemetry: false,
   /*
-   ** Build mode
-   */
-  mode: 'universal',
-  /*
    ** Headers of the page
    */
   head: {

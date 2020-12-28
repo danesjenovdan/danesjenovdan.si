@@ -21,9 +21,7 @@
       ravni posameznega partnerja ter skupno povečali kakovost in doseg
       delovanja za pozitivne spremembe v družbi.
     </p>
-    <p>
-      Osrednji strateški cilji konzorcija so:
-    </p>
+    <p>Osrednji strateški cilji konzorcija so:</p>
     <ul>
       <li>
         doseganje
@@ -91,7 +89,7 @@
           src="/img/donators/mju.png"
           alt="Ministrstvo za javno upravo"
           class="img-fluid"
-          style="max-width: 270px;"
+          style="max-width: 270px"
         />
       </a>
     </p>

@@ -2,7 +2,7 @@
   <div class="upn-payment">
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     <form v-else>
-      <img src="/img/poloznica.png" id="poloznica-img" />
+      <img id="poloznica-img" src="/img/poloznica.png" />
       <div class="form-group">
         <label v-t="'shop.checkout.upnContinue'"></label>
       </div>

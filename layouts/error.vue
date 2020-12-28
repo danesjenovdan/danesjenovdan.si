@@ -12,10 +12,10 @@ import PageTitle from '~/components/PageTitle.vue';
 //                                                                            //
 
 export default {
-  layout: 'default',
   components: {
     PageTitle,
   },
+  layout: 'default',
   props: {
     error: {
       type: Object,

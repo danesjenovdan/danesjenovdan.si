@@ -281,17 +281,6 @@ import AchievementTile from '~/components/AchievementTile.vue';
 import ProblemTile from '~/components/ProblemTile.vue';
 
 export default {
-  layout: 'donate',
-
-  pageColor: 'secondary',
-
-  nuxtI18n: {
-    paths: {
-      sl: '/doniraj',
-      en: '/donate',
-    },
-  },
-
   components: {
     DonationLogo,
     ConfirmButton,
@@ -303,10 +292,67 @@ export default {
     AchievementTile,
     ProblemTile,
   },
+  layout: 'donate',
+
+  pageColor: 'secondary',
+
+  nuxtI18n: {
+    paths: {
+      sl: '/doniraj',
+      en: '/donate',
+    },
+  },
 
   data() {
     return {
       images: [],
+    };
+  },
+
+  head() {
+    return {
+      title: 'Doniraj za nov dan!',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Doniraj za nov dan!',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: 'Doniraj za nov dan!',
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content:
+            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
+        },
+      ],
     };
   },
 
@@ -363,53 +409,6 @@ export default {
       }
       window.open(url, '_blank');
     },
-  },
-
-  head() {
-    return {
-      title: 'Doniraj za nov dan!',
-      meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Doniraj za nov dan!',
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
-        },
-        {
-          hid: 'twitter:title',
-          property: 'twitter:title',
-          content: 'Doniraj za nov dan!',
-        },
-        {
-          hid: 'twitter:description',
-          property: 'twitter:description',
-          content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
-        },
-        {
-          hid: 'twitter:image',
-          property: 'twitter:image',
-          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
-        },
-      ],
-    };
   },
 };
 </script>

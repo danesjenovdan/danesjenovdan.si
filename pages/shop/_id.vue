@@ -36,7 +36,7 @@
         </div>
         <div class="product__variant row">
           <div class="col-12 col-md-3">
-            <span class="variant__title" v-t="'shop.quantity'"></span>
+            <span v-t="'shop.quantity'" class="variant__title"></span>
           </div>
           <div class="col d-flex align-items-center">
             <button
@@ -93,11 +93,11 @@ export default {
       en: '/shop/:id/:slug?',
     },
   },
-  layout: 'checkout',
   components: {
     MoreButton,
   },
   mixins: [shopMixin],
+  layout: 'checkout',
   asyncData: catchError(async ({ $axios, params }) => {
     const product = await $axios.$get(
       `https://podpri.djnd.si/api/shop/products/${params.id}/`,

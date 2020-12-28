@@ -93,53 +93,6 @@ export default {
       activePost: posts[0],
     };
   },
-  methods: {
-    async fetchNextPage() {
-      if (this.nextPageLink) {
-        const nextPosts = await this.$axios.$get(this.nextPageLink);
-        this.posts = uniqBy([...this.posts, ...nextPosts.data], 'id');
-        this.nextPageLink = nextPosts.links.next;
-      }
-    },
-    onWaypoint({ going, direction }) {
-      if (
-        going === this.$waypointMap.GOING_IN &&
-        direction === this.$waypointMap.DIRECTION_TOP
-      ) {
-        this.fetchNextPage();
-      }
-    },
-    onTopWaypoint({ going, direction }) {
-      if (
-        going === this.$waypointMap.GOING_IN &&
-        direction === this.$waypointMap.DIRECTION_BOTTOM
-      ) {
-        const path = this.localePath('agrument-date');
-        this.activePost = this.posts[0];
-        if (typeof window !== 'undefined') {
-          window.history.replaceState(window.history.state, null, path);
-        }
-      }
-    },
-    onArticleWaypoint(post) {
-      return ({ going, direction, el }) => {
-        if (!direction) {
-          // ignore initial page load
-          return;
-        }
-        if (going === this.$waypointMap.GOING_IN) {
-          const path = this.localePath({
-            name: 'agrument-date',
-            params: { date: this.toSloUrlDate(post.datetime) },
-          });
-          this.activePost = post;
-          if (typeof window !== 'undefined') {
-            window.history.replaceState(window.history.state, null, path);
-          }
-        }
-      };
-    },
-  },
   head() {
     if (!this.activePost) {
       return {
@@ -209,6 +162,53 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    async fetchNextPage() {
+      if (this.nextPageLink) {
+        const nextPosts = await this.$axios.$get(this.nextPageLink);
+        this.posts = uniqBy([...this.posts, ...nextPosts.data], 'id');
+        this.nextPageLink = nextPosts.links.next;
+      }
+    },
+    onWaypoint({ going, direction }) {
+      if (
+        going === this.$waypointMap.GOING_IN &&
+        direction === this.$waypointMap.DIRECTION_TOP
+      ) {
+        this.fetchNextPage();
+      }
+    },
+    onTopWaypoint({ going, direction }) {
+      if (
+        going === this.$waypointMap.GOING_IN &&
+        direction === this.$waypointMap.DIRECTION_BOTTOM
+      ) {
+        const path = this.localePath('agrument-date');
+        this.activePost = this.posts[0];
+        if (typeof window !== 'undefined') {
+          window.history.replaceState(window.history.state, null, path);
+        }
+      }
+    },
+    onArticleWaypoint(post) {
+      return ({ going, direction, el }) => {
+        if (!direction) {
+          // ignore initial page load
+          return;
+        }
+        if (going === this.$waypointMap.GOING_IN) {
+          const path = this.localePath({
+            name: 'agrument-date',
+            params: { date: this.toSloUrlDate(post.datetime) },
+          });
+          this.activePost = post;
+          if (typeof window !== 'undefined') {
+            window.history.replaceState(window.history.state, null, path);
+          }
+        }
+      };
+    },
   },
 };
 </script>

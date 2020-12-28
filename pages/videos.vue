@@ -116,6 +116,11 @@ export default {
       autoplay: false,
     };
   },
+  head() {
+    return {
+      title: this.$t('menu.videos'),
+    };
+  },
   computed: {
     activeFilters() {
       return this.filters.filter((f) => f.active).map((f) => f.id);
@@ -148,11 +153,6 @@ export default {
     onIframeLoad() {
       this.iframeLoaded = true;
     },
-  },
-  head() {
-    return {
-      title: this.$t('menu.videos'),
-    };
   },
 };
 </script>

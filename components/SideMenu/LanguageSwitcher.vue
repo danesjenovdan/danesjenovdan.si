@@ -10,8 +10,9 @@
         :key="locale.code"
         :value="locale.code"
         :selected="locale.code === $i18n.locale"
-        >{{ locale.name }}</option
       >
+        {{ locale.name }}
+      </option>
     </select>
   </div>
 </template>

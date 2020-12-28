@@ -3,26 +3,26 @@
     <nav class="nav nav-pills justify-content-center">
       <div class="nav-item">
         <button
+          v-t="'shop.checkout.card'"
           :class="['nav-link', { active: active === 'card' }]"
           type="button"
           @click="changeActive('card')"
-          v-t="'shop.checkout.card'"
         ></button>
       </div>
       <div class="nav-item">
         <button
+          v-t="'shop.checkout.paypal'"
           :class="['nav-link', { active: active === 'paypal' }]"
           type="button"
           @click="changeActive('paypal')"
-          v-t="'shop.checkout.paypal'"
         ></button>
       </div>
-      <div class="nav-item" v-if="!recurring">
+      <div v-if="!recurring" class="nav-item">
         <button
+          v-t="'shop.checkout.upn'"
           :class="['nav-link', { active: active === 'upn' }]"
           type="button"
           @click="changeActive('upn')"
-          v-t="'shop.checkout.upn'"
         ></button>
       </div>
     </nav>
