@@ -99,6 +99,11 @@ export default {
       ],
     };
   },
+  head() {
+    return {
+      title: this.$t('menu.projects'),
+    };
+  },
   computed: {
     activeFilters() {
       return this.filters.filter((f) => f.active).map((f) => f.id);
@@ -115,11 +120,6 @@ export default {
           proj.tags && intersection(proj.tags, this.activeFilters).length,
       );
     },
-  },
-  head() {
-    return {
-      title: this.$t('menu.projects'),
-    };
   },
 };
 </script>

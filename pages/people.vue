@@ -82,6 +82,11 @@ export default {
       people: sortedPeople,
     };
   },
+  head() {
+    return {
+      title: this.$t('menu.people'),
+    };
+  },
   computed: {
     activeFilter() {
       return this.filters.filter((f) => f.active).map((f) => f.id)[0];
@@ -94,11 +99,6 @@ export default {
         (person) => person.tags && person.tags.includes(this.activeFilter),
       );
     },
-  },
-  head() {
-    return {
-      title: this.$t('menu.people'),
-    };
   },
 };
 </script>

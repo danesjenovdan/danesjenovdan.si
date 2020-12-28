@@ -173,6 +173,7 @@
             <paypal-payment
               :token="token"
               :amount="selectedDonationAmount"
+              :recurring="monthlyDonation"
               @ready="onPaymentReady"
               @payment-start="paymentInProgress = true"
               @success="paymentSuccess"
@@ -232,8 +233,6 @@ export default {
       en: '/donate/checkout',
     },
   },
-  layout: 'checkout',
-  pageColor: 'secondary',
   components: {
     ConfirmButton,
     PaymentSwitcher,
@@ -244,6 +243,8 @@ export default {
     CheckoutStage,
     DynamicLink,
   },
+  layout: 'checkout',
+  pageColor: 'secondary',
   data() {
     return {
       error: null,

@@ -23,9 +23,9 @@
     </div>
     <div class="checkout-stage__terms">
       <nuxt-link
+        v-t="'shop.terms'"
         target="_blank"
         :to="localePath('articles-terms')"
-        v-t="'shop.terms'"
       ></nuxt-link>
     </div>
   </div>

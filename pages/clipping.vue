@@ -75,6 +75,11 @@ export default {
       cancelSource: null,
     };
   },
+  head() {
+    return {
+      title: this.$t('menu.clipping'),
+    };
+  },
   computed: {
     queryString() {
       return `?lang=${this.$i18n.locale}&${[
@@ -123,11 +128,6 @@ export default {
         this.$refs.pageTop.scrollIntoView();
       });
     },
-  },
-  head() {
-    return {
-      title: this.$t('menu.clipping'),
-    };
   },
 };
 </script>
