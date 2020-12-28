@@ -2,10 +2,10 @@
   <a
     :class="['achievement-tile', { empty, href: href === '#' }]"
     :style="{ 'z-index': zIndex }"
-    @mouseover="hover"
-    @mouseleave="deHover"
     :href="href"
     target="_blank"
+    @mouseover="hover"
+    @mouseleave="deHover"
   >
     <template v-if="!empty">
       <img class="achievement-icon" :src="`/icons/achievements/${icon}.svg`" />

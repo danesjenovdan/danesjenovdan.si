@@ -3,9 +3,7 @@
     <donation-logo />
     <div class="row justify-content-center">
       <div class="limit-like-p">
-        <h1 class="mega-header">
-          #vladozlom
-        </h1>
+        <h1 class="mega-header">#vladozlom</h1>
         <div class="embed-responsive embed-responsive-16by9">
           <div class="embed-responsive-item d-flex align-items-center">
             <iframe
@@ -19,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="row" style="height: 90px;"></div>
+    <div class="row" style="height: 90px"></div>
   </div>
 </template>
 
@@ -27,6 +25,7 @@
 import videoMixin from '~/mixins/video.js';
 
 export default {
+  mixins: [videoMixin],
   layout: 'default',
 
   pageColor: 'secondary',
@@ -37,8 +36,6 @@ export default {
       en: '/stream',
     },
   },
-
-  mixins: [videoMixin],
 };
 </script>
 

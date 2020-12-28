@@ -14,6 +14,7 @@
       <div class="donation-option__content">
         <div class="donation-option__amount">
           <div v-if="donationPreset.custom" class="custom-amount">
+            <!-- eslint-disable vue/no-mutating-props -->
             <input
               id="custom-amount"
               v-model="donationPreset.amount"
@@ -22,6 +23,7 @@
               class="form-control"
               @keyup="onClick"
             />
+            <!-- eslint-enable vue/no-mutating-props -->
             <label for="custom-amount">€</label>
           </div>
           <span v-else>{{ donationPreset.amount }} €</span>

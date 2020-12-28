@@ -73,6 +73,11 @@ export default {
       basketItems: null,
     };
   },
+  head() {
+    return {
+      title: this.$t('menu.shop'),
+    };
+  },
   computed: {
     stockedProducts() {
       return this.products.filter((p) => p.stock > 0);
@@ -90,11 +95,6 @@ export default {
       await this.changeAmount(this.orderKey, itemId, newAmount);
       this.basketItems = await this.getBasketItems(this.orderKey);
     },
-  },
-  head() {
-    return {
-      title: this.$t('menu.shop'),
-    };
   },
 };
 </script>

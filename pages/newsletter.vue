@@ -16,9 +16,7 @@
         </div>
         <div v-if="showForm" class="row justify-content-center">
           <div class="col form-col">
-            <p>
-              Nothing
-            </p>
+            <p>Nothing</p>
           </div>
         </div>
         <template v-else-if="settings">
@@ -83,11 +81,11 @@ export default {
       en: '/newsletter',
     },
   },
-  layout: 'checkout',
   components: {
     // MoreButton,
     EmailSubscriptionTile,
   },
+  layout: 'checkout',
   async asyncData({ $axios, query, error }) {
     let showForm = true;
     const settings = {

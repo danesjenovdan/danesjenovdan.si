@@ -109,11 +109,11 @@ export default {
       en: '/me',
     },
   },
-  layout: 'checkout',
   components: {
     MoreButton,
     EmailSubscriptionTile,
   },
+  layout: 'checkout',
   async asyncData({ $axios, query, error }) {
     let showForm = true;
     const settings = {

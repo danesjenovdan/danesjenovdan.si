@@ -128,9 +128,9 @@
                   class="custom-control-input"
                 />
                 <label
+                  v-t="'shop.checkout.newsletter'"
                   class="custom-control-label"
                   for="info-newsletter"
-                  v-t="'shop.checkout.newsletter'"
                 ></label>
               </div>
               <!-- this is here so you can submit the form with the enter key -->
@@ -153,8 +153,8 @@
             </div>
             <div class="bottom-back-link">
               <dynamic-link
-                @click="stage = 'summary'"
                 v-t="'shop.checkout.back'"
+                @click="stage = 'summary'"
               ></dynamic-link>
             </div>
           </template>
@@ -229,8 +229,8 @@
             </div>
             <div class="bottom-back-link">
               <dynamic-link
-                @click="stage = 'delivery'"
                 v-t="'shop.checkout.back'"
+                @click="stage = 'delivery'"
               ></dynamic-link>
             </div>
           </template>
@@ -249,9 +249,9 @@
         </div>
         <div class="thankyou__close">
           <nuxt-link
+            v-t="'shop.checkout.close'"
             :to="localePath('shop')"
             class="close-button"
-            v-t="'shop.checkout.close'"
           ></nuxt-link>
         </div>
       </div>
@@ -282,7 +282,6 @@ export default {
       en: '/shop/checkout',
     },
   },
-  layout: 'checkout',
   components: {
     CartProduct,
     PaymentSwitcher,
@@ -294,6 +293,7 @@ export default {
     DynamicLink,
   },
   mixins: [shopMixin],
+  layout: 'checkout',
   data() {
     return {
       stage: 'summary',
