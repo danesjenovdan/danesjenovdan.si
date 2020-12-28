@@ -110,7 +110,7 @@ export default {
   nuxtI18n: {
     paths: {
       sl:
-        '/novice/podpri-razvoj-inovativnih-modelov-podporništva-in-komuniciranja-za-nvo',
+        '/novice/podpri-razvoj-inovativnih-modelov-podporni%C5%A1tva-in-komuniciranja-za-nvo',
       en: '/news/mju-press-release',
     },
   },
