@@ -17,10 +17,8 @@
 import PaymentError from './Error.vue';
 
 let braintree = null;
-let paypal = null;
 if (typeof window !== 'undefined') {
   braintree = require('braintree-web');
-  paypal = require('paypal-checkout');
 }
 
 export default {
@@ -36,6 +34,10 @@ export default {
       type: Number,
       required: true,
     },
+    recurring: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -45,7 +47,7 @@ export default {
     };
   },
   async mounted() {
-    if (braintree && paypal) {
+    if (braintree) {
       try {
         const clientInstance = await braintree.client.create({
           authorization: this.token,
@@ -56,25 +58,38 @@ export default {
         const paypalCheckoutInstance = await braintree.paypalCheckout.create(
           options,
         );
-        await paypal.Button.render(
-          {
-            env: 'production',
+        const paypalSDKOptions = this.recurring
+          ? { currency: 'EUR', vault: true }
+          : { currency: 'EUR', intent: 'capture' };
+        await paypalCheckoutInstance.loadPayPalSDK(paypalSDKOptions);
+        await window.paypal
+          .Buttons({
+            fundingSource: window.paypal.FUNDING.PAYPAL,
             style: {
-              label: 'paypal',
-              size: 'responsive',
-              shape: 'rect',
               tagline: false,
             },
-            payment: () => {
-              return paypalCheckoutInstance.createPayment({
-                flow: 'checkout',
-                intent: 'sale',
-                amount: this.amount,
-                displayName: 'Danes je nov dan',
-                currency: 'EUR',
-              });
-            },
-            onAuthorize: (data, actions) => {
+            createOrder: this.recurring
+              ? undefined
+              : () => {
+                  return paypalCheckoutInstance.createPayment({
+                    flow: 'checkout',
+                    intent: 'capture',
+                    amount: this.amount,
+                    displayName: 'Danes je nov dan',
+                    currency: 'EUR',
+                  });
+                },
+            createBillingAgreement: this.recurring
+              ? () => {
+                  return paypalCheckoutInstance.createPayment({
+                    flow: 'vault',
+                    amount: this.amount,
+                    displayName: 'Danes je nov dan',
+                    currency: 'EUR',
+                  });
+                }
+              : undefined,
+            onApprove: (data) => {
               this.warning = null;
               this.$emit('payment-start');
               return paypalCheckoutInstance.tokenizePayment(
@@ -101,9 +116,8 @@ export default {
               this.error = error.message;
               this.$emit('error', { error });
             },
-          },
-          '#paypal-button',
-        );
+          })
+          .render('#paypal-button');
         this.$emit('ready');
       } catch (error) {
         // eslint-disable-next-line no-console

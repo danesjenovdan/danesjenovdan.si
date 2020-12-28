@@ -173,6 +173,7 @@
             <paypal-payment
               :token="token"
               :amount="selectedDonationAmount"
+              :recurring="monthlyDonation"
               @ready="onPaymentReady"
               @payment-start="paymentInProgress = true"
               @success="paymentSuccess"
