@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="row" style="height: 90px"></div>
+    <div class="row" style="height: 90px;"></div>
   </div>
 </template>
 
