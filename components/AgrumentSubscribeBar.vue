@@ -82,7 +82,7 @@
         class="modal show"
         tabindex="-1"
         role="dialog"
-        style="display: block"
+        style="display: block;"
       >
         <div role="document" class="modal-dialog modal-dialog-centered">
           <div class="modal-content">

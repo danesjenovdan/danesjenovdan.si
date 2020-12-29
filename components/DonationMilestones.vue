@@ -93,6 +93,12 @@ export default {
           text: 'lobistov, ki so obiskali Toninovo Ministrstvo za obrambo.',
           icon: '6_lobisti',
         },
+        {
+          number: 101,
+          text:
+            '101 najbližjih sodelavcev, ki jih je zaposlila vlada Janeza Janše.',
+          icon: '7_sodelavci',
+        },
       ],
     };
   },
