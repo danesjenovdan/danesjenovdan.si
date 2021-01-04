@@ -245,6 +245,22 @@
       "paragraph": "Your purchase means the world to us. We sincerely hope it brings you joy."
     }
   },
+  "donate": {
+    "title": "Support our work!",
+    "description": "We are that group of friends that was meeting during the winter of 2012–13 in a basement flat in Bežigrad and offered digital support and infrastructure for content initiatives during the protests. Since then, we have replaced afternoon activism with establishment of the institute Today is a new day, which has more than 30 colleagues, from full-time employees to afternoon and weekend volunteers.",
+    "subtitle": "To continue to work independently we also need your help. You can donate to us:",
+    "donations": {
+      "monthly": {
+        "title": "Monthly",
+        "subtitle": "Because you have a big, fat, and regular salary"
+      },
+      "once": {
+        "title": "Once",
+        "subtitle": "Because you have just a couple of Euros left to spare for a better tomorrow"
+      }
+    },
+    "naturalije": "Just because you're out of money doesn't mean you can't help us. Roll up your sleeves, scratch your head, flex your muscles, and contact us at"
+  },
   "tools": {
     "description": "Here are some of our digital solutions and ingenious ideas that take active citizenship to the next level. This is a portfolio, a digital storage, and an open source library. Look around for inspiration, activist supplies, and online props for digital activism and critical thinking.",
     "more": "Load more",
