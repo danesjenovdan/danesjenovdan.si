@@ -229,8 +229,8 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-
 export default {
   nuxtI18n: {
     paths: {
-      sl: '/doniraj/placaj',
-      en: '/donate/checkout',
+      sl: '/doniraj/placaj/:monthly',
+      en: '/donate/checkout/:monthly',
     },
   },
   components: {
@@ -246,6 +246,9 @@ export default {
   layout: 'checkout',
   pageColor: 'secondary',
   data() {
+    const monthlyDonation =
+      this.$route.params.monthly === 'monthly' ||
+      this.$route.params.monthly === 'mesecno';
     return {
       error: null,
       stage: 'select-amount',
@@ -316,7 +319,7 @@ export default {
       email: null,
       subscribeNewsletter: false,
       infoSubmitting: false,
-      monthlyDonation: false,
+      monthlyDonation,
     };
   },
   computed: {

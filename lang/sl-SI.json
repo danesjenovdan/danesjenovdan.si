@@ -381,8 +381,20 @@
     }
   },
   "donate": {
-    "title": "TODO: donate title",
-    "description": "TODO: donate desc"
+    "title": "Podpri nas!",
+    "description": "Smo tista skupina prijateljev, ki se je pozimi 2012–13 dobivala v neki kleti za Bežigradom in vstajam nudila digitalno podporo ter infrastrukturo za vsebinske pobude. Odtlej smo prostočasni aktivizem zamenjali za ustanovitev inštituta Danes je nov dan, ki ima že več kot 30 sodelavk in sodelavcev, od redno zaposlenih pa vse do prostovoljnih popoldancev in vikendašic.",
+    "subtitle": "Za nadaljnje neodvisno delovanje potrebujemo tudi tvojo pomoč. Doniraš nam lahko:",
+    "donations": {
+      "monthly": {
+        "title": "Vsak mesec",
+        "subtitle": "Ker imaš veliko, debelo in redno plačo"
+      },
+      "once": {
+        "title": "Enkrat",
+        "subtitle": "Ker imaš ravno par evrov viška za boljši jutri"
+      }
+    },
+    "naturalije": "Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, nagubaj čelo in napni mišice ter se nam javi na"
   },
   "footer": {
     "edit-email-settings": "Uredi svoje nastavitve e-pošte",
