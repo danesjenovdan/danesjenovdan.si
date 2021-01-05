@@ -25,27 +25,29 @@
         />
         <donation-choice-button
           donationType="once"
-          :href="$i18n.locale === 'sl' ? '/doniraj/placaj' : '/donate/checkout'"
+          :href="
+            $i18n.locale === 'sl'
+              ? '/doniraj/placaj/enkrat'
+              : '/donate/checkout/once'
+          "
         />
       </div>
     </div>
-    <div class="row justify-content-center">
-      <p class="naturalije">
-        {{ $t('donate.naturalije') }}
-        <a href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a>!
-      </p>
-    </div>
+    <volunteer i18nPath="donate.naturalije" />
   </div>
 </template>
 
 <script>
-import DonationChoiceButton from '../../components/DonationChoiceButton';
+import Volunteer from '~/components/Volunteer.vue';
+import DonationChoiceButton from '~/components/DonationChoiceButton';
 
 export default {
   components: {
     DonationChoiceButton,
+    Volunteer,
   },
-  layout: 'default',
+
+  layout: 'default-no-support',
 
   pageColor: 'secondary',
 
@@ -258,21 +260,29 @@ h1 {
 }
 h2 {
   color: #333333;
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 40px;
+  font-weight: 400;
   font-style: italic;
   letter-spacing: normal;
   line-height: 50px;
   text-align: left;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 p {
   font-size: 20px;
   color: #333333;
   font-weight: 200;
   width: 100%;
-  max-width: 872px;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  max-width: 672px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
 
@@ -283,7 +293,9 @@ p {
 }
 .limit-like-p {
   width: 100%;
-  max-width: 872px;
+  max-width: 672px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .pad-like-p {
   padding-left: 30px;
@@ -291,14 +303,21 @@ p {
 }
 
 #donation-buttons {
-  margin-top: 40px;
-
   .square-donation-button {
     float: left;
 
     &:last-child {
       float: right;
     }
+
+    @include media-breakpoint-down(sm) {
+      float: left !important;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    width: 317px;
+    margin: auto;
   }
 }
 
@@ -310,7 +329,7 @@ p.naturalije {
   letter-spacing: normal;
   line-height: 24.67px;
   text-align: left;
-  margin-top: 50px;
+  margin-top: 20px;
 
   a {
     color: #333333;
@@ -329,11 +348,5 @@ p.naturalije {
     background-size: contain;
     top: -8px;
   }
-}
-</style>
-
-<style lang="scss">
-.support-bar {
-  display: none;
 }
 </style>

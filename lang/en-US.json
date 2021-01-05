@@ -259,7 +259,7 @@
         "subtitle": "Because you have just a couple of Euros left to spare for a better tomorrow"
       }
     },
-    "naturalije": "Just because you're out of money doesn't mean you can't help us. Roll up your sleeves, scratch your head, flex your muscles, and contact us at"
+    "naturalije": "Just because you're out of money doesn't mean you can't help us. Roll up your sleeves, scratch your head, flex your muscles, and contact us at {email}!"
   },
   "tools": {
     "description": "Here are some of our digital solutions and ingenious ideas that take active citizenship to the next level. This is a portfolio, a digital storage, and an open source library. Look around for inspiration, activist supplies, and online props for digital activism and critical thinking.",
