@@ -70,7 +70,7 @@ export default {
       flex-direction: column;
       // flex: 1;
       // margin-bottom: auto;
-      min-height: 25rem;
+      min-height: 21rem;
 
       @include media-breakpoint-up(md) {
         // margin-bottom: 0;

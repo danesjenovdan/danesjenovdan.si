@@ -394,7 +394,7 @@
         "subtitle": "Ker imaš ravno par evrov viška za boljši jutri"
       }
     },
-    "naturalije": "Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, nagubaj čelo in napni mišice ter se nam javi na"
+    "naturalije": "Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, nagubaj čelo in napni mišice ter se nam javi na {email}!"
   },
   "footer": {
     "edit-email-settings": "Uredi svoje nastavitve e-pošte",

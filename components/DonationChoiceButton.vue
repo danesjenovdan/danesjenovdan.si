@@ -36,6 +36,7 @@ export default {
   position: relative;
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 16px;
   padding-bottom: 100px;
   transition: background-color 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
