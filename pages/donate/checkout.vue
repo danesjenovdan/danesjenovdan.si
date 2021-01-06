@@ -254,7 +254,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
+            'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
         },
         {
           hid: 'og:title',
@@ -265,7 +265,7 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
+            'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
         },
         {
           hid: 'og:image',
@@ -281,7 +281,7 @@ export default {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
+            'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
         },
         {
           hid: 'twitter:image',
