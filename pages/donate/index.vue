@@ -73,7 +73,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
         },
         {
           hid: 'og:title',
@@ -84,12 +84,12 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
+          content: 'https://danesjenovdan.si/og-image-doniraj.jpg',
         },
         {
           hid: 'twitter:title',
@@ -100,12 +100,12 @@ export default {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
         },
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
+          content: 'https://danesjenovdan.si/og-image-doniraj.jpg',
         },
       ],
     };
