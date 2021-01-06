@@ -270,7 +270,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://danesjenovdan.si/og-image-doniraj.jpg',
+          content: 'https://danesjenovdan.si/og-image-doniraj.png',
         },
         {
           hid: 'twitter:title',
@@ -286,7 +286,7 @@ export default {
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://danesjenovdan.si/og-image-doniraj.jpg',
+          content: 'https://danesjenovdan.si/og-image-doniraj.png',
         },
       ],
     };
