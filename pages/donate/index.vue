@@ -1,298 +1,53 @@
 <template>
   <div class="donation-landing-container">
-    <donation-logo />
     <div class="row justify-content-center">
       <div class="limit-like-p">
-        <h1 class="mega-header">Doniraj za nov dan!</h1>
+        <h1 class="mega-header" v-t="'donate.title'"></h1>
       </div>
     </div>
     <div class="row justify-content-center">
-      <p>Podpri naše delo v 2021!</p>
+      <p v-t="'donate.description'"></p>
     </div>
     <div class="row justify-content-center">
-      <div class="limit-like-p pad-like-p">
-        <confirm-button
-          key="next-summary"
-          :to="''"
-          :text="'Podpri'"
-          color="secondary"
-          arrow
-          hearts
-          @click.native="$router.push('/doniraj/placaj')"
+      <div class="limit-like-p">
+        <h2 v-t="'donate.subtitle'"></h2>
+      </div>
+    </div>
+    <div class="row justify-content-center" id="donation-buttons">
+      <div class="limit-like-p">
+        <donation-choice-button
+          donationType="monthly"
+          :href="
+            $i18n.locale === 'sl'
+              ? '/doniraj/placaj/mesecno'
+              : '/donate/checkout/monthly'
+          "
+        />
+        <donation-choice-button
+          donationType="once"
+          :href="
+            $i18n.locale === 'sl'
+              ? '/doniraj/placaj/enkrat'
+              : '/donate/checkout/once'
+          "
         />
       </div>
     </div>
-    <div class="row justify-content-center">
-      <p>
-        Leto sklepamo tudi z vsebinsko bilanco oz. poročilom o opravljenem delu.
-        Izpostavljamo najpomembnejše dosežke in mejnike, ki smo jih dosegli
-        tekom zadnjega kroga okoli sonca.
-      </p>
-    </div>
-    <div class="row">
-      <div class="achievement-tiles-container">
-        <achievement-tile
-          icon="consul"
-          text="V 7 občinah smo namestili Consul."
-          href="https://odlocamo-skupaj.nova-gorica.si/"
-        />
-        <achievement-tile
-          icon="parlameter"
-          text="V 3 državah vzdržujemo Parlameter."
-          href="https://parlameter.org/"
-        />
-        <achievement-tile
-          icon="pravnapomoc"
-          text="Do brezplačne pravne pomoči smo pomagali 89 protestnikom."
-          href="https://www.facebook.com/danesjenovdan/photos/a.415560015192794/3002029953212441"
-        />
-        <achievement-tile
-          icon="boter"
-          text="Raziskovalno smo na sledi skupini 500 potencialnih Twitter trolov."
-          href="https://acfslovenia.si/podprti-projekti/twitter-brigade/"
-        />
-        <achievement-tile
-          icon="stanovanja"
-          text="Izpostavili smo 6 korona kiksov na področju stanovanjske politike."
-          href="https://danesjenovdan.si/korona-kiks"
-        />
-        <achievement-tile
-          icon="narava"
-          text="Skupaj s koalicijo okoljskih NVO smo dosegli, da je peticijo Narave ne damo podpisalo več kot 36 000 ljudi."
-          href="https://www.naravenedamo.si/"
-        />
-        <achievement-tile
-          icon="zenske"
-          text="Analizirali smo reprezentacijo spola v oddaji Odmevi."
-          href="https://docs.google.com/spreadsheets/d/1VBe_QYF71K9nlUZW34OJDh2z2dPxoC_GG-zAUZ8A6y0/edit?usp=sharing"
-        />
-        <achievement-tile
-          icon="PP"
-          text="V zvezi s participativnim proračunom za besedo držimo 56 županov."
-          href="https://danesjenovdan.si/participativni-proracun/"
-        />
-        <achievement-tile
-          icon="brezstrahu"
-          text="Izpostavili smo dvoličnost SMC in DeSUS ob vstopu v Janševo vlado."
-          href="https://brezstrahu.si/"
-        />
-        <achievement-tile
-          icon="fasizem"
-          text="V Fašizmu za telebane smo popisali 39 primerov fašizacije slovenske družbe."
-          href="https://fasizem.djnd.si/"
-        />
-        <achievement-tile
-          icon="agrument"
-          text="Za letošnje agrumente smo do decembra porabili 41569 besed."
-          href="https://danesjenovdan.si/agrument"
-        />
-        <achievement-tile
-          icon="knjiga1"
-          text="Izdali smo knjigo Abecedarij svobode govora."
-        />
-        <achievement-tile
-          icon="knjiga2"
-          text="Izdali smo knjigo Psihoanalitski agrument."
-        />
-        <achievement-tile
-          icon="pocivalsek"
-          text="Počivalškov govor ob vstopu SMC v vlado smo opremili s satiričnimi podnapisi in sprožili debato o pošteni uporabi avtorskih materialov."
-          href="https://danesjenovdan.si/videogalerija?video=https%3A%2F%2Fyoutu.be%2FMnUuwDKA5c4"
-        />
-        <achievement-tile
-          icon="sodelovanje"
-          text="Sodelovali smo s številnimi domačimi in tujimi civilnodružbenimi in nevladnimi organizacijami."
-          href="https://danesjenovdan.si/o-nas"
-        />
-        <achievement-tile
-          icon="pojavljanja"
-          text="Kot strokovni sogovorniki smo pogosto nastopali v medijih"
-          href="https://danesjenovdan.si/pojavljanja"
-        />
-        <achievement-tile
-          icon="zicar"
-          text="Ob petletnici sramotne žice na meji smo lansirali spletno igro Žicar 2.0."
-          href="https://danesjenovdan.si/zicar/"
-        />
-        <achievement-tile
-          icon="zradirani"
-          text="V boju proti deložaciji smo podprli organizacije in ustvarjalce z Metelkove 6."
-          href="https://www.zradirani-metelkova6.si/"
-        />
-        <achievement-tile
-          icon="newsgradient"
-          text="Objavili smo Newsgradient Bosna in Hercegovina."
-          href="https://newsgradient.org/"
-        />
-        <achievement-tile
-          icon="twito"
-          text="Beležimo in analiziramo Twitter aktivnost Janeza Janše."
-          href="https://twito.si/"
-        />
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <p>
-        V letu 2021 bi na inštitutu radi nadaljevali z aktivnostmi, ki se
-        osredotočajo na spodbujanje politične participacije, sledenje političnih
-        obljub, promocijo človekovih pravic in vključenosti, kultiviranje
-        javnega in skupnega ter krepitev marginaliziranih glasov.
-      </p>
-      <p>Obdaruj nas!</p>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col limit-like-p d-flex">
-        <h1>Doniraj za nov dan</h1>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col limit-like-p d-flex">
-        <div class="row">
-          <div class="col-sm">
-            <confirm-button
-              key="next-summary"
-              :to="''"
-              :text="'Podpri nas'"
-              color="secondary"
-              arrow
-              hearts
-              @click.native="$router.push('/doniraj/placaj')"
-            />
-          </div>
-          <!-- <div class="col-sm d-flex">
-            <a href="/doniraj/placaj?gift=1" class="donate-href"
-              >ali
-              <span class="underline">Obdaruj bližnje z donacijo DJND</span></a
-            >
-          </div> -->
-        </div>
-      </div>
-    </div>
-    <div class="row vec-nas-je-kot align-items-center">
-      <div class="col-md-6">
-        <donation-images :images="images" class="pr-md-5" />
-      </div>
-      <div class="col-md-6">
-        <donation-milestones :number-of-donations="images.length" />
-      </div>
-    </div>
-    <div class="row align-items-center">
-      <div class="col">
-        <donation-summary
-          :total-donations="totalDonations"
-          :max-donation="maxDonation"
-        />
-      </div>
-      <div class="col">
-        <donation-campaign-progress
-          :end-date="new Date('2021-01-06')"
-          :total-days="35"
-        />
-      </div>
-    </div>
-    <div
-      class="py-5 row justify-content-center align-items-center under-vec-nas-je-kot"
-    >
-      <h1>Doniraj za nov dan</h1>
-      <confirm-button
-        key="next-summary"
-        :to="''"
-        :text="'Podpri nas'"
-        color="secondary"
-        arrow
-        hearts
-        @click.native="$router.push('/doniraj/placaj')"
-      />
-    </div>
-    <div class="row">
-      <div class="col-md problem-col">
-        <p>
-          S tvojo podporo bomo nadaljevali s temami, ki smo jih zastavili v
-          lanski donatorski kampanji.
-        </p>
-        <problem-tile
-          title="Sovražne vsebine"
-          description="V letu 2021 bo naš fokus v zvezi s sovražnimi bo predvsem na Twitterju. Že letos smo začeli s projektom Maršal Twito – Sledilnik, ki beleži in analizira Twitter aktivnost Janeza Janše, kmalu bomo objavili raziskavo Twitter brigade, ki razkriva sume o delovanju koordinirane propagandistične mreže Twitter profilov, pozorni pa bomo tudi na aktualne pojavnosti sovražnosti v medijih in na spletu."
-        />
-        <problem-tile
-          title="Odprti podatki"
-          description="V letu 2021 se bomo v okviru tega področja v veliki meri fokusirali na vprašanje odprtosti lokalnih podatkov. Naš cilj je, da občinsko različico Parlametra spravimo v vsaj 4 občine ter da izdelamo lestvico transparentnosti slovenskih občin. Poleg tega bomo opravili regionalno analizo odprtosti parlamentarnih podatkov ter izpostavili pomembnost odprtih podatkov tudi v kontekstu slovenskega predsedovanja EU."
-        />
-      </div>
-      <div class="col-md">
-        <problem-tile
-          title="Narava"
-          description="Pravice narave in pravice do narave so že od začetka delovanja Danes je nov dan med našimi ključnimi prioritetami in nič drugače ne bo v letu 2021. Še naprej bomo sodelovali z nevladnimi in civilnodružbenimi organizacijami s tega področja ter z njihovo pomočjo dihali za ovratnik oblasti, ki na okolje rada pozabi oz. se v zvezi z okoljskimi vprašanji pogosto spreneveda."
-        />
-        <problem-tile
-          title="Stanovanjska kriza"
-          description="Tudi v prihodnjem letu bo eden od naših temeljnih fokusov vprašanje pomanjkanja dostopnih stanovanj oz. manko ustrezne stanovanjske politike. Ukvarjali se bomo s problemi pomanjkljive ter neustrezne zakonodaje, posebej natančno pa se bomo osredotočili na pravice najemojemalcev. Poskušali bomo torej opolnomočiti veliko, a eno najbolj ranljivih skupin prebivalstva."
-        />
-        <problem-tile
-          title="Enakost spolov"
-          description="Ena ključnih ugotovitev raziskave, v kateri smo analizirali Odmeve, je, da so ženske kot gostje izrazito podreprezentirane v medijih. Za leto 2021 pripravljamo feministični podkast; serijo pogovorov z ženskami, ki delujejo kot angažirane znanstvenice, aktivistke, premišljevalke ter strokovnjakinje. Poleg tega bo naš naslednji, že 4. po vrsti, tematski agrument 25 sobot zapovrstjo slovaril feministično terminologijo, pripravili in objavili pa bomo tudi feministični bralni seznam."
-        />
-      </div>
-    </div>
-    <div class="row row-social">
-      <div class="col">
-        <h1>Več nas bo, prej bomo na&nbsp;cilju&nbsp;...</h1>
-      </div>
-    </div>
-    <div class="row justify-content-center donation-social">
-      <div class="col-xs-auto">
-        <square-icon-button
-          :color="'#228794'"
-          icon="facebook"
-          href="#"
-          @click.native.prevent="onShareClick($event, 'fb')"
-        />
-      </div>
-      <div class="col-xs-auto">
-        <square-icon-button
-          :color="'#228794'"
-          icon="twitter"
-          href="#"
-          @click.native.prevent="onShareClick($event, 'tw')"
-        />
-      </div>
-      <div class="col-xs-auto">
-        <square-icon-button
-          :color="'#df786c'"
-          icon="email"
-          href="#"
-          @click.native.prevent="onShareClick($event, 'mail')"
-        />
-      </div>
-    </div>
+    <volunteer i18nPath="donate.naturalije" />
   </div>
 </template>
 
 <script>
-import DonationLogo from '~/components/DonationLogo.vue';
-import ConfirmButton from '~/components/ConfirmButton.vue';
-import DonationImages from '~/components/DonationImages.vue';
-import DonationMilestones from '~/components/DonationMilestones.vue';
-import DonationSummary from '~/components/DonationSummary.vue';
-import DonationCampaignProgress from '~/components/DonationCampaignProgress.vue';
-import SquareIconButton from '~/components/SquareIconButton.vue';
-
-import AchievementTile from '~/components/AchievementTile.vue';
-import ProblemTile from '~/components/ProblemTile.vue';
+import Volunteer from '~/components/Volunteer.vue';
+import DonationChoiceButton from '~/components/DonationChoiceButton';
 
 export default {
   components: {
-    DonationLogo,
-    ConfirmButton,
-    DonationImages,
-    DonationMilestones,
-    DonationSummary,
-    DonationCampaignProgress,
-    SquareIconButton,
-    AchievementTile,
-    ProblemTile,
+    DonationChoiceButton,
+    Volunteer,
   },
-  layout: 'donate',
+
+  layout: 'default-no-support',
 
   pageColor: 'secondary',
 
@@ -318,7 +73,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
         },
         {
           hid: 'og:title',
@@ -329,12 +84,12 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
+          content: 'https://danesjenovdan.si/og-image-doniraj.jpg',
         },
         {
           hid: 'twitter:title',
@@ -345,12 +100,12 @@ export default {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
         },
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
+          content: 'https://danesjenovdan.si/og-image-doniraj.jpg',
         },
       ],
     };
@@ -460,7 +215,7 @@ export default {
   margin-top: 0;
   padding-left: 30px;
 
-  z-index: 200;
+  // z-index: 200;
 
   .strikethrough {
     position: relative;
@@ -503,14 +258,31 @@ h1 {
     margin-bottom: 0;
   }
 }
+h2 {
+  color: #333333;
+  font-size: 40px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: normal;
+  line-height: 50px;
+  text-align: left;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
 p {
   font-size: 20px;
   color: #333333;
   font-weight: 200;
   width: 100%;
-  max-width: 872px;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  max-width: 672px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
 
@@ -521,198 +293,60 @@ p {
 }
 .limit-like-p {
   width: 100%;
-  max-width: 872px;
+  max-width: 672px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .pad-like-p {
   padding-left: 30px;
   padding-right: 30px;
 }
-.donation-info-box {
-  @include media-breakpoint-up(md) {
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-}
-.vec-nas-je-kot {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: -1.5em;
-  margin-right: -1.5em;
-  background-image: linear-gradient(
-    to right,
-    rgba(205, 172, 84, 0.2) 0%,
-    rgba(223, 120, 108, 0.2) 100%
-  );
-  padding: 40px 1.5em 20px 1.5em;
 
-  @include media-breakpoint-up(md) {
-    margin-left: -3em;
-    margin-right: -3em;
-    padding: 40px 3em 20px 3em;
-  }
-}
-.under-vec-nas-je-kot {
-  margin-top: 50px;
-  margin-bottom: 70px;
-  background-image: linear-gradient(
-    to right,
-    rgba(205, 172, 84, 0.2) 0%,
-    rgba(223, 120, 108, 0.2) 100%
-  );
+#donation-buttons {
+  .square-donation-button {
+    float: left;
 
-  padding: 20px;
-
-  h1 {
-    width: auto;
-    font-size: 60px;
-    line-height: 140px;
-    font-weight: 700;
-    line-height: 100px;
-    font-style: italic;
-    @include media-breakpoint-up(xl) {
-      margin-right: 60px;
+    &:last-child {
+      float: right;
     }
 
     @include media-breakpoint-down(sm) {
-      margin-top: 0;
-      font-size: 55px;
-      line-height: 70px;
-    }
-  }
-}
-.project-line {
-  background-color: rgba(223, 120, 108, 0.05);
-  padding: 30px;
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: center;
-
-  img {
-    width: 90px;
-    height: auto;
-    margin-right: 30px;
-    margin-bottom: 20px;
-  }
-
-  h2 {
-    font-weight: 600;
-    font-style: italic;
-    font-size: 40px;
-    min-width: 250px;
-  }
-
-  p {
-    font-size: 20px;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .partnerships {
-    font-weight: 200;
-    .partner {
-      text-transform: uppercase;
-      font-weight: 700;
+      float: left !important;
     }
   }
 
-  .partnership-images {
-    img {
-      margin-top: 20px;
-      width: 50px;
-      height: auto;
-    }
-  }
-
-  @include media-breakpoint-up(md) {
-    padding: 60px;
-  }
-}
-.row-social {
-  h1 {
-    font-size: 50px;
-    line-height: 60px;
-    text-align: center;
-
-    @include media-breakpoint-up(md) {
-      font-size: 90px;
-      line-height: 110px;
-    }
-  }
-}
-.square-icon-button {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-
-  @include media-breakpoint-up(md) {
-    width: 150px;
-    height: 150px;
-  }
-}
-.donation-social {
-  margin-top: 50px;
-  padding-bottom: 50px;
-  margin-bottom: 20px;
-  position: relative;
-
-  &::after {
-    content: '';
-    display: block;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    border-bottom: 4px solid $black;
-    opacity: 0.2;
-
-    display: none;
-  }
-}
-.confirm-button {
-  height: 100px;
-  margin-top: 22px;
-  margin-bottom: 22px;
-
-  @include media-breakpoint-up(md) {
-    height: 150px;
-    width: 500px;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-}
-.donation-scale-container {
-  margin-bottom: 150px;
-
-  @include media-breakpoint-up(md) {
-    // position: absolute;
-    // bottom: 40px;
-    margin-bottom: 0;
+  @include media-breakpoint-down(md) {
+    width: 317px;
+    margin: auto;
   }
 }
 
-.problem-col {
-  p {
+p.naturalije {
+  color: #333333;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: normal;
+  line-height: 24.67px;
+  text-align: left;
+  margin-top: 20px;
+
+  a {
     color: #333333;
-    font-size: 27px;
-    font-weight: 300;
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: 33.33px;
-    text-align: left;
-    margin-bottom: 90px;
+    text-decoration: underline;
   }
-}
-.achievement-tiles-container {
-  position: relative;
-  margin: auto;
-  display: block;
-  padding-left: 5vw;
-  padding-top: 100px;
-  padding-bottom: 100px;
 
-  @include media-breakpoint-down(sm) {
-    padding-left: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  &::before {
+    content: '';
+    background-image: url('../../static/icons/donations/clovek.svg');
+    display: block;
+    float: left;
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: -8px;
   }
 }
 </style>
