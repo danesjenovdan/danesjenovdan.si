@@ -372,7 +372,7 @@
       "expirationDate": "Rok veljavnosti",
       "cvv": "CVV",
       "paypalContinue": "Klikni na gumb in zaključi naročilo",
-      "upnContinue": "Položnico smo ti poslali po e-pošti.",
+      "upnContinue": "Položnico ti bomo poslali po e-pošti.",
       "close": "Zapri"
     },
     "thanks": {

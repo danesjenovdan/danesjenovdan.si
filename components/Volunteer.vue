@@ -40,7 +40,7 @@ export default {
 
   props: {
     i18nPath: {
-      required: false,
+      type: String,
       default: 'people.volunteer',
     },
   },

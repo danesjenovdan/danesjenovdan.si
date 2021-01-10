@@ -114,6 +114,7 @@ export default {
     .cart-product__variant-price {
       display: flex;
       margin-top: 0.75rem;
+      margin-bottom: 1rem;
 
       .cart-product__variant {
         font-weight: 300;
