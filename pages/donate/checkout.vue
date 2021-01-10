@@ -245,52 +245,6 @@ export default {
   },
   layout: 'checkout',
   pageColor: 'secondary',
-  head() {
-    return {
-      title: 'Doniraj za nov dan!',
-      meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Doniraj za nov dan!',
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content:
-            'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: 'https://danesjenovdan.si/og-image-doniraj.png',
-        },
-        {
-          hid: 'twitter:title',
-          property: 'twitter:title',
-          content: 'Doniraj za nov dan!',
-        },
-        {
-          hid: 'twitter:description',
-          property: 'twitter:description',
-          content:
-            'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
-        },
-        {
-          hid: 'twitter:image',
-          property: 'twitter:image',
-          content: 'https://danesjenovdan.si/og-image-doniraj.png',
-        },
-      ],
-    };
-  },
   data() {
     const monthlyDonation =
       this.$route.params.monthly === 'monthly' ||
@@ -366,6 +320,52 @@ export default {
       subscribeNewsletter: false,
       infoSubmitting: false,
       monthlyDonation,
+    };
+  },
+  head() {
+    return {
+      title: 'Doniraj za nov dan!',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Doniraj za nov dan!',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://danesjenovdan.si/og-image-doniraj.png',
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: 'Doniraj za nov dan!',
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content:
+            'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: 'https://danesjenovdan.si/og-image-doniraj.png',
+        },
+      ],
     };
   },
   computed: {

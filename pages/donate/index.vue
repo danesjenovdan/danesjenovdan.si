@@ -2,7 +2,7 @@
   <div class="donation-landing-container">
     <div class="row justify-content-center">
       <div class="limit-like-p">
-        <h1 class="mega-header" v-t="'donate.title'"></h1>
+        <h1 v-t="'donate.title'" class="mega-header"></h1>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -13,10 +13,10 @@
         <h2 v-t="'donate.subtitle'"></h2>
       </div>
     </div>
-    <div class="row justify-content-center" id="donation-buttons">
+    <div id="donation-buttons" class="row justify-content-center">
       <div class="limit-like-p">
         <donation-choice-button
-          donationType="monthly"
+          donation-type="monthly"
           :href="
             $i18n.locale === 'sl'
               ? '/doniraj/placaj/mesecno'
@@ -24,7 +24,7 @@
           "
         />
         <donation-choice-button
-          donationType="once"
+          donation-type="once"
           :href="
             $i18n.locale === 'sl'
               ? '/doniraj/placaj/enkrat'
@@ -33,13 +33,13 @@
         />
       </div>
     </div>
-    <volunteer i18nPath="donate.naturalije" />
+    <volunteer i18n-path="donate.naturalije" />
   </div>
 </template>
 
 <script>
 import Volunteer from '~/components/Volunteer.vue';
-import DonationChoiceButton from '~/components/DonationChoiceButton';
+import DonationChoiceButton from '~/components/DonationChoiceButton.vue';
 
 export default {
   components: {

@@ -33,8 +33,8 @@
 export default {
   props: {
     recurring: {
+      type: Boolean,
       default: false,
-      required: false,
     },
   },
   data() {
