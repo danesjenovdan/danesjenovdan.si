@@ -10,6 +10,7 @@
         <img v-for="img in getDisplayImages(product)" :key="img" :src="img" />
       </div>
       <div class="col-12 col-md-8 product__description">
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <p v-html="$t(`shop.products.${product.id}.description`)" />
         <hr />
         <div
