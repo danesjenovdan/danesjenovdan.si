@@ -10,7 +10,7 @@
         <img v-for="img in getDisplayImages(product)" :key="img" :src="img" />
       </div>
       <div class="col-12 col-md-8 product__description">
-        <p v-t="`shop.products.${product.id}.description`" />
+        <p v-html="$t(`shop.products.${product.id}.description`)" />
         <hr />
         <div
           v-if="product.variants && product.variants.length"
@@ -347,6 +347,14 @@ export default {
         }
       }
     }
+  }
+}
+</style>
+
+<style lang="scss">
+.product__description {
+  a {
+    color: $secondary;
   }
 }
 </style>
