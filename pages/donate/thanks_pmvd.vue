@@ -9,7 +9,7 @@
         </div> -->
         <h1 class="thankyou__title">
           <div class="icon">
-            <svg viewBox="12.005 16.033 75.99 67.934" fill="#dd786b">
+            <svg viewBox="12.005 16.033 75.99 67.934" fill="#160444">
               <path
                 id="path2"
                 d="M31.756 16.033c-5.075 0-10.122 2.005-13.969 6.031-7.693 8.051-7.715 20.974-.03 29.031l30.78 32.282c.746.787 2.162.787 2.907 0 10.268-10.746 20.513-21.504 30.781-32.25 7.693-8.052 7.693-20.98 0-29.032-7.694-8.051-20.275-8.051-27.969 0l-4.25 4.407-4.25-4.438c-4.147-4.357-9.286-6.052-14-6.031zm0 3.937c3.999 0 8.019 1.625 11.125 4.875l5.687 5.97c.746.787 2.162.787 2.907 0l5.656-5.938c6.212-6.502 16.007-6.501 22.219 0 6.212 6.5 6.212 16.999 0 23.5C69.57 58.61 59.786 68.86 50.006 79.095l-29.344-30.75c-6.207-6.509-6.212-16.999 0-23.5 3.106-3.25 7.095-4.875 11.094-4.875z"
@@ -24,153 +24,32 @@
           </div>
           Hvala za donacijo!
         </h1>
-        <h2 class="thankyou__subtitle">Skupaj bomo prevagali.</h2>
-        <div class="confirm-button-container">
-          <confirm-button
-            key="next-thankyou"
-            text="Dodaj svoj obraz na tehtnico"
-            color="secondary"
-            arrow
-            @click.native="stage = 'avatar'"
-          />
-        </div>
-        <div class="thankyou__faces">
-          <donation-images :images="images" />
-        </div>
-      </template>
-    </checkout-stage>
-
-    <checkout-stage v-if="stage === 'avatar'" no-header>
-      <template slot="content">
-        <h2 class="avatar__title">Dodaj svojo sliko ali si izberi avatar!</h2>
-        <avatar-selector @change="onAvatarChange" />
-        <hr class="avatar__hr" />
-        <div class="avatar__info">
-          <div class="form-group">
-            <label for="info-url"
-              >Lahko dodaš URL do svoje spletne strani ali profila na družbenih
-              medijih</label
-            >
-            <input
-              id="info-url"
-              v-model="url"
-              type="text"
-              class="form-control form-control-lg"
-              placeholder="URL"
-            />
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input
-              id="info-display-support"
-              v-model="displayMySupport"
-              type="checkbox"
-              name="displayMySupport"
-              class="custom-control-input"
-            />
-            <label class="custom-control-label" for="info-display-support"
-              >Dovolim, da moj avatar dodate na seznam donatorjev.</label
-            >
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input
-              id="info-image-legal"
-              v-model="imageIsLegal"
-              type="checkbox"
-              name="imageIsLegal"
-              class="custom-control-input"
-            />
-            <label class="custom-control-label" for="info-image-legal"
-              >Razumem, da lahko naložim le sliko, ki je izdana pod CC licenco
-              ali katere avtorske pravice nosim sam/-a. DJND zavrača odgovornost
-              za vsebine, ki jih naložijo uporabniki.</label
-            >
-          </div>
-        </div>
-      </template>
-      <template slot="footer">
-        <div class="confirm-button-container">
-          <confirm-button
-            key="next-avatar"
-            :disabled="!canUploadImage"
-            :loading="imageUploading"
-            text="Potrdi"
-            color="secondary"
-            @click.native="uploadImage"
-          />
-          <div class="bottom-back-link">
-            <dynamic-link @click="stage = 'share'"> Preskoči </dynamic-link>
-          </div>
-        </div>
-      </template>
-    </checkout-stage>
-
-    <checkout-stage v-if="stage === 'share'" no-header>
-      <template slot="content">
-        <h2 class="thankyou__title">Več nas bo, prej bomo na cilju ...</h2>
-        <div class="share__faces">
-          <donation-images :images="images" />
-        </div>
-        <h1 class="share__title">POVEJ NAPREJ!</h1>
-        <div class="share__buttons">
-          <button type="button" @click="onShareClick($event, 'fb')">
-            <svg
-              fill="currentColor"
-              viewBox="0 0 1792 1792"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"
-              ></path>
-            </svg>
-          </button>
-          <button type="button" @click="onShareClick($event, 'tw')">
-            <svg
-              fill="currentColor"
-              viewBox="0 0 1792 1792"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"
-              ></path>
-            </svg>
-          </button>
-          <button type="button" @click="onShareClick($event, 'mail')">
-            <svg
-              fill="currentColor"
-              viewBox="0 0 1792 1792"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"
-              ></path>
-            </svg>
-          </button>
-        </div>
+        <!-- <h2 class="thankyou__subtitle">Skupaj bomo prevagali.</h2> -->
       </template>
     </checkout-stage>
   </div>
 </template>
 
 <script>
-import ConfirmButton from '~/components/ConfirmButton.vue';
-import AvatarSelector from '~/components/AvatarSelector.vue';
-import DynamicLink from '~/components/DynamicLink.vue';
+// import ConfirmButton from '~/components/ConfirmButton.vue';
+// import AvatarSelector from '~/components/AvatarSelector.vue';
+// import DynamicLink from '~/components/DynamicLink.vue';
 import CheckoutStage from '~/components/CheckoutStage.vue';
-import DonationImages from '~/components/DonationImages.vue';
+// import DonationImages from '~/components/DonationImages.vue';
 
 export default {
   nuxtI18n: {
     paths: {
-      sl: '/doniraj/hvala',
-      en: '/donate/thanks',
+      sl: '/doniraj_pmvd/hvala',
     },
+    fallbackLocale: 'sl',
   },
   components: {
-    ConfirmButton,
-    AvatarSelector,
-    DynamicLink,
+    // ConfirmButton,
+    // AvatarSelector,
+    // DynamicLink,
     CheckoutStage,
-    DonationImages,
+    // DonationImages,
   },
   layout: 'checkout',
   pageColor: 'secondary',
@@ -248,11 +127,11 @@ export default {
       );
     },
   },
-  created() {
-    if (!this.token) {
-      this.stage = 'share';
-    }
-  },
+  // created() {
+  //   if (!this.token) {
+  //     this.stage = 'share';
+  //   }
+  // },
   async mounted() {
     this.images = await this.$axios.$get('https://podpri.djnd.si/api/images/');
   },
@@ -321,6 +200,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@1,800&family=Space+Grotesk:wght@300;400;700&display=swap');
+
 .checkout {
   .thankyou__icon {
     margin-top: 2rem;
@@ -337,6 +218,8 @@ export default {
   }
 
   .thankyou__title {
+    font-family: 'Alegreya', sans-serif;
+    color: #160444;
     font-size: 1.85rem;
     text-align: center;
     font-weight: 600;
@@ -353,10 +236,15 @@ export default {
       display: none;
 
       @include media-breakpoint-up(md) {
-        display: inline-block;
+        display: inline-flex;
         width: 5rem;
         height: 5rem;
         margin: -0.75rem 0;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
       }
     }
   }
