@@ -89,7 +89,7 @@
           src="/img/donators/mju.png"
           alt="Ministrstvo za javno upravo"
           class="img-fluid"
-          style="max-width: 270px;"
+          style="max-width: 270px"
         />
       </a>
     </p>
