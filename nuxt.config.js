@@ -14,6 +14,7 @@ export default {
    ** Headers of the page
    */
   head: {
+    title: '',
     titleTemplate: (titleChunk) => {
       return titleChunk
         ? `${titleChunk} - Danes je nov dan`
