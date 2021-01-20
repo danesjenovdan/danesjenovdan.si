@@ -50,12 +50,12 @@
           />
         </div>
         <div class="secondary-link">
-          <!-- <a v-if="monthlyDonation" @click.prevent="monthlyDonation = false">
+          <a v-if="monthlyDonation" @click.prevent="monthlyDonation = false">
             Želiš darovati enkrat?
           </a>
           <a v-else @click.prevent="monthlyDonation = true">
             Želiš darovati mesečno?
-          </a> -->
+          </a>
         </div>
       </template>
     </checkout-stage>
@@ -165,6 +165,7 @@
               @ready="onPaymentReady"
               @payment-start="paymentInProgress = true"
               @success="paymentSuccess"
+              @error="paymentError"
             />
           </template>
           <template v-if="payment === 'upn'">
@@ -349,9 +350,7 @@ export default {
     },
   },
   mounted() {
-    if (this.$i18n.locale !== 'sl') {
-      this.$router.push(this.switchLocalePath('sl'));
-    }
+    this.$i18n.setLocale('sl');
   },
   methods: {
     paymentError(argument) {
@@ -426,7 +425,7 @@ export default {
       this.paymentInProgress = true;
       this.nonce = nonce;
       const paymentURL = this.monthlyDonation
-        ? 'https://podpri.djnd.si/api/generic-donation/4/' // monthly?
+        ? 'https://podpri.djnd.si/api/generic-donation/subscription/4/'
         : 'https://podpri.djnd.si/api/generic-donation/4/';
       try {
         const response = await this.$axios.$post(paymentURL, {
