@@ -50,12 +50,12 @@
           />
         </div>
         <div class="secondary-link">
-          <a v-if="monthlyDonation" @click.prevent="monthlyDonation = false">
+          <!-- <a v-if="monthlyDonation" @click.prevent="monthlyDonation = false">
             Želiš darovati enkrat?
           </a>
           <a v-else @click.prevent="monthlyDonation = true">
             Želiš darovati mesečno?
-          </a>
+          </a> -->
         </div>
       </template>
     </checkout-stage>
@@ -234,9 +234,10 @@ export default {
   layout: 'checkout',
   pageColor: 'secondary',
   data() {
-    const monthlyDonation =
-      this.$route.params.monthly === 'monthly' ||
-      this.$route.params.monthly === 'mesecno';
+    // const monthlyDonation =
+    //   this.$route.params.monthly === 'monthly' ||
+    //   this.$route.params.monthly === 'mesecno';
+    const monthlyDonation = false;
     return {
       error: null,
       stage: 'select-amount',
@@ -310,52 +311,6 @@ export default {
       monthlyDonation,
     };
   },
-  // head() {
-  //   return {
-  //     title: 'Doniraj za nov dan!',
-  //     meta: [
-  //       // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-  //       {
-  //         hid: 'description',
-  //         name: 'description',
-  //         content:
-  //           'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
-  //       },
-  //       {
-  //         hid: 'og:title',
-  //         property: 'og:title',
-  //         content: 'Doniraj za nov dan!',
-  //       },
-  //       {
-  //         hid: 'og:description',
-  //         property: 'og:description',
-  //         content:
-  //           'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
-  //       },
-  //       {
-  //         hid: 'og:image',
-  //         property: 'og:image',
-  //         content: 'https://danesjenovdan.si/og-image-doniraj.png',
-  //       },
-  //       {
-  //         hid: 'twitter:title',
-  //         property: 'twitter:title',
-  //         content: 'Doniraj za nov dan!',
-  //       },
-  //       {
-  //         hid: 'twitter:description',
-  //         property: 'twitter:description',
-  //         content:
-  //           'S svojo donacijo lahko podpreš aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in doniraj tudi ti!',
-  //       },
-  //       {
-  //         hid: 'twitter:image',
-  //         property: 'twitter:image',
-  //         content: 'https://danesjenovdan.si/og-image-doniraj.png',
-  //       },
-  //     ],
-  //   };
-  // },
   computed: {
     filteredDonationPresets() {
       return this.donationPresets.filter((dp) =>
@@ -392,6 +347,11 @@ export default {
       }
       return true;
     },
+  },
+  mounted() {
+    if (this.$i18n.locale !== 'sl') {
+      this.$router.push(this.switchLocalePath('sl'));
+    }
   },
   methods: {
     paymentError(argument) {
