@@ -7,8 +7,10 @@
   "scripts": {
     "dev": "cross-env NODE_ICU_DATA=node_modules/full-icu nuxt",
     "build": "nuxt build",
+    "build-static": "nuxt build --target static",
     "start": "cross-env NODE_ICU_DATA=node_modules/full-icu nuxt start",
     "generate": "nuxt generate",
+    "export": "nuxt export",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
