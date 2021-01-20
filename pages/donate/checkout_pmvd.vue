@@ -235,10 +235,9 @@ export default {
   layout: 'checkout',
   pageColor: 'secondary',
   data() {
-    // const monthlyDonation =
-    //   this.$route.params.monthly === 'monthly' ||
-    //   this.$route.params.monthly === 'mesecno';
-    const monthlyDonation = false;
+    const monthlyDonation =
+      this.$route.params.monthly === 'monthly' ||
+      this.$route.params.monthly === 'mesecno';
     return {
       error: null,
       stage: 'select-amount',
@@ -611,6 +610,12 @@ export default {
 
     .arrow path {
       fill: #160444;
+    }
+
+    .loader-container {
+      .lds-dual-ring {
+        color: #160444;
+      }
     }
   }
 
