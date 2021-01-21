@@ -143,6 +143,7 @@
           <payment-switcher
             :recurring="monthlyDonation"
             @change="onPaymentChange"
+            :forceSlovenian="true"
           />
           <div v-if="checkoutLoading" class="payment-loader">
             <div class="lds-dual-ring" />
@@ -155,6 +156,7 @@
               @payment-start="paymentInProgress = true"
               @success="paymentSuccess"
               @error="paymentError"
+              :forceSlovenian="true"
             />
           </template>
           <template v-if="payment === 'paypal'">
@@ -166,6 +168,7 @@
               @payment-start="paymentInProgress = true"
               @success="paymentSuccess"
               @error="paymentError"
+              :forceSlovenian="true"
             />
           </template>
           <template v-if="payment === 'upn'">
@@ -173,6 +176,7 @@
               :amount="selectedDonationAmount"
               @ready="onUPNPaymentReady"
               @success="paymentSuccess"
+              :forceSlovenian="true"
             />
           </template>
           <div class="cart-total">
