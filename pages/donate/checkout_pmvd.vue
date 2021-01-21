@@ -219,6 +219,7 @@ export default {
   nuxtI18n: {
     paths: {
       sl: '/doniraj_pmvd/placaj/:monthly',
+      en: '/doniraj_pmvd/placaj/:monthly',
     },
     fallbackLocale: 'sl',
   },
