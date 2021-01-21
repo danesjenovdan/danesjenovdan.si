@@ -36,6 +36,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    forceSlovenian: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -43,6 +47,9 @@ export default {
     };
   },
   mounted() {
+    if (this.forceSlovenian) {
+      this.$i18n.locale = 'sl';
+    }
     this.$emit('change', this.active);
   },
   methods: {
