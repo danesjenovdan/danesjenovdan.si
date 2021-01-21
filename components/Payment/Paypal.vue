@@ -38,6 +38,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    forceSlovenian: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -47,6 +51,9 @@ export default {
     };
   },
   async mounted() {
+    if (this.forceSlovenian) {
+      this.$i18n.locale = 'sl';
+    }
     if (braintree) {
       try {
         const clientInstance = await braintree.client.create({

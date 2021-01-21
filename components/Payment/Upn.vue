@@ -12,12 +12,21 @@
 
 <script>
 export default {
+  props: {
+    forceSlovenian: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       error: null,
     };
   },
   mounted() {
+    if (this.forceSlovenian) {
+      this.$i18n.locale = 'sl';
+    }
     this.$emit('ready', { pay: this.sendUPN });
   },
   methods: {
