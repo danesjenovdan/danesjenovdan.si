@@ -13,7 +13,15 @@
         :button-url="infopush.cta_url"
       />
     </div>
-    <template v-if="$i18n.locale !== 'en'">
+    <div class="row" v-if="$i18n.locale !== 'en' && !agrumentPosts">
+      <div class="col-12">
+        <section-header
+          text="Agrument ima trenutno tehnične težave. Upamo, da jih čim prej razrešimo."
+          icon="section-agrument"
+        />
+      </div>
+    </div>
+    <template v-if="$i18n.locale !== 'en' && agrumentPosts">
       <div class="row">
         <div class="col-12">
           <section-header
@@ -284,20 +292,20 @@ export default {
     const lang = `lang=${app.i18n.locale}`;
     const order = `ordering=-date`;
     const [
-      agrumentResponse,
+      // agrumentResponse,
       clippingsResponse,
       projectsResponse,
       videosResponse,
       infopushResponse,
     ] = await Promise.all([
-      $axios.$get(`https://agrument.danesjenovdan.si/api/v2/posts?limit=5`),
+      // $axios.$get(`https://agrument.danesjenovdan.si/api/v2/posts?limit=5`),
       $axios.$get(`https://djnapi.djnd.si/djnd.si/clips/?${lang}&${order}`),
       $axios.$get(`https://djnapi.djnd.si/djnd.si/projects/?${lang}&${order}`),
       $axios.$get(`https://djnapi.djnd.si/djnd.si/videos/?${lang}&${order}`),
       $axios.$get(`https://djnapi.djnd.si/djnd.si/infopushes/?${lang}`),
     ]);
     return {
-      agrumentPosts: agrumentResponse.data,
+      agrumentPosts: null, // agrumentResponse.data,
       clippings: clippingsResponse.results,
       projects: projectsResponse.results,
       videos: videosResponse.results,
