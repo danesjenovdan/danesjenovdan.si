@@ -128,7 +128,10 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.activePost.image_url,
+          content: this.activePost.image_url.replace(
+            'agrument.danesjenovdan.si',
+            'napake.djnd.si',
+          ),
         },
         {
           hid: 'og:url',
