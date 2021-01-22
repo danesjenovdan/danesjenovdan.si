@@ -13,10 +13,23 @@
               />
               <template v-else>
                 <div
-                  :style="{ 'background-image': `url('${post.image_url}')` }"
+                  :style="{
+                    'background-image': `url('${post.image_url.replace(
+                      'agrument.danesjenovdan.si',
+                      'napake.djnd.si',
+                    )}')`,
+                  }"
                   class="background-image blurred"
                 />
-                <img :src="post.image_url" class="img-fluid" />
+                <img
+                  :src="
+                    post.image_url.replace(
+                      'agrument.danesjenovdan.si',
+                      'napake.djnd.si',
+                    )
+                  "
+                  class="img-fluid"
+                />
               </template>
             </div>
           </div>

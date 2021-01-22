@@ -77,7 +77,7 @@ export default {
     return /^\d{1,2}\.\d{1,2}\.\d{4}$/g.test(params.date);
   },
   async asyncData({ $axios, params, error }) {
-    const apiUrl = 'https://agrument.danesjenovdan.si/api/v2/posts';
+    const apiUrl = 'https://napake.djnd.si/api/v2/posts';
     const apiParams = {
       limit: 5,
       start_date: params.date,
