@@ -292,20 +292,31 @@ export default {
     const lang = `lang=${app.i18n.locale}`;
     const order = `ordering=-date`;
     const [
-      // agrumentResponse,
+      agrumentResponse,
       clippingsResponse,
       projectsResponse,
       videosResponse,
       infopushResponse,
     ] = await Promise.all([
-      // $axios.$get(`https://agrument.danesjenovdan.si/api/v2/posts?limit=5`),
+      $axios.$get(`https://napake.djnd.si/api/v2/posts?limit=5`),
       $axios.$get(`https://djnapi.djnd.si/djnd.si/clips/?${lang}&${order}`),
       $axios.$get(`https://djnapi.djnd.si/djnd.si/projects/?${lang}&${order}`),
       $axios.$get(`https://djnapi.djnd.si/djnd.si/videos/?${lang}&${order}`),
       $axios.$get(`https://djnapi.djnd.si/djnd.si/infopushes/?${lang}`),
     ]);
     return {
-      agrumentPosts: null, // agrumentResponse.data,
+      agrumentPosts: agrumentResponse.data.map((post) => {
+        const manipulatedPost = post;
+        manipulatedPost.url = post.url.replace(
+          'agrument.danesjenovdan.si',
+          'danesjenovdan.si/agrument',
+        );
+        manipulatedPost.image_url = post.image_url.replace(
+          'agrument.danesjenovdan.si',
+          'napake.djnd.si',
+        );
+        return manipulatedPost;
+      }),
       clippings: clippingsResponse.results,
       projects: projectsResponse.results,
       videos: videosResponse.results,

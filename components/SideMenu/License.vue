@@ -15,8 +15,8 @@
       odpoveduje vsem avtorskim in sorodnim pravicam glede
       <span property="dct:title">spletnega mesta danesjenovdan.si</span> z
       izjemo vseh ikon in slik, objavljenih na
-      <a href="https://agrument.danesjenovdan.si">Agrumentu</a>, ki jih nismo
-      ustvarili na inštitutu.
+      <a href="https://napake.djnd.si">Agrumentu</a>, ki jih nismo ustvarili na
+      inštitutu.
     </div>
     <div v-else xmlns:dct="http://purl.org/dc/terms/">
       Licensed under
@@ -33,8 +33,7 @@
       </a>
       waives all copyright and related or neighboring rights to
       <span property="dct:title">danesjenovdan.si</span>, excluding all icons
-      and images on
-      <a href="https://agrument.danesjenovdan.si">Agrument</a> that are not
+      and images on <a href="https://napake.djnd.si">Agrument</a> that are not
       produced by Danes je nov dan.
     </div>
   </div>
