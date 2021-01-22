@@ -161,7 +161,10 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.activePost.image_url,
+          content: this.activePost.image_url.replace(
+            'agrument.danesjenovdan.si',
+            'napake.djnd.si',
+          ),
         },
       ],
     };
