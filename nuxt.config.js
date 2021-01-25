@@ -193,7 +193,7 @@ export default {
    ** Build configuration
    */
   build: {
-    extractCSS: true,
+    extractCSS: { ignoreOrder: true },
     /*
      ** You can extend webpack config here
      */
