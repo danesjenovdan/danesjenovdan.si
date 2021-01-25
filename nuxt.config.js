@@ -11,6 +11,19 @@ export default {
    */
   telemetry: false,
   /*
+   ** PWA
+   */
+  pwa: {
+    manifest: {
+      name: 'Danes je nov dan',
+      short_name: 'DJND',
+      description:
+        'Negujemo kritično misel. Postavljamo druga vprašanja. Hekamo nov dan.',
+      dir: 'ltr',
+      lang: 'sl',
+    },
+  },
+  /*
    ** Headers of the page
    */
   head: {
@@ -193,7 +206,7 @@ export default {
    ** Build configuration
    */
   build: {
-    extractCSS: true,
+    extractCSS: { ignoreOrder: true },
     /*
      ** You can extend webpack config here
      */

@@ -54,6 +54,9 @@
 @function icon-twitter($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/social/twitter.svg'), '#000', '#{$color}'));
 }
+@function icon-instagram($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/social/instagram.svg'), '#000', '#{$color}'));
+}
 @function icon-youtube($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/social/youtube.svg'), '#000', '#{$color}'));
 }
@@ -68,6 +71,9 @@
 }
 @function square-icon-twitter($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/twitter.svg'), '#ffffff', '#{$color}'));
+}
+@function square-icon-instagram($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/instagram.svg'), '#ffffff', '#{$color}'));
 }
 @function square-icon-email($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/email.svg'), '#ffffff', '#{$color}'));
@@ -186,6 +192,10 @@
     background-image: url(#{square-icon-twitter($color)}) !important;
     filter: invert(100%); // TODO this is a hack
   }
+  .square-icon-instagram--#{$color-name} {
+    background-image: url(#{square-icon-instagram($color)}) !important;
+    filter: invert(100%); // TODO this is a hack
+  }
   .square-icon-email--#{$color-name} {
     background-image: url(#{square-icon-email($color)}) !important;
   }
@@ -216,6 +226,9 @@
 }
 .icon-twitter {
   background-image: url(#{icon-twitter(#fff)}) !important;
+}
+.icon-instagram {
+  background-image: url(#{icon-instagram(#fff)}) !important;
 }
 .icon-youtube {
   background-image: url(#{icon-youtube(#fff)}) !important;

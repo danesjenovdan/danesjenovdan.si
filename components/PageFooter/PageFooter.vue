@@ -41,6 +41,11 @@
             icon="twitter"
             href="https://twitter.com/danesjenovdan"
           />
+          <circle-icon-button
+            :color="color"
+            icon="instagram"
+            href="https://www.instagram.com/danesjenovdan"
+          />
         </div>
         <div class="button-row">
           <circle-icon-button

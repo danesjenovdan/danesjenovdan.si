@@ -382,8 +382,7 @@ export default {
           {
             name: `${this.name} ${this.lastName}`,
             email: this.email,
-            address: this.address || '',
-            post: this.addressPost || '',
+            address: `${this.address}, ${this.addressPost}`,
             delivery_method: this.delivery,
           },
         );
