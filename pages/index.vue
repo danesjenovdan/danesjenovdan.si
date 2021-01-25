@@ -149,6 +149,10 @@
           :icons="[
             { icon: 'facebook', url: 'https://facebook.com/danesjenovdan' },
             { icon: 'twitter', url: 'https://twitter.com/danesjenovdan' },
+            {
+              icon: 'instagram',
+              url: 'https://www.instagram.com/danesjenovdan',
+            },
           ]"
           color="secondary"
         />
