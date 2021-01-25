@@ -13,7 +13,7 @@
         :button-url="infopush.cta_url"
       />
     </div>
-    <div class="row" v-if="$i18n.locale !== 'en' && !agrumentPosts">
+    <div v-if="$i18n.locale !== 'en' && !agrumentPosts" class="row">
       <div class="col-12">
         <section-header
           text="Agrument ima trenutno tehnične težave. Upamo, da jih čim prej razrešimo."
@@ -149,6 +149,10 @@
           :icons="[
             { icon: 'facebook', url: 'https://facebook.com/danesjenovdan' },
             { icon: 'twitter', url: 'https://twitter.com/danesjenovdan' },
+            {
+              icon: 'instagram',
+              url: 'https://www.instagram.com/danesjenovdan',
+            },
           ]"
           color="secondary"
         />
