@@ -216,8 +216,12 @@ export default {
   },
   data() {
     return {
-      partners: partnersJson.partners,
-      donators: partnersJson.donators,
+      partners: partnersJson.partners.sort((a, b) =>
+        a.name.localeCompare(b.name),
+      ),
+      donators: partnersJson.donators.sort((a, b) =>
+        a.name.localeCompare(b.name),
+      ),
     };
   },
   head() {
