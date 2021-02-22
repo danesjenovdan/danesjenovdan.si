@@ -122,9 +122,11 @@ export default {
       parlameter: false,
     };
     if (query.email && query.token) {
+      console.log('I CAN HAS STUFF');
       const token = encodeURIComponent(query.token);
       const email = encodeURIComponent(query.email);
       const endpoint = `https://podpri.djnd.si/api/segments/my?token=${token}&email=${email}`;
+      console.log(endpoint);
       try {
         const response = await $axios.$get(endpoint);
         if (response && typeof response === 'object') {
@@ -258,7 +260,11 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 1.25rem;
+  padding-top: 6em;
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 3em;
+  }
 
   .intro {
     @include media-breakpoint-up(lg) {
