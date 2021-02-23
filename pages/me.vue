@@ -10,8 +10,8 @@
           </p>
           <p class="lead">
             Radi bi ti pisali, kadar naredimo kaj dobrega, kadar se dogaja kaj
-            pomembnega, radi bi te spoznali z dnevnimi agrumenti, novostmi na
-            Parlametru in drugimi projekti.
+            pomembnega, radi bi te spoznali z dnevnimi agrumenti, novostmi in
+            aktualnimi projekti.
           </p>
         </div>
         <div v-if="showForm" class="row justify-content-center">
@@ -19,7 +19,8 @@
             <p>
               Da bomo vedeli, čigave nastavitve urejaš, prosimo vpiši svoj
               e-naslov. Na ta naslov ti bomo poslali personalizirano povezavo do
-              spletne strani za urejanje nastavitev.
+              spletne strani za urejanje nastavitev. Sporočilo bo prispelo na
+              tvoj naslov v roku 30 minut.
             </p>
             <form @submit.prevent="submitForm">
               <input
@@ -210,7 +211,7 @@ export default {
           );
           if (response.msg === 'mail sent') {
             this.success = true;
-            this.message = 'Sporočilo poslano na e-naslov!';
+            this.message = 'Sporočilo poslano!';
           } else {
             this.success = false;
             this.message = 'Prišlo je do napake :(';

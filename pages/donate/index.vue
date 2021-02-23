@@ -11,7 +11,7 @@
           <div
             class="embed-responsive-item background-image"
             style="
-              background-image: url('https://djnapi.djnd.si/media/images/video/pocivalsek.jpg');
+              background-image: url('https://i.ytimg.com/vi/Sb30U8DVGtU/hqdefault.jpg');
             "
           ></div>
           <div class="embed-responsive-item">
