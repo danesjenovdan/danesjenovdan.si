@@ -6,6 +6,46 @@
       </div>
     </div>
     <div class="row justify-content-center">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="embed-responsive embed-responsive-16by9">
+          <div
+            class="embed-responsive-item background-image"
+            style="
+              background-image: url('https://i.ytimg.com/vi/Sb30U8DVGtU/hqdefault.jpg');
+            "
+          ></div>
+          <div class="embed-responsive-item">
+            <iframe
+              src="https://www.youtube.com/embed/Sb30U8DVGtU?rel=0&amp;modestbranding=1&amp;autoplay=true"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen="allowfullscreen"
+              class="big-video__iframe loaded"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center donation-buttons">
+      <div class="limit-like-p">
+        <donation-choice-button
+          donation-type="monthly"
+          :href="
+            $i18n.locale === 'sl'
+              ? '/doniraj/placaj/mesecno'
+              : '/donate/checkout/monthly'
+          "
+        />
+        <donation-choice-button
+          donation-type="once"
+          :href="
+            $i18n.locale === 'sl'
+              ? '/doniraj/placaj/enkrat'
+              : '/donate/checkout/once'
+          "
+        />
+      </div>
+    </div>
+    <div class="row justify-content-center">
       <p v-t="'donate.description'"></p>
     </div>
     <div class="row justify-content-center">
@@ -13,7 +53,7 @@
         <h2 v-t="'donate.subtitle'"></h2>
       </div>
     </div>
-    <div id="donation-buttons" class="row justify-content-center">
+    <div class="row justify-content-center donation-buttons">
       <div class="limit-like-p">
         <donation-choice-button
           donation-type="monthly"
@@ -215,7 +255,8 @@ export default {
   margin-top: 0;
   padding-left: 30px;
 
-  // z-index: 200;
+  z-index: 200;
+  margin-bottom: 10px;
 
   .strikethrough {
     position: relative;
@@ -302,7 +343,7 @@ p {
   padding-right: 30px;
 }
 
-#donation-buttons {
+.donation-buttons {
   .square-donation-button {
     float: left;
 

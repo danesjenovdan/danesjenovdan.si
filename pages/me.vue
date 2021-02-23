@@ -10,8 +10,8 @@
           </p>
           <p class="lead">
             Radi bi ti pisali, kadar naredimo kaj dobrega, kadar se dogaja kaj
-            pomembnega, radi bi te spoznali z dnevnimi agrumenti, novostmi na
-            Parlametru in drugimi projekti.
+            pomembnega, radi bi te spoznali z dnevnimi agrumenti, novostmi in
+            aktualnimi projekti.
           </p>
         </div>
         <div v-if="showForm" class="row justify-content-center">
@@ -19,7 +19,8 @@
             <p>
               Da bomo vedeli, čigave nastavitve urejaš, prosimo vpiši svoj
               e-naslov. Na ta naslov ti bomo poslali personalizirano povezavo do
-              spletne strani za urejanje nastavitev.
+              spletne strani za urejanje nastavitev. Sporočilo bo prispelo na
+              tvoj naslov v roku 30 minut.
             </p>
             <form @submit.prevent="submitForm">
               <input
@@ -122,9 +123,11 @@ export default {
       parlameter: false,
     };
     if (query.email && query.token) {
+      console.log('I CAN HAS STUFF');
       const token = encodeURIComponent(query.token);
       const email = encodeURIComponent(query.email);
       const endpoint = `https://podpri.djnd.si/api/segments/my?token=${token}&email=${email}`;
+      console.log(endpoint);
       try {
         const response = await $axios.$get(endpoint);
         if (response && typeof response === 'object') {
@@ -208,7 +211,7 @@ export default {
           );
           if (response.msg === 'mail sent') {
             this.success = true;
-            this.message = 'Sporočilo poslano na e-naslov!';
+            this.message = 'Sporočilo poslano!';
           } else {
             this.success = false;
             this.message = 'Prišlo je do napake :(';
@@ -258,7 +261,11 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 1.25rem;
+  padding-top: 6em;
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 3em;
+  }
 
   .intro {
     @include media-breakpoint-up(lg) {

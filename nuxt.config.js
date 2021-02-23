@@ -219,7 +219,7 @@ export default {
         ? scssRule.oneOf.map((r) => r.use)
         : [scssRule.use];
       scssUses.forEach((use) => {
-        const sassLoader = use.find((e) => e.loader === 'sass-loader');
+        const sassLoader = use.find((e) => e.loader.includes('sass-loader'));
         if (sassLoader) {
           sassLoader.options = sassLoader.options || {};
           sassLoader.options.sassOptions = sassLoader.options.sassOptions || {};
