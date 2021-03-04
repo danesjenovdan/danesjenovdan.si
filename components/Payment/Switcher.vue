@@ -17,7 +17,7 @@
           @click="changeActive('paypal')"
         ></button>
       </div>
-      <div v-if="!recurring" class="nav-item">
+      <div v-if="hasUpn && !recurring" class="nav-item">
         <button
           v-t="'shop.checkout.upn'"
           :class="['nav-link', { active: active === 'upn' }]"
@@ -35,6 +35,10 @@ export default {
     recurring: {
       type: Boolean,
       default: false,
+    },
+    hasUpn: {
+      type: Boolean,
+      default: true,
     },
     forceSlovenian: {
       type: Boolean,
