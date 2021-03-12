@@ -66,48 +66,6 @@
         <div class="info-content">
           <div class="form-group">
             <input
-              id="firstName"
-              v-model="firstName"
-              placeholder="Ime"
-              class="form-control form-control-lg"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              id="lastName"
-              v-model="lastName"
-              placeholder="Priimek"
-              class="form-control form-control-lg"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              id="streetAddress"
-              v-model="streetAddress"
-              placeholder="Ulica in hišna številka"
-              class="form-control form-control-lg"
-            />
-          </div>
-          <div class="form-group form-row">
-            <div class="col-4">
-              <input
-                id="postalCode"
-                v-model="postalCode"
-                placeholder="Poštna številka"
-                class="form-control form-control-lg"
-              />
-            </div>
-            <div class="col-8">
-              <input
-                id="post"
-                v-model="post"
-                placeholder="Pošta"
-                class="form-control form-control-lg"
-              />
-            </div>
-          </div>
-          <div class="form-group">
-            <input
               id="email"
               v-model="email"
               type="email"
