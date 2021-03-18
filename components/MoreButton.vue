@@ -17,7 +17,7 @@
   >
     <span v-if="icon" :class="['icon', `icon-${icon}--${color}`]" />
     <span class="text" v-text="text" />
-    <div class="arrow">
+    <div v-if="to" class="arrow">
       <span :class="['icon', `icon-arrow--${color}`]" />
     </div>
   </dynamic-link>
