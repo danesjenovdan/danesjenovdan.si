@@ -22,6 +22,14 @@
         Izberi višino <strong v-if="monthlyDonation">mesečne</strong> donacije!
       </template>
       <template slot="content">
+        <div class="change-monthly">
+          <a v-if="monthlyDonation" @click.prevent="monthlyDonation = false">
+            Želiš darovati enkrat?
+          </a>
+          <a v-else @click.prevent="monthlyDonation = true">
+            Želiš darovati mesečno?
+          </a>
+        </div>
         <div class="donation-options">
           <donation-option
             v-for="(dp, i) in filteredDonationPresets"
@@ -48,14 +56,6 @@
             hearts
             @click.native="continueToNextStage"
           />
-        </div>
-        <div class="secondary-link">
-          <a v-if="monthlyDonation" @click.prevent="monthlyDonation = false">
-            Želiš darovati enkrat?
-          </a>
-          <a v-else @click.prevent="monthlyDonation = true">
-            Želiš darovati mesečno?
-          </a>
         </div>
       </template>
     </checkout-stage>
@@ -493,7 +493,28 @@ export default {
   .confirm-button-container {
     text-align: center;
   }
+  .change-monthly {
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: -1.5rem;
 
+    a {
+      font-size: 1rem;
+      font-weight: 600;
+      font-style: italic;
+      color: inherit;
+      text-decoration: underline;
+      cursor: pointer;
+
+      @include media-breakpoint-up(md) {
+        font-size: 1.5rem;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
   .secondary-link {
     text-align: center;
     margin-top: 1.5rem;
