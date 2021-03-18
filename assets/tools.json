@@ -1,14 +1,14 @@
 {
   "tools": [
     {
-      "id": "newsgradient",
+      "id": "consul",
+      "email": "vsi@danesjenovdan.si",
       "links": [
-        {
-          "url": "https://bih.newsgradient.org/",
-          "label": "bih.newsgradient.org"
-        }
-      ],
-      "email": "vsi@danesjenovdan.si"
+        { "url": "https://predlagam-odlocam.koper.si/", "label": "Koper" },
+        { "url": "https://odlocamo-skupaj.nova-gorica.si/", "label": "Nova Gorica" },
+        { "url": "https://pp.hrpelje-kozina.si", "label": "Hrpelje-Kozina" },
+        { "url": "https://github.com/danesjenovdan/consul", "label": "GitHub" }
+      ]
     },
     {
       "id": "parlameter",
@@ -23,6 +23,16 @@
       "email": "info@parlameter.si"
     },
     {
+      "id": "newsgradient",
+      "links": [
+        {
+          "url": "https://bih.newsgradient.org/",
+          "label": "bih.newsgradient.org"
+        }
+      ],
+      "email": "vsi@danesjenovdan.si"
+    },
+    {
       "id": "commentality",
       "links": [
         {
@@ -31,16 +41,6 @@
         }
       ],
       "email": "vsi@danesjenovdan.si"
-    },
-    {
-      "id": "consul",
-      "email": "vsi@danesjenovdan.si",
-      "links": [
-        { "url": "https://predlagam-odlocam.koper.si/", "label": "Koper" },
-        { "url": "https://odlocamo-skupaj.nova-gorica.si/", "label": "Nova Gorica" },
-        { "url": "https://pp.hrpelje-kozina.si", "label": "Hrpelje-Kozina" },
-        { "url": "https://github.com/danesjenovdan/consul", "label": "GitHub" }
-      ]
     },
     {
       "id": "medijski-besedogled",
