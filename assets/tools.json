@@ -34,7 +34,13 @@
     },
     {
       "id": "consul",
-      "email": "vsi@danesjenovdan.si"
+      "email": "vsi@danesjenovdan.si",
+      "links": [
+        { "url": "https://predlagam-odlocam.koper.si/", "label": "Koper" },
+        { "url": "https://odlocamo-skupaj.nova-gorica.si/", "label": "Nova Gorica" },
+        { "url": "https://pp.hrpelje-kozina.si", "label": "Hrpelje-Kozina" },
+        { "url": "https://github.com/danesjenovdan/consul", "label": "GitHub" }
+      ]
     },
     {
       "id": "medijski-besedogled",
