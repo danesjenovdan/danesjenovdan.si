@@ -32,7 +32,7 @@
           :href="
             $i18n.locale === 'sl'
               ? '/doniraj/placaj/mesecno'
-              : '/donate/checkout/monthly'
+              : '/en/donate/checkout/monthly'
           "
         />
         <donation-choice-button
@@ -40,7 +40,7 @@
           :href="
             $i18n.locale === 'sl'
               ? '/doniraj/placaj/enkrat'
-              : '/donate/checkout/once'
+              : '/en/donate/checkout/once'
           "
         />
       </div>
@@ -60,7 +60,7 @@
           :href="
             $i18n.locale === 'sl'
               ? '/doniraj/placaj/mesecno'
-              : '/donate/checkout/monthly'
+              : '/en/donate/checkout/monthly'
           "
         />
         <donation-choice-button
@@ -68,7 +68,7 @@
           :href="
             $i18n.locale === 'sl'
               ? '/doniraj/placaj/enkrat'
-              : '/donate/checkout/once'
+              : '/en/donate/checkout/once'
           "
         />
       </div>
