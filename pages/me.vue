@@ -85,12 +85,7 @@
                 </div>
               </email-subscription-tile>
             </div>
-            <button
-              class="btn btn-primary mt-2 mb-5 px-3 font-weight-bold"
-              @click="onSaveClick"
-            >
-              SHRANI
-            </button>
+            <more-button :text="'SHRANI'" large @click.native="onSaveClick" />
           </div>
         </template>
       </div>
@@ -262,6 +257,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   padding-top: 6em;
+  margin-bottom: 2rem;
 
   @include media-breakpoint-down(sm) {
     padding-top: 3em;
