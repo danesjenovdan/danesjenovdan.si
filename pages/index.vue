@@ -7,6 +7,7 @@
     <div v-if="infopush && infopush.visible">
       <info-push
         :image="infopush.image"
+        :alt="infopush.alt"
         :title="infopush.title"
         :text="infopush.desc"
         :button-text="infopush.cta_text"
@@ -46,6 +47,7 @@
             class="flex-tile"
           >
             <preview-tile
+              :alt="agrumentPost.alt"
               :image="agrumentPost.image_url"
               :title="agrumentPost.title"
               :byline="toSloDate(agrumentPost.datetime)"
@@ -127,6 +129,7 @@
           class="flex-tile"
         >
           <preview-tile
+            :alt="clip.alt"
             :image="clip.image"
             :title="clip.title"
             :byline="`${clip.publisher}, ${toSloDate(clip.date)}`"
@@ -186,6 +189,7 @@
           class="flex-tile"
         >
           <preview-tile
+            :alt="video.alt"
             :image="video.image"
             :title="video.title"
             :byline="toSloDate(video.date)"
