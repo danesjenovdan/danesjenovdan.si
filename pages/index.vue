@@ -87,6 +87,7 @@
         >
           <project-tile
             :image="project.image"
+            :alt="project.alt"
             :title="project.title"
             :byline="toMonthYear(project.date)"
             :text="project.desc"

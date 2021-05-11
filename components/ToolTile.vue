@@ -6,6 +6,7 @@
           <div class="d-flex align-items-center flex-column flex-lg-row">
             <div
               v-if="icon"
+              :title="alt"
               :style="{ 'background-image': `url(/icons/tools/${icon}.svg)` }"
               class="icon"
             />
@@ -83,6 +84,10 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+    alt: {
+      type: String,
+      default: null,
     },
     description: {
       type: String,

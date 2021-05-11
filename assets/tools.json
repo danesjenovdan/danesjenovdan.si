@@ -2,7 +2,7 @@
   "tools": [
     {
       "id": "consul",
-      "email": "vsi@danesjenovdan.si",
+      "email": "consul@danesjenovdan.si",
       "links": [
         { "url": "https://consul.djnd.si/", "label": "Predstavitev orodja Consul" },
         { "url": "https://predlagam-odlocam.koper.si/", "label": "Mestna občina Koper" },
