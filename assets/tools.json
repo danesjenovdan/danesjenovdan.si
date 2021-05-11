@@ -4,6 +4,7 @@
       "id": "consul",
       "email": "vsi@danesjenovdan.si",
       "links": [
+        { "url": "https://consul.djnd.si/", "label": "Predstavitev orodja Consul" },
         { "url": "https://predlagam-odlocam.koper.si/", "label": "Mestna občina Koper" },
         { "url": "https://odlocamo-skupaj.nova-gorica.si/", "label": "Mestna občina Nova Gorica" },
         { "url": "https://www.mariborsodeluj.si/", "label": "Mestna občina Maribor" },

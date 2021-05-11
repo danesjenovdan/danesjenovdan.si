@@ -29,11 +29,9 @@
                 class="contact"
               >
                 <li>
-                  <a
-                    :href="`mailto:${email.address}?subject=${email.subject}`"
-                    target="_blank"
-                    >{{ email.label }}</a
-                  >
+                  <a :href="`mailto:${email.address}`" target="_blank">
+                    {{ email.label }}
+                  </a>
                 </li>
               </ul>
             </div>
@@ -66,11 +64,9 @@
           >
             <ul>
               <li>
-                <a
-                  :href="`mailto:${email.address}?subject=${email.subject}`"
-                  target="_blank"
-                  >{{ email.label }}</a
-                >
+                <a :href="`mailto:${email.address}`" target="_blank">
+                  {{ email.label }}
+                </a>
               </li>
             </ul>
           </div>
