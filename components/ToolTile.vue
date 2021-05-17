@@ -6,6 +6,7 @@
           <div class="d-flex align-items-center flex-column flex-lg-row">
             <div
               v-if="icon"
+              :title="alt"
               :style="{ 'background-image': `url(/icons/tools/${icon}.svg)` }"
               class="icon"
             />
@@ -29,11 +30,9 @@
                 class="contact"
               >
                 <li>
-                  <a
-                    :href="`mailto:${email.address}?subject=${email.subject}`"
-                    target="_blank"
-                    >{{ email.label }}</a
-                  >
+                  <a :href="`mailto:${email.address}`" target="_blank">
+                    {{ email.label }}
+                  </a>
                 </li>
               </ul>
             </div>
@@ -66,11 +65,9 @@
           >
             <ul>
               <li>
-                <a
-                  :href="`mailto:${email.address}?subject=${email.subject}`"
-                  target="_blank"
-                  >{{ email.label }}</a
-                >
+                <a :href="`mailto:${email.address}`" target="_blank">
+                  {{ email.label }}
+                </a>
               </li>
             </ul>
           </div>
@@ -87,6 +84,10 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+    alt: {
+      type: String,
+      default: null,
     },
     description: {
       type: String,

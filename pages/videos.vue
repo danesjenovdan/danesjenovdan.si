@@ -47,6 +47,7 @@
         class="flex-tile"
       >
         <preview-tile
+          :alt="video.alt"
           :image="video.image"
           :title="video.title"
           :byline="toSloDate(video.date)"

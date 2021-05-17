@@ -282,6 +282,7 @@ article {
 
       .share__link {
         flex: 1.6;
+        text-align: center;
 
         label {
           margin: 0;

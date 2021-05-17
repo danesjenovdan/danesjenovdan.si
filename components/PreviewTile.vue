@@ -4,6 +4,7 @@
       <div class="embed-responsive embed-responsive-1200by630">
         <div class="embed-responsive-item d-flex align-items-center">
           <div
+            :title="alt"
             :style="{
               'background-image': image ? `url('${image}')` : undefined,
             }"
@@ -53,6 +54,10 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+    alt: {
+      type: String,
+      default: null,
     },
     byline: {
       type: String,

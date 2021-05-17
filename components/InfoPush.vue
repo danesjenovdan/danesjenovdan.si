@@ -19,6 +19,7 @@
           <div class="embed-responsive embed-responsive-16by9">
             <div class="embed-responsive-item d-flex align-items-center">
               <div
+                :title="alt"
                 :style="{ 'background-image': `url('${image}')` }"
                 class="background-image"
               />
@@ -49,6 +50,10 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+    alt: {
+      type: String,
+      default: null,
     },
     text: {
       type: String,

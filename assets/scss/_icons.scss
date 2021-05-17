@@ -126,6 +126,9 @@
 @function icon-sub-supporter($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/subscriptions/supporter.svg'), '#000', '#{$color}'));
 }
+@function icon-sub-huda-pobuda($color) {
+  @return encode-svg(string-replace(fs-readFile('static/icons/subscriptions/huda-pobuda.svg'), '#000', '#{$color}'));
+}
 
 .icon {
   background-repeat: no-repeat;
@@ -266,4 +269,7 @@
 }
 .icon-sub-supporter {
   background-image: url(#{icon-sub-supporter($color-red)}) !important;
+}
+.icon-sub-huda-pobuda {
+  background-image: url(#{icon-sub-huda-pobuda($color-red)}) !important;
 }

@@ -130,6 +130,7 @@ export default {
           response.segments.forEach((s) => {
             settings[s.alias] = s.manuallyAdded;
           });
+          console.log(response);
         }
       } catch (err) {
         if (err.response) {
@@ -178,6 +179,12 @@ export default {
           show: true,
           color: 'parlameter',
           order: 400,
+          loading: false,
+        },
+        'huda-pobuda': {
+          show: true,
+          color: 'warning',
+          order: 500,
           loading: false,
         },
       },
