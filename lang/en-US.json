@@ -444,6 +444,12 @@
         "description": "E-pošta s pregledom aktualnih in nedavnih projektov in akcij, ki jih izvajamo na inštitutu Danes je nov dan, pošiljamo največ enkrat mesečno. Če želiš biti na tekočem s tem, kar počnemo, se ti splača naročiti na mesečne novice, v katerih najdeš kratek povzetek naših aktivnosti s pripadajočimi povezavami na relevantna spletna mesta.",
         "label-off": "Naročite me!",
         "label-on": "Naročeno!"
+      },
+      "huda-pobuda": {
+        "title": "Huda pobuda",
+        "description": "Vse novice o hudih pobudah, ki na naši platformi zbirajo sredstva za svojo uresničitev, in nevladnih organizacijah, ki jih bodo izvajale. Če te zanima, katere pobude smo izbrali, kako bodo koristile skupnosti in kdaj jih lahko podpreš, potem je ta novičnik kot nalašč zate.",
+        "label-off": "Naročite me!",
+        "label-on": "Naročeno!"
       }
     }
   }
