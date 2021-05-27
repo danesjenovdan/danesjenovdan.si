@@ -220,6 +220,10 @@ article {
           overflow: hidden;
           // fix overflow: hidden cutting off overhang letters like jgq
           padding-bottom: 0.175em;
+
+          // break words if they are too long to fit on one line, add some more space
+          word-break: break-word;
+          margin-right: -1em;
         }
       }
 
