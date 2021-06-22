@@ -303,6 +303,12 @@
       "url": "https://acfslovenia.si/",
       "image": "/img/donators/acf.png",
       "class": "p-3"
+    },
+    {
+      "name": "Grant for the Web",
+      "url": "https://www.grantfortheweb.org/",
+      "image": "/img/donators/gftw.png",
+      "class": "p-3"
     }
   ]
 }
