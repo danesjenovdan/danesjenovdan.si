@@ -1,6 +1,16 @@
 <template>
   <article class="row news-article justify-content-center">
     <div class="col col-xl-9">
+      <div v-if="logoSrc" class="article-top-logo">
+        <a :href="logoLink" target="_blank">
+          <img
+            :src="logoSrc"
+            :alt="logoAlt"
+            class="img-fluid"
+            style="max-width: 270px"
+          />
+        </a>
+      </div>
       <div class="article__title">
         <h2>{{ title }}</h2>
         <div v-if="date" class="article__date">
@@ -30,6 +40,18 @@ export default {
       type: String,
       default: null,
     },
+    logoSrc: {
+      type: String,
+      default: null,
+    },
+    logoAlt: {
+      type: String,
+      default: null,
+    },
+    logoLink: {
+      type: String,
+      default: null,
+    },
   },
 };
 </script>
@@ -39,8 +61,17 @@ export default {
   margin-bottom: 2rem;
   margin-top: 2rem;
 
+  .article-top-logo {
+    padding-top: 2rem;
+  }
+
+  .article-top-logo + .article__title {
+    padding-top: 2rem;
+  }
+
   .article__title,
-  .article__content {
+  .article__content,
+  .article-top-logo {
     background-color: #fff;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
