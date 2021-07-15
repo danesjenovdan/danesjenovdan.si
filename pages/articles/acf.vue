@@ -21,6 +21,7 @@
       sredstva za velik projekt, hitri odziv in institucionalno podporo, kot
       partnerji pa še dodaten velik projekt in hitri odziv.
     </p>
+    <hr />
     <h4>
       <strong
         >Velik projekt: Tvoja občina: odprta in transparentna lokalna
@@ -91,6 +92,7 @@
         občina.
       </li>
     </ul>
+    <hr />
     <h4><strong>Hitri odziv: Twitter Brigade</strong></h4>
     <p>
       Trajanje projekta: 15. 7. 2020 do 28. 2. 2021<br />
@@ -156,6 +158,7 @@
       <li>posredovanje izsledkov na Twitter,</li>
       <li>priprava in objava raziskovalnega novinarskega prispevka.</li>
     </ul>
+    <hr />
     <h4><strong>Institucionalna podpora</strong></h4>
     <p>
       Trajanje: 1. 6. 2021 do 30. 4. 2024<br />
@@ -256,6 +259,7 @@
         poročila za vsa 3 leta).
       </li>
     </ul>
+    <hr />
     <h4>
       <strong>
         Partnerski velik projekt: Obljuba dela dolg: (ne)izpolnjevanje
@@ -268,8 +272,10 @@
       Višina sredstev, ki jih je prejel Danes je nov dan: 48 510,00 EUR
     </p>
     <p>
-      Prijavitelj: Oštro, Center za preiskovalno novinarstvo v jadranski
-      regiji<br />
+      Prijavitelj:
+      <a href="https://www.ostro.si/"
+        >Oštro, Center za preiskovalno novinarstvo v jadranski regiji</a
+      ><br />
       Partner: Danes je nov dan, Inštitut za druga vprašanja
     </p>
     <p>Povezave:</p>
@@ -322,6 +328,7 @@
       <li>komunikacijska kampanja pred državnozborskimi volitvami,</li>
       <li>komunikacijska kampanja ob zaključku projekta z izsledki.</li>
     </ul>
+    <hr />
     <h4>
       <strong
         >Partnerski hitri odziv: Pravna mreža za varstvo demokracije</strong
