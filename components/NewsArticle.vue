@@ -138,7 +138,7 @@ export default {
       }
 
       hr {
-        border-top-color: #333;
+        // border-top-color: #333;
         margin: 3rem 0;
       }
     }
