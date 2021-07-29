@@ -182,11 +182,30 @@
     </div>
     <div class="row">
       <div class="col-12">
+        <section-header :text="$t('about.transparency')" />
+      </div>
+    </div>
+    <div class="row formalities">
+      <div class="col-12 mt-3">
         <more-button
-          :text="$t('about.papers')"
+          :text="$t('about.yearly-reports')"
           icon="papers"
-          to="https://drive.google.com/drive/folders/1J9OeRGe_P2nIlz3_C_H-v265droKTnr9"
+          to="https://drive.google.com/drive/folders/105Jb0F_hKvf-HBKXiwK4NRjTIbNepLFP"
         />
+      </div>
+      <div class="col-12 mt-3">
+        <more-button
+          :text="$t('about.results')"
+          icon="papers"
+          to="https://drive.google.com/drive/folders/1mUhlnNyfuJGJZg6ACJvBl4eBOvO-rJ-x"
+        />
+      </div>
+      <div class="col-12 mt-3">
+        <p>
+          {{ $t('about.pay-ratio') }}
+          <span>30. 6. 2021</span>:
+          <strong>1 : 1,44</strong>
+        </p>
       </div>
     </div>
   </div>
