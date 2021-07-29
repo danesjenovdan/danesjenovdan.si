@@ -357,12 +357,15 @@
     "our-partners": "Our partners",
     "our-donators": "Our donors",
     "formalities": "Important information",
+    "transparency": "Transparency",
     "mailing-address": "Mailing address:",
     "tax-id": "Tax ID:",
     "registration-number": "Registration number:",
     "bank-account": "Bank account:",
     "ngo": "Slovenian Ministry of Public Administration granted us the status of a non-governmental organization in the public interest in the field of information society development.",
-    "papers": "Documents"
+    "yearly-reports": "Annual substantive and financial reports",
+    "results": "Results",
+    "pay-ratio": "The ratio between the minimum basic gross salary and the highest on"
   },
   "values": {
     "description": "Our activities stem from the understanding of democracy as an ongoing process. The social contract should be a constant and inclusive debate. Political participation is the recognition of one's responsibility for one's own empowerment.",
