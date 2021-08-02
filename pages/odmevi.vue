@@ -1,14 +1,22 @@
 <template>
   <news-article :title="title" :date="date">
+    <img
+      src="/img/articles/odmevi-cover.png"
+      alt="COVID vizualija"
+      class="img-fluid"
+      style="margin-top: 0"
+    />
     <p>
       V Sloveniji je bila epidemija nove koronavirusne bolezni covid-19 prvič
       razglašena 12. marca 2020 z
       <a
         href="https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2020-01-0532?sop=2020-01-0532"
+        target="_blank"
         >odredbo takratnega ministra za zdravje Šabedra</a
       >, preklicana pa 14. maja
       <a
         href="https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2020-01-1030/odlok-o-preklicu-epidemije-nalezljive-bolezni-sars-cov-2-covid-19"
+        target="_blank"
         >z odlokom predsednika vlade Janše</a
       >, s tem da je večina ukrepov veljala še do konca maja. Sledilo je
       zatišje, tako z vidika ukrepov kot tudi v smislu okužb; poleti nekaj dni
@@ -25,7 +33,7 @@
       poletje, stroka (spet) opozarja na pretečo jesen, tokrat zaradi nizke
       precepljenosti ter grožnje novih, bolj nalezljivih različic virusa.
     </p>
-    <h1>We know what you did last summer</h1>
+    <h3>We know what you did last summer</h3>
     <p>
       Čeprav so svetovni in tudi domači strokovnjaki že pred lanskim poletjem
       naglas opozarjali, da s covidom navkljub patetičnemu preletu vojaških
@@ -50,20 +58,25 @@
       Nič bolje se ni godilo bolnišnicam; šele novembra so npr. v UKC Ljubljana
       <a
         href="https://www.delo.si/novice/slovenija/v-ukc-ljubljana-dokoncali-nove-prostore-za-bolnike-s-covidom-19/"
+        target="_blank"
         >odprli nove prostore</a
       >, namenjene bolnikom s covidom, ki so jih dokončali po hitrem postopku.
       Tedanji generalni direktor UKC, danes pa zdravstveni minister Poklukar, je
       navdušeno
       <a
         href="https://twitter.com/ukclj/status/1325386465006788608?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1325386465006788608%7Ctwgr%5E%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.delo.si%2Fnovice%2Fslovenija%2Fv-ukc-ljubljana-dokoncali-nove-prostore-za-bolnike-s-covidom-19%2F"
+        target="_blank"
         >tvital o mavrici</a
       >, vlada se je v zanosu
       <a
         href="https://twitter.com/vladaRS/status/1325527639218679815?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1325527639218679815%7Ctwgr%5E%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.slovenskenovice.si%2Fnovice%2Fslovenija%2Fjansa-poln-cestitk-in-pohval-zmogli-smo%2F"
+        target="_blank"
         >trepljala po ramenih</a
       >, predsednik vlade Janša, ki sebe rad slika kot operativnega garača, pa
       tudi ni zamudil priložnosti, da k zgodbi
-      <a href="https://www.facebook.com/janezjansaSDS/posts/10160284015278572"
+      <a
+        href="https://www.facebook.com/janezjansaSDS/posts/10160284015278572"
+        target="_blank"
         >pristavi svoj zaslugarski lonček</a
       >. Vprašanja, zakaj novega oddelka niso v miru dokončali tekom poletja, ko
       dodatnega pritiska na bolnišnice in drugo strokovno osebje praktično ni
@@ -73,32 +86,38 @@
       natančnost pri gradnji, gotovo pa bi bolje vplivalo na materiale, ki bi se
       lahko ustrezno posušili.
     </p>
-    <h1>Epidemija, drugič</h1>
+    <h3>Epidemija, drugič</h3>
     <p>
       Drugi val nas je tako ujel popolnoma nepripravljene, vlada in njeni
       predstavniki pa so, namesto da bi prevzeli svojo odgovornost za nastalo
       situacijo, za okužbe krivili naključne družbene skupine: od
       <a
         href="https://www.had.si/blog/2020/08/19/jelko-kacin-zrce-so-znane-po-uzivanju-psihoaktivnih-snovi-to-pa-mocno-povecuje-moznost-sirjenja-okuzb/"
+        target="_blank"
         >mladih</a
       >, ki so jih demonizirali konec poletja, do protivladnih protestnikov, ki
       jim
       <a
         href="https://www.vecer.com/slovenija/krek-proti-organizatorjem-protestov-ce-se-bo-komurkoli-karkoli-zgodilo-naj-prevzamejo-odgovornost-10241413"
+        target="_blank"
         >žugajo še danes</a
       >. A okužbe so se dokazano širile drugod; v prvem valu npr. v DSO-jih,
       kjer je covid lansko leto pokončal
       <a
         href="https://www.delo.si/novice/slovenija/krek-in-kacin-o-aktualnem-stanju/"
+        target="_blank"
         >vsakega desetega oskrbovanca</a
       >, situacijo pa so v času, ko je bilo okužb v primerjavi z drugim valom še
       vedno relativno malo, “reševali” s t. i.
       <a
         href="https://www.24ur.com/novice/svet/sistemskega-nadzora-v-zvezi-s-seznami-smrti-ne-bo.html"
+        target="_blank"
         >seznami smrti</a
       >, na podlagi katerih so stanovalcem vnaprej odrekali bolnišnično oskrbo.
       Podatke o virih okužb lahko od sredine novembra najdemo tudi na
-      <a href="https://covid-19.sledilnik.org/sl/stats#sources-chart"
+      <a
+        href="https://covid-19.sledilnik.org/sl/stats#sources-chart"
+        target="_blank"
         >Covid-19 sledilniku</a
       >
       in nedvoumno kažejo, da prednjačijo okužbe na delovnih mestih, v skupnem
@@ -117,6 +136,7 @@
       pomemben
       <a
         href="https://www.delo.si/sobotna-priloga/studentke-in-studente-v-predavalnice-takoj/"
+        target="_blank"
         >korak nazaj</a
       >
       v svojem življenjskem poteku. Mnoga že tako majhna stanovanja so postala
@@ -134,23 +154,30 @@
       Covid je na novo osvetlil tudi vprašanje s spolom povezane neenakosti:
       emocionalno, skrbstveno in negovalno delo ter učna pomoč otrokom so vrste
       dela, ki jih v večji meri opravljajo ženske. V
-      <a href="http://www.devz.si/wp-content/uploads/2019/05/6_Poklukar.pdf"
+      <a
+        href="http://www.devz.si/wp-content/uploads/2019/05/6_Poklukar.pdf"
+        target="_blank"
         >zdravstvu je več žensk</a
       >, v
-      <a href="https://spol.si/blog/2020/03/24/delo-zensk-v-casu-krize/"
+      <a
+        href="https://spol.si/blog/2020/03/24/delo-zensk-v-casu-krize/"
+        target="_blank"
         >trgovinah dela več žensk</a
       >, v vrtcih in šolah (z izjemo visokega šolstva)
-      <a href="https://www.stat.si/StatWeb/File/NewsImage/21875">prav tako</a>.
-      Vsem tem delavkam so se delovni pogoji med epidemijo poslabšali zaradi
+      <a href="https://www.stat.si/StatWeb/File/NewsImage/21875" target="_blank"
+        >prav tako</a
+      >. Vsem tem delavkam so se delovni pogoji med epidemijo poslabšali zaradi
       povečanega obsega dela in specifičnih zahtev, povezanih s preprečevanjem
       širjenja okužb, večini teh delavk pa se je povečal tudi obseg “domačega
       dela”. Njihovi dohodki,
       <a
         href="http://ipes-si.org/blog/2019/07/24/zenske-smo-za-enako-delo-placane-manj-in-pika/"
+        target="_blank"
         >statistično nižji od dohodkov moških</a
       >, se niso ustrezno prilagodili novim okoliščinam,
       <a
         href="https://www.rtvslo.si/slovenija/krsitve-delavske-zakonodaje-med-epidemijo-odpuscanje-po-sms-ih-izkoriscanje-subvencij/523083"
+        target="_blank"
         >prej nasprotno</a
       >: povečalo se je število nezakonitih odpuščanj, dogajalo se je
       izigravanje državne pomoči, najslabše plačane delavke, npr. trgovke ali
@@ -176,6 +203,7 @@
       Vlada se dokazano bolj kot na
       <a
         href="https://www.mladina.si/204960/vlada-se-gre-politicno-epidemiologijo-namesto-da-bi-upostevala-epidemiolosko-stroko/"
+        target="_blank"
         >mnenja stroke</a
       >
       odziva na želje oz. kar zahteve gospodarstva in kapitala, kar, brano skozi
@@ -183,7 +211,7 @@
       četudi na vidnih funkcijah, lahko kaj pripomnijo, njihova mnenja pa v
       nobenem primeru niso ključna ali zavezujoča.
     </p>
-    <h1>Odmevi pred drugim valom</h1>
+    <h3>Odmevi pred drugim valom</h3>
     <img
       src="/img/articles/covid1.png"
       alt="COVID vizualija"
@@ -213,6 +241,7 @@
       metodološkem smislu, si lahko ogledate v
       <a
         href="https://docs.google.com/document/d/1wbQN3RUqgOmJ2QEQE5NaG4Y4BrVj_6eXT3L-ZCLATK8/edit?usp=sharing"
+        target="_blank"
         >navodilih za zbiranje podatkov</a
       >, na podlagi katerih so bili pridobljeni. Čeprav so bili vsi podatki
       dvakrat, nekateri celo trikrat preverjeni, dopuščamo možnost napak pri
@@ -236,7 +265,7 @@
       intervjuvanih oseb, pri prispevkih tudi njihovo temo (ekonomija, politika,
       zdravje, kultura, šport, okolje, drugo).
     </p>
-    <h2>Povzetek rezultatov</h2>
+    <h4><strong>Povzetek rezultatov</strong></h4>
     <p>
       V 99 analiziranih oddajah je bila v 63 primerih voditeljica ženskega
       spola, 36-krat pa je bil voditelj moški. Prav tako je bilo več avtoric kot
@@ -414,7 +443,7 @@
       naboru bolj marginaliziranih tem v zadnjih letih izrazito stopila v
       ospredje.
     </p>
-    <h1>Torej</h1>
+    <h3>Torej</h3>
     <p>
       Analiza 99 oddaj Odmevi v izbranem časovnem obdobju je bila zgolj
       empirična in kot taka predstavlja ozko okno v medijsko dogajanje v času
@@ -440,15 +469,18 @@
       sta na primer
       <a
         href="https://www.vecer.com/slovenija/radio-student-ustavitev-financiranja-s-strani-ministrstva-za-kulturo-oznacil-za-politicno-motivirano-10243210"
+        target="_blank"
         >Radio Študent</a
       >
       ali
       <a
         href="https://podcrto.si/zavrnitev-financiranja-nas-ne-bo-ustavila-podprite-izvedbo-nasih-preiskav/"
+        target="_blank"
         >Pod črto</a
       >, in
       <a
         href="http://agencija.sta.si/2880106/sta-se-vedno-brez-placila-za-opravljeno-javno-sluzbo"
+        target="_blank"
         >Slovenske tiskovne agencije</a
       >.
     </p>
@@ -481,8 +513,8 @@ export default {
   pageColor: 'primary',
   nuxtI18n: {
     paths: {
-      sl: '/novice/odmevi',
-      en: '/news/odmevi',
+      sl: '/odmevi',
+      en: '/odmevi',
     },
   },
   components: {
@@ -503,12 +535,13 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+h3 {
   font-weight: 700;
   line-height: 1;
 }
 
-h1,
+h3,
+h4,
 h5 {
   padding-top: 30px;
 }
