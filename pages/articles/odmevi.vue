@@ -187,7 +187,7 @@
     <img
       src="/img/articles/covid1.png"
       alt="COVID vizualija"
-      class="img-fluid my-4"
+      class="img-fluid"
     />
     <p>
       Mi smo na spol in epidemijo pogledali skozi oddajo Odmevi, natančneje,
@@ -248,8 +248,8 @@
     <img
       src="/img/articles/vizualizacija1.png"
       alt="Vizualija 1: 99 oddaj, 63x voditeljica, 36x voditelj; Vizualija 2: 413 prispevkov, 272 avtoric, 141 avtorjev"
-      class="my-2"
-      style="width: 34rem; max-width: 100%"
+      class="img-fluid"
+      style=""
     />
     <p>
       Če kot novinarke in voditeljice oddaje Odmevi vsaj v analiziranem obdobju
@@ -267,8 +267,7 @@
     <img
       src="/img/articles/vizualizacija2.png"
       alt="336 oseb omenjenih v napovedniku oddaje, od tega 267 moških in 69 žensk"
-      class="my-2"
-      style="width: 15rem; max-width: 100%"
+      style="width: 45%"
     />
     <p>
       Diskrepanca med v napovedniku omenjenimi ženskami in moškimi je še večja
@@ -291,8 +290,8 @@
     <img
       src="/img/articles/vizualizacija5.png"
       alt="3,4 omenjene osebe na napovednik, od tega 0,7 žensk, 2,7 moških IN 3 gosti na oddajo, od tega 0,7 žensk in 2,3 moška"
-      class="my-2"
-      style="width: 34rem; max-width: 100%"
+      class="img-fluid"
+      style=""
     />
     <p>
       V analiziranih 99 oddajah Odmevi so bili skupaj 302 gosti v studiu ali po
@@ -308,8 +307,7 @@
     <img
       src="/img/articles/vizualizacija3.png"
       alt="skupaj 302 gostje, 70 žensk, 232 moških"
-      class="my-2"
-      style="width: 15rem; max-width: 100%"
+      style="width: 45%"
     />
     <p>
       Kadar so bile voditeljice ženske, je bilo v analiziranih Odmevih 42 gostij
@@ -345,12 +343,7 @@
       0,8-krat na pogovor.
     </p>
     <h5><strong>Prekinjanje gostov oddaje glede na spol</strong></h5>
-    <img
-      src="/img/articles/vizualizacija4.png"
-      alt=""
-      class="my-2"
-      style="width: 24rem; max-width: 100%"
-    />
+    <img src="/img/articles/vizualizacija4.png" alt="" class="img-fluid" />
     <p>
       Če podatke razdelimo na dva dela, kjer prvi del zajema oddaje od 12. 3.,
       ko se je začela epidemija, do 31. 5., ko se je začel uporabljati odlok o
@@ -372,7 +365,7 @@
       bil najmanj pomemben šport, okolje pa je “prehitelo” kulturo.
     </p>
     <h5><strong>Teme pogovorov z gosti Odmevov med in po epidemiji</strong></h5>
-    <img src="/img/articles/vizualizacija6.png" alt="" class="my-2 img-fluid" />
+    <img src="/img/articles/vizualizacija6.png" alt="" class="img-fluid" />
     <p>
       V samostojnih prispevkih analiziranih oddaj pa je med epidemijo kot
       osrednja tema vendarle izstopalo zdravje, vendar mu je tesno sledila
@@ -387,7 +380,7 @@
         Teme samostojnih novinarskih prispevkov v Odmevih med in po epidemiji
       </strong>
     </h5>
-    <img src="/img/articles/vizualizacija7.png" alt="" class="my-2 img-fluid" />
+    <img src="/img/articles/vizualizacija7.png" alt="" class="img-fluid" />
     <p>
       Če je bilo torej tako med kot po epidemiji v Odmevih največ minut
       pogovorov namenjenih temi zdravja, pa se je o ekonomiji v drugem obdobju
@@ -402,7 +395,7 @@
         (v sekundah)
       </strong>
     </h5>
-    <img src="/img/articles/vizualizacija8.png" alt="" class="my-2 img-fluid" />
+    <img src="/img/articles/vizualizacija8.png" alt="" class="img-fluid" />
     <p>
       Ob pregledu pogostosti naslavljanja določenih tem z gosti nas je zanimala
       tudi vloga spola. Sešteli smo vse sekunde za vsako temo glede na spol
@@ -509,4 +502,19 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  font-weight: 700;
+  line-height: 1;
+}
+
+h1,
+h5 {
+  padding-top: 30px;
+}
+
+img {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+</style>
