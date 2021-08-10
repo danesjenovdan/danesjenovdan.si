@@ -234,7 +234,11 @@
       pa na bolj perfidne načine.
     </p>
     <p>
-      Podatke, ki so jih zbrale študentke Fakultete za družbene vede Univerze v
+      <a
+        href="https://docs.google.com/spreadsheets/d/1VBe_QYF71K9nlUZW34OJDh2z2dPxoC_GG-zAUZ8A6y0/edit#gid=0"
+        target="_blank"
+        >Podatke</a
+      >, ki so jih zbrale študentke Fakultete za družbene vede Univerze v
       Ljubljani, in sicer v okviru obvezne prakse, ki so jo opravljale na našem
       inštitutu, smo torej vzeli kot zaključeno celoto, ne pa kot poskus
       reprezentativnega vzorca. Kako natančno smo k materiji pristopili v
