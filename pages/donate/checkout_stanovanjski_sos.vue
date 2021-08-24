@@ -336,7 +336,7 @@ export default {
           try {
             this.checkoutLoading = true;
             const checkoutResponse = await this.$axios.$get(
-              'https://podpri.djnd.si/api/generic-donation/4/', // TODO changeme
+              'https://podpri.djnd.si/api/generic-donation/5/',
             );
             this.token = checkoutResponse.token;
             this.customerId = checkoutResponse.customer_id;
@@ -387,8 +387,8 @@ export default {
       this.paymentInProgress = true;
       this.nonce = nonce;
       const paymentURL = this.monthlyDonation
-        ? 'https://podpri.djnd.si/api/generic-donation/subscription/4/' // TODO changeme
-        : 'https://podpri.djnd.si/api/generic-donation/4/'; // TODO changeme
+        ? 'https://podpri.djnd.si/api/generic-donation/subscription/5/'
+        : 'https://podpri.djnd.si/api/generic-donation/5/';
       try {
         const response = await this.$axios.$post(paymentURL, {
           payment_type: this.nonce ? 'braintree' : 'upn',
