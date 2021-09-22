@@ -126,6 +126,14 @@ export default {
         href: 'https://use.typekit.net/aqx7lip.css',
       },
     ],
+    script: [
+      {
+        src: 'https://plausible.lb.djnd.si/js/plausible.js',
+        async: true,
+        defer: true,
+        'data-domain': 'danesjenovdan.si',
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
