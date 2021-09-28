@@ -22,9 +22,15 @@
       prvič sodelujeta tudi Slovenija in Hrvaška.
     </p>
     <p>
-      Poročilo, ki vključuje podrobno analizo odprtosti in transparentnosti
-      Državnega zbora, si lahko preberete tukaj, spodaj pa smo izpostavili nekaj
-      najpomembnejših zaključkov naše raziskave.
+      Vabljeni, da preberete poročilo, ki vključuje podrobno analizo odprtosti
+      in transparentnosti Državnega zbora (<a
+        :href="lowResReportLink"
+        target="_blank"
+        >manjša datoteka</a
+      >
+      optimizirana za branje na digitalnih zaslonih,
+      <a :href="highResReportLink" target="_blank">večja datoteka</a> za tisk),
+      spodaj pa smo izpostavili nekaj najpomembnejših zaključkov naše raziskave.
     </p>
     <h3>Rezultati raziskave</h3>
     <p>
@@ -246,10 +252,17 @@
     </p>
     <p>Rezultate analize smo že predstavili tudi v Državnem zboru.</p>
     <div class="box">
-      <!--
-      <strong>Preberi analizo za Slovenijo:</strong>
-      <p><a>aaa</a></p>
-      -->
+      <strong
+        >Preberi analizo za Slovenijo (manjša datoteka optimizirana za branje na
+        digitalnih zaslonih):</strong
+      >
+      <p>
+        <a :href="lowResReportLink" target="_blank">{{ lowResReportLink }}</a>
+      </p>
+      <strong>Natisni analizo za Slovenijo:</strong>
+      <p>
+        <a :href="highResReportLink" target="_blank">{{ highResReportLink }}</a>
+      </p>
       <strong>Dostopaj do podatkov za Slovenijo:</strong>
       <p>
         <a
@@ -293,6 +306,7 @@ export default {
   nuxtI18n: {
     paths: {
       sl: '/odprtost-dz',
+      en: '/odprtost-dz',
     },
   },
   components: {
@@ -302,11 +316,45 @@ export default {
     return {
       title: 'Odprtost in transparentnost Državnega zbora Republike Slovenije',
       date: '',
+      lowResReportLink:
+        'https://drive.google.com/file/d/1bxyQJ6d8UYfZtHnBxOT-OCnU0i9JcX0l/view?usp=sharing',
+      highResReportLink:
+        'https://drive.google.com/file/d/1hstJae9ZBFO1rYA5EvrXQ5oTxSQFWVCK/view?usp=sharing',
     };
   },
   head() {
     return {
-      title: this.title,
+      title: 'Odprtost in transparentnost Državnega zbora',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Poglej, kako se je Državni zbor odrezal v regionalni analizi transparentnosti in odprtosti parlamentov.',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Odprtost in transparentnost Državnega zbora',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Poglej, kako se je Državni zbor odrezal v regionalni analizi transparentnosti in odprtosti parlamentov.',
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: 'Odprtost in transparentnost Državnega zbora',
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content:
+            'Poglej, kako se je Državni zbor odrezal v regionalni analizi transparentnosti in odprtosti parlamentov.',
+        },
+      ],
     };
   },
 };
