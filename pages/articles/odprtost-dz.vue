@@ -27,8 +27,7 @@
         :href="lowResReportLink"
         target="_blank"
         >manjša datoteka</a
-      >
-      optimizirana za branje na digitalnih zaslonih,
+      >, optimizirana za branje na digitalnih zaslonih,
       <a :href="highResReportLink" target="_blank">večja datoteka</a> za tisk),
       spodaj pa smo izpostavili nekaj najpomembnejših zaključkov naše raziskave.
     </p>
@@ -253,8 +252,8 @@
     <p>Rezultate analize smo že predstavili tudi v Državnem zboru.</p>
     <div class="box">
       <strong
-        >Preberi analizo za Slovenijo (manjša datoteka optimizirana za branje na
-        digitalnih zaslonih):</strong
+        >Preberi analizo za Slovenijo (manjša datoteka, optimizirana za branje
+        na digitalnih zaslonih):</strong
       >
       <p>
         <a :href="lowResReportLink" target="_blank">{{ lowResReportLink }}</a>
@@ -319,7 +318,7 @@ export default {
       lowResReportLink:
         'https://drive.google.com/file/d/11XxsPM5GQlOqlkWsa9GiYIFer-cjfhe8/view?usp=sharing',
       highResReportLink:
-        'https://drive.google.com/file/d/15sJF8sBEGCcYZia7XnNkLZnABOb5QlWQ/view?usp=sharing',
+        'https://drive.google.com/file/d/17BjwLFAWe-vFWTUAmNV1_ss17EqpQ5B1/view',
     };
   },
   head() {
