@@ -317,9 +317,9 @@ export default {
       title: 'Odprtost in transparentnost Državnega zbora Republike Slovenije',
       date: '',
       lowResReportLink:
-        'https://drive.google.com/file/d/1bxyQJ6d8UYfZtHnBxOT-OCnU0i9JcX0l/view?usp=sharing',
+        'https://drive.google.com/file/d/11XxsPM5GQlOqlkWsa9GiYIFer-cjfhe8/view?usp=sharing',
       highResReportLink:
-        'https://drive.google.com/file/d/1hstJae9ZBFO1rYA5EvrXQ5oTxSQFWVCK/view?usp=sharing',
+        'https://drive.google.com/file/d/15sJF8sBEGCcYZia7XnNkLZnABOb5QlWQ/view?usp=sharing',
     };
   },
   head() {
