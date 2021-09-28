@@ -343,6 +343,11 @@ export default {
             'Poglej, kako se je Državni zbor odrezal v regionalni analizi transparentnosti in odprtosti parlamentov.',
         },
         {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://danesjenovdan.si/og-regionalni-indeks.png',
+        },
+        {
           hid: 'twitter:title',
           property: 'twitter:title',
           content: 'Odprtost in transparentnost Državnega zbora',
@@ -352,6 +357,11 @@ export default {
           property: 'twitter:description',
           content:
             'Poglej, kako se je Državni zbor odrezal v regionalni analizi transparentnosti in odprtosti parlamentov.',
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: 'https://danesjenovdan.si/og-regionalni-indeks.png',
         },
       ],
     };
