@@ -49,6 +49,11 @@
               >
             </div>
           </div>
+          <div class="d-flex justify-content-center">
+            <div class="amount-badge">
+              <span>{{ selectedDonationAmount }} €</span>
+            </div>
+          </div>
         </div>
       </template>
       <template slot="footer">
@@ -237,10 +242,6 @@ export default {
     },
     async continueToNextStage() {
       if (this.canContinueToNextStage) {
-        if (this.stage === 'select-amount') {
-          this.stage = 'info';
-          return;
-        }
         if (this.stage === 'info') {
           try {
             this.checkoutLoading = true;
@@ -250,7 +251,12 @@ export default {
             this.token = checkoutResponse.token;
             this.customerId = checkoutResponse.customer_id;
             this.stage = 'payment';
-            console.log(checkoutResponse);
+            if (document.getElementById('newsletter-id').checked) {
+              await this.$axios.$post('https://podpri.djnd.si/api/subscribe/', {
+                email: this.email,
+                segment: 17,
+              });
+            }
           } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.response);
@@ -429,6 +435,29 @@ input::placeholder {
     margin: 0 auto;
   }
 
+  .amount-badge {
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: #fffdef;
+    width: 6rem;
+    height: 6rem;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1;
+    font-family: $font-family-comfortaa;
+    &:hover {
+      background-color: #fff7b0;
+    }
+    span {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+
   .payment-container {
     display: flex;
     flex-direction: column;
@@ -497,11 +526,6 @@ input::placeholder {
       align-items: center;
       font-family: $font-family-comfortaa;
     }
-  }
-
-  .payment-switcher .nav .nav-item .nav-link.active {
-    background-color: #f4b7d1;
-    border-radius: 0;
   }
 
   .card-payment {
