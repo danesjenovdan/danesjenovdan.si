@@ -17,10 +17,18 @@
       </p>
     </div>
 
-    <checkout-stage v-if="stage === 'info'" :stage="stage">
-      <template slot="title"> Podatki </template>
+    <checkout-stage v-if="stage === 'info'" :stage="stage" class="hudapobuda">
+      <template slot="title">VPIŠI SVOJ E-NASLOV</template>
       <template slot="content">
         <div class="info-content">
+          <p class="text-center">
+            Hvala, da se z nami podajaš na pot uresničevanja hude pobude!
+          </p>
+          <p class="text-center">
+            Najprej te prosimo, da nam zaupaš svoj e-naslov, saj ga potrebujemo
+            za potrditev donacije. V naslednjem koraku zapišeš še podatke o
+            plačilnem sredstvu in postopek bo zaključen. Tako preprosto je!
+          </p>
           <div class="form-group">
             <input
               id="email"
@@ -36,7 +44,8 @@
                 class="custom-control-input"
               />
               <label for="newsletter-id" class="custom-control-label"
-                >Obveščajte me o novih projektih in aktivnostih</label
+                >Strinjam se, da me občasno obvestite o izvedbi hude pobude in
+                morebitnih drugih novostih.</label
               >
             </div>
           </div>
@@ -50,21 +59,24 @@
             :loading="infoSubmitting"
             text="Naprej"
             color="secondary"
-            arrow
-            hearts
             @click.native="continueToNextStage"
           />
         </div>
       </template>
     </checkout-stage>
 
-    <checkout-stage v-if="stage === 'payment'" :stage="stage">
-      <template slot="title"> Plačilo </template>
+    <checkout-stage
+      v-if="stage === 'payment'"
+      :stage="stage"
+      class="hudapobuda"
+    >
+      <template slot="title"> PLAČILO </template>
       <template slot="content">
         <div class="payment-container">
           <payment-switcher
             :recurring="false"
             :force-slovenian="true"
+            class="hudapobuda"
             @change="onPaymentChange"
           />
           <div v-if="checkoutLoading" class="payment-loader">
@@ -102,7 +114,7 @@
             />
           </template>
           <div class="cart-total">
-            <span>Znesek za plačilo</span>
+            <span>Znesek za plačilo:</span>
             <i>{{ selectedDonationAmount }} €</i>
           </div>
         </div>
@@ -113,10 +125,8 @@
             key="next-payment"
             :disabled="!canContinueToNextStage"
             :loading="paymentInProgress"
-            text="DONIRAJ"
+            text="Doniraj"
             color="secondary"
-            arrow
-            hearts
             @click.native="continueToNextStage"
           />
         </div>
@@ -316,6 +326,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&amp;display=swap');
+
+input,
+label:before {
+  border: 2px solid black;
+}
+input,
+input::placeholder {
+  text-decoration: none;
+  font-style: normal;
+  font-family: 'Courier New';
+}
 .checkout {
   .donation-options {
     display: flex;
@@ -341,6 +363,19 @@ export default {
 
   .confirm-button-container {
     text-align: center;
+    .confirm-button {
+      background-color: #a6d07d;
+      border: 2px solid black;
+      font-family: $font-family-comfortaa;
+      color: black;
+      text-transform: capitalize;
+      font-style: normal;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 1rem 3rem;
+      width: 100%;
+      max-width: 540px;
+    }
   }
 
   .change-monthly {
@@ -373,7 +408,6 @@ export default {
     a {
       font-size: 1rem;
       font-weight: 600;
-      font-style: italic;
       color: inherit;
       text-decoration: underline;
       cursor: pointer;
@@ -415,31 +449,64 @@ export default {
 
     .cart-total {
       text-align: right;
-      background-color: rgba($color-red, 0.15);
+      background-color: #fffdef;
       padding: 0.5rem 1rem;
       margin: auto auto 0 auto;
       margin-top: 1.5rem;
       margin-bottom: 1rem;
       width: 100%;
       max-width: 350px;
+      font-family: $font-family-comfortaa;
+      font-weight: 600;
 
       i {
-        font-weight: 600;
         font-size: 1.25rem;
+        font-style: normal;
         margin-left: 0.25rem;
       }
     }
   }
 
+  .custom-control.custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label:before {
+    border: 2px solid black;
+    background-color: transparent;
+  }
+
+  .custom-control.custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label:after {
+    background-image: url('/img/hudapobuda-donations/check.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+  }
+
   .custom-checkbox {
     margin-bottom: 1rem;
+    &:after {
+      border: 2px solid black;
+    }
 
     .custom-control-label {
-      font-size: 1rem;
+      font-size: 0.925rem;
       line-height: 1.1;
       min-height: 2rem;
       display: flex;
       align-items: center;
+      font-family: $font-family-comfortaa;
+    }
+  }
+
+  .payment-switcher .nav .nav-item .nav-link.active {
+    background-color: #f4b7d1;
+    border-radius: 0;
+  }
+
+  .card-payment {
+    .card-info {
+      font-family: $font-family-comfortaa;
     }
   }
 }

@@ -106,4 +106,12 @@ export default {
     }
   }
 }
+.hudapobuda.payment-switcher {
+  .nav .nav-item .nav-link {
+    border-radius: 0;
+    &.active {
+      background-color: #f4b7d1;
+    }
+  }
+}
 </style>
