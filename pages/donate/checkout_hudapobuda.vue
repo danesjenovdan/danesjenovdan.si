@@ -17,9 +17,19 @@
       </p>
     </div>
 
-    <checkout-stage v-if="stage === 'info'" :stage="stage" class="hudapobuda">
-      <template slot="title">VPIŠI SVOJ E-NASLOV</template>
+    <checkout-stage
+      v-if="stage === 'info'"
+      :stage="stage"
+      no-header
+      class="hudapobuda"
+    >
       <template slot="content">
+        <div class="d-flex justify-content-center">
+          <div class="amount-badge">
+            <span>{{ selectedDonationAmount }} €</span>
+          </div>
+        </div>
+        <h1>VPIŠI SVOJ E-NASLOV</h1>
         <div class="info-content">
           <p class="text-center">
             Hvala, da se z nami podajaš na pot uresničevanja hude pobude!
@@ -47,11 +57,6 @@
                 >Strinjam se, da me občasno obvestite o izvedbi hude pobude in
                 morebitnih drugih novostih.</label
               >
-            </div>
-          </div>
-          <div class="d-flex justify-content-center">
-            <div class="amount-badge">
-              <span>{{ selectedDonationAmount }} €</span>
             </div>
           </div>
         </div>
@@ -318,7 +323,7 @@ export default {
         this.paymentInProgress = false;
         this.$router.push(
           // this.localePath({ name: 'thanks', query: { token } }),
-          `/doniraj_stanovanjski-sos/hvala?token=${response.upload_token}`,
+          `/doniraj_hudapobuda/hvala?token=${response.upload_token}`,
         );
         this.paymentInProgress = true;
       } catch (error) {
@@ -345,6 +350,12 @@ input::placeholder {
   font-family: 'Courier New';
 }
 .checkout {
+  h1 {
+    font-size: 1.85rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
   .donation-options {
     display: flex;
     flex-direction: column;
@@ -441,7 +452,7 @@ input::placeholder {
     background-color: #fffdef;
     width: 6rem;
     height: 6rem;
-    margin: 0.5rem 0;
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -449,9 +460,6 @@ input::placeholder {
     text-align: center;
     line-height: 1;
     font-family: $font-family-comfortaa;
-    &:hover {
-      background-color: #fff7b0;
-    }
     span {
       font-size: 1.25rem;
       font-weight: 700;
