@@ -109,6 +109,12 @@ export default {
 .hudapobuda.payment-switcher {
   .nav .nav-item .nav-link {
     border-radius: 0;
+    font-size: 0.825rem;
+    padding: 0.5rem;
+    @media (min-width: 360px) {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
     &.active {
       background-color: #f4b7d1;
     }
