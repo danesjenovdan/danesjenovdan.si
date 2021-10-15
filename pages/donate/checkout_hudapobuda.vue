@@ -17,10 +17,28 @@
       </p>
     </div>
 
-    <checkout-stage v-if="stage === 'info'" :stage="stage">
-      <template slot="title"> Podatki </template>
+    <checkout-stage
+      v-if="stage === 'info'"
+      :stage="stage"
+      no-header
+      class="hudapobuda"
+    >
       <template slot="content">
+        <div class="d-flex justify-content-center">
+          <div class="amount-badge">
+            <span>{{ selectedDonationAmount }} €</span>
+          </div>
+        </div>
+        <h1>VPIŠI SVOJ E-NASLOV</h1>
         <div class="info-content">
+          <p class="text-center">
+            Hvala, da se z nami podajaš na pot uresničevanja hude pobude!
+          </p>
+          <p class="text-center">
+            Najprej te prosimo, da nam zaupaš svoj e-naslov, saj ga potrebujemo
+            za potrditev donacije. V naslednjem koraku zapišeš še podatke o
+            plačilnem sredstvu in postopek bo zaključen. Tako preprosto je!
+          </p>
           <div class="form-group">
             <input
               id="email"
@@ -36,7 +54,8 @@
                 class="custom-control-input"
               />
               <label for="newsletter-id" class="custom-control-label"
-                >Obveščajte me o novih projektih in aktivnostih</label
+                >Strinjam se, da me občasno obvestite o izvedbi hude pobude in
+                morebitnih drugih novostih.</label
               >
             </div>
           </div>
@@ -50,21 +69,24 @@
             :loading="infoSubmitting"
             text="Naprej"
             color="secondary"
-            arrow
-            hearts
             @click.native="continueToNextStage"
           />
         </div>
       </template>
     </checkout-stage>
 
-    <checkout-stage v-if="stage === 'payment'" :stage="stage">
-      <template slot="title"> Plačilo </template>
+    <checkout-stage
+      v-if="stage === 'payment'"
+      :stage="stage"
+      class="hudapobuda"
+    >
+      <template slot="title"> PLAČILO </template>
       <template slot="content">
         <div class="payment-container">
           <payment-switcher
             :recurring="false"
             :force-slovenian="true"
+            class="hudapobuda"
             @change="onPaymentChange"
           />
           <div v-if="checkoutLoading" class="payment-loader">
@@ -102,7 +124,7 @@
             />
           </template>
           <div class="cart-total">
-            <span>Znesek za plačilo</span>
+            <span>Znesek za plačilo:</span>
             <i>{{ selectedDonationAmount }} €</i>
           </div>
         </div>
@@ -113,10 +135,8 @@
             key="next-payment"
             :disabled="!canContinueToNextStage"
             :loading="paymentInProgress"
-            text="DONIRAJ"
+            text="Doniraj"
             color="secondary"
-            arrow
-            hearts
             @click.native="continueToNextStage"
           />
         </div>
@@ -205,6 +225,20 @@ export default {
       }
       return true;
     },
+    newsletterSegment() {
+      if (this.donationId === 6) {
+        // pusca, na pomoc
+        return 23;
+      } else if (this.donationId === 7) {
+        // glas skupnosti
+        return 24;
+      } else if (this.donationId === 8) {
+        // zapisimo spomine
+        return 25;
+      } else {
+        return 17; // huda pobuda in general
+      }
+    },
   },
   mounted() {
     this.$i18n.setLocale('sl');
@@ -227,10 +261,6 @@ export default {
     },
     async continueToNextStage() {
       if (this.canContinueToNextStage) {
-        if (this.stage === 'select-amount') {
-          this.stage = 'info';
-          return;
-        }
         if (this.stage === 'info') {
           try {
             this.checkoutLoading = true;
@@ -240,7 +270,12 @@ export default {
             this.token = checkoutResponse.token;
             this.customerId = checkoutResponse.customer_id;
             this.stage = 'payment';
-            console.log(checkoutResponse);
+            if (document.getElementById('newsletter-id').checked) {
+              await this.$axios.$post('https://podpri.djnd.si/api/subscribe/', {
+                email: this.email,
+                segment: this.newsletterSegment,
+              });
+            }
           } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.response);
@@ -302,7 +337,7 @@ export default {
         this.paymentInProgress = false;
         this.$router.push(
           // this.localePath({ name: 'thanks', query: { token } }),
-          `/doniraj_stanovanjski-sos/hvala?token=${response.upload_token}`,
+          `/doniraj_hudapobuda/hvala?token=${response.upload_token}`,
         );
         this.paymentInProgress = true;
       } catch (error) {
@@ -316,7 +351,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&amp;display=swap');
+
+input,
+label:before {
+  border: 2px solid black;
+}
+input,
+input::placeholder {
+  text-decoration: none;
+  font-style: normal;
+  font-family: 'Courier New';
+}
 .checkout {
+  h1 {
+    font-size: 1.85rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
   .donation-options {
     display: flex;
     flex-direction: column;
@@ -341,6 +394,19 @@ export default {
 
   .confirm-button-container {
     text-align: center;
+    .confirm-button {
+      background-color: #a6d07d;
+      border: 2px solid black;
+      font-family: $font-family-comfortaa;
+      color: black;
+      text-transform: capitalize;
+      font-style: normal;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 1rem 3rem;
+      width: 100%;
+      max-width: 540px;
+    }
   }
 
   .change-monthly {
@@ -373,7 +439,6 @@ export default {
     a {
       font-size: 1rem;
       font-weight: 600;
-      font-style: italic;
       color: inherit;
       text-decoration: underline;
       cursor: pointer;
@@ -393,6 +458,26 @@ export default {
     width: 100%;
     max-width: 540px;
     margin: 0 auto;
+  }
+
+  .amount-badge {
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: #fffdef;
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1;
+    font-family: $font-family-comfortaa;
+    span {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
   }
 
   .payment-container {
@@ -415,31 +500,59 @@ export default {
 
     .cart-total {
       text-align: right;
-      background-color: rgba($color-red, 0.15);
+      background-color: #fffdef;
       padding: 0.5rem 1rem;
       margin: auto auto 0 auto;
       margin-top: 1.5rem;
       margin-bottom: 1rem;
       width: 100%;
       max-width: 350px;
+      font-family: $font-family-comfortaa;
+      font-weight: 600;
 
       i {
-        font-weight: 600;
         font-size: 1.25rem;
+        font-style: normal;
         margin-left: 0.25rem;
       }
     }
   }
 
+  .custom-control.custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label:before {
+    border: 2px solid black;
+    background-color: transparent;
+  }
+
+  .custom-control.custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label:after {
+    background-image: url('/img/hudapobuda-donations/check.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+  }
+
   .custom-checkbox {
     margin-bottom: 1rem;
+    &:after {
+      border: 2px solid black;
+    }
 
     .custom-control-label {
-      font-size: 1rem;
+      font-size: 0.925rem;
       line-height: 1.1;
       min-height: 2rem;
       display: flex;
       align-items: center;
+      font-family: $font-family-comfortaa;
+    }
+  }
+
+  .card-payment {
+    .card-info {
+      font-family: $font-family-comfortaa;
     }
   }
 }

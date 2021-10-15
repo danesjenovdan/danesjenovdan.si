@@ -125,4 +125,13 @@ export default {
     }
   }
 }
+.hudapobuda {
+  h1 {
+    font-family: $font-family-okolaks;
+  }
+  p,
+  a {
+    font-family: $font-family-comfortaa;
+  }
+}
 </style>
