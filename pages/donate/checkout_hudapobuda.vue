@@ -225,6 +225,20 @@ export default {
       }
       return true;
     },
+    newsletterSegment() {
+      if (this.donationId === 6) {
+        // pusca, na pomoc
+        return 23;
+      } else if (this.donationId === 7) {
+        // glas skupnosti
+        return 24;
+      } else if (this.donationId === 8) {
+        // zapisimo spomine
+        return 25;
+      } else {
+        return 17; // huda pobuda in general
+      }
+    },
   },
   mounted() {
     this.$i18n.setLocale('sl');
@@ -259,7 +273,7 @@ export default {
             if (document.getElementById('newsletter-id').checked) {
               await this.$axios.$post('https://podpri.djnd.si/api/subscribe/', {
                 email: this.email,
-                segment: 17,
+                segment: this.newsletterSegment,
               });
             }
           } catch (error) {
