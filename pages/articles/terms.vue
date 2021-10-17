@@ -41,14 +41,15 @@
         povzetju, stroške pošiljanja krije ponudnik. Dobavni rok za izdelke v
         spletni trgovini je med 2 -­ 5 delovnih dni, če je kupec izbral osebni
         prevzem. V primeru prevzema blaga po pošti, bo blago oddano na pošto v
-        roku 2 delovnih dni. V primeru, da izdelka trenutno ni na zalogi, bomo
+        roku 5 delovnih dni. V primeru, da izdelka trenutno ni na zalogi, bomo
         kupca obvestili po elektronski pošti najkasneje v 2 delovnih dneh od
         prejema naročila.
       </p>
       <h2>Načini plačila</h2>
       <p>
         Nakup izdelkov iz spletne trgovine se plačuje s plačilno kartico na
-        spletu, preko storitve PayPal ali z nakazilom na ponudnikov TRR račun.
+        spletu (preko sistema zagotavljanja plačil Braintree), preko storitve
+        PayPal ali z nakazilom na ponudnikov TRR račun.
       </p>
       <h2>Izdaja računa</h2>
       <p>
@@ -163,14 +164,63 @@
       <h2>Načini doniranja</h2>
       <p>
         Enkratne donacije so lahko izvedene s plačilom prek plačilne kartice na
-        spletu, preko storitve PayPal ali z nakazilom na TRR račun. Mesečne
-        donacije so lahko izvedene prek plačilne kartice na spletu ali preko
-        storitve PayPal.
+        spletu (preko sistema zagotavljanja plačil Braintree), preko storitve
+        PayPal ali z nakazilom na TRR račun. Mesečne donacije so lahko izvedene
+        prek plačilne kartice na spletu ali preko storitve PayPal.
       </p>
       <h2>Izvedba donacije</h2>
       <p>
         Po uspešni izvedbi donacije bo donator na svoj e-naslov prejel potrdilo
         o izvedeni donaciji.
+      </p>
+      <h1>DONACIJE NA PLATFORMI HUDA POBUDA</h1>
+      <h2>Načini doniranja</h2>
+      <p>
+        Donatorji lahko preko platforme Huda pobuda izvedejo enkratne donacije s
+        plačilom prek plačilne kartice na spletu (preko sistema zagotavljanja
+        plačil Braintree), preko storitve PayPal ali z nakazilom na TRR račun.
+        Mesečne donacije na platformi Huda pobuda niso mogoče.
+      </p>
+      <h2>Izvedba donacije</h2>
+      <p>
+        Po uspešni izvedbi donacije bo donator na svoj e-naslov prejel potrdilo
+        o izvedeni donaciji.
+      </p>
+      <h2>Upravičenec donacij</h2>
+      <p>
+        Danes je nov dan bo vsa donatorska sredstva zbrana preko platforme Huda
+        pobuda predal upravičencem, ki so omenjeni na platformi Huda pobuda in v
+        imenu katerih poteka donatorska kampanja. Upravljalec platforme Huda
+        pobuda je upravičen do kritja stroškov provizije, ki nastanejo pri
+        transakciji sredstev podpornikov. Upravičeneci dobijo torej vsa
+        sredstva, ki jih bo Danes je nov dan dobil na svoj račun.
+      </p>
+      <h2>Odvzem donacije</h2>
+      <div>V primeru, da:</div>
+      <ul>
+        <li>
+          se naknadno ugotovi, da je upravičenec sredstva pridobil na podlagi
+          neresničnih navedb ali podatkov in se to ugotovi naknadno,
+        </li>
+        <li>
+          upravičenec ne odda vsebinskega poročila ali pa odda vsebinsko
+          poročilo, ki ga upravljalec platforme Huda pobuda oceni kot
+          neustrezno, upravičenec pa ga ne dopolni v zahtevanem časovnem
+          okvirju,
+        </li>
+        <li>upravičenec ne more izvesti pobude,</li>
+      </ul>
+      <p>
+        mu Danes je nov dan zbranih sredstev ne izplača ali, v primeru, da so
+        bila sredstva že nakazana, upravičenec zbrana sredstva vrne na račun
+        Danes je nov dan.
+      </p>
+      <h2>Prerazporeditev zbranih sredstev</h2>
+      <p>
+        V primeru vračanja že izplačanih sredstev ali v primeru, ko sredstva na
+        podlagi predhodnega člena sploh niso izplačana, upravljalec platforme
+        Huda pobuda v roku 1 meseca ta sredstva enakomerno porazdeli med
+        preostale objavljene pobude na platformi Huda pobuda.
       </p>
       <h1>VARNOST</h1>
       <p>
@@ -292,6 +342,7 @@
         podatkov prizadeva z različnimi fizičnimi, tehničnimi in
         organizacijskimi ukrepi.
       </p>
+      <p>V Ljubljani, 15. 10. 2021</p>
     </div>
   </news-article>
 </template>
