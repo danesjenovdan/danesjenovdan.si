@@ -336,8 +336,10 @@ export default {
 
         this.paymentInProgress = false;
         this.$router.push(
-          // this.localePath({ name: 'thanks', query: { token } }),
-          `/doniraj_hudapobuda/hvala?token=${response.upload_token}`,
+          this.localePath({
+            name: 'donate-thanks_hudapobuda',
+            query: { token: response.upload_token },
+          }),
         );
         this.paymentInProgress = true;
       } catch (error) {
