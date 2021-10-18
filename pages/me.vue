@@ -187,6 +187,24 @@ export default {
           order: 500,
           loading: false,
         },
+        'huda-pobuda-pusca-na-pomoc': {
+          show: true,
+          color: 'warning',
+          order: 600,
+          loading: false,
+        },
+        'huda-pobuda-glas-skupnosti': {
+          show: true,
+          color: 'warning',
+          order: 600,
+          loading: false,
+        },
+        'huda-pobuda-zapisimo-spomine': {
+          show: true,
+          color: 'warning',
+          order: 600,
+          loading: false,
+        },
       },
     };
   },
