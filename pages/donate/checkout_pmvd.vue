@@ -404,7 +404,7 @@ export default {
         this.paymentInProgress = false;
         this.$router.push(
           this.localePath({
-            name: 'donate-checkout_pmvd',
+            name: 'donate-thanks_pmvd',
             query: { token: response.upload_token },
           }),
         );
