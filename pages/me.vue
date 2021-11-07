@@ -205,6 +205,12 @@ export default {
           order: 600,
           loading: false,
         },
+        'glas-ljudstva': {
+          show: true,
+          color: 'secondary',
+          order: 700,
+          loading: false,
+        },
       },
     };
   },

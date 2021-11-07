@@ -471,6 +471,12 @@
         "description": "Vse novice o hudi pobudi \"Zapišimo spomine\", ki na naši platformi zbira sredstva za svojo uresničitev.",
         "label-off": "Naročite me!",
         "label-on": "Naročeno!"
+      },
+      "glas-ljudstva": {
+        "title": "Glas ljudstva",
+        "description": "Vse novice povezane z iniciativo Glas ljudstva.",
+        "label-off": "Naročite me!",
+        "label-on": "Naročeno!"
       }
     }
   }

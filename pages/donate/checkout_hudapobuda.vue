@@ -29,9 +29,8 @@
             <span>{{ selectedDonationAmount }} €</span>
           </div>
         </div>
-        <h1>VPIŠI SVOJ E-NASLOV</h1>
         <div class="info-content">
-          <p class="text-center">
+          <p class="text-center font-weight-bold">
             Hvala, da se z nami podajaš na pot uresničevanja hude pobude!
           </p>
           <p class="text-center">
@@ -158,7 +157,8 @@ import CheckoutStage from '~/components/CheckoutStage.vue';
 import DynamicLink from '~/components/DynamicLink.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 export default {
   nuxtI18n: {
