@@ -182,7 +182,8 @@ import CheckoutStage from '~/components/CheckoutStage.vue';
 import DynamicLink from '~/components/DynamicLink.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 export default {
   nuxtI18n: {
@@ -452,8 +453,9 @@ export default {
 
         this.paymentInProgress = false;
         this.$router.push(
-          // this.localePath({ name: 'thanks', query: { token } }),
-          `/doniraj/hvala?token=${response.upload_token}`,
+          response.upload_token
+            ? `/doniraj/hvala?token=${response.upload_token}`
+            : `/doniraj/hvala`,
         );
         this.paymentInProgress = true;
       } catch (error) {
