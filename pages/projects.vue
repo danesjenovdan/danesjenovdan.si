@@ -37,7 +37,7 @@ export default {
   pageColor: 'secondary',
   nuxtI18n: {
     paths: {
-      sl: '/pozivi',
+      sl: '/dejavnosti',
       en: '/campaigns',
     },
   },

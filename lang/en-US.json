@@ -453,6 +453,30 @@
         "description": "Vse novice o hudih pobudah, ki na naši platformi zbirajo sredstva za svojo uresničitev, in nevladnih organizacijah, ki jih bodo izvajale. Če te zanima, katere pobude smo izbrali, kako bodo koristile skupnosti in kdaj jih lahko podpreš, potem je ta novičnik kot nalašč zate.",
         "label-off": "Naročite me!",
         "label-on": "Naročeno!"
+      },
+      "huda-pobuda-pusca-na-pomoc": {
+        "title": "Pušča, na pomoč!",
+        "description": "Vse novice o hudi pobudi \"Pušča, na pomoč!\", ki na naši platformi zbira sredstva za svojo uresničitev.",
+        "label-off": "Naročite me!",
+        "label-on": "Naročeno!"
+      },
+      "huda-pobuda-glas-skupnosti": {
+        "title": "Skupnostni studio",
+        "description": "Vse novice o hudi pobudi \"Skupnostni studio\", ki na naši platformi zbira sredstva za svojo uresničitev.",
+        "label-off": "Naročite me!",
+        "label-on": "Naročeno!"
+      },
+      "huda-pobuda-zapisimo-spomine": {
+        "title": "Zapišimo spomine",
+        "description": "Vse novice o hudi pobudi \"Zapišimo spomine\", ki na naši platformi zbira sredstva za svojo uresničitev.",
+        "label-off": "Naročite me!",
+        "label-on": "Naročeno!"
+      },
+      "glas-ljudstva": {
+        "title": "Glas ljudstva",
+        "description": "Vse novice povezane z iniciativo Glas ljudstva.",
+        "label-off": "Naročite me!",
+        "label-on": "Naročeno!"
       }
     }
   }

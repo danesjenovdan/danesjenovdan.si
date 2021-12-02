@@ -1,5 +1,5 @@
 <template>
-  <div class="checkout checkout--pmvd">
+  <div class="checkout">
     <div v-if="error" class="alert alert-danger">
       <p>
         Zgodila se je napaka št. {{ error.status }}. Naš strežnik je ni mogel
@@ -17,53 +17,27 @@
       </p>
     </div>
 
-    <checkout-stage v-if="stage === 'select-amount'" :stage="stage">
-      <template slot="title">
-        Izberi višino <strong v-if="monthlyDonation">mesečne</strong> donacije!
-      </template>
+    <checkout-stage
+      v-if="stage === 'info'"
+      :stage="stage"
+      no-header
+      class="hudapobuda"
+    >
       <template slot="content">
-        <div class="change-monthly">
-          <a v-if="monthlyDonation" @click.prevent="monthlyDonation = false">
-            Želiš darovati enkrat?
-          </a>
-          <a v-else @click.prevent="monthlyDonation = true">
-            Želiš darovati mesečno?
-          </a>
+        <div class="d-flex justify-content-center">
+          <div class="amount-badge">
+            <span>{{ selectedDonationAmount }} €</span>
+          </div>
         </div>
-        <div class="donation-options">
-          <donation-option
-            v-for="(dp, i) in filteredDonationPresets"
-            :key="`presets-${i}`"
-            :donation-preset="dp"
-            @select="selectDonationPreset(dp)"
-          />
-          <div
-            v-for="n in 10"
-            :key="`flex-spacer-${n}`"
-            class="donation-option"
-          />
-        </div>
-      </template>
-      <template slot="footer">
-        <div class="confirm-button-container">
-          <confirm-button
-            key="next-select-amount"
-            :disabled="!canContinueToNextStage"
-            :loading="checkoutLoading"
-            text="PODPRI NAS"
-            color="secondary"
-            arrow
-            hearts
-            @click.native="continueToNextStage"
-          />
-        </div>
-      </template>
-    </checkout-stage>
-
-    <checkout-stage v-if="stage === 'info'" :stage="stage">
-      <template slot="title"> Podatki </template>
-      <template slot="content">
         <div class="info-content">
+          <p class="text-center font-weight-bold">
+            Hvala, da se z nami podajaš na pot uresničevanja hude pobude!
+          </p>
+          <p class="text-center">
+            Najprej te prosimo, da nam zaupaš svoj e-naslov, saj ga potrebujemo
+            za potrditev donacije. V naslednjem koraku zapišeš še podatke o
+            plačilnem sredstvu in postopek bo zaključen. Tako preprosto je!
+          </p>
           <div class="form-group">
             <input
               id="email"
@@ -72,6 +46,17 @@
               placeholder="E-naslov"
               class="form-control form-control-lg"
             />
+            <div class="custom-control custom-checkbox mt-4">
+              <input
+                id="newsletter-id"
+                type="checkbox"
+                class="custom-control-input"
+              />
+              <label for="newsletter-id" class="custom-control-label"
+                >Strinjam se, da me občasno obvestite o izvedbi hude pobude in
+                morebitnih drugih novostih.</label
+              >
+            </div>
           </div>
         </div>
       </template>
@@ -83,24 +68,24 @@
             :loading="infoSubmitting"
             text="Naprej"
             color="secondary"
-            arrow
-            hearts
             @click.native="continueToNextStage"
           />
-        </div>
-        <div class="secondary-link">
-          <dynamic-link @click="goBack">Nazaj</dynamic-link>
         </div>
       </template>
     </checkout-stage>
 
-    <checkout-stage v-if="stage === 'payment'" :stage="stage">
-      <template slot="title"> Plačilo </template>
+    <checkout-stage
+      v-if="stage === 'payment'"
+      :stage="stage"
+      class="hudapobuda"
+    >
+      <template slot="title"> PLAČILO </template>
       <template slot="content">
         <div class="payment-container">
           <payment-switcher
-            :recurring="monthlyDonation"
+            :recurring="false"
             :force-slovenian="true"
+            class="hudapobuda"
             @change="onPaymentChange"
           />
           <div v-if="checkoutLoading" class="payment-loader">
@@ -121,7 +106,7 @@
             <paypal-payment
               :token="token"
               :amount="selectedDonationAmount"
-              :recurring="monthlyDonation"
+              :recurring="false"
               :force-slovenian="true"
               @ready="onPaymentReady"
               @payment-start="paymentInProgress = true"
@@ -138,7 +123,7 @@
             />
           </template>
           <div class="cart-total">
-            <span>Znesek za plačilo</span>
+            <span>Znesek za plačilo:</span>
             <i>{{ selectedDonationAmount }} €</i>
           </div>
         </div>
@@ -149,10 +134,8 @@
             key="next-payment"
             :disabled="!canContinueToNextStage"
             :loading="paymentInProgress"
-            text="DONIRAJ"
+            text="Doniraj"
             color="secondary"
-            arrow
-            hearts
             @click.native="continueToNextStage"
           />
         </div>
@@ -170,18 +153,18 @@ import PaymentSwitcher from '~/components/Payment/Switcher.vue';
 import CardPayment from '~/components/Payment/Card.vue';
 import PaypalPayment from '~/components/Payment/Paypal.vue';
 import UpnPayment from '~/components/Payment/Upn.vue';
-import DonationOption from '~/components/DonationOption.vue';
 import CheckoutStage from '~/components/CheckoutStage.vue';
 import DynamicLink from '~/components/DynamicLink.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 export default {
   nuxtI18n: {
     paths: {
-      sl: '/doniraj_stanovanjski-sos/placaj/:monthly',
-      en: '/doniraj_stanovanjski-sos/placaj/:monthly',
+      sl: '/doniraj_hudapobuda/placaj',
+      en: '/doniraj_hudapobuda/placaj',
     },
     fallbackLocale: 'sl',
   },
@@ -191,70 +174,17 @@ export default {
     CardPayment,
     PaypalPayment,
     UpnPayment,
-    DonationOption,
     CheckoutStage,
     DynamicLink,
   },
   layout: 'checkout',
   pageColor: 'secondary',
   data() {
-    const monthlyDonation =
-      this.$route.params.monthly === 'monthly' ||
-      this.$route.params.monthly === 'mesecno';
     return {
       error: null,
-      stage: 'select-amount',
-      donationPresets: [
-        {
-          amount: 5,
-          description: '',
-          selected: false,
-          eventName: 'five',
-          monthly: true,
-          oneTime: false,
-        },
-        {
-          amount: 11,
-          description: '',
-          selected: false,
-          eventName: 'eleven',
-          monthly: true,
-          oneTime: true,
-        },
-        {
-          amount: 24,
-          description: '',
-          selected: false,
-          eventName: 'twentyfour',
-          monthly: true,
-          oneTime: true,
-        },
-        {
-          amount: 47,
-          description: '',
-          selected: false,
-          eventName: 'fortyseven',
-          monthly: true,
-          oneTime: true,
-        },
-        {
-          amount: 101,
-          description: '',
-          selected: false,
-          eventName: 'whale',
-          monthly: false,
-          oneTime: true,
-        },
-        {
-          custom: true,
-          amount: null,
-          description: 'Vnesi poljuben znesek!',
-          selected: false,
-          eventName: 'aeleven',
-          monthly: true,
-          oneTime: true,
-        },
-      ],
+      stage: 'info',
+      selectedDonationAmount: 0,
+      donationId: null,
       checkoutLoading: false,
       payFunction: undefined,
       paymentInfoValid: false,
@@ -271,25 +201,10 @@ export default {
       email: null,
       subscribeNewsletter: false,
       infoSubmitting: false,
-      monthlyDonation,
     };
   },
   computed: {
-    filteredDonationPresets() {
-      return this.donationPresets.filter((dp) =>
-        this.monthlyDonation
-          ? dp.monthly === this.monthlyDonation
-          : dp.oneTime !== this.monthlyDonation,
-      );
-    },
-    selectedDonationAmount() {
-      const selected = this.donationPresets.find((dp) => dp.selected);
-      return selected ? Number(selected.amount) : 0;
-    },
     canContinueToNextStage() {
-      if (this.stage === 'select-amount') {
-        return this.selectedDonationAmount >= 1;
-      }
       if (this.stage === 'info') {
         return this.infoValid && !this.checkoutLoading;
       }
@@ -310,9 +225,32 @@ export default {
       }
       return true;
     },
+    newsletterSegment() {
+      if (this.donationId === 6) {
+        // pusca, na pomoc
+        return 23;
+      } else if (this.donationId === 7) {
+        // glas skupnosti
+        return 24;
+      } else if (this.donationId === 8) {
+        // zapisimo spomine
+        return 25;
+      } else {
+        return 17; // huda pobuda in general
+      }
+    },
   },
   mounted() {
     this.$i18n.setLocale('sl');
+    if (this.$route.query.amount) {
+      this.selectedDonationAmount = Number(this.$route.query.amount);
+    }
+    if (this.$route.query.campaign) {
+      this.donationId = Number(this.$route.query.campaign);
+    } else {
+      // throw error
+      console.log('error -  we need donation id!');
+    }
   },
   methods: {
     paymentError(argument) {
@@ -321,26 +259,23 @@ export default {
       // eslint-disable-next-line
       console.log(argument);
     },
-    selectDonationPreset(sdp) {
-      this.donationPresets.forEach((dp) => {
-        dp.selected = dp === sdp;
-      });
-    },
     async continueToNextStage() {
       if (this.canContinueToNextStage) {
-        if (this.stage === 'select-amount') {
-          this.stage = 'info';
-          return;
-        }
         if (this.stage === 'info') {
           try {
             this.checkoutLoading = true;
             const checkoutResponse = await this.$axios.$get(
-              'https://podpri.djnd.si/api/generic-donation/5/',
+              `https://podpri.djnd.si/api/generic-donation/${this.donationId}/`,
             );
             this.token = checkoutResponse.token;
             this.customerId = checkoutResponse.customer_id;
             this.stage = 'payment';
+            if (document.getElementById('newsletter-id').checked) {
+              await this.$axios.$post('https://podpri.djnd.si/api/subscribe/', {
+                email: this.email,
+                segment: this.newsletterSegment,
+              });
+            }
           } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.response);
@@ -386,9 +321,7 @@ export default {
     async paymentSuccess({ nonce } = {}) {
       this.paymentInProgress = true;
       this.nonce = nonce;
-      const paymentURL = this.monthlyDonation
-        ? 'https://podpri.djnd.si/api/generic-donation/subscription/5/'
-        : 'https://podpri.djnd.si/api/generic-donation/5/';
+      const paymentURL = `https://podpri.djnd.si/api/generic-donation/${this.donationId}/`;
       try {
         const response = await this.$axios.$post(paymentURL, {
           payment_type: this.nonce ? 'braintree' : 'upn',
@@ -404,7 +337,7 @@ export default {
         this.paymentInProgress = false;
         this.$router.push(
           this.localePath({
-            name: 'donate-thanks_stanovanjski_sos',
+            name: 'donate-thanks_hudapobuda',
             query: { token: response.upload_token },
           }),
         );
@@ -420,7 +353,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&amp;display=swap');
+
+input,
+label:before {
+  border: 2px solid black;
+}
+input,
+input::placeholder {
+  text-decoration: none;
+  font-style: normal;
+  font-family: 'Courier New';
+}
 .checkout {
+  h1 {
+    font-size: 1.85rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
   .donation-options {
     display: flex;
     flex-direction: column;
@@ -445,6 +396,19 @@ export default {
 
   .confirm-button-container {
     text-align: center;
+    .confirm-button {
+      background-color: #a6d07d;
+      border: 2px solid black;
+      font-family: $font-family-comfortaa;
+      color: black;
+      text-transform: capitalize;
+      font-style: normal;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 1rem 3rem;
+      width: 100%;
+      max-width: 540px;
+    }
   }
 
   .change-monthly {
@@ -477,7 +441,6 @@ export default {
     a {
       font-size: 1rem;
       font-weight: 600;
-      font-style: italic;
       color: inherit;
       text-decoration: underline;
       cursor: pointer;
@@ -497,6 +460,26 @@ export default {
     width: 100%;
     max-width: 540px;
     margin: 0 auto;
+  }
+
+  .amount-badge {
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: #fffdef;
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1;
+    font-family: $font-family-comfortaa;
+    span {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
   }
 
   .payment-container {
@@ -519,31 +502,59 @@ export default {
 
     .cart-total {
       text-align: right;
-      background-color: rgba($color-red, 0.15);
+      background-color: #fffdef;
       padding: 0.5rem 1rem;
       margin: auto auto 0 auto;
       margin-top: 1.5rem;
       margin-bottom: 1rem;
       width: 100%;
       max-width: 350px;
+      font-family: $font-family-comfortaa;
+      font-weight: 600;
 
       i {
-        font-weight: 600;
         font-size: 1.25rem;
+        font-style: normal;
         margin-left: 0.25rem;
       }
     }
   }
 
+  .custom-control.custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label:before {
+    border: 2px solid black;
+    background-color: transparent;
+  }
+
+  .custom-control.custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label:after {
+    background-image: url('/img/hudapobuda-donations/check.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+  }
+
   .custom-checkbox {
     margin-bottom: 1rem;
+    &:after {
+      border: 2px solid black;
+    }
 
     .custom-control-label {
-      font-size: 1rem;
+      font-size: 0.925rem;
       line-height: 1.1;
       min-height: 2rem;
       display: flex;
       align-items: center;
+      font-family: $font-family-comfortaa;
+    }
+  }
+
+  .card-payment {
+    .card-info {
+      font-family: $font-family-comfortaa;
     }
   }
 }

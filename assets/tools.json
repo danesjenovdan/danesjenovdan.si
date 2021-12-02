@@ -9,6 +9,7 @@
         { "url": "https://odlocamo-skupaj.nova-gorica.si/", "label": "Mestna občina Nova Gorica" },
         { "url": "https://www.mariborsodeluj.si/", "label": "Mestna občina Maribor" },
         { "url": "https://pp.hrpelje-kozina.si", "label": "Občina Hrpelje-Kozina" },
+        { "url": "https://www.sodelujinglasuj.si/", "label": "Občina Medvode" },
         { "url": "https://github.com/danesjenovdan/consul", "label": "GitHub" }
       ]
     },
