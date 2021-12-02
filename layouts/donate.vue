@@ -45,6 +45,7 @@ export default {
 
   .content {
     flex: 1;
+    overflow-x: hidden;
 
     .content-container {
       padding-left: $content-mobile-padding;
