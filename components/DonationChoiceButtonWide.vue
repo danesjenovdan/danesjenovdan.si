@@ -33,6 +33,8 @@ export default {
         return require('../static/icons/donations/enkratna.svg');
       if (this.donationType === 'monthly')
         return require('../static/icons/donations/veckratna.svg');
+      if (this.donationType === 'tax-return')
+        return require('../static/icons/donations/en-procent.svg');
       return '';
     },
   },

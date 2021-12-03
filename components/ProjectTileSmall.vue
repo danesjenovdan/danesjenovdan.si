@@ -25,7 +25,6 @@
         </div>
       </div>
       <div class="project-tile__content">
-        <h1 class="project-tile__title" v-text="title" />
         <div v-if="text" class="project-tile__text">
           <p v-text="text" />
         </div>
@@ -44,10 +43,6 @@ export default {
     alt: {
       type: String,
       default: null,
-    },
-    title: {
-      type: String,
-      required: true,
     },
     text: {
       type: String,
@@ -84,10 +79,6 @@ export default {
 
       svg {
         opacity: 1;
-      }
-
-      .project-tile__title {
-        color: $color-red;
       }
     }
 
@@ -144,12 +135,6 @@ export default {
 
     .project-tile__content {
       padding: 1.75rem 2rem;
-
-      .project-tile__title {
-        font-weight: 700;
-        // margin-bottom: 2rem;
-        transition: color 0.15s ease;
-      }
 
       .project-tile__text {
         font-size: 1.125rem;

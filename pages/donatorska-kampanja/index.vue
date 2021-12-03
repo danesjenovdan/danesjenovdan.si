@@ -3,24 +3,24 @@
     <donation-logo />
     <div class="row justify-content-center">
       <div class="limit-like-p">
-        <h1 class="mega-header">
-          Dragi <span class="strikethrough">Dedek Mraz</span><br />dobri človek!
-        </h1>
+        <h1 class="mega-header">Poženi nov dan!</h1>
       </div>
     </div>
     <div class="row justify-content-center">
       <p>
-        Danesjenovdanovci radi sprejemamo izzive. V letu 2021 smo jih premagali
-        kar nekaj. A izzivi s sabo prinašajo tudi izpostavljenost. Mi se
-        izpostavljamo, da imate vi lahko mir. Obljubimo, da bomo to delali tudi
-        v letu 2022!
+        Na Danes je nov dan smo v zadnjem letu premagali kar nekaj izzivov in
+        uresničili številne projekte. Pri tem smo vse prevečkrat naleteli na
+        odpor tistih, ki bi raje videli, da je družba nesolidarna, politika
+        netransparentna, okolje prepuščeno kapitalu, misel pa zgolj slepo sledi
+        sivemu povprečju. A to nas ni ustavilo in obljubimo, da se bomo za
+        boljši jutri borili tudi v 2022.
       </p>
     </div>
     <div class="row justify-content-center">
       <div class="limit-like-p">
         <h2>
-          Letošnji december zbiramo sredstva za neodvisno delovanje in
-          potrebujemo tudi tvojo pomoč.
+          Zato v decembru zbiramo sredstva za čim bolj neodvisno delovanje, pri
+          tem pa potrebujemo tudi tvojo pomoč!
         </h2>
       </div>
     </div>
@@ -30,15 +30,26 @@
         <div class="row">
           <div class="col">
             <h2 class="mb-4">
-              V naslednjem letu <span class="colored-text">41 %</span><br />
-              delujemo na vaš pogon!
+              Delovali bomo
+              <span class="colored-text">{{ donationAmountPercentage }} %</span
+              ><br class="d-none d-md-block" />
+              na vaš pogon!
             </h2>
           </div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="col progress-wrapper">
             <div class="progress">
-              <span class="progress-bar"></span>
+              <span
+                class="progress-bar"
+                :class="{
+                  'd-none': donationAmountPercentage < 1,
+                }"
+                :style="{
+                  width: `${donationAmountPercentage}%`,
+                }"
+              >
+              </span>
             </div>
           </div>
         </div>
@@ -46,14 +57,14 @@
           <div class="col">
             <p class="progress-bar-subtitle-left">
               <span>Zbrali smo že</span><br />
-              <span>2345 €</span><br />
-              od <span>15 000 €</span><br />
+              <span>{{ donationAmount }} €</span><br />
+              od <span>15 000 €!</span><br />
             </p>
           </div>
           <div class="col">
             <p class="progress-bar-subtitle-right">
-              <span>7</span> dni do<br />
-              konca kampanje
+              <span>{{ daysLeft }}</span> dni do<br />
+              konca kampanje.
             </p>
           </div>
         </div>
@@ -61,20 +72,26 @@
         <div class="row">
           <div class="col">
             <p>
-              Ful imamo stroškov za delovanje. To so stroški za serverje,
-              domene, programje in licence. Brez njih smo bosi.
+              Čeprav spijemo samo eno kavo na dan, ugašamo luči in se trudimo
+              poslovati brezpapirno, delovanje inštituta vseeno stane. Poskrbeti
+              moramo za strežnike, na katerih gostimo spletna mesta in
+              aplikacije, plačevati licence programov, ki jih uporabljamo pri
+              delu, pošiljati pošto, koristiti storitve računovodskega servisa
+              in poravnati še cel kup drugih operativnih malenkosti. Tako smo
+              izračunali, da že naši osnovni stroški poslovanja nanesejo skupaj
+              15 000 evrov na leto.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris aliquip ex ea commodo consequat.
+              Ker brez tega ni inštituta Danes je nov dan, računov pa ne moremo
+              plačevati z zlobnimi tviti, ki jih sicer redno prejemamo, se
+              obračamo nate. Pomagaj nam ohraniti neodvisnost in poskrbi, da
+              bomo v letu 2022 delovali tudi na tvoj pogon!
             </p>
           </div>
         </div>
       </div>
       <div class="col-md pl-md-5">
-        <h3>Prispevaj tudi ti!</h3>
+        <h3>Poženi naše delo!</h3>
         <donation-choice-button-wide
           donation-type="tax-return"
           :href="
@@ -103,11 +120,12 @@
     </div>
     <div class="row justify-content-center">
       <div class="limit-like-p">
-        <h1 class="mt-5">Kaj smo naredili v 2021?</h1>
+        <h1 class="mt-5">Kaj smo naredili letos?</h1>
         <p>
-          V 2021 smo nadzirali lokalno politiko, spremljali vladne obljube,
-          razkrivali Twitter omrežja, skrbeli za varstvo demokracije in
-          skupnost.
+          Na Danes je nov dan se borimo za bolj solidarno družbo in bolj
+          vključujoče politične procese, nadziramo politike in odločevalce,
+          varujemo demokracijo, razkrivamo lažne javnosti na Twitterju in
+          skrbimo za okolje ter skupnost. Kako? Oglej si naše projekte!
         </p>
       </div>
     </div>
@@ -133,55 +151,54 @@
     </div>
     <div class="row justify-content-center">
       <div class="limit-like-p">
-        <h1 class="mt-5">Kaj si želimo za 2022</h1>
+        <h1 class="mt-5">Za kaj se bomo borili v letu 2022?</h1>
         <p>
-          Na inštitutu si želimo, da bi bili v 2022 manj odvisni od projektnih
-          prijav, ki nam jemljejo čas in odvračajo fokus od lokalnega aktivizma.
-          Svoja znanja in veščine bi radi porabili za krepitev raznolikih bojev,
-          kultiviranje javnega, zlasti digitalnega prostora, spodbujanje
-          vključujoče politične participacije in krepitev marginaliziranih
-          glasov.
+          Želimo si, da bi bili prihodnje leto čim bolj neodvisni. Da nam
+          projektne prijave ne bi odvračale pozornosti od lokalnega aktivizma.
+          Da lahko svoja znanja in veščine uporabljamo za krepitev raznolikih
+          bojev, kultiviranje javnega, zlasti digitalnega prostora, spodbujanje
+          politične participacije in krepitev marginaliziranih glasov. Da se nam
+          pri tem pridružiš tudi ti!
         </p>
       </div>
     </div>
-    <div class="row my-5 pt-5">
+    <div class="row my-5 pt-md-5">
       <div class="col-md problem-col">
         <p>
-          S tvojo podporo bomo nadaljevali z delom, ki smo ga začeli v letošnjem
-          letu. Želimo si biti ažurni in se odzivati na konkretne probleme v
-          družbi.
+          Tudi na tvoj pogon lahko nadaljujemo z delom, ki smo ga začeli letos.
+          Želimo si biti ažurni in se odzivati na konkretne probleme v družbi.
         </p>
         <problem-tile
-          title="Sovražne vsebine"
-          description="V letu 2021 bo naš fokus v zvezi s sovražnimi bo predvsem na Twitterju. Že letos smo začeli s projektom Maršal Twito – Sledilnik, ki beleži in analizira Twitter aktivnost Janeza Janše, kmalu bomo objavili raziskavo Twitter brigade, ki razkriva sume o delovanju koordinirane propagandistične mreže Twitter profilov, pozorni pa bomo tudi na aktualne pojavnosti sovražnosti v medijih in na spletu."
+          title="Politična participacija"
+          description="Ker bo 2022 tako imenovano super volilno leto, v katerem nas čakajo lokalne, državnozborske in predsedniške volitve, bomo z najrazličnejšimi aktivnostmi spodbujali čim večjo volilno udeležbo. Delili bomo praktične informacije, skrbeli za izboljšanje političnega diskurza, stranke in politike pa pozivali, da se jasno opredelijo do ključnih družbenih, političnih, ekonomskih in okoljskih vprašanj ter tako poskrbeli za čim večjo informiranost volivk in volivcev."
         />
         <problem-tile
-          title="Odprti podatki"
-          description="V letu 2021 se bomo v okviru tega področja v veliki meri fokusirali na vprašanje odprtosti lokalnih podatkov. Naš cilj je, da občinsko različico Parlametra spravimo v vsaj 4 občine ter da izdelamo lestvico transparentnosti slovenskih občin. Poleg tega bomo opravili regionalno analizo odprtosti parlamentarnih podatkov ter izpostavili pomembnost odprtih podatkov tudi v kontekstu slovenskega predsedovanja EU."
+          title="Zaščita okolja"
+          description="Pravice narave in pravice do narave so že od začetka delovanja Danes je nov dan med našimi ključnimi prioritetami in nič drugače ne bo v letu 2022. Še naprej bomo sodelovali z nevladnimi in civilnodružbenimi organizacijami s tega področja ter z njihovo pomočjo dihali za ovratnik oblasti, ki na okolje rada pozabi oz. se v zvezi z okoljskimi vprašanji pogosto spreneveda."
         />
       </div>
       <div class="col-md">
         <problem-tile
-          title="Narava"
-          description="Pravice narave in pravice do narave so že od začetka delovanja Danes je nov dan med našimi ključnimi prioritetami in nič drugače ne bo v letu 2021. Še naprej bomo sodelovali z nevladnimi in civilnodružbenimi organizacijami s tega področja ter z njihovo pomočjo dihali za ovratnik oblasti, ki na okolje rada pozabi oz. se v zvezi z okoljskimi vprašanji pogosto spreneveda."
+          title="Dostop do podatkov"
+          description="Tudi v letu 2022 bomo na vprašanja v zvezi z odprtostjo podatkov gledali z najrazličnejših vidikov. Občinsko različico Parlametra bomo implementirali v štirih občinah, z novo aplikacijo poskrbeli za transparentnost občinskih proračunov in proračunov nevladnih organizacij ter ponovno analizirali odprtost delovanja Državnega zbora RS. Parlameter bomo nadgradili z možnostjo neposrednega kontaktiranja poslank in poslancev."
         />
         <problem-tile
-          title="Stanovanjska kriza"
-          description="Tudi v prihodnjem letu bo eden od naših temeljnih fokusov vprašanje pomanjkanja dostopnih stanovanj oz. manko ustrezne stanovanjske politike. Ukvarjali se bomo s problemi pomanjkljive ter neustrezne zakonodaje, posebej natančno pa se bomo osredotočili na pravice najemojemalcev. Poskušali bomo torej opolnomočiti veliko, a eno najbolj ranljivih skupin prebivalstva."
+          title="Stanovanjska politika"
+          description="Prihodnje leto bo eden od naših temeljnih fokusov vprašanje pomanjkanja dostopnih stanovanj oz. manko ustrezne stanovanjske politike. Ukvarjali se bomo s problemi pomanjkljive ter neustrezne zakonodaje, gradili najemniško skupnost ter izobraževali o pravicah najemnic in najemnikov. Poskušali bomo opolnomočiti veliko, a eno najbolj ranljivih skupin prebivalstva."
         />
         <problem-tile
-          title="Enakost spolov"
-          description="Ena ključnih ugotovitev raziskave, v kateri smo analizirali Odmeve, je, da so ženske kot gostje izrazito podreprezentirane v medijih. Za leto 2021 pripravljamo feministični podkast; serijo pogovorov z ženskami, ki delujejo kot angažirane znanstvenice, aktivistke, premišljevalke ter strokovnjakinje. Poleg tega bo naš naslednji, že 4. po vrsti, tematski agrument 25 sobot zapovrstjo slovaril feministično terminologijo, pripravili in objavili pa bomo tudi feministični bralni seznam."
+          title="Sovražni govor"
+          description="Še naprej se bomo posvečali razkrivanju toksične politične propagande in manipulacije z javnim mnenjem, na katero bo treba biti v prihajajočem super volilnem letu še posebej pozoren. Raziskovali in opozarjali bomo na aktualne pojavnosti sovražnosti in ekstremističnih idej v medijih in v spletnih okoljih. Nadaljevali bomo s projektom Maršal Twito – Sledilnik, ki beleži in analizira Twitter aktivnost Janeza Janše, in ga še dodatno nadgradili."
         />
       </div>
     </div>
     <div class="row support-section position-relative py-5 my-5">
       <div class="gradient-section"></div>
       <div class="col-md pr-md-5 d-flex align-items-center">
-        <h1>Z donacijo lahko priliješ goriva za naš pogon!</h1>
+        <h1>Doniraj in poskrbi, da bomo v 2022 delovali tudi na tvoj pogon!</h1>
       </div>
       <div class="col-md pl-md-5">
-        <h3>Prispevaj tudi ti!</h3>
+        <h3>Poženi naše delo!</h3>
         <donation-choice-button-wide
           donation-type="tax-return"
           :href="
@@ -208,35 +225,20 @@
         />
       </div>
     </div>
-    <div class="row row-social">
-      <div class="col">
-        <h1>Več nas bo, prej bomo na cilju!<br />POVEJ NAPREJ!</h1>
+    <div class="row share-section">
+      <div class="col-lg-6 position-relative">
+        <h1>Več nas bo, prej bomo na cilju!</h1>
+        <h2>POVEJ NAPREJ!</h2>
+        <img class="share-image" src="../../static/icons/donations/share.png" />
       </div>
-    </div>
-    <div class="row justify-content-center donation-social">
-      <div class="col-xs-auto">
-        <square-icon-button
-          :color="'#228794'"
-          icon="facebook"
-          href="#"
-          @click.native.prevent="onShareClick($event, 'fb')"
-        />
-      </div>
-      <div class="col-xs-auto">
-        <square-icon-button
-          :color="'#228794'"
-          icon="twitter"
-          href="#"
-          @click.native.prevent="onShareClick($event, 'tw')"
-        />
-      </div>
-      <div class="col-xs-auto">
-        <square-icon-button
-          :color="'#df786c'"
-          icon="email"
-          href="#"
-          @click.native.prevent="onShareClick($event, 'mail')"
-        />
+      <div class="col-lg-6 pl-lg-5">
+        <div class="m-5 position-relative">
+          <div class="share-background"></div>
+          <div class="p-5 share-text position-relative">
+            <div class="share-title">Kopiraj povezavo in deli!</div>
+            <div class="share-link">djnd.si/doniraj</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -244,28 +246,13 @@
 
 <script>
 import DonationLogo from '~/components/DonationLogo.vue';
-// import ConfirmButton from '~/components/ConfirmButton.vue';
-// import DonationImages from '~/components/DonationImages.vue';
-// import DonationMilestones from '~/components/DonationMilestones.vue';
-// import DonationSummary from '~/components/DonationSummary.vue';
-// import DonationCampaignProgress from '~/components/DonationCampaignProgress.vue';
-import SquareIconButton from '~/components/SquareIconButton.vue';
 import DonationChoiceButtonWide from '~/components/DonationChoiceButtonWide.vue';
 import ProjectTileSmall from '~/components/ProjectTileSmall.vue';
-
-// import AchievementTile from '~/components/AchievementTile.vue';
 import ProblemTile from '~/components/ProblemTile.vue';
 
 export default {
   components: {
     DonationLogo,
-    // ConfirmButton,
-    // DonationImages,
-    // DonationMilestones,
-    // DonationSummary,
-    // DonationCampaignProgress,
-    SquareIconButton,
-    // AchievementTile,
     ProblemTile,
     DonationChoiceButtonWide,
     ProjectTileSmall,
@@ -284,34 +271,14 @@ export default {
   data() {
     return {
       images: [],
+      donationAmount: 0,
       projects: [
-        {
-          imageSrc: 'ODD.png',
-          title: 'Obljuba dela dolg',
-          description:
-            'Spremljamo in analiziramo izpolnjevanje 51 obljub iz koalicijske pogodbe trenutne vlade in skrbimo za dvig politične odgovornosti.',
-          url: 'https://obljubadeladolg.si/',
-        },
         {
           imageSrc: 'glas-ljudstva.png',
           title: 'Glas ljudstva',
           description:
             'Z več kot 100 nevladnimi in civilnodružbenimi organizacijami pripravljamo 100 zahtev za politične stranke, s katerimi jih bomo pozvali k odgovornejšemu ravnanju.',
           url: 'https://glas-ljudstva.si/',
-        },
-        {
-          imageSrc: 'vizjak.png',
-          title: 'Brez greha',
-          description:
-            'Z več kot 43 000 virtualnimi meti smo ustregli prošnji ministra Vizjaka, naj vanj prvi vrže kamen tisti, ki je brez greha, in opozorili na absurdnost njegove obrambe proti očitkom koruptivnosti.',
-          url: 'https://brezgreha.si/',
-        },
-        {
-          imageSrc: 'lestvica-transparentnosti.png',
-          title: 'Lestvica transparentnosti slovenskih občin',
-          description:
-            'Analizirali smo odprtost in transparentnost vseh 212 slovenskih občin in prav vsaki priporočili pet ukrepov, s pomočjo katerih bo lahko na tem področju še izboljšala svoje delovanje.',
-          url: 'https://danesjenovdan.si/lestvica-transparentnosti/',
         },
         {
           imageSrc: 'najemniski-sos.png',
@@ -321,91 +288,125 @@ export default {
           url: 'https://najemniski-sos.si/',
         },
         {
+          imageSrc: 'referendum.png',
+          title: 'Referendum za pitno vodo',
+          description:
+            'S številnimi aktivnostmi smo na referendumu pomagali zavrniti škodljive zakonodajne spremembe na področju zaščite voda.',
+          url: 'https://danesjenovdan.si/referendum/voda/',
+        },
+        {
+          imageSrc: 'vizjak.png',
+          title: 'Brez greha',
+          description:
+            'Z več kot 43 000 virtualnimi meti smo ustregli prošnji ministra Vizjaka, naj vanj prvi vrže kamen tisti, ki je brez greha, in opozorili na absurdnost njegove obrambe proti očitkom koruptivnosti.',
+          url: 'https://brezgreha.si/',
+        },
+        {
+          imageSrc: 'twitto.png',
+          title: 'Maršal Twito',
+          description:
+            'S sledilnikom aktivnosti Janeza Janše na družbenem omrežju Twitter smo ugotovili, da je premier v letu 2021 tvitanju posvetil že več kot X časa.',
+          url: 'https://twito.si/',
+        },
+        {
+          imageSrc: 'pravna-mreza.png',
+          title: 'Pravna mreža za varstvo demokracije',
+          description:
+            'V sklopu Pravne mreže za varstvo demokracije smo nudili pomoč 1098 osebam, na ustavnem sodišču dosegli odpravo odlokov, ki so prepovedovali shode, in vložili predlog zakona o nalezljivih boleznih ter tako prispevali k odpravi protiustavnega stanja.',
+          url: 'https://pravna-mreza.si/',
+        },
+        {
+          imageSrc: 'lestvica-transparentnosti.png',
+          title: 'Lestvica transparentnosti slovenskih občin',
+          description:
+            'Analizirali smo odprtost in transparentnost vseh 212 slovenskih občin in prav vsaki priporočili pet ukrepov, s pomočjo katerih bo lahko na tem področju še izboljšala svoje delovanje.',
+          url: 'https://danesjenovdan.si/lestvica-transparentnosti/',
+        },
+        {
+          imageSrc: 'ODD.png',
+          title: 'Obljuba dela dolg',
+          description:
+            'Spremljamo in analiziramo izpolnjevanje 51 obljub iz koalicijske pogodbe trenutne vlade in skrbimo za dvig politične odgovornosti.',
+          url: 'https://obljubadeladolg.si/',
+        },
+        {
+          imageSrc: 'twitter-brigade.png',
+          title: 'Twitter brigade',
+          description:
+            'Analizirali smo slovensko Twitter sfero in v javni diskurz ponesli pojem astroturfing kot orodje ustvarjanja lažne javnosti. Razkrili smo, kako delujejo lažni profili in poskrbeli, da je bil del omrežja suspendiran.',
+          url: 'https://brigade.djnd.si/',
+        },
+        {
+          imageSrc: 'huda-pobuda.png',
+          title: 'Huda pobuda',
+          description:
+            'Na platformi za množično financiranje nevladnih organizacij Huda pobuda smo v prvem pozivu zbrali 4805 evrov in pomagali uresničiti tri projekte.',
+          url: 'https://hudapobuda.si/',
+        },
+        {
           imageSrc: 'odmevi.png',
           title: 'Odmevi prve epidemije',
           description:
             'Z vidika spola smo analizirali oddaje Odmevi in pokazali na prisotnost seksizma, ki se je kazal zlasti pri številu vabljenih gostov in gostij ter izpostavljenih osebah v napovednikih.',
           url: 'https://danesjenovdan.si/odmevi',
         },
-        // {
-        //   imageSrc: '',
-        //   title: 'Referendum za pitno vodo',
-        //   description:
-        //     'S številnimi aktivnostmi smo na referendumu pomagali zavrniti škodljive zakonodajne spremembe na področju zaščite voda.',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: 'Maršal Twito',
-        //   description:
-        //     'S sledilnikom aktivnosti Janeza Janše na družbenem omrežju Twitter smo ugotovili, da je premier v letu 2021 tvitanju posvetil X časa',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: 'Pravna mreža za varstvo demokracije',
-        //   description: '',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: 'Twitter brigade',
-        //   description:
-        //     'Analizirali smo slovensko Twitter sfero in v javni diskurz ponesli pojem astroturfing kot orodje ustvarjanja lažne javnosti. Razkrili smo, kako delujejo lažni profili in poskrbeli, da je bil del omrežja suspendiran.',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: 'Huda pobuda',
-        //   description:
-        //     'Na platformi za množično financiranje nevladnih organizacij Huda pobuda smo v prvem pozivu zbrali 4805 evrov in pomagali uresničiti tri projekte.',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: 'Analiza transparentnosti Državnega zbora RS',
-        //   description:
-        //     'Analizirali smo odprtost in transparentnost Državnega zbora Republike Slovenije, priporočila za izboljšave pa smo delili z javnostjo in zaposlenimi v parlamentu.',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: 'Mednarodna sramota',
-        //   description:
-        //     'S petmesečnim pregledom tujih medijskih objav o politični situaciji v Sloveniji smo razkrili slabo podobo naše države, ki jo v svetu riše trenutna oblast.',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: 'Feministični agrument',
-        //   description:
-        //     'Z novo izdajo v zbirki Agrument smo osvetlili 25 konceptov feminizma, ki segajo onkraj binarnih identitetnih, spolnih in seksualnih zamejitev ali izbir.',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: '',
-        //   description: '',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: '',
-        //   description: '',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: '',
-        //   description: '',
-        //   url: '',
-        // },
-        // {
-        //   imageSrc: '',
-        //   title: '',
-        //   description: '',
-        //   url: '',
-        // },
+        {
+          imageSrc: 'indeks-odprtosti.png',
+          title: 'Analiza transparentnosti Državnega zbora RS',
+          description:
+            'Analizirali smo odprtost in transparentnost Državnega zbora Republike Slovenije, priporočila za izboljšave pa smo delili z javnostjo in zaposlenimi v parlamentu.',
+          url: 'https://danesjenovdan.si/odprtost-dz',
+        },
+        {
+          imageSrc: 'sramota.png',
+          title: 'Mednarodna sramota',
+          description:
+            'S petmesečnim pregledom tujih medijskih objav o politični situaciji v Sloveniji smo razkrili slabo podobo naše države, ki jo v svetu riše trenutna oblast.',
+          url: 'https://sramota.si/',
+        },
+        {
+          imageSrc: 'feministicni.png',
+          title: 'Feministični agrument',
+          description:
+            'Z novo izdajo v zbirki Agrument smo osvetlili 25 konceptov feminizma, ki segajo onkraj binarnih identitetnih, spolnih in seksualnih zamejitev ali izbir.',
+          url: 'https://danesjenovdan.si/agrument',
+        },
+        {
+          imageSrc: 'parlameter.png',
+          title: 'Parlameter',
+          description:
+            'Z orodjem Parlameter še naprej skrbimo za večjo transparentnost političnih procesov v Sloveniji, na Hrvaškem, v Bosni in Hercegovini ter v Ukrajini.',
+          url: 'https://parlameter.si/',
+        },
+        {
+          imageSrc: 'peticija-solstvo.png',
+          title:
+            'Peticija proti uničevanju javnega visokega šolstva in znanosti',
+          description:
+            'Pomagali smo zbrati več kot 14 000 podpisov in doseči, da je vlada po začetni blokadi le dala soglasje k razpisu za vpis na javne študijske programe.',
+          url: 'https://www.akademska-skupnost.si/',
+        },
+        {
+          imageSrc: 'consul.png',
+          title: 'Consul',
+          description:
+            'V letu 2021 smo s šestimi občinami sodelovali pri implementaciji participativnega proračuna s platformo Consul.',
+          url: 'https://consul.djnd.si/',
+        },
+        {
+          imageSrc: 'agrument.png',
+          title: 'Agrument',
+          description:
+            'V letu 2021 smo objavili 295 Agrumentov in še naprej skrbeli za opozarjanje na hrbtne plati velikih zgodb ter izpostavljanje majhnih, a pomembnih pripetljajev in zakulisnih dogodkov.',
+          url: 'https://danesjenovdan.si/agrument',
+        },
+        {
+          imageSrc: 'in-media-res.png',
+          title: 'In media res',
+          description:
+            'Tadej je v sodelovanju z Borisom Vezjakom posnel 35 epizod podcasta In media res, v katerih sta debatirala o aktualnem družbenopolitičnem dogajanju in njegovi medijski reprezentaciji.',
+          url: 'https://vezjak.com/podkast/',
+        },
       ],
     };
   },
@@ -458,70 +459,28 @@ export default {
   },
 
   computed: {
-    totalDonations() {
-      return this.images.reduce((prev, curr) => prev + curr.donation_amount, 0);
+    donationAmountPercentage() {
+      return Math.round((this.donationAmount / 15000) * 100);
     },
-
-    maxDonation() {
-      return this.images.reduce(
-        (prev, curr) =>
-          curr.donation_amount > prev ? curr.donation_amount : prev,
-        0,
-      );
+    daysLeft() {
+      const today = new Date();
+      const deadline = new Date(2022, 0, 6);
+      const oneDay = 1000 * 60 * 60 * 24;
+      return Math.ceil((deadline.getTime() - today.getTime()) / oneDay);
     },
   },
 
   async mounted() {
-    this.images = await this.$axios.$get('https://podpri.djnd.si/api/images/');
-  },
-
-  methods: {
-    onShareClick(event, type) {
-      const shareLink = 'https://danesjenovdan.si/doniraj';
-      const shareText =
-        'Danes je nov dan tudi letošnje leto sklepa z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!';
-      const titleText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
-      const shareHashtag = '';
-      this.openSocialShareLink(
-        type,
-        titleText,
-        shareText,
-        shareLink,
-        shareHashtag,
-      );
-    },
-    openSocialShareLink(type, titleText, shareText, shareLink, shareHashtag) {
-      let url = '';
-      const title = encodeURIComponent(titleText);
-      if (type === 'fb') {
-        const link = encodeURIComponent(shareLink);
-        url = `https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=${link}&link=${link}&ref=responsive&name=${title}`;
-      } else if (type === 'tw') {
-        const text = encodeURIComponent(
-          `${shareText.replace(
-            ' Danes je nov dan',
-            ' @danesjenovdan',
-          )} ${shareHashtag} ${shareLink}`,
-        );
-        url = `https://twitter.com/intent/tweet?text=${text}`;
-      } else if (type === 'mail') {
-        const text = `${shareText} ${shareLink}`;
-        url = `mailto:?subject=${title}&body=${text}`;
-      }
-      window.open(url, '_blank');
-    },
+    // this.images = await this.$axios.$get('https://podpri.djnd.si/api/images/');
+    const donationStatistics = await this.$axios.$get(
+      'https://podpri.djnd.si/api/donation-statistics/9/',
+    );
+    this.donationAmount = donationStatistics['donation-amount'];
   },
 };
 </script>
 
 <style lang="scss" scoped>
-// .donation-landing-container {
-//   @include media-breakpoint-up(xl) {
-//     padding-left: 150px;
-//     padding-right: 150px;
-//   }
-// }
-
 /deep/ .logo {
   width: 230px;
 
@@ -575,9 +534,11 @@ h1 {
   width: 100%;
 
   @include media-breakpoint-down(sm) {
-    font-size: 55px;
-    line-height: 70px;
+    font-size: 50px;
+    line-height: 60px;
     margin-bottom: 0;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 
@@ -586,6 +547,14 @@ h2 {
   font-style: italic;
   font-weight: 600;
   margin-bottom: 3rem;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 p {
@@ -618,6 +587,13 @@ p {
 .colored-text {
   color: #dc776b;
   font-weight: 900;
+}
+
+.progress-wrapper {
+  @include media-breakpoint-down(sm) {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
 }
 
 .progress {
@@ -665,7 +641,7 @@ p {
 
 .support-section {
   p {
-    font-size: 1.5rem;
+    font-size: 20px;
   }
 
   .progress-bar-subtitle-left {
@@ -685,7 +661,7 @@ p {
 
   .progress-bar-subtitle-right {
     line-height: 1.125;
-    font-size: 1.5rem;
+    font-size: 20px;
     text-align: right;
     span {
       font-size: 30px;
@@ -712,49 +688,6 @@ p {
   padding-right: 30px;
 }
 
-.row-social {
-  h1 {
-    font-size: 50px;
-    line-height: 60px;
-    text-align: center;
-
-    @include media-breakpoint-up(md) {
-      font-size: 90px;
-      line-height: 110px;
-    }
-  }
-}
-
-.square-icon-button {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-
-  @include media-breakpoint-up(md) {
-    width: 150px;
-    height: 150px;
-  }
-}
-
-.donation-social {
-  margin-top: 50px;
-  padding-bottom: 50px;
-  margin-bottom: 20px;
-  position: relative;
-
-  &::after {
-    content: '';
-    display: block;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    border-bottom: 4px solid $black;
-    opacity: 0.2;
-
-    display: none;
-  }
-}
-
 .problem-col {
   p {
     color: #333333;
@@ -766,5 +699,46 @@ p {
     text-align: left;
     margin-bottom: 90px;
   }
+}
+
+.share-section {
+  h1 {
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .share-title {
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .share-link {
+    border: 2px solid #333333;
+    font-weight: 700;
+    font-size: 30px;
+    background-color: white;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  .share-image {
+    position: absolute;
+    height: 75%;
+    left: 50%;
+    margin-left: 2rem;
+    top: 25%;
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+}
+
+.share-background {
+  background-image: linear-gradient(to right, #df786c 0%, #f5d6d3 100%);
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 </style>
