@@ -1,5 +1,5 @@
 <template>
-  <a class="wide-donation-button" :href="href">
+  <a class="wide-donation-button" :href="href" target="blank">
     <div class="icon-wrapper">
       <img :src="iconSrc" />
       <!-- <div :class="['icon', `icon-donation-${donationType}`]"></div> -->

@@ -182,8 +182,7 @@ import CheckoutStage from '~/components/CheckoutStage.vue';
 import DynamicLink from '~/components/DynamicLink.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
-const EMAIL_REGEX =
-  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 export default {
   nuxtI18n: {
@@ -386,7 +385,7 @@ export default {
           try {
             this.checkoutLoading = true;
             const checkoutResponse = await this.$axios.$get(
-              'https://podpri.djnd.si/api/generic-donation/9/',
+              'https://podpri.djnd.si/api/generic-donation/10/', // TODO: change id back to 9 after december campaign is over
             );
             this.token = checkoutResponse.token;
             this.customerId = checkoutResponse.customer_id;
@@ -437,8 +436,8 @@ export default {
       this.paymentInProgress = true;
       this.nonce = nonce;
       const paymentURL = this.monthlyDonation
-        ? 'https://podpri.djnd.si/api/generic-donation/subscription/9/'
-        : 'https://podpri.djnd.si/api/generic-donation/9/';
+        ? 'https://podpri.djnd.si/api/generic-donation/subscription/10/' // TODO: change id back to 9 after december campaign is over
+        : 'https://podpri.djnd.si/api/generic-donation/10/'; // TODO: change id back to 9 after december campaign is over
       try {
         const response = await this.$axios.$post(paymentURL, {
           payment_type: this.nonce ? 'braintree' : 'upn',

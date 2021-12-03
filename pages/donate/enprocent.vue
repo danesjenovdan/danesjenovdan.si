@@ -60,8 +60,8 @@ export default {
 
   nuxtI18n: {
     paths: {
-      sl: '/donatorska-kampanja/en-procent',
-      en: '/donatorska-kampanja/en-procent',
+      sl: '/doniraj/en-procent',
+      en: '/donate/one-percent',
     },
   },
 };
