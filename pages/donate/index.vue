@@ -171,24 +171,29 @@
         <problem-tile
           title="Politična participacija"
           description="Ker bo 2022 tako imenovano super volilno leto, v katerem nas čakajo lokalne, državnozborske in predsedniške volitve, bomo z najrazličnejšimi aktivnostmi spodbujali čim večjo volilno udeležbo. Delili bomo praktične informacije, skrbeli za izboljšanje političnega diskurza, stranke in politike pa pozivali, da se jasno opredelijo do ključnih družbenih, političnih, ekonomskih in okoljskih vprašanj ter tako poskrbeli za čim večjo informiranost volivk in volivcev."
+          icon="pravnapomoc.png"
         />
         <problem-tile
           title="Zaščita okolja"
           description="Pravice narave in pravice do narave so že od začetka delovanja Danes je nov dan med našimi ključnimi prioritetami in nič drugače ne bo v letu 2022. Še naprej bomo sodelovali z nevladnimi in civilnodružbenimi organizacijami s tega področja ter z njihovo pomočjo dihali za ovratnik oblasti, ki na okolje rada pozabi oz. se v zvezi z okoljskimi vprašanji pogosto spreneveda."
+          icon="okolje_barvno.png"
         />
       </div>
       <div class="col-md">
         <problem-tile
           title="Dostop do podatkov"
           description="Tudi v letu 2022 bomo na vprašanja v zvezi z odprtostjo podatkov gledali z najrazličnejših vidikov. Občinsko različico Parlametra bomo implementirali v štirih občinah, z novo aplikacijo poskrbeli za transparentnost občinskih proračunov in proračunov nevladnih organizacij ter ponovno analizirali odprtost delovanja Državnega zbora RS. Parlameter bomo nadgradili z možnostjo neposrednega kontaktiranja poslank in poslancev."
+          icon="obcinski_podatki_barvno.png"
         />
         <problem-tile
           title="Stanovanjska politika"
           description="Prihodnje leto bo eden od naših temeljnih fokusov vprašanje pomanjkanja dostopnih stanovanj oz. manko ustrezne stanovanjske politike. Ukvarjali se bomo s problemi pomanjkljive ter neustrezne zakonodaje, gradili najemniško skupnost ter izobraževali o pravicah najemnic in najemnikov. Poskušali bomo opolnomočiti veliko, a eno najbolj ranljivih skupin prebivalstva."
+          icon="nepremicninski_davek_barvno.png"
         />
         <problem-tile
           title="Sovražni govor"
           description="Še naprej se bomo posvečali razkrivanju toksične politične propagande in manipulacije z javnim mnenjem, na katero bo treba biti v prihajajočem super volilnem letu še posebej pozoren. Raziskovali in opozarjali bomo na aktualne pojavnosti sovražnosti in ekstremističnih idej v medijih in v spletnih okoljih. Nadaljevali bomo s projektom Maršal Twito – Sledilnik, ki beleži in analizira Twitter aktivnost Janeza Janše, in ga še dodatno nadgradili."
+          icon="hate_speech_barvno.png"
         />
       </div>
     </div>

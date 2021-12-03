@@ -1,8 +1,7 @@
 <template>
   <a class="wide-donation-button" :href="href" target="blank">
     <div class="icon-wrapper">
-      <img :src="iconSrc" />
-      <!-- <div :class="['icon', `icon-donation-${donationType}`]"></div> -->
+      <div :class="['icon', `icon-donation-${donationType}`]"></div>
     </div>
     <div class="text-wrapper">
       <h1 v-t="`donate.donations.${donationType}.title`"></h1>
@@ -50,20 +49,17 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100%;
-  // max-width: 317px;
-  // height: 300px;
   border: 1px solid #df786c;
   position: relative;
-  // margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 16px;
-  //padding-bottom: 100px;
+  padding: 24px 16px;
   transition: background-color 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   cursor: pointer;
 
   .text-wrapper {
     margin-right: 15px;
+    margin-left: 30px;
   }
 
   h1 {
@@ -105,12 +101,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    img {
-      max-width: 100px;
-      max-height: 100px;
-      object-fit: contain;
-    }
   }
 
   .icon-donation-monthly {
@@ -118,17 +108,27 @@ export default {
     // position: absolute;
     bottom: -13px;
     right: 21px;
-    width: 99px;
-    height: 138px;
+    width: 77px;
+    height: 93px;
   }
 
   .icon-donation-once {
     background-image: url('../static/icons/donations/enkratna.svg') !important;
     // position: absolute;
     bottom: -33px;
-    right: -50px;
-    width: 241px;
-    height: 117px;
+    right: 20px;
+    width: 150px;
+    height: 93px;
+    transform: rotate(15deg);
+  }
+
+  .icon-donation-tax-return {
+    background-image: url('../static/icons/donations/en-procent.svg') !important;
+    // position: absolute;
+    bottom: -13px;
+    right: 21px;
+    width: 99px;
+    height: 93px;
   }
 
   &:hover {
