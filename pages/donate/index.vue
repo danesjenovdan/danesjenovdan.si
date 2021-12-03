@@ -26,7 +26,7 @@
     </div>
     <div class="row support-section position-relative py-5 my-5">
       <div class="gradient-section"></div>
-      <div class="col-md pr-md-5">
+      <div class="col-lg pr-lg-5">
         <div class="row">
           <div class="col">
             <h2 class="mb-4">
@@ -58,7 +58,7 @@
             <p class="progress-bar-subtitle-left">
               <span>Zbrali smo že</span><br />
               <span>{{ donationAmount }} €</span><br />
-              od <span>15 000 €!</span><br />
+              od <br class="d-md-none" /><span>15 000 €!</span><br />
             </p>
           </div>
           <div class="col">
@@ -90,16 +90,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md pl-md-5">
-        <h3>Poženi naše delo!</h3>
-        <donation-choice-button-wide
-          donation-type="tax-return"
-          :href="
-            $i18n.locale === 'sl'
-              ? '/doniraj/en-procent'
-              : '/en/donate/one-percent'
-          "
-        />
+      <div class="col-lg pl-lg-5">
+        <h3 class="mt-4 mt-lg-0">Poženi naše delo!</h3>
         <donation-choice-button-wide
           donation-type="monthly"
           :href="
@@ -114,6 +106,14 @@
             $i18n.locale === 'sl'
               ? '/doniraj/placaj/enkrat'
               : '/en/donate/checkout/once'
+          "
+        />
+        <donation-choice-button-wide
+          donation-type="tax-return"
+          :href="
+            $i18n.locale === 'sl'
+              ? '/doniraj/en-procent'
+              : '/en/donate/one-percent'
           "
         />
       </div>
@@ -205,14 +205,6 @@
       <div class="col-md pl-md-5">
         <h3>Poženi naše delo!</h3>
         <donation-choice-button-wide
-          donation-type="tax-return"
-          :href="
-            $i18n.locale === 'sl'
-              ? '/doniraj/placaj/dohodnina'
-              : '/en/donate/checkout/tax-return'
-          "
-        />
-        <donation-choice-button-wide
           donation-type="monthly"
           :href="
             $i18n.locale === 'sl'
@@ -226,6 +218,14 @@
             $i18n.locale === 'sl'
               ? '/doniraj/placaj/enkrat'
               : '/en/donate/checkout/once'
+          "
+        />
+        <donation-choice-button-wide
+          donation-type="tax-return"
+          :href="
+            $i18n.locale === 'sl'
+              ? '/doniraj/placaj/dohodnina'
+              : '/en/donate/checkout/tax-return'
           "
         />
       </div>
@@ -310,7 +310,7 @@ export default {
           imageSrc: 'twitto.png',
           title: 'Maršal Twito',
           description:
-            'S sledilnikom aktivnosti Janeza Janše na družbenem omrežju Twitter smo ugotovili, da je premier v letu 2021 tvitanju posvetil že več kot X časa.',
+            'S sledilnikom aktivnosti Janeza Janše na Twitterju že več kot eno leto vsak dan analiziramo količino časa, ki ga premier nameni temu družbenemu omrežju.',
           url: 'https://twito.si/',
         },
         {
@@ -405,59 +405,52 @@ export default {
             'V letu 2021 smo objavili 295 Agrumentov in še naprej skrbeli za opozarjanje na hrbtne plati velikih zgodb ter izpostavljanje majhnih, a pomembnih pripetljajev in zakulisnih dogodkov.',
           url: 'https://danesjenovdan.si/agrument',
         },
-        {
-          imageSrc: 'in-media-res.png',
-          title: 'In media res',
-          description:
-            'Tadej je v sodelovanju z Borisom Vezjakom posnel 35 epizod podcasta In media res, v katerih sta debatirala o aktualnem družbenopolitičnem dogajanju in njegovi medijski reprezentaciji.',
-          url: 'https://vezjak.com/podkast/',
-        },
       ],
     };
   },
 
   head() {
     return {
-      title: 'Doniraj za nov dan!',
+      title: 'Poženi nov dan!',
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
           name: 'description',
           content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2022 delovali tudi na tvoj pogon.',
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Doniraj za nov dan!',
+          content: 'Poženi nov dan!',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2022 delovali tudi na tvoj pogon.',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
+          content: 'https://danesjenovdan.si/donatorska-2021-OG.png',
         },
         {
           hid: 'twitter:title',
           property: 'twitter:title',
-          content: 'Doniraj za nov dan!',
+          content: 'Poženi nov dan!',
         },
         {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'Tudi letošnje leto sklepamo z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!',
+            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2022 delovali tudi na tvoj pogon.',
         },
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://danesjenovdan.si/og-image-donatorska.jpg',
+          content: 'https://danesjenovdan.si/donatorska-2021-OG.png',
         },
       ],
     };
@@ -651,6 +644,9 @@ p {
 
   .progress-bar-subtitle-left {
     line-height: 1.125;
+    @include media-breakpoint-down(sm) {
+      padding-right: 0;
+    }
     span:first-child {
       text-transform: uppercase;
     }
@@ -675,7 +671,7 @@ p {
   }
 
   hr {
-    border-top: 2px solid #333333;
+    border-top: 1px solid #333333;
   }
 
   h3 {
@@ -707,6 +703,8 @@ p {
 }
 
 .share-section {
+  margin-top: 100px;
+  margin-bottom: 100px;
   h1 {
     line-height: 1.1;
     margin-bottom: 20px;

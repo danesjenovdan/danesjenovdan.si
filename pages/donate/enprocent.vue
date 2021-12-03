@@ -11,22 +11,25 @@
         </p>
         <p>
           <span class="important"
-            >Spodnji obrazec dopolni s svojimi podatki in ga pošlji na FURS ali
-            pa CNVOS</span
+            >Če uporabljaš eDavke,
+            <a
+              href="https://edavki.durs.si/EdavkiPortal/OpenPortal/CommonPages/Opdynp/PageD.aspx?category=namenitev_dela_dohodnine_fo"
+              target="_blank"
+              >obišči portal</a
+            ></span
+          >, vpiši našo davčno številko (54561710) in potrdi izbiro.
+        </p>
+        <p>
+          <span class="important"
+            >V nasprotnem primeru pa spodnji obrazec dopolni s svojimi podatki
+            in ga pošlji na FURS ali pa CNVOS</span
           >
           – točna navodila se nahajajo spodaj. A pozor, ker bodo upoštevane
           zgolj tiste odločbe, ki bodo na davčni urad prispele do konca leta,
           poskrbi, da to storiš dovolj zgodaj (CNVOS bo obrazce razpošiljal že
           20. decembra).
         </p>
-        <p>
-          <span class="important"
-            >Če pa uporabljaš eDavke,
-            <a href="https://djnd.si/dkyc" target="blank"
-              >obišči portal</a
-            ></span
-          >, vpiši našo davčno številko (54561710) in potrdi izbiro.
-        </p>
+        <p>Hvala, ker nam pomagaš spreminjati svet na bolje!</p>
       </div>
     </div>
 
@@ -37,7 +40,7 @@
         width="800"
         height="600"
         style="max-width: 100%"
-        src="https://www.cnvos.si/enprocent/embed/v2/?address=Parmova%20ulica%2020&city=Ljubljana&name=Danes%20je%20nov%20dan&percent=1.0&postalCode=1000&taxNumber=SI54561710"
+        src="https://www.cnvos.si/enprocent/embed/v2/?address=Parmova%20ulica%2020&city=Ljubljana&name=Danes%20je%20nov%20dan%2C%20In%C5%A1titut%20za%20druga%20vpra%C5%A1anja&percent=1.0&postalCode=1000&taxNumber=54561710"
       ></iframe>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js"></script>
       <script>

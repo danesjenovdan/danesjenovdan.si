@@ -109,18 +109,6 @@ export default {
         background-color: $color-red;
       }
 
-      &::after {
-        content: '';
-        width: 0px;
-        height: 0px;
-        border-style: solid;
-        border-width: 0 20px 20px 20px;
-        border-color: transparent transparent #ffffff transparent;
-        position: absolute;
-        bottom: 0;
-        left: 20px;
-      }
-
       &::before,
       svg {
         opacity: 0;

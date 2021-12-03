@@ -1,5 +1,5 @@
 <template>
-  <a class="wide-donation-button" :href="href" target="blank">
+  <a class="wide-donation-button" :href="href" target="_blank">
     <div class="icon-wrapper">
       <div :class="['icon', `icon-donation-${donationType}`]"></div>
     </div>
@@ -71,6 +71,10 @@ export default {
     letter-spacing: normal;
     line-height: 33.33px;
 
+    @include media-breakpoint-down(sm) {
+      font-size: 24px;
+    }
+
     // &::after {
     //   content: '';
     //   display: inline-block;
@@ -101,6 +105,10 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include media-breakpoint-down(sm) {
+      min-width: 100px;
+    }
   }
 
   .icon-donation-monthly {
@@ -110,6 +118,9 @@ export default {
     right: 21px;
     width: 77px;
     height: 93px;
+    @include media-breakpoint-down(sm) {
+      height: 80px;
+    }
   }
 
   .icon-donation-once {
@@ -120,6 +131,9 @@ export default {
     width: 150px;
     height: 93px;
     transform: rotate(15deg);
+    @include media-breakpoint-down(sm) {
+      height: 64px;
+    }
   }
 
   .icon-donation-tax-return {
@@ -129,6 +143,9 @@ export default {
     right: 21px;
     width: 99px;
     height: 93px;
+    @include media-breakpoint-down(sm) {
+      height: 80px;
+    }
   }
 
   &:hover {
