@@ -67,6 +67,11 @@ export default {
     letter-spacing: normal;
     line-height: 50px;
     text-align: left;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 25px;
+      line-height: 30px;
+    }
   }
 
   p {

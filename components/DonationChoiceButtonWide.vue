@@ -60,6 +60,7 @@ export default {
   .text-wrapper {
     margin-right: 15px;
     margin-left: 30px;
+    flex-grow: 1;
   }
 
   h1 {

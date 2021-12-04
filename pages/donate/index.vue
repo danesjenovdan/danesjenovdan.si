@@ -200,10 +200,12 @@
     <div class="row support-section position-relative py-5 my-5">
       <div class="gradient-section"></div>
       <div class="col-md pr-md-5 d-flex align-items-center">
-        <h1>Doniraj in poskrbi, da bomo v 2022 delovali tudi na tvoj pogon!</h1>
+        <h1 class="mb-5 mb-lg-0">
+          Doniraj in poskrbi, da bomo v 2022 delovali tudi na tvoj pogon!
+        </h1>
       </div>
       <div class="col-md pl-md-5">
-        <h3>Poženi naše delo!</h3>
+        <h3 class="second">Poženi naše delo!</h3>
         <donation-choice-button-wide
           donation-type="once"
           :href="
@@ -237,9 +239,9 @@
         <img class="share-image" src="../../static/icons/donations/share.png" />
       </div>
       <div class="col-lg-6 pl-lg-5">
-        <div class="m-5 position-relative">
+        <div class="share-box position-relative">
           <div class="share-background"></div>
-          <div class="p-5 share-text position-relative">
+          <div class="p-4 p-lg-5 share-text position-relative">
             <div class="share-title">Kopiraj povezavo in deli!</div>
             <div class="share-link">djnd.si/doniraj</div>
           </div>
@@ -678,6 +680,13 @@ p {
     font-weight: 700;
     font-style: italic;
   }
+
+  h3.second {
+    @include media-breakpoint-down(sm) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
 }
 
 .limit-like-p {
@@ -722,6 +731,9 @@ p {
     background-color: white;
     padding: 10px 20px;
     text-align: center;
+    @include media-breakpoint-down(sm) {
+      font-size: 24px;
+    }
   }
   .share-image {
     position: absolute;
@@ -732,6 +744,18 @@ p {
     @include media-breakpoint-down(lg) {
       display: none;
     }
+  }
+}
+
+.share-box {
+  margin: 45px;
+  @include media-breakpoint-down(md) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  @include media-breakpoint-down(sm) {
+    margin-left: 30px;
+    margin-right: 30px;
   }
 }
 
