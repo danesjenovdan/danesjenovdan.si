@@ -93,19 +93,19 @@
       <div class="col-lg pl-lg-5">
         <h3 class="mt-4 mt-lg-0">Poženi naše delo!</h3>
         <donation-choice-button-wide
-          donation-type="monthly"
-          :href="
-            $i18n.locale === 'sl'
-              ? '/doniraj/placaj/mesecno'
-              : '/en/donate/checkout/monthly'
-          "
-        />
-        <donation-choice-button-wide
           donation-type="once"
           :href="
             $i18n.locale === 'sl'
               ? '/doniraj/placaj/enkrat'
               : '/en/donate/checkout/once'
+          "
+        />
+        <donation-choice-button-wide
+          donation-type="monthly"
+          :href="
+            $i18n.locale === 'sl'
+              ? '/doniraj/placaj/mesecno'
+              : '/en/donate/checkout/monthly'
           "
         />
         <donation-choice-button-wide
@@ -205,19 +205,19 @@
       <div class="col-md pl-md-5">
         <h3>Poženi naše delo!</h3>
         <donation-choice-button-wide
-          donation-type="monthly"
-          :href="
-            $i18n.locale === 'sl'
-              ? '/doniraj/placaj/mesecno'
-              : '/en/donate/checkout/monthly'
-          "
-        />
-        <donation-choice-button-wide
           donation-type="once"
           :href="
             $i18n.locale === 'sl'
               ? '/doniraj/placaj/enkrat'
               : '/en/donate/checkout/once'
+          "
+        />
+        <donation-choice-button-wide
+          donation-type="monthly"
+          :href="
+            $i18n.locale === 'sl'
+              ? '/doniraj/placaj/mesecno'
+              : '/en/donate/checkout/monthly'
           "
         />
         <donation-choice-button-wide
