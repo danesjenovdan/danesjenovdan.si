@@ -54,14 +54,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="col-7 col-md-6">
             <p class="progress-bar-subtitle-left">
               <span>Zbrali smo že</span><br />
               <span>{{ donationAmount }} €</span><br />
               od <br class="d-md-none" /><span>15 000 €!</span><br />
             </p>
           </div>
-          <div class="col">
+          <div class="col-5 col-md-6">
             <p class="progress-bar-subtitle-right">
               <span>{{ daysLeft }}</span> dni do<br />
               konca kampanje.
@@ -120,7 +120,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="limit-like-p">
-        <h1 class="mt-5">Kaj smo naredili letos?</h1>
+        <h1 class="mt-5">Kaj smo naredili v 2021?</h1>
         <p>
           Na Danes je nov dan se borimo za bolj solidarno družbo in bolj
           vključujoče politične procese, nadziramo politike in odločevalce,
@@ -376,7 +376,7 @@ export default {
           title: 'Feministični agrument',
           description:
             'Z novo izdajo v zbirki Agrument smo osvetlili 25 konceptov feminizma, ki segajo onkraj binarnih identitetnih, spolnih in seksualnih zamejitev ali izbir.',
-          url: 'https://danesjenovdan.si/agrument',
+          url: 'https://danesjenovdan.si/agrument/30.10.2021',
         },
         {
           imageSrc: 'parlameter.png',
@@ -666,6 +666,7 @@ p {
     line-height: 1.125;
     font-size: 20px;
     text-align: right;
+    padding-left: 10px;
     span {
       font-size: 30px;
       font-weight: 900;
