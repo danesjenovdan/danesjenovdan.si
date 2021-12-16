@@ -8,7 +8,9 @@
   >
     <p>
       Program
-      <a href="https://acfslovenia.si/">Active Citizens Fund v Sloveniji</a> je
+      <a href="https://acfslovenia.si/" target="_blank"
+        >Active Citizens Fund v Sloveniji</a
+      >
       namenjen krepitvi nevladnih organizacij, spodbujanju aktivnega
       državljanstva in opolnomočenju ranljivih skupin, program pa poseben
       poudarek namenja tudi dolgoročnemu trajnostnemu razvoju in krepitvi
@@ -36,19 +38,26 @@
     <p>Partnerji:</p>
     <ul>
       <li>
-        <a href="https://pic.si/">
+        <a href="https://pic.si/" target="_blank">
           PIC - Pravni center za varstvo človekovih pravic in okolja
         </a>
       </li>
       <li>
         <a
           href="https://www.facebook.com/Organizacija-za-participatorno-dru%C5%BEbo-1618636031777654/"
+          target="_blank"
         >
           Organizacija za participatorno družbo
         </a>
       </li>
       <li>
-        <a href="https://www.apenhet.com/">Åpenhet</a>
+        <a href="https://www.apenhet.com/" target="_blank">Åpenhet</a>
+      </li>
+      <li>
+        <a href="https://www.hrastnik.si/" target="_blank">Občina Ajdovščina</a>
+      </li>
+      <li>
+        <a href="https://www.ajdovscina.si/" target="_blank">Občina Hrastnik</a>
       </li>
     </ul>
     <p>Cilji projekta:</p>
@@ -99,25 +108,30 @@
       Višina podpore: 4593,00 EUR<br />
       Višina sredstev, ki jih je prejel Danes je nov dan: 3293,00 EUR
     </p>
-    <p>Partner: <a href="https://podcrto.si/">Pod črto</a></p>
+    <p>Partner: <a href="https://podcrto.si/" target="_blank">Pod črto</a></p>
     <p>Povezave:</p>
     <ul>
-      <li><a href="https://brigade.djnd.si/">Twitter brigade</a></li>
+      <li>
+        <a href="https://brigade.djnd.si/" target="_blank">Twitter brigade</a>
+      </li>
       <li>
         <a
           href="https://podcrto.si/astroturfing-1-del-lazni-twitter-profili-ki-napadajo-kritike-sds/"
+          target="_blank"
           >Pod črto: Astroturfing 1. del</a
         >
       </li>
       <li>
         <a
           href="https://podcrto.si/astroturfing-2-del-kako-potekajo-napadi-na-kritike-stranke-sds/"
+          target="_blank"
           >Pod črto: Astroturfing 2. del</a
         >
       </li>
       <li>
         <a
           href="https://podcrto.si/astroturfing-3-del-sovrastvo-pod-taktirko-politikov-in-mnenjskih-voditeljev-sds/"
+          target="_blank"
           >Pod črto: Astroturfing 3. del</a
         >
       </li>
@@ -273,7 +287,7 @@
     </p>
     <p>
       Prijavitelj:
-      <a href="https://www.ostro.si/"
+      <a href="https://www.ostro.si/" target="_blank"
         >Oštro, Center za preiskovalno novinarstvo v jadranski regiji</a
       ><br />
       Partner: Danes je nov dan, Inštitut za druga vprašanja
@@ -281,7 +295,9 @@
     <p>Povezave:</p>
     <ul>
       <li>
-        <a href="https://obljubadeladolg.si/">Platforma Obljuba dela dolg</a>
+        <a href="https://obljubadeladolg.si/" target="_blank"
+          >Platforma Obljuba dela dolg</a
+        >
       </li>
     </ul>
     <p>Cilji:</p>
@@ -341,7 +357,7 @@
     </p>
     <p>
       Prijavitelj:
-      <a href="https://pic.si/"
+      <a href="https://pic.si/" target="_blank"
         >PIC - Pravni center za varstvo človekovih pravic in okolja</a
       >
     </p>
@@ -349,13 +365,15 @@
     <ul>
       <li>Danes je nov dan, Inštitut za druga vprašanja</li>
       <li>
-        <a href="http://www.open.si/">Zavod za kulturo raznolikosti Open</a>
+        <a href="http://www.open.si/" target="_blank"
+          >Zavod za kulturo raznolikosti Open</a
+        >
       </li>
     </ul>
     <p>Povezave:</p>
     <ul>
       <li>
-        <a href="https://pravna-mreza.si/"
+        <a href="https://pravna-mreza.si/" target="_blank"
           >Pravna mreža za varstvo demokracije</a
         >
       </li>
