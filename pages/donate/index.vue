@@ -226,8 +226,8 @@
           donation-type="tax-return"
           :href="
             $i18n.locale === 'sl'
-              ? '/doniraj/placaj/dohodnina'
-              : '/en/donate/checkout/tax-return'
+              ? '/doniraj/en-procent'
+              : '/en/donate/one-percent'
           "
         />
       </div>
