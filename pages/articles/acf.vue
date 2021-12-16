@@ -54,10 +54,12 @@
         <a href="https://www.apenhet.com/" target="_blank">Åpenhet</a>
       </li>
       <li>
-        <a href="https://www.hrastnik.si/" target="_blank">Občina Ajdovščina</a>
+        <a href="https://www.ajdovscina.si/" target="_blank"
+          >Občina Ajdovščina</a
+        >
       </li>
       <li>
-        <a href="https://www.ajdovscina.si/" target="_blank">Občina Hrastnik</a>
+        <a href="https://www.hrastnik.si/" target="_blank">Občina Hrastnik</a>
       </li>
     </ul>
     <p>Cilji projekta:</p>
