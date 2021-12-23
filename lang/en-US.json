@@ -218,6 +218,12 @@
         "description": "The third book in the thematic agrument seriers. If you think freedom of speech is important, buy this book and support our volunteer project - Agrument! <br /><br />The book, which was published with financial support from U.S. Embassy Ljubljana, can be downloaded in PDF form <a target=\"_blank\" href=\"https://drive.google.com/file/d/1fw4NJJBD7u_mhzie6cT5zi5Ck2ZkpAKI/view\">here</a> and freely shared.",
         "short_description": "25 takes on freedom of speech in a book!",
         "button_text": "More"
+      },
+      "26": {
+        "title": "Feminism agrument book",
+        "description": "The fourth book in the thematic agrument seriers.",
+        "short_description": "The fourth book in the thematic agrument seriers.",
+        "button_text": "More"
       }
     },
     "checkout": {

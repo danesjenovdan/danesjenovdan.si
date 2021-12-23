@@ -352,8 +352,14 @@
         "button_text": "Več"
       },
       "25": {
-        "title": "Abecedarij svobode govora",
+        "title": "Knjiga Abecedarij svobode govora",
         "description": "Tretja knjiga v zbirki Agrument slovari različne vidike svobode govora. Zavzemi odgovorno držo do te pravice in podpri prostovoljski projekt! <br /><br />Knjigo, ki je izšla s finančno podporo Veleposlaništva ZDA v Sloveniji lahko v PDF obliki pretočiš <a target=\"_blank\" href=\"https://drive.google.com/file/d/1fw4NJJBD7u_mhzie6cT5zi5Ck2ZkpAKI/view\">tukaj</a> in prosto deliš.",
+        "short_description": "Tematski agrumenti v knjižni obliki!",
+        "button_text": "Več"
+      },
+      "26": {
+        "title": "Knjiga Feministični abecedarij",
+        "description": "Četrta knjiga v zbirki Agrument slovari teorijo in gibanje feminizma. Pridruži se skupnemu boju in podpri prostovoljski projekt!",
         "short_description": "Tematski agrumenti v knjižni obliki!",
         "button_text": "Več"
       }
