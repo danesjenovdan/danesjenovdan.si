@@ -224,6 +224,12 @@
         "description": "The fourth book in the thematic agrument seriers.",
         "short_description": "The fourth book in the thematic agrument seriers.",
         "button_text": "More"
+      },
+      "27": {
+        "title": "Agrument book bundle",
+        "description": "All four agrument books in a bundle.",
+        "short_description": "All four agrument books in a bundle.",
+        "button_text": "More"
       }
     },
     "checkout": {

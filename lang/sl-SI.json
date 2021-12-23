@@ -362,6 +362,12 @@
         "description": "Četrta knjiga v zbirki Agrument slovari teorijo in gibanje feminizma. Pridruži se skupnemu boju in podpri prostovoljski projekt!",
         "short_description": "Tematski agrumenti v knjižni obliki!",
         "button_text": "Več"
+      },
+      "27": {
+        "title": "Knjižni paket",
+        "description": "Filozofski abecedarij, Psihoanalitski abecedarij, Abecedarij svobode govora in Feministični abecedarij. En za 12, štirje za 40 €. Obloži svojo knjižno polico s celotno zbirko Agrument in podpri prostovoljski projekt!",
+        "short_description": "Vse štiri knjige tematskih agrumentov v knjižni obliki!",
+        "button_text": "Več"
       }
     },
     "checkout": {
