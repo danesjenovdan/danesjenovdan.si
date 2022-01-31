@@ -166,6 +166,11 @@ export default {
             'napake.djnd.si',
           ),
         },
+        {
+          hid: 'monetization',
+          name: 'monetization',
+          content: '$denarnica.novdan.si/~agrument',
+        },
       ],
     };
   },
