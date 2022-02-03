@@ -65,7 +65,11 @@
             <short-link-input :id="`share-link-${post.id}`" :value="post.url" />
           </div>
           <div class="share__support">
+            <div v-if="newDayExtensionActivated" class="extension-activated">
+              Hvala, da nas podpiraš!
+            </div>
             <more-button
+              v-if="!newDayExtensionActivated"
               :to="localePath('donate')"
               text="Podpri nas!"
               color="primary"
@@ -97,12 +101,43 @@ export default {
       required: true,
     },
   },
+  mounted() {
+    window.addEventListener('message', this.onMessage, false);
+  },
   computed: {
     isoDate() {
       return this.toIsoDate(this.post.datetime);
     },
     sloDate() {
       return this.toSloDate(this.post.datetime);
+    },
+  },
+  data() {
+    return {
+      newDayExtensionActivated: false,
+      monetizationObject: null,
+    };
+  },
+  methods: {
+    onMessage(messageEvent) {
+      if (
+        messageEvent &&
+        messageEvent.data &&
+        messageEvent.data.name === 'monetization'
+      ) {
+        if (!this.monetizationObject && document.monetization) {
+          this.monetizationObject = document.monetization;
+          ['monetizationprogress'].forEach((eventName) => {
+            document.monetization.addEventListener(
+              eventName,
+              this.onMonetizationEvent,
+            );
+          });
+        }
+      }
+    },
+    onMonetizationEvent(event) {
+      this.newDayExtensionActivated = true;
     },
   },
 };
@@ -275,6 +310,12 @@ article {
     .article__share {
       display: flex;
       flex-wrap: wrap;
+
+      .extension-activated {
+        color: $color-green;
+        font-style: italic;
+        font-weight: 600;
+      }
 
       .share__link,
       .share__support {
