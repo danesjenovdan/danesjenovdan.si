@@ -26,8 +26,7 @@
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.16.0",
     "stable": "^0.1.8",
-    "standard-slugify": "^3.0.0",
-    "vue-matomo": "^3.14.0-0"
+    "standard-slugify": "^3.0.0"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",

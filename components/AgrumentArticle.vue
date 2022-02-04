@@ -315,6 +315,7 @@ article {
         color: $color-green;
         font-style: italic;
         font-weight: 600;
+        margin-left: 1rem;
       }
 
       .share__link,
