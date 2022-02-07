@@ -66,7 +66,7 @@
           </div>
           <div class="share__support">
             <div v-if="newDayExtensionActivated" class="extension-activated">
-              Hvala, da nas podpiraš!
+              Hvala, ker nas podpiraš!
             </div>
             <more-button
               v-if="!newDayExtensionActivated"
