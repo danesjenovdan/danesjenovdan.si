@@ -90,7 +90,7 @@
       <li>Povezovanje NVO z raznolikih področij v dolgoročno sodelovanje</li>
       <li>Povečane IKT kompetence NVO, občin in javnosti</li>
     </ul>
-    <p>Rezultati:</p>
+    <p class="padded-p">Rezultati:</p>
     <ul>
       <li>Digitalna aplikacija za povečanje finančne transparentnosti NVO</li>
       <li>Digitalna aplikacija za povečanje finančne transparentnosti NVO</li>
@@ -103,7 +103,7 @@
       <li>452 usposobljenih uporabnikov razvitih digitalnih aplikacij</li>
       <li>329 usposobljenih uporabnikov na področju informacijske družbe</li>
     </ul>
-    <p>Partnerji:</p>
+    <p class="padded-p">Partnerji:</p>
     <ul>
       <li>
         <a href="http://dopd.si/" target="_blank" rel="noopener noreferrer"
@@ -122,7 +122,7 @@
         >
       </li>
     </ul>
-    <p>Pridruženi partnerji:</p>
+    <p class="padded-p">Pridruženi partnerji:</p>
     <ul>
       <li>Občina Ajdovščina</li>
       <li>Občina Hrastnik</li>
@@ -137,7 +137,7 @@
         Pekarna Magdalenske mreže Maribor
       </li>
     </ul>
-    <p><strong>Financer:</strong></p>
+    <p class="padded-p"><strong>Financer:</strong></p>
     <p>
       <a
         href="https://www.gov.si/drzavni-organi/ministrstva/ministrstvo-za-javno-upravo/o-ministrstvu-za-javno-upravo/"
@@ -188,3 +188,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.padded-p {
+  padding-top: 30px;
+}
+</style>
