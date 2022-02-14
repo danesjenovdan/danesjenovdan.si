@@ -37,11 +37,11 @@
             :donation-preset="dp"
             @select="selectDonationPreset(dp)"
           />
-          <div
+          <!-- <div
             v-for="n in 10"
             :key="`flex-spacer-${n}`"
             class="donation-option"
-          />
+          /> -->
         </div>
       </template>
       <template slot="footer">
@@ -175,7 +175,8 @@ import CheckoutStage from '~/components/CheckoutStage.vue';
 import DynamicLink from '~/components/DynamicLink.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 export default {
   nuxtI18n: {
@@ -434,7 +435,7 @@ export default {
 
     .donation-option {
       @include media-breakpoint-up(md) {
-        flex: 1 1 250px;
+        flex: 1 1 220px;
         flex-direction: column;
         align-items: stretch;
         margin-left: 0.75rem;
@@ -551,7 +552,23 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@1,800&family=Space+Grotesk:wght@300;400;700&display=swap');
 
 .checkout.checkout--pmvd /deep/ {
+  @include media-breakpoint-down(sm) {
+    .donation-options {
+      display: block;
+    }
+  }
+
   .donation-option {
+    @include media-breakpoint-down(sm) {
+      display: inline-flex;
+      width: 50%;
+      padding: 0 12px;
+
+      &:last-of-type {
+        width: 100%;
+      }
+    }
+
     .donation-option__content-wrapper {
       background-image: linear-gradient(-218deg, #ece6f8 0%, #d3c8ee 100%);
       border-color: rgba(#160444, 0.2);
@@ -567,6 +584,14 @@ export default {
         font-weight: 800;
         font-style: italic;
         font-size: 48px;
+        margin-bottom: 0;
+        @include media-breakpoint-down(sm) {
+          font-size: 24px;
+        }
+      }
+
+      .donation-option__description {
+        font-size: 1.125rem;
       }
     }
 
@@ -583,6 +608,19 @@ export default {
       path.checkmark {
         fill: #160444;
         stroke-width: 0;
+      }
+    }
+  }
+
+  .checkout-stage .checkout-stage__container {
+    // justify-content: center;
+    .checkout-stage__content {
+      min-height: 10rem;
+    }
+    @include media-breakpoint-down(md) {
+      // justify-content: start;
+      .checkout-stage__content {
+        min-height: unset;
       }
     }
   }
