@@ -425,6 +425,7 @@ export default {
   .donation-options {
     display: flex;
     flex-direction: column;
+    margin: -12px;
 
     @include media-breakpoint-up(md) {
       flex-wrap: wrap;
@@ -553,6 +554,7 @@ export default {
 
 .checkout.checkout--pmvd /deep/ {
   @include media-breakpoint-down(sm) {
+    margin: 0 -0.5rem;
     .donation-options {
       display: block;
     }
@@ -576,6 +578,9 @@ export default {
       .donation-option__icon {
         .icon {
           color: #160444;
+          @include media-breakpoint-down(sm) {
+            width: 1.5rem;
+          }
         }
       }
 
