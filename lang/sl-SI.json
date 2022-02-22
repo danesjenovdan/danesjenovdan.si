@@ -119,7 +119,7 @@
         "description": "Priročno orodje za citiranje, remiksanje in duhovito postprodukcijo ter deljenje spletnih videov.",
         "paragraphs": [
           "Parlatube je zabavno platno in ostre škarje obenem. Nastal je zaradi specifičnega spleta okoliščin, povezanega s Parlametrom. Med razvojem slednjega smo namreč želeli vanj vključiti video posnetke sej DZ, vendar zaenkrat nismo uspeli pridobiti posnetkov RTV.",
-          "Polni frustracij na to temo smo se kar naenkrat znašli v kolaboraciji s POP TV na temo predsedniških volitev 2017. Dogovorili smo se, da bodo soočenje prenašali na YouTube, mi pa smo naredili parlatube, orodje, zaradi katerega je bilo soočenje veliko bolj zabavno in viralno – ljudje so množično delili nebuloze kandidatov in jih opremljali z emoji komentarji."
+          "Polni frustracij na to temo smo se kar naenkrat znašli v kolaboraciji s POP TV na temo predsedniških volitev 2017. Dogovorili smo se, da bodo soočenje prenašali na YouTube, mi pa smo naredili parlatube, orodje, zaradi katerega je bilo soočenje veliko bolj zabavno in viralno - ljudje so množično delili nebuloze kandidatov in jih opremljali z emoji komentarji."
         ],
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Parlatube"
@@ -323,7 +323,7 @@
       },
       "4": {
         "title": "Karte Politični parket",
-        "description": "Igrifikacija spoznavanja poslancev iz sklica 2014–18 in poigravanje z njihovimi statistikami, ki pomaga delovanju inštituta in pomaga poganjati naš paradni projekt Parlameter.",
+        "description": "Igrifikacija spoznavanja poslancev iz sklica 2014-18 in poigravanje z njihovimi statistikami, ki pomaga delovanju inštituta in pomaga poganjati naš paradni projekt Parlameter.",
         "short_description": "Preizkusi edino politično igro, ki ne škodi ljudstvu!",
         "button_text": "Več"
       },
@@ -340,7 +340,7 @@
         "button_text": "Več"
       },
       "7": {
-        "title": "Druga DJND majica – luna",
+        "title": "Druga DJND majica - luna",
         "description": "Pri naši drugi majici oz. paru majic je iz skupnosti prišel dizajn, mi pa smo zrihtali (sito)tisk. Ker je nov dan vedno lahko le tisto, kar naredimo skupaj, najsi tulimo v luno ali pa mežikamo v sonce. Gre za omejeno izdajo. Kroj je univerzalen, neteliran, velikosti pa bolj \"moške\".",
         "short_description": "V sodelovanju z Matijo Medvedom!",
         "button_text": "Več"
@@ -359,7 +359,7 @@
       },
       "26": {
         "title": "Knjiga Feministični abecedarij",
-        "description": "Četrta knjiga v zbirki Agrument slovari teorijo in gibanje feminizma. Pridruži se skupnemu boju in podpri prostovoljski projekt!",
+        "description": "Četrta knjiga v zbirki Agrument slovari teorijo in gibanje feminizma. Pridruži se skupnemu boju in podpri prostovoljski projekt! <br /><br />Knjigo lahko v PDF obliki pretočiš <a target=\"_blank\" href=\"https://drive.google.com/file/d/1WyLcQdsgRzAVQflHxAloApWl8aD-4Epn/view\">tukaj</a> in prosto deliš.",
         "short_description": "Tematski agrumenti v knjižni obliki!",
         "button_text": "Več"
       },
@@ -397,7 +397,7 @@
   },
   "donate": {
     "title": "Podpri nas!",
-    "description": "Smo tista skupina prijateljev, ki se je pozimi 2012–13 dobivala v neki kleti za Bežigradom in vstajam nudila digitalno podporo ter infrastrukturo za vsebinske pobude. Odtlej smo prostočasni aktivizem zamenjali za ustanovitev inštituta Danes je nov dan, ki ima že več kot 30 sodelavk in sodelavcev, od redno zaposlenih pa vse do prostovoljnih popoldancev in vikendašic.",
+    "description": "Smo tista skupina prijateljev, ki se je pozimi 2012-13 dobivala v neki kleti za Bežigradom in vstajam nudila digitalno podporo ter infrastrukturo za vsebinske pobude. Odtlej smo prostočasni aktivizem zamenjali za ustanovitev inštituta Danes je nov dan, ki ima že več kot 30 sodelavk in sodelavcev, od redno zaposlenih pa vse do prostovoljnih popoldancev in vikendašic.",
     "subtitle": "Za nadaljnje neodvisno delovanje potrebujemo tudi tvojo pomoč. Doniraš nam lahko:",
     "donations": {
       "monthly": {
