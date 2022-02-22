@@ -186,7 +186,7 @@
       "4": {
         "title": "Political playground: The card game",
         "description": "Play a card game and learn about Slovenian parliament in the 2014-18 mandate. Earnings from the game are used to support our flagship project - Parlameter.",
-        "short_description": "Enjoy the only political game that doesn’t hurt anyone!",
+        "short_description": "Enjoy the only political game that doesn't hurt anyone!",
         "button_text": "More"
       },
       "5": {
@@ -196,13 +196,13 @@
         "button_text": "More"
       },
       "6": {
-        "title": "DJND tee no. 2 – sun",
+        "title": "DJND tee no. 2 - sun",
         "description": "Because a new day can only be what we create together, either by howling at the moon or squinting at the sun. This is a limited edition unisex tee.",
         "short_description": "In collaboration with Matija Medved!",
         "button_text": "More"
       },
       "7": {
-        "title": "DJND tee no. 2 – moon",
+        "title": "DJND tee no. 2 - moon",
         "description": "Because a new day can only be what we create together, either by howling at the moon or squinting at the sun. This is a limited edition unisex tee.",
         "short_description": "In collaboration with Matija Medved!",
         "button_text": "More"
@@ -221,7 +221,7 @@
       },
       "26": {
         "title": "Feminism agrument book",
-        "description": "The fourth book in the thematic agrument seriers.",
+        "description": "The fourth book in the thematic agrument seriers. <br /><br />The book can be downloaded in PDF form <a target=\"_blank\" href=\"https://drive.google.com/file/d/1WyLcQdsgRzAVQflHxAloApWl8aD-4Epn/view\">here</a> and freely shared.",
         "short_description": "The fourth book in the thematic agrument seriers.",
         "button_text": "More"
       },
@@ -259,7 +259,7 @@
   },
   "donate": {
     "title": "Support our work!",
-    "description": "We are that group of friends that was meeting during the winter of 2012–13 in a basement flat in Bežigrad and offered digital support and infrastructure for content initiatives during the protests. Since then, we have replaced afternoon activism with establishment of the institute Today is a new day, which has more than 30 colleagues, from full-time employees to afternoon and weekend volunteers.",
+    "description": "We are that group of friends that was meeting during the winter of 2012-13 in a basement flat in Bežigrad and offered digital support and infrastructure for content initiatives during the protests. Since then, we have replaced afternoon activism with establishment of the institute Today is a new day, which has more than 30 colleagues, from full-time employees to afternoon and weekend volunteers.",
     "subtitle": "To continue to work independently we also need your help. You can donate to us:",
     "donations": {
       "monthly": {
@@ -322,7 +322,7 @@
         "description": "Media scanner is a digital semantic tool for automatic text markup according to indicators used by the SCAN investigative method.",
         "paragraphs": [
           "Media scanner was developed to aid researchers and journalists in identifying critical points in (transcribed) spoken statements, which can then be questioned and researched more thoroughly. It is a semi-automated application of the investigative method SCAN, which analyses statements according to their internal structural soundness by identifying parts of speech where the speaker significantly diverges from their characteristic structure.",
-          "The prototype, which was used to analyse and interpret select statements from the public TV evening news program “Odmevi”, was developed in partnership with EBSI Institute and funded by Google DNI."
+          "The prototype, which was used to analyse and interpret select statements from the public TV evening news program \"Odmevi\", was developed in partnership with EBSI Institute and funded by Google DNI."
         ],
         "contact": "Contact us for installation options.",
         "email-subject": "Inquiry: Media scanner"
@@ -331,7 +331,7 @@
         "title": "Parlatube",
         "description": "Parlatube is a versatile tool for quoting, remixing, one click post-production, and easy sharing of online videos.",
         "paragraphs": [
-          "Animated canvas and sharpened scissors all in one – meet Parlatube. The name comes from a specific set of circumstances in which it was created. While developing Parlameter, we planned to include videos of parliamentary sessions, which are provided by the national public broadcaster. Unable to successfully convey the importance of transparency and public data, we were not granted permission to do so.",
+          "Animated canvas and sharpened scissors all in one - meet Parlatube. The name comes from a specific set of circumstances in which it was created. While developing Parlameter, we planned to include videos of parliamentary sessions, which are provided by the national public broadcaster. Unable to successfully convey the importance of transparency and public data, we were not granted permission to do so.",
           "The tool proved useful in 2017, as we worked in partnership with commercial POP TV. They agreed to broadcast the presidential debate on YouTube and we enhanced the experience with Parlatube. People massively trolled the candidates; they cut clips of their empty statements, added emoji comments and shared them online."
         ],
         "contact": "Contact us for installation options.",
