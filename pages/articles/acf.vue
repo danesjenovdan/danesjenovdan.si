@@ -19,9 +19,9 @@
     </p>
     <p>
       Sredstva sklada so razdeljena v okviru javnih razpisov, na katerih je bil
-      inštitut Danes je nov dan uspešen 5-krat. Kot prijavitelji smo pridobili
+      inštitut Danes je nov dan uspešen 6-krat. Kot prijavitelj smo pridobili
       sredstva za velik projekt, hitri odziv in institucionalno podporo, kot
-      partnerji pa še dodaten velik projekt in hitri odziv.
+      partner pa še za dodaten velik projekt, mali projekt in hitri odziv.
     </p>
     <hr />
     <h4>
@@ -349,6 +349,67 @@
     <hr />
     <h4>
       <strong
+        >Partnerski mali projekt: Najemniški blok – za pravico do varnega
+        najema</strong
+      >
+    </h4>
+    <p>
+      Trajanje projekta: 15. 2. 2022 do 14. 2. 2023<br />
+      Višina podpore: 20 000,00 EUR<br />
+      Višina sredstev, ki jih je prejel Danes je nov dan: 2760,00 EUR
+    </p>
+    <p>
+      Prijavitelj:
+      <a href="https://zadrugator.org/" target="_blank"
+        >Inštitut za študije stanovanj in prostora</a
+      >
+    </p>
+    <p>Partnerji:</p>
+    <ul>
+      <li>Danes je nov dan, Inštitut za druga vprašanja</li>
+      <li>
+        <a href="https://pic.si/" target="_blank"
+          >PIC - Pravni center za varstvo človekovih pravic in okolja</a
+        >
+      </li>
+      <li>
+        <a href="https://www.leieboerforeningen.no/" target="_blank"
+          >Leieboerforeningen</a
+        >
+      </li>
+    </ul>
+    <p>Cilji:</p>
+    <ul>
+      <li>
+        izboljšati položaj najemnikov zasebnih stanovanj in okrepiti
+        naslavljanje njihovega položaja s strani občine Ljubljana.
+      </li>
+    </ul>
+    <p>Rezultati:</p>
+    <ul>
+      <li>mobilizacija najemnikov za sodelovanje v projektnih aktivnostih,</li>
+      <li>
+        večje zavedanje županskih kandidatov o problematiki in konkretne
+        politične zaveze za reševanje problematike,
+      </li>
+      <li>večja ozaveščenost javnosti o problematiki,</li>
+      <li>
+        občina bo financirala posebno pisarno za podporo najemnikom v Ljubljani
+        v letu 2023,
+      </li>
+      <li>okrepljena zagovorniška sposobnost nevladnih organizacij.</li>
+    </ul>
+    <p>Aktivnosti:</p>
+    <ul>
+      <li>pridobivanje udeležencev za vključevanje v projekt,</li>
+      <li>srečanja z najemniki,</li>
+      <li>poročilo o stanju na najemnem trgu,</li>
+      <li>zagovorniška kampanja v času lokalnih volitev v Ljubljani,</li>
+      <li>osveščevalne in promocijske aktivnosti.</li>
+    </ul>
+    <hr />
+    <h4>
+      <strong
         >Partnerski hitri odziv: Pravna mreža za varstvo demokracije</strong
       >
     </h4>
@@ -448,7 +509,7 @@ export default {
   data() {
     return {
       title: 'Podpora sklada Active Citizen Fund v Sloveniji',
-      date: '2021-07-11',
+      date: '2022-3-8',
     };
   },
   head() {
