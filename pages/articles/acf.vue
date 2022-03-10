@@ -8,7 +8,9 @@
   >
     <p>
       Program
-      <a href="https://acfslovenia.si/">Active Citizens Fund v Sloveniji</a> je
+      <a href="https://acfslovenia.si/" target="_blank"
+        >Active Citizens Fund v Sloveniji</a
+      >
       namenjen krepitvi nevladnih organizacij, spodbujanju aktivnega
       državljanstva in opolnomočenju ranljivih skupin, program pa poseben
       poudarek namenja tudi dolgoročnemu trajnostnemu razvoju in krepitvi
@@ -17,9 +19,9 @@
     </p>
     <p>
       Sredstva sklada so razdeljena v okviru javnih razpisov, na katerih je bil
-      inštitut Danes je nov dan uspešen 5-krat. Kot prijavitelji smo pridobili
+      inštitut Danes je nov dan uspešen 6-krat. Kot prijavitelj smo pridobili
       sredstva za velik projekt, hitri odziv in institucionalno podporo, kot
-      partnerji pa še dodaten velik projekt in hitri odziv.
+      partner pa še za dodaten velik projekt, mali projekt in hitri odziv.
     </p>
     <hr />
     <h4>
@@ -36,19 +38,20 @@
     <p>Partnerji:</p>
     <ul>
       <li>
-        <a href="https://pic.si/">
+        <a href="https://pic.si/" target="_blank">
           PIC - Pravni center za varstvo človekovih pravic in okolja
         </a>
       </li>
       <li>
         <a
           href="https://www.facebook.com/Organizacija-za-participatorno-dru%C5%BEbo-1618636031777654/"
+          target="_blank"
         >
           Organizacija za participatorno družbo
         </a>
       </li>
       <li>
-        <a href="https://www.apenhet.com/">Åpenhet</a>
+        <a href="https://www.apenhet.com/" target="_blank">Åpenhet</a>
       </li>
     </ul>
     <p>Cilji projekta:</p>
@@ -99,25 +102,30 @@
       Višina podpore: 4593,00 EUR<br />
       Višina sredstev, ki jih je prejel Danes je nov dan: 3293,00 EUR
     </p>
-    <p>Partner: <a href="https://podcrto.si/">Pod črto</a></p>
+    <p>Partner: <a href="https://podcrto.si/" target="_blank">Pod črto</a></p>
     <p>Povezave:</p>
     <ul>
-      <li><a href="https://brigade.djnd.si/">Twitter brigade</a></li>
+      <li>
+        <a href="https://brigade.djnd.si/" target="_blank">Twitter brigade</a>
+      </li>
       <li>
         <a
           href="https://podcrto.si/astroturfing-1-del-lazni-twitter-profili-ki-napadajo-kritike-sds/"
+          target="_blank"
           >Pod črto: Astroturfing 1. del</a
         >
       </li>
       <li>
         <a
           href="https://podcrto.si/astroturfing-2-del-kako-potekajo-napadi-na-kritike-stranke-sds/"
+          target="_blank"
           >Pod črto: Astroturfing 2. del</a
         >
       </li>
       <li>
         <a
           href="https://podcrto.si/astroturfing-3-del-sovrastvo-pod-taktirko-politikov-in-mnenjskih-voditeljev-sds/"
+          target="_blank"
           >Pod črto: Astroturfing 3. del</a
         >
       </li>
@@ -273,7 +281,7 @@
     </p>
     <p>
       Prijavitelj:
-      <a href="https://www.ostro.si/"
+      <a href="https://www.ostro.si/" target="_blank"
         >Oštro, Center za preiskovalno novinarstvo v jadranski regiji</a
       ><br />
       Partner: Danes je nov dan, Inštitut za druga vprašanja
@@ -281,7 +289,9 @@
     <p>Povezave:</p>
     <ul>
       <li>
-        <a href="https://obljubadeladolg.si/">Platforma Obljuba dela dolg</a>
+        <a href="https://obljubadeladolg.si/" target="_blank"
+          >Platforma Obljuba dela dolg</a
+        >
       </li>
     </ul>
     <p>Cilji:</p>
@@ -331,6 +341,67 @@
     <hr />
     <h4>
       <strong
+        >Partnerski mali projekt: Najemniški blok – za pravico do varnega
+        najema</strong
+      >
+    </h4>
+    <p>
+      Trajanje projekta: 15. 2. 2022 do 14. 2. 2023<br />
+      Višina podpore: 20 000,00 EUR<br />
+      Višina sredstev, ki jih je prejel Danes je nov dan: 2760,00 EUR
+    </p>
+    <p>
+      Prijavitelj:
+      <a href="https://zadrugator.org/" target="_blank"
+        >Inštitut za študije stanovanj in prostora</a
+      >
+    </p>
+    <p>Partnerji:</p>
+    <ul>
+      <li>Danes je nov dan, Inštitut za druga vprašanja</li>
+      <li>
+        <a href="https://pic.si/" target="_blank"
+          >PIC - Pravni center za varstvo človekovih pravic in okolja</a
+        >
+      </li>
+      <li>
+        <a href="https://www.leieboerforeningen.no/" target="_blank"
+          >Leieboerforeningen</a
+        >
+      </li>
+    </ul>
+    <p>Cilji:</p>
+    <ul>
+      <li>
+        izboljšati položaj najemnikov zasebnih stanovanj in okrepiti
+        naslavljanje njihovega položaja s strani občine Ljubljana.
+      </li>
+    </ul>
+    <p>Rezultati:</p>
+    <ul>
+      <li>mobilizacija najemnikov za sodelovanje v projektnih aktivnostih,</li>
+      <li>
+        večje zavedanje županskih kandidatov o problematiki in konkretne
+        politične zaveze za reševanje problematike,
+      </li>
+      <li>večja ozaveščenost javnosti o problematiki,</li>
+      <li>
+        občina bo financirala posebno pisarno za podporo najemnikom v Ljubljani
+        v letu 2023,
+      </li>
+      <li>okrepljena zagovorniška sposobnost nevladnih organizacij.</li>
+    </ul>
+    <p>Aktivnosti:</p>
+    <ul>
+      <li>pridobivanje udeležencev za vključevanje v projekt,</li>
+      <li>srečanja z najemniki,</li>
+      <li>poročilo o stanju na najemnem trgu,</li>
+      <li>zagovorniška kampanja v času lokalnih volitev v Ljubljani,</li>
+      <li>osveščevalne in promocijske aktivnosti.</li>
+    </ul>
+    <hr />
+    <h4>
+      <strong
         >Partnerski hitri odziv: Pravna mreža za varstvo demokracije</strong
       >
     </h4>
@@ -341,7 +412,7 @@
     </p>
     <p>
       Prijavitelj:
-      <a href="https://pic.si/"
+      <a href="https://pic.si/" target="_blank"
         >PIC - Pravni center za varstvo človekovih pravic in okolja</a
       >
     </p>
@@ -349,13 +420,15 @@
     <ul>
       <li>Danes je nov dan, Inštitut za druga vprašanja</li>
       <li>
-        <a href="http://www.open.si/">Zavod za kulturo raznolikosti Open</a>
+        <a href="http://www.open.si/" target="_blank"
+          >Zavod za kulturo raznolikosti Open</a
+        >
       </li>
     </ul>
     <p>Povezave:</p>
     <ul>
       <li>
-        <a href="https://pravna-mreza.si/"
+        <a href="https://pravna-mreza.si/" target="_blank"
           >Pravna mreža za varstvo demokracije</a
         >
       </li>
@@ -428,7 +501,7 @@ export default {
   data() {
     return {
       title: 'Podpora sklada Active Citizen Fund v Sloveniji',
-      date: '2021-07-11',
+      date: '2022-3-8',
     };
   },
   head() {
