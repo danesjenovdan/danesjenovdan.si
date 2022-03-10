@@ -16,7 +16,7 @@
   ],
   "menu": {
     "agrument": "Agrument",
-    "projects": "Pozivi",
+    "projects": "Dejavnosti",
     "videos": "Videogalerija",
     "tools": "Orodja",
     "about": "O DJND",
@@ -402,11 +402,15 @@
     "donations": {
       "monthly": {
         "title": "Vsak mesec",
-        "subtitle": "Ker imaš veliko, debelo in redno plačo"
+        "subtitle": "Ker nas želiš podpirati vsak mesec."
       },
       "once": {
         "title": "Enkrat",
-        "subtitle": "Ker imaš ravno par evrov viška za boljši jutri"
+        "subtitle": "Ker imaš ravno par evrov viška za boljši jutri."
+      },
+      "tax-return": {
+        "title": "1 % dohodnine",
+        "subtitle": "Ker te nič ne stane, nam pa pomeni veliko."
       }
     },
     "naturalije": "Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, nagubaj čelo in napni mišice ter se nam javi na {email}!"

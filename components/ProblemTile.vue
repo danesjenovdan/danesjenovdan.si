@@ -1,6 +1,9 @@
 <template>
   <div class="problem-tile">
-    <h1>{{ title }}</h1>
+    <div class="header">
+      <h1>{{ title }}</h1>
+      <img v-if="icon" :src="imgSrc" />
+    </div>
     <p>{{ description }}</p>
   </div>
 </template>
@@ -12,11 +15,24 @@ export default {
   props: {
     title: {
       required: true,
+      type: String,
       default: 'Naslov',
     },
     description: {
       required: true,
+      type: String,
       default: 'Some description text that is long',
+    },
+    icon: {
+      required: false,
+      type: String,
+      default: null,
+    },
+  },
+
+  computed: {
+    imgSrc() {
+      return require(`../static/icons/donations/${this.icon}`);
     },
   },
 };
@@ -31,14 +47,31 @@ export default {
   padding: 38px;
   margin-bottom: 57px;
 
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+
   h1 {
     color: #333333;
     font-size: 40px;
-    font-weight: 500;
+    font-weight: 600;
     font-style: italic;
     letter-spacing: normal;
     line-height: 50px;
     text-align: left;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 25px;
+      line-height: 30px;
+    }
   }
 
   p {
