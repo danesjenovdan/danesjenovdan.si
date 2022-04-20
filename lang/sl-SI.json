@@ -71,16 +71,28 @@
           "Newsgradient raziskuje razlike v medijskem poročanju o najpomembnejših dogodkih. Z njegovo pomočjo lahko hitro in enostavno spremljate dnevne novice in jih opazujete na političnem spektru. Medije smo razporedili na osi levo-desno s pomočjo napredne metodologije, razvrstili pa smo jih glede na faktorja (ne)pristranskosti in verodostojnosti.",
           "Projekt Newsgradient je dobil finančno podporo s strani NED, razvijamo pa ga s partnerji Event Registry in Ad Fontes Media. Bosansko različico smo implementirali s pomočjo lokalnih partnerjev Zašto ne."
         ],
+        "links": {
+            "newsgradient": "newsgradient.org"
+        },
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Newsgradient"
       },
       "parlameter": {
         "title": "Parlameter",
-        "description": "Celovita rešitev za vsako organizacijo, ki stremi k transparentnosti in digitalizacijo postopkov.",
+        "description": "Celovita rešitev za vsako organizacijo, ki stremi k transparentnosti in digitalizaciji postopkov.",
         "paragraphs": [
-          "Parlameter upravlja s transkripti in evidencami glasovanj, vse od njihovega pridobivanja do organizacije, vizualizacije in objave. V obliki, v kateri živi trenutno, Parlameter zbira in analizira podatke o parlamentarnih glasovanjih, transkripte sej, pa tudi siceršnje aktivnosti poslancev in poslanskih skupin, in sicer v Sloveniji, na Hrvaškem, na Poljskem in v Bosni in Hercegovini.",
-          "Vrednost projekta pripoznavajo strokovna, novinarska, pa tudi tuja nevladniška javnost. Nagrajen je bil z nagrado Brumen in veliko nagrado Diggit, njegov razvoj in implementacijo v druge države pa sta finančno podprla Google DNI in NED."
+          "Parlameter upravlja s transkripti in evidencami glasovanj, vse od njihovega pridobivanja do organizacije, vizualizacije in objave. V obliki, v kateri živi trenutno, Parlameter zbira in analizira podatke o parlamentarnih glasovanjih, transkripte sej, pa tudi siceršnje aktivnosti poslancev in poslanskih skupin, in sicer v Sloveniji, na Hrvaškem, v Bosni in Hercegovini ter Ukrajini. Občinski Parlameter je trenutno aktiven v Mestni občini Ljubljana, Ajdovščini, Hrastniku in Lendavi.",
+          "Vrednost projekta pripoznavajo strokovna, novinarska, pa tudi tuja nevladniška javnost. Nagrajen je bil z nagrado Brumen in veliko nagrado Diggit, njegov razvoj in implementacijo so finančno podprli Google DNI, NED in Active Citizen Fund Slovenija."
         ],
+        "links": {
+          "intro": "Predstavitev Parlametra",
+          "si": "Parlameter Slovenija",
+          "hr": "Parlameter Hrvaška",
+          "ba": "Parlameter Bosna in Hercegovina",
+          "ua": "Parlameter Ukrajina",
+          "lj": "Parlameter Ljubljana",
+          "github": "GitHub"
+        },
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Parlameter"
       },
@@ -91,6 +103,9 @@
           "Commentality učinkovito, natančno in uporabnikom prijazno meri javno mnenje na spletu. Commentality ni sistem za komentiranje. Je inovativna zamisel, kako angažirati občinstvo in se izogniti nevarnostim sovražnega govora, oglaševanja, manipulacije javnega mnenja, astroturfinga, zlorabe osebnih podatkov in trolanja.",
           "V dobi, ko na družbenih medijih klasično komentiranje vse bolj zamenjuje možnost všečkov in drugih reakcij, smo se domislili, da bi na podoben način organizirali tudi debato o medijskih vsebinah. Platforma je načrtovana tako, da išče konsenz, izpostavlja argumente in gradi na skupnih idejah v spletnih debatah."
         ],
+        "links": {
+          "commentality": "commentality.djnd.si"
+        },
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Commentality"
       },
@@ -101,6 +116,15 @@
           "Consul je razvila občina Madrid, mi pa smo ga prevedli in dodelali v sklopu širše kampanje za uvedbo participativnega proračuna pri nas. Smo tudi soustanovitelji mednarodne fundacije Consul, v kateri poteka nadaljnji razvoj orodja.",
           "Consul uporablja že več kot 100 institucij v 35 državah, med njimi pa je tudi nekaj slovenskih občin. Odprtokodna aplikacija ima privlačen dizajn in zagotavlja prijetno uporabniško izkušnjo. Če želite, da mi poskrbimo za gostovanje, programsko opremo, baze in poštni strežnik, pomagamo pri vnašanju podatkov in organizaciji ter treningu ljudi, ki bodo izvajali participativni proračun, pa nas kontaktirajte za ponudbo."
         ],
+        "links": {
+          "intro": "Predstavitev orodja Consul",
+          "kp": "Mestna občina Koper",
+          "go": "Mestna občina Nova Gorica",
+          "mb": "Mestna občina Maribor",
+          "hk": "Občina Hrpelje-Kozina",
+          "med": "Občina Medvode",
+          "github": "GitHub"
+        },
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Consul"
       },
@@ -111,6 +135,9 @@
           "Gre za pametno semantično orodje, avtomatski označevalnik besedil glede na kazalnike metode SCAN, ki se z rabo uči, kar olajša nadaljnjo vsebinsko analizo. Slednjo je v okviru skupnega projekta Google DNI opravil inštitut EBSI. Bistvo projekta kot celote je bila implementacija preiskovalne metode SCAN na govore gostov oddaje Odmevi.",
           "Projekt je pokazal, kako je mogoče bdeti nad higieno javnega in medijskega govora, kako deluje naše orodje, pa kažejo primeri, ki opozarjajo na nekonsistentnosti v posameznih govorih, te pa nakazujejo na vprašljivo vsebino izjavljenega."
         ],
+        "links": {
+          "github": "GitHub"
+        },
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Medijski besedogled"
       },
@@ -131,6 +158,9 @@
           "Orodje humans.vote je rezultat 48-urnega programerskega maratona v okviru blockchain hackatona. Aplikacija omogoča varno glasovanje s pomočjo blockchain tehnologije, zastavljena pa je tako, da jo lahko vsakdo enostavno namesti. Organizacije in posamezniki imajo pri implementaciji različnih mehanizmov odločanja raznolike potrebe, zato smo aplikacijo oblikovali tako, da je sposobna delovati z vsakršnim glasovalnim sistemom.",
           "V 48 urah smo realizirali zastavljen projekt in spisali dokumentacijo ter temeljita navodila za namestitev in uporabo, vse pa smo objavili na portalu GitHub. Do rešitve na ključ manjka le uporabniški vmesnik."
         ],
+        "links": {
+          "humans-vote": "humans.vote"
+        },
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Humans.vote"
       },

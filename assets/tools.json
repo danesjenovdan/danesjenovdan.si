@@ -4,24 +4,25 @@
       "id": "consul",
       "email": "consul@danesjenovdan.si",
       "links": [
-        { "url": "https://consul.djnd.si/", "label": "Predstavitev orodja Consul" },
-        { "url": "https://predlagam-odlocam.koper.si/", "label": "Mestna občina Koper" },
-        { "url": "https://odlocamo-skupaj.nova-gorica.si/", "label": "Mestna občina Nova Gorica" },
-        { "url": "https://www.mariborsodeluj.si/", "label": "Mestna občina Maribor" },
-        { "url": "https://pp.hrpelje-kozina.si", "label": "Občina Hrpelje-Kozina" },
-        { "url": "https://www.sodelujinglasuj.si/", "label": "Občina Medvode" },
-        { "url": "https://github.com/danesjenovdan/consul", "label": "GitHub" }
+        { "url": "https://consul.djnd.si/", "tag": "intro" },
+        { "url": "https://predlagam-odlocam.koper.si/", "tag": "kp" },
+        { "url": "https://odlocamo-skupaj.nova-gorica.si/", "tag": "go" },
+        { "url": "https://www.mariborsodeluj.si/", "tag": "mb" },
+        { "url": "https://pp.hrpelje-kozina.si", "tag": "hk" },
+        { "url": "https://www.sodelujinglasuj.si/", "tag": "med" },
+        { "url": "https://github.com/danesjenovdan/consul", "tag": "github" }
       ]
     },
     {
       "id": "parlameter",
       "links": [
-        { "url": "https://parlameter.org", "label": "parlameter.org" },
-        { "url": "https://parlameter.si", "label": "parlameter.si" },
-        { "url": "https://parlametar.hr", "label": "parlametar.hr" },
-        { "url": "https://ba.parlameter.si", "label": "parlametar bih" },
-        { "url": "https://blog.parlameter.si", "label": "Blog" },
-        { "url": "https://github.com/danesjenovdan", "label": "GitHub" }
+        { "url": "https://parlameter.org", "tag": "intro" },
+        { "url": "https://parlameter.si", "tag": "si" },
+        { "url": "https://parlametar.hr", "tag": "hr" },
+        { "url": "https://ba.parlameter.si", "tag": "ba" },
+        { "url": "https://parlameter.chesno.org", "tag": "ua" },
+        { "url": "https://ljubljana.parlameter.si", "tag": "lj" },
+        { "url": "https://github.com/danesjenovdan", "tag": "github" }
       ],
       "email": "info@parlameter.si"
     },
@@ -30,7 +31,7 @@
       "links": [
         {
           "url": "https://newsgradient.org/",
-          "label": "newsgradient.org"
+          "tag": "newsgradient"
         }
       ],
       "email": "vsi@danesjenovdan.si"
@@ -40,14 +41,14 @@
       "links": [
         {
           "url": "https://commentality.djnd.si/",
-          "label": "commentality.djnd.si"
+          "tag": "commentality"
         }
       ],
       "email": "vsi@danesjenovdan.si"
     },
     {
       "id": "medijski-besedogled",
-      "links": [{ "url": "https://github.com/danesjenovdan/SCANner", "label": "GitHub" }],
+      "links": [{ "url": "https://github.com/danesjenovdan/SCANner", "tag": "github" }],
       "email": "vsi@danesjenovdan.si"
     },
     {
@@ -56,7 +57,7 @@
     },
     {
       "id": "humans-vote",
-      "links": [{ "url": "https://danesjenovdan.si/humans.vote", "label": "humans.vote" }],
+      "links": [{ "url": "https://danesjenovdan.si/humans.vote", "tag": "humans-vote" }],
       "email": "vsi@danesjenovdan.si"
     },
     {
