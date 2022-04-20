@@ -20,7 +20,9 @@
             <div class="links">
               <ul v-if="links.length">
                 <li v-for="link in links" :key="link.url">
-                  <a :href="link.url" target="_blank">{{ link.label }}</a>
+                  <a :href="link.url" target="_blank">{{
+                    $t(`tools.tools.${icon}.links.${link.tag}`)
+                  }}</a>
                 </li>
               </ul>
               <ul
@@ -55,7 +57,9 @@
           <div v-if="links.length" class="links">
             <ul>
               <li v-for="link in links" :key="link.url">
-                <a :href="link.url" target="_blank">{{ link.label }}</a>
+                <a :href="link.url" target="_blank">{{
+                  $t(`tools.tools.${icon}.links.${link.tag}`)
+                }}</a>
               </li>
             </ul>
           </div>
