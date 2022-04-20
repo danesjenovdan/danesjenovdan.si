@@ -19,10 +19,10 @@
         { "url": "https://parlameter.org", "tag": "intro" },
         { "url": "https://parlameter.si", "tag": "si" },
         { "url": "https://parlametar.hr", "tag": "hr" },
-        { "url": "https://ba.parlameter.si", "tag": "ba" },
         { "url": "https://parlameter.chesno.org", "tag": "ua" },
         { "url": "https://ljubljana.parlameter.si", "tag": "lj" },
-        { "url": "https://github.com/danesjenovdan", "tag": "github" }
+        { "url": "https://github.com/danesjenovdan", "tag": "github" },
+        { "url": "https://ba.parlameter.si", "tag": "ba" }
       ],
       "email": "info@parlameter.si"
     },
