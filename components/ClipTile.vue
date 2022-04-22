@@ -5,7 +5,7 @@
         <div class="embed-responsive embed-responsive-1200by630">
           <div class="embed-responsive-item d-flex align-items-center">
             <div
-              :title="clip.alt"
+              :aria-label="clip.alt"
               :style="{ 'background-image': `url('${clip.image}')` }"
               class="clip-tile__image"
             >

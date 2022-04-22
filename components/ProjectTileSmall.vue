@@ -8,9 +8,14 @@
     >
       <div class="embed-responsive embed-responsive-1200by630">
         <div
-          class="embed-responsive-item d-flex align-items-center justify-content-center"
+          class="
+            embed-responsive-item
+            d-flex
+            align-items-center
+            justify-content-center
+          "
         >
-          <div :title="alt" class="project-tile__image">
+          <div class="project-tile__image">
             <img :src="image" :alt="alt" />
           </div>
           <svg

@@ -4,7 +4,7 @@
       <div class="embed-responsive embed-responsive-1200by630">
         <div class="embed-responsive-item d-flex align-items-center">
           <div
-            :title="alt"
+            :aria-label="alt"
             :style="{
               'background-image': image ? `url('${image}')` : undefined,
             }"
