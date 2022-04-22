@@ -6,7 +6,7 @@
           <div class="d-flex align-items-center flex-column flex-lg-row">
             <div
               v-if="icon"
-              :title="alt"
+              :aria-label="alt"
               :style="{ 'background-image': `url(/icons/tools/${icon}.svg)` }"
               class="icon"
             />

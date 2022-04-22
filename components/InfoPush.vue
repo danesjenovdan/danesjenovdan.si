@@ -19,7 +19,7 @@
           <div class="embed-responsive embed-responsive-16by9">
             <div class="embed-responsive-item d-flex align-items-center">
               <div
-                :title="alt"
+                :aria-label="alt"
                 :style="{ 'background-image': `url('${image}')` }"
                 class="background-image"
               />
