@@ -4,6 +4,26 @@
     <template v-else>
       <form>
         <div class="form-group">
+          <div class="lonec-medu">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your full name please"
+              v-model="honeyPotName"
+            />
+            <input
+              type="text"
+              name="address"
+              placeholder="Your address please"
+              v-model="honeyPotAddress"
+            />
+            <input
+              type="text"
+              name="post"
+              placeholder="Your postal code and office name please"
+              v-model="honeyPotPost"
+            />
+          </div>
           <div
             id="cc-number"
             :class="[
@@ -76,6 +96,9 @@ export default {
       cvvFocused: false,
       formValid: false,
       paymentInProgress: false,
+      honeyPotName: '',
+      honeyPotAddress: '',
+      honeyPotPost: '',
     };
   },
   async mounted() {
@@ -155,7 +178,14 @@ export default {
   },
   methods: {
     payWithCreditCard() {
-      if (this.hostedFieldsInstance && !this.paymentInProgress) {
+      if (
+        this.honeyPotName !== '' ||
+        this.honeyPotAddress !== '' ||
+        this.honeyPotPost !== ''
+      ) {
+        this.error = 'Preveč medu.';
+        this.$emit('error', 'Preveč medu.');
+      } else if (this.hostedFieldsInstance && !this.paymentInProgress) {
         this.paymentInProgress = true;
         this.$emit('payment-start');
         this.error = null;
@@ -179,6 +209,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.lonec-medu {
+  display: none !important;
+}
 .card-payment {
   width: 100%;
   max-width: 350px;
