@@ -58,6 +58,29 @@
               >
             </div>
           </div>
+          <hr />
+          <p>
+            Zadnje čase nas veliko napadajo roboti. Da se prepričamo, da si
+            človek, nam prosim povej kako se piše trenutni predsednik vlade
+            Republike Slovenije.
+          </p>
+          <div class="form-group">
+            <input
+              id="answer"
+              v-model="answer"
+              type="text"
+              placeholder="Tvoj odgovor"
+              class="form-control form-control-lg"
+            />
+          </div>
+          <div class="lonec-medu">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your full name please"
+              v-model="honeyPotName"
+            />
+          </div>
         </div>
       </template>
       <template slot="footer">
@@ -157,7 +180,8 @@ import CheckoutStage from '~/components/CheckoutStage.vue';
 import DynamicLink from '~/components/DynamicLink.vue';
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#Validation
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 export default {
   nuxtI18n: {
@@ -200,6 +224,8 @@ export default {
       email: null,
       subscribeNewsletter: false,
       infoSubmitting: false,
+      answer: '',
+      honeyPotName: '',
     };
   },
   computed: {
@@ -261,24 +287,25 @@ export default {
     async continueToNextStage() {
       if (this.canContinueToNextStage) {
         if (this.stage === 'info') {
-          try {
-            this.checkoutLoading = true;
-            const checkoutResponse = await this.$axios.$get(
-              `https://podpri.djnd.si/api/generic-donation/${this.donationId}/`,
-            );
-            this.token = checkoutResponse.token;
-            this.customerId = checkoutResponse.customer_id;
-            this.stage = 'payment';
-            if (document.getElementById('newsletter-id').checked) {
-              await this.$axios.$post('https://podpri.djnd.si/api/subscribe/', {
-                email: this.email,
-                segment: this.newsletterSegment,
-              });
+          if (this.honeyPotName !== '') {
+            this.error = 'Preveč medu.';
+            this.$emit('error', 'Preveč medu.');
+          } else {
+            try {
+              this.checkoutLoading = true;
+              const checkoutResponse = await this.$axios.$get(
+                `https://podpri.djnd.si/api/generic-donation/${
+                  this.donationId
+                }/?question_id=1&answer=${encodeURIComponent(this.answer)}`,
+              );
+              this.token = checkoutResponse.token;
+              this.customerId = checkoutResponse.customer_id;
+              this.stage = 'payment';
+            } catch (error) {
+              // eslint-disable-next-line no-console
+              console.error(error.response);
+              this.error = error.response;
             }
-          } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error(error.response);
-            this.error = error.response;
           }
           return;
         }
@@ -352,6 +379,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.lonec-medu {
+  display: none !important;
+}
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&amp;display=swap');
 
 input,
