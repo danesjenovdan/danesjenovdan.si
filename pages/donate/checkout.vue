@@ -85,6 +85,29 @@
               >Obveščajte me o novih projektih in aktivnostih.</label
             >
           </div>
+          <hr />
+          <p>
+            Zadnje čase nas veliko napadajo roboti. Da se prepričamo, da si
+            človek, nam prosim povej kako se piše trenutni predsednik vlade
+            Republike Slovenije.
+          </p>
+          <div class="form-group">
+            <input
+              id="answer"
+              v-model="answer"
+              type="text"
+              placeholder="Tvoj odgovor"
+              class="form-control form-control-lg"
+            />
+          </div>
+          <div class="lonec-medu">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your full name please"
+              v-model="honeyPotName"
+            />
+          </div>
         </div>
       </template>
       <template slot="footer">
@@ -279,6 +302,8 @@ export default {
       subscribeNewsletter: false,
       infoSubmitting: false,
       monthlyDonation,
+      answer: '',
+      honeyPotName: '',
     };
   },
   head() {
@@ -383,18 +408,25 @@ export default {
           return;
         }
         if (this.stage === 'info') {
-          try {
-            this.checkoutLoading = true;
-            const checkoutResponse = await this.$axios.$get(
-              'https://podpri.djnd.si/api/generic-donation/9/',
-            );
-            this.token = checkoutResponse.token;
-            this.customerId = checkoutResponse.customer_id;
-            this.stage = 'payment';
-          } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error(error.response);
-            this.error = error.response;
+          if (this.honeyPotName !== '') {
+            this.error = 'Preveč medu.';
+            this.$emit('error', 'Preveč medu.');
+          } else {
+            try {
+              this.checkoutLoading = true;
+              const checkoutResponse = await this.$axios.$get(
+                `https://podpri.djnd.si/api/generic-donation/9/?question_id=1&answer=${encodeURIComponent(
+                  this.answer,
+                )}`,
+              );
+              this.token = checkoutResponse.token;
+              this.customerId = checkoutResponse.customer_id;
+              this.stage = 'payment';
+            } catch (error) {
+              // eslint-disable-next-line no-console
+              console.error(error.response);
+              this.error = error.response;
+            }
           }
           return;
         }
@@ -469,6 +501,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.lonec-medu {
+  display: none !important;
+}
 .checkout {
   .donation-options {
     display: flex;
