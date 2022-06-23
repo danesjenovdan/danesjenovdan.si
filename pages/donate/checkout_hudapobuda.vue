@@ -60,9 +60,7 @@
           </div>
           <hr />
           <p>
-            Zadnje čase nas veliko napadajo roboti. Da se prepričamo, da si
-            človek, nam prosim povej kako se piše trenutni predsednik vlade
-            Republike Slovenije.
+            Zadnje čase nas pogosto napadajo roboti. Ker se želimo prepričati, da si človek, nam prosim povej, kako se piše trenutni predsednik Vlade Republike Slovenije.
           </p>
           <div class="form-group">
             <input
