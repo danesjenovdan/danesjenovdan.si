@@ -5,7 +5,7 @@
         <h1 v-t="'donate.title'" class="mega-header"></h1>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <!-- <div class="row justify-content-center">
       <div class="col-md-10 col-md-offset-1">
         <div class="embed-responsive embed-responsive-16by9">
           <div
@@ -24,8 +24,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="row justify-content-center donation-buttons">
+    </div> -->
+    <!-- <div class="row justify-content-center donation-buttons">
       <div class="limit-like-p">
         <donation-choice-button
           donation-type="monthly"
@@ -44,7 +44,7 @@
           "
         />
       </div>
-    </div>
+    </div> -->
     <div class="row justify-content-center">
       <p v-t="'donate.description'"></p>
     </div>
