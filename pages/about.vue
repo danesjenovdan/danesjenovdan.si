@@ -83,7 +83,7 @@
                 href="tel:+38664147823"
                 target="_blank"
                 rel="noopener noreferrer"
-                >+386 64 147 823</a
+                >+386 64 163 663</a
               >
             </strong>
           </div>

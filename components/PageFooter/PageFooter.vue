@@ -83,7 +83,7 @@
         <br />
         <strong>vsi@danesjenovdan.si</strong>
         <br />
-        <strong>+386 64 147 823</strong> (med 10. in 16. uro)
+        <strong>+386 64 163 663</strong> (med 10. in 16. uro)
       </div>
     </div>
     <div v-else :class="columnClasses(true)">
@@ -98,7 +98,7 @@
         <br />
         <strong>vsi@danesjenovdan.si</strong>
         <br />
-        <strong>+386 64 147 823</strong> (10 am - 4 pm CET)
+        <strong>+386 64 163 663</strong> (10 am - 4 pm CET)
       </div>
     </div>
   </footer>
