@@ -12,7 +12,7 @@
         <em>vsi@danesjenovdan.si</em>
       </div>
       <div>
-        <em>+386 64 147 823 (vsak delovni dan od 10. do 16. ure)</em>
+        <em>+386 64 163 663 (vsak delovni dan od 10. do 16. ure)</em>
       </div>
       <div>
         <em>
