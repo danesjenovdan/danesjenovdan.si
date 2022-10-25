@@ -183,6 +183,7 @@
         občino smo podali nekaj priporočil, s pomočjo katerih bo lahko v
         prihodnje delovala bolj odprto.
       </p>
+      <br />
       <u>Občinski parlameter</u>
       <p>
         Za potrebe prikazovanja podatkov delovanja občinskih svetov smo
@@ -204,6 +205,7 @@
           >
         </li>
       </ul>
+      <br />
       <u>Uporaba izsledkov v zagovorniških kampanjah</u>
       <p>Izsledki iz Parlametra so bili uporabljeni v:</p>
       <ul>

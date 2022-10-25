@@ -34,7 +34,8 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
+      // required: true,
+      default: '',
     },
     date: {
       type: String,
