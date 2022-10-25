@@ -39,7 +39,7 @@
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.3",
     "prettier": "^2.2.1",
     "sass-loader": "^10.1.0",
     "vue-avatar-cropper": "^1.0.9",
