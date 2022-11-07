@@ -153,6 +153,7 @@ export default {
             'https://podpri.djnd.si/api/subscribe/',
             {
               email: this.email,
+              segment: 1,
             },
           );
           if (response.msg === 'mail sent') {
