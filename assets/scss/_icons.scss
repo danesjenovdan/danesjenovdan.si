@@ -129,6 +129,9 @@
 @function icon-sub-huda-pobuda($color) {
   @return encode-svg(string-replace(fs-readFile('static/icons/subscriptions/huda-pobuda.svg'), '#000', '#{$color}'));
 }
+@function icon-sub-participativni-proracun() {
+  @return encode-svg(fs-readFile('static/icons/subscriptions/participativni-proracun.svg'));
+}
 
 .icon {
   background-repeat: no-repeat;
@@ -284,4 +287,7 @@
 }
 .icon-sub-glas-ljudstva {
   background-image: url(#{icon-sub-supporter($color-red)}) !important;
+}
+.icon-sub-participativni-proracun {
+  background-image: url(#{icon-sub-participativni-proracun()}) !important;
 }

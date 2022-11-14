@@ -527,6 +527,12 @@
         "description": "Vse novice povezane z iniciativo Glas ljudstva.",
         "label-off": "Naročite me!",
         "label-on": "Naročeno!"
+      },
+      "participativni-proracun": {
+        "title": "Kje je participativni proračun?",
+        "description": "Vse novice o participativnem proračunu, stanju zavez in vseh drugih pomembnih stvareh glede kampanje \"Kje je participativni proračun?\". Če te zanima, kako napreduje izvajanje zaobljub in kakšno je stanje s participativnim proračunom v slovenskih občinah, ti bomo v tem novičniku sporočali vse novosti.",
+        "label-off": "Naročite me!",
+        "label-on": "Naročeno!"
       }
     }
   }
