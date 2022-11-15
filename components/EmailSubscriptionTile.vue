@@ -249,6 +249,21 @@ export default {
       margin-bottom: 0;
     }
   }
+
+  .switch-container--purple {
+    background-color: rgba(#6037a9, 0.15);
+
+    .custom-switch {
+      .custom-control-input:checked ~ .custom-control-label::after {
+        background-color: #6037a9;
+      }
+
+      .custom-control-input:checked ~ .custom-control-label::before {
+        border-color: #6037a9;
+        background-color: rgba(#6037a9, 0.4);
+      }
+    }
+  }
 }
 
 .email-subscription-tile.email-subscription-tile--alt {

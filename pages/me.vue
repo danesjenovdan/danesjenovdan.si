@@ -211,6 +211,12 @@ export default {
           order: 700,
           loading: false,
         },
+        'participativni-proracun': {
+          show: true,
+          color: 'purple',
+          order: 800,
+          loading: false,
+        },
       },
     };
   },
