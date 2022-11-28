@@ -16,7 +16,7 @@
       </div>
       <div>
         <em>
-          Danes je nov dan, Inštitut za druga vprašanja, Parmova ulica 20, 1000
+          Danes je nov dan, Inštitut za druga vprašanja, Resljeva cesta 25, 1000
           Ljubljana
         </em>
       </div>
@@ -108,8 +108,8 @@
         odstopom od pogodbe, je strošek vračila blaga (ki se v primeru
         pošiljanja obračunava po ceniku dostavne službe). Blago je potrebno
         vrniti prodajalcu najkasneje v roku 30 dni od oddanega sporočila o
-        odstopu od pogodbe (nakupa) na naslov firme: Danes je nov dan, Inštitut
-        za druga vprašanja, Parmova ulica 20, 1000 Ljubljana.
+        odstopu od pogodbe (nakupa) na naslov podjetja: Danes je nov dan,
+        Inštitut za druga vprašanja, Resljeva cesta 25, 1000 Ljubljana.
       </p>
       <p>
         Izdelek, ki ga kupec vrača, mora biti nepoškodovan, v originalni

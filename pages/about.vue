@@ -37,7 +37,7 @@
               <br />Inštitut za druga vprašanja
               <br />
             </strong>
-            Parmova ulica 20, 1000 Ljubljana
+            Resljeva cesta 25, 1000 Ljubljana
           </div>
           <div class="icon">
             <svg
@@ -160,7 +160,7 @@
         <p>
           {{ $t('about.mailing-address') }}
           <strong
-            >Parmova ulica 20, 1000 Ljubljana<template
+            >Resljeva cesta 25, 1000 Ljubljana<template
               v-if="$i18n.locale !== 'sl'"
               >, Slovenia</template
             ></strong
