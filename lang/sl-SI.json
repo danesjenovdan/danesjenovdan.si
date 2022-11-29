@@ -538,5 +538,10 @@
         "label-on": "Naročeno!"
       }
     }
+  },
+  "error": {
+    "title": "Tukaj ni ničesar.",
+    "text": "Ups, spletno mesto, ki ga iščeš, ne obstaja. Če si kliknil_a na katerega izmed naših projektov in dejavnosti, je verjetno, da ni več aktivno.",
+    "button": "Pojdi na vstopno stran"
   }
 }

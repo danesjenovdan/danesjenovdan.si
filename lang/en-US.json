@@ -524,5 +524,10 @@
         "label-on": "Naročeno!"
       }
     }
+  },
+  "error": {
+    "title": "There's nothing here.",
+    "text": "Oops, the website you are looking for does not exist. If you've clicked on one of our projects or activities, it is most likely archived.",
+    "button": "Go to homepage"
   }
 }
