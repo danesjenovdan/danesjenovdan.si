@@ -37,20 +37,6 @@
       "email": "vsi@danesjenovdan.si"
     },
     {
-      "id": "commentality",
-      "links": [
-        {
-          "url": "https://commentality.djnd.si/",
-          "tag": "commentality"
-        },
-        {
-          "url": "https://github.com/danesjenovdan/commentality-client", 
-          "tag": "github"
-        }
-      ],
-      "email": "vsi@danesjenovdan.si"
-    },
-    {
       "id": "medijski-besedogled",
       "links": [{ "url": "https://github.com/danesjenovdan/SCANner", "tag": "github" }],
       "email": "vsi@danesjenovdan.si"

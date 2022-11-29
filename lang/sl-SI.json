@@ -175,7 +175,8 @@
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Predlogi"
       }
-    }
+    },
+    "archived-tools-title": "Arhivirana orodja, ki jih ne vzdržujemo več"
   },
   "clipping": {
     "description": "Tole je okno, skozi katerega merimo vate z vodnimi balončki oz. seznam javnih in medijskih pojavljanj projektov inštituta in oseb, ki z njim sodelujejo. Izpis je mogoče prilagoditi glede na različne parametre.",
