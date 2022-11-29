@@ -104,7 +104,8 @@
           "V dobi, ko na družbenih medijih klasično komentiranje vse bolj zamenjuje možnost všečkov in drugih reakcij, smo se domislili, da bi na podoben način organizirali tudi debato o medijskih vsebinah. Platforma je načrtovana tako, da išče konsenz, izpostavlja argumente in gradi na skupnih idejah v spletnih debatah."
         ],
         "links": {
-          "commentality": "commentality.djnd.si"
+          "commentality": "commentality.djnd.si",
+          "github": "GitHub"
         },
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Commentality"
