@@ -317,7 +317,8 @@
           "Commentality was developed with the help of a Google DNI grant and a prototype was thoroughly tested in partnership with Mladina, an independent current affairs magazine."
         ],
         "links": {
-          "commentality": "commentality.djnd.si"
+          "commentality": "commentality.djnd.si",
+          "github": "GitHub"
         },
         "contact": "Contact us for installation options.",
         "email-subject": "Inquiry: Commentality"
@@ -387,7 +388,8 @@
         "contact": "Contact us for installation options.",
         "email-subject": "Inquiry: Proposals"
       }
-    }
+    },
+    "archived-tools-title": "Archived tools that are no longer maintained"
   },
   "about": {
     "description": "Today is a new day, Institute for other studies first came into being during the 2012 protests. We have been formally registered as an institute since 2013, focusing our efforts on (digital) political participation, transparency, and public oversight.",
@@ -524,5 +526,10 @@
         "label-on": "Naročeno!"
       }
     }
+  },
+  "error": {
+    "title": "There's nothing here.",
+    "text": "Oops, the website you are looking for does not exist. If you've clicked on one of our projects or activities, it is most likely archived.",
+    "button": "Go to homepage"
   }
 }

@@ -104,7 +104,8 @@
           "V dobi, ko na družbenih medijih klasično komentiranje vse bolj zamenjuje možnost všečkov in drugih reakcij, smo se domislili, da bi na podoben način organizirali tudi debato o medijskih vsebinah. Platforma je načrtovana tako, da išče konsenz, izpostavlja argumente in gradi na skupnih idejah v spletnih debatah."
         ],
         "links": {
-          "commentality": "commentality.djnd.si"
+          "commentality": "commentality.djnd.si",
+          "github": "GitHub"
         },
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Commentality"
@@ -174,7 +175,8 @@
         "contact": "Za možnosti inštalacije nas kontaktiraj.",
         "email-subject": "Povpraševanje: Predlogi"
       }
-    }
+    },
+    "archived-tools-title": "Arhivirana orodja, ki jih ne vzdržujemo več"
   },
   "clipping": {
     "description": "Tole je okno, skozi katerega merimo vate z vodnimi balončki oz. seznam javnih in medijskih pojavljanj projektov inštituta in oseb, ki z njim sodelujejo. Izpis je mogoče prilagoditi glede na različne parametre.",
@@ -538,5 +540,10 @@
         "label-on": "Naročeno!"
       }
     }
+  },
+  "error": {
+    "title": "Tukaj ni ničesar.",
+    "text": "Ups, spletno mesto, ki ga iščeš, ne obstaja. Če si kliknil_a na katerega izmed naših projektov in dejavnosti, je verjetno, da ni več aktivno.",
+    "button": "Pojdi na vstopno stran"
   }
 }
