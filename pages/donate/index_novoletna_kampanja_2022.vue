@@ -13,7 +13,7 @@
       <div class="col-lg-10">
         <div class="row">
           <div
-            v-for="option in options"
+            v-for="option in mixedOptions"
             :key="option.title"
             class="col-lg-4 p-2"
           >
@@ -79,7 +79,7 @@ export default {
         },
         {
           title: 'Ker sem desničar',
-          leads_to: 'iz-desne',
+          leads_to: 'z-desne',
         },
         {
           title: 'Ker mi že država preveč pobere od plače',
@@ -102,7 +102,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2022 delovali tudi na tvoj pogon.',
+            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2023 delovali tudi na tvoj pogon.',
         },
         {
           hid: 'og:title',
@@ -113,12 +113,12 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2022 delovali tudi na tvoj pogon.',
+            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2023 delovali tudi na tvoj pogon.',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://danesjenovdan.si/donatorska-2021-OG.png',
+          content: 'https://danesjenovdan.si/donatorska-2022_OG.png',
         },
         {
           hid: 'twitter:title',
@@ -129,27 +129,28 @@ export default {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2022 delovali tudi na tvoj pogon.',
+            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2023 delovali tudi na tvoj pogon.',
         },
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://danesjenovdan.si/donatorska-2021-OG.png',
+          content: 'https://danesjenovdan.si/donatorska-2022_OG.png',
         },
       ],
     };
   },
 
   computed: {
-    // donationAmountPercentage() {
-    //   return Math.round((this.donationAmount / 15000) * 100);
-    // },
-    // daysLeft() {
-    //   const today = new Date();
-    //   const deadline = new Date(2022, 0, 3);
-    //   const oneDay = 1000 * 60 * 60 * 24;
-    //   return Math.ceil((deadline.getTime() - today.getTime()) / oneDay);
-    // },
+    mixedOptions() {
+      const optionsTemp = [...this.options];
+      for (let i = optionsTemp.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = optionsTemp[i];
+        optionsTemp[i] = optionsTemp[j];
+        optionsTemp[j] = temp;
+      }
+      return optionsTemp;
+    },
   },
 
   async mounted() {
@@ -255,6 +256,8 @@ p {
 
   &:hover {
     text-decoration: none;
+    background-image: none;
+    background-color: #f5d6d3;
   }
 }
 

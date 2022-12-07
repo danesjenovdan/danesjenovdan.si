@@ -140,7 +140,7 @@
           </template>
           <div class="cart-total">
             <span>Znesek za plačilo</span>
-            <i>{{ selectedDonationAmount }} €</i>
+            <i>{{ amount }} €</i>
           </div>
         </div>
       </template>
