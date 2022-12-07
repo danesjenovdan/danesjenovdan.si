@@ -101,7 +101,7 @@
             </div>
             <nuxt-link
               :to="{
-                path: '/doniraj/novi/1',
+                path: '/doniraj/novi/5',
                 query: { amount: selectedDonationAmount },
               }"
               class="btn-link"
