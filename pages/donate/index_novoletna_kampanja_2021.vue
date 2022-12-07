@@ -270,8 +270,8 @@ export default {
 
   nuxtI18n: {
     paths: {
-      sl: '/doniraj-novoletna-kampanja',
-      en: '/donate-new-year-campaign',
+      sl: '/doniraj-novoletna-kampanja-2021',
+      en: '/donate-new-year-campaign-2021',
     },
   },
 
