@@ -5,7 +5,7 @@
     </div>
     <div class="row">
       <img
-        class="img-fluid header-image"
+        class="header-image"
         :src="
           require(`../../static/icons/donations/2022/naslovi/${options[option].headerSrc}`)
         "
@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col-lg-4 pr-5">
             <h4>Nameni nam 1 % dohodnine!</h4>
-            <div class="icons-p my-4">
+            <div class="icons-p my-2 my-lg-4">
               <img
                 class=""
                 src="../../static/icons/donations/2022/ikone/1FA99.svg"
@@ -56,12 +56,12 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row" v-if="options[option].donate == 'dohodnina_narocnina'">
           <div class="col-12">
             <hr />
           </div>
         </div>
-        <div class="row">
+        <div class="row" v-if="options[option].donate == 'dohodnina_narocnina'">
           <div class="col-lg-4 pr-5">
             <h4>Doniraj nam vsak mesec!</h4>
             <div class="icons-p my-4">
@@ -92,7 +92,6 @@
                 :key="`presets-${i}`"
                 class="col-lg-3 monthly-donation"
               >
-                <!-- <div class="donation-button">5 EUR</div> -->
                 <donation-option
                   class="donation-option-custom"
                   :donation-preset="dp"
@@ -125,15 +124,11 @@
 </template>
 
 <script>
-// import DonationLogo from '~/components/DonationLogo.vue';
-// import DonationChoiceButtonWide from '~/components/DonationChoiceButtonWide.vue';
 import DonationDohodninaEmbed from '~/components/DonationDohodninaEmbed.vue';
 import DonationOption from '~/components/DonationOption.vue';
 
 export default {
   components: {
-    // DonationLogo,
-    // DonationChoiceButtonWide,
     DonationDohodninaEmbed,
     DonationOption,
   },
@@ -310,32 +305,17 @@ export default {
         dp.selected = dp === sdp;
       });
     },
-    goToCheckout(dp) {
-      console.log(dp);
-      // this.$router.push(
-      //   this.localePath({ name: 'me', query: { email: this.email } }),
-      // );
-    },
-  },
-
-  async mounted() {
-    // const donationStatistics = await this.$axios.$get(
-    //   'https://podpri.djnd.si/api/donation-statistics/10/',
-    // );
-    // this.donationAmount = donationStatistics['donation-amount'];
+    // goToCheckout(dp) {
+    //   console.log(dp);
+    //   // this.$router.push(
+    //   //   this.localePath({ name: 'me', query: { email: this.email } }),
+    //   // );
+    // },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-/deep/ .logo {
-  width: 230px;
-
-  @include media-breakpoint-up(sm) {
-    width: 300px;
-  }
-}
-
 .djnd-logo {
   display: flex;
   justify-content: end;
@@ -344,10 +324,30 @@ export default {
     width: 90px;
     margin: 40px;
   }
+
+  @include media-breakpoint-down(sm) {
+    img {
+      margin: 20px;
+    }
+  }
+}
+
+.header-image {
+  max-width: 100%;
+  height: auto;
+
+  @include media-breakpoint-down(sm) {
+    min-height: 60px;
+    object-fit: cover;
+  }
 }
 
 .py-8 {
   padding: 100px 0;
+
+  @include media-breakpoint-down(sm) {
+    padding: 40px 0;
+  }
 }
 
 h1 {
@@ -377,11 +377,9 @@ h2 {
   line-height: 60px;
 
   @include media-breakpoint-down(sm) {
-    font-size: 32px;
-    line-height: 40px;
-    margin-bottom: 0;
-    padding-left: 30px;
-    padding-right: 30px;
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 20px;
   }
 }
 
@@ -390,6 +388,11 @@ h4 {
   font-size: 40px;
   font-weight: 700;
   line-height: 44px;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 20px;
+    line-height: 22px;
+  }
 }
 
 /deep/ .project-link {
@@ -417,6 +420,10 @@ h4 {
 
 .button-arrow {
   width: 50px;
+
+  @include media-breakpoint-down(sm) {
+    width: 30px;
+  }
 }
 
 .colored-section {
@@ -426,6 +433,10 @@ h4 {
 .icons-p img {
   display: inline-block;
   width: 60px;
+
+  @include media-breakpoint-down(sm) {
+    width: 40px;
+  }
 }
 
 iframe {
@@ -436,6 +447,10 @@ hr {
   border-color: #df786c;
   border-width: 2px;
   margin: 100px 0;
+
+  @include media-breakpoint-down(sm) {
+    margin: 40px 0;
+  }
 }
 
 .donation-header {
@@ -443,6 +458,12 @@ hr {
   font-size: 36px;
   line-height: 40px;
   margin-bottom: 30px;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 30px;
+  }
 }
 
 .btn-link {
@@ -473,6 +494,13 @@ hr {
     background-image: none;
     background-color: #f5d6d3;
   }
+
+  @include media-breakpoint-down(sm) {
+    p {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
 }
 
 .donate-button {
@@ -500,6 +528,15 @@ hr {
     text-decoration: none;
     background-image: none;
     background-color: #f5d6d3;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+
+    p {
+      font-size: 20px;
+      line-height: 24px;
+    }
   }
 }
 
@@ -547,6 +584,10 @@ hr {
   /deep/ .donation-option-custom.donation-option {
     .donation-option__content {
       flex-direction: column-reverse;
+
+      @include media-breakpoint-down(sm) {
+        align-items: start;
+      }
 
       .donation-option__amount input {
         background-color: #ffffff;

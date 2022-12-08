@@ -5,7 +5,7 @@
     </div>
     <div class="row">
       <img
-        class="img-fluid header-image mb-5"
+        class="header-image mb-3 mb-lg-5"
         src="../../static/icons/donations/2022/naslovi/naslov_VSTOPNA.png"
       />
     </div>
@@ -152,25 +152,10 @@ export default {
       return optionsTemp;
     },
   },
-
-  async mounted() {
-    // const donationStatistics = await this.$axios.$get(
-    //   'https://podpri.djnd.si/api/donation-statistics/10/',
-    // );
-    // this.donationAmount = donationStatistics['donation-amount'];
-  },
 };
 </script>
 
 <style lang="scss" scoped>
-/deep/ .logo {
-  width: 230px;
-
-  @include media-breakpoint-up(sm) {
-    width: 300px;
-  }
-}
-
 .djnd-logo {
   display: flex;
   justify-content: end;
@@ -178,6 +163,22 @@ export default {
   img {
     width: 90px;
     margin: 40px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    img {
+      margin: 20px;
+    }
+  }
+}
+
+.header-image {
+  max-width: 100%;
+  height: auto;
+
+  @include media-breakpoint-down(sm) {
+    min-height: 140px;
+    object-fit: cover;
   }
 }
 
@@ -248,6 +249,7 @@ p {
     line-height: 40px;
     text-align: left;
     padding-right: 20px;
+    margin-bottom: 0;
   }
 
   .button-arrow {
@@ -258,6 +260,19 @@ p {
     text-decoration: none;
     background-image: none;
     background-color: #f5d6d3;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 30px 15px;
+
+    h3 {
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    .button-arrow {
+      width: 30px;
+    }
   }
 }
 
