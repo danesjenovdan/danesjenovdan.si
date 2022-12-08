@@ -1,14 +1,21 @@
 <template>
   <div class="container-fluid">
     <div class="djnd-logo">
-      <img src="../../static/icons/donations/2022/djdn-logo-dark-100.png" />
+      <a href="/">
+        <img
+          src="../../static/icons/donations/2022/djdn-logo-dark-100.png"
+          alt="DJND logo"
+        />
+      </a>
     </div>
+
     <div class="row">
       <img
         class="header-image"
         :src="
           require(`../../static/icons/donations/2022/naslovi/${options[option].headerSrc}`)
         "
+        :alt="options[option].title"
       />
     </div>
     <div class="row my-5">
@@ -21,20 +28,20 @@
             <h4>Nameni nam 1 % dohodnine!</h4>
             <div class="icons-p my-2 my-lg-4">
               <img
-                class=""
                 src="../../static/icons/donations/2022/ikone/1FA99.svg"
+                alt=""
               />
               <img
-                class=""
                 src="../../static/icons/donations/2022/ikone/1F44F.svg"
+                alt=""
               />
               <img
-                class=""
                 src="../../static/icons/donations/2022/ikone/1F4AB.svg"
+                alt=""
               />
               <img
-                class=""
                 src="../../static/icons/donations/2022/ikone/1F496.svg"
+                alt=""
               />
             </div>
             <h2>Tebe nič ne stane, nam pa pomeni veliko!</h2>
@@ -51,35 +58,36 @@
                 <img
                   class="button-arrow"
                   src="../../static/icons/donations/2022/noun-arrow.svg"
+                  alt=""
                 />
               </a>
             </div>
           </div>
         </div>
-        <div class="row" v-if="options[option].donate == 'dohodnina_narocnina'">
+        <div v-if="options[option].donate == 'dohodnina_narocnina'" class="row">
           <div class="col-12">
             <hr />
           </div>
         </div>
-        <div class="row" v-if="options[option].donate == 'dohodnina_narocnina'">
+        <div v-if="options[option].donate == 'dohodnina_narocnina'" class="row">
           <div class="col-lg-4 pr-5">
             <h4>Doniraj nam vsak mesec!</h4>
             <div class="icons-p my-4">
               <img
-                class=""
                 src="../../static/icons/donations/2022/ikone/2728.svg"
+                alt=""
               />
               <img
-                class=""
                 src="../../static/icons/donations/2022/ikone/1F381.svg"
+                alt=""
               />
               <img
-                class=""
                 src="../../static/icons/donations/2022/ikone/1FAF6.svg"
+                alt=""
               />
               <img
-                class=""
                 src="../../static/icons/donations/2022/ikone/1F3C6.svg"
+                alt=""
               />
             </div>
             <h2>Ker nas želiš redno podpirati!</h2>
@@ -112,6 +120,7 @@
                   <img
                     class="button-arrow"
                     src="../../static/icons/donations/2022/noun-arrow.svg"
+                    alt=""
                   />
                 </nuxt-link>
               </div>
@@ -153,54 +162,63 @@ export default {
       donationAmount: 0,
       options: {
         'brez-denarnice': {
+          title: 'Ker sem pozabil_a denarnico doma',
           htmlText:
             '<p>Brez skrbi, podpreš nas lahko brez denarnice, gotovine ali kreditne kartice! Nameni nam 1 % dohodnine – gotov_a boš v 46 sekundah!</p>',
           donate: 'dohodnina',
           headerSrc: 'naslov_DENARNICA.png',
         },
-        najemnina: {
+        'ni-za-najemnino': {
+          title: 'Ker nimam niti za najemnino',
           htmlText:
             '<p>Stanje na najemnem trgu se iz leta v leto slabša, zato poskušamo v sklopu <a href="https://najemniski-sos.si/" target="_blank" class="project-link">Najemniškega SOS</a>-a omiliti stanovanjske stiske.</p><p>Ker si z denarjem na tesnem, nas lahko podpreš z donacijo 1 % dohodnine – na tvojem bančnem računu se ne bo nič poznalo.</p>',
           donate: 'dohodnina',
           headerSrc: 'naslov_NIMAM_ZA_NAJEMNINO.png',
         },
         'ne-zaupam': {
+          title: 'Ker ne zaupam spletnim plačilom',
           htmlText:
             '<p>Ni problema! Podpreš nas lahko tudi brez plačila, in sicer tako, da nam nameniš 1 % dohodnine – postopek je preprost in ne pušča možnosti, da ti denar ukrade heker!</p>',
           donate: 'dohodnina',
           headerSrc: 'naslov_NE_ZAUPAM.png',
         },
         soros: {
+          title: 'Ker vas itak plačuje Soroš',
           htmlText:
             '<p>Pa ne, da spet bereš <a href="https://twito.si/" target="_blank" class="project-link">Janševe tvite</a>? Žal nas Soroš (še) ne plačuje, financira pa nas več kot 10 organizacij in veliko čudovitih posameznic_kov.</p><p>Pridruži se jim in nam pomagaj v boju za bolj solidarno družbo!</p>',
           donate: 'dohodnina_narocnina',
           headerSrc: 'naslov_SOROS.png',
         },
         'kaj-bluzite': {
+          title: 'Kaj bluzite, saj sem že doniral_a',
           htmlText:
             '<p>Ups, pa res – zelo smo ti hvaležni za pomoč. Ker pa boj za solidarno družbo ni poceni, nam lahko za praznike podariš še mesečno donacijo ali pa 1% dohodnine! 😜</p>',
           donate: 'dohodnina_narocnina',
           headerSrc: 'naslov_BLUZITE.png',
         },
         'ne-znam': {
+          title: 'Ker je preveč zakomplicirano',
           htmlText:
             '<p>Enkrat si že kliknil_a, samo še dvakrat, pa smo zaključili! Dlje traja, da na Netflixu izbereš, kaj boš gledal_a.</p>',
           donate: 'dohodnina_narocnina',
           headerSrc: 'naslov_ZAKOMPLICIRANO.png',
         },
         'z-desne': {
+          title: 'Ker sem desničar_ka',
           htmlText:
             '<p>O, živjo, kako si pa ti pristal_a tukaj?</p><p>No, saj ni važno – dokaži, da so <a href="https://danesjenovdan.si/lestvica-transparentnosti/" target="_blank" class="project-link">transparentnost</a>, <a href="https://participativni-proracun.djnd.si/" target="_blank" class="project-link">demokratizacija</a> in <a href="https://obljubadeladolg.si/" target="_blank" class="project-link">nadzor nad oblastjo</a>, za kar se borimo na Danes je nov dan, vrednote, skupne vsem, in podpri naše delo!</p>',
           donate: 'dohodnina_narocnina',
           headerSrc: 'naslov_DESNICAR.png',
         },
         davkoplacevalec: {
+          title: 'Ker mi že država preveč pobere od plače',
           htmlText:
             '<p>Pazi to – 1 % tega, kar ti pobere država, lahko vzameš nazaj in podariš nam.</p><p>Tako lahko hkrati podpreš <a href="https://danesjenovdan.si/lestvica-transparentnosti/" target="_blank" class="project-link">transparentnost</a>, <a href="https://participativni-proracun.djnd.si/" target="_blank" class="project-link">demokratizacijo</a> in <a href="https://obljubadeladolg.si/" target="_blank" class="project-link">nadzor nad oblastjo</a>, pokažeš sredinca sistemu in ne izgubiš niti evra!</p>',
           donate: 'dohodnina',
           headerSrc: 'naslov_DRZAVA.png',
         },
         cringe: {
+          title: 'Ker ste cringe',
           htmlText: '<p>Ampak smo svobodni – pridruži se nam!</p>',
           donate: 'dohodnina_narocnina',
           headerSrc: 'naslov_CRINGE.png',
@@ -247,46 +265,46 @@ export default {
 
   head() {
     return {
-      title: 'Poženi nov dan!',
+      title: 'Zakaj nisi še nikoli doniral_a Danes je nov dan?',
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
           name: 'description',
           content:
-            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2023 delovali tudi na tvoj pogon.',
+            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Poženi nov dan!',
+          content: 'Zakaj nisi še nikoli doniral_a Danes je nov dan?',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2023 delovali tudi na tvoj pogon.',
+            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://danesjenovdan.si/donatorska-2022_OG.png',
+          content: 'https://nov.djnd.si/donatorska-2022_OG.png',
         },
         {
           hid: 'twitter:title',
           property: 'twitter:title',
-          content: 'Poženi nov dan!',
+          content: 'Zakaj nisi še nikoli doniral_a Danes je nov dan?',
         },
         {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2023 delovali tudi na tvoj pogon.',
+            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
         },
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://danesjenovdan.si/donatorska-2022_OG.png',
+          content: 'https://nov.djnd.si/donatorska-2022_OG.png',
         },
       ],
     };
@@ -320,13 +338,16 @@ export default {
   display: flex;
   justify-content: end;
 
-  img {
-    width: 90px;
+  a {
     margin: 40px;
   }
 
+  img {
+    width: 90px;
+  }
+
   @include media-breakpoint-down(sm) {
-    img {
+    a {
       margin: 20px;
     }
   }
@@ -467,9 +488,8 @@ hr {
 }
 
 .btn-link {
-  padding: 40px 100px 40px 0;
+  padding: 40px 100px 40px 20px;
   position: relative;
-  text-align: center;
   display: flex;
   align-items: center;
   border: 2px solid #df786c;
@@ -482,6 +502,8 @@ hr {
     color: #333333;
     font-weight: 700;
     line-height: 32px;
+    padding: 0;
+    text-align: center;
   }
 
   .button-arrow {
@@ -496,9 +518,12 @@ hr {
   }
 
   @include media-breakpoint-down(sm) {
+    padding: 20px 60px 20px 20px;
+
     p {
       font-size: 20px;
       line-height: 24px;
+      text-align: left;
     }
   }
 }

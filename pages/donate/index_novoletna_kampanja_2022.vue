@@ -1,12 +1,18 @@
 <template>
   <div class="container-fluid">
     <div class="djnd-logo">
-      <img src="../../static/icons/donations/2022/djdn-logo-dark-100.png" />
+      <a href="/">
+        <img
+          src="../../static/icons/donations/2022/djdn-logo-dark-100.png"
+          alt="DJND logo"
+        />
+      </a>
     </div>
     <div class="row">
       <img
         class="header-image mb-3 mb-lg-5"
         src="../../static/icons/donations/2022/naslovi/naslov_VSTOPNA.png"
+        alt="Zakaj nisi še nikoli doniral_a Danes je nov dan?"
       />
     </div>
     <div class="row justify-content-center my-5">
@@ -25,6 +31,7 @@
               <img
                 class="button-arrow"
                 src="../../static/icons/donations/2022/noun-arrow.svg"
+                alt=""
               />
             </nuxt-link>
           </div>
@@ -59,7 +66,7 @@ export default {
         },
         {
           title: 'Ker nimam niti za najemnino',
-          leads_to: 'najemnina',
+          leads_to: 'ni-za-najemnino',
         },
         {
           title: 'Ker ne zaupam spletnim plačilom',
@@ -78,7 +85,7 @@ export default {
           leads_to: 'ne-znam',
         },
         {
-          title: 'Ker sem desničar',
+          title: 'Ker sem desničar_ka',
           leads_to: 'z-desne',
         },
         {
@@ -95,46 +102,46 @@ export default {
 
   head() {
     return {
-      title: 'Poženi nov dan!',
+      title: 'Zakaj nisi še nikoli doniral_a Danes je nov dan?',
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
           name: 'description',
           content:
-            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2023 delovali tudi na tvoj pogon.',
+            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Poženi nov dan!',
+          content: 'Zakaj nisi še nikoli doniral_a Danes je nov dan?',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2023 delovali tudi na tvoj pogon.',
+            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://danesjenovdan.si/donatorska-2022_OG.png',
+          content: 'https://nov.djnd.si/donatorska-2022_OG.png',
         },
         {
           hid: 'twitter:title',
           property: 'twitter:title',
-          content: 'Poženi nov dan!',
+          content: 'Zakaj nisi še nikoli doniral_a Danes je nov dan?',
         },
         {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'Leto sklepamo z zbiranjem donacij za neodvisno delovanje. Podpri Danes je nov dan in poskrbi, da bomo v 2023 delovali tudi na tvoj pogon.',
+            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
         },
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://danesjenovdan.si/donatorska-2022_OG.png',
+          content: 'https://nov.djnd.si/donatorska-2022_OG.png',
         },
       ],
     };
@@ -160,13 +167,16 @@ export default {
   display: flex;
   justify-content: end;
 
-  img {
-    width: 90px;
+  a {
     margin: 40px;
   }
 
+  img {
+    width: 90px;
+  }
+
   @include media-breakpoint-down(sm) {
-    img {
+    a {
       margin: 20px;
     }
   }
