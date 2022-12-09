@@ -534,6 +534,8 @@ hr {
   font-size: 24px;
   font-weight: 200;
   line-height: 1.25;
+  margin-left: 0;
+  margin-right: 0;
 
   @include media-breakpoint-down(sm) {
     font-size: 16px;
