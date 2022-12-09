@@ -109,11 +109,9 @@
             </div>
             <div class="row">
               <div class="col-12 d-flex justify-content-center">
-                <nuxt-link
-                  :to="{
-                    path: '/doniraj/novi/5',
-                    query: { amount: selectedDonationAmount },
-                  }"
+                <a
+                  :href="`/doniraj/novi/5?amount=${selectedDonationAmount}`"
+                  target="_blank"
                   class="donate-button"
                 >
                   <p>Doniraj!</p>
@@ -122,7 +120,7 @@
                     src="../../static/icons/donations/2022/noun-arrow.svg"
                     alt=""
                   />
-                </nuxt-link>
+                </a>
               </div>
             </div>
           </div>

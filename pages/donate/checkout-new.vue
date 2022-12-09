@@ -115,7 +115,7 @@
             @click.native="continueToNextStage"
           />
         </div>
-        <div class="secondary-link">
+        <div class="secondary-link" v-if="!amount">
           <dynamic-link @click="goBack">Nazaj</dynamic-link>
         </div>
       </template>
