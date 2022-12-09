@@ -23,7 +23,7 @@
     </div>
     <div class="row justify-content-center colored-section py-8">
       <div class="col-lg-10">
-        <div class="row">
+        <div class="row" v-if="options[option].donate.includes('dohodnina')">
           <div class="col-lg-4 pr-5">
             <h4>Nameni nam 1 % dohodnine!</h4>
             <div class="icons-p my-2 my-lg-4">
@@ -46,7 +46,14 @@
             </div>
             <h2>Tebe nič ne stane, nam pa pomeni veliko!</h2>
           </div>
-          <div class="col-lg-8">
+          <div
+            class="col-lg-8"
+            v-if="!options[option].donate.includes('cnvos')"
+          >
+            <p class="dohodnina-instructions">
+              Vpiši svoje podatke v obrazec spodaj in izberi eno od dveh
+              možnosti za oddajo obrazca.
+            </p>
             <donation-dohodnina-embed />
             <div class="mt-4">
               <a
@@ -63,13 +70,29 @@
               </a>
             </div>
           </div>
+          <div class="col-lg-8" v-if="options[option].donate.includes('cnvos')">
+            <div>
+              <a
+                href="https://www.cnvos.si/enprocent/"
+                target="_blank"
+                class="btn-link"
+              >
+                <p>Razdeli 1 % dohodnine</p>
+                <img
+                  class="button-arrow"
+                  src="../../static/icons/donations/2022/noun-arrow.svg"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
         </div>
         <div v-if="options[option].donate == 'dohodnina_narocnina'" class="row">
           <div class="col-12">
             <hr />
           </div>
         </div>
-        <div v-if="options[option].donate == 'dohodnina_narocnina'" class="row">
+        <div v-if="options[option].donate.includes('narocnina')" class="row">
           <div class="col-lg-4 pr-5">
             <h4>Doniraj nam vsak mesec!</h4>
             <div class="icons-p my-4">
@@ -162,7 +185,7 @@ export default {
         'brez-denarnice': {
           title: 'Ker sem pozabil_a denarnico doma',
           htmlText:
-            '<p>Brez skrbi, podpreš nas lahko brez denarnice, gotovine ali kreditne kartice! Nameni nam 1 % dohodnine – gotov_a boš v 46 sekundah!</p>',
+            '<p>Brez skrbi, <a href="https://danesjenovdan.si/dejavnosti" target="_blank" class="project-link">naše delo</a> lahko podpreš tudi brez denarnice, gotovine ali kreditne kartice! Nameni nam 1 % dohodnine – gotov_a boš v 46 sekundah!</p>',
           donate: 'dohodnina',
           headerSrc: 'naslov_DENARNICA.png',
         },
@@ -204,7 +227,7 @@ export default {
         'z-desne': {
           title: 'Ker sem desničar_ka',
           htmlText:
-            '<p>O, živjo, kako si pa ti pristal_a tukaj?</p><p>No, saj ni važno – dokaži, da so <a href="https://danesjenovdan.si/lestvica-transparentnosti/" target="_blank" class="project-link">transparentnost</a>, <a href="https://participativni-proracun.djnd.si/" target="_blank" class="project-link">demokratizacija</a> in <a href="https://obljubadeladolg.si/" target="_blank" class="project-link">nadzor nad oblastjo</a>, za kar se borimo na Danes je nov dan, vrednote, skupne vsem, in podpri naše delo!</p>',
+            '<p>O, živjo, kako si pa ti pristal_a tukaj?</p><p>No, saj ni važno – dokaži, da so <a href="https://danesjenovdan.si/lestvica-transparentnosti/" target="_blank" class="project-link">transparentnost</a>, <a href="https://participativni-proracun.djnd.si/" target="_blank" class="project-link">demokratizacija</a> in <a href="https://obljubadeladolg.si/" target="_blank" class="project-link">nadzor nad oblastjo</a>, za kar se borimo na Danes je nov dan, vrednote, skupne vsem. Podpri naše delo in pomagaj pri spravi!</p>',
           donate: 'dohodnina_narocnina',
           headerSrc: 'naslov_DESNICAR.png',
         },
@@ -215,11 +238,33 @@ export default {
           donate: 'dohodnina',
           headerSrc: 'naslov_DRZAVA.png',
         },
-        cringe: {
-          title: 'Ker ste cringe',
-          htmlText: '<p>Ampak smo svobodni – pridruži se nam!</p>',
+        'kaj-pocnemo': {
+          title: 'Ker sploh ne vem, kaj vi počnete',
+          htmlText:
+            '<p>Čeprav mogoče še nisi slišal_a za nas, pa se te naše delo skoraj zagotovo tiče. Če želiš biti tudi ti del projektov, kot so <a href="https://parlameter.si/" target="_blank" class="project-link">Parlameter</a>, <a href="https://pravna-mreza.si/" target="_blank" class="project-link">Pravna mreža</a>, <a href="https://najemniski-sos.si/" target="_blank" class="project-link">Najemniški SOS</a>, <a href="https://danesjenovdan.si/lestvica-transparentnosti/" target="_blank" class="project-link">lestvica transparentnosti občin</a>, <a href="https://kvizle.si/#/calendar" target="_blank" class="project-link">Kvizle</a>, <a href="https://danesjenovdan.si/agrument" target="_blank" class="project-link">Agrument</a> in <a href="https://volitvomat.si/" target="_blank" class="project-link">Volitvomat</a>, nam nameni 1 % dohodnine ali mesečno donacijo!</p>',
           donate: 'dohodnina_narocnina',
-          headerSrc: 'naslov_CRINGE.png',
+          headerSrc: 'naslov_KAJPOCNETE.png',
+        },
+        'hocem-donirati-mesecno': {
+          title: 'Pa saj hočem mesečno donirati',
+          htmlText:
+            '<p>O, super! Zelo smo ti hvaležni, da podpiraš naše delo.</p>',
+          donate: 'narocnina',
+          headerSrc: 'naslov_MESECNA.png',
+        },
+        'hocem-donirati-dohodnino': {
+          title: 'Pa saj hočem donirati 1 % dohodnine',
+          htmlText:
+            '<p>O, super! Zelo smo ti hvaležni, da podpiraš naše delo.</p>',
+          donate: 'dohodnina',
+          headerSrc: 'naslov_DOHODNINA.png',
+        },
+        'doniram-drugam': {
+          title: 'Ker raje dam komu, ki bolj rabi',
+          htmlText:
+            '<p>Razumemo in podpiramo! Če pa želiš svoj 1 % dohodnine vseeno razdeliti med več organizacij in del nameniti tudi nam, lahko to narediš z le nekaj kliki, nam pa polepšaš celo leto!</p>',
+          donate: 'cnvos_dohodnina',
+          headerSrc: 'naslov_BOLJRABI.png',
         },
       },
       donationPresets: [
@@ -270,7 +315,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
+            'Deli svoj razlog, mi pa ti povemo, kako nam lahko vseeno pomagaš!',
         },
         {
           hid: 'og:title',
@@ -281,7 +326,7 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
+            'Deli svoj razlog, mi pa ti povemo, kako nam lahko vseeno pomagaš!',
         },
         {
           hid: 'og:image',
@@ -297,7 +342,7 @@ export default {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
+            'Deli svoj razlog, mi pa ti povemo, kako nam lahko vseeno pomagaš!',
         },
         {
           hid: 'twitter:image',
@@ -482,6 +527,17 @@ hr {
     font-size: 20px;
     line-height: 24px;
     margin-top: 30px;
+  }
+}
+
+.dohodnina-instructions {
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 1.25;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 16px;
+    padding: 0;
   }
 }
 

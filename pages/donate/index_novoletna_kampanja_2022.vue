@@ -93,8 +93,20 @@ export default {
           leads_to: 'davkoplacevalec',
         },
         {
-          title: 'Ker ste cringe',
-          leads_to: 'cringe',
+          title: 'Ker sploh ne vem, kaj vi počnete',
+          leads_to: 'kaj-pocnemo',
+        },
+        {
+          title: 'Pa saj hočem mesečno donirati',
+          leads_to: 'hocem-donirati-mesecno',
+        },
+        {
+          title: 'Pa saj hočem donirati 1 % dohodnine',
+          leads_to: 'hocem-donirati-dohodnino',
+        },
+        {
+          title: 'Ker raje dam komu, ki bolj rabi',
+          leads_to: 'doniram-drugam',
         },
       ],
     };
@@ -109,7 +121,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
+            'Deli svoj razlog, mi pa ti povemo, kako nam lahko vseeno pomagaš!',
         },
         {
           hid: 'og:title',
@@ -120,7 +132,7 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
+            'Deli svoj razlog, mi pa ti povemo, kako nam lahko vseeno pomagaš!',
         },
         {
           hid: 'og:image',
@@ -136,7 +148,7 @@ export default {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'Povej nam, zakaj še nisi podprl_a našega dela, ali pa nam nameni praznično donacijo!',
+            'Deli svoj razlog, mi pa ti povemo, kako nam lahko vseeno pomagaš!',
         },
         {
           hid: 'twitter:image',
