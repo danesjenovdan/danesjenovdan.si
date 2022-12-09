@@ -131,6 +131,8 @@
           <template>
             <card-payment
               :token="token"
+              :amount="amount"
+              :email="email"
               @ready="onPaymentReady"
               @validity-change="paymentInfoValid = $event"
               @payment-start="paymentInProgress = true"
@@ -362,11 +364,12 @@ export default {
     }
   },
   methods: {
-    paymentError(argument) {
+    paymentError(error) {
       // eslint-disable-next-line
       console.log('ERROR VERY ERROR');
       // eslint-disable-next-line
-      console.log(argument);
+      console.log(error);
+      this.error = error;
     },
     selectDonationPreset(sdp) {
       this.donationPresets.forEach((dp) => {
@@ -382,7 +385,6 @@ export default {
         if (this.stage === 'info') {
           if (this.honeyPotName !== '') {
             this.error = 'Preveč medu.';
-            this.$emit('error', 'Preveč medu.');
           } else {
             try {
               this.checkoutLoading = true;
@@ -394,7 +396,7 @@ export default {
               // const checkoutResponse = await this.$axios.$get(
               //   `http://localhost:8000/api/generic-donation/${
               //     this.donationId
-              //   }/?question_id=2&answer=${encodeURIComponent(this.answer)}`,
+              //   }/?question_id=1&answer=${encodeURIComponent(this.answer)}`,
               // );
               this.token = checkoutResponse.token;
               this.customerId = checkoutResponse.customer_id;

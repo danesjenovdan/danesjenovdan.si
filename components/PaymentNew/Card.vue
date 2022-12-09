@@ -82,6 +82,14 @@ export default {
       type: String,
       required: true,
     },
+    amount: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
     forceSlovenian: {
       type: Boolean,
       default: false,
@@ -90,6 +98,7 @@ export default {
   data() {
     return {
       hostedFieldsInstance: null,
+      threeDSecureInstance: null,
       error: null,
       numberFocused: false,
       expirationDateFocused: false,
@@ -149,6 +158,10 @@ export default {
         this.hostedFieldsInstance = await braintree.hostedFields.create(
           options,
         );
+        this.threeDSecureInstance = await braintree.threeDSecure.create({
+          client: clientInstance,
+          version: 2,
+        });
 
         this.hostedFieldsInstance.on('focus', (event) => {
           this[`${event.emittedBy}Focused`] = true;
@@ -194,7 +207,22 @@ export default {
             vault: true,
           })
           .then((payload) => {
-            this.$emit('success', { nonce: payload.nonce });
+            return this.threeDSecureInstance.verifyCard({
+              onLookupComplete: (data, next) => next(),
+              amount: this.amount,
+              nonce: payload.nonce,
+              bin: payload.details.bin,
+              email: this.email,
+            });
+          })
+          .then((payload) => {
+            if (!payload.liabilityShifted) {
+              console.log('Liability did not shift', payload);
+              this.error = 'Avtentikacija plačila ni uspela.';
+              this.$emit('error', { message: this.error });
+            } else {
+              this.$emit('success', { nonce: payload.nonce });
+            }
           })
           .catch((error) => {
             // eslint-disable-next-line no-console
