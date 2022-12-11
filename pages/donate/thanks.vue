@@ -6,7 +6,11 @@
       <template slot="content">
         <div class="row justify-content-center my-5">
           <div class="col-md-6 col-lg-4">
-            <img src="../../static/icons/donations/hvala.svg" />
+            <!-- <img src="../../static/icons/donations/hvala.svg" /> -->
+            <img
+              class="img-fluid"
+              src="../../static/icons/donations/2022/hvala.png"
+            />
           </div>
         </div>
         <div class="row justify-content-center">

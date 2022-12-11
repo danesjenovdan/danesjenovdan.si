@@ -93,8 +93,8 @@ export default {
 
   nuxtI18n: {
     paths: {
-      sl: '/doniraj',
-      en: '/donate',
+      sl: '/star-doniraj',
+      en: '/old-donate',
     },
   },
 
