@@ -90,6 +90,8 @@
               type="text"
               placeholder="Tvoj odgovor"
               class="form-control form-control-lg"
+              :class="{ 'is-invalid': robotError }"
+              @change="robotError = false"
             />
           </div>
           <div class="lonec-medu">
@@ -198,6 +200,7 @@ export default {
     const donationId = Number(this.$route.params.donationId);
     return {
       error: null,
+      robotError: false,
       stage: 'select-amount',
       donationPresets: [
         {
@@ -406,9 +409,11 @@ export default {
               this.customerId = checkoutResponse.customer_id;
               this.stage = 'payment';
             } catch (error) {
+              this.checkoutLoading = false;
               // eslint-disable-next-line no-console
               console.error(error.response);
-              this.error = error.response;
+              // this.error = error.response;
+              this.robotError = true;
             }
           }
           return;
