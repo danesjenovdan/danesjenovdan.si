@@ -136,6 +136,7 @@
                   :href="`/doniraj/novi/5?amount=${selectedDonationAmount}`"
                   target="_blank"
                   class="donate-button"
+                  :class="{ disabled: !selectedDonationAmount }"
                 >
                   <p>Doniraj!</p>
                   <img
@@ -206,7 +207,7 @@ export default {
         soros: {
           title: 'Ker vas itak plačuje Soroš',
           htmlText:
-            '<p>Pa ne, da spet bereš <a href="https://twito.si/" target="_blank" class="project-link">Janševe tvite</a>? Žal nas Soroš (še) ne plačuje, financira pa nas več kot 10 organizacij in veliko čudovitih posameznic_kov.</p><p>Pridruži se jim in nam pomagaj v boju za bolj solidarno družbo!</p>',
+            '<p>Pa ne, da spet bereš <a href="https://twito.si/" target="_blank" class="project-link">Janševe tvite</a>? Financira nas več kot 10 organizacij in veliko čudovitih posameznic_kov.</p><p>Pridruži se jim in nam pomagaj v boju za bolj solidarno družbo!</p>',
           donate: 'dohodnina_narocnina',
           headerSrc: 'naslov_SOROS.png',
         },
@@ -609,6 +610,12 @@ hr {
     text-decoration: none;
     background-image: none;
     background-color: #f5d6d3;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
   }
 
   @include media-breakpoint-down(sm) {

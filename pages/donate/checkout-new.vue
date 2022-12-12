@@ -201,7 +201,7 @@ export default {
     return {
       error: null,
       robotError: false,
-      stage: 'select-amount',
+      stage: '',
       donationPresets: [
         {
           amount: 5,
@@ -364,6 +364,8 @@ export default {
     if (this.$route.query.amount) {
       this.amount = this.$route.query.amount;
       this.stage = 'info';
+    } else {
+      this.stage = 'select-amount';
     }
   },
   methods: {
