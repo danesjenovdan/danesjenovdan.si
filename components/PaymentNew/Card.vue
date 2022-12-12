@@ -213,6 +213,7 @@ export default {
               nonce: payload.nonce,
               bin: payload.details.bin,
               email: this.email,
+              challengeRequested: true,
             });
           })
           .then((payload) => {
