@@ -1,329 +1,250 @@
 <template>
-  <div class="donation-landing-container">
-    <div class="row justify-content-center">
-      <div class="limit-like-p">
-        <h1 v-t="'donate.title'" class="mega-header"></h1>
-      </div>
+  <div class="container-fluid">
+    <div class="djnd-logo">
+      <a href="/">
+        <img
+          src="../../static/icons/donations/2022/djdn-logo-dark-100.png"
+          alt="DJND logo"
+        />
+      </a>
     </div>
-    <!-- <div class="row justify-content-center">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="embed-responsive embed-responsive-16by9">
+    <div class="row">
+      <img
+        class="header-image mb-3 mb-lg-5"
+        src="../../static/icons/donations/2022/naslovi/naslov_VSTOPNA.png"
+        alt="Zakaj nisi še nikoli doniral_a Danes je nov dan?"
+      />
+    </div>
+    <div class="row justify-content-center my-5">
+      <div class="col-lg-10">
+        <div class="row">
           <div
-            class="embed-responsive-item background-image"
-            style="
-              background-image: url('https://i.ytimg.com/vi/Sb30U8DVGtU/hqdefault.jpg');
-            "
-          ></div>
-          <div class="embed-responsive-item">
-            <iframe
-              src="https://www.youtube.com/embed/Sb30U8DVGtU?rel=0&amp;modestbranding=1&amp;autoplay=true"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen="allowfullscreen"
-              class="big-video__iframe loaded"
-            ></iframe>
+            v-for="option in mixedOptions"
+            :key="option.title"
+            class="col-lg-4 p-2"
+          >
+            <nuxt-link
+              :to="`/doniraj/${option.leads_to}`"
+              class="option-button"
+            >
+              <h3>{{ option.title }}</h3>
+              <img
+                class="button-arrow"
+                src="../../static/icons/donations/2022/noun-arrow.svg"
+                alt=""
+              />
+            </nuxt-link>
           </div>
         </div>
       </div>
-    </div> -->
-    <!-- <div class="row justify-content-center donation-buttons">
-      <div class="limit-like-p">
-        <donation-choice-button
-          donation-type="monthly"
-          :href="
-            $i18n.locale === 'sl'
-              ? '/doniraj/placaj/mesecno'
-              : '/en/donate/checkout/monthly'
-          "
-        />
-        <donation-choice-button
-          donation-type="once"
-          :href="
-            $i18n.locale === 'sl'
-              ? '/doniraj/placaj/enkrat'
-              : '/en/donate/checkout/once'
-          "
-        />
-      </div>
-    </div> -->
-    <div class="row justify-content-center">
-      <p v-t="'donate.description'"></p>
     </div>
-    <div class="row justify-content-center">
-      <div class="limit-like-p">
-        <h2 v-t="'donate.subtitle'"></h2>
-      </div>
-    </div>
-    <div class="row justify-content-center donation-buttons">
-      <div class="limit-like-p">
-        <donation-choice-button
-          donation-type="monthly"
-          :href="
-            $i18n.locale === 'sl'
-              ? '/doniraj/placaj/mesecno'
-              : '/en/donate/checkout/monthly'
-          "
-        />
-        <donation-choice-button
-          donation-type="once"
-          :href="
-            $i18n.locale === 'sl'
-              ? '/doniraj/placaj/enkrat'
-              : '/en/donate/checkout/once'
-          "
-        />
-      </div>
-    </div>
-    <volunteer i18n-path="donate.naturalije" />
   </div>
 </template>
 
 <script>
-import Volunteer from '~/components/Volunteer.vue';
-import DonationChoiceButton from '~/components/DonationChoiceButton.vue';
-
 export default {
-  components: {
-    DonationChoiceButton,
-    Volunteer,
-  },
-
-  layout: 'default-no-support',
+  components: {},
+  layout: 'donate-2022',
 
   pageColor: 'secondary',
 
   nuxtI18n: {
     paths: {
-      sl: '/star-doniraj',
-      en: '/old-donate',
+      // sl: '/doniraj-novoletna-kampanja-2022',
+      // en: '/donate-new-year-campaign-2022',
+      sl: '/doniraj',
+      en: '/donate',
     },
   },
 
   data() {
     return {
-      images: [],
+      options: [
+        {
+          title: 'Ker sem pozabil_a denarnico doma',
+          leads_to: 'brez-denarnice',
+        },
+        {
+          title: 'Ker nimam niti za najemnino',
+          leads_to: 'ni-za-najemnino',
+        },
+        {
+          title: 'Ker ne zaupam spletnim plačilom',
+          leads_to: 'ne-zaupam',
+        },
+        {
+          title: 'Ker vas itak plačuje Soroš',
+          leads_to: 'soros',
+        },
+        {
+          title: 'Kaj bluzite, saj sem že doniral_a',
+          leads_to: 'kaj-bluzite',
+        },
+        {
+          title: 'Ker je preveč zakomplicirano',
+          leads_to: 'ne-znam',
+        },
+        {
+          title: 'Ker sem desničar_ka',
+          leads_to: 'z-desne',
+        },
+        {
+          title: 'Ker mi že država preveč pobere od plače',
+          leads_to: 'davkoplacevalec',
+        },
+        {
+          title: 'Ker sploh ne vem, kaj vi počnete',
+          leads_to: 'kaj-pocnemo',
+        },
+        {
+          title: 'Pa saj hočem mesečno donirati',
+          leads_to: 'hocem-donirati-mesecno',
+        },
+        {
+          title: 'Pa saj hočem donirati 1 % dohodnine',
+          leads_to: 'hocem-donirati-dohodnino',
+        },
+        {
+          title: 'Ker raje dam komu, ki bolj rabi',
+          leads_to: 'doniram-drugam',
+        },
+      ],
     };
   },
 
   head() {
     return {
-      title: 'Doniraj za nov dan!',
+      title: 'Zakaj nisi še nikoli doniral_a Danes je nov dan?',
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
           name: 'description',
           content:
-            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
+            'Deli svoj razlog, mi pa ti povemo, kako nam lahko vseeno pomagaš!',
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Doniraj za nov dan!',
+          content: 'Zakaj nisi še nikoli doniral_a Danes je nov dan?',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
+            'Deli svoj razlog, mi pa ti povemo, kako nam lahko vseeno pomagaš!',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://danesjenovdan.si/og-image-doniraj.png',
+          content: 'https://nov.djnd.si/donatorska-2022_OG.png',
         },
         {
           hid: 'twitter:title',
           property: 'twitter:title',
-          content: 'Doniraj za nov dan!',
+          content: 'Zakaj nisi še nikoli doniral_a Danes je nov dan?',
         },
         {
           hid: 'twitter:description',
           property: 'twitter:description',
           content:
-            'S svojo donacijo podpri aktivistične projekte in nadaljnje neodvisno delovanje inštituta Danes je nov dan. Pridruži se boju za bolj vključujoč jutri in jih podpri tudi ti!',
+            'Deli svoj razlog, mi pa ti povemo, kako nam lahko vseeno pomagaš!',
         },
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://danesjenovdan.si/og-image-doniraj.png',
+          content: 'https://nov.djnd.si/donatorska-2022_OG.png',
         },
       ],
     };
   },
 
   computed: {
-    totalDonations() {
-      return this.images.reduce((prev, curr) => prev + curr.donation_amount, 0);
-    },
-
-    maxDonation() {
-      return this.images.reduce(
-        (prev, curr) =>
-          curr.donation_amount > prev ? curr.donation_amount : prev,
-        0,
-      );
-    },
-  },
-
-  async mounted() {
-    this.images = await this.$axios.$get('https://podpri.djnd.si/api/images/');
-  },
-
-  methods: {
-    onShareClick(event, type) {
-      const shareLink = 'https://danesjenovdan.si/doniraj';
-      const shareText =
-        'Danes je nov dan tudi letošnje leto sklepa z zbiranjem donacij za nadaljnje delovanje. Pridruži se boju za bolj vključujoč jutri in podpri Danes je nov dan!';
-      const titleText = 'Kupi darilo družbi. Podpri Danes je nov dan!';
-      const shareHashtag = '';
-      this.openSocialShareLink(
-        type,
-        titleText,
-        shareText,
-        shareLink,
-        shareHashtag,
-      );
-    },
-    openSocialShareLink(type, titleText, shareText, shareLink, shareHashtag) {
-      let url = '';
-      const title = encodeURIComponent(titleText);
-      if (type === 'fb') {
-        const link = encodeURIComponent(shareLink);
-        url = `https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=${link}&link=${link}&ref=responsive&name=${title}`;
-      } else if (type === 'tw') {
-        const text = encodeURIComponent(
-          `${shareText.replace(
-            ' Danes je nov dan',
-            ' @danesjenovdan',
-          )} ${shareHashtag} ${shareLink}`,
-        );
-        url = `https://twitter.com/intent/tweet?text=${text}`;
-      } else if (type === 'mail') {
-        const text = `${shareText} ${shareLink}`;
-        url = `mailto:?subject=${title}&body=${text}`;
+    mixedOptions() {
+      const optionsTemp = [...this.options];
+      for (let i = optionsTemp.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = optionsTemp[i];
+        optionsTemp[i] = optionsTemp[j];
+        optionsTemp[j] = temp;
       }
-      window.open(url, '_blank');
+      return optionsTemp;
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-// .donation-landing-container {
-//   @include media-breakpoint-up(xl) {
-//     padding-left: 150px;
-//     padding-right: 150px;
-//   }
-// }
-/deep/ .logo {
-  width: 230px;
+.djnd-logo {
+  display: flex;
+  justify-content: end;
 
-  @include media-breakpoint-up(sm) {
-    width: 300px;
-  }
-}
-.donate-href {
-  width: 100%;
-  max-width: 250px;
-  font-style: italic;
-  font-size: 25px;
-  font-weight: 500;
-  line-height: 32px;
-  text-decoration: underline;
-  color: $black;
-
-  margin: 20px;
-  text-decoration: none;
-
-  .underline {
-    text-decoration: underline;
+  a {
+    margin: 40px;
   }
 
-  @include media-breakpoint-up(lg) {
-    margin-left: 80px;
+  img {
+    width: 90px;
   }
-}
-.mega-header {
-  position: relative;
-  font-size: 50px;
-  line-height: 60px;
-  color: rgba(223, 120, 108, 0.98);
-  font-weight: 700;
-  font-style: italic;
-  text-shadow: -1px 1px 0 #333333, 1px 1px 0 #333333, 1px -1px 0 #333333,
-    -1px -1px 0 #333333;
-  margin-top: 0;
-  padding-left: 30px;
 
-  z-index: 200;
-  margin-bottom: 10px;
-
-  .strikethrough {
-    position: relative;
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 9px;
-      background-color: #393939;
-      position: absolute;
-      left: 0;
-      top: 55%;
+  @include media-breakpoint-down(sm) {
+    a {
+      margin: 20px;
     }
   }
+}
 
-  @include media-breakpoint-up(md) {
-    font-size: 90px;
-    line-height: 90px;
-    margin-top: 50px;
-    padding-left: 0;
+.header-image {
+  max-width: 100%;
+  height: auto;
+
+  @include media-breakpoint-down(sm) {
+    min-height: 140px;
+    object-fit: cover;
   }
 }
-.embed-responsive {
-  z-index: 1;
-}
+
 h1 {
-  font-size: 80px;
+  font-size: 65px;
   font-weight: 600;
-  line-height: 100px;
+  // line-height: 100px;
   font-style: italic;
   letter-spacing: -1px;
-  margin-top: 50px;
-  margin-bottom: 50px;
   text-align: left;
   width: 100%;
 
   @include media-breakpoint-down(sm) {
-    font-size: 55px;
-    line-height: 70px;
+    font-size: 50px;
+    line-height: 60px;
     margin-bottom: 0;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
+
 h2 {
-  color: #333333;
   font-size: 40px;
-  font-weight: 400;
   font-style: italic;
-  letter-spacing: normal;
-  line-height: 50px;
-  text-align: left;
+  font-weight: 600;
+  margin-bottom: 3rem;
 
   @include media-breakpoint-down(sm) {
-    font-size: 30px;
+    font-size: 32px;
     line-height: 40px;
     margin-bottom: 0;
     padding-left: 30px;
     padding-right: 30px;
   }
 }
+
 p {
   font-size: 20px;
   color: #333333;
   font-weight: 200;
   width: 100%;
-  max-width: 672px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  max-width: 872px;
+  margin-top: 1em;
+  margin-bottom: 1em;
   padding-left: 30px;
   padding-right: 30px;
 
@@ -332,62 +253,72 @@ p {
     padding: 0;
   }
 }
+
+.option-button {
+  border: 1px solid #000000;
+  background-image: linear-gradient(to right, #f5d6d3 0%, #fdf7f6 100%);
+  padding: 50px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+
+  h3 {
+    color: #333333;
+    font-size: 36px;
+    font-weight: 700;
+    font-family: $font-family-sans-serif;
+    line-height: 40px;
+    text-align: left;
+    padding-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .button-arrow {
+    width: 50px;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-image: none;
+    background-color: #f5d6d3;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 30px 15px;
+
+    h3 {
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    .button-arrow {
+      width: 30px;
+    }
+  }
+}
+
+.gradient-section {
+  background-image: linear-gradient(to right, #df786c 0%, #f5d6d3 100%);
+  position: absolute;
+  opacity: 0.2;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.colored-text {
+  color: #dc776b;
+  font-weight: 900;
+}
+
 .limit-like-p {
   width: 100%;
-  max-width: 672px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  max-width: 872px;
 }
 .pad-like-p {
   padding-left: 30px;
   padding-right: 30px;
-}
-
-.donation-buttons {
-  .square-donation-button {
-    float: left;
-
-    &:last-child {
-      float: right;
-    }
-
-    @include media-breakpoint-down(sm) {
-      float: left !important;
-    }
-  }
-
-  @include media-breakpoint-down(md) {
-    width: 317px;
-    margin: auto;
-  }
-}
-
-p.naturalije {
-  color: #333333;
-  font-size: 20px;
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: normal;
-  line-height: 24.67px;
-  text-align: left;
-  margin-top: 20px;
-
-  a {
-    color: #333333;
-    text-decoration: underline;
-  }
-
-  &::before {
-    content: '';
-    background-image: url('../../static/icons/donations/clovek.svg');
-    display: block;
-    float: left;
-    position: relative;
-    width: 70px;
-    height: 70px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    top: -8px;
-  }
 }
 </style>
