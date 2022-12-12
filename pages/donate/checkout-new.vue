@@ -393,14 +393,14 @@ export default {
                   this.donationId
                 }/?question_id=2&answer=${encodeURIComponent(
                   this.answer,
-                )}&email=${this.email}`,
+                )}&email=${encodeURIComponent(this.email)}`,
               );
               // const checkoutResponse = await this.$axios.$get(
               //   `http://localhost:8000/api/generic-donation/${
               //     this.donationId
               //   }/?question_id=1&answer=${encodeURIComponent(
               //     this.answer,
-              //   )}&email=${this.email}`,
+              //   )}&email=${encodeURIComponent(this.email)}`,
               // );
               this.token = checkoutResponse.token;
               this.customerId = checkoutResponse.customer_id;
