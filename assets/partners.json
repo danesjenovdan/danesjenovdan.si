@@ -1,11 +1,6 @@
 {
   "partners": [
     {
-      "name": "AcessInfo",
-      "url": "https://www.access-info.org/",
-      "image": "/img/partners/access-info.png"
-    },
-    {
       "name": "Battle for Humanity",
       "url": "https://www.battle4humanity.com/",
       "image": "/img/partners/battle-for-humanity.jpg"
@@ -16,16 +11,6 @@
       "image": "/img/partners/cnvos.png"
     },
     {
-      "name": "Code for All",
-      "url": "https://codeforall.org/",
-      "image": "/img/partners/code-for-all.png"
-    },
-    {
-      "name": "DCN",
-      "url": "http://www.digicomnet.org/",
-      "image": "/img/partners/dcn.jpg"
-    },
-    {
       "name": "Digidem Lab",
       "url": "https://digidemlab.org/",
       "image": "/img/partners/digidemlab.svg"
@@ -34,11 +19,6 @@
       "name": "Društvo novinarjev Slovenije",
       "url": "https://novinar.com/",
       "image": "/img/partners/dns.png"
-    },
-    {
-      "name": "Društvo za zaščito živali",
-      "url": "https://www.dzzz.si/",
-      "image": "/img/partners/dzzz.png"
     },
     {
       "name": "Državljan D",
@@ -61,24 +41,9 @@
       "image": "/img/partners/gong.png"
     },
     {
-      "name": "Greenpeace Slovenija",
-      "url": "https://www.greenpeace.org/slovenia/",
-      "image": "/img/partners/greenpeace.png"
-    },
-    {
-      "name": "Inštitut za delavske študije",
-      "url": "http://www.delavske-studije.si/",
-      "image": "/img/partners/ids.png"
-    },
-    {
       "name": "Inštitut za intelektualno lastnino",
       "url": "https://www.ipi.si/",
       "image": "/img/partners/ipi.svg"
-    },
-    {
-      "name": "IPOP",
-      "url": "https://ipop.si/",
-      "image": "/img/partners/ipop.png"
     },
     {
       "name": "Kje bomo pa jutri spali",
@@ -136,16 +101,6 @@
       "image": "/img/partners/zasto-ne.png"
     },
     {
-      "name": "Inštitut Jožef Štefan",
-      "url": "https://ijs.si/ijsw",
-      "image": "/img/partners/ijs.png"
-    },
-    {
-      "name": "Åpenhet",
-      "url": "https://www.apenhet.com/",
-      "image": "/img/partners/apenhet.png"
-    },
-    {
       "name": "Občina Hrastnik",
       "url": "https://www.hrastnik.si/",
       "image": "/img/partners/hrastnik.png"
@@ -161,113 +116,29 @@
       "image": "/img/partners/opd.png"
     },
     {
-      "name": "OŠ Rada Robiča Limbuš",
-      "url": "https://www.oslimbus.si/",
-      "image": "/img/partners/os-rada-robica.png"
-    },
-    {
       "name": "Za in proti, zavod za kulturo dialoga",
       "url": "http://www.zainproti.com/",
       "image": "/img/partners/za-in-proti.png"
     },
     {
-      "name": "Società Nazionale Debate Italia",
-      "url": "https://www.sn-di.it/",
-      "image": "/img/partners/sn-di.png"
+      "name": "Zavod za kulturo raznolikosti Open",
+      "url": "http://www.open.si/",
+      "image": "/img/partners/open.jpg"
     },
     {
-      "name": "Fundación Educativa Activa-T",
-      "url": "https://fundacionactivate.org/",
-      "image": "/img/partners/activa-t.png"
+      "name": "Amnesty International",
+      "url": "https://www.amnesty.si/",
+      "image": "/img/partners/amnesty-international.jpg"
     },
     {
-      "name": "Molėtų gimnazija",
-      "url": "http://www.gimnazija.moletai.lt/",
-      "image": "/img/partners/moletu-gimnazija.png",
-      "class": "p-3"
+      "name": "IŠSP – Inštitut za študije stanovanj in prostora",
+      "url": "https://zadrugator.org/issp/",
+      "image": "/img/partners/issp.png"
     },
     {
-      "name": "Colegio Miralmonte SCOOP",
-      "url": "https://colegiomiralmonte.es/",
-      "image": "/img/partners/colegio-miralmonte.png"
-    },
-    {
-      "name": "Istituto Tecnico Economico \"Enrico Tosi\"",
-      "url": "https://www.etosi.edu.it/pvw/app/VAIT0005/pvw_sito.php",
-      "image": "/img/partners/ite-tosi.png"
-    },
-    {
-      "name": "Englantilainen Koulu",
-      "url": "https://www.engs.fi/",
-      "image": "/img/partners/engs.png"
-    },
-    {
-      "name": "Omladinski centar CK13",
-      "url": "https://ck13.org/youth-center-ck13/",
-      "image": "/img/partners/ck13.png"
-    },
-    {
-      "name": "Inicijativa mladih za ljudska prava",
-      "url": "http://yihr.hr/hr/",
-      "image": "/img/partners/yihr.png"
-    },
-    {
-      "name": "Yenilikçi Eğitimciler Derneği Hoşgeldiniz",
-      "url": "http://www.yenilikciegitimcilerdernegi.com/",
-      "image": "/img/partners/yedh.png",
-      "class": "p-3"
-    },
-    {
-      "name": "Universidad de Granada",
-      "url": "https://www.ugr.es/",
-      "image": "/img/partners/universidad-de-granada.png"
-    },
-    {
-      "name": "Middle East Technical University",
-      "url": "https://www.metu.edu.tr/",
-      "image": "/img/partners/middle-east-technical-university.png",
-      "class": "p-3"
-    },
-    {
-      "name": "Fundació Privada Trinijove",
-      "url": "http://trinijove.org/",
-      "image": "/img/partners/trinijove.png"
-    },
-    {
-      "name": "Institute of Computer Science, Polish Academy of Sciences",
-      "url": "https://ipipan.waw.pl/en/",
-      "image": "/img/partners/ipipan.png"
-    },
-    {
-      "name": "Università di Milano-Bicocca",
-      "url": "https://www.unimib.it/",
-      "image": "/img/partners/bicocca.png"
-    },
-    {
-      "name": "Consejería de Educación y Deporte de la Junta de Andalucía",
-      "url": "https://www.juntadeandalucia.es/educacion/portals/web/ced",
-      "image": "/img/partners/juntadeandalucia.png"
-    },
-    {
-      "name": "Fondazione Luigi Clerici",
-      "url": "https://www.clerici.lombardia.it/2.0/",
-      "image": "/img/partners/flc.png"
-    },
-    {
-      "name": "Inštitut za novejšo zgodovino",
-      "url": "https://www.inz.si/sl/",
-      "image": "/img/partners/inz.png",
-      "class": "p-3"
-    },
-    {
-      "name": "Institute of Information and Communication Technologies, Bulgarian Academy of Sciences",
-      "url": "http://www.iict.bas.bg/EN/",
-      "image": "/img/partners/iict.png"
-    },
-    {
-      "name": "University of Luxembourg",
-      "url": "https://wwwen.uni.lu/",
-      "image": "/img/partners/uni-luxembourg.png"
+      "name": "RadicalxChange",
+      "url": "https://www.radicalxchange.org/",
+      "image": "/img/partners/rxc.jpg"
     }
   ],
   "donators": [
@@ -308,6 +179,18 @@
       "name": "Grant for the Web",
       "url": "https://www.grantfortheweb.org/",
       "image": "/img/donators/gftw.png",
+      "class": "p-3"
+    },
+    {
+      "name": "European AI Fund",
+      "url": "https://europeanaifund.org/",
+      "image": "/img/donators/eaif.png",
+      "class": "p-3"
+    },
+    {
+      "name": "Netherlands embassy in Ljubljana",
+      "url": "https://www.netherlandsandyou.nl/your-country-and-the-netherlands/slovenia",
+      "image": "/img/donators/nizozemska.jpg",
       "class": "p-3"
     }
   ]

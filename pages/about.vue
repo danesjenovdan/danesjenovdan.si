@@ -156,67 +156,30 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <section-header :text="$t('about.formalities')" />
-      </div>
-    </div>
-    <div class="row formalities">
-      <div class="col-12 mt-3">
-        <p>
-          {{ $t('about.company-seat') }}
-          <strong
-            >Parmova ulica 20, 1000 Ljubljana<template
-              v-if="$i18n.locale !== 'sl'"
-              >, Slovenia</template
-            ></strong
-          >
-          <br />{{ $t('about.mailing-address') }}
-          <strong
-            >Resljeva cesta 25, 1000 Ljubljana<template
-              v-if="$i18n.locale !== 'sl'"
-              >, Slovenia</template
-            ></strong
-          >
-        </p>
-        <p>
-          {{ $t('about.tax-id') }}
-          <strong>SI54561710</strong>
-          <br />{{ $t('about.registration-number') }}
-          <strong>6468594000</strong>
-        </p>
-        <p>
-          {{ $t('about.bank-account') }}
-          <strong>SI56 6100 0000 5740 710</strong>
-          <br />(Delavska hranilnica d.d., Ljubljana)
-        </p>
-        <p v-t="'about.ngo'"></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
         <section-header :text="$t('about.transparency')" />
       </div>
     </div>
     <div class="row formalities">
-      <div class="col-12 mt-3">
+      <div class="col-lg-4 mt-3">
+        <p>
+          Na Danes je nov dan verjamemo v transparentnost in smo zavezani k
+          rednemu objavljanju podatkov o finančenem delovanju.
+        </p>
         <more-button
           :text="$t('about.yearly-reports')"
+          class="mt-3"
           icon="papers"
           to="https://drive.google.com/drive/folders/105Jb0F_hKvf-HBKXiwK4NRjTIbNepLFP"
         />
-      </div>
-      <div class="col-12 mt-3">
         <more-button
           :text="$t('about.results')"
+          class="mt-3"
           icon="papers"
           to="https://drive.google.com/drive/folders/1mUhlnNyfuJGJZg6ACJvBl4eBOvO-rJ-x"
         />
       </div>
-      <div class="col-12 mt-3">
-        <p>
-          {{ $t('about.pay-ratio') }}
-          <span>30. 6. 2021</span>:
-          <strong>1 : 1,44</strong>
-        </p>
+      <div class="col-lg-8 mt-3">
+        <odprti-racuni-embed class="embed-fluid" />
       </div>
     </div>
   </div>
@@ -228,6 +191,7 @@ import BoxLink from '~/components/BoxLink.vue';
 import SectionHeader from '~/components/SectionHeader.vue';
 import LogoBox from '~/components/LogoBox.vue';
 import MoreButton from '~/components/MoreButton.vue';
+import OdprtiRacuniEmbed from '~/components/OdprtiRacuniEmbed.vue';
 import partnersJson from '~/assets/partners.json';
 
 export default {
@@ -243,6 +207,7 @@ export default {
     SectionHeader,
     LogoBox,
     MoreButton,
+    OdprtiRacuniEmbed,
   },
   data() {
     return {
@@ -366,6 +331,10 @@ export default {
     strong {
       font-weight: 500;
     }
+  }
+
+  .embed-fluid {
+    max-width: 100%;
   }
 }
 

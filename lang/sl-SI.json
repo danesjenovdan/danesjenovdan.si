@@ -294,21 +294,13 @@
       "values": "Naše merilo je veselje do življenja!",
       "clipping": "Kliping javnih pojavljanj: dober glas seže v deveto vas, slabega pa ne objavimo."
     },
-    "our-partners": "Naši partnerji",
+    "our-partners": "V zadnjem letu smo sodelovali z ...",
     "our-donators": "Naši donatorji",
-    "formalities": "Pomembni podatki",
     "transparency": "Transparentnost delovanja",
-    "company-seat": "Sedež podjetja:",
     "company-seat-short": "Sedež:",
-    "mailing-address": "Pisarna in naslov za prejem pošte:",
     "mailing-address-short": "Pisarna / pošta:",
-    "tax-id": "Davčna številka:",
-    "registration-number": "Matična številka:",
-    "bank-account": "TRR:",
-    "ngo": "Po odločbi Ministrstva za javno upravo imamo status nevladne organizacije v javnem interesu na področju razvoja informacijske družbe.",
     "yearly-reports": "Letna vsebinska in finančna poročila",
-    "results": "Rezultati",
-    "pay-ratio": "Razmerje med najnižjo osnovno bruto plačo in najvišjo na dan"
+    "results": "Rezultati"
   },
   "videos": {
     "description": "Nekatere videe smo ustvarili za predstavitev svojih orodij, akcij in vsebin, v drugih nastopamo kot protagonisti, nekateri so satirični kolaži drugih medijskih vsebin, spet tretji pa odražajo naše vrednote in veselje do življenja.",
