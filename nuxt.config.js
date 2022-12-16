@@ -133,6 +133,10 @@ export default {
         defer: true,
         'data-domain': 'danesjenovdan.si',
       },
+      {
+        type: 'text/javascript',
+        innerHTML: 'window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }',
+      }
     ],
   },
   /*
