@@ -5,15 +5,11 @@
       target="_blank"
       rel="noopener noreferrer"
       class="project-tile__link"
+      @click="trackClick(title, url)"
     >
       <div class="embed-responsive embed-responsive-1200by630">
         <div
-          class="
-            embed-responsive-item
-            d-flex
-            align-items-center
-            justify-content-center
-          "
+          class="embed-responsive-item d-flex align-items-center justify-content-center"
         >
           <div class="project-tile__image">
             <img :src="image" :alt="alt" />
@@ -43,6 +39,8 @@
 </template>
 
 <script>
+/* global plausible */
+
 export default {
   props: {
     image: {
@@ -68,6 +66,16 @@ export default {
     url: {
       type: String,
       required: true,
+    },
+  },
+  methods: {
+    trackClick(title, url) {
+      plausible('Project', {
+        props: {
+          title,
+          url,
+        },
+      });
     },
   },
 };
