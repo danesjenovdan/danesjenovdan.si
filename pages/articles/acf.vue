@@ -34,7 +34,7 @@
         >
       </h4>
       <p>
-        Trajanje projekta: 1. 10. 2020 do 30. 9. 2022<br />
+        Trajanje projekta: 1. 10. 2020 do 31. 12. 2022<br />
         Višina podpore: 118 500,00 EUR<br />
         Višina sredstev, ki jih je prejel Danes je nov dan: 74 830,00 EUR
       </p>
@@ -46,10 +46,7 @@
           </a>
         </li>
         <li>
-          <a
-            href="https://www.facebook.com/Organizacija-za-participatorno-dru%C5%BEbo-1618636031777654/"
-            target="_blank"
-          >
+          <a href="http://dopd.si/" target="_blank">
             Organizacija za participatorno družbo
           </a>
         </li>
@@ -192,7 +189,7 @@
         občinskih predstavnikov. Parlameter jim to delo olajša in jih opolnomoči
         v vlogi nadzornika, občinam pa omogoči večjo transparentnost delovanja.
       </p>
-      <p>Orodje je že na voljo za spremljanje dogajanja v 2 občinah:</p>
+      <p>Orodje je na voljo za spremljanje dogajanja v 4 občinah:</p>
       <ul>
         <li>
           <a href="https://ljubljana.parlameter.si/" target="_blank"
@@ -204,10 +201,20 @@
             >Občina Hrastnik</a
           >
         </li>
+        <li>
+          <a href="https://lendava.parlameter.si/" target="_blank"
+            >Občina Lendava</a
+          >
+        </li>
+        <li>
+          <a href="https://ajdovscina.parlameter.si/" target="_blank"
+            >Občina Ajdovščina</a
+          >
+        </li>
       </ul>
       <br />
       <u>Uporaba izsledkov v zagovorniških kampanjah</u>
-      <p>Izsledki iz Parlametra so bili uporabljeni v:</p>
+      <p>Izsledki iz projekta so bili uporabljeni v:</p>
       <ul>
         <li>
           <a
@@ -222,7 +229,58 @@
         </li>
         <li>
           predstavitvi orodja Mestni občini Ljubljana in predaji priporočil za
-          povečanje transparentnosti delovanja občinskega sveta.
+          povečanje transparentnosti delovanja občinskega sveta,
+        </li>
+        <li>kampanji Glas ljudstva pred lokalnimi volitvami.</li>
+      </ul>
+      <br />
+      <u>Priročnik Transparentna, dostopna in vključujoča občina</u>
+      <p>
+        Če smo v Lestvici transparentnosti raziskovali, kaj so problemi glede
+        transparentnosti občinskega delovanja, dostopnosti podatkov in
+        vključevanja javnosti v procese odločanja, s priročnikom Transparentna,
+        dostopna in vključujoča občina skušamo občinam s konkretnimi nasveti in
+        priporočili pomagati nasloviti te probleme.
+      </p>
+      <p>
+        Priročnik vsebuje konkretne nasvete, s katerimi lahko občine izboljšajo
+        svojo transparentnost in poskrbijo za dejavno vključevanje javnosti v
+        delo lokalnih oblasti. Razdeljen je na tri večje sklope:
+        transparentnost, dostopnost, participacijo. Vsak sklop vsebuje obilico
+        konkretnih priporočil, kot tudi primere dobre prakse in gradiva za
+        nadaljnje in bolj poglobljeno branje.
+      </p>
+      <p>
+        Priročnik je na voljo brezplačno na tej povezavi:
+        <a href="https://djnd.si/prirocnik" target="_blank">djnd.si/prirocnik</a
+        >.
+      </p>
+      <u>Javni posveti in predstavitve izsledkov in aktivnosti</u>
+      <ul>
+        <li>
+          Občinam smo predstavili priporočila za izboljšanje transparentnosti in
+          dostopnosti občinskih spletnih mest.
+        </li>
+        <li>
+          Lestvico transparentnosti smo predstavili na novinarski konferenci v
+          Državnem svetu.
+        </li>
+        <li>
+          Občinskim svetnikom smo predstavili Lestvico transparentnosti,
+          priročnik Transparentna, dostopna in vključujoča občina ter občinski
+          Parlameter.
+        </li>
+        <li>
+          Novinarjem smo na več dogodkih predstavili projekt in prednosti
+          občinskega Parlametra.
+        </li>
+        <li>
+          Hrastniškim občinskim svetnikom in javnosti smo predstavili delovanje
+          Parlametra Hrastnik.
+        </li>
+        <li>
+          Ajdovskim občinskim svetnikom in javnosti smo predstavili delovanje
+          Parlametra Ajdovščina.
         </li>
       </ul>
     </news-article>
@@ -311,7 +369,7 @@
       </p>
       <p>
         Institucionalna podpora nam bo omogočila izpolnitev Strategije Danes je
-        nov dan 2021–2023, S katero nagovarjamo netransparentnost in
+        nov dan 2021–2023, s katero nagovarjamo netransparentnost in
         nedostopnost občinskih in parlamentarnih podatkov, nevključenost
         javnosti v procese odločanja in pomanjkanje odgovornosti javnih
         funkcionarjev pri dajanju političnih obljub, kar bomo reševali z
@@ -420,7 +478,7 @@
         </strong>
       </h4>
       <p>
-        Trajanje projekta: 1. 1. 2021 do 31. 12. 2022<br />
+        Trajanje projekta: 1. 1. 2021 do 30. 4. 2023<br />
         Višina podpore: 97 020,00 EUR<br />
         Višina sredstev, ki jih je prejel Danes je nov dan: 48 510,00 EUR
       </p>
@@ -516,6 +574,144 @@
         Kontaktna oseba: Jasmina Ploštajner (<a href="mailto:jasmina@djnd.si"
           >jasmina@djnd.si</a
         >)
+      </p>
+      <hr />
+      <h4>
+        <strong
+          >Poročilo o izvedenih aktivnostih in doseženih rezultatih</strong
+        >
+      </h4>
+      <u>Platforma Obljuba dela dolg</u>
+      <p>
+        Ker je izjemno pomembno, da ima analiziranje za sabo verodostojno
+        metodologijo za spremljanje in analizo uresničevanja političnih obljub,
+        smo na skupnih internih delavnicah, ki smo jih izvajali v prvi polovici
+        2021, najprej pregledali tujo prakso s področja spremljanja političnih
+        obljub. Na ta način so se člani projektne skupine seznanili z različnimi
+        metodami preiskovanja obljub in vizualizacije rezultatov. V začetku
+        aprila smo organizirali tudi pogovor z Glennom Kesslerjem, urednikom
+        platforme za spremljanje političnih obljub ameriškega časnika The
+        Washington post Trump Promise Tracker. V pogovoru smo spoznali
+        metodologijo dela na tej platformi in obsežno razpravljali o potrebnih
+        prilagoditvah metodologije za proporcionalni volilni sistem.
+      </p>
+      <p>
+        Na podlagi osvojenih znanj iz analize ter izvedenih pogovorov znotraj
+        projektne skupine smo identificirali vprašanja ter oblikovali vprašalnik
+        o potrebah in željah ciljnih skupin, analiza odgovorov in rezultati
+        posvetovanja pa sta skupaj z analizo obstoječih praks služila kot osnova
+        za smernice za razvoj spletne platforme, metodologije in uredniške
+        politike spremljanja obljub. Te je ekipa razvijala v aprilu in maju
+        2021.
+      </p>
+      <p>
+        Ključni vprašanji pri razvoju metodologije za spremljanje obljub sta
+        bili katere obljube bomo spremljali in katere ocene bomo podeljevali.
+        Zaradi proporcionalnega volilnega sistema, ki stranke sili v sklepanje
+        koalicij in kompromisov ter otežuje izvedbo programov posameznih strank
+        v celoti, smo se odločili za spremljanje obljub, ki so se jim zavezale
+        vse koalicijske stranke v koalicijski pogodbi. Izbrali smo le tiste
+        zaveze, ki so dovolj določne, da je njihovo izvajanje mogoče preveriti
+        na podlagi objektivnih in vnaprej določenih kriterijev. Pri določitvi
+        sistema ocen smo se oprli na izkušnje podobnih platform iz tujine.
+        Končni stanji obljub sta lahko “izpolnjena” ali “prelomljena”. V vmesnem
+        času so obljube lahko tudi “nedotaknjene”, “zastale” ali “v izvajanju”.
+        Na podlagi praks iz tujine smo se odločili tudi, da ne bomo izdelali
+        grafičnega prikaza deleža obljub, ki jih je vlada izpolnila, saj se
+        obljube razlikujejo po zahtevnosti, pomembnosti in vplivu na življenje
+        prebivalcev in bi bil tak prikaz lahko zavajajoč. Prikaz deleža
+        izpolnjenih obljub bi tako zahteval uteževanje obljub po njihovi
+        pomembnosti, kar pa bi po naši oceni v projekt vneslo preveč
+        subjektivnosti.
+      </p>
+      <p>
+        Začeli smo s sledenjem obljub
+        <a href="https://obljubadeladolg.si/vse-obljube/" target="_blank"
+          >14. slovenski vladi</a
+        >, nadaljujemo pa s sledenjem obljub
+        <a
+          href="https://obljubadeladolg.si/vse-obljube-15-vlade/"
+          target="_blank"
+          >15. slovenski vladi</a
+        >.
+      </p>
+      <br />
+      <u>Javni uredniški sestanki</u>
+      <p>
+        Izvedli smo že dva javna uredniška sestanka. Na prvem smo javnosti
+        predstavili način dela in s poslušalci razpravljali o tem, kdaj izjava
+        politika postane obljuba volivcem. Prejeli smo tudi nekaj predlogov za
+        izboljšavo platforme. Na drugem uredniškem sestanku smo predstavljali že
+        vzpostavljeno platformo in se pogovarjali o pomembnosti spremljanja
+        političnih obljub.
+      </p>
+      <br />
+      <u>Posvetovanje s ciljnimi uporabniki</u>
+      <p>
+        Redno izvajamo posvetovanja s ciljnimi uporabniki. Ob začetku projekta
+        smo izvedli posvetovanje glede potreb potencialnih uporabnikov
+        platforme, pred parlamentarnimi volitvami nas je zanimalo, kakšne
+        informacije bi lahko služile bolj informiranim odločitvam na volitvah,
+        ob sklenitvi nove koalicijske pogodbe in pripravami na nov vladni mandat
+        pa nas je zanimalo, katerim obljubam naj sledimo v naslednjih letih.
+      </p>
+      <br />
+      <u>Izobraževanja za NVO in zagovorništvo</u>
+      <p>
+        Tekom projekta smo izvedli eno izobraževanje za NVO (Inštitut za študije
+        stanovanj in prostora). Na ta način smo NVO opremili z novimi znanji,
+        jim predstavili platformo za nadaljnjo rabo ter jih opremili z dokazi za
+        prihodnje zagovorniške akcije. Izvedli smo tudi eno zagovorniško
+        kampanjo (skupaj s platformo Najemniški SOS). V okviru
+        informacijsko-zagovorniške kampanje so člani Najemniškega SOS-a izsledke
+        s platforme uporabili za informiranje mimoidočih na stojnici pred
+        Fakulteto za družbene vede, kjer so najemnike ozaveščali o njihovih
+        pravicah in stanju stanovanjske politike. Izsledke so prav tako
+        uporabili v družbenomedjskih objavah, s katerimi so pridobivali
+        interesente za najemniška srečanja in oblikovanje najemniškega
+        sindikata.
+      </p>
+      <br />
+      <u>Analiza mandata 2020–2022</u>
+      <p>
+        Na podlagi zbranih mnenj, ki smo jih pridobili v okviru posvetovanja s
+        ciljnimi uporabniki, smo pred državnozborskimi volitvami aprila 2022
+        pripravili analizo stanja vseh preteklih političnih obljub. Janševa
+        vlada je v dvoletnem mandatu izpolnila le 17 od 51 zavez iz koalicijske
+        pogodbe, kar 31 pa jih je delno ali v celoti prelomila. A ker je gola
+        statistika lahko zavajajoča, saj se ukrepi med seboj razlikujejo po
+        učinkih, kakovosti in težavnosti izvedbe, smo rezultate koalicije
+        predstavili v poglobljeni analizi. Cilj analize je bil povečati
+        ozaveščenost javnosti o stanju politične (ne)odgovornosti v Sloveniji in
+        javnosti omogočili bolj informirano in s podatki podprto odločitev na
+        volitvah. Posredno smo z analizo izvajali tudi pritisk na politike za
+        izboljšanje njihove politične odgovornosti.
+      </p>
+      <p>
+        Analiza je na voljo
+        <a
+          href="https://obljubadeladolg.si/analiza-obljub-2020-2022/"
+          target="_blank"
+          >tukaj</a
+        >.
+      </p>
+      <br />
+      <u>Redno obveščanje zainteresirane javnosti o stanju obljub</u>
+      <p>
+        Vse analizirane obljube redno objavljamo tudi na našem
+        <a href="https://www.facebook.com/ObljubaDelaDolg" target="_blank"
+          >Facebook</a
+        >
+        in
+        <a href="https://twitter.com/obljubadeladolg" target="_blank"
+          >Twitter</a
+        >
+        profilu. Vzpostavili smo dva tipa novičnika: poglobljeni mesečni pregled
+        in dvotedensko posodobitev novic (digest). Na ta način ciljne javnosti
+        redno seznanjamo s potekom projektnih aktivnosti, analizami političnih
+        obljub in obstojem spletne platforme, obenem pa jim ponujamo še dodatno
+        možnost spremljanja uresničevanja političnih obljub (poleg obiskovanja
+        spletnega mesta in spremljanja naših družbenih omrežij).
       </p>
     </news-article>
     <news-article>
@@ -716,7 +912,7 @@ export default {
   data() {
     return {
       title: 'Podpora sklada Active Citizen Fund v Sloveniji',
-      date: '2022-10-24',
+      date: '2022-12-22',
     };
   },
   head() {
