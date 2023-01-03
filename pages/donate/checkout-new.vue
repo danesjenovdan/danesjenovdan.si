@@ -380,6 +380,7 @@ export default {
       this.donationPresets.forEach((dp) => {
         dp.selected = dp === sdp;
       });
+      this.amount = sdp.amount;
     },
     async continueToNextStage() {
       if (this.canContinueToNextStage) {
