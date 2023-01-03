@@ -139,7 +139,7 @@
           >
             <project-tile-small
               :image="
-                require(`../../static/img/donation-campaign-2021/projects/${project.imageSrc}`)
+                require(`../../../static/img/donation-campaign-2021/projects/${project.imageSrc}`)
               "
               :alt="project.title"
               :text="project.description"
@@ -236,7 +236,10 @@
       <div class="col-lg-6 position-relative">
         <h1>Več nas bo, prej bomo na cilju!</h1>
         <h2>POVEJ NAPREJ!</h2>
-        <img class="share-image" src="../../static/icons/donations/share.png" />
+        <img
+          class="share-image"
+          src="../../../static/icons/donations/share.png"
+        />
       </div>
       <div class="col-lg-6 pl-lg-5">
         <div class="share-box position-relative">
@@ -270,8 +273,8 @@ export default {
 
   nuxtI18n: {
     paths: {
-      sl: '/doniraj-novoletna-kampanja-2021',
-      en: '/donate-new-year-campaign-2021',
+      sl: '/novoletna-kampanja-2021',
+      en: '/new-years-campaign-2021',
     },
   },
 
