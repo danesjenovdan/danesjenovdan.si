@@ -160,25 +160,23 @@
       </div>
     </div>
     <div class="row formalities">
-      <div class="col-lg-4 mt-3">
-        <p>
+      <div class="col-12 mt-3">
+        <p class="mb-4">
           Na Danes je nov dan verjamemo v transparentnost in smo zavezani k
           rednemu objavljanju podatkov o finančenem delovanju.
         </p>
         <more-button
           :text="$t('about.yearly-reports')"
-          class="mt-3"
           icon="papers"
           to="https://drive.google.com/drive/folders/105Jb0F_hKvf-HBKXiwK4NRjTIbNepLFP"
         />
         <more-button
           :text="$t('about.results')"
-          class="mt-3"
           icon="papers"
           to="https://drive.google.com/drive/folders/1mUhlnNyfuJGJZg6ACJvBl4eBOvO-rJ-x"
         />
       </div>
-      <div class="col-lg-8 mt-3">
+      <div class="col-12 mt-4">
         <odprti-racuni-embed class="embed-fluid" />
       </div>
     </div>
