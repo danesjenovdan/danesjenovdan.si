@@ -3,7 +3,7 @@
     <div class="djnd-logo">
       <a href="/">
         <img
-          src="../../static/icons/donations/2022/djdn-logo-dark-100.png"
+          src="../../../static/icons/donations/2022/djdn-logo-dark-100.png"
           alt="DJND logo"
         />
       </a>
@@ -13,7 +13,7 @@
       <img
         class="header-image"
         :src="
-          require(`../../static/icons/donations/2022/naslovi/${options[option].headerSrc}`)
+          require(`../../../static/icons/donations/2022/naslovi/${options[option].headerSrc}`)
         "
         :alt="options[option].title"
       />
@@ -28,19 +28,19 @@
             <h4>Nameni nam 1 % dohodnine!</h4>
             <div class="icons-p my-2 my-lg-4">
               <img
-                src="../../static/icons/donations/2022/ikone/1FA99.svg"
+                src="../../../static/icons/donations/2022/ikone/1FA99.svg"
                 alt=""
               />
               <img
-                src="../../static/icons/donations/2022/ikone/1F44F.svg"
+                src="../../../static/icons/donations/2022/ikone/1F44F.svg"
                 alt=""
               />
               <img
-                src="../../static/icons/donations/2022/ikone/1F4AB.svg"
+                src="../../../static/icons/donations/2022/ikone/1F4AB.svg"
                 alt=""
               />
               <img
-                src="../../static/icons/donations/2022/ikone/1F496.svg"
+                src="../../../static/icons/donations/2022/ikone/1F496.svg"
                 alt=""
               />
             </div>
@@ -64,7 +64,7 @@
                 <p>Vlogo lahko oddaš tudi s certifikatom na eDavkih!</p>
                 <img
                   class="button-arrow"
-                  src="../../static/icons/donations/2022/noun-arrow.svg"
+                  src="../../../static/icons/donations/2022/noun-arrow.svg"
                   alt=""
                 />
               </a>
@@ -80,7 +80,7 @@
                 <p>Razdeli 1 % dohodnine</p>
                 <img
                   class="button-arrow"
-                  src="../../static/icons/donations/2022/noun-arrow.svg"
+                  src="../../../static/icons/donations/2022/noun-arrow.svg"
                   alt=""
                 />
               </a>
@@ -97,19 +97,19 @@
             <h4>Doniraj nam vsak mesec!</h4>
             <div class="icons-p my-4">
               <img
-                src="../../static/icons/donations/2022/ikone/2728.svg"
+                src="../../../static/icons/donations/2022/ikone/2728.svg"
                 alt=""
               />
               <img
-                src="../../static/icons/donations/2022/ikone/1F381.svg"
+                src="../../../static/icons/donations/2022/ikone/1F381.svg"
                 alt=""
               />
               <img
-                src="../../static/icons/donations/2022/ikone/1FAF6.svg"
+                src="../../../static/icons/donations/2022/ikone/1FAF6.svg"
                 alt=""
               />
               <img
-                src="../../static/icons/donations/2022/ikone/1F3C6.svg"
+                src="../../../static/icons/donations/2022/ikone/1F3C6.svg"
                 alt=""
               />
             </div>
@@ -141,7 +141,7 @@
                   <p>Doniraj!</p>
                   <img
                     class="button-arrow"
-                    src="../../static/icons/donations/2022/noun-arrow.svg"
+                    src="../../../static/icons/donations/2022/noun-arrow.svg"
                     alt=""
                   />
                 </a>
@@ -169,10 +169,8 @@ export default {
 
   nuxtI18n: {
     paths: {
-      // sl: '/doniraj-novoletna-kampanja-2022',
-      // en: '/donate-new-year-campaign-2022',
-      sl: '/doniraj/:option',
-      en: '/donate/:option',
+      sl: '/novoletna-kampanja-2022/:option',
+      en: '/new-years-campaign-2022/:option',
     },
   },
 
@@ -332,7 +330,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://nov.djnd.si/donatorska-2022_OG.png',
+          content: 'https://danesjenovdan.si/donatorska-2022_OG.png',
         },
         {
           hid: 'twitter:title',
@@ -348,7 +346,7 @@ export default {
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://nov.djnd.si/donatorska-2022_OG.png',
+          content: 'https://danesjenovdan.si/donatorska-2022_OG.png',
         },
       ],
     };
