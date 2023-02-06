@@ -55,13 +55,13 @@
     </div>
     <div class="row justify-content-center donation-buttons">
       <div class="limit-like-p">
-        <donation-choice-button
+        <!-- <donation-choice-button
           donation-type="monthly"
           :href="$i18n.locale === 'sl' ? '/doniraj/novi/6' : '/en/donate/new/6'"
         />
-        <!-- začasen placeholder, dokler ne dodamo enkratne donacije nazaj -->
-        <div></div>
-        <!-- <donation-choice-button
+        <div></div> -->
+
+        <donation-choice-button
           donation-type="monthly"
           :href="
             $i18n.locale === 'sl'
@@ -76,7 +76,7 @@
               ? '/doniraj/placaj/enkrat'
               : '/en/donate/checkout/once'
           "
-        /> -->
+        />
       </div>
     </div>
     <volunteer i18n-path="donate.naturalije" />
