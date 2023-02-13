@@ -34,16 +34,16 @@ export default {
     margin-left: 0;
 
     .content-container {
-      padding-left: $content-mobile-padding;
-      padding-right: $content-mobile-padding;
+      padding-left: 0;
+      padding-right: 0;
       height: 100%;
       display: flex;
       flex-direction: column;
       // justify-content: center;
 
       @include media-breakpoint-up(md) {
-        padding-left: 3rem;
-        padding-right: 3rem;
+        // padding-left: 3rem;
+        // padding-right: 3rem;
         max-width: 1600px;
       }
     }
