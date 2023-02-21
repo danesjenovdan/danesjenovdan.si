@@ -28,6 +28,7 @@
         <strong>Lokacija:</strong> dogodek bomo izvedli v Hotelu Kompas v
         Kranjski Gori.
       </p>
+      <br />
       <h4>
         <strong>O zborih občank_ov</strong>
       </h4>
@@ -59,6 +60,7 @@
         organizirajo tudi mnoge regije in občine. Čas je, da zbori občank_ov
         postanejo orodje demokracije tudi pri nas!
       </p>
+      <br />
       <h4>
         <strong>O usposabljanju</strong>
       </h4>
@@ -75,6 +77,7 @@
         izvajajo z zaupanjem, lahkoto in veseljem. Glavni del usposabljanja je
         torej namenjen krepitvi znanj in zmožnosti za uresničitev tega cilja.
       </p>
+      <br />
       <h4>
         <strong>Komu je usposabljanje namenjeno?</strong>
       </h4>
@@ -86,6 +89,7 @@
         neodvisni_e posamezniki_ce, ki se zavzemate za demokratične inovacije in
         sistemske reforme za večjo vključenost občank_ov v demokratične procese.
       </p>
+      <br />
       <h4>
         <strong>Zakaj se pridružiti?</strong>
       </h4>
@@ -103,6 +107,7 @@
         podprto z razpravami, vizualnimi prikazi, skupinskimi vajami, miselnimi
         eksperimenti in podobnimi orodji.
       </p>
+      <br />
       <h4>
         <strong>Format dogodka</strong>
       </h4>
@@ -180,6 +185,7 @@
           nadzor nad postopkom implementacije?
         </li>
       </ol>
+      <br />
       <h4>
         <strong>Več informacij o temi in usposabljanju</strong>
       </h4>
@@ -194,6 +200,7 @@
         <a href="mailto:mateo@danesjenovdan.si">mateo@danesjenovdan.si</a>, in
         sicer najkasneje do ponedeljka, 6. marca.
       </p>
+      <br />
       <h4>
         <strong>Usposabljanje bodo vodili</strong>
       </h4>
@@ -231,16 +238,19 @@
         človekovih pravic" v Gruziji. Zanimajo jo reševanje konfliktov,
         državljansko udejstvovanje in pravni pristop k sistemskim spremembam.
       </p>
+      <br />
       <h4>
         <strong>Jezik</strong>
       </h4>
       <p>Celotno usposabljanje bo potekalo v angleščini.</p>
+      <br />
       <h4>
         <strong>Program</strong>
       </h4>
       <p>Sreda, 10. maja, od 10.00 do 16.30 (z eno uro odmora za kosilo)</p>
       <p>Četrtek, 11. maja, od 10.00 do 16.30 (z eno uro odmora za kosilo)</p>
       <p>Petek, 12. maja, od 10.00 do 16.30 (z eno uro odmora za kosilo)</p>
+      <br />
       <h4>
         <strong>Cena</strong>
       </h4>
@@ -248,6 +258,7 @@
         Udeležba na usposabljanju je brezplačna, udeleženci_ke pa si morajo sami
         kriti potne stroške in stroške nastanitve.
       </p>
+      <br />
       <h4>
         <strong>Nastanitev</strong>
       </h4>
@@ -260,6 +271,7 @@
           >TUKAJ</a
         >.
       </p>
+      <br />
       <h4>
         <strong>Registracija</strong>
       </h4>
@@ -272,6 +284,7 @@
         >.
       </p>
       <p>Registracija je odprta do zapolnitve kapacitet.</p>
+      <br />
       <h4>
         <strong>Dodatne informacije</strong>
       </h4>
