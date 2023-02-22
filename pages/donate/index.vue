@@ -72,9 +72,7 @@
         <donation-choice-button
           donation-type="once"
           :href="
-            $i18n.locale === 'sl'
-              ? '/doniraj/placaj/enkrat'
-              : '/en/donate/checkout/once'
+            $i18n.locale === 'sl' ? '/doniraj/placaj' : '/en/donate/checkout'
           "
         />
       </div>

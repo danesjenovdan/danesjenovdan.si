@@ -87,7 +87,9 @@
           </div>
           <hr />
           <p>
-            Zadnje čase nas pogosto napadajo roboti. Ker se želimo prepričati, da si človek, nam prosim povej, kako se piše trenutni predsednik Vlade Republike Slovenije.
+            Zadnje čase nas pogosto napadajo roboti. Ker se želimo prepričati,
+            da si človek, nam prosim povej, kako se piše trenutni predsednik
+            Vlade Republike Slovenije.
           </p>
           <div class="form-group">
             <input
@@ -209,8 +211,8 @@ const EMAIL_REGEX =
 export default {
   nuxtI18n: {
     paths: {
-      sl: '/doniraj/placaj/:monthly',
-      en: '/donate/checkout/:monthly',
+      sl: '/doniraj-star/placaj/:monthly',
+      en: '/donate-old/checkout/:monthly',
     },
   },
   components: {
