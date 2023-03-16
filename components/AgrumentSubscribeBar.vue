@@ -26,7 +26,7 @@
             <div v-else class="lds-dual-ring" />
           </button>
           <a
-            href="https://napake.djnd.si/rss/"
+            href="https://agrument.danesjenovdan.si/rss/"
             target="_blank"
             class="rss btn btn-outline-primary my-2 px-0 d-none d-lg-block d-xl-none"
           >
@@ -52,7 +52,7 @@
         </div>
       </form>
       <a
-        href="https://napake.djnd.si/rss/"
+        href="https://agrument.danesjenovdan.si/rss/"
         target="_blank"
         class="rss btn btn-outline-primary my-xl-2 px-0 d-block d-lg-none d-xl-block"
       >
