@@ -2,7 +2,7 @@
   <iframe
     class="donation-embed"
     frameborder="0"
-    :src="`https://doniraj.lb.djnd.si/danes-je-nov-dan${monthlyParam}`"
+    :src="`https://doniraj.lb.djnd.si/danes-je-nov-dan/doniraj${monthlyParam}`"
   ></iframe>
 </template>
 
