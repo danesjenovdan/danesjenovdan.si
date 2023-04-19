@@ -142,7 +142,7 @@ export default {
     },
     onEmailConfirm() {
       this.$router.push(
-        this.localePath({ name: 'me', query: { email: this.email } }),
+        this.localePath({ name: 'newsletter', query: { email: this.email } }),
       );
     },
   },
