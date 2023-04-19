@@ -2,11 +2,12 @@
   <div class="newsletter-container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <h1><strong>Prijavi se</strong> na <br />Danes je nov dan novičnik!</h1>
+        <h1><strong>Prijavi se</strong> na naš Občasnik!</h1>
         <p>
-          Z zanimivimi temami in novicami te bomo zalagali vsak mesec, pisali pa
-          ti bomo tudi, kadar naredimo kaj dobrega in kadar se dogaja kaj
-          pomembnega.
+          Vsak mesec ti bomo dostavili svežo bero informativnih vsebin in
+          zanimivih zapisov o temah, ki nas žulijo, razveseljujejo ali
+          navdihujejo, pisali pa ti bomo tudi, ko naredimo kaj dobrega ali ko se
+          bo dogajalo kaj zanimivega.
         </p>
       </div>
     </div>
@@ -63,12 +64,20 @@ export default {
     MoreButton,
   },
   layout: 'default-no-support',
+  asyncData({ query }) {
+    let email = '';
+    if (query.email) {
+      email = query.email;
+    }
+    return {
+      email,
+    };
+  },
   data() {
     return {
       loading: false,
       success: false,
       message: '',
-      email: '',
     };
   },
   computed: {
@@ -90,7 +99,8 @@ export default {
         );
         if (response.msg === 'mail sent') {
           this.success = true;
-          this.message = 'Sporočilo poslano na e-naslov!';
+          this.message =
+            'Hvala! Poslali smo ti sporočilo s povezavo, na kateri lahko potrdiš prijavo!';
         } else {
           this.success = false;
           this.message = 'Prišlo je do napake :(';
@@ -116,17 +126,26 @@ export default {
 
   h1 {
     text-align: center;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 20px;
   }
 
   p {
     text-align: center;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 20px;
   }
 
   .form-group {
     display: flex;
+    margin-top: 2rem;
 
     input.form-control {
-      height: 100%;
+      height: unset;
+      font-size: 20px;
       flex-grow: 1;
       padding: 0.75rem 1.75rem 0.75rem 1.5rem;
     }
@@ -134,6 +153,11 @@ export default {
     .more-button {
       width: unset;
       flex-shrink: 0;
+      color: #333;
+      font-size: 30px;
+      line-height: 40px;
+      font-style: normal;
+      letter-spacing: normal;
     }
   }
 
