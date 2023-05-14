@@ -125,6 +125,10 @@ export default {
         rel: 'stylesheet',
         href: 'https://use.typekit.net/aqx7lip.css',
       },
+      {
+        rel: 'stylesheet',
+        href: 'https://use.typekit.net/vgg2brj.css',
+      },
     ],
     script: [
       {
@@ -135,8 +139,9 @@ export default {
       },
       {
         type: 'text/javascript',
-        innerHTML: 'window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }',
-      }
+        innerHTML:
+          'window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }',
+      },
     ],
   },
   /*
