@@ -41,13 +41,13 @@
         <div class="row justify-content-center">
           <div class="col-12 col-lg-8 col-xxl-6">
             <p>
-              Imaš idejo, kako predstaviti javna košarkarska igrišča v Celju?
-              Ali pa zasnovati interaktivni seznam parkov, ki so najbolj
-              prijazni do pasjih ljubljenčkov? Želiš razviti mobilno aplikacijo,
-              ki izboljša medsosedsko komunikacijo? V poštev pridejo vsi
-              koncepti in prototipi, predvsem pa izvirne domislice vseh vrst in
-              oblik… Kdo ve, morda se prav tvoja ideja znajde na stopničkah, ti
-              pa se domov odpraviš z denarno nagrado!
+              Imaš idejo, kako zasnovati interaktivni seznam javnih košarkarskih
+              igrišč v Celju? Ali pa predstavitev najlepših sprehajalnih poti v
+              okolici? Želiš razviti mobilno aplikacijo, ki izboljša medsosedsko
+              komunikacijo? V poštev pridejo vsi koncepti in prototipi, predvsem
+              pa izvirne domislice vseh vrst in oblik… Kdo ve, morda se prav
+              tvoja ideja znajde na stopničkah, ti pa se domov odpraviš z
+              denarno nagrado!
             </p>
             <p>
               Pridruži se nam v ekipi, lahko pa prideš tudi sam_a in si
@@ -56,12 +56,18 @@
               Vabljeni vsi programerji_ke, oblikovalci_ke in ostali tehnološki
               navdušenci!
             </p>
-            <p>Se vidimo?</p>
+            <p><strong>Se vidimo?</strong></p>
           </div>
         </div>
         <div class="row">
           <div class="col d-flex justify-content-center mt-4 mt-md-0">
-            <a type="button" href="/"> PRIJAVI SE! </a>
+            <a
+              type="button"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdNVq60G67pXHHnuPMj7ghB-QpwU2FZyw8x4RAp0qhvk4lx8A/viewform"
+              target="_blank"
+            >
+              PRIJAVI SE!
+            </a>
           </div>
         </div>
       </div>
@@ -71,10 +77,20 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-lg-8 col-xxl-6">
-            <h2>NAGRADA</h2>
-            <div>
-              <!-- <h4>Digitalno mesto</h4> -->
-              <p>Nagradni fond v velikosti 1000EUR!</p>
+            <h2>NAGRADNI SKLAD</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center my-4">
+          <div class="col-12 col-lg-8 col-xxl-4">
+            <div class="row">
+              <div class="col-md-6 d-flex align-items-end first-prize">
+                <h3 class="mr-4 mb-3">1. mesto:</h3>
+                <h2 class="mb-0">700€</h2>
+              </div>
+              <div class="col-md-6 d-flex align-items-end second-prize">
+                <h3 class="mr-4 mb-3">2. in 3. mesto:</h3>
+                <h2 class="mb-0">150€</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -96,7 +112,7 @@
             </div>
             <div class="row">
               <div class="col-3 col-md-2">10:00</div>
-              <div class="col-9 col-md-10">Programiranje</div>
+              <div class="col-9 col-md-10">Delo na projektih</div>
             </div>
             <div class="row">
               <div class="col-3 col-md-2">13:00</div>
@@ -113,7 +129,7 @@
             <div class="row">
               <div class="col-3 col-md-2">19:00</div>
               <div class="col-9 col-md-10">
-                Razlasitev zmagovalca, pica & pivo
+                Razlasitev zmagovalne ekipe, pica & pivo
               </div>
             </div>
           </div>
@@ -134,6 +150,15 @@
                 upravlja Mestna občina Celje, in ob pomoči mentorjev_ic
                 konceptualiziraš, skiciraš in razviješ prototipe rešitev, ki
                 bodo te podatke uporabile na zanimive načine.
+              </p>
+            </div>
+            <div class="mb-4">
+              <h4>Ali je programersko znanje obvezno?</h4>
+              <p>
+                Ne. Je pa zaželeno, da imaš izkušnje ali osnovna znanja s
+                področja spletnega oziroma digitalnega razvoja - torej
+                načrtovanje uporabniške izkušnje, oblikovanje, obdelava podatkov
+                ali kaj podobnega.
               </p>
             </div>
             <div class="mb-4">
@@ -178,6 +203,13 @@
                 Glavna kriterija za zmago sta ustvarjalnost in uporabnost ideje.
               </p>
             </div>
+            <div class="mb-4">
+              <h4>Kakšne so nagrade?</h4>
+              <p>
+                Zmagovalni koncept bo nagrajen s 700 evri drugo in tretje mesto
+                pa s 150 evri.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -188,15 +220,44 @@
         <div class="row justify-content-center">
           <div class="col-12 col-lg-8 col-xxl-6">
             <h2>IZZIVI</h2>
+            <p>
+              Pridi s povsem originalno idejo ali pa rešuj enega izmed
+              naslednjih izzivov:
+            </p>
             <div>
-              <h4>Digitalno mesto</h4>
-              <p>
+              <h4>Optimizacija kolesarskih poti</h4>
+              <!-- <p>
                 Vabimo te, da z nami preživiš zabaven in izzivov poln dan
                 (09.00–19.00), raziščeš zbirke odprtih podatkov, s katerimi
                 upravlja Mestna občina Celje, in ob pomoči mentorjev_ic
                 konceptualiziraš, skiciraš in razviješ prototipe rešitev, ki
                 bodo te podatke uporabile na zanimive načine.
-              </p>
+              </p> -->
+            </div>
+            <div>
+              <h4>Semafor pomembnih projektov/odštevalnik</h4>
+            </div>
+            <div>
+              <h4>Interaktivni zemljevid zelenih površin</h4>
+            </div>
+            <div>
+              <h4>
+                Semafor pobud z možnostjo spremljanja napredka in sodelovanja
+              </h4>
+            </div>
+            <div>
+              <h4>
+                Chat bot na osnovi umetne inteligence (odgovori na vprašanja)
+              </h4>
+            </div>
+            <div>
+              <h4>AI učljivi Chat-Bot Vsevednik</h4>
+            </div>
+            <div>
+              <h4>Občinski Reddit</h4>
+            </div>
+            <div>
+              <h4>Nadgradnja portala za pobude servis48</h4>
             </div>
           </div>
         </div>
@@ -412,6 +473,18 @@ p {
   background-color: #22b966;
   color: #e8edfc;
   padding: 60px 0;
+
+  .first-prize {
+    h2 {
+      font-size: 80px;
+    }
+  }
+
+  .second-prize {
+    h2 {
+      font-size: 54px;
+    }
+  }
 }
 
 #section-faq {
@@ -420,7 +493,7 @@ p {
   color: #000000;
 
   h2 {
-    color: #428dff;
+    color: #22b966;
   }
 
   h4 {
@@ -440,7 +513,7 @@ p {
   }
 
   h2 {
-    color: #22b966;
+    color: #428dff;
   }
 }
 
