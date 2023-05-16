@@ -70,6 +70,13 @@
             </a>
           </div>
         </div>
+        <div class="row">
+          <div class="col">
+            <p class="text-center registration-open mt-3 mb-0">
+              Prijave zbiramo do 2. junija.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -84,11 +91,11 @@
           <div class="col-12 col-lg-8">
             <div class="row">
               <div class="col-md-6 d-flex align-items-end first-prize">
-                <h3 class="mr-4 mb-3">1. mesto:</h3>
+                <h3 class="mr-4 mb-0">1. mesto:</h3>
                 <h2 class="mb-0">700€</h2>
               </div>
               <div class="col-md-6 d-flex align-items-end second-prize">
-                <h3 class="mr-4 mb-3">2. in 3. mesto:</h3>
+                <h3 class="mr-4 mb-0">2. in 3. mesto:</h3>
                 <h2 class="mb-0">150€</h2>
               </div>
             </div>
@@ -117,6 +124,10 @@
             <div class="row">
               <div class="col-3 col-md-2">13:00</div>
               <div class="col-9 col-md-10">Kosilo</div>
+            </div>
+            <div class="row">
+              <div class="col-3 col-md-2">14:00</div>
+              <div class="col-9 col-md-10">Delo na projektih</div>
             </div>
             <div class="row">
               <div class="col-3 col-md-2">17:30</div>
@@ -276,8 +287,11 @@
         <div
           class="col-12 col-md-5 col-lg-3 d-flex justify-content-center justify-content-md-start align-items-center"
         >
-          <h5 class="text-center">Sponzor</h5>
-          <img src="/icons/hackathons/povio.png" />
+          <!-- <h5 class="text-center">Sponzor</h5>
+          <img src="/icons/hackathons/povio.png" /> -->
+          <p>
+            Projekt sofinancira Ministrstvo za javno upravo iz Sklada za NVO.
+          </p>
         </div>
       </div>
     </section>
@@ -502,6 +516,10 @@ p {
     color: #000000;
   }
 
+  p.registration-open {
+    font-size: 16px;
+  }
+
   @include media-breakpoint-up(md) {
     p {
       font-size: 24px;
@@ -517,12 +535,14 @@ p {
   .first-prize {
     h2 {
       font-size: 80px;
+      line-height: 0.75;
     }
   }
 
   .second-prize {
     h2 {
       font-size: 54px;
+      line-height: 0.75;
     }
   }
 }
@@ -575,6 +595,11 @@ p {
 
   h5 {
     margin: 0 20px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 0;
   }
 
   img {
