@@ -3,14 +3,14 @@
     <section id="section-hero" class="container-fluid">
       <div class="container">
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 col-xxl-10 offset-xxl-2">
             <h1>HACK CELJE</h1>
             <h2>Hekaton z odprtimi občinskimi podatki</h2>
-            <h3>8.junij @ Tehnopark Celje</h3>
+            <h3>8. junij @ Tehnopark Celje</h3>
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6 offset-xxl-2">
             <p>
               Pridi na enodnevni hekaton v Tehnopark, spoznaj odprte zbirke
               podatkov Mestne občine Celje in razvij koncept, ki ga boš
@@ -39,7 +39,7 @@
     <section id="section-invite" class="container-fluid">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-8 col-xxl-6">
+          <div class="col-12 col-lg-8">
             <p>
               Imaš idejo, kako zasnovati interaktivni seznam javnih košarkarskih
               igrišč v Celju? Ali pa predstavitev najlepših sprehajalnih poti v
@@ -70,25 +70,32 @@
             </a>
           </div>
         </div>
+        <div class="row">
+          <div class="col">
+            <p class="text-center registration-open mt-3 mb-0">
+              Prijave zbiramo do 2. junija.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="section-awards" class="container-fluid">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-8 col-xxl-6">
+          <div class="col-12 col-lg-8">
             <h2>NAGRADNI SKLAD</h2>
           </div>
         </div>
         <div class="row justify-content-center my-4">
-          <div class="col-12 col-lg-8 col-xxl-4">
+          <div class="col-12 col-lg-8">
             <div class="row">
               <div class="col-md-6 d-flex align-items-end first-prize">
-                <h3 class="mr-4 mb-3">1. mesto:</h3>
+                <h3 class="mr-4 mb-0">1. mesto:</h3>
                 <h2 class="mb-0">700€</h2>
               </div>
               <div class="col-md-6 d-flex align-items-end second-prize">
-                <h3 class="mr-4 mb-3">2. in 3. mesto:</h3>
+                <h3 class="mr-4 mb-0">2. in 3. mesto:</h3>
                 <h2 class="mb-0">150€</h2>
               </div>
             </div>
@@ -100,7 +107,7 @@
     <section id="section-agenda" class="container-fluid">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-8 col-xxl-6">
+          <div class="col-12 col-lg-8">
             <h2>AGENDA</h2>
             <div class="row">
               <div class="col-3 col-md-2">9:00</div>
@@ -117,6 +124,10 @@
             <div class="row">
               <div class="col-3 col-md-2">13:00</div>
               <div class="col-9 col-md-10">Kosilo</div>
+            </div>
+            <div class="row">
+              <div class="col-3 col-md-2">14:00</div>
+              <div class="col-9 col-md-10">Delo na projektih</div>
             </div>
             <div class="row">
               <div class="col-3 col-md-2">17:30</div>
@@ -140,7 +151,7 @@
     <section id="section-faq" class="container-fluid">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-8 col-xxl-6">
+          <div class="col-12 col-lg-8">
             <h2>FAQ</h2>
             <div class="mb-4">
               <h4>Kaj se na hekatonu pričakuje od mene?</h4>
@@ -218,7 +229,7 @@
     <section id="section-challenges" class="container-fluid">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-8 col-xxl-6">
+          <div class="col-12 col-lg-8">
             <h2>IZZIVI</h2>
             <p>
               Pridi s povsem originalno idejo ali pa rešuj enega izmed
@@ -276,8 +287,11 @@
         <div
           class="col-12 col-md-5 col-lg-3 d-flex justify-content-center justify-content-md-start align-items-center"
         >
-          <h5 class="text-center">Sponzor</h5>
-          <img src="/icons/hackathons/povio.png" />
+          <!-- <h5 class="text-center">Sponzor</h5>
+          <img src="/icons/hackathons/povio.png" /> -->
+          <p>
+            Projekt sofinancira Ministrstvo za javno upravo iz Sklada za NVO.
+          </p>
         </div>
       </div>
     </section>
@@ -301,6 +315,46 @@ export default {
   head() {
     return {
       title: 'Hack Celje',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            '8. junija pridi na enodnevni hekaton v Tehnopark, spoznaj odprte zbirke podatkov Mestne občine Celje in razvij koncept, ki ga boš uporabil_a na zanimiv in občanom_kam prijazen način!',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Hack Celje',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            '8. junija pridi na enodnevni hekaton v Tehnopark, spoznaj odprte zbirke podatkov Mestne občine Celje in razvij koncept, ki ga boš uporabil_a na zanimiv in občanom_kam prijazen način!',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://danesjenovdan.si/og-hack-celje.jpg',
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: 'Hack Celje',
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content:
+            '8. junija pridi na enodnevni hekaton v Tehnopark, spoznaj odprte zbirke podatkov Mestne občine Celje in razvij koncept, ki ga boš uporabil_a na zanimiv in občanom_kam prijazen način!',
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: 'https://danesjenovdan.si/og-hack-celje.jpg',
+        },
+      ],
     };
   },
 };
@@ -462,6 +516,10 @@ p {
     color: #000000;
   }
 
+  p.registration-open {
+    font-size: 16px;
+  }
+
   @include media-breakpoint-up(md) {
     p {
       font-size: 24px;
@@ -477,12 +535,14 @@ p {
   .first-prize {
     h2 {
       font-size: 80px;
+      line-height: 0.75;
     }
   }
 
   .second-prize {
     h2 {
       font-size: 54px;
+      line-height: 0.75;
     }
   }
 }
@@ -535,6 +595,11 @@ p {
 
   h5 {
     margin: 0 20px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 0;
   }
 
   img {
