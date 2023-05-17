@@ -13,8 +13,8 @@
           <div class="col-lg-6 offset-xxl-2">
             <p>
               Pridi na enodnevni hekaton v Tehnopark, spoznaj odprte zbirke
-              podatkov Mestne občine Celje in razvij koncept, ki ga boš
-              uporabil_a na zanimiv in občanom_kam prijazen način!
+              podatkov Mestne občine Celje in razvij koncept, ki bo izboljšal
+              vsakdanje življenje občanov in občank.
             </p>
           </div>
         </div>
@@ -276,22 +276,54 @@
     </section>
 
     <section id="section-sponzors" class="container-fluid">
-      <div class="row justify-content-md-center">
+      <div class="row justify-content-center">
         <div
-          class="col-12 col-md-5 col-lg-3 d-flex justify-content-center justify-content-md-start align-items-center mb-3 mb-md-0"
+          class="col-12 col-md-4 col-xl-3 d-flex justify-content-center justify-content-md-start align-items-center mb-3 mb-md-0"
         >
           <h5 class="text-center">Organizatorji</h5>
-          <img src="/icons/hackathons/djnd.png" />
-          <img src="/icons/hackathons/moc.png" />
+          <a
+            href="https://danesjenovdan.si/"
+            target="_blank"
+            title="Danes je nov dan"
+            class="no-link-design"
+          >
+            <img src="/icons/hackathons/djnd.png" />
+          </a>
+          <a
+            href="https://moc.celje.si/"
+            target="_blank"
+            title="Mestna občina Celje"
+            class="no-link-design"
+          >
+            <img src="/icons/hackathons/moc.png" />
+          </a>
         </div>
         <div
-          class="col-12 col-md-5 col-lg-3 d-flex justify-content-center justify-content-md-start align-items-center"
+          class="col-12 col-md-4 col-xl-5 d-flex justify-content-center justify-content-md-start align-items-center mb-3 mb-md-0"
         >
-          <!-- <h5 class="text-center">Sponzor</h5>
-          <img src="/icons/hackathons/povio.png" /> -->
-          <p>
+          <p class="text-center text-md-left">
             Projekt sofinancira Ministrstvo za javno upravo iz Sklada za NVO.
           </p>
+        </div>
+        <div
+          class="col-12 col-md-2 d-flex justify-content-center justify-content-md-end align-items-center"
+        >
+          <a
+            class="facebook-event"
+            href="https://fb.me/e/syG6TeSa"
+            target="_blank"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 16">
+              <g id="Layer_2" data-name="Layer 2">
+                <g id="Layer_1-2" data-name="Layer 1">
+                  <path
+                    class="cls-1"
+                    d="M6,6H9V9H6v7H3V9H0V6H3V4.75A5.65,5.65,0,0,1,4.12,1.23,3.59,3.59,0,0,1,6.9,0H9V3H6.9a.9.9,0,0,0-.9.9Z"
+                  />
+                </g>
+              </g>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
@@ -365,7 +397,7 @@ main {
   font-family: 'aileron', sans-serif;
 }
 
-a {
+a:not(.no-link-design) {
   font-size: 24px;
   font-weight: bold;
   color: #22b966;
@@ -376,7 +408,7 @@ a {
   transition: all 0.25s;
 }
 
-a:hover {
+a:not(.no-link-design):hover {
   text-decoration: none;
   color: #e8edfc;
   background-color: #22b966;
@@ -390,6 +422,39 @@ h2 {
 
 p {
   font-size: 20px;
+}
+
+.facebook-event:not(.no-link-design) {
+  // position: absolute;
+  // top: 30px;
+  // right: 0;
+  margin-right: 20px;
+  background-color: transparent;
+  border: 3px solid #e8edfc;
+  border-radius: 16px;
+  height: 48px;
+  width: 48px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    height: 28px;
+    width: 28px;
+  }
+
+  .cls-1 {
+    fill: #e8edfc;
+  }
+}
+
+.facebook-event:not(.no-link-design):hover {
+  background-color: #e8edfc;
+
+  .cls-1 {
+    fill: #000000;
+  }
 }
 
 @include media-breakpoint-up(md) {
@@ -410,6 +475,9 @@ p {
     font-size: 56px;
     font-weight: bold;
     color: #428dff;
+    line-height: 0.75;
+    margin-bottom: 30px;
+    margin-top: 30px;
   }
 
   h2 {
@@ -436,6 +504,7 @@ p {
       font-size: 100px;
       font-weight: bold;
       color: #b5c7fb;
+      margin-bottom: 30px;
       -webkit-text-stroke: 5px;
       -webkit-text-stroke-color: #428dff;
     }
