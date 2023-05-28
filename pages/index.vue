@@ -93,7 +93,7 @@
             :title="project.title"
             :byline="toMonthYear(project.date)"
             :text="project.desc"
-            :url="project.url"
+            :url="project.url || '/'"
           />
         </div>
         <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />
