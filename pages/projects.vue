@@ -9,7 +9,7 @@
     <div v-if="projects && projects.length" class="wrapping-flex-tiles">
       <div
         v-for="project in filteredProjects"
-        :key="`${project.url}`"
+        :key="`${project.date}_${project.url}`"
         class="flex-tile"
       >
         <project-tile
@@ -18,7 +18,7 @@
           :title="project.title"
           :byline="toMonthYear(project.date)"
           :text="project.desc"
-          :url="project.url"
+          :url="project.url || '/'"
         />
       </div>
       <div v-for="n in 10" :key="`flex-spacer-${n}`" class="flex-tile" />

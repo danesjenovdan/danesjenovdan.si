@@ -143,7 +143,7 @@
               "
               :alt="project.title"
               :text="project.description"
-              :url="project.url"
+              :url="project.url || '/'"
             />
           </div>
         </div>
