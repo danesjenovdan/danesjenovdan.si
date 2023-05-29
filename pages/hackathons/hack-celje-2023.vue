@@ -73,7 +73,7 @@
         <div class="row">
           <div class="col">
             <p class="text-center registration-open mt-3 mb-0">
-              Prijave zbiramo do 2. junija.
+              Prijave zbiramo do 4. junija.
             </p>
           </div>
         </div>
