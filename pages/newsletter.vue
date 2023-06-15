@@ -140,8 +140,13 @@ export default {
   }
 
   .form-group {
-    display: flex;
+    text-align: center;
     margin-top: 2rem;
+
+    @include media-breakpoint-up(md) {
+      text-align: left;
+      display: flex;
+    }
 
     input.form-control {
       height: unset;
@@ -160,10 +165,6 @@ export default {
       letter-spacing: normal;
     }
   }
-
-  // @include media-breakpoint-up(lg) {
-  //   margin: 0 0 6rem;
-  // }
 
   .loader-container {
     height: 2rem;
