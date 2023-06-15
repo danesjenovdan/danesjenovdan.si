@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-lg-8">
+      <div class="col-xl-8">
         <form
           v-if="$i18n.locale === 'sl'"
           class="mt-3 mt-xl-0"
@@ -22,13 +22,13 @@
             <input
               v-model="email"
               type="email"
-              class="form-control m-2"
+              class="form-control my-2 m-lg-2"
               placeholder="Vpiši svoj e-naslov"
             />
             <more-button
               :text="'Prijavi me!'"
               :disabled="loading || !emailValid"
-              class="m-2"
+              class="my-2 m-lg-2"
               color="secondary"
               block
               to="#"
@@ -140,8 +140,13 @@ export default {
   }
 
   .form-group {
-    display: flex;
+    text-align: center;
     margin-top: 2rem;
+
+    @include media-breakpoint-up(lg) {
+      text-align: left;
+      display: flex;
+    }
 
     input.form-control {
       height: unset;
@@ -160,10 +165,6 @@ export default {
       letter-spacing: normal;
     }
   }
-
-  // @include media-breakpoint-up(lg) {
-  //   margin: 0 0 6rem;
-  // }
 
   .loader-container {
     height: 2rem;
