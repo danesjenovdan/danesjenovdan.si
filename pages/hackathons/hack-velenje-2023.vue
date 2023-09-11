@@ -47,7 +47,7 @@
               medsosedsko komunikacijo? V poštev pridejo vsi koncepti in
               prototipi, predvsem pa izvirne domislice vseh vrst in oblik… Kdo
               ve, morda se prav tvoja ideja znajde na stopničkah, ti pa se domov
-              odpraviš z denarno nagrado!
+              odpraviš z <!-- denarno --> nagrado!
             </p>
             <p>
               Pridruži se nam v ekipi, lahko pa prideš tudi sam_a in si
@@ -79,7 +79,7 @@
         </div>
       </div>
     </section>
-
+<!--
     <section id="section-awards" class="container-fluid">
       <div class="container">
         <div class="row justify-content-center">
@@ -103,7 +103,7 @@
         </div>
       </div>
     </section>
-
+-->
     <section id="section-agenda" class="container-fluid">
       <div class="container">
         <div class="row justify-content-center">
@@ -206,6 +206,7 @@
                 Glavna kriterija za zmago sta ustvarjalnost in uporabnost ideje.
               </p>
             </div>
+            <!--
             <div class="mb-4">
               <h4>Kakšne so nagrade?</h4>
               <p>
@@ -213,6 +214,7 @@
                 pa s 150 evri.
               </p>
             </div>
+            -->
           </div>
         </div>
       </div>
