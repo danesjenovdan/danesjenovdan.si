@@ -78,10 +78,7 @@
           <br />Inštitut za druga vprašanja
           <br />
         </strong>
-        {{ $t('about.mailing-address-short') }} Resljeva cesta 25, 1000
-        Ljubljana
-        <br />
-        {{ $t('about.company-seat-short') }} Parmova ulica 20, 1000 Ljubljana
+        Resljeva cesta 25, 1000 Ljubljana
         <br />
         <br />
         <strong>vsi@danesjenovdan.si</strong>
@@ -96,10 +93,7 @@
           <br />Inštitut za druga vprašanja (Institute for other studies)
           <br />
         </strong>
-        {{ $t('about.mailing-address-short') }} Resljeva cesta 25, 1000
-        Ljubljana
-        <br />
-        {{ $t('about.company-seat-short') }} Parmova ulica 20, 1000 Ljubljana
+        Resljeva cesta 25, 1000 Ljubljana
         <br />
         <br />
         <strong>vsi@danesjenovdan.si</strong>
