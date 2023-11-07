@@ -3,9 +3,9 @@
     id="enprocent_iframe"
     frameborder="0"
     width="800"
-    height="600"
+    height="537"
     style="max-width: 100%"
-    src="https://www.cnvos.si/enprocent/embed/v2_alt/?address=Parmova%20ulica%2020&city=Ljubljana&name=Danes%20je%20nov%20dan%2C%20In%C5%A1titut%20za%20druga%20vpra%C5%A1anja&percent=1.0&postalCode=1000&taxNumber=54561710"
+    src="https://www.cnvos.si/enprocent/embed/v2/?address=PARMOVA%20ULICA%2020&city=Ljubljana&name=DANES%20JE%20NOV%20DAN%2C%20IN%C5%A0TITUT%20ZA%20DRUGA%20VPRA%C5%A0ANJA&percent=1.0&postalCode=1000&taxNumber=54561710"
   ></iframe>
 </template>
 
@@ -18,3 +18,9 @@ export default {
   name: 'DonationDohodninaEmbed',
 };
 </script>
+
+<style lang="scss" scoped>
+#enprocent_iframe {
+  border: 1px solid #df786c;
+}
+</style>

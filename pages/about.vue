@@ -37,11 +37,7 @@
               <br />Inštitut za druga vprašanja
               <br />
             </strong>
-            {{ $t('about.mailing-address-short') }} Resljeva cesta 25, 1000
-            Ljubljana
-            <br />
-            {{ $t('about.company-seat-short') }} Parmova ulica 20, 1000
-            Ljubljana
+            Resljeva cesta 25, 1000 Ljubljana
           </div>
           <div class="icon">
             <svg

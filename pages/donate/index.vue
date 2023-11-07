@@ -45,9 +45,9 @@
         />
       </div>
     </div> -->
-    <div class="row justify-content-center">
+    <!-- <div class="row justify-content-center">
       <p v-t="'donate.description'"></p>
-    </div>
+    </div> -->
     <div class="row justify-content-center">
       <div class="limit-like-p">
         <h2 v-t="'donate.subtitle'"></h2>
@@ -77,6 +77,16 @@
         />
       </div>
     </div>
+    <div id="dohodnina" class="row justify-content-center">
+      <div class="limit-like-p">
+        <h2 v-t="'donate.dohodnina'"></h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="limit-like-p">
+        <donation-dohodnina-embed />
+      </div>
+    </div>
     <volunteer i18n-path="donate.naturalije" />
   </div>
 </template>
@@ -84,10 +94,12 @@
 <script>
 import Volunteer from '~/components/Volunteer.vue';
 import DonationChoiceButton from '~/components/DonationChoiceButton.vue';
+import DonationDohodninaEmbed from '~/components/DonationDohodninaEmbed.vue';
 
 export default {
   components: {
     DonationChoiceButton,
+    DonationDohodninaEmbed,
     Volunteer,
   },
 
@@ -226,6 +238,7 @@ export default {
     width: 300px;
   }
 }
+
 .donate-href {
   width: 100%;
   max-width: 250px;
@@ -247,6 +260,7 @@ export default {
     margin-left: 80px;
   }
 }
+
 .mega-header {
   position: relative;
   font-size: 50px;
@@ -264,6 +278,7 @@ export default {
 
   .strikethrough {
     position: relative;
+
     &::after {
       content: '';
       display: block;
@@ -283,9 +298,11 @@ export default {
     padding-left: 0;
   }
 }
+
 .embed-responsive {
   z-index: 1;
 }
+
 h1 {
   font-size: 80px;
   font-weight: 600;
@@ -303,6 +320,7 @@ h1 {
     margin-bottom: 0;
   }
 }
+
 h2 {
   color: #333333;
   font-size: 40px;
@@ -320,6 +338,7 @@ h2 {
     padding-right: 30px;
   }
 }
+
 p {
   font-size: 20px;
   color: #333333;
@@ -336,12 +355,14 @@ p {
     padding: 0;
   }
 }
+
 .limit-like-p {
   width: 100%;
   max-width: 672px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .pad-like-p {
   padding-left: 30px;
   padding-right: 30px;
