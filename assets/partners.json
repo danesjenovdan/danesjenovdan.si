@@ -184,13 +184,19 @@
     {
       "name": "European AI Fund",
       "url": "https://europeanaifund.org/",
-      "image": "/img/donators/eaif.png",
+      "image": "/img/donators/euaisocietyfund.png",
       "class": "p-3"
     },
     {
       "name": "Netherlands embassy in Ljubljana",
       "url": "https://www.netherlandsandyou.nl/your-country-and-the-netherlands/slovenia",
       "image": "/img/donators/nizozemska.jpg",
+      "class": "p-3"
+    },
+    {
+      "name": "IMPACT4VALUES",
+      "url": "https://www.cnvos.si/impact4values/o-programu/",
+      "image": "/img/donators/impact4values.svg",
       "class": "p-3"
     }
   ]
