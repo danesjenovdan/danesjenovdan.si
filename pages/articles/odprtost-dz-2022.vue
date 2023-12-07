@@ -62,7 +62,7 @@
     <img
       src="/img/articles/odprtost-dz-2022/indeks.png"
       alt="Graf indeksa odprtosti po državah"
-      class="w-75"
+      class="full-width-image"
     />
     <p>
       Regionalni indeks odprtosti meri stopnjo, do katere so parlamenti držav
@@ -93,7 +93,7 @@
     <img
       src="/img/articles/odprtost-dz-2022/transparentnost.png"
       alt="Graf transparentnosti"
-      class="w-75"
+      class="full-width-image"
     />
     <p>
       Ker ob tokratnem merjenju ugotavljamo, da Državni zbor ni uveljavil dobrih
@@ -131,7 +131,7 @@
     <img
       src="/img/articles/odprtost-dz-2022/dostopnost.png"
       alt="Graf dostopnosti"
-      class="w-75"
+      class="full-width-image"
     />
     <p>
       Ker tudi pri tem načelu nismo zaznali upoštevanja priporočil iz preteklega
@@ -179,7 +179,7 @@
     <img
       src="/img/articles/odprtost-dz-2022/integriteta.png"
       alt="Graf integritete"
-      class="w-75"
+      class="full-width-image"
     />
     <p>
       Državnemu zboru tako kot pri preteklem merjenju predlagamo, da sprejme
@@ -221,7 +221,7 @@
     <img
       src="/img/articles/odprtost-dz-2022/ucinkovitost.png"
       alt="Graf učinkovitosti"
-      class="w-75"
+      class="full-width-image"
     />
     <p>
       Na tem področju Državnemu zboru predlagamo, da sprejme naslednje
@@ -392,7 +392,7 @@ export default {
       title: 'Odprtost in transparentnost Državnega zbora Republike Slovenije',
       date: '',
       lowResReportLink:
-        'https://drive.google.com/file/d/1bX9zPG_Ql5l09sW0g59Y59LyXZj8QLVz/view?usp=sharing',
+        'https://drive.google.com/file/d/1I4pOjYB9ATGMWDpzYsClBtk2yvpEv3yb/view?usp=sharing',
       highResReportLink:
         'https://drive.google.com/file/d/1bX9zPG_Ql5l09sW0g59Y59LyXZj8QLVz/view?usp=sharing',
     };
@@ -421,7 +421,8 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://danesjenovdan.si/og-regionalni-indeks.png',
+          content:
+            'https://danesjenovdan.si/img/articles/odprtost-dz-2022/indeks-22-og.jpg',
         },
         {
           hid: 'twitter:title',
@@ -437,7 +438,8 @@ export default {
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: 'https://danesjenovdan.si/og-regionalni-indeks.png',
+          content:
+            'https://danesjenovdan.si/img/articles/odprtost-dz-2022/indeks-22-og.jpg',
         },
       ],
     };
@@ -469,6 +471,9 @@ a {
 img {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+.full-width-image {
+  max-width: 100%;
 }
 
 .logo {
