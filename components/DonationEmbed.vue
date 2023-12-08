@@ -1,9 +1,6 @@
 <template>
-  <iframe
-    class="donation-embed"
-    frameborder="0"
-    :src="`https://doniraj.lb.djnd.si/danes-je-nov-dan/doniraj${monthlyParam}`"
-  ></iframe>
+  <iframe class="donation-embed" frameborder="0"
+    :src="`https://moj.djnd.si/danes-je-nov-dan/doniraj${monthlyParam}`"></iframe>
 </template>
 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js"></script> -->
