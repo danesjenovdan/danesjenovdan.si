@@ -150,10 +150,10 @@ export default {
         this.loading = true;
         try {
           const response = await this.$axios.$post(
-            'https://podpri.djnd.si/api/subscribe/',
+            'https://podpri.lb.djnd.si/api/subscribe/',
             {
               email: this.email,
-              segment: 1,
+              segment_id: 6,
             },
           );
           if (response.msg === 'mail sent') {
