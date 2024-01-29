@@ -2,13 +2,11 @@
   <news-article :title="title" :date="date">
     <p>
       S projektom želimo
-      <strong
-        >spodbuditi večjo in trajno finančno transparentnost NVO in občin,
+      <strong>spodbuditi večjo in trajno finančno transparentnost NVO in občin,
         razviti enostavne digitalne rešitve, ki bodo temeljile na odprtokodnih
         standardih in podatkih, spodbudile nove rabe in trend odpiranja podatkov
         v javni upravi, projektne aktivnosti pa bodo v trajno dvosmerno
-        komunikacijo povezale raznolike deležnike</strong
-      >.
+        komunikacijo povezale raznolike deležnike</strong>.
     </p>
     <p>
       Trajanje projekta: 1. 1. 2022 do 31.12.2023<br />
@@ -18,10 +16,9 @@
     <hr />
     <p>
       Konzorcij s projektom naslavlja problem
-      <strong
-        >nizke finančne transparentnosti organizacij v Sloveniji in pomanjkanje
-        dostopnih ter cenovno ugodnih digitalnih rešitev</strong
-      >, ki bi organizacije vzpodbudile pri odpiranju svojega finančnega
+      <strong>nizke finančne transparentnosti organizacij v Sloveniji in pomanjkanje
+        dostopnih ter cenovno ugodnih digitalnih rešitev</strong>, ki bi organizacije vzpodbudile pri odpiranju svojega
+      finančnega
       poslovanja. V projektu se osredotočamo na finančno transparentnost dveh
       tipov organizacij: nevladnih organizacij in občin. Čeprav gre za precej
       različni ciljni skupini, pa projektni partnerji pri obeh prepoznavamo
@@ -58,10 +55,8 @@
       Z <strong>usposabljanji ena-na-ena in skupinskimi izobraževanji</strong> o
       pomembnosti transparentnosti in uporabi razvitih aplikacij bomo direktno
       naslavljali oba sektorja, obenem pa bomo organizirali tudi
-      <strong
-        >skupne dogodke soustvarjanja in povezovanja različnih
-        deležnikov</strong
-      >
+      <strong>skupne dogodke soustvarjanja in povezovanja različnih
+        deležnikov</strong>
       v dvosmerno komunikacijo. S tem bomo rešitve predstavili širši javnosti,
       povečali nadzor nad organizacijami, obenem pa bomo izboljševali tudi
       vključevanje javnosti v delovanje obeh tipov organizacij. Z
@@ -69,10 +64,8 @@
       digitalni rešitvi za projektno vodenje v NVO in posveti o digitalnih
       rešitvah vključevanja občanov v procese odločanja) bomo dvigali IKT
       kompetence naših uporabnikov, ob koncu projekta pa bomo pripravili tudi
-      <strong
-        >priročnika s smernicami za NVO in občine za izboljšanje
-        transparentnosti</strong
-      >.
+      <strong>priročnika s smernicami za NVO in občine za izboljšanje
+        transparentnosti</strong>.
     </p>
     <hr />
     <p>Cilji:</p>
@@ -93,33 +86,30 @@
     <p class="padded-p">Rezultati:</p>
     <ul>
       <li>Digitalna aplikacija za povečanje finančne transparentnosti NVO</li>
-      <li>Digitalna aplikacija za povečanje finančne transparentnosti NVO</li>
+      <li>Digitalna aplikacija za povečanje finančne transparentnosti občin</li>
       <li>4 priročniki za izboljšanje finančne transparentnosti organizacij</li>
-      <li>41 akcij z namenom promocije digitalnih aplikacij</li>
+      <li>49 akcij z namenom promocije digitalnih aplikacij</li>
       <li>
-        65 izvedenih usposabljanj za uporabo razvitih aplikacij in 19
+        49 izvedenih usposabljanj za uporabo razvitih aplikacij in 18
         usposabljanj na področju informacijske družbe
       </li>
-      <li>452 usposobljenih uporabnikov razvitih digitalnih aplikacij</li>
-      <li>329 usposobljenih uporabnikov na področju informacijske družbe</li>
+      <li>215 usposobljenih uporabnikov razvitih digitalnih aplikacij</li>
+      <li>322 usposobljenih uporabnikov na področju informacijske družbe</li>
     </ul>
     <p class="padded-p">Partnerji:</p>
     <ul>
       <li>
-        <a href="http://dopd.si/" target="_blank" rel="noopener noreferrer"
-          >Društvo Organizacija za participatorno družbo</a
-        >
+        <a href="http://dopd.si/" target="_blank" rel="noopener noreferrer">Društvo Organizacija za participatorno
+          družbo</a>
       </li>
       <li>
-        <a href="https://www.mcp.si/" target="_blank" rel="noopener noreferrer"
-          >Zveza društev Mladinski center Postojna</a
-        >
+        <a href="https://www.mcp.si/" target="_blank" rel="noopener noreferrer">Zveza društev Mladinski center
+          Postojna</a>
       </li>
       <li>
-        <a href="https://servis8.com/" target="_blank" rel="noopener noreferrer"
-          >Servis 8, zavod za inovacije, izobraževanje in delavnice oblikovanja
-          storitev</a
-        >
+        <a href="https://servis8.com/" target="_blank" rel="noopener noreferrer">Servis 8, zavod za inovacije,
+          izobraževanje in delavnice oblikovanja
+          storitev</a>
       </li>
     </ul>
     <p class="padded-p">Pridruženi partnerji:</p>
@@ -139,17 +129,9 @@
     </ul>
     <p class="padded-p"><strong>Financer:</strong></p>
     <p>
-      <a
-        href="https://www.gov.si/drzavni-organi/ministrstva/ministrstvo-za-javno-upravo/o-ministrstvu-za-javno-upravo/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img
-          src="/img/donators/mju.png"
-          alt="Ministrstvo za javno upravo"
-          class="img-fluid"
-          style="max-width: 270px"
-        />
+      <a href="https://www.gov.si/drzavni-organi/ministrstva/ministrstvo-za-javno-upravo/o-ministrstvu-za-javno-upravo/"
+        target="_blank" rel="noopener noreferrer">
+        <img src="/img/donators/mju.png" alt="Ministrstvo za javno upravo" class="img-fluid" style="max-width: 270px" />
       </a>
     </p>
     <p>
