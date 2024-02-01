@@ -13,24 +13,15 @@
         <!-- eslint-disable-next-line vue/no-v-html -->
         <p v-html="$t(`shop.products.${product.id}.description`)" />
         <hr />
-        <div
-          v-if="product.variants && product.variants.length"
-          class="product__variant row"
-        >
+        <div v-if="product.variants && product.variants.length" class="product__variant row">
           <div class="col-12 col-md-3">
             <span class="variant__title">Velikost</span>
           </div>
           <div class="col d-flex align-items-center">
-            <button
-              v-for="v in sortedVariants"
-              :key="v.id"
-              :class="[
-                'modify-variant',
-                { active: variant && variant.id === v.id },
-              ]"
-              :disabled="v.stock <= 0"
-              @click="changeVariant(v)"
-            >
+            <button v-for="v in sortedVariants" :key="v.id" :class="[
+              'modify-variant',
+              { active: variant && variant.id === v.id },
+            ]" :disabled="v.stock <= 0" @click="changeVariant(v)">
               {{ v.variant }}
             </button>
           </div>
@@ -40,17 +31,11 @@
             <span v-t="'shop.quantity'" class="variant__title"></span>
           </div>
           <div class="col d-flex align-items-center">
-            <button
-              class="modify-amount modify-amount--minus"
-              @click="changeAmount(amount - 1)"
-            >
+            <button class="modify-amount modify-amount--minus" @click="changeAmount(amount - 1)">
               &ndash;
             </button>
             <span class="amount" v-text="amount" />
-            <button
-              class="modify-amount modify-amount--plus"
-              @click="changeAmount(amount + 1)"
-            >
+            <button class="modify-amount modify-amount--plus" @click="changeAmount(amount + 1)">
               +
             </button>
           </div>
@@ -58,15 +43,8 @@
         <hr />
         <div class="row">
           <div class="col-12 col-lg-6">
-            <more-button
-              :text="$t('shop.buy')"
-              block
-              color="secondary"
-              icon="heart"
-              large
-              :disabled="!variant"
-              @click="addAndCheckout"
-            />
+            <more-button :text="$t('shop.buy')" block color="secondary" icon="heart" large :disabled="!variant"
+              @click="addAndCheckout" />
           </div>
           <div class="col-12 col-lg-6 d-flex align-items-center">
             <div class="add-to-basket">
@@ -101,7 +79,7 @@ export default {
   layout: 'checkout',
   asyncData: catchError(async ({ $axios, params }) => {
     const product = await $axios.$get(
-      `https://podpri.djnd.si/api/shop/products/${params.id}/`,
+      `https://podpri.lb.djnd.si/api/shop/products/${params.id}/`,
     );
     return {
       product,
