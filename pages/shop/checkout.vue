@@ -6,9 +6,7 @@
         Zaračunali ti nismo ničesar, ves denar je še vedno na tvoji kartici.
         Predlagamo, da osvežiš stran in poskusiš ponovno. Če ne bo šlo, nam piši
         na
-        <a href="mailto:vsi@danesjenovdan.si" class="text-danger"
-          >vsi@danesjenovdan.si</a
-        >
+        <a href="mailto:vsi@danesjenovdan.si" class="text-danger">vsi@danesjenovdan.si</a>
         in ti bomo poskusili pomagati.
       </p>
       <p class="small font-weight-bold mb-0">
@@ -31,17 +29,10 @@
             <template v-else-if="items && items.length">
               <div class="cart-items">
                 <template v-for="(item, i) in items">
-                  <cart-product
-                    :key="item.id"
-                    :image="getDisplayImage(item.article)"
-                    :title="$t(`shop.products.${item.article.id}.title`)"
-                    :price="item.article.price"
-                    :amount="item.quantity"
-                    :text="item.article.variant || ''"
-                    show-modify
-                    large
-                    @change-amount="onChangeAmount(item.id, $event)"
-                  />
+                  <cart-product :key="item.id" :image="getDisplayImage(item.article)"
+                    :title="$t(`shop.products.${item.article.id}.title`)" :price="item.article.price"
+                    :amount="item.quantity" :text="item.article.variant || ''" show-modify large
+                    @change-amount="onChangeAmount(item.id, $event)" />
                   <hr v-if="i !== items.length - 1" :key="`${item.id}-hr`" />
                 </template>
               </div>
@@ -53,16 +44,8 @@
           </template>
           <template slot="footer">
             <div class="confirm-button-container">
-              <confirm-button
-                key="next-summary"
-                :disabled="!canContinueToNextStage"
-                :text="$t('shop.buy')"
-                color="secondary"
-                arrow
-                hearts
-                block
-                @click.native="continueToNextStage"
-              />
+              <confirm-button key="next-summary" :disabled="!canContinueToNextStage" :text="$t('shop.buy')"
+                color="secondary" arrow hearts block @click.native="continueToNextStage" />
             </div>
           </template>
         </checkout-stage>
@@ -77,61 +60,31 @@
             <form @submit.prevent="continueToPayment">
               <template v-if="delivery">
                 <div class="form-group">
-                  <input
-                    id="name"
-                    v-model="name"
-                    :placeholder="$t('shop.checkout.name')"
-                    class="form-control form-control-lg"
-                  />
+                  <input id="name" v-model="name" :placeholder="$t('shop.checkout.name')"
+                    class="form-control form-control-lg" />
                 </div>
                 <div class="form-group">
-                  <input
-                    id="last-name"
-                    v-model="lastName"
-                    :placeholder="$t('shop.checkout.lastName')"
-                    class="form-control form-control-lg"
-                  />
+                  <input id="last-name" v-model="lastName" :placeholder="$t('shop.checkout.lastName')"
+                    class="form-control form-control-lg" />
                 </div>
                 <template v-if="delivery === 'post'">
                   <div class="form-group">
-                    <input
-                      id="address"
-                      v-model="address"
-                      :placeholder="$t('shop.checkout.streetAndNum')"
-                      class="form-control form-control-lg"
-                    />
+                    <input id="address" v-model="address" :placeholder="$t('shop.checkout.streetAndNum')"
+                      class="form-control form-control-lg" />
                   </div>
                   <div class="form-group">
-                    <input
-                      id="address-post"
-                      v-model="addressPost"
-                      :placeholder="$t('shop.checkout.postAndNum')"
-                      class="form-control form-control-lg"
-                    />
+                    <input id="address-post" v-model="addressPost" :placeholder="$t('shop.checkout.postAndNum')"
+                      class="form-control form-control-lg" />
                   </div>
                 </template>
                 <div class="form-group">
-                  <input
-                    id="email"
-                    v-model="email"
-                    type="email"
-                    :placeholder="$t('shop.checkout.email')"
-                    class="form-control form-control-lg"
-                  />
+                  <input id="email" v-model="email" type="email" :placeholder="$t('shop.checkout.email')"
+                    class="form-control form-control-lg" />
                 </div>
               </template>
               <div class="custom-control custom-checkbox">
-                <input
-                  id="info-newsletter"
-                  v-model="newsletter"
-                  type="checkbox"
-                  class="custom-control-input"
-                />
-                <label
-                  v-t="'shop.checkout.newsletter'"
-                  class="custom-control-label"
-                  for="info-newsletter"
-                ></label>
+                <input id="info-newsletter" v-model="newsletter" type="checkbox" class="custom-control-input" />
+                <label v-t="'shop.checkout.newsletter'" class="custom-control-label" for="info-newsletter"></label>
               </div>
               <!-- this is here so you can submit the form with the enter key -->
               <input type="submit" hidden />
@@ -139,23 +92,12 @@
           </template>
           <template slot="footer">
             <div class="confirm-button-container">
-              <confirm-button
-                key="next-delivery"
-                :disabled="!canContinueToPayment"
-                :loading="checkoutLoading"
-                :text="$t('shop.checkout.continue')"
-                color="secondary"
-                arrow
-                hearts
-                block
-                @click.native="continueToPayment"
-              />
+              <confirm-button key="next-delivery" :disabled="!canContinueToPayment" :loading="checkoutLoading"
+                :text="$t('shop.checkout.continue')" color="secondary" arrow hearts block
+                @click.native="continueToPayment" />
             </div>
             <div class="bottom-back-link">
-              <dynamic-link
-                v-t="'shop.checkout.back'"
-                @click="stage = 'summary'"
-              ></dynamic-link>
+              <dynamic-link v-t="'shop.checkout.back'" @click="stage = 'summary'"></dynamic-link>
             </div>
           </template>
         </checkout-stage>
@@ -173,39 +115,20 @@
                 <div class="lds-dual-ring" />
               </div>
               <template v-if="payment === 'card'">
-                <div
-                  :class="['payment', { 'payment--loading': checkoutLoading }]"
-                >
-                  <card-payment
-                    :token="token"
-                    @ready="onPaymentReady"
-                    @error="onPaymentError"
-                    @validity-change="paymentInfoValid = $event"
-                    @payment-start="paymentInProgress = true"
-                    @success="paymentSuccess"
-                  />
+                <div :class="['payment', { 'payment--loading': checkoutLoading }]">
+                  <card-payment :token="token" @ready="onPaymentReady" @error="onPaymentError"
+                    @validity-change="paymentInfoValid = $event" @payment-start="paymentInProgress = true"
+                    @success="paymentSuccess" />
                 </div>
               </template>
               <template v-if="payment === 'paypal'">
-                <div
-                  :class="['payment', { 'payment--loading': checkoutLoading }]"
-                >
-                  <paypal-payment
-                    :token="token"
-                    :amount="totalPrice"
-                    @ready="onPaymentReady"
-                    @error="onPaymentError"
-                    @payment-start="paymentInProgress = true"
-                    @success="paymentSuccess"
-                  />
+                <div :class="['payment', { 'payment--loading': checkoutLoading }]">
+                  <paypal-payment :token="token" :amount="totalPrice" @ready="onPaymentReady" @error="onPaymentError"
+                    @payment-start="paymentInProgress = true" @success="paymentSuccess" />
                 </div>
               </template>
               <template v-if="payment === 'upn'">
-                <upn-payment
-                  :amount="totalPrice"
-                  @ready="onUPNPaymentReady"
-                  @success="paymentSuccess"
-                />
+                <upn-payment :amount="totalPrice" @ready="onUPNPaymentReady" @success="paymentSuccess" />
               </template>
             </div>
             <div class="cart-total">
@@ -215,23 +138,12 @@
           </template>
           <template slot="footer">
             <div class="confirm-button-container">
-              <confirm-button
-                key="next-payment"
-                :disabled="!canContinueToNextStage"
-                :loading="paymentInProgress"
-                :text="$t('shop.checkout.continue')"
-                color="secondary"
-                arrow
-                hearts
-                block
-                @click.native="continueToNextStage"
-              />
+              <confirm-button key="next-payment" :disabled="!canContinueToNextStage" :loading="paymentInProgress"
+                :text="$t('shop.checkout.continue')" color="secondary" arrow hearts block
+                @click.native="continueToNextStage" />
             </div>
             <div class="bottom-back-link">
-              <dynamic-link
-                v-t="'shop.checkout.back'"
-                @click="stage = 'delivery'"
-              ></dynamic-link>
+              <dynamic-link v-t="'shop.checkout.back'" @click="stage = 'delivery'"></dynamic-link>
             </div>
           </template>
         </checkout-stage>
@@ -248,11 +160,7 @@
           <p v-t="'shop.thanks.paragraph'"></p>
         </div>
         <div class="thankyou__close">
-          <nuxt-link
-            v-t="'shop.checkout.close'"
-            :to="localePath('shop')"
-            class="close-button"
-          ></nuxt-link>
+          <nuxt-link v-t="'shop.checkout.close'" :to="localePath('shop')" class="close-button"></nuxt-link>
         </div>
       </div>
     </div>
@@ -378,7 +286,7 @@ export default {
 
         this.checkoutLoading = true;
         const checkoutResponse = await this.$axios.$post(
-          `https://podpri.djnd.si/api/shop/checkout/?order_key=${this.orderKey}`,
+          `https://podpri.lb.djnd.si/api/shop/checkout/?order_key=${this.orderKey}`,
           {
             name: `${this.name} ${this.lastName}`,
             email: this.email,
@@ -432,7 +340,7 @@ export default {
       this.paymentInProgress = true;
       try {
         await this.$axios.$post(
-          `https://podpri.djnd.si/api/shop/pay/?order_key=${this.orderKey}`,
+          `https://podpri.lb.djnd.si/api/shop/pay/?order_key=${this.orderKey}`,
           {
             payment_type: nonce ? 'braintree' : 'upn',
             nonce,
@@ -463,6 +371,7 @@ export default {
 }
 
 .checkout {
+
   .checkout__thankyou,
   .checkout__payment,
   .checkout__delivery,
@@ -628,6 +537,7 @@ export default {
       }
     }
   }
+
   .custom-checkbox {
     margin-bottom: 1rem;
 
