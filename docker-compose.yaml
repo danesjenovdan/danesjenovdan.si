@@ -1,0 +1,44 @@
+version: '3'
+
+volumes:
+  postgres-data:
+
+
+services:
+  wagtail:
+    build: ./djnd
+    working_dir: /app
+    command: ./manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./djnd:/app:delegated,rw
+    ports:
+      - "8000:8000"
+    environment:
+      PYTHONPATH: /app:$PYTHONPATH
+      DB_HOST: db
+      DB_NAME: wagtail
+      DB_USERNAME: wagtail
+      DB_PASSWORD: changeme
+    depends_on:
+      - db
+
+  # sass-compile:
+  #   build: ./sass-compile
+  #   working_dir: /app
+  #   command: npm run watch
+  #   volumes:
+  #     - ./sass-compile/scss:/app/scss:delegated,rw
+  #     - ./rog/rog/static:/app/static:delegated,rw
+  #   depends_on:
+  #     - db
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: wagtail
+      POSTGRES_USER: wagtail
+      POSTGRES_PASSWORD: changeme
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    expose:
+      - "5432"

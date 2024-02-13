@@ -1,9 +1,0 @@
-{
-  "[javascript]": {
-    "editor.formatOnSave": true
-  },
-  "[vue]": {
-    "editor.formatOnSave": true
-  },
-  "vetur.format.defaultFormatter.html": "prettier"
-}
