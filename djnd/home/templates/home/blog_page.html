@@ -1,0 +1,14 @@
+{% extends "wrapper.html" %}
+{% load static wagtailcore_tags i18n %}
+
+{% block content %}
+
+<span class="tag">{% translate "Agrument" %}</span>
+
+<h1>{{ page.title }}</h1>
+
+{% for block in page.modules %}
+    {% include_block block %}
+{% endfor %}
+
+{% endblock content %}
