@@ -1,18 +1,29 @@
 {% extends "wrapper.html" %}
-{% load static wagtailcore_tags %}
+{% load static wagtailcore_tags i18n %}
 
 {% block content %}
 
+<span class="tag">{% translate "Občasnik" %}</span>
+
 <h1>{{ page.title }}</h1>
 {{ page.introduction|richtext }}
+
+<h2>{% translate "Danes je nov dan novice" %}</h2>
+<p>{% translate "Preveri, kaj smo počeli pretekli mesec" %}</p>
 
 {% for article in page.news %}
 <h5>{{ article.value.name }}</h5>
 {{ article.value.description }}
 {% endfor %}
 
+<h2>{% translate "Izpostavljeno" %}</h2>
+<p>{% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" %}</p>
+
 {% for article in page.exposed %}
 <h5>{{ article.value.name }}</h5>
 {{ article.value.description }}
 {% endfor %}
+
+<a href="/">{% translate "Prejšnji občasniki" %}</a>
+
 {% endblock content %}
