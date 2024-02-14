@@ -13,10 +13,6 @@ class HomePage(Page):
     pass
 
 
-# class OurWorkPage(Page):
-#     pass
-
-
 class PillarPage(Page):
     subtitle = models.TextField(blank=True)
     description = models.TextField(blank=True)
@@ -86,6 +82,10 @@ class ModularPage(Page):
         FieldPanel("image"),
         FieldPanel("modules"),
     ]
+
+
+class TeamPage(Page):
+    pass
 
 
 class NewsletterPage(Page):
