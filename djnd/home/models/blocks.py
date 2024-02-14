@@ -1,8 +1,9 @@
 from wagtail import blocks
 
 
-# class TestBlock(blocks.StructBlock):
-#     text = blocks.TextBlock()
+class ModuleBlock(blocks.StreamBlock):
 
-#     class Meta:
-#         template = "home/blocks/block.html"
+    class Meta:
+        label = "Modul"
+        abstract = True
+        # template = "home/blocks/block.html"

@@ -1,0 +1,15 @@
+{% extends "wrapper.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1>{{ page.title }}</h1>
+<h4>{{ page.subtitle }}</h4>
+<p>{{ page.description }}</p>
+
+{% for project in page.projects %}
+<h5>{{ project.value.name }}</h5>
+{{ project.value.description }}
+{% endfor %}
+
+{% endblock content %}
