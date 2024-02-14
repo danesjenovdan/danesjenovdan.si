@@ -9,6 +9,8 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
 
+from home.views import OurWorkView
+
 urlpatterns = [
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
@@ -29,6 +31,9 @@ if settings.DEBUG:
 # These will be available under a language code prefix. For example /en/search/
 urlpatterns += i18n_patterns(
     path("search/", search_views.search, name="search"),
+    path("trgovina/", include("shop.urls")),
+    path("podpri/", include("support.urls")),
+    path("nase-delo/", OurWorkView.as_view(), name="our-work"),
     path("", include(wagtail_urls)),
     prefix_default_language=False,
 )
