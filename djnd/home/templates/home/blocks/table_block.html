@@ -1,0 +1,18 @@
+{% load wagtailcore_tags %}
+
+<div>
+    <h2>{{ value.title }}</h2>
+    
+    {% if value.table %}
+    <table>
+        <tbody>
+            {% for row in value.table %}
+            <tr>
+                <th>{{ row.title }}</th>
+                <td>{{ row.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>

@@ -1,0 +1,10 @@
+{% load wagtailcore_tags %}
+
+<div>
+    <h2>{{ value.title }}</h2>
+    <p>{{ value.description }}</p>
+    
+    {% for network in networks %}
+        <h4>{{ network.name }}</h4>
+    {% endfor %}
+</div>

@@ -2,8 +2,6 @@ from django.db import models
 
 from wagtail.models import TranslatableMixin
 
-from .pages import PillarPage
-
 
 class ActivityCategory(TranslatableMixin, models.Model):
     name = models.TextField()
@@ -38,7 +36,7 @@ class Activity(TranslatableMixin, models.Model):
         on_delete=models.SET_NULL,
         related_name="+",
     )
-    pillar_page = models.ManyToManyField(PillarPage, blank=True)
+    pillar_page = models.ManyToManyField("home.PillarPage", blank=True)
     category = models.ManyToManyField(ActivityCategory, blank=True)
     project = models.ManyToManyField(ActivityProject, blank=True)
     date = models.DateField(null=True, blank=True)

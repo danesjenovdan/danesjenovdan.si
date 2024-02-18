@@ -1,0 +1,16 @@
+{% load wagtailcore_tags i18n %}
+
+<div>
+    <h2>{{ value.title }}</h2>
+    <p>{{ value.description }}</p>
+    
+    <h3>{% translate "Trenutni" %}</h3>
+    {% for donor in current_donors %}
+        <h4>{{ donor.name }}</h4>
+    {% endfor %}
+
+    <h3>{% translate "Pretekli" %}</h3>
+    {% for donor in past_donors %}
+    <h4>{{ donor.name }}</h4>
+    {% endfor %}
+</div>

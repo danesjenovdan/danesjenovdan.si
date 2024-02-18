@@ -1,0 +1,9 @@
+{% load wagtailcore_tags i18n %}
+
+<div>
+    <h2>{{ value.title }}</h2>
+    {% if value.reports_url %}
+    <a href="{{ value.reports_url }}" target="_blank">{% translate "Letna vsebinska in finančna poročila" %}</a>
+    {% endif %}
+    <div>ODPRTI RAČUNI EMBED</div>
+</div>

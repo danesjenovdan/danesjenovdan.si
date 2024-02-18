@@ -1,0 +1,12 @@
+{% load wagtailcore_tags %}
+
+<div>
+    <h2>{{ value.title }}</h2>
+    <p>
+        {{ value.description }}
+    </p>
+
+    {% for pillar in value.pillars %}
+        {{ pillar.value.title }}
+    {% endfor %}
+</div>

@@ -1,0 +1,11 @@
+{% load wagtailcore_tags %}
+
+<div>
+    <h2>{{ value.title }}</h2>
+    
+    {{ value.text|richtext }}
+
+    {% for button in value.button %}
+        <a href="{% if button.page_link %}{% pageurl button.page_link %}{% else %}{{ button.link }}{% endif %}">{{ button.button_text }}</a>
+    {% endfor %}
+</div>
