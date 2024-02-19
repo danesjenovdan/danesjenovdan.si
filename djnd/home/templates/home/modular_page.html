@@ -1,5 +1,5 @@
 {% extends "wrapper.html" %}
-{% load static %}
+{% load static wagtailcore_tags %}
 
 {% block content %}
 
@@ -8,5 +8,11 @@
 <p>{{ page.description }}</p>
 
 TODO: child pages
+
+<div>
+    {% for block in page.modules %}
+    {% include_block block %}
+    {% endfor %}
+</div>
 
 {% endblock content %}
