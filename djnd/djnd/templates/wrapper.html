@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
+{% block wrapper_content %}
+{% include "home/includes/header.html" %}
 
-
-
-{% endblock content %}
+<main>
+{% block content %} {% endblock content %}
+</main>
+{% endblock wrapper_content %}

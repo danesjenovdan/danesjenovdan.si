@@ -34,7 +34,7 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% block content %}{% endblock %}
+        {% block wrapper_content %}{% endblock %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/djnd.js' %}"></script>

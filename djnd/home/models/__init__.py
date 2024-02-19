@@ -9,3 +9,4 @@ from .snippets import (
     TeamMemberCategory,
     TeamMember,
 )
+from .settings import HeaderSettings
