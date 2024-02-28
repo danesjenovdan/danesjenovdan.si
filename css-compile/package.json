@@ -1,0 +1,21 @@
+{
+  "name": "css-compile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "postcss ./src/main.css --output ./djnd/djnd/static/css/bundle.css --watch",
+    "build": "postcss ./src/main.css --output ./djnd/djnd/static/css/bundle.css"
+  },
+  "bundle": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "cssnano": "^6.0.5",
+    "postcss": "^8.4.35",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.0.1",
+    "tailwindcss": "^3.4.1"
+  }
+}

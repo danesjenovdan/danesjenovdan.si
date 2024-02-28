@@ -12,3 +12,6 @@
 .DS_Store
 
 *.dump
+
+# allow extensions recommendations
+!.vscode/extensions.json
