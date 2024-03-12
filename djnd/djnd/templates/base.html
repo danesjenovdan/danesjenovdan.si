@@ -26,21 +26,13 @@
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/bundle.css' %}">
 
-        {% block extra_css %}
-        {# Override this in templates to add extra stylesheets #}
-        {% endblock %}
+        {# Global javascript #}
+        <script defer src="{% static 'js/alpinejs-3.13.5.min.js' %}"></script>
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
         {% block wrapper_content %}{% endblock %}
-
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/djnd.js' %}"></script>
-
-        {% block extra_js %}
-        {# Override this in templates to add extra javascript #}
-        {% endblock %}
     </body>
 </html>

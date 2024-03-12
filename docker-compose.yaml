@@ -26,8 +26,10 @@ services:
     working_dir: /app
     command: yarn dev
     volumes:
-      - ./css-compile/src:/app/src:delegated,rw
       - ./djnd:/app/djnd:delegated,rw
+      - ./css-compile/src:/app/src:delegated,rw
+      - ./css-compile/postcss.config.js:/app/postcss.config.js:delegated,rw
+      - ./css-compile/tailwind.config.js:/app/tailwind.config.js:delegated,rw
     depends_on:
       - db
 

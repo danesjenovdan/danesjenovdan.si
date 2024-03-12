@@ -1,0 +1,62 @@
+{% load static %}
+
+<div class="px-6 pt-20">
+  <a href="/" class="inline-block mb-5">
+    <img src="{% static "img/djnd-logo-dark.svg" %}" alt="Danes je nov dan" class="h-9">
+  </a>
+
+  <div class="relative">
+    <img src="{% static "img/noun-language-4113652.svg" %}" alt="" class="absolute left-2.5 w-4 h-[38px] pointer-events-none">
+    <select id="lang-chooser" class="flex gap-2 w-full p-2 pl-8 border border-dark font-mono text-sm text-left">
+      <option value="sl">Slovenščina</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+
+  <hr class="my-10">
+
+  <nav>
+    <ul class="flex flex-col gap-3">
+      <li class="flex items-start gap-1 uppercase text-xl leading-5 font-semibold">
+        <img src="{% static "img/emoji/clapping_hands_sign.svg" %}" alt="" class="w-4 mt-0.5">
+        <a href="#" class="hover:underline">Politična  participacija</a>
+      </li>
+      <li class="flex items-start gap-1 uppercase text-xl leading-5 font-semibold">
+        <img src="{% static "img/emoji/nerd_face.svg" %}" alt="" class="w-4 mt-0.5">
+        <a href="#" class="hover:underline">Odprtost javnih institucij</a>
+      </li>
+      <li class="flex items-start gap-1 uppercase text-xl leading-5 font-semibold">
+        <img src="{% static "img/emoji/smiling_face_with_sunglasses.svg" %}" alt="" class="w-4 mt-0.5">
+        <a href="#" class="hover:underline">Digitalna suverenost</a>
+      </li>
+      <li class="flex items-start gap-1 uppercase text-xl leading-5 font-semibold">
+        <img src="{% static "img/emoji/flexed_biceps.svg" %}" alt="" class="w-4 mt-0.5">
+        <a href="#" class="hover:underline">Opolnomočena civilna družba</a>
+      </li>
+    </ul>
+  </nav>
+
+  <hr class="my-10">
+
+  <nav>
+    <ul class="flex flex-col gap-3">
+      <li class="uppercase text-lg leading-5 font-semibold">
+        <a href="#" class="hover:underline">Naše delo</a>
+      </li>
+      <li class="uppercase text-lg leading-5 font-semibold">
+        <a href="#" class="hover:underline">O DJND</a>
+        <ul class="mt-1 ml-4 flex flex-col gap-1">
+          <li class="normal-case text-base leading-5 font-normal"><a href="#" class="hover:underline">Ekipa</a></li>
+          <li class="normal-case text-base leading-5 font-normal"><a href="#" class="hover:underline">Vrednote</a></li>
+          <li class="normal-case text-base leading-5 font-normal"><a href="#" class="hover:underline">Odprti računi</a></li>
+        </ul>
+      </li>
+      <li class="uppercase text-lg leading-5 font-semibold">
+        <a href="#" class="hover:underline">Trgovina</a>
+      </li>
+      <li class="uppercase text-lg leading-5 font-semibold">
+        <a href="#" class="hover:underline">Podpri nas</a>
+      </li>
+    </ul>
+  </nav>
+</div>

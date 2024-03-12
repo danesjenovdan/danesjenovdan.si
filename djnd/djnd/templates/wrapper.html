@@ -2,9 +2,17 @@
 {% load static %}
 
 {% block wrapper_content %}
-{% include "home/includes/header.html" %}
-
-<main>
-{% block content %} {% endblock content %}
-</main>
+<div class="text-dark">
+  <aside class="fixed w-[250px] h-full border-r">
+    {% include "includes/sidebar.html" %}
+  </aside>
+  <main class="ml-[250px] flex flex-col min-h-screen">
+    <section class="flex-1 px-14 py-20">
+      {% block content %}{% endblock content %}
+    </section>
+    <footer class="flex-shrink-0 flex-grow-0 border-t">
+      {% include "includes/footer.html" %}
+    </footer>
+  </main>
+</div>
 {% endblock wrapper_content %}

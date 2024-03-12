@@ -3,10 +3,31 @@
 
 {% block content %}
 
-<h1>{{ page.title }}</h1>
+<h1 class="mb-12 text-5xl font-semibold">{{ page.title }}</h1>
 
-{% for member in team_members %}
-{{ member.name }}
+<form onsubmit="return false;" class="flex gap-2 mb-6" x-data="{ selectedId: null }">
+{% for category in team_member_categories %}
+  <div>
+    <input type="radio" name="team_member_categories" id="team_member_category_{{ category.id }}" value="{{ category.id }}" {% if forloop.first %}checked{% endif %} class="peer hidden" @change="console.log($event)">
+    <label for="team_member_category_{{ category.id }}" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-mint">{{ category.name }}</label>
+  </div>
 {% endfor %}
+</form>
+
+<div class="grid grid-cols-fill230 gap-6">
+{% for member in team_members %}
+  <div class="border">
+    <div class="border-b">
+      <img src="https://placehold.it/200" alt="" class="w-full aspect-square">
+    </div>
+    <div class="p-4">
+      <h2 class="text-2xl font-semibold">{{ member.name }}</h2>
+      <p class="font-mono text-sm">{{ member.email }}</p>
+      <p class="mt-4">{{ member.role }}</p>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
 
 {% endblock content %}

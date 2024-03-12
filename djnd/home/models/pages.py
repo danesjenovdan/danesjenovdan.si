@@ -7,7 +7,7 @@ from wagtail.admin.panels import FieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 
 from .blocks import ModuleBlock
-from .snippets import TeamMember
+from .snippets import TeamMember, TeamMemberCategory
 
 
 class HomePage(Page):
@@ -58,7 +58,7 @@ class PillarPage(Page):
         context = super().get_context(request, *args, **kwargs)
 
         # get activities for this pillar
-        # context["activities"] = 
+        # context["activities"] =
 
         return context
 
@@ -86,15 +86,14 @@ class ModularPage(Page):
 
 
 class TeamPage(Page):
-
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        team_members = TeamMember.objects.all()
-
-        context["team_members"] = team_members
-
-        return context
+        return {
+            **context,
+            "team_member_categories": TeamMemberCategory.objects.all(),
+            "team_members": TeamMember.objects.all(),
+        }
 
 
 class NewsletterPage(Page):

@@ -1,0 +1,59 @@
+{% load static %}
+
+<div class="grid grid-cols-3 gap-14 p-14 bg-light">
+  <div>
+    <div class="leading-5">
+      <span class="font-semibold">Danes je nov dan</span><br>
+      <span class="font-semibold">Inštitut za druga vprašanja</span><br>
+      Resljeva cesta 25<br>
+      1000 Ljubljana<br>
+    </div>
+    <div class="mt-4 leading-5">
+      <a href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a><br>
+      <a href="tel:+36864163663">+368 64 163 663</a> (med 10. in 16. uro)
+    </div>
+    <div class="flex justify-between mt-6">
+      <a href="#"><img class="w-8 h-8" src="{% static "img/social/mastodon.svg" %}" alt="Mastodon"></a>
+      <a href="#"><img class="w-8 h-8" src="{% static "img/social/tiktok.svg" %}" alt="TikTok"></a>
+      <a href="#"><img class="w-8 h-8" src="{% static "img/social/instagram.svg" %}" alt="Instagram"></a>
+      <a href="#"><img class="w-8 h-8" src="{% static "img/social/x.svg" %}" alt="X"></a>
+      <a href="#"><img class="w-8 h-8" src="{% static "img/social/facebook.svg" %}" alt="Facebook"></a>
+      <a href="#"><img class="w-8 h-8" src="{% static "img/social/youtube.svg" %}" alt="YouTube"></a>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <span class="font-semibold">Prijavi se na naš Občasnik!</span>
+    </div>
+    <form class="mt-4" onsubmit="return false;">
+      <div>
+        <label for="subscribe-email" class="font-mono text-sm">Vpiši svoj e-naslov</label>
+        <input type="email" id="subscribe-email" class="w-full px-2 pt-1.5 pb-2 border border-dark font-semibold">
+      </div>
+      <div class="flex gap-2 mt-2">
+        <input id="subscribe-consent" type="checkbox" value="" class="w-6 h-6 flex-shrink-0 border border-dark">
+        <label for="subscribe-consent" class="font-mono text-sm leading-4">Strinjam se, da mi Danes je nov dan občasno pošlje email.</label>
+      </div>
+      <div class="mt-4">
+        <button type="submit" class="flex justify-between w-full px-2 pt-1.5 pb-2 border-2 border-dark bg-mint font-semibold">
+          <span>Prijavi me!</span><img class="w-4 -mb-0.5" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <div class="flex flex-col gap-5 leading-5">
+      <a href="#" class="hover:underline">
+        <span>Vsa naša koda je dostopna pod CC0 licenco. Najdeš jo na Githubu</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+      </a>
+      <a href="#" class="hover:underline">
+        <span>Politika zasebnosti in varstva osebnih podatkov</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+      </a>
+      <a href="#" class="hover:underline">
+        <span>Uredi svoje naročnine na novičnike</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+      </a>
+    </div>
+  </div>
+</div>
