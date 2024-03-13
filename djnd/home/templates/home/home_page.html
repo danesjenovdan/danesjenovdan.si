@@ -1,21 +1,59 @@
-{% extends "base.html" %}
+{% extends "wrapper.html" %}
 {% load static %}
 
 {% block body_class %}template-homepage{% endblock %}
 
-{% block extra_css %}
-
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
-{% endblock extra_css %}
-
 {% block content %}
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-{% include 'home/welcome_page.html' %}
+<h1 class="text-3xl font-bold underline text-red-600">
+  Hello world!
+</h1>
+
+<p>
+  <a href="/ekipa/">Ekipa</a>
+</p>
+
+{% comment %} <h2>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
+  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
+  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
+  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
+  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
+</h2>
+<h2>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
+  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
+  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
+  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
+  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
+</h2>
+<h2>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
+  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
+  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
+  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
+  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
+</h2>
+<h2>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
+  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
+  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
+  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
+  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
+</h2>
+<h2>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
+  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
+  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
+  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
+  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
+</h2>
+<h2>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
+  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
+  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
+  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
+  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
+</h2> {% endcomment %}
 
 {% endblock content %}

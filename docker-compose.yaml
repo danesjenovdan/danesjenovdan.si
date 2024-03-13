@@ -14,7 +14,6 @@ services:
     ports:
       - "8000:8000"
     environment:
-      PYTHONPATH: /app:$PYTHONPATH
       DB_HOST: db
       DB_NAME: wagtail
       DB_USERNAME: wagtail
@@ -22,15 +21,17 @@ services:
     depends_on:
       - db
 
-  # sass-compile:
-  #   build: ./sass-compile
-  #   working_dir: /app
-  #   command: npm run watch
-  #   volumes:
-  #     - ./sass-compile/scss:/app/scss:delegated,rw
-  #     - ./rog/rog/static:/app/static:delegated,rw
-  #   depends_on:
-  #     - db
+  css-compile:
+    build: ./css-compile
+    working_dir: /app
+    command: yarn dev
+    volumes:
+      - ./djnd:/app/djnd:delegated,rw
+      - ./css-compile/src:/app/src:delegated,rw
+      - ./css-compile/postcss.config.js:/app/postcss.config.js:delegated,rw
+      - ./css-compile/tailwind.config.js:/app/tailwind.config.js:delegated,rw
+    depends_on:
+      - db
 
   db:
     image: postgres:15-alpine

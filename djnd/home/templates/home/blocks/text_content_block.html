@@ -1,11 +1,18 @@
-{% load wagtailcore_tags %}
+{% load static wagtailcore_tags %}
 
-<div>
-    <h2>{{ value.title }}</h2>
-    
-    {{ value.text|richtext }}
-
-    {% for button in value.button %}
-        <a href="{% if button.page_link %}{% pageurl button.page_link %}{% else %}{{ button.link }}{% endif %}">{{ button.button_text }}</a>
-    {% endfor %}
+<div class="bg-white">
+  <div class="flex gap-10 max-w-screen-xl px-14 py-16">
+    <div class="basis-8/12">
+      <h2 class="mb-6 text-4xl font-semibold">{{ value.title }}</h2>
+      <div class="rich-text">
+        {{ value.text|richtext }}
+      </div>
+      {% for button in value.button %}
+      <a class="inline-flex justify-between min-w-[300px] mt-6 px-4 pt-2.5 pb-3 border border-dark text-2xl font-semibold {% if button.color == 'green' %}bg-mint{% else %}bg-white{% endif %}" href="{% if button.page_link %}{% pageurl button.page_link %}{% else %}{{ button.link }}{% endif %}">
+        <span>{{ button.button_text }}</span><img class="w-5 ml-4 -mb-0.5" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+      </a>
+      {% endfor %}
+    </div>
+    <div class="basis-4/12">&nbsp;</div>
+  </div>
 </div>
