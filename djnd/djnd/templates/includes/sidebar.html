@@ -1,4 +1,4 @@
-{% load static %}
+{% load static djnd_extras %}
 
 <div class="px-6 pt-20">
   <a href="/" class="inline-block mb-5">
@@ -46,9 +46,15 @@
       <li class="uppercase text-lg leading-5 font-semibold">
         <a href="#" class="hover:underline">O DJND</a>
         <ul class="mt-1 ml-4 flex flex-col gap-1">
-          <li class="normal-case text-base leading-5 font-normal"><a href="#" class="hover:underline">Ekipa</a></li>
-          <li class="normal-case text-base leading-5 font-normal"><a href="#" class="hover:underline">Vrednote</a></li>
-          <li class="normal-case text-base leading-5 font-normal"><a href="#" class="hover:underline">Odprti računi</a></li>
+          <li class="normal-case text-base leading-5 font-normal">
+            <a href="/ekipa/" {% if request.path|startswith:"/ekipa/" %}aria-current="page"{% endif %} class="hover:underline">Ekipa</a>
+          </li>
+          <li class="normal-case text-base leading-5 font-normal">
+            <a href="/vrednote/" {% if request.path|startswith:"/vrednote/" %}aria-current="page"{% endif %} class="hover:underline">Vrednote</a>
+          </li>
+          <li class="normal-case text-base leading-5 font-normal">
+            <a href="/odprti-racuni/" {% if request.path|startswith:"/odprti-racuni/" %}aria-current="page"{% endif %} class="hover:underline">Odprti računi</a>
+          </li>
         </ul>
       </li>
       <li class="uppercase text-lg leading-5 font-semibold">

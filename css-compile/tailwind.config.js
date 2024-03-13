@@ -7,6 +7,7 @@ module.exports = {
     },
     colors: {
       white: "#ffffff",
+      "very-light": "#F6F9F8",
       light: "#eeeeee",
       dark: "#333333",
       // dark colors:
@@ -15,6 +16,7 @@ module.exports = {
       "dark-yellow": "#CFAD54",
       // light colors:
       mint: "#9DF2D3",
+      "mint-light": "#EAFFF7",
       red: "#FFD1C7",
       green: "#D2F29D",
       blue: "#BAE2ED",
@@ -23,7 +25,10 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        "fill230": "repeat(auto-fill, minmax(230px, 1fr))",
+        fill230: "repeat(auto-fill, minmax(230px, 1fr))",
+      },
+      listStyleImage: {
+        arrow: 'url("/static/img/noun-arrow-right-1434311.svg")',
       },
     },
   },

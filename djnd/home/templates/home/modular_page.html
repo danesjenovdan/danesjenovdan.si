@@ -2,17 +2,25 @@
 {% load static wagtailcore_tags %}
 
 {% block content %}
-
-<h1>{{ page.title }}</h1>
-<h4>{{ page.subtitle }}</h4>
-<p>{{ page.description }}</p>
-
-TODO: child pages
-
 <div>
-    {% for block in page.modules %}
-    {% include_block block %}
-    {% endfor %}
-</div>
 
+  <div class="border-b border-dark bg-mint-light">
+    <div class="flex gap-10 max-w-screen-xl px-14 py-20">
+      <div class="basis-8/12">
+        <h1 class="mb-6 text-5xl font-semibold">{{ page.title }}</h1>
+        <p class="text-3xl">{{ page.description }}</p>
+      </div>
+      <div class="basis-4/12">
+        <img src="https://placehold.it/200x50" alt="" class="w-full">
+      </div>
+    </div>
+  </div>
+
+  {% for block in page.modules %}
+  <div class="border-b border-dark">
+    {% include_block block %}
+  </div>
+  {% endfor %}
+
+</div>
 {% endblock content %}

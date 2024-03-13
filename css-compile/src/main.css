@@ -1,8 +1,36 @@
 @import "tailwindcss/base";
-/* add base styles here */
-
 @import "tailwindcss/components";
-/* add custom components here */
-
 @import "tailwindcss/utilities";
-/* add custom utilities here */
+
+@layer base {
+  [aria-current="page"] {
+    position: relative;
+    @apply font-bold;
+
+    &::before {
+      position: absolute;
+      inset: -0.3em -1em -0.4em -1em;
+      min-width: 110px;
+      z-index: -1;
+      content: "";
+      background-image: url("/static/img/current-page-circle.svg");
+      background-size: 100% 100%;
+    }
+  }
+}
+
+@layer components {
+  .rich-text {
+    /* @apply border-4 border-dark-red; */
+    /* TODO: apply rich text styles */
+
+    p,
+    ul {
+      @apply mb-5 text-xl leading-7;
+    }
+
+    ul {
+      @apply list-image-arrow pl-5 marker:text-3xl;
+    }
+  }
+}
