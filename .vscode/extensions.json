@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss",
+    "jacobcassidy.css-nesting-syntax-highlighting"
+  ]
+}

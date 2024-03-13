@@ -2,7 +2,7 @@
 .venv
 
 # IDEs
-.vscode
+.vscode/*
 .idea
 
 # kustomize secrets
@@ -15,3 +15,4 @@
 
 # allow extensions recommendations
 !.vscode/extensions.json
+!.vscode/settings.json
