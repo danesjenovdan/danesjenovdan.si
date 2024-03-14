@@ -6,13 +6,13 @@
   <aside class="fixed w-[250px] h-full border-r">
     {% include "includes/sidebar.html" %}
   </aside>
-  <main class="ml-[250px] flex flex-col min-h-screen">
-    <section class="flex-1">
+  <div class="ml-[250px] flex flex-col min-h-screen">
+    <main class="flex-1">
       {% block content %}{% endblock content %}
-    </section>
+    </main>
     <footer class="flex-shrink-0 flex-grow-0 border-t">
       {% include "includes/footer.html" %}
     </footer>
-  </main>
+  </div>
 </div>
 {% endblock wrapper_content %}
