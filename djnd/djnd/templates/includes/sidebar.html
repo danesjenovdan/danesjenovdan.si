@@ -1,4 +1,4 @@
-{% load static djnd_extras %}
+{% load static i18n wagtailcore_tags djnd_extras %}
 
 <div class="px-6 pt-20">
   <a href="/" class="inline-block mb-5">
@@ -7,9 +7,13 @@
 
   <div class="relative">
     <img src="{% static "img/noun-language-4113652.svg" %}" alt="" class="absolute left-2.5 w-4 h-[38px] pointer-events-none">
-    <select id="lang-chooser" class="flex gap-2 w-full p-2 pl-8 border border-dark font-mono text-sm text-left">
-      <option value="sl">Slovenščina</option>
-      <option value="en">English</option>
+    <select id="lang-chooser" class="flex gap-2 w-full p-2 pl-8 border border-dark font-mono text-sm text-left" onchange="window.location.href = this.value">
+      {% for language_code, language_name in LANGUAGES %}
+        {% get_language_info for language_code as lang %}
+        {% language language_code %}
+          <option value="{% pageurl page.localized %}" data-lang="{{ language_code }}" {% if LANGUAGE_CODE == language_code %}selected{% endif %}>{{ lang.name_local }}</option>
+        {% endlanguage %}
+      {% endfor %}
     </select>
   </div>
 
