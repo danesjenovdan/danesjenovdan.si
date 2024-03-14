@@ -1,10 +1,9 @@
 from django.db import models
-
-from wagtail.fields import StreamField, RichTextField
-from wagtail.models import Page
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
+from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.models import Locale, Page
 
 from .blocks import ModuleBlock
 from .snippets import TeamMember, TeamMemberCategory
@@ -89,10 +88,16 @@ class TeamPage(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
+        lang = request.LANGUAGE_CODE
+        locale = Locale.get_active()
+
+        team_member_categories = TeamMemberCategory.objects.filter(locale=locale)
+        team_members = TeamMember.objects.filter(locale=locale)
+
         return {
             **context,
-            "team_member_categories": TeamMemberCategory.objects.all(),
-            "team_members": TeamMember.objects.all(),
+            "team_member_categories": team_member_categories,
+            "team_members": team_members,
         }
 
 
