@@ -11,3 +11,10 @@ def startswith(value, arg):
 @register.filter
 def idlist(value):
     return [obj.id for obj in value]
+
+
+@register.filter
+def debug_print(value):
+    print(value)
+    print(type(value))
+    return value
