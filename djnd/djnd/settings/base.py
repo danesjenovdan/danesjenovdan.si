@@ -94,11 +94,11 @@ WSGI_APPLICATION = "djnd.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "HOST": os.getenv("DB_HOST", "db"),
-        "NAME": os.getenv("DB_NAME", "wagtail"),
-        "USER": os.getenv("DB_USERNAME", "wagtail"),
-        "PASSWORD": os.getenv("DB_PASSWORD", "changeme"),
-        "PORT": "5432",
+        "HOST": os.getenv("DJANGO_DATABASE_HOST", "db"),
+        "NAME": os.getenv("DJANGO_DATABASE_NAME", "wagtail"),
+        "USER": os.getenv("DJANGO_DATABASE_USERNAME", "wagtail"),
+        "PASSWORD": os.getenv("DJANGO_DATABASE_PASSWORD", "changeme"),
+        "PORT": os.getenv("DJANGO_DATABASE_PORT", "5432"),
     }
 }
 
