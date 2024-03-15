@@ -65,7 +65,7 @@ RUN chown wagtail:wagtail /app
 COPY --chown=wagtail:wagtail ./djnd .
 
 # Copy the compiled CSS from the previous image.
-COPY --chown=wagtail:wagtail --from=css-compile /app/djnd/static/css ./djnd/static/css
+COPY --chown=wagtail:wagtail --from=css-compile /app/djnd/djnd/static/css ./djnd/static/css
 
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
