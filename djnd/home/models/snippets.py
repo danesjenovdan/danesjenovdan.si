@@ -120,3 +120,23 @@ class TeamMember(TranslatableMixin, models.Model):
     class Meta(TranslatableMixin.Meta):
         verbose_name = "Član ekipe"
         verbose_name_plural = "Člani ekipe"
+
+
+class Promoted(TranslatableMixin, models.Model):
+    title = models.TextField()
+    description = models.CharField()
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+    link = models.URLField(blank=True)
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta(TranslatableMixin.Meta):
+        verbose_name = "Izpostavljeno"
+        verbose_name_plural = "Izpostavljeno"

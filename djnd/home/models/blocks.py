@@ -1,6 +1,10 @@
 from wagtail import blocks
+from wagtail.snippets.blocks import SnippetChooserBlock
+from wagtail.models import Locale
 
-from .snippets import Network, Donor
+from django.utils.translation import get_language
+
+from .snippets import Network, Donor, Promoted
 
 
 class NetworksBlock(blocks.StructBlock):
@@ -9,7 +13,11 @@ class NetworksBlock(blocks.StructBlock):
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context=parent_context)
-        context["networks"] = Network.objects.all()
+
+        language_code = get_language()
+        locale = Locale.objects.get(language_code=language_code)
+        context["networks"] = Network.objects.filter(locale_id=locale.id)
+
         return context
 
     class Meta:
@@ -114,16 +122,33 @@ class TableBlock(blocks.StructBlock):
         template = "home/blocks/table_block.html"
 
 
+class PromotedBlock(blocks.StructBlock):
+    promoted_snippet = SnippetChooserBlock(Promoted)
+
+    class Meta:
+        label = "Izpostavljeno"
+        template = "home/blocks/promoted_block.html"
+
+
 class ModuleBlock(blocks.StreamBlock):
     contact_block = ContactBlock()
-    newsletter_block = NewsletterBlock()
-    support_block = SupportBlock()
     pillars_block = PillarsBlock()
     networks_block = NetworksBlock()
     text_content_block = TextContentBlock()
     table_block = TableBlock()
     donors_block = DonorsBlock()
     financial_information_block = FinancialInformationBlock()
+    promoted_block = PromotedBlock()
+
+    class Meta:
+        label = "Modul"
+
+
+class BlogPageBlock(blocks.StreamBlock):
+    text_content_block = TextContentBlock()
+    newsletter_block = NewsletterBlock()
+    support_block = SupportBlock()
+    promoted_block = PromotedBlock()
 
     class Meta:
         label = "Modul"
