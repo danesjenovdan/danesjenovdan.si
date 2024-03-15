@@ -1,0 +1,116 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: danesjenovdan
+  labels:
+    app: danesjenovdan
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: danesjenovdan
+  template:
+    metadata:
+      labels:
+        app: danesjenovdan
+    spec:
+      securityContext:
+        fsGroup: 1000
+      volumes:
+        - name: danesjenovdan-storage
+          emptyDir: {}
+      initContainers:
+        - name: collectstatic
+          image: danesjenovdan
+          volumeMounts:
+            - name: danesjenovdan-storage
+              mountPath: /storage
+          command:
+            - python
+            - manage.py
+            - collectstatic
+            - --no-input
+          env:
+            - name: DJANGO_SETTINGS_MODULE
+              value: djnd.settings.production
+          envFrom:
+            - secretRef:
+                name: danesjenovdan-credentials
+          resources:
+            requests:
+              memory: 1Gi
+              cpu: 500m
+            limits:
+              memory: 1Gi
+              cpu: 500m
+        - name: migrate
+          image: danesjenovdan
+          volumeMounts:
+            - name: danesjenovdan-storage
+              mountPath: /storage
+          command:
+            - python
+            - manage.py
+            - migrate
+            - --no-input
+          env:
+            - name: DJANGO_SETTINGS_MODULE
+              value: djnd.settings.production
+          envFrom:
+            - secretRef:
+                name: danesjenovdan-credentials
+          resources:
+            requests:
+              memory: 1Gi
+              cpu: 500m
+            limits:
+              memory: 1Gi
+              cpu: 500m
+      containers:
+        - name: djnd
+          image: danesjenovdan
+          volumeMounts:
+            - name: danesjenovdan-storage
+              mountPath: /storage
+          command:
+            - gunicorn
+            - djnd.wsgi:application
+            - -b
+            - 0.0.0.0:8000
+            - --log-level
+            - DEBUG
+            - --workers
+            - "1"
+            - --threads
+            - "3"
+            - --timeout
+            - "90"
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DJANGO_SETTINGS_MODULE
+              value: djnd.settings.production
+          envFrom:
+            - secretRef:
+                name: danesjenovdan-credentials
+          resources:
+            requests:
+              memory: 1Gi
+              cpu: 500m
+            limits:
+              memory: 1Gi
+              cpu: 500m
+        - name: djnd-nginx
+          image: nginx:alpine
+          volumeMounts:
+            - name: danesjenovdan-storage
+              mountPath: /usr/share/nginx/html
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 100m
+            limits:
+              memory: 200Mi
+              cpu: 100m

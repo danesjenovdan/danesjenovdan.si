@@ -1,0 +1,19 @@
+name: Automatic PRs
+on:
+  push:
+    branches:
+      - v3-dev
+jobs:
+  pull-requests:
+    name: Automatic PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: pull-request-v3-k8s
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "v3-k8s"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: "Pulling ${{ github.ref }} into v3-k8s"
