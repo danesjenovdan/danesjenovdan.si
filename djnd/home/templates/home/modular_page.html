@@ -4,7 +4,7 @@
 {% block content %}
 <div>
 
-  <div class="border-b border-dark bg-mint-light">
+  <div class="border-b border-dark last:border-b-0 bg-mint-light">
     <div class="flex gap-10 max-w-screen-xl px-14 py-20">
       <div class="basis-8/12">
         <h1 class="mb-6 text-5xl font-semibold">{{ page.title }}</h1>
@@ -17,7 +17,7 @@
   </div>
 
   {% for block in page.modules %}
-  <div class="border-b border-dark">
+  <div class="border-b border-dark last:border-b-0">
     {% include_block block %}
   </div>
   {% endfor %}

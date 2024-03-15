@@ -4,11 +4,10 @@
 
 @layer base {
   [aria-current="page"] {
-    position: relative;
-    @apply font-bold;
+    @apply relative font-bold;
 
     &::before {
-      position: absolute;
+      @apply absolute;
       inset: -0.3em -1em -0.4em -1em;
       min-width: 110px;
       z-index: -1;
