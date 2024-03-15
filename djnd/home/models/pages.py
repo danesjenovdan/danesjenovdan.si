@@ -6,7 +6,7 @@ from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 
-from .blocks import ModuleBlock
+from .blocks import ModuleBlock, BlogPageBlock
 from .snippets import TeamMember, TeamMemberCategory
 
 
@@ -144,7 +144,11 @@ class NewsletterPage(Page):
 
 class BlogPage(Page):
     modules = StreamField(
-        ModuleBlock(), verbose_name="Moduli", null=True, blank=True, use_json_field=True
+        BlogPageBlock(),
+        verbose_name="Moduli",
+        null=True,
+        blank=True,
+        use_json_field=True,
     )
 
     content_panels = Page.content_panels + [
