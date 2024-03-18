@@ -304,8 +304,8 @@ export default {
   pageColor: 'primary',
   nuxtI18n: {
     paths: {
-      sl: '/odprtost-dz',
-      en: '/odprtost-dz',
+      sl: '/odprtost-dz-2020',
+      en: '/odprtost-dz-2020',
     },
   },
   components: {
