@@ -1,16 +1,19 @@
-{% load wagtailcore_tags i18n %}
+{% load wagtailcore_tags wagtailimages_tags i18n %}
 
-<div>
-    <h2>{{ value.title }}</h2>
-    <p>{{ value.description }}</p>
-    
-    <h3>{% translate "Trenutni" %}</h3>
-    {% for donor in current_donors %}
-        <h4>{{ donor.name }}</h4>
-    {% endfor %}
-
-    <h3>{% translate "Pretekli" %}</h3>
-    {% for donor in past_donors %}
-    <h4>{{ donor.name }}</h4>
-    {% endfor %}
+<div class="bg-white">
+    <div class="max-w-screen-xl px-14 py-16">
+        <h2 class="mb-6 text-4xl font-semibold">{{ value.title }}</h2>
+        <h6 class="mt-6 font-semibold">{% translate "Trenutni" %}</h6>
+        <div>
+            {% for donor in current_donors %}
+            {% include 'home/partials/partner_link.html' with element=donor %}
+            {% endfor %}
+        </div>
+        <h6 class="mt-6 font-semibold">{% translate "Pretekli" %}</h6>
+        <div>
+            {% for donor in past_donors %}
+            {% include 'home/partials/partner_link.html' with element=donor %}
+            {% endfor %}
+        </div>
+    </div>
 </div>

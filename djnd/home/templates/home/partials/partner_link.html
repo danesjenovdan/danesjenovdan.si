@@ -1,0 +1,6 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<a href="{{ element.link }}" target="_blank" class="flex-col mt-6 mx-1 first:ml-0 last:mr-0 max-w-[168px] inline-flex">
+  {% image element.image fill-168x168 class="border border-dark" %}
+  <p class="pt-2 font-mono text-sm text-center">{{ element.name }}</p>
+</a>

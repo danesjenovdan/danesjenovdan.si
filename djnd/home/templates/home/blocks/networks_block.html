@@ -1,10 +1,18 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
-<div>
-    <h2>{{ value.title }}</h2>
-    <p>{{ value.description }}</p>
-    
-    {% for network in networks %}
-        <h4>{{ network.name }}</h4>
-    {% endfor %}
+<div class="bg-very-light">
+    <div class="flex gap-10 max-w-screen-xl px-14 py-16">
+        <div class="basis-8/12">
+            <h2 class="mb-6 text-4xl font-semibold">{{ value.title }}</h2>
+            <div class="rich-text">
+                <p>{{ value.description }}</p>
+            </div>
+            <div>
+                {% for network in networks %}
+                {% include 'home/partials/partner_link.html' with element=network %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="basis-4/12">&nbsp;</div>
+    </div>
 </div>
