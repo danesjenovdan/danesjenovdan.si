@@ -14,7 +14,7 @@ class HomePage(Page):
 
 
 class PillarPage(Page):
-    subtitle = models.TextField(blank=True)
+    lead = models.TextField(blank=True)
     description = models.TextField(blank=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
@@ -46,7 +46,7 @@ class PillarPage(Page):
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel("subtitle"),
+        FieldPanel("lead"),
         FieldPanel("description"),
         FieldPanel("image"),
         FieldPanel("projects"),
@@ -63,7 +63,7 @@ class PillarPage(Page):
 
 
 class ModularPage(Page):
-    subtitle = models.TextField(blank=True)
+    lead = models.TextField(blank=True)
     description = models.TextField(blank=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
@@ -77,7 +77,7 @@ class ModularPage(Page):
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel("subtitle"),
+        FieldPanel("lead"),
         FieldPanel("description"),
         FieldPanel("image"),
         FieldPanel("modules"),
