@@ -53,7 +53,7 @@ class Activity(TranslatableMixin, models.Model):
 
 class Network(TranslatableMixin, models.Model):
     name = models.TextField()
-    link = models.URLField()
+    link = models.URLField(blank=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
