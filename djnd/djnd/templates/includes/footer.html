@@ -26,21 +26,7 @@
     <div>
       <span class="font-semibold">Prijavi se na naš Občasnik!</span>
     </div>
-    <form class="mt-4" onsubmit="return false;">
-      <div>
-        <label for="subscribe-email" class="font-mono text-sm">Vpiši svoj e-naslov</label>
-        <input type="email" id="subscribe-email" class="w-full px-2 pt-1.5 pb-2 border border-dark font-semibold">
-      </div>
-      <div class="flex gap-2 mt-2">
-        <input id="subscribe-consent" type="checkbox" value="" class="w-6 h-6 flex-shrink-0 border border-dark">
-        <label for="subscribe-consent" class="font-mono text-sm leading-4">Strinjam se, da mi Danes je nov dan občasno pošlje email.</label>
-      </div>
-      <div class="mt-4">
-        <button type="submit" class="flex justify-between w-full px-2 pt-1.5 pb-2 border-2 border-dark bg-mint font-semibold">
-          <span>Prijavi me!</span><img class="w-4 -mb-0.5" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
-        </button>
-      </div>
-    </form>
+    {% include 'home/partials/newsletter_form.html' %}
   </div>
 
   <div>

@@ -42,7 +42,7 @@ class DonorsBlock(blocks.StructBlock):
 class PillarsBlock(blocks.StructBlock):
     title = blocks.CharBlock()
     description = blocks.TextBlock()
-    pillars = blocks.ListBlock(blocks.PageChooserBlock())
+    pillars = blocks.ListBlock(blocks.PageChooserBlock(target_model="home.PillarPage"))
 
     class Meta:
         label = "Stebri delovanja"
@@ -123,7 +123,7 @@ class TableBlock(blocks.StructBlock):
 
 
 class PromotedBlock(blocks.StructBlock):
-    promoted_snippet = SnippetChooserBlock(Promoted)
+    # promoted_snippet = SnippetChooserBlock(Promoted) # ta vrstica mece error - nekaj je narobe s Promoted Snippetom, ker z ostalimi Snippeti dela
 
     class Meta:
         label = "Izpostavljeno"
