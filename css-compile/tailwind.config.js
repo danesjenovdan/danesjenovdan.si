@@ -22,6 +22,7 @@ module.exports = {
       blue: "#BAE2ED",
       yellow: "#FFEDAD",
       lavender: "#CCC7FF",
+      "lavender-light": "#EEEDFF",
     },
     extend: {
       gridTemplateColumns: {
