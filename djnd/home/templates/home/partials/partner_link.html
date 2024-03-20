@@ -1,0 +1,19 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<div class="basis-40 flex-shrink-0 flex-grow-0">
+  {% if partner.link %}
+  <a class="block" href="{{ partner.link }}" target="_blank" rel="noopener noreferrer">
+  {% endif %}
+  <div class="relative mb-1.5 p-2 border border-dark aspect-square bg-white">
+    {% image partner.image width-300 class="w-full h-full object-contain" %}
+    {% if partner.link %}
+    <div class="absolute -bottom-2 -right-2 grid place-content-center w-9 h-9 rounded-full bg-dark">
+      <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
+    </div>
+    {% endif %}
+  </div>
+  <p class="font-mono text-sm text-center">{{ partner.name }}</p>
+  {% if partner.link %}
+  </a>
+  {% endif %}
+</div>

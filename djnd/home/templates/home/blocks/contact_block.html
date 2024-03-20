@@ -1,9 +1,35 @@
-{% load i18n wagtailcore_tags %}
+{% load i18n wagtailcore_tags static %}
 
-<div>
-    <span>{% translate "KONTAKT" %}</span>
-
-    <span>{% translate "BODI NA TEKOČEM!" %}</span>
-    <h6>{% translate "Prijavi se na naš Občasnik!" %}</h6>
-    <label>{% translate "Vpiši svoj e-naslov" %}</label>
+<div class="bg-light">
+    <div class="flex gap-10 max-w-screen-xl px-14 py-16">
+        <div class="w-full">
+            <div class="bg-white flex border border-dark">
+                <div class="px-14 py-14 basis-1/2 border-r border-dark">
+                    <span class="bg-dark text-white text-sm rounded-full px-3 py-1 mb-4 inline-block">{% translate "KONTAKT" %}</span>
+                    <p>
+                        <span class="font-semibold">{% translate "Danes je nov dan" %}</span><br/>
+                        <span class="font-semibold">{% translate "Inštitut za druga vprašanja" %}</span><br />
+                        Resljeva cesta 25<br />
+                        1000 Ljubljana
+                    </p>
+                    <p class="my-5">
+                        vsi@danesjenovdan.si
+                    </p>
+                    <p>
+                        {% translate "+368 64 163 663 (med 10. in 16. uro)" %}
+                    </p>
+                </div>
+                <div class="px-14 py-14 basis-1/2">
+                    <div class="flex justify-between items-start">
+                        <span class="bg-dark text-white text-sm rounded-full px-3 py-1 mb-4 inline-block">{% translate "BODI NA TEKOČEM"%}</span>
+                        <img src="{% static 'img/newsletter.png' %}" class="w-[106px]" />
+                    </div>
+                    <p>
+                        <span class="font-semibold">{% translate "Prijavi se na naš Občasnik!" %}</span>
+                    </p>
+                    {% include 'home/partials/newsletter_form.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
