@@ -7,8 +7,13 @@
   <div class="border-b border-dark last:border-b-0 bg-mint-light">
     <div class="flex gap-10 max-w-screen-xl px-14 py-20">
       <div class="basis-8/12">
-        <h1 class="mb-6 text-5xl font-semibold">{{ page.title }}</h1>
-        <p class="text-3xl">{{ page.description }}</p>
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
+        {% if page.lead %}
+        <p class="mb-6 last:mb-0 text-3xl">{{ page.lead }}</p>
+        {% endif %}
+        {% if page.description %}
+        <p class="mb-6 last:mb-0 text-xl">{{ page.description }}</p>
+        {% endif %}
       </div>
       <div class="basis-4/12">
         <img src="https://placehold.it/200x50" alt="" class="w-full">
