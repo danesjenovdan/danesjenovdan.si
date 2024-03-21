@@ -8,5 +8,6 @@ from .snippets import (
     Donor,
     TeamMemberCategory,
     TeamMember,
+    Promoted,
 )
 from .settings import HeaderSettings
