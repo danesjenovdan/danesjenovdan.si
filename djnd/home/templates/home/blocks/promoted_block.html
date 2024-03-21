@@ -1,6 +1,31 @@
-{% load wagtailcore_tags %}
+{% load static i18n wagtailcore_tags wagtailimages_tags %}
 
-<div>
-    Izpostavljeno
-    <h4>{{ value.promoted_snippet.title }}</h4>
+<div class="bg-light">
+  <div class="flex gap-10 max-w-screen-xl px-14 py-16">
+    <a href="{{ value.promoted_snippet.link }}" class="block w-full group">
+      <div class="bg-white flex border border-dark">
+        <div class="px-14 py-14 basis-1/2 border-r border-dark">
+          <span class="bg-dark text-white text-sm rounded-full px-3 py-1 mb-4 inline-block">{% translate "IZPOSTAVLJENO" %}</span>
+          <h2 class="mb-4 text-4xl font-semibold">
+            <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
+              {{ value.promoted_snippet.title }}
+            </span>
+          </h2>
+          <div class="rich-text">
+            <p>
+              {{ value.promoted_snippet.description }}
+            </p>
+          </div>
+        </div>
+        <div class="basis-1/2">
+          <div class="relative w-full h-full">
+            {% image value.promoted_snippet.image width-300 class="absolute inset-0 w-full h-full object-cover" %}
+            <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2  grid place-content-center w-16 h-16 rounded-full bg-dark">
+              <img class="w-7" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
 </div>
