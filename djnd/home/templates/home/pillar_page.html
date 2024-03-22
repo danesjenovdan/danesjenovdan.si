@@ -2,21 +2,49 @@
 {% load static wagtailcore_tags %}
 
 {% block content %}
-
-<h1>{{ page.title }}</h1>
-<h4>{{ page.lead }}</h4>
-<p>{{ page.description }}</p>
-
-{% for project in page.projects %}
-<h5>{{ project.value.name }}</h5>
-{{ project.value.description }}
-{% endfor %}
-
 <div>
-{% for block in page.modules %}
+
+  <div class="border-b border-dark last:border-b-0 bg-lavender-light">
+    <div class="flex gap-10 max-w-screen-xl px-14 pt-20">
+      <div class="basis-8/12">
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
+        {% if page.lead %}
+        <p class="mb-6 last:mb-0 text-3xl">{{ page.lead }}</p>
+        {% endif %}
+        {% if page.description %}
+        <p class="mb-6 last:mb-0 text-xl">{{ page.description }}</p>
+        {% endif %}
+      </div>
+      <div class="basis-4/12">
+        <img src="https://placehold.it/200x50" alt="" class="w-full">
+      </div>
+    </div>
+    <div class="max-w-screen-xl mt-16 px-14 pb-20">
+      <div class="grid grid-cols-2 gap-[1px] border border-dark bg-dark mt-6">
+        {% for project in page.projects %}
+        <a href="#" class="bg-white flex p-6 group">
+          <div class="shrink-0 mr-6">
+            <img src="{% static 'img/monitoring.png' %}" class="w-[53px] my-1" />
+          </div>
+          <div>
+            <h2 class="mb-2 text-4xl font-semibold">
+              <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
+                {{ project.value.name }}
+              </span>
+            </h2>
+            <p>{{ project.value.description }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {% for block in page.modules %}
+  <div class="border-b border-dark last:border-b-0">
     {% include_block block %}
-{% endfor %}
+  </div>
+  {% endfor %}
+
 </div>
-
-
 {% endblock content %}
