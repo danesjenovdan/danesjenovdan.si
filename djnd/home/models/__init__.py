@@ -10,4 +10,4 @@ from .snippets import (
     TeamMember,
     Promoted,
 )
-from .settings import HeaderSettings
+from .settings import NavigationSettings
