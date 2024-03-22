@@ -8,6 +8,7 @@ from home.models import (
     Donor,
     TeamMemberCategory,
     TeamMember,
+    Promoted,
 )
 
 register_snippet(ActivityCategory)
@@ -17,3 +18,4 @@ register_snippet(Network)
 register_snippet(Donor)
 register_snippet(TeamMemberCategory)
 register_snippet(TeamMember)
+register_snippet(Promoted)

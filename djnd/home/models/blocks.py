@@ -123,7 +123,7 @@ class TableBlock(blocks.StructBlock):
 
 
 class PromotedBlock(blocks.StructBlock):
-    # promoted_snippet = SnippetChooserBlock(Promoted) # ta vrstica mece error - nekaj je narobe s Promoted Snippetom, ker z ostalimi Snippeti dela
+    promoted_snippet = SnippetChooserBlock(Promoted)
 
     class Meta:
         label = "Izpostavljeno"
