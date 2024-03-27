@@ -1,24 +1,34 @@
 from wagtail import blocks
 from wagtail.snippets.blocks import SnippetChooserBlock
 from wagtail.models import Locale
+from wagtail.images.blocks import ImageChooserBlock
 
 from django.utils.translation import get_language
 
-from .snippets import Network, Donor, Promoted
+from .snippets import Donor, Promoted
 
 
 class NetworksBlock(blocks.StructBlock):
     title = blocks.CharBlock()
     description = blocks.TextBlock()
+    networks = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("name", blocks.CharBlock()),
+                ("link", blocks.URLBlock(required=False)),
+                ("image", ImageChooserBlock(required=False)),
+            ],
+        ),
+    )
 
-    def get_context(self, value, parent_context=None):
-        context = super().get_context(value, parent_context=parent_context)
+    # def get_context(self, value, parent_context=None):
+    #     context = super().get_context(value, parent_context=parent_context)
 
-        language_code = get_language()
-        locale = Locale.objects.get(language_code=language_code)
-        context["networks"] = Network.objects.filter(locale_id=locale.id)
+    #     language_code = get_language()
+    #     locale = Locale.objects.get(language_code=language_code)
+    #     context["networks"] = Network.objects.filter(locale_id=locale.id)
 
-        return context
+    #     return context
 
     class Meta:
         label = "Mreže"

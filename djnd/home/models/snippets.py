@@ -51,25 +51,6 @@ class Activity(TranslatableMixin, models.Model):
         verbose_name_plural = "Aktivnosti"
 
 
-class Network(TranslatableMixin, models.Model):
-    name = models.TextField()
-    link = models.URLField(blank=True)
-    image = models.ForeignKey(
-        "wagtailimages.Image",
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name="+",
-    )
-
-    def __str__(self) -> str:
-        return self.name
-
-    class Meta(TranslatableMixin.Meta):
-        verbose_name = "Mreža"
-        verbose_name_plural = "Mreže"
-
-
 class Donor(TranslatableMixin, models.Model):
     name = models.TextField()
     past = models.BooleanField(default=False)
