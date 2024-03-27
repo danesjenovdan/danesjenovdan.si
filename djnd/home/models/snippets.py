@@ -10,8 +10,8 @@ class ActivityCategory(TranslatableMixin, models.Model):
         return self.name
 
     class Meta(TranslatableMixin.Meta):
-        verbose_name = "Filter - kategorija"
-        verbose_name_plural = "Filtri - kategorije"
+        verbose_name = "Kategorija"
+        verbose_name_plural = "Kategorije"
 
 
 class ActivityProject(TranslatableMixin, models.Model):
@@ -21,8 +21,8 @@ class ActivityProject(TranslatableMixin, models.Model):
         return self.name
 
     class Meta(TranslatableMixin.Meta):
-        verbose_name = "Filter - projekt"
-        verbose_name_plural = "Filtri - projekti"
+        verbose_name = "Projekt"
+        verbose_name_plural = "Projekti"
 
 
 class Activity(TranslatableMixin, models.Model):
