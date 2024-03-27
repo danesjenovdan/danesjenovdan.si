@@ -4,7 +4,6 @@ from .snippets import (
     ActivityCategory,
     ActivityProject,
     Activity,
-    Donor,
     TeamMemberCategory,
     TeamMember,
     Promoted,

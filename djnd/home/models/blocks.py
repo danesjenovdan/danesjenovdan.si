@@ -5,7 +5,7 @@ from wagtail.images.blocks import ImageChooserBlock
 
 from django.utils.translation import get_language
 
-from .snippets import Donor, Promoted
+from .snippets import Promoted
 
 
 class NetworksBlock(blocks.StructBlock):
@@ -37,12 +37,24 @@ class NetworksBlock(blocks.StructBlock):
 
 class DonorsBlock(blocks.StructBlock):
     title = blocks.CharBlock()
-
-    def get_context(self, value, parent_context=None):
-        context = super().get_context(value, parent_context=parent_context)
-        context["current_donors"] = Donor.objects.filter(past=False)
-        context["past_donors"] = Donor.objects.filter(past=True)
-        return context
+    current_donors = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("name", blocks.CharBlock()),
+                ("link", blocks.URLBlock(required=False)),
+                ("image", ImageChooserBlock(required=False)),
+            ],
+        ),
+    )
+    past_donors = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("name", blocks.CharBlock()),
+                ("link", blocks.URLBlock(required=False)),
+                ("image", ImageChooserBlock(required=False)),
+            ],
+        ),
+    )
 
     class Meta:
         label = "Donatorji"

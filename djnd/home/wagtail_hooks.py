@@ -4,7 +4,6 @@ from home.models import (
     ActivityCategory,
     ActivityProject,
     Activity,
-    Donor,
     TeamMemberCategory,
     TeamMember,
     Promoted,
@@ -13,7 +12,6 @@ from home.models import (
 register_snippet(ActivityCategory)
 register_snippet(ActivityProject)
 register_snippet(Activity)
-register_snippet(Donor)
 register_snippet(TeamMemberCategory)
 register_snippet(TeamMember)
 register_snippet(Promoted)
