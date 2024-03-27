@@ -84,19 +84,37 @@ class TeamMember(TranslatableMixin, models.Model):
 
 
 class Promoted(TranslatableMixin, models.Model):
-    title = models.TextField()
-    description = models.CharField()
+    title = models.TextField(blank=True, verbose_name="Naslov", help_text="Če so polja prazna in obstaja Aktivnost, se uporabijo podatki Aktivnosti")
+    description = models.CharField(
+        blank=True,
+        verbose_name="Opis",
+    )
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name="+",
+        verbose_name="Slika",
     )
-    link = models.URLField(blank=True)
+    link = models.URLField(
+        blank=True,
+        verbose_name="Povezava",
+    )
+    activity = models.ForeignKey(
+        Activity,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+        verbose_name="Aktivnost",
+    )
 
     def __str__(self) -> str:
-        return self.title
+        if self.activity:
+            return self.title if self.title else self.activity.title
+        else:
+            return self.title
 
     class Meta(TranslatableMixin.Meta):
         verbose_name = "Izpostavljeno"
