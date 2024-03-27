@@ -1,5 +1,5 @@
 {% extends "wrapper.html" %}
-{% load static wagtailcore_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
 <div>
@@ -19,12 +19,13 @@
         <img src="https://placehold.it/200x50" alt="" class="w-full">
       </div>
     </div>
+    {% if page.projects %}
     <div class="max-w-screen-xl mt-16 px-14 pb-20">
       <div class="grid grid-cols-2 gap-[1px] border border-dark bg-dark mt-6">
         {% for project in page.projects %}
         <a href="#" class="bg-white flex p-6 group">
           <div class="shrink-0 mr-6">
-            <img src="{% static 'img/monitoring.png' %}" class="w-[53px] my-1" />
+            {% image project.value.image width-300 class="w-[53px] my-1" %}
           </div>
           <div>
             <h2 class="mb-2 text-4xl font-semibold">
@@ -38,6 +39,7 @@
         {% endfor %}
       </div>
     </div>
+    {% endif %}
   </div>
 
   {% for block in page.modules %}
