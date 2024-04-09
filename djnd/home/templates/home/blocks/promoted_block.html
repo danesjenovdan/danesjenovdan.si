@@ -2,24 +2,43 @@
 
 <div class="bg-light">
   <div class="flex gap-10 max-w-screen-xl px-14 py-16">
-    <a href="{{ value.promoted_snippet.link }}" class="block w-full group">
+    <a href="{% if value.promoted_snippet.link %}{{ value.promoted_snippet.link }}{% elif value.promoted_snippet.activity %}{{ value.promoted_snippet.activity.link }}{% endif %}" class="block w-full group">
       <div class="bg-white flex border border-dark">
         <div class="px-14 py-14 basis-1/2 border-r border-dark">
-          <span class="bg-dark text-white text-sm rounded-full px-3 py-1 mb-4 inline-block">{% translate "IZPOSTAVLJENO" %}</span>
+          <div class="mb-4 flex">
+            <span class="bg-dark text-white text-sm rounded-full border border-dark px-3 py-1 inline-block mr-2">{% translate "IZPOSTAVLJENO" %}</span>
+            {% if value.promoted_snippet.activity %}
+              {% for tag in value.promoted_snippet.activity.category.all %}
+                <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-2">{{ tag.name }}</span>
+              {% endfor %}
+            {% endif %}
+          </div>
           <h2 class="mb-4 text-4xl font-semibold">
             <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
+              {% if value.promoted_snippet.title %}
               {{ value.promoted_snippet.title }}
+              {% elif value.promoted_snippet.activity %}
+              {{ value.promoted_snippet.activity.title }}
+              {% endif %}
             </span>
           </h2>
           <div class="rich-text">
             <p>
+              {% if value.promoted_snippet.description %}
               {{ value.promoted_snippet.description }}
+              {% elif value.promoted_snippet.activity %}
+              {{ value.promoted_snippet.activity.description }}
+              {% endif %}
             </p>
           </div>
         </div>
         <div class="basis-1/2">
           <div class="relative w-full h-full">
+            {% if value.promoted_snippet.image %}
             {% image value.promoted_snippet.image width-300 class="absolute inset-0 w-full h-full object-cover" %}
+            {% elif value.promoted_snippet.activity %}
+            {% image value.promoted_snippet.activity.image width-300 class="absolute inset-0 w-full h-full object-cover" %}
+            {% endif %}
             <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2  grid place-content-center w-16 h-16 rounded-full bg-dark">
               <img class="w-7" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
             </div>

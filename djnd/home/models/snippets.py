@@ -10,8 +10,8 @@ class ActivityCategory(TranslatableMixin, models.Model):
         return self.name
 
     class Meta(TranslatableMixin.Meta):
-        verbose_name = "Filter - kategorija"
-        verbose_name_plural = "Filtri - kategorije"
+        verbose_name = "Kategorija"
+        verbose_name_plural = "Kategorije"
 
 
 class ActivityProject(TranslatableMixin, models.Model):
@@ -21,8 +21,8 @@ class ActivityProject(TranslatableMixin, models.Model):
         return self.name
 
     class Meta(TranslatableMixin.Meta):
-        verbose_name = "Filter - projekt"
-        verbose_name_plural = "Filtri - projekti"
+        verbose_name = "Projekt"
+        verbose_name_plural = "Projekti"
 
 
 class Activity(TranslatableMixin, models.Model):
@@ -49,45 +49,6 @@ class Activity(TranslatableMixin, models.Model):
     class Meta(TranslatableMixin.Meta):
         verbose_name = "Aktivnost"
         verbose_name_plural = "Aktivnosti"
-
-
-class Network(TranslatableMixin, models.Model):
-    name = models.TextField()
-    link = models.URLField(blank=True)
-    image = models.ForeignKey(
-        "wagtailimages.Image",
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name="+",
-    )
-
-    def __str__(self) -> str:
-        return self.name
-
-    class Meta(TranslatableMixin.Meta):
-        verbose_name = "Mreža"
-        verbose_name_plural = "Mreže"
-
-
-class Donor(TranslatableMixin, models.Model):
-    name = models.TextField()
-    past = models.BooleanField(default=False)
-    link = models.URLField(blank=True)
-    image = models.ForeignKey(
-        "wagtailimages.Image",
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name="+",
-    )
-
-    def __str__(self) -> str:
-        return self.name
-
-    class Meta(TranslatableMixin.Meta):
-        verbose_name = "Donator"
-        verbose_name_plural = "Donatorji"
 
 
 class TeamMemberCategory(TranslatableMixin, models.Model):
@@ -123,19 +84,37 @@ class TeamMember(TranslatableMixin, models.Model):
 
 
 class Promoted(TranslatableMixin, models.Model):
-    title = models.TextField()
-    description = models.CharField()
+    title = models.TextField(blank=True, verbose_name="Naslov", help_text="Če so polja prazna in obstaja Aktivnost, se uporabijo podatki Aktivnosti")
+    description = models.CharField(
+        blank=True,
+        verbose_name="Opis",
+    )
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name="+",
+        verbose_name="Slika",
     )
-    link = models.URLField(blank=True)
+    link = models.URLField(
+        blank=True,
+        verbose_name="Povezava",
+    )
+    activity = models.ForeignKey(
+        Activity,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+        verbose_name="Aktivnost",
+    )
 
     def __str__(self) -> str:
-        return self.title
+        if self.activity:
+            return self.title if self.title else self.activity.title
+        else:
+            return self.title
 
     class Meta(TranslatableMixin.Meta):
         verbose_name = "Izpostavljeno"
