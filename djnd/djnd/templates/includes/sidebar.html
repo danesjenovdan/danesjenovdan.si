@@ -8,12 +8,14 @@
   <div class="relative">
     <img src="{% static "img/noun-language-4113652.svg" %}" alt="" class="absolute left-2.5 w-4 h-[38px] pointer-events-none">
     <select id="lang-chooser" class="flex gap-2 w-full p-2 pl-8 border border-dark font-mono text-sm text-left" onchange="window.location.href = this.value">
+      {% if page %}
       {% for language_code, language_name in LANGUAGES %}
         {% get_language_info for language_code as lang %}
         {% language language_code %}
           <option value="{% pageurl page.localized %}" data-lang="{{ language_code }}" {% if LANGUAGE_CODE == language_code %}selected{% endif %}>{{ lang.name_local }}</option>
         {% endlanguage %}
       {% endfor %}
+      {% endif %}
     </select>
   </div>
 

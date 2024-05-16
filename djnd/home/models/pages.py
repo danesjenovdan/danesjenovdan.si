@@ -21,7 +21,7 @@ class PillarPage(Page):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name="+",
+        related_name="+"
     )
     projects = StreamField(
         [
@@ -29,17 +29,19 @@ class PillarPage(Page):
                 "project",
                 blocks.StructBlock(
                     [
-                        ("name", blocks.CharBlock()),
-                        ("description", blocks.CharBlock()),
-                        ("image", ImageChooserBlock()),
+                        ("name", blocks.CharBlock(label="Ime")),
+                        ("description", blocks.CharBlock(label="Opis")),
+                        ("image", ImageChooserBlock(label="Ikona")),
                         # url?
-                    ]
+                    ],
+                    label="Projekt",
                 ),
             )
         ],
         null=True,
         blank=True,
         use_json_field=True,
+        verbose_name="Projekti",
     )
     modules = StreamField(
         ModuleBlock(), verbose_name="Moduli", null=True, blank=True, use_json_field=True

@@ -28,7 +28,7 @@ if settings.DEBUG:
 # These will be available under a language code prefix. For example /en/search/
 urlpatterns += i18n_patterns(
     path("trgovina/", include("shop.urls")),
-    path("podpri/", include("support.urls")),
+    path("podpri/", include("support.urls"), name="support"),
     path("nase-delo/", OurWorkView.as_view(), name="our-work"),
     path("", include(wagtail_urls)),
     prefix_default_language=False,
