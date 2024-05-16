@@ -32,7 +32,8 @@ class PillarPage(Page):
                         ("name", blocks.CharBlock(label="Ime")),
                         ("description", blocks.CharBlock(label="Opis")),
                         ("image", ImageChooserBlock(label="Ikona")),
-                        # url?
+                        ("url", blocks.URLBlock(label="Zunanja povezava", required=False)),
+                        ("page", blocks.PageChooserBlock(label="Podstran", required=False)),
                     ],
                     label="Projekt",
                 ),
