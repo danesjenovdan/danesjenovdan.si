@@ -3,7 +3,6 @@
 
 {% block content %}
 <div>
-
   <div class="border-b border-dark last:border-b-0 bg-lavender-light">
     <div class="flex gap-10 max-w-screen-xl px-14 pt-20">
       <div class="basis-8/12">
@@ -47,6 +46,20 @@
     {% include_block block %}
   </div>
   {% endfor %}
+
+  <div class="max-w-screen-xl mt-16 px-14 pb-20">
+    <div class="flex justify-between mb-6">
+      <h2 class="mb-2 text-4xl font-semibold">{{ page.activities_title }}</h2>
+      <a href="/nase-delo" class="hover:underline self-center">
+        <span>Vse aktivnosti</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+      </a>
+    </div>
+    <div class="grid grid-cols-3 gap-4">
+      {% for activity in activities %}
+      {% include 'home/partials/activity.html' with activity=activity %}
+      {% endfor %}
+    </div>
+  </div>
 
 </div>
 {% endblock content %}

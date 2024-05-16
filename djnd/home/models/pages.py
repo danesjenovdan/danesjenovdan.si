@@ -6,7 +6,7 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
 from .blocks import ModuleBlock, BlogPageBlock
-from .snippets import TeamMember, TeamMemberCategory
+from .snippets import TeamMember, TeamMemberCategory, Activity
 
 
 class HomePage(Page):
@@ -47,6 +47,7 @@ class PillarPage(Page):
     modules = StreamField(
         ModuleBlock(), verbose_name="Moduli", null=True, blank=True, use_json_field=True
     )
+    activities_title = models.TextField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel("lead"),
@@ -54,13 +55,14 @@ class PillarPage(Page):
         FieldPanel("image"),
         FieldPanel("projects"),
         FieldPanel("modules"),
+        FieldPanel("activities_title"),
     ]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
         # get activities for this pillar
-        # context["activities"] =
+        context["activities"] = Activity.objects.filter(pillar_page=self).order_by("-date")[:9]
 
         return context
 
