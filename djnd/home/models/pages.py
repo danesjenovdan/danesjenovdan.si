@@ -6,11 +6,26 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
 from .blocks import ModuleBlock, BlogPageBlock
-from .snippets import TeamMember, TeamMemberCategory
+from .snippets import TeamMember, TeamMemberCategory, Activity
 
 
 class HomePage(Page):
-    pass
+    modules = StreamField(
+        ModuleBlock(), verbose_name="Moduli", null=True, blank=True, use_json_field=True
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("modules"),
+    ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        # get activities for this pillar
+        context["activities"] = Activity.objects.all().order_by("-date")[:7]
+
+        return context
+
 
 
 class PillarPage(Page):
@@ -32,7 +47,8 @@ class PillarPage(Page):
                         ("name", blocks.CharBlock(label="Ime")),
                         ("description", blocks.CharBlock(label="Opis")),
                         ("image", ImageChooserBlock(label="Ikona")),
-                        # url?
+                        ("url", blocks.URLBlock(label="Zunanja povezava", required=False)),
+                        ("page", blocks.PageChooserBlock(label="Podstran", required=False)),
                     ],
                     label="Projekt",
                 ),
@@ -46,6 +62,7 @@ class PillarPage(Page):
     modules = StreamField(
         ModuleBlock(), verbose_name="Moduli", null=True, blank=True, use_json_field=True
     )
+    activities_title = models.TextField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel("lead"),
@@ -53,13 +70,14 @@ class PillarPage(Page):
         FieldPanel("image"),
         FieldPanel("projects"),
         FieldPanel("modules"),
+        FieldPanel("activities_title"),
     ]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
         # get activities for this pillar
-        # context["activities"] =
+        context["activities"] = Activity.objects.filter(pillar_page=self).order_by("-date")[:9]
 
         return context
 

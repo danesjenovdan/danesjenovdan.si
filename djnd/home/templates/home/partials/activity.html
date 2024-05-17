@@ -1,0 +1,20 @@
+{% load i18n static wagtailcore_tags wagtailimages_tags %}
+
+<div class="border border-dark">
+  <a href="{{ activity.link }}" target="_blank">
+    {% image activity.image width-300 class="w-full h-[180px] object-cover" %}
+  </a>
+  <div class="border-t border-dark p-5">
+    <div>
+      {% for tag in activity.category.all %}
+      <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1">{{ tag.name }}</span>
+      {% endfor %}
+    </div>
+    <a href="{{ activity.link }}" target="_blank"
+      class="block text-4xl font-semibold mt-6 mb-4 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ activity.title }}</a>
+    <p class="text-xl mb-6">{{ activity.description }}</p>
+    {% if activity.date %}
+    <p class="font-mono">{{ activity.date }}</p>
+    {% endif %}
+  </div>
+</div>

@@ -2,7 +2,7 @@
 
 <div class="bg-light">
   <div class="flex gap-10 max-w-screen-xl px-14 py-16">
-    <a href="{% if value.promoted_snippet.link %}{{ value.promoted_snippet.link }}{% elif value.promoted_snippet.activity %}{{ value.promoted_snippet.activity.link }}{% endif %}" class="block w-full group">
+    <a href="{% if value.promoted_snippet.link %}{{ value.promoted_snippet.link }}{% elif value.promoted_snippet.activity %}{{ value.promoted_snippet.activity.link }}{% endif %}" target="_blank" class="block w-full group">
       <div class="bg-white flex border border-dark">
         <div class="px-14 py-14 basis-1/2 border-r border-dark">
           <div class="mb-4 flex">
