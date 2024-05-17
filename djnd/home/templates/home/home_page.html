@@ -1,59 +1,53 @@
 {% extends "wrapper.html" %}
-{% load static %}
+{% load static wagtailcore_tags wagtailimages_tags i18n %}
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
 
-<h1 class="text-3xl font-bold underline text-red-600">
-  Hello world!
-</h1>
+<div class="px-14 py-16">
+  <h1>DANES JE NOV DAN</h1>
+</div>
 
-<p>
-  <a href="/ekipa/">Ekipa</a>
-</p>
+  {% for block in page.modules %}
+  <div class="border-b border-dark last:border-b-0">
+    {% include_block block %}
+  </div>
+  {% endfor %}
 
-{% comment %} <h2>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
-  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
-  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
-  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
-  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
-</h2>
-<h2>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
-  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
-  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
-  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
-  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
-</h2>
-<h2>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
-  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
-  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
-  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
-  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
-</h2>
-<h2>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
-  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
-  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
-  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
-  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
-</h2>
-<h2>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
-  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
-  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
-  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
-  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
-</h2>
-<h2>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque dolores excepturi, enim commodi nemo, praesentium et non, expedita sed nulla aspernatur tempora aliquid corrupti illo incidunt. Natus, et incidunt.
-  Earum unde doloribus provident illo possimus quia, temporibus, modi ipsa eveniet assumenda ut consectetur et. Nisi, incidunt natus iusto esse atque nihil tempore expedita quos velit mollitia eligendi, asperiores suscipit.
-  Est suscipit optio ipsa, blanditiis odit hic praesentium dicta perspiciatis laborum nobis. Aliquam, alias quibusdam facere maxime neque fugit similique cumque minima libero hic consectetur veniam nulla ex modi dolorum!
-  Itaque magnam ex adipisci maxime, temporibus reiciendis ipsa, voluptatibus dicta omnis, sint vel possimus molestiae corporis perferendis assumenda dolore eum officia nihil! Voluptates repellendus nisi accusamus eveniet magnam. Nesciunt, minus.
-  Quibusdam ipsum necessitatibus illo autem excepturi sint eveniet nesciunt aliquid dolores suscipit possimus, architecto corporis cum facilis aspernatur voluptas quaerat ad commodi! Repellendus similique placeat, laboriosam autem velit voluptatum accusamus.
-</h2> {% endcomment %}
+
+<div class="max-w-screen-xl mt-16 px-14 pb-20">
+  <div class="flex justify-between mb-6">
+    <h2 class="mb-2 text-4xl font-semibold">Zadnje aktivnosti</h2>
+    <form>
+
+    </form>
+    <a href="/nase-delo" class="hover:underline self-center">
+      <span>Vsi filtri</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+    </a>
+  </div>
+  <div class="grid grid-cols-3 gap-4">
+    {% for activity in activities %}
+    {% include 'home/partials/activity.html' with activity=activity %}
+    {% if forloop.counter == 3 %}
+    <div class="border border-dark px-5 py-10 bg-gradient-to-tl from-white to-mint">
+      <img src="{% static 'img/newsletter.png' %}" alt="" class="w-[100px]">
+      <h2 class="text-4xl font-semibold mb-4 mt-4">{% translate "Prijavi se na naš" %} <span class="italic">{% translate "Občasnik" %}!</span></h2>
+      <p class="text-xl font-semibold">{% translate "Vsak mesec ti bomo dostavili svežo bero informativnih vsebin in zanimivih zapisov o temah, ki nas žulijo, razveseljujejo ali navdihujejo, pisali pa ti bomo tudi, ko naredimo kaj dobrega ali ko se bo dogajalo kaj zanimivega." %}</p>
+      {% include 'home/partials/newsletter_form.html' %}
+    </div>
+    {% endif %}
+    {% if forloop.counter == 7 %}
+    <div class="border border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
+      <h2 class="text-4xl font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
+          class="italic">{% translate "tvojo podporo" %}!</span></h2>
+      <a href="{% url 'support' %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border-2 border-dark bg-red font-semibold text-2xl">
+        <span>{% translate 'Podpri nas!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
+      </a>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
 
 {% endblock content %}

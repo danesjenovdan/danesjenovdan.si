@@ -10,7 +10,22 @@ from .snippets import TeamMember, TeamMemberCategory, Activity
 
 
 class HomePage(Page):
-    pass
+    modules = StreamField(
+        ModuleBlock(), verbose_name="Moduli", null=True, blank=True, use_json_field=True
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("modules"),
+    ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        # get activities for this pillar
+        context["activities"] = Activity.objects.all().order_by("-date")[:7]
+
+        return context
+
 
 
 class PillarPage(Page):
