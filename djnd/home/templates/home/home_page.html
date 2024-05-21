@@ -19,12 +19,29 @@
 <div class="max-w-screen-xl mt-16 px-14 pb-20">
   <div class="flex justify-between mb-6">
     <h2 class="mb-2 text-4xl font-semibold">Zadnje aktivnosti</h2>
-    <form>
+    <form id="our-work-form" action="{% url 'our-work' %}" method="post" class="flex items-center">
+      {% csrf_token %}
+
+      <div class="me-2">
+        <input type="checkbox" name="all" value="" class="peer hidden" id="id_all" checked>
+        <label for="id_all" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-mint">
+          Vse
+        </label>
+      </div>
+
+      <div class="me-2">
+        <input type="checkbox" name="projects" value="1" class="peer hidden" id="id_projects_0" onchange="filterOurWork()">
+        <label for="id_projects_0" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer">
+          DJND projekti
+        </label>
+      </div>
+
+      <a href="/nase-delo" class="hover:underline self-center">
+        <span>Vsi filtri</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+      </a>
 
     </form>
-    <a href="/nase-delo" class="hover:underline self-center">
-      <span>Vsi filtri</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
-    </a>
+    
   </div>
   <div class="grid grid-cols-3 gap-4">
     {% for activity in activities %}
