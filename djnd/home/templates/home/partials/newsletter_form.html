@@ -1,18 +1,19 @@
 {% load i18n wagtailcore_tags static %}
 
-<form class="mt-4" onsubmit="return false;">
+<form class="mt-4" @submit.prevent="subscribeToNewsletter({{id}})" x-data="subscribe">
   <div>
-    <label for="subscribe-email" class="font-mono text-sm">{% translate "Vpiši svoj e-naslov" %}</label>
-    <input type="email" id="subscribe-email" class="w-full px-2 pt-1.5 pb-2 border border-dark font-semibold">
+    <label for="subscribe-email-{{ id }}" class="font-mono text-sm">{% translate "Vpiši svoj e-naslov" %}</label>
+    <input type="email" id="subscribe-email-{{ id }}" class="w-full px-2 pt-1.5 pb-2 border border-dark font-semibold" required>
   </div>
   <div class="flex gap-2 mt-2">
-    <input id="subscribe-consent" type="checkbox" value="" class="w-6 h-6 flex-shrink-0 border border-dark">
-    <label for="subscribe-consent" class="font-mono text-sm leading-4">{% translate 'Strinjam se, da mi Danes je nov dan občasno pošlje email.' %}</label>
+    <input id="subscribe-consent-{{ id }}" type="checkbox" value="" class="w-6 h-6 flex-shrink-0 border border-dark" required>
+    <label for="subscribe-consent-{{ id }}" class="font-mono text-sm leading-4">{% translate 'Strinjam se, da mi Danes je nov dan občasno pošlje email.' %}</label>
   </div>
   <div class="mt-6">
-    <button type="submit"
+    <button
       class="flex justify-between w-full px-2 pt-1.5 pb-2 border-2 border-dark bg-mint font-semibold">
-      <span>{% translate 'Prijavi me!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
+      <span x-show="!loading">{% translate 'Prijavi me!' %}</span><img x-show="!loading" class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
+      <span x-show="loading" class="loader"></span>
     </button>
   </div>
 </form>
