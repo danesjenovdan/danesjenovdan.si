@@ -19,12 +19,29 @@
 <div class="max-w-screen-xl mt-16 px-14 pb-20">
   <div class="flex justify-between mb-6">
     <h2 class="mb-2 text-4xl font-semibold">Zadnje aktivnosti</h2>
-    <form>
+    <form id="our-work-form" action="{% url 'our-work' %}" method="post" class="flex items-center">
+      {% csrf_token %}
+
+      <div class="me-2">
+        <input type="checkbox" name="all" value="" class="peer hidden" id="id_all" checked>
+        <label for="id_all" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-mint">
+          Vse
+        </label>
+      </div>
+
+      <div class="me-2">
+        <input type="checkbox" name="projects" value="1" class="peer hidden" id="id_projects_0" onchange="filterOurWork()">
+        <label for="id_projects_0" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer">
+          DJND projekti
+        </label>
+      </div>
+
+      <a href="/nase-delo" class="hover:underline self-center">
+        <span>Vsi filtri</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+      </a>
 
     </form>
-    <a href="/nase-delo" class="hover:underline self-center">
-      <span>Vsi filtri</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
-    </a>
+    
   </div>
   <div class="grid grid-cols-3 gap-4">
     {% for activity in activities %}
@@ -34,7 +51,7 @@
       <img src="{% static 'img/newsletter.png' %}" alt="" class="w-[100px]">
       <h2 class="text-4xl font-semibold mb-4 mt-4">{% translate "Prijavi se na naš" %} <span class="italic">{% translate "Občasnik" %}!</span></h2>
       <p class="text-xl font-semibold">{% translate "Vsak mesec ti bomo dostavili svežo bero informativnih vsebin in zanimivih zapisov o temah, ki nas žulijo, razveseljujejo ali navdihujejo, pisali pa ti bomo tudi, ko naredimo kaj dobrega ali ko se bo dogajalo kaj zanimivega." %}</p>
-      {% include 'home/partials/newsletter_form.html' %}
+      {% include 'home/partials/newsletter_form.html' with id=forloop.counter %}
     </div>
     {% endif %}
     {% if forloop.counter == 7 %}

@@ -8,53 +8,63 @@
 <div class="px-14 py-16">
   <h1 class="mb-6 text-4xl font-semibold">{% translate "Naše delo" %}</h1>
   
-  <form action="{% url 'our-work' %}" method="post" class="mb-8">
+  <form id="our-work-form" action="{% url 'our-work' %}" method="post" class="mb-8">
     {% csrf_token %}
 
     <div class="mb-4">
       <p class="font-mono">{% translate "Filtriraj po tematskih sklopih" %}</p>
-      {{ form.pillars }}
+      <div id="id_pillars" class="flex gap-2 mb-6">
+        {% for choice_id, choice_label in form.pillars.field.choices %}
+        <div>
+          <input type="checkbox" name="pillars" value="{{ choice_id }}" class="peer hidden" id="id_pillars_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if choice_id|slugify in form.pillars.value %}checked{% endif %}>
+          <label for="id_pillars_{{ forloop.counter0 }}" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-mint">
+            {{ choice_label }}
+          </label>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   
     <div class="mb-4">
       <p class="font-mono">{% translate "Filtriraj po kategorijah" %}</p>
-      {{ form.categories }}
+      <div id="id_categories" class="flex gap-2 mb-6">        
+        {% for choice_id, choice_label in form.categories.field.choices %}
+        <div>
+          <input type="checkbox" name="categories" value="{{ choice_id }}" class="peer hidden" id="id_categories_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if choice_id|slugify in form.categories.value %}checked{% endif %}>
+          <label for="id_categories_{{ forloop.counter0 }}" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-mint">
+            {{ choice_label }}
+          </label>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   
     <div class="mb-4">
       <p class="font-mono">{% translate "Filtriraj po projektih" %}</p>
-      {{ form.projects }}
+      <div id="id_projects" class="flex gap-2 mb-6">
+        {% for choice_id, choice_label in form.projects.field.choices %}
+        <div>
+          <input type="checkbox" name="projects" value="{{ choice_id }}" class="peer hidden" id="id_projects_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if choice_id|slugify in form.projects.value %}checked{% endif %}>
+          <label for="id_projects_{{ forloop.counter0 }}" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-mint">
+            {{ choice_label }}
+          </label>
+        </div>
+        {% endfor %}
+      </div>
     </div>
 
-    <button type="submit">Filter</button>
+    <!-- <button type="submit">Filter</button> -->
   </form>
 
   <div class="grid grid-cols-3 gap-4">
     {% for activity in activities %}
-    <div class="border border-dark">
-      <a href="{{ activity.link }}" target="_blank">
-        {% image activity.image width-300 class="w-full h-[180px] object-cover" %}
-      </a>
-      <div class="border-t border-dark p-5">
-        <div>
-          {% for tag in activity.category.all %}
-          <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1">{{ tag.name }}</span>
-          {% endfor %}
-        </div>
-        <a href="{{ activity.link }}" target="_blank"
-          class="block text-4xl font-semibold mt-6 mb-4 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ activity.title }}</a>
-        <p class="text-xl mb-6">{{ activity.description }}</p>
-        {% if activity.date %}
-        <p class="font-mono">{{ activity.date }}</p>
-        {% endif %}
-      </div>
-    </div>
+    {% include 'home/partials/activity.html' with activity=activity %}
     {% if forloop.counter == 3 %}
     <div class="border border-dark px-5 py-10 bg-gradient-to-tl from-white to-mint">
       <img src="{% static 'img/newsletter.png' %}" alt="" class="w-[100px]">
       <h2 class="text-4xl font-semibold mb-4 mt-4">{% translate "Prijavi se na naš" %} <span class="italic">{% translate "Občasnik" %}!</span></h2>
       <p class="text-xl font-semibold">{% translate "Vsak mesec ti bomo dostavili svežo bero informativnih vsebin in zanimivih zapisov o temah, ki nas žulijo, razveseljujejo ali navdihujejo, pisali pa ti bomo tudi, ko naredimo kaj dobrega ali ko se bo dogajalo kaj zanimivega." %}</p>
-      {% include 'home/partials/newsletter_form.html' %}
+      {% include 'home/partials/newsletter_form.html' with id=forloop.counter %}
     </div>
     {% endif %}
     {% if forloop.counter == 7 %}
