@@ -92,6 +92,24 @@ class ModularPage(Page):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    subpages = StreamField(
+        [
+            (
+                "page",
+                blocks.StructBlock(
+                    [
+                        ("name", blocks.CharBlock()),
+                        ("description", blocks.TextBlock()),
+                        ("icon", ImageChooserBlock()),
+                        ("page", blocks.PageChooserBlock()),
+                    ]
+                ),
+            )
+        ],
+        null=True,
+        blank=True,
+        use_json_field=True,
+    )
     modules = StreamField(
         ModuleBlock(), verbose_name="Moduli", null=True, blank=True, use_json_field=True
     )
@@ -100,6 +118,7 @@ class ModularPage(Page):
         FieldPanel("lead"),
         FieldPanel("description"),
         FieldPanel("image"),
+        FieldPanel("subpages"),
         FieldPanel("modules"),
     ]
 
