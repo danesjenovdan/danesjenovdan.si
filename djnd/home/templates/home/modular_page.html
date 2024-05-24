@@ -1,11 +1,11 @@
 {% extends "wrapper.html" %}
-{% load static wagtailcore_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
 <div>
 
   <div class="border-b border-dark last:border-b-0 bg-mint-light">
-    <div class="flex gap-10 max-w-screen-xl px-14 py-20">
+    <div class="flex gap-10 max-w-screen-xl px-14 pt-20 pb-10">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
         {% if page.lead %}
@@ -19,11 +19,29 @@
         <img src="https://placehold.it/200x50" alt="" class="w-full">
       </div>
     </div>
+    {% if page.subpages %}
+    <div class="flex gap-10 max-w-screen-xl px-14 pb-20">
+      {% for subpage in page.subpages %}
+      <a href="{% pageurl subpage.value.page %}" class="bg-white flex items-center border border-dark py-6 px-4 hover:bg-mint">
+        <div class="shrink-0 mr-4">
+          {% image subpage.value.icon width-300 class="w-[53px] my-1" %}
+        </div>
+        <div>
+          <h2 class="mb-2 text-4xl font-semibold">{{ subpage.value.name }}</h2>
+          <p>{{ subpage.value.description }}</p>
+        </div>
+          <div class="grid place-content-center w-9 h-9 rounded-full bg-dark ml-4">
+            <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
+          </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 
   {% for block in page.modules %}
   <div class="border-b border-dark last:border-b-0">
-    {% include_block block %}
+    {% include_block block with id=forloop.counter %}
   </div>
   {% endfor %}
 
