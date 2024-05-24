@@ -23,7 +23,7 @@
 
   {% for block in page.modules %}
   <div class="border-b border-dark last:border-b-0">
-    {% include_block block %}
+    {% include_block block with id=forloop.counter %}
   </div>
   {% endfor %}
 
