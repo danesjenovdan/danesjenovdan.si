@@ -1,1 +1,82 @@
-<h1>Podpri</h1>
+{% extends "wrapper.html" %}
+{% load i18n static wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+<div>
+  <div class="border-b border-dark bg-red-light">
+    <div class="flex gap-10 max-w-screen-xl px-14 pt-20 pb-10">
+      <div class="basis-8/12">
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{% translate "Podpri" %}</h1>
+        <p class="mb-6 last:mb-0 text-3xl">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi tvojo pomoč. Doniraš nam lahko:" %}</p>
+        <!-- <p class="mb-6 last:mb-0 text-xl">{{ page.description }}</p> -->
+      </div>
+      <div class="basis-4/12">
+        <img src="https://placehold.it/200x50" alt="" class="w-full">
+      </div>
+    </div>
+  </div>
+  <div class="flex gap-10 max-w-screen-xl px-14 py-16 border-b border-dark">
+    <div class="basis-8/12">
+      <div class="grid grid-cols-2 gap-6">
+        <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj?mesecna=true" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-red">
+          <div>
+            <h2 class="mb-2 text-4xl font-semibold">{% translate "Vsak mesec" %}</h2>
+            <p class="font-semibold">{% translate "Ker nas želiš podpirati vsak mesec!" %}</p>
+            <div class="flex justify-center mt-6">
+              <img class="" src="{% static 'img/donate/veckrat.svg' %}" alt="">
+            </div>
+          </div>
+          <div class="grid place-content-center shrink-0 w-9 h-9 rounded-full bg-dark ml-4 absolute right-4 bottom-4">
+            <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
+          </div>
+        </a>
+        <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-red">
+          <div>
+            <h2 class="mb-2 text-4xl font-semibold">{% translate "Enkrat" %}</h2>
+            <p class="font-semibold">{% translate "Ker imaš ravno prav evrov viška za boljši jutri!" %}</p>
+            <div class="flex justify-center mt-6">
+              <img class="" src="{% static 'img/donate/enkrat.svg' %}" alt="">
+            </div>
+          </div>
+          <div class="grid place-content-center shrink-0 w-9 h-9 rounded-full bg-dark ml-4 absolute right-4 bottom-4">
+            <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="basis-4/12"></div>
+  </div>
+  <div class="flex gap-10 max-w-screen-xl px-14 py-16 border-b border-dark">
+    <div class="basis-8/12">
+      <h2 class="mb-2 text-4xl font-semibold">{% translate "Nameniš pa nam lahko tudi 1 % dohodnine! Tebe nič ne stane, nam pa pomeni veliko." %}</h2>
+      <iframe 
+        id="enprocent_iframe" 
+        class="my-10 border border-dark"
+        frameborder="0" 
+        width="800" 
+        height="537" 
+        style="max-width: 100%"
+        src="https://www.cnvos.si/enprocent/embed/v2/?address=RESLJEVA%20CESTA%2025&city=Ljubljana&name=DANES%20JE%20NOV%20DAN%2C%20IN%C5%A0TITUT%20ZA%20DRUGA%20VPRA%C5%A0ANJA&percent=1.0&postalCode=1000&taxNumber=54561710"></iframe>
+      <div>
+        <a href="#" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-red font-semibold text-2xl">
+          <span>{% translate 'Vlogo lahko oddaš tudi s certifikatom na eDavkih' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
+        </a>
+      </div>
+    </div>
+    <div class="basis-4/12"></div>
+  </div>
+  <div class="flex gap-10 max-w-screen-xl px-14 py-16">
+    <div class="basis-8/12">
+      <p class="text-xl leading-8">{% translate 'Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, nagubaj čelo in napni mišice ter se nam javi na ' %}<a href="mailto:vsi@danesjenovdan.si" class="underline bg-red">vsi@danesjenovdan.si</a>.</p>
+    </div>
+    <div class="basis-4/12"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js"></script>
+<script>
+iFrameResize({ checkOrigin: false }, '#enprocent_iframe');
+</script>
+
+{% endblock content %}
