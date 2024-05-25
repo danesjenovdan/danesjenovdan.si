@@ -20,19 +20,19 @@
       </div>
     </div>
     {% if page.subpages %}
-    <div class="flex gap-10 max-w-screen-xl px-14 pb-20">
+    <div class="grid grid-cols-3 gap-5 max-w-screen-xl px-14 pb-20">
       {% for subpage in page.subpages %}
-      <a href="{% pageurl subpage.value.page %}" class="bg-white flex items-center border border-dark py-6 px-4 hover:bg-mint">
-        <div class="shrink-0 mr-4">
-          {% image subpage.value.icon width-300 class="w-[53px] my-1" %}
-        </div>
-        <div>
-          <h2 class="mb-2 text-4xl font-semibold">{{ subpage.value.name }}</h2>
-          <p>{{ subpage.value.description }}</p>
-        </div>
-          <div class="grid place-content-center w-9 h-9 rounded-full bg-dark ml-4">
-            <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
+      <a href="{% pageurl subpage.value.page %}" class="bg-white flex items-center justify-between border border-dark py-6 px-2 hover:bg-mint">
+        <div class="flex items-center justify-between">
+          {% image subpage.value.icon width-300 class="w-[53px] shrink-0 mr-4 my-1" %}
+          <div>
+            <h2 class="mb-2 text-4xl font-semibold">{{ subpage.value.name }}</h2>
+            <p>{{ subpage.value.description }}</p>
           </div>
+        </div>
+        <div class="grid place-content-center shrink-0 w-9 h-9 rounded-full bg-dark ml-4">
+          <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
+        </div>
       </a>
       {% endfor %}
     </div>
