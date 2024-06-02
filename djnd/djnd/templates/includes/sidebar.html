@@ -26,7 +26,7 @@
       {% for pillar_page in settings.home.NavigationSettings.pillars %}
       <li class="flex items-start gap-1 uppercase text-xl leading-5 font-semibold">
         <img src="{% static "img/emoji/clapping_hands_sign.svg" %}" alt="" class="w-4 mt-0.5">
-        <a href="{% pageurl pillar_page.value.localized %}" class="hover:underline">{{ pillar_page.value.localized.title }}</a>
+        <a href="{% pageurl pillar_page.value.localized %}" {% if page.id == pillar_page.value.localized.id %}aria-current="page"{% endif %} class="pillar-link hover:underline">{{ pillar_page.value.localized.title }}</a>
       </li>
       {% endfor %}
     </ul>

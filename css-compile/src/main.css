@@ -8,12 +8,18 @@
 
     &::before {
       @apply absolute;
-      inset: -0.5em auto -0.5em -1em;
+      inset: -6px 0 -7px -1em;
       width: 116px;
       z-index: -1;
       content: "";
       background-image: url("/static/img/current-page-circle.svg");
       background-size: 100% 100%;
+    }
+
+    &.pillar-link {
+      &::before {
+        background-image: url("/static/img/current-pillar-circle.svg");
+      }
     }
   }
 }
