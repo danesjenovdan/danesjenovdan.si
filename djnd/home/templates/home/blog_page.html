@@ -1,14 +1,60 @@
 {% extends "wrapper.html" %}
-{% load static wagtailcore_tags i18n %}
+{% load static wagtailcore_tags wagtailimages_tags i18n %}
 
 {% block content %}
 
-<span class="tag">{% translate "Agrument" %}</span>
-
-<h1>{{ page.title }}</h1>
+<div class="bg-white">
+  <div class="flex gap-10 max-w-screen-xl px-14 pt-16">
+    <div class="basis-8/12">
+        <span class="bg-blue-light text-sm rounded-full px-3 py-1 mb-4 inline-block font-mono border border-dark">{% translate "Agrument" %}</span>
+        <h1 class="text-4xl font-semibold">{{ page.title }}</h1>
+        <div class="rich-text">
+            {{ value.text|richtext }}
+        </div>
+    </div>
+    <div class="basis-4/12">&nbsp;</div>
+  </div>
+</div>
 
 {% for block in page.modules %}
     {% include_block block %}
 {% endfor %}
+
+<div class="bg-white">
+  <div class="flex gap-10 max-w-screen-xl px-14 pt-16">
+    <div class="basis-8/12">
+        <h2 class="text-4xl font-semibold mb-3">{% translate "Povezani zapisi" %}</h2>
+        <p class="mb-5">{% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" %}</p>
+    </div>
+    <div class="basis-4/12">&nbsp;</div>
+  </div>
+
+  <div class="flex gap-10 max-w-screen-xl px-14 pb-10">
+    <div class="grid grid-cols-3 gap-4">
+        {% for blog in page.more_blogs %}
+        <div class="border border-dark">
+            <a href="{{ blog.value.link }}" target="_blank">
+            {% image blog.value.thumbnail width-300 class="w-full h-[180px] object-cover" %}
+            </a>
+            <div class="border-t border-dark p-5 pb-2">
+                <div>
+                    {% for tag in activity.category.all %}
+                    <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1">{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
+                <a href="{{ blog.value.link }}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ blog.value.title }}</a>
+                <p class="mb-6">Ekipa Oštra je objavila raziskavo Lov na stanovanje, ki razkriva številke investicijskih nakupov stanovanj na treh najdražjih območjih Slovenije, s tem pa nudi vpogled v enega od razlogov za stanovanjsko krizo. Preberi prispevke in se preizkusi v igri "Poišči si dom", ki smo jo pripravili v sklopu projekta.</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+
+  <div class="flex gap-10 max-w-screen-xl px-14 pb-10 justify-center">
+    <a href="/">Prejšnji občasniki</a>
+  </div>
+
+  
+</div>
 
 {% endblock content %}

@@ -1,5 +1,18 @@
-{% load wagtailcore_tags %}
+{% load i18n wagtailcore_tags static %}
 
-<div>
-    <h4>Za nadaljnje neodvisno delovanje potrebujemo tudi tvojo podporo!</h4>
+<div class="{% if value.color_scheme == 'green' %}bg-gradient-to-b from-mint-light to-white {% else %} bg-gradient-to-r from-red to-white{% endif %}border-b border-dark">
+    <div class="flex justify-center max-w-screen-xl px-14 py-16">
+        <div class="bg-white flex border border-dark basis-1/2">
+            <div class="px-14 py-14">
+                <div class="flex justify-end items-start">
+                    <img src="{% static 'img/newsletter.png' %}" class="w-[106px]" />
+                </div>
+                <h2 class="text-4xl font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
+                    class="italic">{% translate "tvojo podporo" %}!</span></h2>
+                <a href="{% url 'support' %}" class="flex justify-between w-full px-2 pt-1.5 pb-2 border-2 border-dark font-semibold {% if value.color_scheme == 'green' %}bg-mint{% else %}bg-red{% endif %}">
+                    <span>{% translate 'Podpri nas!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
