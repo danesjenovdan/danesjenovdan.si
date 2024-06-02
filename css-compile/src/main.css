@@ -8,8 +8,8 @@
 
     &::before {
       @apply absolute;
-      inset: -0.3em -1em -0.4em -1em;
-      min-width: 110px;
+      inset: -0.5em auto -0.5em -1em;
+      width: 116px;
       z-index: -1;
       content: "";
       background-image: url("/static/img/current-page-circle.svg");
@@ -67,7 +67,7 @@
     width: 60px;
     aspect-ratio: 4;
     --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
-    background: 
+    background:
       var(--_g) 0%   50%,
       var(--_g) 50%  50%,
       var(--_g) 100% 50%;
