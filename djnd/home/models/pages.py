@@ -194,7 +194,30 @@ class BlogPage(Page):
         blank=True,
         use_json_field=True,
     )
+    more_blogs = StreamField(
+        [
+            (
+                "blogpage",
+                blocks.PageChooserBlock(
+                    target_model="home.BlogPage"
+                ),
+            )
+        ],
+        verbose_name="Povezani zapisi",
+        null=True,
+        blank=True,
+        use_json_field=True,
+    )
+    thumbnail = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
 
     content_panels = Page.content_panels + [
+        FieldPanel("thumbnail"),
         FieldPanel("modules"),
+        FieldPanel("more_blogs"),
     ]

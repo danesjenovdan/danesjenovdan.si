@@ -79,6 +79,11 @@ class ContactBlock(blocks.StructBlock):
 
 
 class NewsletterBlock(blocks.StructBlock):
+    color_scheme = blocks.ChoiceBlock(
+        choices=[("red", "Rdeča"), ("green", "Zelena")],
+        default="green",
+        label="Barvna shema",
+    )
 
     class Meta:
         label = "Prijava na Občasnik"
@@ -86,6 +91,11 @@ class NewsletterBlock(blocks.StructBlock):
 
 
 class SupportBlock(blocks.StructBlock):
+    color_scheme = blocks.ChoiceBlock(
+        choices=[("red", "Rdeča"), ("green", "Zelena")],
+        default="green",
+        label="Barvna shema",
+    )
 
     class Meta:
         label = "Podpora"
@@ -102,7 +112,7 @@ class FinancialInformationBlock(blocks.StructBlock):
 
 
 class TextContentBlock(blocks.StructBlock):
-    title = blocks.CharBlock()
+    title = blocks.CharBlock(required=False)
     text = blocks.RichTextBlock()
     button = blocks.ListBlock(
         blocks.StructBlock(

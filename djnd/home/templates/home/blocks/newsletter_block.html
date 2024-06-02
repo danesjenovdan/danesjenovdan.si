@@ -1,6 +1,18 @@
-{% load wagtailcore_tags %}
+{% load i18n wagtailcore_tags static %}
 
-<div>
-    <span>Bodi na tekočem!</span>
-    <h4>Prijavi se na naš Občasnik!</h4>
+<div class="bg-gradient-to-r {% if value.color_scheme == 'red' %}from-red to-white {% else %}bg-gradient-to-b from-mint-light to-white{% endif %} border-b border-dark">
+    <div class="flex justify-center max-w-screen-xl px-14 py-16">
+        <div class="bg-white flex border border-dark basis-1/2">
+            <div class="px-14 py-14">
+                <div class="flex justify-between items-start">
+                    <span class="bg-dark text-white text-sm rounded-full px-3 py-1 mb-4 inline-block">{% translate "BODI NA TEKOČEM"%}</span>
+                    <img src="{% static 'img/newsletter.png' %}" class="w-[106px]" />
+                </div>
+                <p>
+                    <span class="font-semibold">{% translate "Prijavi se na naš Občasnik!" %}</span>
+                </p>
+                {% include 'home/partials/newsletter_form.html' with id=id blockname='blog' color=value.color_scheme %}
+            </div>
+        </div>
+    </div>
 </div>

@@ -23,13 +23,43 @@
     /* @apply border-4 border-dark-red; */
     /* TODO: apply rich text styles */
 
+    h2, h3, h4 {
+      @apply mb-5 mt-10 font-semibold;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+
+    h4 {
+      @apply text-lg;
+    }
+
     p,
     ul {
-      @apply mb-5 text-xl leading-7;
+      @apply mb-5 mt-10 text-xl leading-7;
     }
 
     ul {
       @apply list-image-arrow pl-5 marker:text-3xl;
+    }
+
+    h2+p, h2+ul,
+    h3+p, h3+ul,
+    h4+p, h4+ul {
+      @apply mt-5;
+    }
+
+    a {
+      @apply underline bg-red;
+    }
+
+    .richtext-image + p {
+      @apply font-mono mt-2 text-sm;
     }
   }
 
