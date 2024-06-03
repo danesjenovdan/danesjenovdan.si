@@ -1,4 +1,4 @@
-{% load static i18n wagtailcore_tags djnd_extras %}
+{% load static i18n wagtailcore_tags wagtailimages_tags djnd_extras %}
 
 <div class="px-6 pt-20">
   <a href="/" class="inline-block mb-5">
@@ -25,7 +25,13 @@
     <ul class="flex flex-col gap-3">
       {% for pillar_page in settings.home.NavigationSettings.pillars %}
       <li class="flex items-start gap-1 uppercase text-xl leading-5 font-semibold">
-        <img src="{% static "img/emoji/clapping_hands_sign.svg" %}" alt="" class="w-4 mt-0.5">
+        {% if pillar_page.value.localized.icon %}
+          {% image pillar_page.value.localized.icon fill-32x32 class="w-4 mt-0.5" %}
+        {% elif pillar_page.value.localized.image %}
+          {% image pillar_page.value.localized.image fill-32x32 class="w-4 mt-0.5" %}
+        {% else %}
+          <img src="{% static "img/emoji/clapping_hands_sign.svg" %}" alt="" class="w-4 mt-0.5">
+        {% endif %}
         <a href="{% pageurl pillar_page.value.localized %}" {% if page.id == pillar_page.value.localized.id %}aria-current="page"{% endif %} class="pillar-link hover:underline">{{ pillar_page.value.localized.title }}</a>
       </li>
       {% endfor %}
