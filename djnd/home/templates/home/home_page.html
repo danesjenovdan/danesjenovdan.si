@@ -4,10 +4,54 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-
-<div class="px-14 py-16">
-  <h1>DANES JE NOV DAN</h1>
-</div>
+<div>
+  <div class="border-b border-dark last:border-b-0 bg-white">
+    <div class="flex gap-10 max-w-screen-xl px-14 pt-20">
+      <div class="basis-8/12">
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
+        {% if page.introduction %}
+        <div class="rich-text">
+          {{ page.introduction|richtext }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="basis-4/12">
+        <h2 class="mt-5 text-center font-semibold text-xl">{{ page.focus_areas_title }}</h2>
+        <div class="my-6">
+          {% for focus_area in page.focus_areas %}
+          {% cycle 'one' 'two' 'three' 'four' as focus_cycle silent %}
+          {% if focus_area.value.url or focus_area.value.page %}
+          <a href="{% if focus_area.value.page %}{% pageurl focus_area.value.page %}{% else %}{{ focus_area.value.url }}{% endif %}">
+          {% endif %}
+          <div class="
+            relative flex items-center gap-4 mt-4 px-8 py-11 shadow-dark shadow-[0px_0px_0px_1px] bg-{{ focus_area.value.color }} group
+            {% if focus_cycle == 'one' %}
+            -rotate-2 -translate-x-3
+            {% elif focus_cycle == 'two' %}
+            rotate-3 translate-x-3
+            {% elif focus_cycle == 'three' %}
+            rotate-[-0.5deg] -translate-x-3
+            {% elif focus_cycle == 'four' %}
+            rotate-[4deg] translate-x-3
+            {% endif %}
+            transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:z-10
+          ">
+            <div class="w-14 shrink-0">
+              {% image focus_area.value.image fill-112x112 class="aspect-square" %}
+            </div>
+            <div class="font-medium text-2xl leading-none">
+              {{focus_area.value.name}}
+            </div>
+            <img class="w-5 ml-auto -mb-0.5 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+          </div>
+          {% if focus_area.value.url or focus_area.value.page %}
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
 
   {% for block in page.modules %}
   <div class="border-b border-dark last:border-b-0">
@@ -41,7 +85,7 @@
       </a>
 
     </form>
-    
+
   </div>
   <div class="grid grid-cols-3 gap-4">
     {% for activity in activities %}
@@ -67,4 +111,5 @@
   </div>
 </div>
 
+</div>
 {% endblock content %}

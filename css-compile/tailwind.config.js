@@ -49,5 +49,10 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    {
+      pattern: /bg-(white|mint|red|green|blue|yellow|lavender)(-light)?$/,
+    },
+  ],
   plugins: [require("@tailwindcss/forms")],
 };
