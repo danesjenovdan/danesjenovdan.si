@@ -10,11 +10,59 @@ from .snippets import TeamMember, TeamMemberCategory, Activity
 
 
 class HomePage(Page):
+    introduction = RichTextField(blank=True, null=True)
+    focus_areas_title = models.CharField(max_length=255, blank=True, null=True)
+    focus_areas = StreamField(
+        [
+            (
+                "focus_area",
+                blocks.StructBlock(
+                    [
+                        ("name", blocks.CharBlock(label="Ime")),
+                        ("image", ImageChooserBlock(label="Ikona")),
+                        (
+                            "color",
+                            blocks.ChoiceBlock(
+                                choices=[
+                                    ("white", "Bela"),
+                                    ("mint", "Meta"),
+                                    ("red", "Rdeča"),
+                                    ("green", "Zelena"),
+                                    ("blue", "Modra"),
+                                    ("yellow", "Rumena"),
+                                    ("lavender", "Sivka"),
+                                ],
+                                default="white",
+                                label="Barva",
+                            ),
+                        ),
+                        (
+                            "url",
+                            blocks.URLBlock(label="Zunanja povezava", required=False),
+                        ),
+                        (
+                            "page",
+                            blocks.PageChooserBlock(label="Podstran", required=False),
+                        ),
+                    ],
+                    label="Fokus",
+                ),
+            )
+        ],
+        null=True,
+        blank=True,
+        use_json_field=True,
+        verbose_name="Fokusi",
+    )
+
     modules = StreamField(
         ModuleBlock(), verbose_name="Moduli", null=True, blank=True, use_json_field=True
     )
 
     content_panels = Page.content_panels + [
+        FieldPanel("introduction"),
+        FieldPanel("focus_areas_title"),
+        FieldPanel("focus_areas"),
         FieldPanel("modules"),
     ]
 
@@ -27,7 +75,6 @@ class HomePage(Page):
         return context
 
 
-
 class PillarPage(Page):
     lead = models.TextField(blank=True)
     description = models.TextField(blank=True)
@@ -36,14 +83,14 @@ class PillarPage(Page):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
     icon = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
     projects = StreamField(
         [
@@ -54,8 +101,14 @@ class PillarPage(Page):
                         ("name", blocks.CharBlock(label="Ime")),
                         ("description", blocks.CharBlock(label="Opis")),
                         ("image", ImageChooserBlock(label="Ikona")),
-                        ("url", blocks.URLBlock(label="Zunanja povezava", required=False)),
-                        ("page", blocks.PageChooserBlock(label="Podstran", required=False)),
+                        (
+                            "url",
+                            blocks.URLBlock(label="Zunanja povezava", required=False),
+                        ),
+                        (
+                            "page",
+                            blocks.PageChooserBlock(label="Podstran", required=False),
+                        ),
                     ],
                     label="Projekt",
                 ),
@@ -85,7 +138,9 @@ class PillarPage(Page):
         context = super().get_context(request, *args, **kwargs)
 
         # get activities for this pillar
-        context["activities"] = Activity.objects.filter(pillar_page=self).order_by("-date")[:9]
+        context["activities"] = Activity.objects.filter(pillar_page=self).order_by(
+            "-date"
+        )[:9]
 
         return context
 
@@ -206,9 +261,7 @@ class BlogPage(Page):
         [
             (
                 "blogpage",
-                blocks.PageChooserBlock(
-                    target_model="home.BlogPage"
-                ),
+                blocks.PageChooserBlock(target_model="home.BlogPage"),
             )
         ],
         verbose_name="Povezani zapisi",

@@ -6,10 +6,10 @@
       <div class="bg-white flex border border-dark group-hover:bg-lavender-light">
         <div class="px-14 py-14 basis-1/2 border-r border-dark">
           <div class="mb-4 flex">
-            <span class="bg-dark text-white text-sm rounded-full border border-dark px-3 py-1 inline-block mr-2">{% translate "IZPOSTAVLJENO" %}</span>
+            <span class="bg-dark text-white text-sm rounded-full border border-dark px-3 py-0.5 inline-block mr-2">{% translate "IZPOSTAVLJENO" %}</span>
             {% if value.promoted_snippet.activity %}
               {% for tag in value.promoted_snippet.activity.category.all %}
-                <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-2">{{ tag.name }}</span>
+                <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-0.5 inline-block mr-2">{{ tag.name }}</span>
               {% endfor %}
             {% endif %}
           </div>
