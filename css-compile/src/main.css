@@ -8,21 +8,24 @@
 
     &::before {
       @apply absolute;
-      inset: -0.3em -1em -0.4em -1em;
-      min-width: 110px;
+      inset: -6px 0 -7px -1em;
+      width: 116px;
       z-index: -1;
       content: "";
       background-image: url("/static/img/current-page-circle.svg");
       background-size: 100% 100%;
+    }
+
+    &.pillar-link {
+      &::before {
+        background-image: url("/static/img/current-pillar-circle.svg");
+      }
     }
   }
 }
 
 @layer components {
   .rich-text {
-    /* @apply border-4 border-dark-red; */
-    /* TODO: apply rich text styles */
-
     h2, h3, h4 {
       @apply mb-5 mt-10 font-semibold;
     }
@@ -54,10 +57,6 @@
       @apply mt-5;
     }
 
-    a {
-      @apply underline bg-red;
-    }
-
     .richtext-image + p {
       @apply font-mono mt-2 text-sm;
     }
@@ -67,7 +66,7 @@
     width: 60px;
     aspect-ratio: 4;
     --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
-    background: 
+    background:
       var(--_g) 0%   50%,
       var(--_g) 50%  50%,
       var(--_g) 100% 50%;
@@ -78,5 +77,19 @@
       33%{background-size:calc(100%/3) 0%  ,calc(100%/3) 100%,calc(100%/3) 100%}
       50%{background-size:calc(100%/3) 100%,calc(100%/3) 0%  ,calc(100%/3) 100%}
       66%{background-size:calc(100%/3) 100%,calc(100%/3) 100%,calc(100%/3) 0%  }
+  }
+
+  .rich-text a,
+  a.animated-hover-bg {
+    @apply relative z-0 inline-block underline;
+
+    &::before {
+      content: "";
+      @apply absolute inset-0 z-[-1] bg-red origin-right transition-transform duration-300 scale-x-0;
+    }
+
+    &:hover::before {
+      @apply origin-left scale-x-100;
+    }
   }
 }
