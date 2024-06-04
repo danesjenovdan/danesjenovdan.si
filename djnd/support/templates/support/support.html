@@ -50,25 +50,24 @@
   <div class="flex gap-10 max-w-screen-xl px-14 py-16 border-b border-dark">
     <div class="basis-8/12">
       <h2 class="mb-2 text-4xl font-semibold">{% translate "Nameniš pa nam lahko tudi 1 % dohodnine! Tebe nič ne stane, nam pa pomeni veliko." %}</h2>
-      <iframe 
-        id="enprocent_iframe" 
+      <iframe
+        id="enprocent_iframe"
         class="my-10 border border-dark"
-        frameborder="0" 
-        width="800" 
-        height="537" 
+        frameborder="0"
+        width="800"
+        height="537"
         style="max-width: 100%"
         src="https://www.cnvos.si/enprocent/embed/v2/?address=RESLJEVA%20CESTA%2025&city=Ljubljana&name=DANES%20JE%20NOV%20DAN%2C%20IN%C5%A0TITUT%20ZA%20DRUGA%20VPRA%C5%A0ANJA&percent=1.0&postalCode=1000&taxNumber=54561710"></iframe>
       <div>
-        <a href="#" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-red font-semibold text-2xl">
-          <span>{% translate 'Vlogo lahko oddaš tudi s certifikatom na eDavkih' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
-        </a>
+        {% translate 'Vlogo lahko oddaš tudi s certifikatom na eDavkih' as button_text %}
+        {% include 'home/partials/button.html' with button_text=button_text button_color="red" button_link="#" %}
       </div>
     </div>
     <div class="basis-4/12"></div>
   </div>
   <div class="flex gap-10 max-w-screen-xl px-14 py-16">
     <div class="basis-8/12">
-      <p class="text-xl leading-8">{% translate 'Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, nagubaj čelo in napni mišice ter se nam javi na ' %}<a href="mailto:vsi@danesjenovdan.si" class="underline bg-red">vsi@danesjenovdan.si</a>.</p>
+      <p class="text-xl leading-8">{% translate 'Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, nagubaj čelo in napni mišice ter se nam javi na ' %}<a href="mailto:vsi@danesjenovdan.si" class="animated-hover-bg">vsi@danesjenovdan.si</a>.</p>
     </div>
     <div class="basis-4/12"></div>
   </div>

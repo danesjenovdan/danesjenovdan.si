@@ -6,6 +6,7 @@ module.exports = {
       mono: ["'Courier New'", "monospace"],
     },
     colors: {
+      current: "currentColor",
       white: "#ffffff",
       "very-light": "#F6F9F8",
       light: "#eeeeee",
@@ -32,6 +33,19 @@ module.exports = {
       },
       listStyleImage: {
         arrow: 'url("/static/img/noun-arrow-right-1434311.svg")',
+      },
+      animation: {
+        "arrow-hover": "arrowHover 1s ease-in-out",
+      },
+      keyframes: {
+        arrowHover: {
+          "0%": { transform: "translateX(0)" },
+          "6%": { transform: "translateX(-3px)" },
+          "18%": { transform: "translateX(2px)" },
+          "31%": { transform: "translateX(-1px)" },
+          "43%": { transform: "translateX(1px)" },
+          "50%": { transform: "translateX(0)" },
+        },
       },
     },
   },

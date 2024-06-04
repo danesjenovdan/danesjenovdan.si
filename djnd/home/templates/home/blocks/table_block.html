@@ -15,9 +15,7 @@
         </tbody>
       </table>
       {% for button in value.button %}
-      <a class="inline-flex justify-between min-w-[300px] mt-6 px-4 pt-2.5 pb-3 border border-dark text-2xl font-semibold {% if button.color == 'green' %}bg-mint{% else %}bg-white{% endif %}" href="{% if button.page_link %}{% pageurl button.page_link %}{% else %}{{ button.link }}{% endif %}">
-        <span>{{ button.button_text }}</span><img class="w-5 ml-4 -mb-0.5" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
-      </a>
+      {% include 'home/partials/button.html' with button_text=button.button_text button_color=button.color button_page_link=button.page_link button_link=button.link %}
       {% endfor %}
     </div>
   </div>

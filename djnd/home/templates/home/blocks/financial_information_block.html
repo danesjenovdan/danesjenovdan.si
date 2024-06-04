@@ -4,11 +4,8 @@
     <div class="max-w-screen-xl px-14 py-16">
         <h2 class="mb-6 text-4xl font-semibold">{{ value.title }}</h2>
         {% if value.reports_url %}
-        <a class="inline-flex justify-between min-w-[300px] mt-6 mb-12 px-4 pt-2.5 pb-3 border border-dark text-2xl font-semibold {% if button.color == 'green' %}bg-mint{% else %}bg-white{% endif %}"
-            href="{{ value.reports_url }}">
-            <span>{% translate "Letna vsebinska in finančna poročila" %}</span><img class="w-5 ml-4 -mb-0.5"
-                src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
-        </a>
+        {% translate "Letna vsebinska in finančna poročila" as button_text %}
+        {% include 'home/partials/button.html' with button_text=button_text button_color=button.color button_link=value.reports_url %}
         {% endif %}
         <div>
             <iframe id="odprti-racuni" frameborder="0" width="996" height="960" src="https://odprtiracuni-nvo.djnd.si/9/"></iframe>
