@@ -212,6 +212,7 @@ class NewsletterPage(Page):
         related_name="+",
     )
     introduction = RichTextField(blank=True, null=True)
+    published_at = models.DateField(blank=True, null=True)
     news = StreamField(
         [
             (
@@ -247,6 +248,7 @@ class NewsletterPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("thumbnail"),
+        FieldPanel("published_at"),
         FieldPanel("introduction"),
         FieldPanel("news"),
         FieldPanel("promoted_blogs"),
@@ -273,7 +275,7 @@ class NewsletterListPage(Page):
         lang = request.LANGUAGE_CODE
         locale = Locale.get_active()
 
-        newsletters = NewsletterPage.objects.filter(locale=locale)
+        newsletters = NewsletterPage.objects.filter(locale=locale).order_by("-published_at")
 
         return {
             **context,
