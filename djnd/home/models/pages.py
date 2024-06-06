@@ -252,6 +252,34 @@ class NewsletterPage(Page):
         FieldPanel("promoted_blogs"),
     ]
 
+class NewsletterListPage(Page):
+    lead = models.TextField(blank=True)
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("lead"),
+        FieldPanel("image"),
+    ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        lang = request.LANGUAGE_CODE
+        locale = Locale.get_active()
+
+        newsletters = NewsletterPage.objects.filter(locale=locale)
+
+        return {
+            **context,
+            "newsletters": newsletters,
+        }
+
 
 class BlogPage(Page):
     short_description = models.TextField(blank=True)
