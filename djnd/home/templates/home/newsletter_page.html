@@ -1,29 +1,69 @@
 {% extends "wrapper.html" %}
-{% load static wagtailcore_tags i18n %}
+{% load static wagtailcore_tags wagtailimages_tags i18n %}
 
 {% block content %}
 
-<span class="tag">{% translate "Občasnik" %}</span>
+<div>
+  <div class="border-b border-dark bg-red-light">
+    <div class="flex gap-10 max-w-screen-xl px-14 pt-20 pb-10">
+      <div class="basis-8/12">
+        <span class="bg-blue-light text-sm rounded-full px-3 py-1 mb-4 inline-block font-mono border border-dark">{% translate "Občasnik" %}</span>
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
+        <div class="rich-text">
+          {{ page.introduction|richtext }}
+        </div>
+      </div>
+      <div class="basis-4/12"></div>
+    </div>
+  </div>
 
-<h1>{{ page.title }}</h1>
-{{ page.introduction|richtext }}
+  {% include 'home/blocks/newsletter_block.html' with id=0 color='red' %}
 
-<h2>{% translate "Danes je nov dan novice" %}</h2>
-<p>{% translate "Preveri, kaj smo počeli pretekli mesec" %}</p>
+  <div class="border-b border-dark">
+    <div class="max-w-screen-xl px-14 py-16">
+      <h2 class="text-4xl font-semibold mb-2">{% translate "Danes je nov dan novice" %}</h2>
+      <p class="mb-8">{% translate "Preveri, kaj smo počeli pretekli mesec" %}</p>
+      {% for article in page.news %}
+      <a href="{{ article.value.link }}" target="_blank" class="block w-full group mb-6">
+        <div class="border border-dark flex gap-10 p-4 group-hover:bg-red-light">
+          <div class="basis-8/12">
+            <h5 class="text-2xl font-semibold mb-2">
+              <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-red to-red group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
+                {{ article.value.name }}
+              </span>
+            </h5>
+            {{ article.value.description }}
+          </div>
+          <div class="basis-4/12">
+            {% image article.value.image width-300 class="w-full h-[180px] object-cover border border-dark" %}
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 
-{% for article in page.news %}
-<h5>{{ article.value.name }}</h5>
-{{ article.value.description }}
-{% endfor %}
+  <div class="max-w-screen-xl px-14 py-10">
+    <h2 class="text-4xl font-semibold mb-2">{% translate "Izpostavljeno" %}</h2>
+    <p class="mb-8">{% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" %}</p>
+    <div class="grid grid-cols-3 gap-4">
+        {% for blog in page.promoted_blogs %}
+        <div class="border border-dark">
+            <a href="{{ blog.value.link }}" target="_blank">
+              {% image blog.value.thumbnail width-300 class="w-full h-[180px] object-cover" %}
+            </a>
+            <div class="border-t border-dark p-5 pb-2">
+              <a href="{{ blog.value.link }}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ blog.value.title }}</a>
+              <p class="mb-6">{{ blog.value.short_description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
 
-<h2>{% translate "Izpostavljeno" %}</h2>
-<p>{% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" %}</p>
-
-{% for article in page.exposed %}
-<h5>{{ article.value.name }}</h5>
-{{ article.value.description }}
-{% endfor %}
-
-<a href="/">{% translate "Prejšnji občasniki" %}</a>
+  <div class="flex gap-10 max-w-screen-xl px-14 pb-10 justify-center">
+    <a href="/">{% translate "Prejšnji občasniki" %}</a>
+  </div>
+</div>
 
 {% endblock content %}

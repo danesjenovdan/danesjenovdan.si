@@ -204,6 +204,13 @@ class TeamPage(Page):
 
 
 class NewsletterPage(Page):
+    thumbnail = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
     introduction = RichTextField(blank=True, null=True)
     news = StreamField(
         [
@@ -223,33 +230,31 @@ class NewsletterPage(Page):
         blank=True,
         use_json_field=True,
     )
-    exposed = StreamField(
+    promoted_blogs = StreamField(
         [
             (
-                "article",
-                blocks.StructBlock(
-                    [
-                        ("name", blocks.CharBlock()),
-                        ("description", blocks.CharBlock()),
-                        ("image", ImageChooserBlock()),
-                        ("link", blocks.URLBlock(required=False)),
-                    ]
+                "blogpage",
+                blocks.PageChooserBlock(
+                    target_model="home.BlogPage"
                 ),
             )
         ],
+        verbose_name="Povezani zapisi",
         null=True,
         blank=True,
         use_json_field=True,
     )
 
     content_panels = Page.content_panels + [
+        FieldPanel("thumbnail"),
         FieldPanel("introduction"),
         FieldPanel("news"),
-        FieldPanel("exposed"),
+        FieldPanel("promoted_blogs"),
     ]
 
 
 class BlogPage(Page):
+    short_description = models.TextField(blank=True)
     modules = StreamField(
         BlogPageBlock(),
         verbose_name="Moduli",
@@ -279,6 +284,7 @@ class BlogPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("thumbnail"),
+        FieldPanel("short_description"),
         FieldPanel("modules"),
         FieldPanel("more_blogs"),
     ]
