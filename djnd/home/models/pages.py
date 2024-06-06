@@ -204,7 +204,15 @@ class TeamPage(Page):
 
 
 class NewsletterPage(Page):
+    thumbnail = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
     introduction = RichTextField(blank=True, null=True)
+    published_at = models.DateField(blank=True, null=True)
     news = StreamField(
         [
             (
@@ -223,33 +231,60 @@ class NewsletterPage(Page):
         blank=True,
         use_json_field=True,
     )
-    exposed = StreamField(
+    promoted_blogs = StreamField(
         [
             (
-                "article",
-                blocks.StructBlock(
-                    [
-                        ("name", blocks.CharBlock()),
-                        ("description", blocks.CharBlock()),
-                        ("image", ImageChooserBlock()),
-                        ("link", blocks.URLBlock(required=False)),
-                    ]
+                "blogpage",
+                blocks.PageChooserBlock(
+                    target_model="home.BlogPage"
                 ),
             )
         ],
+        verbose_name="Povezani zapisi",
         null=True,
         blank=True,
         use_json_field=True,
     )
 
     content_panels = Page.content_panels + [
+        FieldPanel("thumbnail"),
+        FieldPanel("published_at"),
         FieldPanel("introduction"),
         FieldPanel("news"),
-        FieldPanel("exposed"),
+        FieldPanel("promoted_blogs"),
     ]
+
+class NewsletterListPage(Page):
+    lead = models.TextField(blank=True)
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("lead"),
+        FieldPanel("image"),
+    ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        lang = request.LANGUAGE_CODE
+        locale = Locale.get_active()
+
+        newsletters = NewsletterPage.objects.filter(locale=locale).order_by("-published_at")
+
+        return {
+            **context,
+            "newsletters": newsletters,
+        }
 
 
 class BlogPage(Page):
+    short_description = models.TextField(blank=True)
     modules = StreamField(
         BlogPageBlock(),
         verbose_name="Moduli",
@@ -279,6 +314,7 @@ class BlogPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("thumbnail"),
+        FieldPanel("short_description"),
         FieldPanel("modules"),
         FieldPanel("more_blogs"),
     ]

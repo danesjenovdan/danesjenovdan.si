@@ -37,13 +37,8 @@
             {% image blog.value.thumbnail width-300 class="w-full h-[180px] object-cover" %}
             </a>
             <div class="border-t border-dark p-5 pb-2">
-                <div>
-                    {% for tag in activity.category.all %}
-                    <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1">{{ tag.name }}</span>
-                    {% endfor %}
-                </div>
-                <a href="{{ blog.value.link }}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ blog.value.title }}</a>
-                <p class="mb-6">Ekipa Oštra je objavila raziskavo Lov na stanovanje, ki razkriva številke investicijskih nakupov stanovanj na treh najdražjih območjih Slovenije, s tem pa nudi vpogled v enega od razlogov za stanovanjsko krizo. Preberi prispevke in se preizkusi v igri "Poišči si dom", ki smo jo pripravili v sklopu projekta.</p>
+              <a href="{{ blog.value.link }}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ blog.value.title }}</a>
+              <p class="mb-6">{{ blog.value.short_description }}</p>
             </div>
         </div>
         {% endfor %}
@@ -51,10 +46,8 @@
   </div>
 
   <div class="flex gap-10 max-w-screen-xl px-14 pb-10 justify-center">
-    <a href="/">Prejšnji občasniki</a>
+    <a href="/">{% translate "Prejšnji občasniki" %}</a>
   </div>
-
-  
 </div>
 
 {% endblock content %}
