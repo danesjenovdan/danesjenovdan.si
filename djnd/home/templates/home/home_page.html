@@ -6,7 +6,7 @@
 {% block content %}
 <div>
   <div class="border-b border-dark last:border-b-0 bg-white">
-    <div class="flex gap-10 max-w-screen-xl px-14 pt-20">
+    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
         {% if page.introduction %}
@@ -60,7 +60,7 @@
   {% endfor %}
 
 
-<div class="max-w-screen-xl mt-16 px-14 pb-20">
+<div class="max-w-screen-xl mx-auto mt-16 px-14 pb-20">
   <div class="flex justify-between mb-6">
     <h2 class="mb-2 text-2xl font-semibold">Zadnje aktivnosti</h2>
     <form id="our-work-form" action="{% url 'our-work' %}" method="post" class="flex items-center">

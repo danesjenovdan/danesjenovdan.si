@@ -5,7 +5,7 @@
 
 <div>
   <div class="border-b border-dark bg-red-light">
-    <div class="flex gap-10 max-w-screen-xl px-14 pt-20 pb-10">
+    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10">
       <div class="basis-8/12">
         <span class="bg-blue-light text-sm rounded-full px-3 py-1 mb-4 inline-block font-mono border border-dark">{% translate "Občasnik" %}</span>
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
@@ -20,7 +20,7 @@
   {% include 'home/blocks/newsletter_block.html' with id=0 color='red' %}
 
   <div class="border-b border-dark">
-    <div class="max-w-screen-xl px-14 py-16">
+    <div class="max-w-screen-xl mx-auto px-14 py-16">
       <h2 class="text-2xl font-semibold">{% translate "Danes je nov dan novice" %}</h2>
       <p class="text-md mb-8">{% translate "Preveri, kaj smo počeli pretekli mesec" %}</p>
       {% for article in page.news %}
@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <div class="max-w-screen-xl px-14 py-10">
+  <div class="max-w-screen-xl mx-auto px-14 py-10">
     <h2 class="text-2xl font-semibold">{% translate "Izpostavljeno" %}</h2>
     <p class="text-md mb-8">{% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" %}</p>
     <div class="grid grid-cols-3 gap-4">
@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  <div class="flex gap-10 max-w-screen-xl px-14 pb-10 justify-center">
+  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pb-10 justify-center">
     <a href="/">{% translate "Prejšnji občasniki" %}</a>
   </div>
 </div>
