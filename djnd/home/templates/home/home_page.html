@@ -10,7 +10,7 @@
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
         {% if page.introduction %}
-        <div class="rich-text">
+        <div class="rich-text leading-[3rem]">
           {{ page.introduction|richtext }}
         </div>
         {% endif %}
@@ -39,7 +39,7 @@
             <div class="w-14 shrink-0">
               {% image focus_area.value.image fill-112x112 class="aspect-square" %}
             </div>
-            <div class="font-medium text-2xl leading-none">
+            <div class="font-medium text-lg leading-none">
               {{focus_area.value.name}}
             </div>
             <img class="w-5 ml-auto -mb-0.5 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
@@ -62,7 +62,7 @@
 
 <div class="max-w-screen-xl mt-16 px-14 pb-20">
   <div class="flex justify-between mb-6">
-    <h2 class="mb-2 text-4xl font-semibold">Zadnje aktivnosti</h2>
+    <h2 class="mb-2 text-2xl font-semibold">Zadnje aktivnosti</h2>
     <form id="our-work-form" action="{% url 'our-work' %}" method="post" class="flex items-center">
       {% csrf_token %}
 
@@ -91,18 +91,18 @@
     {% for activity in activities %}
     {% include 'home/partials/activity.html' with activity=activity %}
     {% if forloop.counter == 3 %}
-    <div class="border border-dark px-5 py-10 bg-gradient-to-tl from-white to-mint">
+    <div class="border-2 border-dark px-5 py-10 bg-gradient-to-tl from-white to-mint">
       <img src="{% static 'img/newsletter.png' %}" alt="" class="w-[100px]">
-      <h2 class="text-4xl font-semibold mb-4 mt-4">{% translate "Prijavi se na naš" %} <span class="italic">{% translate "Občasnik" %}!</span></h2>
-      <p class="text-xl font-semibold">{% translate "Vsak mesec ti bomo dostavili svežo bero informativnih vsebin in zanimivih zapisov o temah, ki nas žulijo, razveseljujejo ali navdihujejo, pisali pa ti bomo tudi, ko naredimo kaj dobrega ali ko se bo dogajalo kaj zanimivega." %}</p>
+      <h2 class="text-2xl leading-[2.25rem] font-semibold mb-4 mt-4">{% translate "Prijavi se na naš" %} <span class="italic">{% translate "Občasnik" %}!</span></h2>
+      <p class="text-md font-semibold">{% translate "Vsak mesec ti bomo dostavili svežo bero informativnih vsebin in zanimivih zapisov o temah, ki nas žulijo, razveseljujejo ali navdihujejo, pisali pa ti bomo tudi, ko naredimo kaj dobrega ali ko se bo dogajalo kaj zanimivega." %}</p>
       {% include 'home/partials/newsletter_form.html' with id=forloop.counter color='green' %}
     </div>
     {% endif %}
     {% if forloop.counter == 7 %}
-    <div class="border border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
-      <h2 class="text-4xl font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
+    <div class="border-2 border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
+      <h2 class="text-2xl leading-[2.25rem] font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
           class="italic">{% translate "tvojo podporo" %}!</span></h2>
-      <a href="{% url 'support' %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border-2 border-dark bg-red font-semibold text-2xl">
+      <a href="{% url 'support' %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-red font-semibold text-lg">
         <span>{% translate 'Podpri nas!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
       </a>
     </div>

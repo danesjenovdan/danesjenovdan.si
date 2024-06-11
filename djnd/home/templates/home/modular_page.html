@@ -9,10 +9,10 @@
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
         {% if page.lead %}
-        <p class="mb-6 last:mb-0 text-3xl">{{ page.lead }}</p>
+        <p class="mb-6 last:mb-0 text-xl">{{ page.lead }}</p>
         {% endif %}
         {% if page.description %}
-        <p class="mb-6 last:mb-0 text-xl">{{ page.description|richtext }}</p>
+        <p class="mb-6 last:mb-0 text-md leading-[30px]">{{ page.description|richtext }}</p>
         {% endif %}
       </div>
       <div class="basis-4/12">
@@ -26,7 +26,7 @@
         <div class="flex items-center justify-between">
           {% image subpage.value.icon width-300 class="w-[53px] shrink-0 mr-4 my-1" %}
           <div>
-            <h2 class="mb-2 text-4xl font-semibold">{{ subpage.value.name }}</h2>
+            <h2 class="text-2xl font-semibold">{{ subpage.value.name }}</h2>
             <p>{{ subpage.value.description }}</p>
           </div>
         </div>

@@ -8,10 +8,10 @@
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
         {% if page.lead %}
-        <p class="mb-6 last:mb-0 text-3xl">{{ page.lead }}</p>
+        <p class="mb-6 last:mb-0 text-xl">{{ page.lead }}</p>
         {% endif %}
         {% if page.description %}
-        <p class="mb-6 last:mb-0 text-xl">{{ page.description|richtext }}</p>
+        <p class="mb-6 last:mb-0">{{ page.description|richtext }}</p>
         {% endif %}
       </div>
       <div class="basis-4/12">
@@ -27,7 +27,7 @@
             {% image project.value.image width-300 class="w-[53px] my-1" %}
           </div>
           <div>
-            <h2 class="mb-2 text-4xl font-semibold">
+            <h2 class="mb-2 text-2xl font-semibold">
               <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
                 {{ project.value.name }}
               </span>
@@ -49,7 +49,7 @@
 
   <div class="max-w-screen-xl mt-16 px-14 pb-20">
     <div class="flex justify-between mb-6">
-      <h2 class="mb-2 text-4xl font-semibold">{{ page.activities_title }}</h2>
+      <h2 class="mb-2 text-2xl font-semibold">{{ page.activities_title }}</h2>
       <a href="/nase-delo" class="hover:underline self-center">
         <span>Vse aktivnosti</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
       </a>

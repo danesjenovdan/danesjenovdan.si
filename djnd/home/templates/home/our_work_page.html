@@ -60,7 +60,7 @@
     {% for activity in activities %}
     {% include 'home/partials/activity.html' with activity=activity %}
     {% if forloop.counter == 3 %}
-    <div class="border border-dark px-5 py-10 bg-gradient-to-tl from-white to-mint">
+    <div class="border-2 border-dark px-5 py-10 bg-gradient-to-tl from-white to-mint">
       <img src="{% static 'img/newsletter.png' %}" alt="" class="w-[100px]">
       <h2 class="text-4xl font-semibold mb-4 mt-4">{% translate "Prijavi se na naš" %} <span class="italic">{% translate "Občasnik" %}!</span></h2>
       <p class="text-xl font-semibold">{% translate "Vsak mesec ti bomo dostavili svežo bero informativnih vsebin in zanimivih zapisov o temah, ki nas žulijo, razveseljujejo ali navdihujejo, pisali pa ti bomo tudi, ko naredimo kaj dobrega ali ko se bo dogajalo kaj zanimivega." %}</p>
@@ -68,10 +68,10 @@
     </div>
     {% endif %}
     {% if forloop.counter == 7 %}
-    <div class="border border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
+    <div class="border-2 border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
       <h2 class="text-4xl font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
           class="italic">{% translate "tvojo podporo" %}!</span></h2>
-      <a href="{% url 'support' %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border-2 border-dark bg-red font-semibold text-2xl">
+      <a href="{% url 'support' %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-red font-semibold text-2xl">
         <span>{% translate 'Podpri nas!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
       </a>
     </div>

@@ -8,7 +8,7 @@
     <div class="flex gap-10 max-w-screen-xl px-14 pt-20 pb-10">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold uppercase">{{ page.title }}</h1>
-        <p class="mb-6 last:mb-0 text-3xl">{{ page.lead }}</p>
+        <p class="mb-6 last:mb-0 text-xl">{{ page.lead }}</p>
       </div>
       <div class="basis-4/12">
         {% image page.image width-300 class="w-full object-cover" %}
@@ -17,16 +17,16 @@
   </div>
 
   <div class="max-w-screen-xl px-14 py-16 border-b border-dark">
-      <h2 class="text-4xl font-semibold mb-8">{% translate "Preberi pretekle občasnike!" %}</h2>
+      <h2 class="text-2xl font-semibold mb-8">{% translate "Preberi pretekle občasnike!" %}</h2>
       <div class="grid grid-cols-3 gap-4">
           {% for newsletter in newsletters|slice:":3" %}
           <div class="border border-dark">
               <a href="{% pageurl newsletter %}" target="_blank">
                 {% image newsletter.thumbnail width-300 class="w-full h-[180px] object-cover" %}
               </a>
-              <div class="border-t border-dark p-5 pb-2">
+              <div class="border-t border-dark p-5">
                 <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-3">{% translate "Občasnik" %}</span>
-                <a href="{% pageurl newsletter %}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ newsletter.title }}</a>
+                <a href="{% pageurl newsletter %}" target="_blank" class="block text-2xl leading-none font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ newsletter.title }}</a>
                 <p class="font-mono">{{ newsletter.published_at|date:"F Y" }}</p>
               </div>
           </div>
@@ -44,7 +44,7 @@
             <a href="{% pageurl newsletter %}" target="_blank">
               {% image newsletter.thumbnail width-300 class="w-full h-[180px] object-cover" %}
             </a>
-            <div class="border-t border-dark p-5 pb-2">
+            <div class="border-t border-dark p-5">
               <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-3">{% translate "Občasnik" %}</span>
               <a href="{% pageurl newsletter %}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ newsletter.title }}</a>
               <p class="font-mono">{{ newsletter.published_at|date:"F Y" }}</p>

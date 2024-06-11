@@ -44,7 +44,7 @@
 
     p,
     ul {
-      @apply mb-5 mt-10 text-xl leading-7;
+      @apply mb-5 mt-5 text-md;
     }
 
     ul {
