@@ -1,6 +1,6 @@
 {% load static i18n wagtailcore_tags wagtailimages_tags djnd_extras %}
 
-<div class="px-6 pt-20">
+<div class="px-6 pt-8">
   <a href="/" class="inline-block mb-5">
     <img src="{% static "img/djnd-logo-dark.svg" %}" alt="Danes je nov dan" class="h-9">
   </a>
@@ -24,7 +24,7 @@
   <nav>
     <ul class="flex flex-col gap-3">
       {% for pillar_page in settings.home.NavigationSettings.pillars %}
-      <li class="flex items-start gap-1 uppercase text-xl leading-5 font-semibold">
+      <li class="flex items-start gap-1 uppercase text-md leading-5 font-semibold">
         {% if pillar_page.value.localized.icon %}
           {% image pillar_page.value.localized.icon fill-32x32 class="w-4 mt-0.5" %}
         {% elif pillar_page.value.localized.image %}
@@ -42,11 +42,11 @@
 
   <nav>
     <ul class="flex flex-col gap-3">
-      <li class="uppercase text-lg leading-5 font-semibold">
+      <li class="uppercase text-md leading-5 font-semibold">
         <a href="/nase-delo" class="hover:underline">{% translate "Naše delo" %}</a>
       </li>
       {% for nav_page in settings.home.NavigationSettings.pages %}
-      <li class="uppercase text-lg leading-5 font-semibold">
+      <li class="uppercase text-md leading-5 font-semibold">
         <a href="{% pageurl nav_page.value.page.localized %}" {% if page.id == nav_page.value.page.localized.id %}aria-current="page"{% endif %} class="hover:underline">{{ nav_page.value.page.localized.title }}</a>
         {% if nav_page.value.subpages %}
         <ul class="mt-1 ml-4 flex flex-col gap-1">
@@ -59,10 +59,10 @@
         {% endif %}
       </li>
       {% endfor %}
-      <li class="uppercase text-lg leading-5 font-semibold">
+      <li class="uppercase text-md leading-5 font-semibold">
         <a href="/trgovina" class="hover:underline">{% translate "Trgovina" %}</a>
       </li>
-      <li class="uppercase text-lg leading-5 font-semibold">
+      <li class="uppercase text-md leading-5 font-semibold">
         <a href="/podpri" class="hover:underline">{% translate "Podpri nas" %}</a>
       </li>
     </ul>

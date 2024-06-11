@@ -4,6 +4,14 @@ from home.models import PillarPage, ActivityCategory, ActivityProject
 
 
 class OurWorkForm(forms.Form):
+
+    def __init__(self, *args, **kwargs):
+        self.locale = kwargs.pop('locale')
+        super(OurWorkForm, self).__init__(*args, **kwargs)
+        self.fields['pillars'].queryset = PillarPage.objects.filter(locale=self.locale)
+        self.fields['categories'].queryset = ActivityCategory.objects.filter(locale=self.locale)
+        self.fields['projects'].queryset = ActivityProject.objects.filter(locale=self.locale)
+
     pillars = forms.ModelMultipleChoiceField(
         required=False,
         queryset=PillarPage.objects,
