@@ -13,7 +13,7 @@
               {% endfor %}
             {% endif %}
           </div>
-          <h2 class="mb-4 text-4xl font-semibold">
+          <h2 class="mb-4 text-2xl font-semibold">
             <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
               {% if value.promoted_snippet.title %}
               {{ value.promoted_snippet.title }}
@@ -22,8 +22,8 @@
               {% endif %}
             </span>
           </h2>
-          <div class="rich-text">
-            <p>
+          <div>
+            <p class="text-md">
               {% if value.promoted_snippet.description %}
               {{ value.promoted_snippet.description }}
               {% elif value.promoted_snippet.activity %}

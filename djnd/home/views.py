@@ -1,6 +1,9 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 
+from wagtail.models import Locale
+
+
 from home.forms import OurWorkForm
 from home.models import Activity
 
@@ -9,7 +12,10 @@ class OurWorkView(TemplateView):
     template_name = "home/our_work_page.html"
 
     def get(self, request, *args, **kwargs):
-        form = OurWorkForm()
+        lang = request.LANGUAGE_CODE
+        locale = Locale.get_active()
+
+        form = OurWorkForm(locale=locale)
 
         activities = Activity.objects.all()
 
@@ -20,7 +26,10 @@ class OurWorkView(TemplateView):
         )
 
     def post(self, request, *args, **kwargs):
-        form = OurWorkForm(request.POST)
+        lang = request.LANGUAGE_CODE
+        locale = Locale.get_active()
+        
+        form = OurWorkForm(request.POST, locale=locale)
 
         activities = Activity.objects.all()
 
