@@ -4,7 +4,7 @@
 {% block content %}
 <div>
   <div class="border-b border-dark last:border-b-0 bg-lavender-light">
-    <div class="flex gap-10 max-w-screen-xl px-14 pt-20">
+    <div class="flex gap-10 max-w-screen-xl px-14 pt-20 mb-16">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
         {% if page.lead %}
@@ -19,7 +19,7 @@
       </div>
     </div>
     {% if page.projects %}
-    <div class="max-w-screen-xl mt-16 px-14 pb-20">
+    <div class="max-w-screen-xl px-14 pb-20">
       <div class="grid grid-cols-2 gap-[1px] border border-dark bg-dark mt-6">
         {% for project in page.projects %}
         <a href="{% if project.value.page %}{% pageurl project.value.page %}{% else %}{{ project.value.url }}{% endif %}" class="bg-white flex p-6 group" target="_blank">
