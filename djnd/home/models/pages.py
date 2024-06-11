@@ -77,7 +77,7 @@ class HomePage(Page):
 
 class PillarPage(Page):
     lead = models.TextField(blank=True)
-    description = models.TextField(blank=True)
+    description = RichTextField(blank=True, null=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
@@ -147,7 +147,7 @@ class PillarPage(Page):
 
 class ModularPage(Page):
     lead = models.TextField(blank=True)
-    description = models.TextField(blank=True)
+    description = RichTextField(blank=True, null=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,

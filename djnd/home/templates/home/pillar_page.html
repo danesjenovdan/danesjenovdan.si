@@ -11,7 +11,7 @@
         <p class="mb-6 last:mb-0 text-3xl">{{ page.lead }}</p>
         {% endif %}
         {% if page.description %}
-        <p class="mb-6 last:mb-0 text-xl">{{ page.description }}</p>
+        <p class="mb-6 last:mb-0 text-xl">{{ page.description|richtext }}</p>
         {% endif %}
       </div>
       <div class="basis-4/12">
