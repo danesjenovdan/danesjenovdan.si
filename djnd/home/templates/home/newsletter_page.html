@@ -47,14 +47,14 @@
     <h2 class="text-4xl font-semibold mb-2">{% translate "Izpostavljeno" %}</h2>
     <p class="mb-8">{% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" %}</p>
     <div class="grid grid-cols-3 gap-4">
-        {% for blog in page.promoted_blogs %}
+        {% for article in page.promoted %}
         <div class="border border-dark">
-            <a href="{{ blog.value.link }}" target="_blank">
-              {% image blog.value.thumbnail width-300 class="w-full h-[180px] object-cover" %}
+            <a href="{{ article.value.link }}" target="_blank">
+              {% image article.value.image width-300 class="w-full h-[180px] object-cover" %}
             </a>
             <div class="border-t border-dark p-5 pb-2">
-              <a href="{{ blog.value.link }}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ blog.value.title }}</a>
-              <p class="mb-6">{{ blog.value.short_description }}</p>
+              <a href="{{ article.value.link }}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ article.value.name }}</a>
+              <p class="mb-6">{{ article.value.description }}</p>
             </div>
         </div>
         {% endfor %}

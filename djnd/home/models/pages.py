@@ -231,16 +231,20 @@ class NewsletterPage(Page):
         blank=True,
         use_json_field=True,
     )
-    promoted_blogs = StreamField(
+    promoted = StreamField(
         [
             (
-                "blogpage",
-                blocks.PageChooserBlock(
-                    target_model="home.BlogPage"
+                "article",
+                blocks.StructBlock(
+                    [
+                        ("name", blocks.CharBlock()),
+                        ("description", blocks.CharBlock()),
+                        ("image", ImageChooserBlock()),
+                        ("link", blocks.URLBlock(required=False)),
+                    ]
                 ),
             )
         ],
-        verbose_name="Povezani zapisi",
         null=True,
         blank=True,
         use_json_field=True,
@@ -251,7 +255,7 @@ class NewsletterPage(Page):
         FieldPanel("published_at"),
         FieldPanel("introduction"),
         FieldPanel("news"),
-        FieldPanel("promoted_blogs"),
+        FieldPanel("promoted"),
     ]
 
 class NewsletterListPage(Page):
