@@ -5,6 +5,13 @@ from wagtail.models import TranslatableMixin
 
 class ActivityCategory(TranslatableMixin, models.Model):
     name = models.TextField()
+    icon = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
 
     def __str__(self) -> str:
         return self.name
@@ -16,6 +23,13 @@ class ActivityCategory(TranslatableMixin, models.Model):
 
 class ActivityProject(TranslatableMixin, models.Model):
     name = models.TextField()
+    icon = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
 
     def __str__(self) -> str:
         return self.name

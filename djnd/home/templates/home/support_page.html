@@ -7,12 +7,18 @@
   <div class="border-b border-dark bg-red-light">
     <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10">
       <div class="basis-8/12">
-        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{% translate "Podpri" %}</h1>
-        <p class="mb-6 last:mb-0 text-xl">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi tvojo pomoč. Doniraš nam lahko:" %}</p>
-        <!-- <p class="mb-6 last:mb-0 text-xl">{{ page.description }}</p> -->
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
+        {% if page.lead %}
+        <p class="mb-6 last:mb-0 text-xl">{{ page.lead }}</p>
+        {% endif %}
+        {% if page.description %}
+        <p class="mb-6 last:mb-0">{{ page.description|richtext }}</p>
+        {% endif %}
       </div>
       <div class="basis-4/12">
-        <img src="https://placehold.it/200x50" alt="" class="w-full">
+        {% if page.image %}
+        {% image page.image width-752 class="w-full" %}
+        {% endif %}
       </div>
     </div>
   </div>

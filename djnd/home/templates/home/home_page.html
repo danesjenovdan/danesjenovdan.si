@@ -63,7 +63,8 @@
 <div class="max-w-screen-xl mx-auto mt-16 px-14 pb-20">
   <div class="flex justify-between mb-6">
     <h2 class="mb-2 text-2xl font-semibold">Zadnje aktivnosti</h2>
-    <form id="our-work-form" action="{% url 'our-work' %}" method="post" class="flex items-center">
+    {% if settings.home.GeneralSettings.our_work_page %}
+    <form id="our-work-form" action="{% pageurl settings.home.GeneralSettings.our_work_page %}" method="post" class="flex items-center">
       {% csrf_token %}
 
       <div class="me-2">
@@ -87,11 +88,12 @@
         </label>
       </div>
 
-      <a href="/nase-delo" class="hover:underline self-center">
-        <span>Vsi filtri</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+      <a href="{% pageurl settings.home.GeneralSettings.our_work_page %}" class="hover:underline self-center">
+        <span>{% translate "Vsi filtri" %}</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
       </a>
-
+      
     </form>
+    {% endif %}
 
   </div>
   <div class="grid grid-cols-3 gap-4">
@@ -109,9 +111,11 @@
     <div class="border-2 border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
       <h2 class="text-2xl leading-[2.25rem] font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
           class="italic">{% translate "tvojo podporo" %}!</span></h2>
-      <a href="{% url 'support' %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-red font-semibold text-lg">
+      {% if settings.home.GeneralSettings.support_page %}
+      <a href="{% pageurl settings.home.GeneralSettings.support_page %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-red font-semibold text-lg">
         <span>{% translate 'Podpri nas!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
       </a>
+      {% endif %}
     </div>
     {% endif %}
     {% endfor %}

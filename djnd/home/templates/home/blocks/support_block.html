@@ -9,9 +9,11 @@
                 </div>
                 <h2 class="text-4xl font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
                     class="italic">{% translate "tvojo podporo" %}!</span></h2>
-                <a href="{% url 'support' %}" class="flex justify-between w-full px-2 pt-1.5 pb-2 border-2 border-dark font-semibold {% if value.color_scheme == 'green' %}bg-mint{% else %}bg-red{% endif %}">
+                {% if settings.home.GeneralSettings.support_page %}
+                <a href="{% pageurl settings.home.GeneralSettings.support_page %}" class="flex justify-between w-full px-2 pt-1.5 pb-2 border-2 border-dark font-semibold {% if value.color_scheme == 'green' %}bg-mint{% else %}bg-red{% endif %}">
                     <span>{% translate 'Podpri nas!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
                 </a>
+                {% endif %}
             </div>
         </div>
     </div>
