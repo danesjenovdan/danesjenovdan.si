@@ -1,7 +1,7 @@
 {% extends "wrapper.html" %}
 {% load static wagtailcore_tags wagtailimages_tags i18n %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block body_class %}template-homepage theme-color-{{ page.color }}{% endblock %}
 
 {% block content %}
 <div>
@@ -24,7 +24,7 @@
           <a href="{% if focus_area.value.page %}{% pageurl focus_area.value.page %}{% else %}{{ focus_area.value.url }}{% endif %}">
           {% endif %}
           <div class="
-            relative flex items-center gap-4 mt-4 px-8 py-11 shadow-dark shadow-[0px_0px_0px_1px] bg-{{ focus_area.value.color }} group
+            relative flex items-center gap-4 mt-4 px-8 py-11 shadow-dark shadow-[0px_0px_0px_1px] bg-th-primary group
             {% if focus_cycle == 'one' %}
             -rotate-2 -translate-x-3
             {% elif focus_cycle == 'two' %}
@@ -63,55 +63,59 @@
 <div class="max-w-screen-xl mx-auto mt-16 px-14 pb-20">
   <div class="flex justify-between mb-6">
     <h2 class="mb-2 text-2xl font-semibold">Zadnje aktivnosti</h2>
-    <form id="our-work-form" action="{% url 'our-work' %}" method="post" class="flex items-center">
+    {% if settings.home.GeneralSettings.our_work_page %}
+    <form id="our-work-form" action="{% pageurl settings.home.GeneralSettings.our_work_page %}" method="post" class="flex items-center">
       {% csrf_token %}
 
       <div class="me-2">
         <input type="checkbox" name="all" value="" class="peer hidden" id="id_all" checked>
-        <label for="id_all" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-mint peer-checked:border-2">
+        <label for="id_all" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
           Vse
         </label>
       </div>
 
       <div class="me-2">
         <input type="checkbox" name="projects" value="1" class="peer hidden" id="id_projects_0" onchange="filterOurWork()">
-        <label for="id_projects_0" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-mint peer-checked:border-2">
+        <label for="id_projects_0" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
           DJND projekti
         </label>
       </div>
 
       <div class="me-2">
         <input type="checkbox" name="projects" value="1" class="peer hidden" id="id_projects_0" onchange="filterOurWork()">
-        <label for="id_projects_0" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-mint peer-checked:border-2">
+        <label for="id_projects_0" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
           Občasnik
         </label>
       </div>
 
-      <a href="/nase-delo" class="hover:underline self-center">
-        <span>Vsi filtri</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+      <a href="{% pageurl settings.home.GeneralSettings.our_work_page %}" class="hover:underline self-center">
+        <span>{% translate "Vsi filtri" %}</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
       </a>
 
     </form>
+    {% endif %}
 
   </div>
   <div class="grid grid-cols-3 gap-4">
     {% for activity in activities %}
     {% include 'home/partials/activity.html' with activity=activity %}
     {% if forloop.counter == 3 %}
-    <div class="border-2 border-dark px-5 py-10 bg-gradient-to-tl from-white to-mint">
+    <div class="border-2 border-dark px-5 py-10 bg-gradient-to-tl from-white to-th-primary">
       <img src="{% static 'img/newsletter.png' %}" alt="" class="w-[100px]">
       <h2 class="text-2xl leading-[2.25rem] font-semibold mb-4 mt-4">{% translate "Prijavi se na naš" %} <span class="italic">{% translate "Občasnik" %}!</span></h2>
       <p class="text-md font-semibold">{% translate "Vsak mesec ti bomo dostavili svežo bero informativnih vsebin in zanimivih zapisov o temah, ki nas žulijo, razveseljujejo ali navdihujejo, pisali pa ti bomo tudi, ko naredimo kaj dobrega ali ko se bo dogajalo kaj zanimivega." %}</p>
-      {% include 'home/partials/newsletter_form.html' with id=forloop.counter color='green' %}
+      {% include 'home/partials/newsletter_form.html' with id=forloop.counter color_scheme='mint' %}
     </div>
     {% endif %}
     {% if forloop.counter == 7 %}
-    <div class="border-2 border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
+    <div class="border-2 border-dark px-5 py-10 bg-th-primary-light flex flex-col justify-center">
       <h2 class="text-2xl leading-[2.25rem] font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
           class="italic">{% translate "tvojo podporo" %}!</span></h2>
-      <a href="{% url 'support' %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-red font-semibold text-lg">
+      {% if settings.home.GeneralSettings.support_page %}
+      <a href="{% pageurl settings.home.GeneralSettings.support_page %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-th-primary font-semibold text-lg">
         <span>{% translate 'Podpri nas!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
       </a>
+      {% endif %}
     </div>
     {% endif %}
     {% endfor %}

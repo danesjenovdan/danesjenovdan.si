@@ -42,9 +42,6 @@
 
   <nav>
     <ul class="flex flex-col gap-3">
-      <li class="uppercase text-md leading-5 font-semibold">
-        <a href="/nase-delo" class="hover:underline">{% translate "Naše delo" %}</a>
-      </li>
       {% for nav_page in settings.home.NavigationSettings.pages %}
       <li class="uppercase text-md leading-5 font-semibold">
         <a href="{% pageurl nav_page.value.page.localized %}" {% if page.id == nav_page.value.page.localized.id %}aria-current="page"{% endif %} class="hover:underline">{{ nav_page.value.page.localized.title }}</a>
@@ -61,9 +58,6 @@
       {% endfor %}
       <li class="uppercase text-md leading-5 font-semibold">
         <a href="/trgovina" class="hover:underline">{% translate "Trgovina" %}</a>
-      </li>
-      <li class="uppercase text-md leading-5 font-semibold">
-        <a href="/podpri" class="hover:underline">{% translate "Podpri nas" %}</a>
       </li>
     </ul>
   </nav>

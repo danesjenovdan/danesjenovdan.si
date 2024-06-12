@@ -37,6 +37,9 @@ module.exports = {
       'yellow': '#FFEDAD',
       'lavender': '#CCC7FF',
       'lavender-light': '#EEEDFF',
+      // theme colors:
+      'th-primary': 'var(--th-primary)',
+      'th-primary-light': 'var(--th-primary-light)',
     },
     extend: {
       gridTemplateColumns: {
@@ -62,7 +65,7 @@ module.exports = {
   },
   safelist: [
     {
-      pattern: /bg-(white|mint|red|green|blue|yellow|lavender)(-light)?$/,
+      pattern: /theme-color-/,
     },
   ],
   plugins: [require('@tailwindcss/forms')],

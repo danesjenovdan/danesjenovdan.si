@@ -1,6 +1,8 @@
 {% extends "wrapper.html" %}
 {% load static wagtailcore_tags i18n djnd_extras %}
 
+{% block body_class %}template-teampage theme-color-{{ page.color }}{% endblock %}
+
 {% block content %}
 <div>
 
@@ -12,7 +14,7 @@
           {% for category in team_member_categories %}
             <div>
               <input type="radio" name="team_member_categories" id="team_member_category_{{ category.id }}" value="{{ category.id }}" {% if forloop.first %}checked{% endif %} class="peer hidden" @change="select($event.target.value)">
-              <label for="team_member_category_{{ category.id }}" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-mint">{{ category.name }}</label>
+              <label for="team_member_category_{{ category.id }}" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-th-primary">{{ category.name }}</label>
             </div>
           {% endfor %}
         </form>

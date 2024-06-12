@@ -2,6 +2,43 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer utilities {
+  .theme-color-white {
+    --th-primary: theme("colors.light");
+    --th-primary-light: theme("colors.very-light");
+  }
+
+  .theme-color-mint {
+    --th-primary: theme("colors.mint");
+    --th-primary-light: theme("colors.mint-light");
+  }
+
+  .theme-color-red {
+    --th-primary: theme("colors.red");
+    --th-primary-light: theme("colors.red-light");
+  }
+
+  .theme-color-green {
+    --th-primary: theme("colors.green");
+    /* --th-primary-light: theme("colors.green-light"); */
+  }
+
+  .theme-color-blue {
+    --th-primary: theme("colors.blue");
+    --th-primary-light: theme("colors.blue-light");
+  }
+
+  .theme-color-yellow {
+    --th-primary: theme("colors.yellow");
+    /* --th-primary-light: theme("colors.yellow-light"); */
+  }
+
+  .theme-color-lavender {
+    --th-primary: theme("colors.lavender");
+    --th-primary-light: theme("colors.lavender-light");
+  }
+}
+
 @layer base {
   [aria-current="page"] {
     @apply relative font-bold;
@@ -26,7 +63,9 @@
 
 @layer components {
   .rich-text {
-    h2, h3, h4 {
+    h2,
+    h3,
+    h4 {
       @apply mb-5 mt-10 font-semibold;
     }
 
@@ -51,9 +90,12 @@
       @apply list-image-arrow pl-5 marker:text-3xl;
     }
 
-    h2+p, h2+ul,
-    h3+p, h3+ul,
-    h4+p, h4+ul {
+    h2 + p,
+    h2 + ul,
+    h3 + p,
+    h3 + ul,
+    h4 + p,
+    h4 + ul {
       @apply mt-5;
     }
 
@@ -74,9 +116,9 @@
     animation: l7 1s infinite linear;
   }
   @keyframes l7 {
-      33%{background-size:calc(100%/3) 0%  ,calc(100%/3) 100%,calc(100%/3) 100%}
-      50%{background-size:calc(100%/3) 100%,calc(100%/3) 0%  ,calc(100%/3) 100%}
-      66%{background-size:calc(100%/3) 100%,calc(100%/3) 100%,calc(100%/3) 0%  }
+    33%{background-size:calc(100%/3) 0%  ,calc(100%/3) 100%,calc(100%/3) 100%}
+    50%{background-size:calc(100%/3) 100%,calc(100%/3) 0%  ,calc(100%/3) 100%}
+    66%{background-size:calc(100%/3) 100%,calc(100%/3) 100%,calc(100%/3) 0%  }
   }
 
   .rich-text a,
@@ -85,7 +127,7 @@
 
     &::before {
       content: "";
-      @apply absolute inset-0 z-[-1] bg-red origin-right transition-transform duration-300 scale-x-0;
+      @apply absolute inset-0 z-[-1] bg-th-primary origin-right transition-transform duration-300 scale-x-0;
     }
 
     &:hover::before {

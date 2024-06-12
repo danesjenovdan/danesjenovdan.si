@@ -1,11 +1,21 @@
-from wagtail import blocks
-from wagtail.snippets.blocks import SnippetChooserBlock
-from wagtail.models import Locale
-from wagtail.images.blocks import ImageChooserBlock
-
+from django.db import models
 from django.utils.translation import get_language
+from wagtail import blocks
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.models import Locale
+from wagtail.snippets.blocks import SnippetChooserBlock
 
 from .snippets import Promoted
+
+
+class PageColors(models.TextChoices):
+    WHITE = "white", "Bela"
+    MINT = "mint", "Meta"
+    RED = "red", "Rdeča"
+    GREEN = "green", "Zelena"
+    BLUE = "blue", "Modra"
+    YELLOW = "yellow", "Rumena"
+    LAVENDER = "lavender", "Sivka"
 
 
 class NetworksBlock(blocks.StructBlock):
@@ -80,8 +90,8 @@ class ContactBlock(blocks.StructBlock):
 
 class NewsletterBlock(blocks.StructBlock):
     color_scheme = blocks.ChoiceBlock(
-        choices=[("red", "Rdeča"), ("green", "Zelena")],
-        default="green",
+        choices=PageColors.choices,
+        default=PageColors.WHITE,
         label="Barvna shema",
     )
 
@@ -92,8 +102,8 @@ class NewsletterBlock(blocks.StructBlock):
 
 class SupportBlock(blocks.StructBlock):
     color_scheme = blocks.ChoiceBlock(
-        choices=[("red", "Rdeča"), ("green", "Zelena")],
-        default="green",
+        choices=PageColors.choices,
+        default=PageColors.WHITE,
         label="Barvna shema",
     )
 
@@ -104,7 +114,9 @@ class SupportBlock(blocks.StructBlock):
 
 class FinancialInformationBlock(blocks.StructBlock):
     title = blocks.CharBlock()
-    reports_url = blocks.URLBlock(required=False, label="Letna vsebinska in finančna poročila")
+    reports_url = blocks.URLBlock(
+        required=False, label="Letna vsebinska in finančna poročila"
+    )
 
     class Meta:
         label = "Finančno poslovanje"
@@ -126,8 +138,8 @@ class TextContentBlock(blocks.StructBlock):
                 (
                     "color",
                     blocks.ChoiceBlock(
-                        choices=[("white", "Bela"), ("green", "Zelena")],
-                        default="white",
+                        choices=PageColors.choices,
+                        default=PageColors.WHITE,
                         label="Barva gumba",
                     ),
                 ),
@@ -144,10 +156,11 @@ class TextContentBlock(blocks.StructBlock):
 
 class TableBlock(blocks.StructBlock):
     title = blocks.CharBlock()
-    table = blocks.ListBlock(blocks.StructBlock([
-        ("title", blocks.CharBlock()),
-        ("description", blocks.TextBlock())
-    ]))
+    table = blocks.ListBlock(
+        blocks.StructBlock(
+            [("title", blocks.CharBlock()), ("description", blocks.TextBlock())]
+        )
+    )
 
     class Meta:
         label = "Tabela"

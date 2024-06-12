@@ -1,22 +1,14 @@
 from django.db import models
+from django.shortcuts import render, redirect
+
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
 from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
-from .blocks import ModuleBlock, BlogPageBlock
-from .snippets import TeamMember, TeamMemberCategory, Activity
-
-
-class PageColors(models.TextChoices):
-    WHITE = "white", "Bela"
-    MINT = "mint", "Meta"
-    RED = "red", "Rdeča"
-    GREEN = "green", "Zelena"
-    BLUE = "blue", "Modra"
-    YELLOW = "yellow", "Rumena"
-    LAVENDER = "lavender", "Sivka"
+from .blocks import BlogPageBlock, ModuleBlock, PageColors
+from .snippets import Activity, TeamMember, TeamMemberCategory
 
 
 class BasePage(Page):
@@ -45,16 +37,8 @@ class HomePage(BasePage):
                         (
                             "color",
                             blocks.ChoiceBlock(
-                                choices=[
-                                    ("white", "Bela"),
-                                    ("mint", "Meta"),
-                                    ("red", "Rdeča"),
-                                    ("green", "Zelena"),
-                                    ("blue", "Modra"),
-                                    ("yellow", "Rumena"),
-                                    ("lavender", "Sivka"),
-                                ],
-                                default="white",
+                                choices=PageColors.choices,
+                                default=PageColors.WHITE,
                                 label="Barva",
                             ),
                         ),
@@ -347,3 +331,66 @@ class BlogPage(BasePage):
         FieldPanel("modules"),
         FieldPanel("more_blogs"),
     ]
+
+
+class SupportPage(BasePage):
+    lead = models.TextField(blank=True)
+    description = RichTextField(blank=True, null=True)
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("lead"),
+        FieldPanel("description"),
+        FieldPanel("image"),
+    ]
+
+
+class OurWorkPage(Page):
+    template_name = "home/our_work_page.html"
+
+    def serve(self, request):
+        from home.forms import OurWorkForm
+
+        lang = request.LANGUAGE_CODE
+        locale = Locale.get_active()
+
+        if request.method == 'POST':
+            form = OurWorkForm(request.POST, locale=locale)
+
+            activities = Activity.objects.all()
+
+            if form.is_valid():
+                pillars = form.cleaned_data["pillars"]
+                categories = form.cleaned_data["categories"]
+                projects = form.cleaned_data["projects"]
+
+                if pillars:
+                    activities = activities.filter(pillar_page__in=pillars)
+
+                if categories:
+                    activities = activities.filter(category__in=categories)
+
+                if projects:
+                    activities = activities.filter(project__in=projects)
+
+            return render(
+                request,
+                self.template_name,
+                {"page": self, "form": form, "activities": activities},
+            )
+        else:
+            form = OurWorkForm(locale=locale)
+
+            activities = Activity.objects.all()
+
+            return render(
+                request,
+                self.template_name,
+                {"page": self, "form": form, "activities": activities},
+            )

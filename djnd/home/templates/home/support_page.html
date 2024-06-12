@@ -4,22 +4,28 @@
 {% block content %}
 
 <div>
-  <div class="border-b border-dark bg-red-light">
+  <div class="border-b border-dark bg-th-primary-light">
     <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10">
       <div class="basis-8/12">
-        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{% translate "Podpri" %}</h1>
-        <p class="mb-6 last:mb-0 text-xl">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi tvojo pomoč. Doniraš nam lahko:" %}</p>
-        <!-- <p class="mb-6 last:mb-0 text-xl">{{ page.description }}</p> -->
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
+        {% if page.lead %}
+        <p class="mb-6 last:mb-0 text-xl">{{ page.lead }}</p>
+        {% endif %}
+        {% if page.description %}
+        <p class="mb-6 last:mb-0">{{ page.description|richtext }}</p>
+        {% endif %}
       </div>
       <div class="basis-4/12">
-        <img src="https://placehold.it/200x50" alt="" class="w-full">
+        {% if page.image %}
+        {% image page.image width-752 class="w-full" %}
+        {% endif %}
       </div>
     </div>
   </div>
   <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16 border-b border-dark">
     <div class="basis-8/12">
       <div class="grid grid-cols-2 gap-6">
-        <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj?mesecna=true" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-red">
+        <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj?mesecna=true" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
           <div>
             <h2 class="mb-2 text-2xl font-semibold">{% translate "Vsak mesec" %}</h2>
             <p class="font-semibold">{% translate "Ker nas želiš podpirati vsak mesec!" %}</p>
@@ -31,7 +37,7 @@
             <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
           </div>
         </a>
-        <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-red">
+        <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
           <div>
             <h2 class="mb-2 text-2xl font-semibold">{% translate "Enkrat" %}</h2>
             <p class="font-semibold">{% translate "Ker imaš ravno prav evrov viška za boljši jutri!" %}</p>
