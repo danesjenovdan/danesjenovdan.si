@@ -64,7 +64,7 @@
       <img src="{% static 'img/newsletter.png' %}" alt="" class="w-[100px]">
       <h2 class="text-2xl leading-[2.25rem] font-semibold mb-4 mt-4">{% translate "Prijavi se na naš" %} <span class="italic">{% translate "Občasnik" %}!</span></h2>
       <p class="text-md font-semibold">{% translate "Vsak mesec ti bomo dostavili svežo bero informativnih vsebin in zanimivih zapisov o temah, ki nas žulijo, razveseljujejo ali navdihujejo, pisali pa ti bomo tudi, ko naredimo kaj dobrega ali ko se bo dogajalo kaj zanimivega." %}</p>
-      {% include 'home/partials/newsletter_form.html' with id=forloop.counter color='green' %}
+      {% include 'home/partials/newsletter_form.html' with id=forloop.counter color_scheme='mint' %}
     </div>
     {% endif %}
     {% if forloop.counter == 7 %}

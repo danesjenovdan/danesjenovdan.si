@@ -1,6 +1,6 @@
 {% load i18n wagtailcore_tags static %}
 
-<form class="mt-4" @submit.prevent="subscribeToNewsletter('{{ blockname }}-{{ id }}')" x-data="subscribe">
+<form class="mt-4 theme-color-{{ color_scheme }}" @submit.prevent="subscribeToNewsletter('{{ blockname }}-{{ id }}')" x-data="subscribe">
   <div>
     <label for="subscribe-email-{{ blockname }}-{{ id }}" class="font-mono text-sm">{% translate "Vpiši svoj e-naslov" %}</label>
     <input type="email" id="subscribe-email-{{ blockname }}-{{ id }}" class="w-full px-2 pt-1.5 pb-2 border border-dark font-semibold" required>
