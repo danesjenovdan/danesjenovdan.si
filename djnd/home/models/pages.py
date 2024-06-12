@@ -19,6 +19,10 @@ class BasePage(Page):
         verbose_name="Barva",
     )
 
+    content_panels = Page.content_panels + [
+        FieldPanel("color"),
+    ]
+
     class Meta:
         abstract = True
 
@@ -65,7 +69,7 @@ class HomePage(BasePage):
         ModuleBlock(), verbose_name="Moduli", null=True, blank=True, use_json_field=True
     )
 
-    content_panels = Page.content_panels + [
+    content_panels = BasePage.content_panels + [
         FieldPanel("introduction"),
         FieldPanel("focus_areas_title"),
         FieldPanel("focus_areas"),
@@ -130,7 +134,7 @@ class PillarPage(BasePage):
     )
     activities_title = models.TextField(blank=True)
 
-    content_panels = Page.content_panels + [
+    content_panels = BasePage.content_panels + [
         FieldPanel("lead"),
         FieldPanel("description"),
         FieldPanel("image"),
@@ -183,7 +187,7 @@ class ModularPage(BasePage):
         ModuleBlock(), verbose_name="Moduli", null=True, blank=True, use_json_field=True
     )
 
-    content_panels = Page.content_panels + [
+    content_panels = BasePage.content_panels + [
         FieldPanel("lead"),
         FieldPanel("description"),
         FieldPanel("image"),
@@ -256,7 +260,7 @@ class NewsletterPage(BasePage):
         use_json_field=True,
     )
 
-    content_panels = Page.content_panels + [
+    content_panels = BasePage.content_panels + [
         FieldPanel("thumbnail"),
         FieldPanel("published_at"),
         FieldPanel("introduction"),
@@ -275,7 +279,7 @@ class NewsletterListPage(BasePage):
         related_name="+",
     )
 
-    content_panels = Page.content_panels + [
+    content_panels = BasePage.content_panels + [
         FieldPanel("lead"),
         FieldPanel("image"),
     ]
@@ -325,7 +329,7 @@ class BlogPage(BasePage):
         related_name="+",
     )
 
-    content_panels = Page.content_panels + [
+    content_panels = BasePage.content_panels + [
         FieldPanel("thumbnail"),
         FieldPanel("short_description"),
         FieldPanel("modules"),
@@ -344,7 +348,7 @@ class SupportPage(BasePage):
         related_name="+",
     )
 
-    content_panels = Page.content_panels + [
+    content_panels = BasePage.content_panels + [
         FieldPanel("lead"),
         FieldPanel("description"),
         FieldPanel("image"),
