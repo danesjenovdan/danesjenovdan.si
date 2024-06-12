@@ -9,7 +9,29 @@ from .blocks import ModuleBlock, BlogPageBlock
 from .snippets import TeamMember, TeamMemberCategory, Activity
 
 
-class HomePage(Page):
+class PageColors(models.TextChoices):
+    WHITE = "white", "Bela"
+    MINT = "mint", "Meta"
+    RED = "red", "Rdeča"
+    GREEN = "green", "Zelena"
+    BLUE = "blue", "Modra"
+    YELLOW = "yellow", "Rumena"
+    LAVENDER = "lavender", "Sivka"
+
+
+class BasePage(Page):
+    color = models.CharField(
+        max_length=255,
+        choices=PageColors.choices,
+        default=PageColors.WHITE,
+        verbose_name="Barva",
+    )
+
+    class Meta:
+        abstract = True
+
+
+class HomePage(BasePage):
     introduction = RichTextField(blank=True, null=True)
     focus_areas_title = models.CharField(max_length=255, blank=True, null=True)
     focus_areas = StreamField(
@@ -75,7 +97,7 @@ class HomePage(Page):
         return context
 
 
-class PillarPage(Page):
+class PillarPage(BasePage):
     lead = models.TextField(blank=True)
     description = RichTextField(blank=True, null=True)
     image = models.ForeignKey(
@@ -145,7 +167,7 @@ class PillarPage(Page):
         return context
 
 
-class ModularPage(Page):
+class ModularPage(BasePage):
     lead = models.TextField(blank=True)
     description = RichTextField(blank=True, null=True)
     image = models.ForeignKey(
@@ -186,7 +208,7 @@ class ModularPage(Page):
     ]
 
 
-class TeamPage(Page):
+class TeamPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
@@ -203,7 +225,7 @@ class TeamPage(Page):
         }
 
 
-class NewsletterPage(Page):
+class NewsletterPage(BasePage):
     thumbnail = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
@@ -258,7 +280,8 @@ class NewsletterPage(Page):
         FieldPanel("promoted"),
     ]
 
-class NewsletterListPage(Page):
+
+class NewsletterListPage(BasePage):
     lead = models.TextField(blank=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
@@ -279,7 +302,9 @@ class NewsletterListPage(Page):
         lang = request.LANGUAGE_CODE
         locale = Locale.get_active()
 
-        newsletters = NewsletterPage.objects.filter(locale=locale).order_by("-published_at")
+        newsletters = NewsletterPage.objects.filter(locale=locale).order_by(
+            "-published_at"
+        )
 
         return {
             **context,
@@ -287,7 +312,7 @@ class NewsletterListPage(Page):
         }
 
 
-class BlogPage(Page):
+class BlogPage(BasePage):
     short_description = models.TextField(blank=True)
     modules = StreamField(
         BlogPageBlock(),
