@@ -109,9 +109,11 @@
     <div class="border-2 border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
       <h2 class="text-2xl leading-[2.25rem] font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
           class="italic">{% translate "tvojo podporo" %}!</span></h2>
-      <a href="{% url 'support' %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-red font-semibold text-lg">
+      {% if settings.home.GeneralSettings.support_page %}
+      <a href="{% pageurl settings.home.GeneralSettings.support_page %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-red font-semibold text-lg">
         <span>{% translate 'Podpri nas!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
       </a>
+      {% endif %}
     </div>
     {% endif %}
     {% endfor %}

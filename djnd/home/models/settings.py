@@ -1,9 +1,29 @@
+from django.db import models
+
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
 from wagtail.contrib.settings.models import BaseGenericSetting, register_setting
 from wagtail.fields import StreamField
 
 from .pages import PillarPage
+
+@register_setting
+class GeneralSettings(BaseGenericSetting):
+    support_page = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+
+    panels = [
+        FieldPanel("support_page"),
+    ]
+
+    class Meta:
+        verbose_name = "Splošne nastavitve"
+        verbose_name_plural = "Splošne nastavitve"
 
 
 @register_setting
