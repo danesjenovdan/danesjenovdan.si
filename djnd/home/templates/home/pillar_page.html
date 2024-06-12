@@ -1,9 +1,11 @@
 {% extends "wrapper.html" %}
 {% load static wagtailcore_tags wagtailimages_tags %}
 
+{% block body_class %}template-pillarpage theme-color-{{ page.color }}{% endblock %}
+
 {% block content %}
 <div>
-  <div class="border-b border-dark last:border-b-0 bg-lavender-light">
+  <div class="border-b border-dark last:border-b-0 bg-th-primary-light">
     <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 mb-16">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
@@ -28,7 +30,7 @@
           </div>
           <div>
             <h2 class="mb-2 text-2xl font-semibold">
-              <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
+              <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
                 {{ project.value.name }}
               </span>
             </h2>

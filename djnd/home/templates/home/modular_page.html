@@ -1,10 +1,12 @@
 {% extends "wrapper.html" %}
 {% load static wagtailcore_tags wagtailimages_tags %}
 
+{% block body_class %}template-modularpage theme-color-{{ page.color }}{% endblock %}
+
 {% block content %}
 <div>
 
-  <div class="border-b border-dark last:border-b-0 bg-mint-light">
+  <div class="border-b border-dark last:border-b-0 bg-th-primary-light">
     <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
@@ -22,7 +24,7 @@
     {% if page.subpages %}
     <div class="grid grid-cols-3 gap-5 max-w-screen-xl mx-auto px-14 pb-20">
       {% for subpage in page.subpages %}
-      <a href="{% pageurl subpage.value.page %}" class="bg-white flex items-center justify-between border border-dark py-6 px-2 hover:bg-mint">
+      <a href="{% pageurl subpage.value.page %}" class="bg-white flex items-center justify-between border border-dark py-6 px-2 hover:bg-th-primary">
         <div class="flex items-center justify-between">
           {% image subpage.value.icon width-300 class="w-[53px] shrink-0 mr-4 my-1" %}
           <div>

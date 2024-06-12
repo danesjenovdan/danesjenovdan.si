@@ -1,12 +1,14 @@
 {% extends "wrapper.html" %}
 {% load static wagtailcore_tags wagtailimages_tags i18n %}
 
+{% block body_class %}template-blogpage theme-color-{{ page.color }}{% endblock %}
+
 {% block content %}
 
 <div class="bg-white">
   <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-16">
     <div class="basis-8/12">
-        <span class="bg-blue-light text-sm rounded-full px-3 py-1 mb-4 inline-block font-mono border border-dark">{% translate "Agrument" %}</span>
+        <span class="bg-th-primary-light text-sm rounded-full px-3 py-1 mb-4 inline-block font-mono border border-dark">{% translate "Agrument" %}</span>
         <h1 class="text-4xl font-semibold">{{ page.title }}</h1>
         <div class="rich-text">
             {{ value.text|richtext }}
@@ -37,7 +39,7 @@
             {% image blog.value.thumbnail width-300 class="w-full h-[180px] object-cover" %}
             </a>
             <div class="border-t border-dark p-5 pb-2">
-              <a href="{{ blog.value.link }}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ blog.value.title }}</a>
+              <a href="{{ blog.value.link }}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ blog.value.title }}</a>
               <p class="mb-6">{{ blog.value.short_description }}</p>
             </div>
         </div>

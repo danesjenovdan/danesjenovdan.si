@@ -1,13 +1,15 @@
 {% extends "wrapper.html" %}
 {% load static wagtailcore_tags wagtailimages_tags i18n %}
 
+{% block body_class %}template-newsletterpage theme-color-{{ page.color }}{% endblock %}
+
 {% block content %}
 
 <div>
-  <div class="border-b border-dark bg-red-light">
+  <div class="border-b border-dark bg-th-primary-light">
     <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10">
       <div class="basis-8/12">
-        <span class="bg-blue-light text-sm rounded-full px-3 py-1 mb-4 inline-block font-mono border border-dark">{% translate "Občasnik" %}</span>
+        <span class="bg-th-primary-light text-sm rounded-full px-3 py-1 mb-4 inline-block font-mono border border-dark">{% translate "Občasnik" %}</span>
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
         <div class="rich-text">
           {{ page.introduction|richtext }}
@@ -25,10 +27,10 @@
       <p class="text-md mb-8">{% translate "Preveri, kaj smo počeli pretekli mesec" %}</p>
       {% for article in page.news %}
       <a href="{{ article.value.link }}" target="_blank" class="block w-full group mb-6">
-        <div class="border border-dark flex gap-10 p-4 group-hover:bg-red-light">
+        <div class="border border-dark flex gap-10 p-4 group-hover:bg-th-primary-light">
           <div class="basis-8/12">
             <h5 class="text-lg font-semibold mb-2">
-              <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-red to-red group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
+              <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
                 {{ article.value.name }}
               </span>
             </h5>
@@ -55,7 +57,7 @@
               {% image article.value.image width-300 class="w-full h-[180px] object-cover" %}
             </a>
             <div class="border-t border-dark p-5 pb-2">
-              <a href="{{ article.value.link }}" target="_blank" class="block text-lg font-semibold mb-2 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ article.value.name }}</a>
+              <a href="{{ article.value.link }}" target="_blank" class="block text-lg font-semibold mb-2 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ article.value.name }}</a>
               <p class="text-sm mb-6">{{ article.value.description }}</p>
             </div>
         </div>
