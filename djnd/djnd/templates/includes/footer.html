@@ -1,45 +1,49 @@
 {% load static %}
 
-<div class="grid grid-cols-3 gap-14 p-14 bg-light">
-  <div>
-    <div class="leading-5">
-      <span class="font-semibold">Danes je nov dan</span><br>
-      <span class="font-semibold">Inštitut za druga vprašanja</span><br>
-      Resljeva cesta 25<br>
-      1000 Ljubljana<br>
-    </div>
-    <div class="mt-4 leading-5">
-      <a href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a><br>
-      <a href="tel:+36864163663">+368 64 163 663</a> (med 10. in 16. uro)
-    </div>
-    <div class="flex flex-wrap gap-5 mt-6">
-      <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/mastodon.svg" %}" alt="Mastodon"></a>
-      <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/tiktok.svg" %}" alt="TikTok"></a>
-      <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/instagram.svg" %}" alt="Instagram"></a>
-      <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/x.svg" %}" alt="X"></a>
-      <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/facebook.svg" %}" alt="Facebook"></a>
-      <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/youtube.svg" %}" alt="YouTube"></a>
-    </div>
-  </div>
+<div class="bg-light">
+  <div class="max-w-screen-xl mx-auto">
+    <div class="grid grid-cols-3 gap-14 p-14">
+      <div>
+        <div class="leading-5">
+          <span class="font-semibold">Danes je nov dan</span><br>
+          <span class="font-semibold">Inštitut za druga vprašanja</span><br>
+          Resljeva cesta 25<br>
+          1000 Ljubljana<br>
+        </div>
+        <div class="mt-4 leading-5">
+          <a href="mailto:vsi@danesjenovdan.si">vsi@danesjenovdan.si</a><br>
+          <a href="tel:+36864163663">+368 64 163 663</a> (med 10. in 16. uro)
+        </div>
+        <div class="flex flex-wrap gap-5 mt-6">
+          <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/mastodon.svg" %}" alt="Mastodon"></a>
+          <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/tiktok.svg" %}" alt="TikTok"></a>
+          <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/instagram.svg" %}" alt="Instagram"></a>
+          <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/x.svg" %}" alt="X"></a>
+          <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/facebook.svg" %}" alt="Facebook"></a>
+          <a class="shrink-0" href="#"><img class="w-8 h-8" src="{% static "img/social/youtube.svg" %}" alt="YouTube"></a>
+        </div>
+      </div>
 
-  <div>
-    <div>
-      <span class="font-semibold">Prijavi se na naš Občasnik!</span>
-    </div>
-    {% include 'home/partials/newsletter_form.html' with id=0 color='green' %}
-  </div>
+      <div>
+        <div>
+          <span class="font-semibold">Prijavi se na naš Občasnik!</span>
+        </div>
+        {% include 'home/partials/newsletter_form.html' with id=0 color='green' %}
+      </div>
 
-  <div>
-    <div class="flex flex-col gap-5 leading-5">
-      <a href="#" class="hover:underline">
-        <span>Vsa naša koda je dostopna pod CC0 licenco. Najdeš jo na Githubu</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
-      </a>
-      <a href="#" class="hover:underline">
-        <span>Politika zasebnosti in varstva osebnih podatkov</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
-      </a>
-      <a href="#" class="hover:underline">
-        <span>Uredi svoje naročnine na novičnike</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
-      </a>
+      <div>
+        <div class="flex flex-col gap-5 leading-5">
+          <a href="#" class="hover:underline">
+            <span>Vsa naša koda je dostopna pod CC0 licenco. Najdeš jo na Githubu</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+          </a>
+          <a href="#" class="hover:underline">
+            <span>Politika zasebnosti in varstva osebnih podatkov</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+          </a>
+          <a href="#" class="hover:underline">
+            <span>Uredi svoje naročnine na novičnike</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
