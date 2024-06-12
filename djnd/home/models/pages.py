@@ -347,3 +347,24 @@ class BlogPage(BasePage):
         FieldPanel("modules"),
         FieldPanel("more_blogs"),
     ]
+
+
+class SupportPage(BasePage):
+    lead = models.TextField(blank=True)
+    description = RichTextField(blank=True, null=True)
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("lead"),
+        FieldPanel("description"),
+        FieldPanel("image"),
+    ]
+
+
+# class OurWorkPage(Page):
