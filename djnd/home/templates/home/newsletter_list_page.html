@@ -1,10 +1,12 @@
 {% extends "wrapper.html" %}
 {% load i18n static wagtailcore_tags wagtailimages_tags %}
 
+{% block body_class %}template-newsletterlistpage theme-color-{{ page.color }}{% endblock %}
+
 {% block content %}
 
 <div>
-  <div class="border-b border-dark bg-red-light">
+  <div class="border-b border-dark bg-th-primary-light">
     <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold uppercase">{{ page.title }}</h1>
@@ -26,7 +28,7 @@
               </a>
               <div class="border-t border-dark p-5">
                 <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-3">{% translate "Občasnik" %}</span>
-                <a href="{% pageurl newsletter %}" target="_blank" class="block text-2xl leading-none font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ newsletter.title }}</a>
+                <a href="{% pageurl newsletter %}" target="_blank" class="block text-2xl leading-none font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ newsletter.title }}</a>
                 <p class="font-mono">{{ newsletter.published_at|date:"F Y" }}</p>
               </div>
           </div>
@@ -34,7 +36,7 @@
       </div>
   </div>
 
-  {% include 'home/blocks/newsletter_block.html' with id=0 color='red' %}
+  {% include 'home/blocks/newsletter_block.html' with id=0 color_scheme='red' %}
 
   {% if newsletters|length > 3 %}
   <div class="max-w-screen-xl mx-auto px-14 py-16">
@@ -46,7 +48,7 @@
             </a>
             <div class="border-t border-dark p-5">
               <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-3">{% translate "Občasnik" %}</span>
-              <a href="{% pageurl newsletter %}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-lavender to-lavender group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ newsletter.title }}</a>
+              <a href="{% pageurl newsletter %}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ newsletter.title }}</a>
               <p class="font-mono">{{ newsletter.published_at|date:"F Y" }}</p>
             </div>
         </div>

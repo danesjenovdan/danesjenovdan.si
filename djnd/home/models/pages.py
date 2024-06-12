@@ -7,18 +7,8 @@ from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
-from .blocks import ModuleBlock, BlogPageBlock
-from .snippets import TeamMember, TeamMemberCategory, Activity
-
-
-class PageColors(models.TextChoices):
-    WHITE = "white", "Bela"
-    MINT = "mint", "Meta"
-    RED = "red", "Rdeča"
-    GREEN = "green", "Zelena"
-    BLUE = "blue", "Modra"
-    YELLOW = "yellow", "Rumena"
-    LAVENDER = "lavender", "Sivka"
+from .blocks import BlogPageBlock, ModuleBlock, PageColors
+from .snippets import Activity, TeamMember, TeamMemberCategory
 
 
 class BasePage(Page):
@@ -47,16 +37,8 @@ class HomePage(BasePage):
                         (
                             "color",
                             blocks.ChoiceBlock(
-                                choices=[
-                                    ("white", "Bela"),
-                                    ("mint", "Meta"),
-                                    ("red", "Rdeča"),
-                                    ("green", "Zelena"),
-                                    ("blue", "Modra"),
-                                    ("yellow", "Rumena"),
-                                    ("lavender", "Sivka"),
-                                ],
-                                default="white",
+                                choices=PageColors.choices,
+                                default=PageColors.WHITE,
                                 label="Barva",
                             ),
                         ),
