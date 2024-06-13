@@ -225,6 +225,9 @@ class NewsletterPage(BasePage):
     )
     introduction = RichTextField(blank=True, null=True)
     published_at = models.DateField(blank=True, null=True)
+    pillar_page = ParentalManyToManyField("home.PillarPage", blank=True, verbose_name="Tematski sklopi",)
+    category = ParentalManyToManyField(ActivityCategory, blank=True,  verbose_name="Kategorije",)
+    project = ParentalManyToManyField(ActivityProject, blank=True, verbose_name="Projekti",)
     news = StreamField(
         [
             (
@@ -265,6 +268,9 @@ class NewsletterPage(BasePage):
     content_panels = BasePage.content_panels + [
         FieldPanel("thumbnail"),
         FieldPanel("published_at"),
+        FieldPanel("pillar_page"),
+        FieldPanel("category"),
+        FieldPanel("project"),
         FieldPanel("introduction"),
         FieldPanel("news"),
         FieldPanel("promoted"),
