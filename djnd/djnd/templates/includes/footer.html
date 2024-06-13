@@ -1,4 +1,4 @@
-{% load static %}
+{% load wagtailcore_tags static %}
 
 <div class="bg-light">
   <div class="max-w-screen-xl mx-auto">
@@ -36,12 +36,16 @@
           <a href="https://github.com/danesjenovdan" class="hover:underline">
             <span>Vsa naša koda je dostopna pod CC0 licenco. Najdeš jo na Githubu</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
           </a>
-          <a href="#" class="hover:underline">
+          {% if settings.home.GeneralSettings.privacy_policy_page %}
+          <a href="{% pageurl settings.home.GeneralSettings.privacy_policy_page %}" class="hover:underline">
             <span>Politika zasebnosti in varstva osebnih podatkov</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
           </a>
-          <a href="#" class="hover:underline">
+          {% endif %}
+          {% if settings.home.GeneralSettings.manage_newsletter_page %}
+          <a href="{% pageurl settings.home.GeneralSettings.manage_newsletter_page %}" class="hover:underline">
             <span>Uredi svoje naročnine na novičnike</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
           </a>
+          {% endif %}
         </div>
       </div>
     </div>

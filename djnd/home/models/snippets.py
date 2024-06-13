@@ -41,7 +41,15 @@ class ActivityProject(TranslatableMixin, models.Model):
 
 class Activity(TranslatableMixin, models.Model):
     title = models.TextField()
-    link = models.URLField()
+    link = models.URLField(verbose_name='Zunanja povezava', null=True, blank=True)
+    page = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name='Povezava na podstran'
+    )
     description = models.TextField(blank=True)
     image = models.ForeignKey(
         "wagtailimages.Image",

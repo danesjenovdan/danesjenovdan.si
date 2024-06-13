@@ -15,6 +15,7 @@ class GeneralSettings(BaseGenericSetting):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        verbose_name='Naše delo'
     )
 
     support_page = models.ForeignKey(
@@ -23,11 +24,32 @@ class GeneralSettings(BaseGenericSetting):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        verbose_name='Podpri nas'
+    )
+
+    privacy_policy_page = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name='Politika zasebnosti in varstva osebnih podatkov'
+    )
+
+    manage_newsletter_page = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name='Urejanje naročnine na novičnike'
     )
 
     panels = [
         FieldPanel("our_work_page"),
         FieldPanel("support_page"),
+        FieldPanel("privacy_policy_page"),
+        FieldPanel("manage_newsletter_page"),
     ]
 
     class Meta:

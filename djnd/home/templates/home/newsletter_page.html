@@ -9,7 +9,30 @@
   <div class="border-b border-dark bg-th-primary-light">
     <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10">
       <div class="basis-8/12">
-        <span class="bg-th-primary-light text-sm rounded-full px-3 py-1 mb-4 inline-block font-mono border border-dark">{% translate "Občasnik" %}</span>
+        {% for pillar in page.pillar_page.all %}
+        <span class="bg-th-primary-light text-sm rounded-full px-3 me py-1 mb-4 inline-flex items-center font-mono border border-dark">
+          {% if pillar.icon %}
+          {% image pillar.icon fill-32x32 class="w-4 me-2" %}
+          {% endif %}
+          {{ pillar.title }}
+        </span>
+        {% endfor %}
+        {% for category in page.category.all %}
+        <span class="bg-th-primary-light text-sm rounded-full px-3 py-1 mb-4 inline-flex items-center font-mono border border-dark">
+          {% if category.icon %}
+          {% image category.icon fill-32x32 class="w-4 me-2" %}
+          {% endif %}
+          {{ category.name }}
+        </span>
+        {% endfor %}
+        {% for project in page.project.all %}
+        <span class="bg-th-primary-light text-sm rounded-full px-3 py-1 mb-4 inline-flex items-center font-mono border border-dark">
+          {% if project.icon %}
+          {% image project.icon fill-32x32 class="w-4 me-2" %}
+          {% endif %}
+          {{ project.name }}
+        </span>
+        {% endfor %}
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
         <div class="rich-text">
           {{ page.introduction|richtext }}

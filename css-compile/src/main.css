@@ -83,7 +83,11 @@
 
     p,
     ul {
-      @apply mb-6 mt-6 text-md;
+      @apply mb-6 text-md;
+    }
+
+    p:not(:first), ul:not(:first) {
+      @apply mt-6;
     }
 
     ul {
