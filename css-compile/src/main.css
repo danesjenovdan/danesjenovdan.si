@@ -6,6 +6,11 @@
   .theme-color-white {
     --th-primary: theme("colors.light");
     --th-primary-light: theme("colors.very-light");
+
+    &.primary-button {
+      --th-primary: theme("colors.white");
+      --th-primary-light: theme("colors.white");
+    }
   }
 
   .theme-color-mint {
