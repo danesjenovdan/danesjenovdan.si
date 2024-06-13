@@ -24,23 +24,7 @@
     </div>
     {% if page.projects %}
     <div class="max-w-screen-xl mx-auto px-14 pb-20">
-      <div class="grid grid-cols-2 gap-[1px] border border-dark bg-dark mt-6">
-        {% for project in page.projects %}
-        <a href="{% if project.value.page %}{% pageurl project.value.page %}{% else %}{{ project.value.url }}{% endif %}" class="bg-white flex p-6 group" target="_blank">
-          <div class="shrink-0 mr-6">
-            {% image project.value.image width-300 class="w-[53px] my-1" %}
-          </div>
-          <div>
-            <h2 class="mb-2 text-2xl font-semibold">
-              <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
-                {{ project.value.name }}
-              </span>
-            </h2>
-            <p>{{ project.value.description }}</p>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
+      {% include "home/partials/pillar_grid.html" with grid_items=page.projects %}
     </div>
     {% endif %}
   </div>
