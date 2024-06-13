@@ -8,11 +8,34 @@
 <div class="bg-white">
   <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-16">
     <div class="basis-8/12">
-        <span class="bg-th-primary-light text-sm rounded-full px-3 py-1 mb-4 inline-block font-mono border border-dark">{% translate "Agrument" %}</span>
-        <h1 class="text-4xl font-semibold">{{ page.title }}</h1>
-        <div class="rich-text">
+        {% for pillar in page.pillar_page.all %}
+        <span class="bg-th-primary-light text-sm rounded-full px-3 me py-1 mb-4 inline-flex items-center font-mono border border-dark">
+          {% if pillar.icon %}
+          {% image pillar.icon fill-32x32 class="w-4 me-2" %}
+          {% endif %}
+          {{ pillar.title }}
+        </span>
+        {% endfor %}
+        {% for category in page.category.all %}
+        <span class="bg-th-primary-light text-sm rounded-full px-3 py-1 mb-4 inline-flex items-center font-mono border border-dark">
+          {% if category.icon %}
+          {% image category.icon fill-32x32 class="w-4 me-2" %}
+          {% endif %}
+          {{ category.name }}
+        </span>
+        {% endfor %}
+        {% for project in page.project.all %}
+        <span class="bg-th-primary-light text-sm rounded-full px-3 py-1 mb-4 inline-flex items-center font-mono border border-dark">
+          {% if project.icon %}
+          {% image project.icon fill-32x32 class="w-4 me-2" %}
+          {% endif %}
+          {{ project.name }}
+        </span>
+        {% endfor %}
+        <h1 class="text-5xl font-semibold">{{ page.title }}</h1>
+        <!-- <div class="rich-text">
             {{ value.text|richtext }}
-        </div>
+        </div> -->
     </div>
     <div class="basis-4/12">&nbsp;</div>
   </div>
@@ -25,7 +48,7 @@
 <div class="bg-white">
   <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-16">
     <div class="basis-8/12">
-        <h2 class="text-4xl font-semibold mb-3">{% translate "Povezani zapisi" %}</h2>
+        <h2 class="text-2xl font-semibold mb-3">{% translate "Povezani zapisi" %}</h2>
         <p class="mb-5">{% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" %}</p>
     </div>
     <div class="basis-4/12">&nbsp;</div>
