@@ -7,8 +7,10 @@ from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
+from modelcluster.fields import ParentalManyToManyField
+
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
-from .snippets import Activity, TeamMember, TeamMemberCategory
+from .snippets import Activity, ActivityCategory, ActivityProject, TeamMember, TeamMemberCategory
 
 
 class BasePage(Page):
@@ -302,6 +304,9 @@ class NewsletterListPage(BasePage):
 
 class BlogPage(BasePage):
     short_description = models.TextField(blank=True)
+    pillar_page = ParentalManyToManyField("home.PillarPage", blank=True, verbose_name="Tematski sklopi",)
+    category = ParentalManyToManyField(ActivityCategory, blank=True,  verbose_name="Kategorije",)
+    project = ParentalManyToManyField(ActivityProject, blank=True, verbose_name="Projekti",)
     modules = StreamField(
         BlogPageBlock(),
         verbose_name="Moduli",
@@ -330,8 +335,11 @@ class BlogPage(BasePage):
     )
 
     content_panels = BasePage.content_panels + [
-        FieldPanel("thumbnail"),
         FieldPanel("short_description"),
+        FieldPanel("thumbnail"),
+        FieldPanel("pillar_page"),
+        FieldPanel("category"),
+        FieldPanel("project"),
         FieldPanel("modules"),
         FieldPanel("more_blogs"),
     ]
