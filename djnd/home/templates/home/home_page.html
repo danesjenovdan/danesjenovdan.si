@@ -24,6 +24,7 @@
           <a href="{% if focus_area.value.page %}{% pageurl focus_area.value.page %}{% else %}{{ focus_area.value.url }}{% endif %}">
           {% endif %}
           <div class="
+            theme-color-{{ focus_area.value.color }}
             relative flex items-center gap-4 mt-4 px-8 py-11 shadow-dark shadow-[0px_0px_0px_1px] bg-th-primary group
             {% if focus_cycle == 'one' %}
             -rotate-2 -translate-x-3
@@ -39,10 +40,10 @@
             <div class="w-14 shrink-0">
               {% image focus_area.value.image fill-112x112 class="aspect-square" %}
             </div>
-            <div class="font-medium text-lg leading-none">
-              {{focus_area.value.name}}
+            <div class="flex-grow font-medium text-lg leading-none">
+              {{ focus_area.value.name }}
             </div>
-            <img class="w-5 ml-auto -mb-0.5 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+            <img class="w-5 ml-2 -mb-0.5 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
           </div>
           {% if focus_area.value.url or focus_area.value.page %}
           </a>

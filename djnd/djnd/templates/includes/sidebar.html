@@ -24,15 +24,19 @@
   <nav>
     <ul class="flex flex-col gap-3">
       {% for pillar_page in settings.home.NavigationSettings.pillars %}
-      <li class="flex items-start gap-1 uppercase text-md leading-5 font-semibold">
-        {% if pillar_page.value.localized.icon %}
-          {% image pillar_page.value.localized.icon fill-32x32 class="w-4 mt-0.5" %}
-        {% elif pillar_page.value.localized.image %}
-          {% image pillar_page.value.localized.image fill-32x32 class="w-4 mt-0.5" %}
-        {% else %}
-          <img src="{% static "img/emoji/clapping_hands_sign.svg" %}" alt="" class="w-4 mt-0.5">
-        {% endif %}
-        <a href="{% pageurl pillar_page.value.localized %}" {% if page.id == pillar_page.value.localized.id %}aria-current="page"{% endif %} class="pillar-link hover:underline">{{ pillar_page.value.localized.title }}</a>
+      <li class="uppercase text-smd leading-5 font-semibold">
+        <div class="relative flex items-start gap-1">
+          {% if pillar_page.value.localized.icon %}
+            {% image pillar_page.value.localized.icon fill-32x32 class="w-4 mt-0.5" %}
+          {% elif pillar_page.value.localized.image %}
+            {% image pillar_page.value.localized.image fill-32x32 class="w-4 mt-0.5" %}
+          {% endif %}
+          <a
+            href="{% pageurl pillar_page.value.localized %}"
+            class="theme-color-{{ pillar_page.value.localized.specific.color }}"
+            aria-current="{% if page.id == pillar_page.value.localized.id %}page{% else %}false{% endif %}"
+          >{{ pillar_page.value.localized.title }}</a>
+        </div>
       </li>
       {% endfor %}
     </ul>
@@ -43,20 +47,32 @@
   <nav>
     <ul class="flex flex-col gap-3">
       {% for nav_page in settings.home.NavigationSettings.pages %}
-      <li class="uppercase text-md leading-5 font-semibold">
-        <a href="{% pageurl nav_page.value.page.localized %}" {% if page.id == nav_page.value.page.localized.id %}aria-current="page"{% endif %} class="hover:underline">{{ nav_page.value.page.localized.title }}</a>
+      <li class="uppercase text-smd leading-5 font-semibold">
+        <div class="relative">
+          <a
+            href="{% pageurl nav_page.value.page.localized %}"
+            class="theme-color-{{ nav_page.value.page.localized.specific.color }}"
+            aria-current="{% if page.id == nav_page.value.page.localized.id %}page{% else %}false{% endif %}"
+          >{{ nav_page.value.page.localized.title }}</a>
+        </div>
         {% if nav_page.value.subpages %}
         <ul class="mt-1 ml-4 flex flex-col gap-1">
           {% for nav_subpage in nav_page.value.subpages %}
           <li class="normal-case text-base leading-5 font-normal">
-            <a href="{% pageurl nav_subpage.localized %}" {% if page.id == nav_subpage.localized.id %}aria-current="page"{% endif %} class="hover:underline">{{ nav_subpage.localized.title }}</a>
+            <div class="relative">
+              <a
+                href="{% pageurl nav_subpage.localized %}"
+                class="theme-color-{{ nav_subpage.localized.specific.color }}"
+                aria-current="{% if page.id == nav_subpage.localized.id %}page{% else %}false{% endif %}"
+              >{{ nav_subpage.localized.title }}</a>
+            </div>
           </li>
           {% endfor %}
         </ul>
         {% endif %}
       </li>
       {% endfor %}
-      <li class="uppercase text-md leading-5 font-semibold">
+      <li class="uppercase text-smd leading-5 font-semibold">
         <a href="/trgovina" class="hover:underline">{% translate "Trgovina" %}</a>
       </li>
     </ul>

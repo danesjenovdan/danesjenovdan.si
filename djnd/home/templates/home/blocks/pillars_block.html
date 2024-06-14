@@ -13,18 +13,6 @@
     <div class="basis-4/12">&nbsp;</div>
   </div>
   <div class="max-w-screen-xl mx-auto px-14 pb-16">
-    <div class="grid grid-cols-2 gap-[1px] border border-dark bg-dark mt-6">
-      {% for pillar in value.pillars %}
-      <a href="{% pageurl pillar %}" class="bg-white flex p-6 hover:bg-th-primary">
-        <div class="shrink-0 mr-6">
-          <img src="{% static 'img/monitoring.png' %}" class="w-[53px] my-1" />
-        </div>
-        <div>
-          <h2 class="mb-2 text-2xl font-semibold">{{ pillar.title }}</h2>
-          <p>{{ pillar.lead }}</p>
-        </div>
-      </a>
-      {% endfor %}
-    </div>
+    {% include "home/partials/pillar_grid.html" with grid_items=value.pillars %}
   </div>
 </div>

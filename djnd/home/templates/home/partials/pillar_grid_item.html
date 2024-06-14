@@ -1,0 +1,23 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<a
+  href="{% if grid_item_page %}{% pageurl grid_item_page %}{% else %}{{ grid_item_url }}{% endif %}"
+  class="bg-white flex p-6 group hover:bg-th-primary-light"
+  target="_blank"
+>
+  <div class="shrink-0 mr-6">
+    {% if grid_item_image %}
+    {% image grid_item_image width-300 class="w-[53px] my-1" %}
+    {% endif %}
+  </div>
+  <div>
+    <h2 class="mb-2 text-2xl font-semibold">
+      <span
+        class="bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-left-bottom group-hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out"
+      >
+        {{ grid_item_title }}
+      </span>
+    </h2>
+    <p>{{ grid_item_description }}</p>
+  </div>
+</a>

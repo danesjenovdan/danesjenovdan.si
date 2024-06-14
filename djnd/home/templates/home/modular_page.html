@@ -18,7 +18,9 @@
         {% endif %}
       </div>
       <div class="basis-4/12">
-        <img src="https://placehold.it/200x50" alt="" class="w-full">
+        {% if page.image %}
+        {% image page.image width-752 class="w-full" %}
+        {% endif %}
       </div>
     </div>
     {% if page.subpages %}
