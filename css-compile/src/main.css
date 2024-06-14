@@ -45,7 +45,8 @@
 }
 
 @layer base {
-  [aria-current="page"] {
+  nav [aria-current="page"],
+  nav [aria-current="false"]:hover {
     @apply relative font-bold;
 
     &::before {
@@ -58,11 +59,11 @@
       background-size: 100% 100%;
     }
 
-    &.pillar-link {
+    /* &.pillar-link {
       &::before {
         background-image: url("/static/img/current-pillar-circle.svg");
       }
-    }
+    } */
   }
 }
 
