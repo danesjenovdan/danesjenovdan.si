@@ -24,6 +24,7 @@
           <a href="{% if focus_area.value.page %}{% pageurl focus_area.value.page %}{% else %}{{ focus_area.value.url }}{% endif %}">
           {% endif %}
           <div class="
+            theme-color-{{ focus_area.value.color }}
             relative flex items-center gap-4 mt-4 px-8 py-11 shadow-dark shadow-[0px_0px_0px_1px] bg-th-primary group
             {% if focus_cycle == 'one' %}
             -rotate-2 -translate-x-3
