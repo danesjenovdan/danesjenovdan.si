@@ -1,16 +1,23 @@
+import icu
 from django.db import models
-from django.shortcuts import render, redirect
-
+from django.shortcuts import render
+from modelcluster.fields import ParentalManyToManyField
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
 from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
-from modelcluster.fields import ParentalManyToManyField
-
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
-from .snippets import Activity, ActivityCategory, ActivityProject, TeamMember, TeamMemberCategory
+from .snippets import (
+    Activity,
+    ActivityCategory,
+    ActivityProject,
+    TeamMember,
+    TeamMemberCategory,
+)
+
+sl_collator = icu.Collator.createInstance(icu.Locale("sl_SI"))
 
 
 class BasePage(Page):
@@ -207,6 +214,10 @@ class TeamPage(BasePage):
 
         team_member_categories = TeamMemberCategory.objects.filter(locale=locale)
         team_members = TeamMember.objects.filter(locale=locale)
+        team_members = sorted(
+            team_members,
+            key=lambda x: sl_collator.getSortKey(x.name),
+        )
 
         return {
             **context,
@@ -225,9 +236,21 @@ class NewsletterPage(BasePage):
     )
     introduction = RichTextField(blank=True, null=True)
     published_at = models.DateField(blank=True, null=True)
-    pillar_page = ParentalManyToManyField("home.PillarPage", blank=True, verbose_name="Tematski sklopi",)
-    category = ParentalManyToManyField(ActivityCategory, blank=True,  verbose_name="Kategorije",)
-    project = ParentalManyToManyField(ActivityProject, blank=True, verbose_name="Projekti",)
+    pillar_page = ParentalManyToManyField(
+        "home.PillarPage",
+        blank=True,
+        verbose_name="Tematski sklopi",
+    )
+    category = ParentalManyToManyField(
+        ActivityCategory,
+        blank=True,
+        verbose_name="Kategorije",
+    )
+    project = ParentalManyToManyField(
+        ActivityProject,
+        blank=True,
+        verbose_name="Projekti",
+    )
     news = StreamField(
         [
             (
@@ -310,9 +333,21 @@ class NewsletterListPage(BasePage):
 
 class BlogPage(BasePage):
     short_description = models.TextField(blank=True)
-    pillar_page = ParentalManyToManyField("home.PillarPage", blank=True, verbose_name="Tematski sklopi",)
-    category = ParentalManyToManyField(ActivityCategory, blank=True,  verbose_name="Kategorije",)
-    project = ParentalManyToManyField(ActivityProject, blank=True, verbose_name="Projekti",)
+    pillar_page = ParentalManyToManyField(
+        "home.PillarPage",
+        blank=True,
+        verbose_name="Tematski sklopi",
+    )
+    category = ParentalManyToManyField(
+        ActivityCategory,
+        blank=True,
+        verbose_name="Kategorije",
+    )
+    project = ParentalManyToManyField(
+        ActivityProject,
+        blank=True,
+        verbose_name="Projekti",
+    )
     modules = StreamField(
         BlogPageBlock(),
         verbose_name="Moduli",
@@ -378,7 +413,7 @@ class OurWorkPage(Page):
         lang = request.LANGUAGE_CODE
         locale = Locale.get_active()
 
-        if request.method == 'POST':
+        if request.method == "POST":
             form = OurWorkForm(request.POST, locale=locale)
 
             activities = Activity.objects.all()
