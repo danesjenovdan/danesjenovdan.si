@@ -404,9 +404,7 @@ class SupportPage(BasePage):
     ]
 
 
-class OurWorkPage(Page):
-    template_name = "home/our_work_page.html"
-
+class OurWorkPage(BasePage):
     def serve(self, request):
         from home.forms import OurWorkForm
 
@@ -434,7 +432,7 @@ class OurWorkPage(Page):
 
             return render(
                 request,
-                self.template_name,
+                self.get_template(request),
                 {"page": self, "form": form, "activities": activities},
             )
         else:
@@ -444,6 +442,6 @@ class OurWorkPage(Page):
 
             return render(
                 request,
-                self.template_name,
+                self.get_template(request),
                 {"page": self, "form": form, "activities": activities},
             )
