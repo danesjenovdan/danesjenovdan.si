@@ -33,9 +33,11 @@ module.exports = {
       'red': '#FFD1C7',
       'red-light': '#FFF8F6',
       'green': '#D2F29D',
+      'green-light': '#EBF4DB',
       'blue': '#BAE2ED',
-      'blue-light': '#F5FDFF',
+      'blue-light': '#E6F0F3',
       'yellow': '#FFEDAD',
+      'yellow-light': '#FFF7DB',
       'lavender': '#CCC7FF',
       'lavender-light': '#EEEDFF',
       // theme colors:

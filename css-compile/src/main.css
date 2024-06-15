@@ -25,7 +25,7 @@
 
   .theme-color-green {
     --th-primary: theme("colors.green");
-    /* --th-primary-light: theme("colors.green-light"); */
+    --th-primary-light: theme("colors.green-light");
   }
 
   .theme-color-blue {
@@ -35,7 +35,7 @@
 
   .theme-color-yellow {
     --th-primary: theme("colors.yellow");
-    /* --th-primary-light: theme("colors.yellow-light"); */
+    --th-primary-light: theme("colors.yellow-light");
   }
 
   .theme-color-lavender {
