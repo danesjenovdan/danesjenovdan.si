@@ -46,6 +46,9 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     libjpeg62-turbo-dev \
     zlib1g-dev \
     libwebp-dev \
+    libicu-dev \
+    python3-icu \
+    pkg-config \
  && rm -rf /var/lib/apt/lists/*
 
 # Install the application server.
