@@ -86,7 +86,7 @@
 
     p,
     ul {
-      @apply mb-6 text-md;
+      @apply mb-6 text-md leading-[30px];
     }
 
     p:not(:first), ul:not(:first) {

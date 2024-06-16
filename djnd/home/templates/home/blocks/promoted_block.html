@@ -2,9 +2,9 @@
 
 <div class="bg-light">
   <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16">
-    <a href="{% if value.promoted_snippet.link %}{{ value.promoted_snippet.link }}{% elif value.promoted_snippet.activity %}{{ value.promoted_snippet.activity.link }}{% endif %}" target="_blank" class="block w-full group">
+    <a href="{% if value.promoted_snippet.link %}{{ value.promoted_snippet.link }}{% elif value.promoted_snippet.activity %}{{ value.promoted_snippet.activity.link }}{% endif %}" target="_blank" class="block {% if value.promoted_snippet.image %} w-full {% else %} w-2/3 {% endif %} group">
       <div class="bg-white flex border border-dark group-hover:bg-th-primary-light">
-        <div class="px-14 py-14 basis-1/2 border-r border-dark">
+        <div class="px-14 py-14 {% if value.promoted_snippet.image %} basis-1/2 border-r border-dark {% endif %}">
           <div class="mb-4 flex">
             <span class="bg-dark text-white text-sm rounded-full border border-dark px-3 py-0.5 inline-block mr-2">{% translate "IZPOSTAVLJENO" %}</span>
             {% if value.promoted_snippet.activity %}
@@ -32,6 +32,7 @@
             </p>
           </div>
         </div>
+        {% if value.promoted_snippet.image %}
         <div class="basis-1/2">
           <div class="relative w-full h-full">
             {% if value.promoted_snippet.image %}
@@ -46,6 +47,7 @@
             </div>
           </div>
         </div>
+        {% endif %}
       </div>
     </a>
   </div>

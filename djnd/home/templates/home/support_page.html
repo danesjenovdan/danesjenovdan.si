@@ -1,6 +1,8 @@
 {% extends "wrapper.html" %}
 {% load i18n static wagtailcore_tags wagtailimages_tags %}
 
+{% block body_class %}template-modularpage theme-color-{{ page.color }}{% endblock %}
+
 {% block content %}
 
 <div>
@@ -66,7 +68,7 @@
         src="https://www.cnvos.si/enprocent/embed/v2/?address=RESLJEVA%20CESTA%2025&city=Ljubljana&name=DANES%20JE%20NOV%20DAN%2C%20IN%C5%A0TITUT%20ZA%20DRUGA%20VPRA%C5%A0ANJA&percent=1.0&postalCode=1000&taxNumber=54561710"></iframe>
       <div>
         {% translate 'Vlogo lahko oddaš tudi s certifikatom na eDavkih' as button_text %}
-        {% include 'home/partials/button.html' with button_text=button_text button_color="red" button_link="#" %}
+        {% include 'home/partials/button.html' with button_text=button_text button_color=page.color button_link="#" %}
       </div>
     </div>
     <div class="basis-4/12"></div>

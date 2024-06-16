@@ -20,7 +20,7 @@ class PageColors(models.TextChoices):
 
 class NetworksBlock(blocks.StructBlock):
     title = blocks.CharBlock()
-    description = blocks.TextBlock()
+    description = blocks.RichTextBlock()
     networks = blocks.ListBlock(
         blocks.StructBlock(
             [
