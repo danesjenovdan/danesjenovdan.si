@@ -42,9 +42,12 @@
 </div>
 
 {% for block in page.modules %}
-    {% include_block block %}
+<div class="border-b border-dark last:border-b-0">
+  {% include_block block %}
+</div>
 {% endfor %}
 
+{% if page.more_blogs %}
 <div class="bg-white">
   <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-16">
     <div class="basis-8/12">
@@ -74,5 +77,6 @@
     <a href="/">{% translate "Prejšnji občasniki" %}</a>
   </div>
 </div>
+{% endif %}
 
 {% endblock content %}
