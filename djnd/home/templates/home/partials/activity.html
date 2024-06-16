@@ -1,20 +1,20 @@
 {% load i18n static wagtailcore_tags wagtailimages_tags %}
 
-<div class="border border-dark">
-  <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank">
+<div class="border border-dark flex flex-col">
+  <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank" class="peer">
     {% image activity.image width-300 class="w-full h-[180px] object-cover" %}
   </a>
-  <div class="border-t border-dark p-5">
-    <div>
+  <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light has-[:hover]:bg-th-primary-light">
+    <div class="pointer-events-none">
       {% for tag in activity.category.all %}
       <span class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1">{{ tag.name }}</span>
       {% endfor %}
     </div>
     <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
-      class="block text-2xl leading-none font-semibold mt-6 mb-4 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ activity.title }}</a>
-    <p class="text-md mb-4">{{ activity.description }}</p>
+      class="block text-2xl leading-none font-semibold mt-6 mb-4 bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out">{{ activity.title }}</a>
+    <p class="text-md mb-4 pointer-events-none">{{ activity.description }}</p>
     {% if activity.date %}
-    <p class="font-mono">{{ activity.date }}</p>
+    <p class="font-mono pointer-events-none">{{ activity.date }}</p>
     {% endif %}
   </div>
 </div>
