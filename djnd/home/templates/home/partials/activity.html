@@ -11,7 +11,7 @@
       {% endfor %}
     </div>
     <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
-      class="block text-2xl leading-[2.25rem] font-semibold mt-6 mb-4 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ activity.title }}</a>
+      class="block text-2xl leading-none font-semibold mt-6 mb-4 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ activity.title }}</a>
     <p class="text-md mb-4">{{ activity.description }}</p>
     {% if activity.date %}
     <p class="font-mono">{{ activity.date }}</p>
