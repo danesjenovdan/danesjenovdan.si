@@ -2,15 +2,15 @@
 
 <div class="bg-white">
     <div class="max-w-screen-xl mx-auto px-14 py-16">
-        <h2 class="mb-6 text-4xl font-semibold">{{ value.title }}</h2>
+        <h2 class="mb-6 text-2xl font-semibold">{{ value.title }}</h2>
 
         {% if value.current_donors %}
-        <h6 class="mb-4 text-xl">{% translate "Sedanji" %}</h6>
+        <h6 class="mb-4 text-md">{% translate "Sedanji" %}</h6>
         {% include 'home/partials/partner_links.html' with partners=value.current_donors %}
         {% endif %}
 
         {% if value.past_donors %}
-        <h6 class="mb-4 mt-14 text-xl">{% translate "Pretekli" %}</h6>
+        <h6 class="mb-4 mt-14 text-md">{% translate "Pretekli" %}</h6>
         {% include 'home/partials/partner_links.html' with partners=value.past_donors %}
         {% endif %}
     </div>
