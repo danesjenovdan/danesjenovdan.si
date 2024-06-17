@@ -98,15 +98,7 @@
 
   </div>
   <div class="grid grid-cols-3 gap-4">
-    {% for activity in activities %}
-      {% include 'home/partials/activity.html' with activity=activity %}
-      {% if forloop.counter == 3 %}
-        {% include 'home/partials/newsletter_card.html' with id=forloop.counter %}
-      {% endif %}
-      {% if forloop.counter == 7 %}
-        {% include 'home/partials/support_card.html' %}
-      {% endif %}
-    {% endfor %}
+    {% include 'home/activities.html' with activities=activities %}
   </div>
 </div>
 
