@@ -416,73 +416,49 @@ class SupportPage(BasePage):
 
 
 class OurWorkPage(BasePage):
-    def serve(self, request):
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
         from home.forms import OurWorkForm
 
         lang = request.LANGUAGE_CODE
         locale = Locale.get_active()
 
-        if request.method == "POST":
-            form = OurWorkForm(request.POST, locale=locale)
+        form = OurWorkForm(request.GET, locale=locale)
 
-            filtered_activities = Activity.objects.all()
+        filtered_activities = Activity.objects.filter(locale=locale)
 
-            if form.is_valid():
-                pillars = form.cleaned_data["pillars"]
-                categories = form.cleaned_data["categories"]
-                projects = form.cleaned_data["projects"]
+        if form.is_valid():
+            pillars = form.cleaned_data["pillars"]
+            categories = form.cleaned_data["categories"]
+            projects = form.cleaned_data["projects"]
 
-                if pillars:
-                    filtered_activities = filtered_activities.filter(pillar_page__in=pillars)
+            if pillars:
+                filtered_activities = filtered_activities.filter(pillar_page__in=pillars)
 
-                if categories:
-                    filtered_activities = filtered_activities.filter(category__in=categories)
+            if categories:
+                filtered_activities = filtered_activities.filter(category__in=categories)
 
-                if projects:
-                    filtered_activities = filtered_activities.filter(project__in=projects)
+            if projects:
+                filtered_activities = filtered_activities.filter(project__in=projects)
 
-            ordered_activities = filtered_activities.order_by("-date")
+        ordered_activities = filtered_activities.order_by("-date")
 
-            paginator = Paginator(ordered_activities, 7)
-            page = request.GET.get("page")
+        paginator = Paginator(ordered_activities, 7)
+        page = request.GET.get("page")
 
-            try:
-                # If the page exists and the ?page=x is an int
-                activities = paginator.page(page)
-            except PageNotAnInteger:
-                # If the ?page=x is not an int; show the first page
-                activities = paginator.page(1)
-            except EmptyPage:
-                # If the ?page=x is out of range (too high most likely)
-                # Then return the last page
-                activities = paginator.page(paginator.num_pages)
+        try:
+            # If the page exists and the ?page=x is an int
+            activities = paginator.page(page)
+        except PageNotAnInteger:
+            # If the ?page=x is not an int; show the first page
+            activities = paginator.page(1)
+        except EmptyPage:
+            # If the ?page=x is out of range (too high most likely)
+            # Then return the last page
+            activities = paginator.page(paginator.num_pages)
 
-            return render(
-                request,
-                self.get_template(request),
-                {"page": self, "form": form, "activities": activities},
-            )
-        else:
-            form = OurWorkForm(locale=locale)
-
-            all_activities = Activity.objects.all().order_by("-date")
-
-            paginator = Paginator(all_activities, 7)
-            page = request.GET.get("page")
-
-            try:
-                # If the page exists and the ?page=x is an int
-                activities = paginator.page(page)
-            except PageNotAnInteger:
-                # If the ?page=x is not an int; show the first page
-                activities = paginator.page(1)
-            except EmptyPage:
-                # If the ?page=x is out of range (too high most likely)
-                # Then return the last page
-                activities = paginator.page(paginator.num_pages)
-        
-            return render(
-                request,
-                self.get_template(request),
-                {"page": self, "form": form, "activities": activities},
-            )
+        context["form"] = form
+        context["activities"] = activities
+        return context

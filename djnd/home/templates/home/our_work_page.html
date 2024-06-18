@@ -9,8 +9,8 @@
 <div class="px-14 py-16">
   <h1 class="mb-6 text-4xl font-semibold">{{ page.title }}</h1>
 
-  <form id="our-work-form" action="{{ current_site }}" method="post" class="mb-8">
-    {% csrf_token %}
+  <form id="our-work-form" action="{{ current_site }}" method="get" class="mb-8">
+    <!-- {% csrf_token %} -->
 
     <div class="mb-4">
       <p class="font-mono">{% translate "Filtriraj po tematskih sklopih" %}</p>
