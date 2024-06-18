@@ -1,4 +1,4 @@
-{% load wagtailcore_tags static %}
+{% load i18n wagtailcore_tags static %}
 
 <div class="bg-light">
   <div class="max-w-screen-xl mx-auto">
@@ -26,7 +26,7 @@
 
       <div>
         <div>
-          <span class="font-semibold">Prijavi se na naš Občasnik!</span>
+          <span class="font-semibold">{% translate "Naroči se na Občasnik, naš mesečni novičnik" %}</span>
         </div>
         {% include 'home/partials/newsletter_form.html' with id=0 color_scheme='mint' %}
       </div>
@@ -34,16 +34,16 @@
       <div>
         <div class="flex flex-col gap-5 leading-5">
           <a href="https://github.com/danesjenovdan" class="hover:underline">
-            <span>Vsa naša koda je dostopna pod CC0 licenco. Najdeš jo na Githubu</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+            <span>{% translate "Vsa naša koda je dostopna pod CC0 licenco. Najdeš jo na Githubu" %}</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
           </a>
           {% if settings.home.GeneralSettings.privacy_policy_page %}
           <a href="{% pageurl settings.home.GeneralSettings.privacy_policy_page %}" class="hover:underline">
-            <span>Politika zasebnosti in varstva osebnih podatkov</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+            <span>{% translate "Politika zasebnosti in varstva osebnih podatkov" %}</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
           </a>
           {% endif %}
           {% if settings.home.GeneralSettings.manage_newsletter_page %}
           <a href="{% pageurl settings.home.GeneralSettings.manage_newsletter_page %}" class="hover:underline">
-            <span>Uredi svoje naročnine na novičnike</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+            <span>{% translate "Uredi svoje naročnine na novičnike" %}</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
           </a>
           {% endif %}
         </div>

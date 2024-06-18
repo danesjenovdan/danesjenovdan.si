@@ -1,5 +1,5 @@
 {% extends "wrapper.html" %}
-{% load static wagtailcore_tags wagtailimages_tags %}
+{% load i18n static wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-pillarpage theme-color-{{ page.color }}{% endblock %}
 
@@ -40,9 +40,11 @@
   <div class="max-w-screen-xl mx-auto mt-16 px-14 pb-20">
     <div class="flex justify-between mb-6">
       <h2 class="mb-2 text-2xl font-semibold">{{ page.activities_title }}</h2>
-      <a href="/nase-delo" class="hover:underline self-center">
-        <span>Vse aktivnosti</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+      {% if settings.home.GeneralSettings.our_work_page %}
+      <a href="{% pageurl settings.home.GeneralSettings.our_work_page %}" class="hover:underline self-center">
+        <span>{% translate "Vse aktivnosti" %}</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
       </a>
+      {% endif %}
     </div>
     <div class="grid grid-cols-3 gap-4">
       {% for activity in activities %}

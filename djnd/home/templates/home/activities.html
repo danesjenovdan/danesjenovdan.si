@@ -1,0 +1,13 @@
+{% for activity in activities %}
+  {% include 'home/partials/activity.html' with activity=activity %}
+  {% if forloop.counter == 3 %}
+    {% include 'home/partials/newsletter_card.html' with id=forloop.counter %}
+  {% endif %}
+  {% if forloop.counter == 7 %}
+    {% if activities.has_next %}
+    {% include 'home/partials/support_card.html' with next_page_num=activities.next_page_number %}
+    {% else %}
+    {% include 'home/partials/support_card.html' %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
