@@ -8,6 +8,7 @@ charset-normalizer==3.3.2
 defusedxml==0.7.1
 Django==4.2.10
 django-filter==23.5
+django-htmx==1.17.3
 django-modelcluster==6.3
 django-permissionedforms==0.1
 django-storages==1.14.2
