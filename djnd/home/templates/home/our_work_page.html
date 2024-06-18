@@ -10,16 +10,15 @@
   <h1 class="mb-6 text-4xl font-semibold">{{ page.title }}</h1>
 
   <form id="our-work-form" action="{{ current_site }}" method="get" class="mb-8">
-    <!-- {% csrf_token %} -->
 
     <div class="mb-4">
       <p class="font-mono">{% translate "Filtriraj po tematskih sklopih" %}</p>
       <div id="id_pillars" class="flex gap-2 mb-6">
-        {% for choice_id, choice_label in form.pillars.field.choices %}
+        {% for pillar in pillars %}
         <div>
-          <input type="checkbox" name="pillars" value="{{ choice_id }}" class="peer hidden" id="id_pillars_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if choice_id|slugify in form.pillars.value %}checked{% endif %}>
+          <input type="checkbox" name="pillars" value="{{ pillar.id }}" class="peer hidden" id="id_pillars_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if pillar.id|slugify in form.pillars.value %}checked{% endif %}>
           <label for="id_pillars_{{ forloop.counter0 }}" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-th-primary">
-            {{ choice_label }}
+            {{ pillar.localized.title }}
           </label>
         </div>
         {% endfor %}
@@ -29,11 +28,11 @@
     <div class="mb-4">
       <p class="font-mono">{% translate "Filtriraj po kategorijah" %}</p>
       <div id="id_categories" class="flex gap-2 mb-6">
-        {% for choice_id, choice_label in form.categories.field.choices %}
+        {% for category in categories %}
         <div>
-          <input type="checkbox" name="categories" value="{{ choice_id }}" class="peer hidden" id="id_categories_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if choice_id|slugify in form.categories.value %}checked{% endif %}>
+          <input type="checkbox" name="categories" value="{{ category.id }}" class="peer hidden" id="id_categories_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if category.id|slugify in form.categories.value %}checked{% endif %}>
           <label for="id_categories_{{ forloop.counter0 }}" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-th-primary">
-            {{ choice_label }}
+            {{ category.localized.name }}
           </label>
         </div>
         {% endfor %}
@@ -43,11 +42,11 @@
     <div class="mb-4">
       <p class="font-mono">{% translate "Filtriraj po projektih" %}</p>
       <div id="id_projects" class="flex gap-2 mb-6">
-        {% for choice_id, choice_label in form.projects.field.choices %}
+        {% for project in projects %}
         <div>
-          <input type="checkbox" name="projects" value="{{ choice_id }}" class="peer hidden" id="id_projects_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if choice_id|slugify in form.projects.value %}checked{% endif %}>
+          <input type="checkbox" name="projects" value="{{ project.id }}" class="peer hidden" id="id_projects_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if project.id|slugify in form.projects.value %}checked{% endif %}>
           <label for="id_projects_{{ forloop.counter0 }}" class="block px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-th-primary">
-            {{ choice_label }}
+            {{ project.localized.name }}
           </label>
         </div>
         {% endfor %}

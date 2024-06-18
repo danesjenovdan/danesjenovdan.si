@@ -65,27 +65,26 @@
   <div class="flex justify-between mb-6">
     <h2 class="mb-2 text-2xl font-semibold">Zadnje aktivnosti</h2>
     {% if settings.home.GeneralSettings.our_work_page %}
-    <form id="our-work-form" action="{% pageurl settings.home.GeneralSettings.our_work_page %}" method="post" class="flex items-center">
-      {% csrf_token %}
+    <form id="our-work-form" action="{{ current_site }}" method="get" class="flex items-center">
 
       <div class="me-2">
-        <input type="checkbox" name="all" value="" class="peer hidden" id="id_all" checked>
+        <input type="radio" name="filter" value="all" class="peer hidden" id="id_all" onchange="filterOurWork()" {% if request.GET.filter == 'all' or not request.GET.filter %}checked{% endif %}>
         <label for="id_all" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
-          Vse
+          {% translate "Vse" %}
         </label>
       </div>
 
       <div class="me-2">
-        <input type="checkbox" name="projects" value="1" class="peer hidden" id="id_projects_0" onchange="filterOurWork()">
-        <label for="id_projects_0" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
-          DJND projekti
+        <input type="radio" name="filter" value="projects" class="peer hidden" id="id_projects" onchange="filterOurWork()" {% if request.GET.filter == 'projects' %}checked{% endif %}>
+        <label for="id_projects" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
+          {% translate "DJND projekti" %}
         </label>
       </div>
 
       <div class="me-2">
-        <input type="checkbox" name="projects" value="1" class="peer hidden" id="id_projects_0" onchange="filterOurWork()">
-        <label for="id_projects_0" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
-          Občasnik
+        <input type="radio" name="filter" value="newsletter" class="peer hidden" id="id_newsletter" onchange="filterOurWork()" {% if request.GET.filter == 'newsletter' %}checked{% endif %}>
+        <label for="id_newsletter" class="block px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
+          {% translate "Občasnik" %}
         </label>
       </div>
 
