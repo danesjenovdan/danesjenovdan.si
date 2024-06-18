@@ -37,13 +37,16 @@ class Command(BaseCommand):
         image = save_image(self, agrument["image_url"])
 
         try:
-            old_page = parent_page.get_children().get(title=agrument["title"])
+            old_page = BlogPage.objects.child_of(parent_page).get(
+                title=agrument["title"],
+                short_description=agrument["description"],
+            )
             return old_page
-        except Page.DoesNotExist:
+        except BlogPage.DoesNotExist:
             slug = slugify(agrument["title"])
             if slug == "" and agrument["datetime"] == "2019-03-21T00:00:00.000Z":
                 slug = slugify("Emodžiji")
-            if parent_page.get_children().filter(slug=slug).exists():
+            while parent_page.get_children().filter(slug=slug).exists():
                 slug += "-2"
 
             new_page = BlogPage(
@@ -100,11 +103,15 @@ class Command(BaseCommand):
         image = save_image(self, agrument["image_url"])
         locale = Locale.get_default()
 
+        date = agrument["datetime"].split("T")[0]
         try:
-            old_activity = Activity.objects.get(title=agrument["title"], locale=locale)
+            old_activity = Activity.objects.get(
+                title=agrument["title"],
+                date=date,
+                locale=locale,
+            )
             return old_activity
         except Activity.DoesNotExist:
-            date = agrument["datetime"].split("T")[0]
             new_activity = Activity(
                 locale=locale,
                 title=agrument["title"],
