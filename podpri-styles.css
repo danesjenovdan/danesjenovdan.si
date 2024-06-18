@@ -1,8 +1,3 @@
-/* red color
-#dd786b
-221, 120, 107
-*/
-
 .page.custom {
   background-color: #FFF8F6;
 }
@@ -76,11 +71,17 @@ button:focus {
 .page.custom .confirm-button-container .confirm-button {
   background-color: #FFD1C7;
   border: 1px solid #333333;
+  padding: 0.5rem 1rem;
 }
 
 .page.custom .confirm-button-container .confirm-button .arrow,
 .page.custom .confirm-button-container .confirm-button .hearts {
   display: none;
+}
+
+.page.custom .confirm-button-container .confirm-button .arrow-right,
+.page.custom .confirm-button-container .confirm-button .hearts-left {
+  display: block;
 }
 
 .page.custom .confirm-button-container .confirm-button .text {
@@ -91,7 +92,7 @@ button:focus {
 
 @media (min-width: 768px) {
   .page.custom .confirm-button-container .confirm-button {
-    font-size: 2.4rem;
+    font-size: 24px;
   }
 }
 
@@ -122,6 +123,11 @@ button:focus {
   ~ .custom-control-label::before {
   background-color: rgba(221, 120, 107, 0.25);
   border-color: rgba(221, 120, 107, 0.25);
+}
+
+.page.custom .checkout-stage .checkout-stage__terms a {
+  font-family: 'Courier New', Courier, monospace;
+  font-style: normal;
 }
 
 /**/
