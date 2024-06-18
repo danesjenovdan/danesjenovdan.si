@@ -1,17 +1,16 @@
-import os
 import traceback
 from datetime import datetime
 
 import requests
-from django.core.files.base import ContentFile
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from django.utils.formats import date_format
 from django.utils.text import slugify
 from home.models import Activity, ActivityCategory, BlogPage
 from wagtail.blocks.stream_block import StreamValue
-from wagtail.images.models import Image
 from wagtail.models import Locale, Page, Site
+
+from ._save_image import save_image
 
 
 class Command(BaseCommand):
@@ -34,39 +33,8 @@ class Command(BaseCommand):
             sub_page = root_page.add_child(instance=BlogPage(title="Agrument"))
         return sub_page
 
-    def _save_image(self, url):
-        if not url:
-            return None
-
-        if url == "https://danesjenovdan.si/img/djndog.png":
-            return None
-
-        path, filename = os.path.split(url)
-
-        try:
-            image = Image.objects.get(title=filename)
-            return image
-        except Image.DoesNotExist:
-            pass
-
-        try:
-            response = requests.get(url)
-            response.raise_for_status()
-            image = Image(title=filename)
-            image.file.save(filename, ContentFile(response.content))
-            image.tags.add("agrument")
-            image.save()
-            return image
-        except requests.RequestException as e:
-            self.stdout.write("")
-            raise CommandError(f"Failed to fetch image: {e}")
-        except Exception as e:
-            self.stdout.write("")
-            traceback.print_exc()
-            raise CommandError(f"Failed to save image: {e}")
-
     def _save_agrument_page(self, agrument, parent_page, category):
-        image = self._save_image(agrument["image_url"])
+        image = save_image(self, agrument["image_url"])
 
         try:
             old_page = parent_page.get_children().get(title=agrument["title"])
@@ -129,7 +97,7 @@ class Command(BaseCommand):
             return new_page
 
     def _save_agrument_activity(self, agrument, new_page, category):
-        image = self._save_image(agrument["image_url"])
+        image = save_image(self, agrument["image_url"])
         locale = Locale.get_default()
 
         try:
