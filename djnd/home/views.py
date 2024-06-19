@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 
 from wagtail.models import Locale
 
-from home.models import Activity
+from home.models import Activity, ActivityProject, ActivityCategory
 from home.forms import OurWorkForm
 
 
@@ -20,10 +20,9 @@ class ActivityView(ListView):
 
         slovenian_locale = Locale.objects.get(language_code='sl')
 
+        # our work page filtering
         form = OurWorkForm(self.request.GET, locale=slovenian_locale)
-
         filtered_activities = Activity.objects.filter(locale=slovenian_locale)
-
         if form.is_valid():
             pillars = form.cleaned_data["pillars"]
             categories = form.cleaned_data["categories"]
@@ -37,6 +36,16 @@ class ActivityView(ListView):
 
             if projects:
                 filtered_activities = filtered_activities.filter(project__in=projects)
+        
+        # homepage filtering
+        filter = self.request.GET.get('filter', '')
+        if filter == "projects":
+            # TODO: filtering by DJND project
+            djnd_project = ActivityProject.objects.get(name="DJND projekt")
+            filtered_activities = Activity.objects.filter(locale=slovenian_locale, project=djnd_project)
+        elif filter == "newsletter":
+            newsletter_category = ActivityCategory.objects.get(name="Občasnik")
+            filtered_activities = Activity.objects.filter(locale=slovenian_locale, category=newsletter_category)
 
         activities = filtered_activities.order_by("-date")
 
