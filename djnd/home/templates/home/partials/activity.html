@@ -5,22 +5,24 @@
     {% image activity.image width-300 class="w-full h-[180px] object-cover" %}
   </a>
   <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
+    {% if settings.home.GeneralSettings.our_work_page %}
     <div class="">
       {% for tag in activity.pillar_page.all %}
-      <a href="{{ current_site }}?pillars={{tag.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-2 hover:bg-th-primary">{{ tag.title }}</a>
+      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?pillars={{tag.localized.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-2 hover:bg-th-primary">{{ tag.localized.title }}</a>
       {% endfor %}
       {% for tag in activity.category.all %}
-      <a href="{{ current_site }}?categories={{tag.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-2 hover:bg-th-primary">{{ tag.name }}</a>
+      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?categories={{tag.localized.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-2 hover:bg-th-primary">{{ tag.localized.name }}</a>
       {% endfor %}
       {% for tag in activity.project.all %}
-      <a href="{{ current_site }}?projects={{tag.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-2 hover:bg-th-primary">{{ tag.name }}</a>
+      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?projects={{tag.localized.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-2 hover:bg-th-primary">{{ tag.localized.name }}</a>
       {% endfor %}
     </div>
+    {% endif %}
     <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
-      class="block text-2xl leading-none font-semibold mt-5 mb-4 bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out">{{ activity.title }}</a>
-    <p class="text-md mb-4 ">{{ activity.description }}</p>
+      class="block text-2xl leading-none font-semibold mt-5 mb-4 bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out">{{ activity.localized.title }}</a>
+    <p class="text-md mb-4 ">{{ activity.localized.description }}</p>
     {% if activity.date %}
-    <p class="font-mono ">{{ activity.date }}</p>
+    <p class="font-mono ">{{ activity.localized.date }}</p>
     {% endif %}
   </div>
 </div>

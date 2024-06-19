@@ -47,9 +47,7 @@
       {% endif %}
     </div>
     <div class="grid grid-cols-3 gap-4">
-      {% for activity in activities %}
-      {% include 'home/partials/activity.html' with activity=activity %}
-      {% endfor %}
+      {% include 'home/activities.html' with activities=activities %}
     </div>
   </div>
 </div>
