@@ -48,6 +48,12 @@
     <div class="mb-4">
       <p class="font-mono">{% translate "Filtriraj po projektih" %}</p>
       <div id="id_projects" class="flex gap-2 mb-6">
+        <div>
+          <input type="checkbox" name="promoted" id="id_promoted" class="peer hidden" onchange="filterOurWork()" {% if form.promoted.value %}checked{% endif %}>
+          <label for="id_promoted" class="inline-flex items-center px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-th-primary">
+            {% translate "Izpostavljeno" %}
+          </label>
+        </div>
         {% for project in projects %}
         <div>
           <input type="checkbox" name="projects" value="{{ project.id }}" class="peer hidden" id="id_projects_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if project.id|slugify in form.projects.value %}checked{% endif %}>

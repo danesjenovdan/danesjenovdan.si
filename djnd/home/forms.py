@@ -27,3 +27,4 @@ class OurWorkForm(forms.Form):
         queryset=ActivityProject.objects,
         widget=forms.CheckboxSelectMultiple(attrs={"class": ""}),
     )
+    promoted = forms.BooleanField(required=False)

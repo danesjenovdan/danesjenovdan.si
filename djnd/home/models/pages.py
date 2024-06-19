@@ -95,13 +95,14 @@ class HomePage(BasePage):
         # filtering
         filter = request.GET.get('filter', 'all')
 
-        if filter == "projects":
-            # TODO: filtering by DJND project
-            djnd_project = ActivityProject.objects.get(name="DJND projekt")
-            activities = Activity.objects.filter(locale=slovenian_locale, project=djnd_project)
+        if filter == "promoted":
+            activities = Activity.objects.filter(locale=slovenian_locale, promoted=True)
         elif filter == "newsletter":
-            newsletter_category = ActivityCategory.objects.get(name="Občasnik")
-            activities = Activity.objects.filter(locale=slovenian_locale, category=newsletter_category)
+            try:
+                newsletter_category = ActivityCategory.objects.get(name="Občasnik")
+                activities = Activity.objects.filter(locale=slovenian_locale, category=newsletter_category)
+            except:
+                activities = Activity.objects.filter(locale=slovenian_locale)
         else:
             activities = Activity.objects.filter(locale=slovenian_locale)
 
@@ -456,9 +457,6 @@ class OurWorkPage(BasePage):
         # import here because of circular imports
         from home.forms import OurWorkForm
 
-        # lang = request.LANGUAGE_CODE
-        # locale = Locale.get_active()
-
         slovenian_locale = Locale.objects.get(language_code='sl')
 
         pillars = PillarPage.objects.filter(locale=slovenian_locale)
@@ -477,6 +475,7 @@ class OurWorkPage(BasePage):
             pillars = form.cleaned_data["pillars"]
             categories = form.cleaned_data["categories"]
             projects = form.cleaned_data["projects"]
+            promoted = form.cleaned_data["promoted"]
 
             if pillars:
                 filtered_activities = filtered_activities.filter(pillar_page__in=pillars)
@@ -486,6 +485,9 @@ class OurWorkPage(BasePage):
 
             if projects:
                 filtered_activities = filtered_activities.filter(project__in=projects)
+
+            if promoted:
+                filtered_activities = filtered_activities.filter(promoted=True)
 
         ordered_activities = filtered_activities.order_by("-date")
 

@@ -15,9 +15,6 @@ class ActivityView(ListView):
     ordering = ['-date']
 
     def get_queryset(self):
-        lang = self.request.LANGUAGE_CODE
-        locale = Locale.get_active()
-
         slovenian_locale = Locale.objects.get(language_code='sl')
 
         # our work page filtering
@@ -27,6 +24,7 @@ class ActivityView(ListView):
             pillars = form.cleaned_data["pillars"]
             categories = form.cleaned_data["categories"]
             projects = form.cleaned_data["projects"]
+            promoted = form.cleaned_data["promoted"]
 
             if pillars:
                 filtered_activities = filtered_activities.filter(pillar_page__in=pillars)
@@ -36,13 +34,14 @@ class ActivityView(ListView):
 
             if projects:
                 filtered_activities = filtered_activities.filter(project__in=projects)
+            
+            if promoted:
+                filtered_activities = filtered_activities.filter(promoted=True)
         
         # homepage filtering
         filter = self.request.GET.get('filter', '')
-        if filter == "projects":
-            # TODO: filtering by DJND project
-            djnd_project = ActivityProject.objects.get(name="DJND projekt")
-            filtered_activities = Activity.objects.filter(locale=slovenian_locale, project=djnd_project)
+        if filter == "promoted":
+            filtered_activities = Activity.objects.filter(locale=slovenian_locale, promoted=True)
         elif filter == "newsletter":
             newsletter_category = ActivityCategory.objects.get(name="Občasnik")
             filtered_activities = Activity.objects.filter(locale=slovenian_locale, category=newsletter_category)

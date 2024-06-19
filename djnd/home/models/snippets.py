@@ -64,6 +64,7 @@ class Activity(TranslatableMixin, models.Model):
     project = models.ManyToManyField(ActivityProject, blank=True)
     date = models.DateField(null=True, blank=True)
     note = RichTextField(null=True, blank=True)
+    promoted = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.title
