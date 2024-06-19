@@ -5,7 +5,7 @@
   <img src="{% static 'img/izpostavljeno.svg' %}" alt="" class="w-[30px] h-[30px] -left-[15px] -top-[15px] absolute">
   {% endif %}
   <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank" class="peer">
-    {% image activity.image width-300 class="w-full h-[180px] object-cover" %}
+    {% image activity.image fill-1200x630 class="w-full h-auto object-cover" %}
   </a>
   <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
     {% if settings.home.GeneralSettings.our_work_page %}
