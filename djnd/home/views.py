@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 
 from wagtail.models import Locale
 
-from home.models import Activity
+from home.models import Activity, ActivityProject, ActivityCategory
 from home.forms import OurWorkForm
 
 
@@ -15,17 +15,16 @@ class ActivityView(ListView):
     ordering = ['-date']
 
     def get_queryset(self):
-        lang = self.request.LANGUAGE_CODE
-        locale = Locale.get_active()
+        slovenian_locale = Locale.objects.get(language_code='sl')
 
-        form = OurWorkForm(self.request.GET, locale=locale)
-
-        filtered_activities = Activity.objects.filter(locale=locale)
-
+        # our work page filtering
+        form = OurWorkForm(self.request.GET, locale=slovenian_locale)
+        filtered_activities = Activity.objects.filter(locale=slovenian_locale)
         if form.is_valid():
             pillars = form.cleaned_data["pillars"]
             categories = form.cleaned_data["categories"]
             projects = form.cleaned_data["projects"]
+            promoted = form.cleaned_data["promoted"]
 
             if pillars:
                 filtered_activities = filtered_activities.filter(pillar_page__in=pillars)
@@ -35,6 +34,17 @@ class ActivityView(ListView):
 
             if projects:
                 filtered_activities = filtered_activities.filter(project__in=projects)
+            
+            if promoted:
+                filtered_activities = filtered_activities.filter(promoted=True)
+        
+        # homepage filtering
+        filter = self.request.GET.get('filter', '')
+        if filter == "promoted":
+            filtered_activities = Activity.objects.filter(locale=slovenian_locale, promoted=True)
+        elif filter == "newsletter":
+            newsletter_category = ActivityCategory.objects.get(name="Občasnik")
+            filtered_activities = Activity.objects.filter(locale=slovenian_locale, category=newsletter_category)
 
         activities = filtered_activities.order_by("-date")
 

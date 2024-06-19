@@ -1,6 +1,7 @@
 from django.db import models
 
 from wagtail.models import TranslatableMixin
+from wagtail.fields import RichTextField
 
 
 class ActivityCategory(TranslatableMixin, models.Model):
@@ -62,8 +63,8 @@ class Activity(TranslatableMixin, models.Model):
     category = models.ManyToManyField(ActivityCategory, blank=True)
     project = models.ManyToManyField(ActivityProject, blank=True)
     date = models.DateField(null=True, blank=True)
-    note = models.TextField(blank=True)
-    source = models.TextField(blank=True)
+    note = RichTextField(null=True, blank=True)
+    promoted = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.title

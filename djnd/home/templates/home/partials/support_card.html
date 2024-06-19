@@ -1,6 +1,6 @@
 {% load i18n wagtailcore_tags static %}
 
-<div {% if next_page_num %} hx-trigger="revealed" hx-get="{% url 'activities' %}?page={{ next_page_num }}" hx-swap="afterend" {% endif %} class="border-2 border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
+<div {% if next_page_num %} hx-trigger="revealed" hx-get="{% url 'activities' %}?{{ request.META.QUERY_STRING }}&page={{ next_page_num }}"  hx-swap="afterend" {% endif %} class="border-2 border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
   <h2 class="text-2xl leading-none font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
       class="italic">{% translate "tvojo podporo" %}!</span></h2>
   {% if settings.home.GeneralSettings.support_page %}
