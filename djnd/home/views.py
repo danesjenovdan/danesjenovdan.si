@@ -18,9 +18,11 @@ class ActivityView(ListView):
         lang = self.request.LANGUAGE_CODE
         locale = Locale.get_active()
 
-        form = OurWorkForm(self.request.GET, locale=locale)
+        slovenian_locale = Locale.objects.get(language_code='sl')
 
-        filtered_activities = Activity.objects.filter(locale=locale)
+        form = OurWorkForm(self.request.GET, locale=slovenian_locale)
+
+        filtered_activities = Activity.objects.filter(locale=slovenian_locale)
 
         if form.is_valid():
             pillars = form.cleaned_data["pillars"]

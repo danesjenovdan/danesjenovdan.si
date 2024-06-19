@@ -461,9 +461,9 @@ class OurWorkPage(BasePage):
 
         slovenian_locale = Locale.objects.get(language_code='sl')
 
-        pillars = PillarPage.objects.filter(locale=self.locale)
-        categories = ActivityCategory.objects.filter(locale=self.locale)
-        projects = ActivityProject.objects.filter(locale=self.locale)
+        pillars = PillarPage.objects.filter(locale=slovenian_locale)
+        categories = ActivityCategory.objects.filter(locale=slovenian_locale)
+        projects = ActivityProject.objects.filter(locale=slovenian_locale)
 
         context["pillars"] = pillars
         context["categories"] = categories
