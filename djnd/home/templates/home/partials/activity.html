@@ -6,15 +6,30 @@
   </a>
   <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
     {% if settings.home.GeneralSettings.our_work_page %}
-    <div class="">
+    <div class="flex flex-wrap">
       {% for tag in activity.pillar_page.all %}
-      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?pillars={{tag.localized.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-2 hover:bg-th-primary">{{ tag.localized.title }}</a>
+      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?pillars={{tag.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 flex items-center mr-1 mb-2 hover:bg-th-primary">
+        {% if tag.localized.icon %}
+          {% image tag.localized.icon fill-32x32 class="w-4 me-2" %}
+        {% endif %}
+        {{ tag.localized.title }}
+      </a>
       {% endfor %}
       {% for tag in activity.category.all %}
-      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?categories={{tag.localized.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-2 hover:bg-th-primary">{{ tag.localized.name }}</a>
+      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?categories={{tag.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 flex items-center mr-1 mb-2 hover:bg-th-primary">
+        {% if tag.localized.icon %}
+          {% image tag.localized.icon fill-32x32 class="w-4 me-2" %}
+        {% endif %}
+        {{ tag.localized.name }}
+      </a>
       {% endfor %}
       {% for tag in activity.project.all %}
-      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?projects={{tag.localized.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 inline-block mr-1 mb-2 hover:bg-th-primary">{{ tag.localized.name }}</a>
+      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?projects={{tag.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 flex items-center mr-1 mb-2 hover:bg-th-primary">
+        {% if tag.localized.icon %}
+          {% image tag.localized.icon fill-32x32 class="w-4 me-2" %}
+        {% endif %}
+        {{ tag.localized.name }}
+      </a>
       {% endfor %}
     </div>
     {% endif %}
