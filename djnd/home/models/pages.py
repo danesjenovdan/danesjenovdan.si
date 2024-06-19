@@ -90,8 +90,24 @@ class HomePage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        all_activities = Activity.objects.all().order_by("-date")
-        paginator = Paginator(all_activities, 7)
+        slovenian_locale = Locale.objects.get(language_code='sl')
+
+        # filtering
+        filter = request.GET.get('filter', 'all')
+
+        if filter == "projects":
+            # TODO: filtering by DJND project
+            djnd_project = ActivityProject.objects.get(name="DJND projekt")
+            activities = Activity.objects.filter(locale=slovenian_locale, project=djnd_project)
+        elif filter == "newsletter":
+            newsletter_category = ActivityCategory.objects.get(name="Občasnik")
+            activities = Activity.objects.filter(locale=slovenian_locale, category=newsletter_category)
+        else:
+            activities = Activity.objects.filter(locale=slovenian_locale)
+
+        ordered_activities = activities.order_by("-date")
+
+        paginator = Paginator(ordered_activities, 7)
         page = request.GET.get("page")
         try:
             activities = paginator.page(page)
@@ -167,10 +183,27 @@ class PillarPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
+        slovenian_locale = Locale.objects.get(language_code='sl')
+
         # get activities for this pillar
-        context["activities"] = Activity.objects.filter(pillar_page=self).order_by(
-            "-date"
-        )[:9]
+        ordered_activities = Activity.objects.filter(locale=slovenian_locale, pillar_page=self.get_translation(slovenian_locale)).order_by("-date")
+
+        paginator = Paginator(ordered_activities, 7)
+        page = request.GET.get("page")
+
+        try:
+            # If the page exists and the ?page=x is an int
+            activities = paginator.page(page)
+        except PageNotAnInteger:
+            # If the ?page=x is not an int; show the first page
+            activities = paginator.page(1)
+        except EmptyPage:
+            # If the ?page=x is out of range (too high most likely)
+            # Then return the last page
+            activities = paginator.page(paginator.num_pages)
+
+        # get activities for this pillar
+        context["activities"] = activities
 
         return context
 
@@ -420,14 +453,25 @@ class OurWorkPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
+        # import here because of circular imports
         from home.forms import OurWorkForm
 
-        lang = request.LANGUAGE_CODE
-        locale = Locale.get_active()
+        # lang = request.LANGUAGE_CODE
+        # locale = Locale.get_active()
 
-        form = OurWorkForm(request.GET, locale=locale)
+        slovenian_locale = Locale.objects.get(language_code='sl')
 
-        filtered_activities = Activity.objects.filter(locale=locale)
+        pillars = PillarPage.objects.filter(locale=self.locale)
+        categories = ActivityCategory.objects.filter(locale=self.locale)
+        projects = ActivityProject.objects.filter(locale=self.locale)
+
+        context["pillars"] = pillars
+        context["categories"] = categories
+        context["projects"] = projects
+
+        filtered_activities = Activity.objects.filter(locale=slovenian_locale)
+
+        form = OurWorkForm(request.GET, locale=slovenian_locale)
 
         if form.is_valid():
             pillars = form.cleaned_data["pillars"]
