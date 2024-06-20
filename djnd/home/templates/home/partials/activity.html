@@ -42,5 +42,8 @@
     {% if activity.date %}
     <p class="font-mono ">{{ activity.localized.date }}</p>
     {% endif %}
+    {% if activity.note %}
+    <p class="font-mono ">{{ activity.localized.note }}</p>
+    {% endif %}
   </div>
 </div>
