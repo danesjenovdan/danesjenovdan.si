@@ -1,5 +1,5 @@
 {% extends "wrapper.html" %}
-{% load static wagtailcore_tags wagtailimages_tags i18n %}
+{% load static wagtailcore_tags wagtailimages_tags i18n djnd_extras %}
 
 {% block body_class %}template-homepage theme-color-{{ page.color }}{% endblock %}
 
@@ -10,7 +10,7 @@
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
         {% if page.introduction %}
-        <div class="text-xl leading-[3rem] font-normal">
+        <div class="text-xl leading-[3rem] font-normal" data-introduction="true">
           {{ page.introduction|richtext }}
         </div>
         {% endif %}
@@ -23,7 +23,7 @@
           {% if focus_area.value.url or focus_area.value.page %}
           <a href="{% if focus_area.value.page %}{% pageurl focus_area.value.page %}{% else %}{{ focus_area.value.url }}{% endif %}">
           {% endif %}
-          <div class="
+          <div data-linked-sentence="{{ focus_area.value.linked_sentence }}" data-color="{{ focus_area.value.color }}" class="
             theme-color-{{ focus_area.value.color }}
             relative flex items-center gap-4 mt-4 px-8 py-7 shadow-dark shadow-[0px_0px_0px_1px] bg-th-primary group
             {% if focus_cycle == 'one' %}

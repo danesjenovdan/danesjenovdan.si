@@ -141,4 +141,37 @@
       @apply origin-left scale-x-100;
     }
   }
+
+  .forced-animated-bg-show {
+    @apply bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary;
+    animation: animatedBgShow 500ms ease-out forwards;
+  }
+  .forced-animated-bg-hide {
+    @apply bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary;
+    animation: animatedBgHide 500ms ease-out forwards;
+  }
+  @keyframes animatedBgShow {
+    0% {
+      background-position: left bottom;
+      background-size: 0% 0.5em;
+    }
+    100% {
+      background-position: left bottom;
+      background-size: 100% 0.5em;
+    }
+  }
+  @keyframes animatedBgHide {
+    0% {
+      background-position: right bottom;
+      background-size: 100% 0.5em;
+    }
+    100% {
+      background-position: right bottom;
+      background-size: 0% 0.5em;
+    }
+  }
+  .forced-box-scale {
+    @apply scale-105 z-10 shadow-[0px_0px_0px_2px] ;
+    --tw-shadow: 0px 0px 0px 2px !important;
+  }
 }
