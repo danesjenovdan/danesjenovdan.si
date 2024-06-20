@@ -20,7 +20,7 @@ class Command(BaseCommand):
         return category
 
     def _save_appearance_activity(self, appearance, category):
-        image = save_image(self, appearance["image"], prefix="appearance-")
+        image = save_image(self, appearance["image"], tag="appearance")
         locale = Locale.get_default()
 
         try:

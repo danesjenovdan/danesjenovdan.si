@@ -7,7 +7,7 @@ from django.core.management.base import CommandError
 from wagtail.images.models import Image
 
 
-def save_image(command, url, prefix=""):
+def save_image(command, url, tag):
     if not url:
         return None
 
@@ -15,7 +15,7 @@ def save_image(command, url, prefix=""):
         return None
 
     path, filename = os.path.split(url)
-    filename = f"{prefix}{filename}"
+    filename = f"{tag}-{filename}"
 
     try:
         image = Image.objects.get(title=filename)
@@ -28,7 +28,8 @@ def save_image(command, url, prefix=""):
         response.raise_for_status()
         image = Image(title=filename)
         image.file.save(filename, ContentFile(response.content))
-        image.tags.add("agrument")
+        image.tags.add(tag)
+        image.tags.add("imported")
         image.save()
         return image
     except requests.RequestException as e:
