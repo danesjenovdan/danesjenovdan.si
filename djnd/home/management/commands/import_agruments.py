@@ -34,7 +34,7 @@ class Command(BaseCommand):
         return sub_page
 
     def _save_agrument_page(self, agrument, parent_page, category):
-        image = save_image(self, agrument["image_url"])
+        image = save_image(self, agrument["image_url"], tag="agrument")
 
         try:
             old_page = BlogPage.objects.child_of(parent_page).get(
@@ -105,7 +105,7 @@ class Command(BaseCommand):
             return new_page
 
     def _save_agrument_activity(self, agrument, new_page, category):
-        image = save_image(self, agrument["image_url"])
+        image = save_image(self, agrument["image_url"], tag="agrument")
         locale = Locale.get_default()
 
         date = agrument["datetime"].split("T")[0]

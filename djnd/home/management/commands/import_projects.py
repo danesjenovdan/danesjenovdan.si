@@ -28,7 +28,7 @@ class Command(BaseCommand):
         return category
 
     def _save_project_activity(self, project, category):
-        image = save_image(self, project["image"], prefix="project-")
+        image = save_image(self, project["image"], tag="project")
         locale = Locale.get_default()
 
         try:

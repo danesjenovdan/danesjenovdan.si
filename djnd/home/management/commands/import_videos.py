@@ -28,7 +28,7 @@ class Command(BaseCommand):
         return category
 
     def _save_video_activity(self, video, category):
-        image = save_image(self, video["image"], prefix="video-")
+        image = save_image(self, video["image"], tag="video")
         locale = Locale.get_default()
 
         try:
