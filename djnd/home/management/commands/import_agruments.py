@@ -6,7 +6,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from django.utils.formats import date_format
 from django.utils.text import slugify
-from home.models import Activity, ActivityCategory, BlogPage
+from home.models import Activity, ActivityCategory, BlogListingPage, BlogPage
 from wagtail.blocks.stream_block import StreamValue
 from wagtail.models import Locale, Page, Site
 
@@ -30,7 +30,7 @@ class Command(BaseCommand):
         try:
             sub_page = root_page.get_children().get(slug="agrument")
         except Page.DoesNotExist:
-            sub_page = root_page.add_child(instance=BlogPage(title="Agrument"))
+            sub_page = root_page.add_child(instance=BlogListingPage(title="Agrument"))
         return sub_page
 
     def _save_agrument_page(self, agrument, parent_page, category):
@@ -50,9 +50,11 @@ class Command(BaseCommand):
                 slug += "-2"
 
             new_page = BlogPage(
+                color="mint",
                 title=agrument["title"],
                 slug=slug,
                 short_description=agrument["description"],
+                first_published_at=agrument["datetime"],
             )
 
             parent_page.add_child(instance=new_page)
@@ -79,6 +81,9 @@ class Command(BaseCommand):
                 if agrument["content_html"].startswith("<p>")
                 else f"<p>{agrument['content_html']}</p>"
             )
+
+            if '<br>' in raw_html:
+                raw_html = raw_html.replace('<br>', '<br />')
 
             new_page.modules = StreamValue(
                 new_page.modules.stream_block,
@@ -151,9 +156,9 @@ class Command(BaseCommand):
                     )
                     with transaction.atomic():
                         page = self._save_agrument_page(agrument, parent_page, category)
-                        activity = self._save_agrument_activity(
-                            agrument, page, category
-                        )
+                        # activity = self._save_agrument_activity(
+                        #     agrument, page, category
+                        # )
 
                 url = next_url
 

@@ -1,4 +1,4 @@
-from .pages import HomePage, PillarPage, ModularPage, NewsletterPage, BlogPage
+from .pages import HomePage, PillarPage, ModularPage, NewsletterPage, BlogPage, BlogListingPage
 from .blocks import ModuleBlock
 from .snippets import (
     ActivityCategory,

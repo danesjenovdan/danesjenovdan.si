@@ -1,0 +1,32 @@
+{% extends "wrapper.html" %}
+{% load i18n static wagtailcore_tags wagtailimages_tags %}
+{% wagtail_site as current_site %}
+
+{% block body_class %}template-bloglistingpage theme-color-{{ page.color }}{% endblock %}
+
+{% block content %}
+
+<div class="max-w-screen-xl mx-auto px-14 py-16">
+  <h1 class="mb-6 text-4xl font-semibold">{{ page.title }}</h1>
+
+  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pb-10">
+    <div class="grid grid-cols-3 gap-4">
+        {% for blog in blogs %}
+        <div class="border border-dark">
+            <a href="{% pageurl blog %}">
+            {% image blog.thumbnail width-300 class="w-full h-[180px] object-cover" %}
+            </a>
+            <div class="border-t border-dark p-5 pb-2">
+              <a href="{% pageurl blog %}" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ blog.title }}</a>
+              <p class="mb-6">{{ blog.short_description }}</p>
+              <p>{{ blog.first_published_at|date:"j. F Y" }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+
+  TODO infinite scroll
+</div>
+
+{% endblock content %}

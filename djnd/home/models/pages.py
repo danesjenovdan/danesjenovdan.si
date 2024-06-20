@@ -90,17 +90,20 @@ class HomePage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        slovenian_locale = Locale.objects.get(language_code='sl')
+        slovenian_locale = Locale.objects.get(language_code="sl")
 
         # filtering
-        filter = request.GET.get('filter', 'all')
+        filter = request.GET.get("filter", "all")
 
         if filter == "promoted":
             activities = Activity.objects.filter(locale=slovenian_locale, promoted=True)
         elif filter == "newsletter":
             try:
                 newsletter_category = ActivityCategory.objects.get(name="Občasnik")
-                activities = Activity.objects.filter(locale=slovenian_locale, category=newsletter_category)
+                activities = Activity.objects.filter(
+                    locale=slovenian_locale,
+                    category=newsletter_category,
+                )
             except:
                 activities = Activity.objects.filter(locale=slovenian_locale)
         else:
@@ -110,12 +113,7 @@ class HomePage(BasePage):
 
         paginator = Paginator(ordered_activities, 7)
         page = request.GET.get("page")
-        try:
-            activities = paginator.page(page)
-        except PageNotAnInteger:
-            activities = paginator.page(1)
-        except EmptyPage:
-            activities = paginator.page(paginator.num_pages)
+        activities = paginator.get_page(page)
 
         context["activities"] = activities
 
@@ -184,24 +182,17 @@ class PillarPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        slovenian_locale = Locale.objects.get(language_code='sl')
+        slovenian_locale = Locale.objects.get(language_code="sl")
 
         # get activities for this pillar
-        ordered_activities = Activity.objects.filter(locale=slovenian_locale, pillar_page=self.get_translation(slovenian_locale)).order_by("-date")
+        ordered_activities = Activity.objects.filter(
+            locale=slovenian_locale,
+            pillar_page=self.get_translation(slovenian_locale),
+        ).order_by("-date")
 
         paginator = Paginator(ordered_activities, 7)
         page = request.GET.get("page")
-
-        try:
-            # If the page exists and the ?page=x is an int
-            activities = paginator.page(page)
-        except PageNotAnInteger:
-            # If the ?page=x is not an int; show the first page
-            activities = paginator.page(1)
-        except EmptyPage:
-            # If the ?page=x is out of range (too high most likely)
-            # Then return the last page
-            activities = paginator.page(paginator.num_pages)
+        activities = paginator.get_page(page)
 
         # get activities for this pillar
         context["activities"] = activities
@@ -376,6 +367,30 @@ class NewsletterListPage(BasePage):
         }
 
 
+class BlogListingPage(BasePage):
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        lang = request.LANGUAGE_CODE
+        locale = Locale.get_active()
+
+        blogs = (
+            BlogPage.objects.child_of(self)
+            .filter(locale=locale)
+            .live()
+            .order_by("-first_published_at")
+        )
+
+        paginator = Paginator(blogs, 7)
+        page = request.GET.get("page")
+        blogs = paginator.get_page(page)
+
+        return {
+            **context,
+            "blogs": blogs,
+        }
+
+
 class BlogPage(BasePage):
     short_description = models.TextField(blank=True)
     pillar_page = ParentalManyToManyField(
@@ -450,14 +465,13 @@ class SupportPage(BasePage):
 
 
 class OurWorkPage(BasePage):
-
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
         # import here because of circular imports
         from home.forms import OurWorkForm
 
-        slovenian_locale = Locale.objects.get(language_code='sl')
+        slovenian_locale = Locale.objects.get(language_code="sl")
 
         pillars = PillarPage.objects.filter(locale=slovenian_locale)
         categories = ActivityCategory.objects.filter(locale=slovenian_locale)
@@ -478,10 +492,14 @@ class OurWorkPage(BasePage):
             promoted = form.cleaned_data["promoted"]
 
             if pillars:
-                filtered_activities = filtered_activities.filter(pillar_page__in=pillars)
+                filtered_activities = filtered_activities.filter(
+                    pillar_page__in=pillars
+                )
 
             if categories:
-                filtered_activities = filtered_activities.filter(category__in=categories)
+                filtered_activities = filtered_activities.filter(
+                    category__in=categories
+                )
 
             if projects:
                 filtered_activities = filtered_activities.filter(project__in=projects)
@@ -493,17 +511,7 @@ class OurWorkPage(BasePage):
 
         paginator = Paginator(ordered_activities, 7)
         page = request.GET.get("page")
-
-        try:
-            # If the page exists and the ?page=x is an int
-            activities = paginator.page(page)
-        except PageNotAnInteger:
-            # If the ?page=x is not an int; show the first page
-            activities = paginator.page(1)
-        except EmptyPage:
-            # If the ?page=x is out of range (too high most likely)
-            # Then return the last page
-            activities = paginator.page(paginator.num_pages)
+        activities = paginator.get_page(page)
 
         context["form"] = form
         context["activities"] = activities
