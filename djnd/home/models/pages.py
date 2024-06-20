@@ -65,6 +65,7 @@ class HomePage(BasePage):
                             "page",
                             blocks.PageChooserBlock(label="Podstran", required=False),
                         ),
+                        ("linked_sentence", blocks.TextBlock(label="Povezana poved")),
                     ],
                     label="Fokus",
                 ),

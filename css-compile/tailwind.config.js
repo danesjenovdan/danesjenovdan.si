@@ -70,6 +70,9 @@ module.exports = {
     {
       pattern: /theme-color-/,
     },
+    'forced-animated-bg-show',
+    'forced-animated-bg-hide',
+    'forced-box-scale',
   ],
   plugins: [require('@tailwindcss/forms')],
 };

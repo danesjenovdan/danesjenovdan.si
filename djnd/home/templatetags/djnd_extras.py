@@ -37,4 +37,5 @@ def get_translated_m2m_ids(value, field_name):
 def debug_print(value):
     print(value)
     print(type(value))
+    print(vars(value))
     return value
