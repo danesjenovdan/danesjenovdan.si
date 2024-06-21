@@ -1,15 +1,9 @@
 {% for activity in activities %}
+
   {% include 'home/partials/activity.html' with activity=activity %}
-  {% if forloop.counter == 3 %}
-    {% include 'home/partials/newsletter_card.html' with id=forloop.counter %}
+
+  {% if forloop.last and page_obj.has_next %}
+    {% include 'home/partials/loader.html' with activity=activity next_page_num=page_obj.next_page_number %}    
   {% endif %}
-  {% if forloop.counter == 7 %}
-    {% if activities.has_next %}
-    {% include 'home/partials/support_card.html' with next_page_num=activities.next_page_number %}
-    {% elif page_obj.has_next %}
-    {% include 'home/partials/support_card.html' with next_page_num=page_obj.next_page_number %}
-    {% else %}
-    {% include 'home/partials/support_card.html' %}
-    {% endif %}
-  {% endif %}
+
 {% endfor %}

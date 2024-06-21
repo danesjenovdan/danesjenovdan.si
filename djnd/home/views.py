@@ -37,6 +37,23 @@ class ActivityView(ListView):
             
             if promoted:
                 filtered_activities = filtered_activities.filter(promoted=True)
+
+        activities = filtered_activities.order_by("-date")
+
+        return activities
+    
+
+class ActivityHomepageView(ListView):
+    model = Activity
+    template_name = "home/activities-homepage.html"
+    context_object_name = "activities"
+    paginate_by = 7
+    ordering = ['-date']
+
+    def get_queryset(self):
+        slovenian_locale = Locale.objects.get(language_code='sl')
+
+        filtered_activities = Activity.objects.filter(locale=slovenian_locale)
         
         # homepage filtering
         filter = self.request.GET.get('filter', '')
