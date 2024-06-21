@@ -7,9 +7,9 @@
 <div>
 
   <div class="border-b border-dark last:border-b-0">
-    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-20">
+    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-20 sm-max:px-6 sm-max:py-10">
       <div class="basis-full">
-        <h1 class="mb-12 text-5xl font-semibold">{{ page.title }}</h1>
+        <h1 class="mb-12 text-5xl font-semibold xl-max:text-2xl sm-max:mb-6">{{ page.title }}</h1>
         <form onsubmit="return false;" class="flex gap-2 mb-6" x-data="categoriesFilter">
           {% for category in team_member_categories %}
             <div>

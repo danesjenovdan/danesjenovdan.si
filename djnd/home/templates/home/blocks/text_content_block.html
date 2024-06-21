@@ -1,7 +1,7 @@
 {% load static wagtailcore_tags %}
 
 <div class="bg-white">
-  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
+  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16 sm-max:block sm-max:px-6 sm-max:py-8">
     <div class="basis-8/12">
       {% if value.title %}
       <h2 class="mb-6 text-2xl font-semibold xl-max:text-lg">{{ value.title }}</h2>
@@ -13,6 +13,6 @@
       {% include 'home/partials/button.html' with button_text=button.button_text button_color=button.color button_page_link=button.page_link button_link=button.link %}
       {% endfor %}
     </div>
-    <div class="basis-4/12">&nbsp;</div>
+    <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
   </div>
 </div>

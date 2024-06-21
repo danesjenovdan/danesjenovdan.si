@@ -7,10 +7,10 @@
 
 <div>
   <div class="border-b border-dark bg-th-primary-light">
-    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10">
+    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10 sm-max:block sm-max:px-6 sm-max:pt-10 sm-max:pb-5">
       <div class="basis-8/12">
-        <h1 class="mb-6 last:mb-0 text-5xl font-semibold uppercase">{{ page.title }}</h1>
-        <p class="mb-6 last:mb-0 text-xl">{{ page.lead }}</p>
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold uppercase xl-max:text-2xl">{{ page.title }}</h1>
+        <p class="mb-6 last:mb-0 text-xl xl-max:text-lg">{{ page.lead }}</p>
       </div>
       <div class="basis-4/12">
         {% image page.image width-300 class="w-full object-cover" %}
@@ -18,9 +18,9 @@
     </div>
   </div>
 
-  <div class="max-w-screen-xl mx-auto px-14 py-16 border-b border-dark">
-      <h2 class="text-2xl font-semibold mb-8">{% translate "Preberi pretekle občasnike!" %}</h2>
-      <div class="grid grid-cols-3 gap-4">
+  <div class="max-w-screen-xl mx-auto px-14 py-16 border-b border-dark sm-max:px-6 sm-max:py-8">
+      <h2 class="text-2xl font-semibold mb-8 xl-max:text-lg sm-max:mb-4">{% translate "Preberi pretekle občasnike!" %}</h2>
+      <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
           {% for newsletter in newsletters|slice:":3" %}
           <div class="border border-dark">
               <a href="{% pageurl newsletter %}" target="_blank">

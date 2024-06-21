@@ -6,7 +6,7 @@
 {% block content %}
 
 <div class="bg-white">
-  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-16 sm-max:px-6 sm-max:pb-8">
+  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-16 sm-max:block sm-max:px-6 sm-max:pb-8">
     <div class="basis-8/12">
         {% for pillar in page.pillar_page.all %}
         <span class="bg-th-primary-light text-sm rounded-full px-3 me py-1 mb-4 inline-flex items-center font-mono border border-dark">
@@ -37,7 +37,7 @@
             {{ value.text|richtext }}
         </div> -->
     </div>
-    <div class="basis-4/12">&nbsp;</div>
+    <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
   </div>
 </div>
 

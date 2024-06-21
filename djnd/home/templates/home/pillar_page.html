@@ -37,7 +37,7 @@
   </div>
   {% endfor %}
 
-  <div class="max-w-screen-xl mx-auto mt-16 px-14 pb-20">
+  <div class="max-w-screen-xl mx-auto mt-16 px-14 pb-20 sm-max:px-6 sm-max:pb-10 sm-max:mt-8">
     <div class="flex justify-between mb-6">
       <h2 class="mb-2 text-2xl font-semibold">{{ page.activities_title }}</h2>
       {% if settings.home.GeneralSettings.our_work_page %}
@@ -46,7 +46,7 @@
       </a>
       {% endif %}
     </div>
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
       {% include 'home/activities.html' with activities=activities %}
     </div>
   </div>
