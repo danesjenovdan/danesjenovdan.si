@@ -7,7 +7,7 @@
 <div>
 
   <div class="border-b border-dark last:border-b-0 bg-th-primary-light">
-    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10 sm-max:block sm-max:px-6 sm-max:pt-10 sm-max:pb-5">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 pb-10 sm-max:block sm-max:px-6 sm-max:pt-10 sm-max:pb-5">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
         {% if page.lead %}
@@ -26,7 +26,7 @@
       </div>
     </div>
     {% if page.subpages %}
-    <div class="grid grid-cols-3 gap-5 max-w-screen-xl mx-auto px-14 pb-20 sm-max:grid-cols-1 sm-max:px-6 sm-max:pb-10">
+    <div class="grid grid-cols-3 gap-5 max-w-[1280px] mx-auto px-14 pb-20 sm-max:grid-cols-1 sm-max:px-6 sm-max:pb-10">
       {% for subpage in page.subpages %}
       <a href="{% pageurl subpage.value.page %}" class="bg-white flex items-center justify-between border border-dark py-6 px-2 hover:bg-th-primary">
         <div class="flex items-center justify-between">

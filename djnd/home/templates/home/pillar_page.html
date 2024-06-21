@@ -6,7 +6,7 @@
 {% block content %}
 <div>
   <div class="border-b border-dark last:border-b-0 bg-th-primary-light">
-    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 mb-16 sm-max:block sm-max:px-6 sm-max:pt-10 sm-max:mb-8">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 mb-16 sm-max:block sm-max:px-6 sm-max:pt-10 sm-max:mb-8">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
         {% if page.lead %}
@@ -25,7 +25,7 @@
       </div>
     </div>
     {% if page.projects %}
-    <div class="max-w-screen-xl mx-auto px-14 pb-20 sm-max:px-6 sm-max:pb-10">
+    <div class="max-w-[1280px] mx-auto px-14 pb-20 sm-max:px-6 sm-max:pb-10">
       {% include "home/partials/pillar_grid.html" with grid_items=page.projects %}
     </div>
     {% endif %}
@@ -37,7 +37,7 @@
   </div>
   {% endfor %}
 
-  <div class="max-w-screen-xl mx-auto mt-16 px-14 pb-20 sm-max:px-6 sm-max:pb-10 sm-max:mt-8">
+  <div class="max-w-[1280px] mx-auto mt-16 px-14 pb-20 sm-max:px-6 sm-max:pb-10 sm-max:mt-8">
     <div class="flex justify-between mb-6">
       <h2 class="mb-2 text-2xl font-semibold">{{ page.activities_title }}</h2>
       {% if settings.home.GeneralSettings.our_work_page %}
