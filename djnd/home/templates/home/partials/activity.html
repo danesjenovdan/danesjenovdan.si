@@ -30,7 +30,7 @@
     <p class="font-mono ">{{ activity.localized.date }}</p>
     {% endif %}
     {% if activity.note %}
-    <p class="font-mono ">{{ activity.localized.note }}</p>
+    <div class="font-mono ">{{ activity.localized.note|richtext }}</div>
     {% endif %}
   </div>
 </div>
