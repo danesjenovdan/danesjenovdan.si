@@ -4,8 +4,7 @@
   <h2 class="text-2xl leading-none font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
       class="italic">{% translate "tvojo podporo" %}!</span></h2>
   {% if settings.home.GeneralSettings.support_page %}
-  <a href="{% pageurl settings.home.GeneralSettings.support_page %}" class="flex justify-between w-full px-3 pt-2.5 pb-3 border border-dark bg-red font-semibold text-lg">
-    <span>{% translate 'Podpri nas!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
-  </a>
+    {% translate 'Podpri nas!' as button_text %}
+    {% include "home/partials/button.html" with button_class="w-full" button_color="red" button_page_link=settings.home.GeneralSettings.support_page button_text=button_text %}
   {% endif %}
 </div>

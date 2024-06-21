@@ -105,7 +105,8 @@
       @apply mb-6 text-md leading-[30px];
     }
 
-    p:not(:first), ul:not(:first) {
+    p:not(:first),
+    ul:not(:first) {
       @apply mt-6;
     }
 
@@ -130,18 +131,24 @@
   .loader {
     width: 60px;
     aspect-ratio: 4;
-    --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
-    background:
-      var(--_g) 0%   50%,
-      var(--_g) 50%  50%,
-      var(--_g) 100% 50%;
-    background-size: calc(100%/3) 100%;
+    --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+    background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+    background-size: calc(100% / 3) 100%;
     animation: l7 1s infinite linear;
   }
   @keyframes l7 {
-    33%{background-size:calc(100%/3) 0%  ,calc(100%/3) 100%,calc(100%/3) 100%}
-    50%{background-size:calc(100%/3) 100%,calc(100%/3) 0%  ,calc(100%/3) 100%}
-    66%{background-size:calc(100%/3) 100%,calc(100%/3) 100%,calc(100%/3) 0%  }
+    33% {
+      background-size: calc(100% / 3) 0%, calc(100% / 3) 100%,
+        calc(100% / 3) 100%;
+    }
+    50% {
+      background-size: calc(100% / 3) 100%, calc(100% / 3) 0%,
+        calc(100% / 3) 100%;
+    }
+    66% {
+      background-size: calc(100% / 3) 100%, calc(100% / 3) 100%,
+        calc(100% / 3) 0%;
+    }
   }
 
   .rich-text a,
@@ -187,7 +194,7 @@
     }
   }
   .forced-box-scale {
-    @apply scale-105 z-10 shadow-[0px_0px_0px_2px] ;
+    @apply scale-105 z-10 shadow-[0px_0px_0px_2px];
     --tw-shadow: 0px 0px 0px 2px !important;
   }
 }

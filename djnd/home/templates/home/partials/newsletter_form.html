@@ -13,11 +13,13 @@
     <input id="subscribe-consent-{{ blockname }}-{{ id }}" type="checkbox" value="" class="w-6 h-6 flex-shrink-0 border border-dark" required>
     <label for="subscribe-consent-{{ blockname }}-{{ id }}" class="font-mono text-sm leading-4">{% translate 'Strinjam se, da mi Danes je nov dan po e-pošti pošilja tudi druga obvestila.' %}</label>
   </div>
-  <div class="mt-6">
-    <button
-      class="flex justify-between w-full px-2 pt-1.5 pb-2 border border-dark bg-th-primary font-semibold">
-      <span x-show="!loading">{% translate 'Naroči se' %}</span><img x-show="!loading" class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
-      <span x-show="loading" class="loader"></span>
-    </button>
+  <div>
+    <div x-show="!loading">
+      {% translate 'Naroči se' as button_text %}
+      {% include "home/partials/button.html" with button_class="w-full text-smd" button_color=color_scheme button_text=button_text %}
+    </div>
+    <div x-show="loading" class="mt-6 text-center">
+      <span class="inline-block loader"></span>
+    </div>
   </div>
 </form>
