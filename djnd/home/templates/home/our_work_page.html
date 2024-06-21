@@ -43,7 +43,23 @@
   </form>
 
   <div class="grid grid-cols-3 gap-4">
-    {% include 'home/activities.html' with activities=activities %}
+    {% for activity in activities %}
+
+      {% include 'home/partials/activity.html' with activity=activity %}
+      
+      {% if forloop.counter == 3 %}
+        {% include 'home/partials/newsletter_card.html' with id=forloop.counter %}
+      {% endif %}
+
+      {% if forloop.counter == 7 %}
+        {% include 'home/partials/support_card.html' %}
+      {% endif %}
+
+      {% if forloop.last and activities.has_next %}
+        {% include 'home/partials/loader.html' with activity=activity next_page_num=activities.next_page_number %}
+      {% endif %}
+
+    {% endfor %}
   </div>
 </div>
 

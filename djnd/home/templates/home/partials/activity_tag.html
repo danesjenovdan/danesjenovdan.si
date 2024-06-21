@@ -8,7 +8,7 @@
   "
 >
   {% if tag.localized.icon %}
-    {% image tag.localized.icon fill-32x32 class="w-4 me-2" %}
+    {% image tag.localized.icon height-32 class="h-[14px] w-auto me-2" %}
   {% endif %}
   {% firstof tag.localized.name tag.localized.title as title %}
   <span class="leading-[16px]">{{ title }}</span>
