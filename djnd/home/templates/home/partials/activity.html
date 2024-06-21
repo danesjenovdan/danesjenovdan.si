@@ -11,33 +11,20 @@
     {% if settings.home.GeneralSettings.our_work_page %}
     <div class="flex flex-wrap">
       {% for tag in activity.pillar_page.all %}
-      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?pillars={{tag.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 flex items-center mr-1 mb-2 hover:bg-th-primary">
-        {% if tag.localized.icon %}
-          {% image tag.localized.icon fill-32x32 class="w-4 me-2" %}
-        {% endif %}
-        {{ tag.localized.title }}
-      </a>
+      {% include "home/partials/activity_tag.html" with tag=tag filter_name="pillars" %}
       {% endfor %}
       {% for tag in activity.category.all %}
-      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?categories={{tag.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 flex items-center mr-1 mb-2 hover:bg-th-primary">
-        {% if tag.localized.icon %}
-          {% image tag.localized.icon fill-32x32 class="w-4 me-2" %}
-        {% endif %}
-        {{ tag.localized.name }}
-      </a>
+      {% include "home/partials/activity_tag.html" with tag=tag filter_name="categories" %}
       {% endfor %}
       {% for tag in activity.project.all %}
-      <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?projects={{tag.id}}" class="text-dark text-sm font-mono rounded-full border border-dark px-3 py-1 flex items-center mr-1 mb-2 hover:bg-th-primary">
-        {% if tag.localized.icon %}
-          {% image tag.localized.icon fill-32x32 class="w-4 me-2" %}
-        {% endif %}
-        {{ tag.localized.name }}
-      </a>
+      {% include "home/partials/activity_tag.html" with tag=tag filter_name="projects" %}
       {% endfor %}
     </div>
     {% endif %}
-    <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
-      class="block text-2xl leading-none font-semibold mt-5 mb-4 bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out">{{ activity.localized.title }}</a>
+    <div class="mt-5 mb-4">
+      <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
+        class="text-2xl leading-[1.15] font-semibold bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out">{{ activity.localized.title }}</a>
+    </div>
     <p class="text-md mb-4 ">{{ activity.localized.description }}</p>
     {% if activity.date %}
     <p class="font-mono ">{{ activity.localized.date }}</p>

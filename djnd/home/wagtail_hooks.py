@@ -14,7 +14,13 @@ from home.models import (
 class ActivityViewSet(SnippetViewSet):
     model = Activity
     list_display = ["title", "date", "promoted"]
-    list_filter = ["promoted", "pillar_page", "category", "project"]
+    list_filter = {
+        "title": ["icontains"],
+        "promoted": ["exact"],
+        "pillar_page": ["exact"],
+        "category": ["exact"],
+        "project": ["exact"],
+    }
 
 
 register_snippet(ActivityViewSet)

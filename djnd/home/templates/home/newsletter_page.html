@@ -50,19 +50,19 @@
       <p class="text-md mb-8">{% translate "Preveri, kaj smo počeli pretekli mesec" %}</p>
       {% for article in page.news %}
       <a href="{{ article.value.link }}" target="_blank" class="block w-full group mb-6">
-        <div class="border border-dark flex gap-10 p-4 group-hover:bg-th-primary-light">
-          <div class="basis-8/12">
-            <h5 class="text-lg font-semibold mb-2">
-              <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
+        <div class="border border-dark flex gap-8 p-3.5 group-hover:bg-th-primary-light">
+          <div class="pl-3">
+            <h5 class="text-2lg font-semibold leading-[1.15] mt-1.5 mb-3">
+              <span class="bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-left-bottom group-hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out">
                 {{ article.value.name }}
               </span>
             </h5>
-            <p class="">
+            <p class="mb-2 text-base leading-snug">
               {{ article.value.description }}
             </p>
           </div>
-          <div class="basis-4/12">
-            {% image article.value.image width-300 class="w-full h-[180px] object-cover border border-dark" %}
+          <div class="basis-[30%] shrink-0">
+            {% image article.value.image fill-640x336 class="w-full border border-dark" %}
           </div>
         </div>
       </a>
@@ -88,8 +88,9 @@
     </div>
   </div>
 
-  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pb-10 justify-center">
-    <a href="/">{% translate "Prejšnji občasniki" %}</a>
+  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-3 pb-14 justify-center">
+    {% translate "Prejšnji občasniki" as button_text %}
+    {% include 'home/partials/tertiary_button.html' with button_text=button_text button_color=page.color button_page_link=page.get_parent %}
   </div>
 </div>
 

@@ -1,0 +1,15 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<a
+  href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?{{ filter_name }}={{tag.id}}"
+  class="
+    inline-flex items-center min-h-6 align-top mr-2 mb-2 px-2.5 py-1 shadow-dark shadow-[0px_0px_0px_1px] rounded-full font-mono text-sm leading-none
+    transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px]
+  "
+>
+  {% if tag.localized.icon %}
+    {% image tag.localized.icon fill-32x32 class="w-4 me-2" %}
+  {% endif %}
+  {% firstof tag.localized.name tag.localized.title as title %}
+  <span class="leading-[16px]">{{ title }}</span>
+</a>

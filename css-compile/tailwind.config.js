@@ -11,6 +11,7 @@ module.exports = {
       'smd': ['18px', '28px'],
       'md': ['20px', '26px'],
       'lg': ['24px', '36px'],
+      '2lg': ['26px', '36px'],
       'xl': ['32px', '42px'],
       '2xl': ['36px', '48px'],
       '3xl': ['40px', '26px'],
