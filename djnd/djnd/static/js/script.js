@@ -122,4 +122,11 @@ function homepageLinkedSentences() {
 
 document.addEventListener("DOMContentLoaded", function () {
   homepageLinkedSentences();
+
+  const menuButton = document.querySelector("#menu-button");
+  const sidebar = document.querySelector("#sidebar");
+
+  menuButton.addEventListener("click", () => {
+    sidebar.classList.toggle("md-max:-translate-x-full");
+  });
 });
