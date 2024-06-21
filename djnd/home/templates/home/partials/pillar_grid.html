@@ -1,6 +1,6 @@
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-<div class="grid grid-cols-2 gap-[1px] border border-dark bg-dark mt-6">
+<div class="grid grid-cols-2 gap-[1px] border border-dark bg-dark mt-6 sm-max:grid-cols-1 sm-max:mt-3">
   {% for grid_item in grid_items %}
     {% if grid_item.value %}
       {% include "home/partials/pillar_grid_item.html" with grid_item_page=grid_item.value.page grid_item_url=grid_item.value.url grid_item_image=grid_item.value.icon grid_item_title=grid_item.value.name grid_item_description=grid_item.value.description %}

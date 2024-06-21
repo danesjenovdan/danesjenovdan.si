@@ -6,17 +6,17 @@
 {% block content %}
 <div>
   <div class="border-b border-dark last:border-b-0 bg-white">
-    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20">
+    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 sm-max:block sm-max:px-6 sm-max:pt-10">
       <div class="basis-8/12">
-        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
         {% if page.introduction %}
-        <div class="text-xl leading-[3rem] font-normal" data-introduction="true">
+        <div class="text-xl/[3rem] font-normal xl-max:text-lg" data-introduction="true">
           {{ page.introduction|richtext }}
         </div>
         {% endif %}
       </div>
       <div class="basis-4/12">
-        <h2 class="mt-5 text-center font-semibold text-xl">{{ page.focus_areas_title }}</h2>
+        <h2 class="mt-5 text-center font-semibold text-xl xl-max:text-lg">{{ page.focus_areas_title }}</h2>
         <div class="my-6">
           {% for focus_area in page.focus_areas %}
           {% cycle 'one' 'two' 'three' 'four' as focus_cycle silent %}
@@ -40,7 +40,7 @@
             <div class="w-14 shrink-0">
               {% image focus_area.value.image fill-112x112 class="aspect-square" %}
             </div>
-            <div class="flex-grow font-medium text-lg leading-none">
+            <div class="flex-grow font-medium text-lg/none xl-max:text-md">
               {{ focus_area.value.name }}
             </div>
             <img class="w-5 ml-2 -mb-0.5 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
@@ -61,22 +61,22 @@
   {% endfor %}
 
 
-  <div class="max-w-screen-xl mx-auto mt-16 px-14 pb-20">
+  <div class="max-w-screen-xl mx-auto px-14 pt-16 pb-20 sm-max:block sm-max:px-6 sm-max:pt-8 sm-max:pb-10">
     <div class="flex justify-between mb-6">
-      <h2 class="mb-2 text-2xl font-semibold">Zadnje aktivnosti</h2>
+      <h2 class="mb-2 text-2xl font-semibold xl-max:text-lg">Zadnje aktivnosti</h2>
       {% if settings.home.GeneralSettings.our_work_page %}
-      <form id="our-work-form" action="{{ current_site }}" method="get" class="flex items-center">
+      <form id="our-work-form" action="{{ current_site }}" method="get" class="flex items-center sm-max:hidden">
 
         <div class="me-2">
           <input type="radio" name="filter" value="all" class="peer hidden" id="id_all" onchange="filterOurWork()" {% if request.GET.filter == 'all' or not request.GET.filter %}checked{% endif %}>
-          <label for="id_all" class="inline-flex items-center px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
+          <label for="id_all" class="inline-flex items-center px-4 pt-2.5 pb-3 border border-dark rounded-full text-md/none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
             {% translate "Vse" %}
           </label>
         </div>
 
         <div class="me-2">
           <input type="radio" name="filter" value="promoted" class="peer hidden" id="id_promoted" onchange="filterOurWork()" {% if request.GET.filter == 'promoted' %}checked{% endif %}>
-          <label for="id_promoted" class="inline-flex items-center px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
+          <label for="id_promoted" class="inline-flex items-center px-4 pt-2.5 pb-3 border border-dark rounded-full text-md/none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
             <img class="h-[20px] w-auto me-2" height="32px" src="{% static 'img/filter-izpostavljeno.png' %}" alt="">
             {% translate "Izpostavljeno" %}
           </label>
@@ -84,7 +84,7 @@
 
         <div class="me-2">
           <input type="radio" name="filter" value="newsletter" class="peer hidden" id="id_newsletter" onchange="filterOurWork()" {% if request.GET.filter == 'newsletter' %}checked{% endif %}>
-          <label for="id_newsletter" class="inline-flex items-center px-4 pt-2.5 pb-3 border border-dark rounded-full text-md leading-none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
+          <label for="id_newsletter" class="inline-flex items-center px-4 pt-2.5 pb-3 border border-dark rounded-full text-md/none cursor-pointer peer-checked:bg-th-primary peer-checked:border-2">
             <img class="h-[20px] w-auto me-2" height="32px" src="{% static 'img/filter-obcasnik.png' %}" alt="">
             {% translate "Občasnik" %}
           </label>
@@ -98,10 +98,10 @@
       {% endif %}
 
     </div>
-    <div class="grid grid-cols-3 gap-4 pb-[80px] relative">
+    <div class="grid grid-cols-3 gap-4 pb-[80px] relative sm-max:grid-cols-1">
       {% for activity in activities %}
         {% include 'home/partials/activity.html' with activity=activity %}
-          
+
         {% if forloop.counter == 3 %}
           {% include 'home/partials/newsletter_card.html' with id=forloop.counter %}
         {% endif %}

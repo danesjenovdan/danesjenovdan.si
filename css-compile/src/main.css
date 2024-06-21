@@ -102,7 +102,7 @@
 
     p,
     ul {
-      @apply mb-6 text-md leading-[30px];
+      @apply mb-6 text-md/[30px] xl-max:text-smd;
     }
 
     p:not(:first),

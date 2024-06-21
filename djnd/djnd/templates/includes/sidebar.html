@@ -24,7 +24,7 @@
   <nav>
     <ul class="flex flex-col gap-3">
       {% for pillar_page in settings.home.NavigationSettings.pillars %}
-      <li class="uppercase text-smd leading-5 font-medium">
+      <li class="uppercase text-smd/5 font-medium">
         <div class="relative flex items-start gap-1">
           {% if pillar_page.value.localized.icon %}
             {% image pillar_page.value.localized.icon fill-48x48 class="w-6 mt-0.5" %}
@@ -47,7 +47,7 @@
   <nav>
     <ul class="flex flex-col gap-3">
       {% for nav_page in settings.home.NavigationSettings.pages %}
-      <li class="uppercase text-smd leading-5 font-medium">
+      <li class="uppercase text-smd/5 font-medium">
         <div class="relative">
           <a
             href="{% pageurl nav_page.value.page.localized %}"
@@ -58,7 +58,7 @@
         {% if nav_page.value.subpages %}
         <ul class="mt-1 ml-4 flex flex-col gap-1">
           {% for nav_subpage in nav_page.value.subpages %}
-          <li class="normal-case text-base leading-5 font-normal">
+          <li class="normal-case text-base/5 font-normal">
             <div class="relative">
               <a
                 href="{% pageurl nav_subpage.localized %}"
@@ -72,7 +72,7 @@
         {% endif %}
       </li>
       {% endfor %}
-      <!-- <li class="uppercase text-smd leading-5 font-medium">
+      <!-- <li class="uppercase text-smd/5 font-medium">
         <a href="/trgovina" class="hover:underline">{% translate "Trgovina" %}</a>
       </li> -->
     </ul>

@@ -2,13 +2,21 @@
 module.exports = {
   content: ['./djnd/**/templates/**/*.html'],
   theme: {
+    screens: {
+      '2xl-max': {'max': '1535px'},
+      'xl-max': {'max': '1279px'},
+      'lg-max': {'max': '1023px'},
+      'md-max': {'max': '767px'},
+      'sm-max': {'max': '639px'},
+      'xs-max': {'max': '479px'},
+    },
     fontFamily: {
       mono: ["'Courier New'", 'monospace'],
     },
     fontSize: {
       'sm': ['14px', '16px'],
-      'base': ['16px', '26px'],
-      'smd': ['18px', '28px'],
+      'base': ['16px', '24px'],
+      'smd': ['18px', '24px'],
       'md': ['20px', '26px'],
       'lg': ['24px', '36px'],
       '2lg': ['26px', '36px'],

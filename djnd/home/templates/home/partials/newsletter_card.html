@@ -2,7 +2,7 @@
 
 <div class="border-2 border-dark px-5 py-10 bg-gradient-to-tl from-white to-mint">
   <img src="{% static 'img/newsletter.png' %}" alt="" class="w-[100px]">
-  <h2 class="text-2xl leading-none font-semibold mb-4 mt-4">{% translate "Naroči se na" %} <span class="italic">{% translate "Občasnik" %}</span>{% translate ", naš mesečni novičnik" %}</h2>
-  <p class="text-md font-semibold">{% translate "Občasnik vsak mesec prinaša izbor naših razmišljanj, projektov, javnih pojavljanj in sodelovanj ter priporočil. Je kratek, a poln vsebine, udaren, a nevsiljiv – in vedno pride ob pravem času." %}</p>
+  <h2 class="text-2xl/none font-semibold mb-4 mt-4 xl-max:text-lg/none">{% translate "Naroči se na" %} <span class="italic">{% translate "Občasnik" %}</span>{% translate ", naš mesečni novičnik" %}</h2>
+  <p class="text-md font-semibold xl-max:text-smd">{% translate "Občasnik vsak mesec prinaša izbor naših razmišljanj, projektov, javnih pojavljanj in sodelovanj ter priporočil. Je kratek, a poln vsebine, udaren, a nevsiljiv – in vedno pride ob pravem času." %}</p>
   {% include 'home/partials/newsletter_form.html' with id=id color_scheme='mint' %}
 </div>

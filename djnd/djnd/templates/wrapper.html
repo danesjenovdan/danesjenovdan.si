@@ -3,10 +3,10 @@
 
 {% block wrapper_content %}
 <div class="text-dark">
-  <aside class="fixed w-[255px] h-full border-r">
+  <aside class="fixed w-[255px] h-full border-r md-max:hidden">
     {% include "includes/sidebar.html" %}
   </aside>
-  <div class="ml-[255px] flex flex-col min-h-screen">
+  <div class="ml-[255px] md-max:ml-0 flex flex-col min-h-screen">
     <main class="flex-1">
       {% block content %}{% endblock content %}
     </main>
