@@ -88,8 +88,9 @@
     </div>
   </div>
 
-  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pb-10 justify-center">
-    <a href="/">{% translate "Prejšnji občasniki" %}</a>
+  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-3 pb-14 justify-center">
+    {% translate "Prejšnji občasniki" as button_text %}
+    {% include 'home/partials/tertiary_button.html' with button_text=button_text button_color=page.color button_page_link=page.get_parent %}
   </div>
 </div>
 
