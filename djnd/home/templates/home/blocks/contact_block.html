@@ -1,10 +1,10 @@
 {% load i18n wagtailcore_tags static %}
 
 <div class="bg-light">
-    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16">
+    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
         <div class="w-full">
-            <div class="bg-white flex border border-dark">
-                <div class="px-14 py-14 basis-1/2 border-r border-dark">
+            <div class="bg-white flex border border-dark sm-max:block">
+                <div class="p-14 basis-1/2 border-r border-dark sm-max:p-6 sm-max:border-r-0 sm-max:border-b">
                     <span class="bg-dark text-white text-sm rounded-full px-3 py-1 mb-4 inline-block">{% translate "KONTAKT" %}</span>
                     <p>
                         <span class="font-semibold">{% translate "Danes je nov dan" %}</span><br/>
@@ -13,8 +13,8 @@
                         1000 Ljubljana
                     </p>
                     <p class="my-5">
-                        <a href="mailto:vsi@danesjenovdan.si" class="block group">
-                            <span class="bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">
+                        <a href="mailto:vsi@danesjenovdan.si" class="inline-block group">
+                            <span class="bg-right-bottom bg-[length:0%_100%] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-left-bottom group-hover:bg-[length:100%_100%] transition-[background-size] duration-500 ease-out">
                                 vsi@danesjenovdan.si
                             </span>
                         </a>
@@ -23,10 +23,10 @@
                         +368 64 163 663 {% translate "(med 10. in 16. uro)" %}
                     </p>
                 </div>
-                <div class="px-14 py-14 basis-1/2">
+                <div class="p-14 basis-1/2 sm-max:p-6">
                     <div class="flex justify-between items-start">
                         <span class="bg-dark text-white text-sm rounded-full px-3 py-1 mb-4 inline-block">{% translate "BODI NA TEKOČEM"%}</span>
-                        <img src="{% static 'img/newsletter.png' %}" class="w-[106px]" />
+                        <img src="{% static 'img/newsletter.png' %}" class="w-[106px] sm-max:w-[54px]" />
                     </div>
                     <p>
                         <span class="font-semibold">{% translate "Prijavi se na naš Občasnik!" %}</span>

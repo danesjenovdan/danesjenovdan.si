@@ -1,15 +1,15 @@
 {% load static wagtailcore_tags %}
 
 <div class="bg-very-light">
-  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16">
+  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16 sm-max:block sm-max:px-6 sm-max:py-8">
     <div class="w-full">
-      <h2 class="mb-6 text-2xl font-semibold">{{ value.title }}</h2>
+      <h2 class="mb-6 text-2xl font-semibold xl-max:text-lg">{{ value.title }}</h2>
       <table class="table-fixed bg-white">
         <tbody>
         {% for row in value.table %}
           <tr>
-            <th class="w-4/12 px-7 py-6 border border-dark align-top text-left text-lg leading-none font-semibold">{{ row.title }}</th>
-            <td class="       px-7 py-6 border border-dark align-top text-left">{{ row.description }}</td>
+            <th class="w-4/12 px-7 py-6 sm-max:px-4 sm-max:py-4 border border-dark align-top text-left text-lg/tight xl-max:text-md/tight font-semibold sm-max:block sm-max:w-full sm-max:border-b-0 sm-max:-mt-px">{{ row.title }}</th>
+            <td class="       px-7 py-6 sm-max:px-4 sm-max:py-4 border border-dark align-top text-left sm-max:block sm-max:w-full">{{ row.description }}</td>
           </tr>
         {% endfor %}
         </tbody>

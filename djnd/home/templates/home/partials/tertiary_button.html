@@ -1,7 +1,7 @@
 {% load static wagtailcore_tags %}
 
 <a
-  class="inline-flex text-md font-medium hover:font-bold theme-color-{{ button_color }} tertiary-button group"
+  class="inline-flex text-md font-medium hover:font-bold theme-color-{{ button_color }} tertiary-button group xl-max:text-smd"
   href="{% if button_page_link %}{% pageurl button_page_link %}{% else %}{{ button_link }}{% endif %}"
 >
   <span>{{ button_text }}</span><img class="w-5 ml-4 -mb-0.5 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">

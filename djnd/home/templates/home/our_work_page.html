@@ -6,8 +6,8 @@
 
 {% block content %}
 
-<div class="max-w-screen-xl mx-auto px-14 py-16">
-  <h1 class="mb-6 text-4xl font-semibold">{{ page.title }}</h1>
+<div class="max-w-screen-xl mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
+  <h1 class="mb-6 text-4xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
 
   <form id="our-work-form" action="{{ current_site }}" method="get" class="mb-8">
 
@@ -42,11 +42,11 @@
 
   </form>
 
-  <div class="grid grid-cols-3 gap-4">
+  <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
     {% for activity in activities %}
 
       {% include 'home/partials/activity.html' with activity=activity %}
-      
+
       {% if forloop.counter == 3 %}
         {% include 'home/partials/newsletter_card.html' with id=forloop.counter %}
       {% endif %}

@@ -7,7 +7,7 @@
 
 <div>
   <div class="border-b border-dark bg-th-primary-light">
-    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10">
+    <div class="flex gap-10 max-w-screen-xl mx-auto px-14 pt-20 pb-10 sm-max:block sm-max:px-6 sm-max:pt-10 sm-max:pb-5">
       <div class="basis-8/12">
         {% for pillar in page.pillar_page.all %}
         <span class="bg-th-primary-light text-sm rounded-full px-3 me py-1 mb-4 inline-flex items-center font-mono border border-dark">
@@ -33,31 +33,31 @@
           {{ project.name }}
         </span>
         {% endfor %}
-        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
         <div class="rich-text">
           {{ page.introduction|richtext }}
         </div>
       </div>
-      <div class="basis-4/12"></div>
+      <div class="basis-4/12 sm-max:hidden"></div>
     </div>
   </div>
 
   {% include 'home/blocks/newsletter_block.html' with id=0 color_scheme='red' %}
 
   <div class="border-b border-dark">
-    <div class="max-w-screen-xl mx-auto px-14 py-16">
-      <h2 class="text-2xl font-semibold">{% translate "Danes je nov dan novice" %}</h2>
+    <div class="max-w-screen-xl mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
+      <h2 class="text-2xl font-semibold xl-max:text-lg">{% translate "Danes je nov dan novice" %}</h2>
       <p class="text-md mb-8">{% translate "Preveri, kaj smo počeli pretekli mesec" %}</p>
       {% for article in page.news %}
       <a href="{{ article.value.link }}" target="_blank" class="block w-full group mb-6">
-        <div class="border border-dark flex gap-8 p-3.5 group-hover:bg-th-primary-light">
-          <div class="pl-3">
-            <h5 class="text-2lg font-semibold leading-[1.15] mt-1.5 mb-3">
+        <div class="border border-dark flex gap-8 p-3.5 group-hover:bg-th-primary-light sm-max:flex-col-reverse sm-max:gap-3.5">
+          <div class="pl-3 sm-max:pl-0">
+            <h5 class="text-2lg/[1.15] font-semibold mt-1.5 mb-3">
               <span class="bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-left-bottom group-hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out">
                 {{ article.value.name }}
               </span>
             </h5>
-            <p class="mb-2 text-base leading-snug">
+            <p class="mb-2 text-base/snug">
               {{ article.value.description }}
             </p>
           </div>
@@ -70,10 +70,10 @@
     </div>
   </div>
 
-  <div class="max-w-screen-xl mx-auto px-14 py-10">
-    <h2 class="text-2xl font-semibold">{% translate "Izpostavljeno" %}</h2>
+  <div class="max-w-screen-xl mx-auto px-14 py-10 sm-max:px-6 sm-max:pb-5">
+    <h2 class="text-2xl font-semibold xl-max:text-lg">{% translate "Izpostavljeno" %}</h2>
     <p class="text-md mb-8">{% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" %}</p>
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
         {% for article in page.promoted %}
         <div class="border border-dark">
             <a href="{{ article.value.link }}" target="_blank">

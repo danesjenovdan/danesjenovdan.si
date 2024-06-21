@@ -1,10 +1,10 @@
 {% load static i18n wagtailcore_tags wagtailimages_tags %}
 
 <div class="bg-light">
-  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16">
+  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
     <a href="{% if value.promoted_snippet.link %}{{ value.promoted_snippet.link }}{% elif value.promoted_snippet.activity %}{{ value.promoted_snippet.activity.link }}{% endif %}" target="_blank" class="block {% if value.promoted_snippet.image %} w-full {% else %} w-2/3 {% endif %} group">
-      <div class="bg-white flex border border-dark group-hover:bg-th-primary-light">
-        <div class="px-14 py-14 {% if value.promoted_snippet.image %} basis-1/2 border-r border-dark {% endif %}">
+      <div class="bg-white flex border border-dark group-hover:bg-th-primary-light sm-max:flex-col">
+        <div class="p-14 sm-max:p-6 {% if value.promoted_snippet.image %} basis-1/2 border-r sm-max:border-r-0 sm-max:border-b border-dark {% endif %}">
           <div class="mb-4 flex">
             <span class="bg-dark text-white text-sm rounded-full border border-dark px-3 py-0.5 inline-block mr-2">{% translate "IZPOSTAVLJENO" %}</span>
             {% if value.promoted_snippet.activity %}
@@ -13,7 +13,7 @@
               {% endfor %}
             {% endif %}
           </div>
-          <h2 class="mb-4 text-2xl font-semibold">
+          <h2 class="mb-4 text-2xl font-semibold xl-max:text-lg">
             <span class="bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-left-bottom group-hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out">
               {% if value.promoted_snippet.title %}
               {{ value.promoted_snippet.title }}
@@ -23,7 +23,7 @@
             </span>
           </h2>
           <div>
-            <p class="text-md">
+            <p class="text-md xl-max:text-smd">
               {% if value.promoted_snippet.description %}
               {{ value.promoted_snippet.description }}
               {% elif value.promoted_snippet.activity %}
@@ -34,15 +34,16 @@
         </div>
         {% if value.promoted_snippet.image %}
         <div class="basis-1/2">
-          <div class="relative w-full h-full">
+          {% comment %} TODO: a more bit ta slika absolutno pozicionirana, na breakpointih se zbrejka, zato je min-h definiran {% endcomment %}
+          <div class="relative w-full h-full sm-max:min-h-[200px]">
             {% if value.promoted_snippet.image %}
             {% image value.promoted_snippet.image width-300 class="absolute inset-0 w-full h-full object-cover" %}
             {% elif value.promoted_snippet.activity %}
             {% image value.promoted_snippet.activity.image width-300 class="absolute inset-0 w-full h-full object-cover" %}
             {% endif %}
-            <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2">
-              <div class="grid place-content-center w-16 h-16 rounded-full bg-dark group-hover:animate-arrow-hover">
-                <img class="w-7" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
+            <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 sm-max:top-0 sm-max:left-1/2">
+              <div class="grid place-content-center w-16 h-16 rounded-full bg-dark group-hover:animate-arrow-hover sm-max:w-10 sm-max:h-10">
+                <img class="w-7 sm-max:w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
               </div>
             </div>
           </div>

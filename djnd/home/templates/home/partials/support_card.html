@@ -1,10 +1,10 @@
 {% load i18n wagtailcore_tags static %}
 
 <div class="border-2 border-dark px-5 py-10 bg-red-light flex flex-col justify-center">
-  <h2 class="text-2xl leading-none font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
+  <h2 class="text-2xl/none font-semibold mb-6 mt-4 xl-max:text-lg/none">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
       class="italic">{% translate "tvojo podporo" %}!</span></h2>
   {% if settings.home.GeneralSettings.support_page %}
     {% translate 'Podpri nas!' as button_text %}
-    {% include "home/partials/button.html" with button_class="w-full" button_color="red" button_page_link=settings.home.GeneralSettings.support_page button_text=button_text %}
+    {% include "home/partials/button.html" with button_class="w-full text-smd" button_color="red" button_page_link=settings.home.GeneralSettings.support_page button_text=button_text %}
   {% endif %}
 </div>

@@ -1,14 +1,14 @@
 {% load wagtailcore_tags i18n static %}
 
 <div class="bg-white">
-    <div class="max-w-screen-xl mx-auto px-14 py-16">
-        <h2 class="mb-6 text-2xl font-semibold">{{ value.title }}</h2>
+    <div class="max-w-screen-xl mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
+        <h2 class="mb-6 text-2xl font-semibold xl-max:text-lg sm-max:mb-3">{{ value.title }}</h2>
         {% if value.reports_url %}
         {% translate "Letna vsebinska in finančna poročila" as button_text %}
         {% include 'home/partials/button.html' with button_text=button_text button_color='white' button_link=value.reports_url %}
         {% endif %}
-        <div class="mt-10">
-            <iframe id="odprti-racuni" frameborder="0" width="996" height="960" src="https://odprtiracuni-nvo.djnd.si/9/"></iframe>
+        <div class="mt-10 sm-max:mt-5 sm-max:-mx-2">
+            <iframe id="odprti-racuni" frameborder="0" width="996" height="960" src="https://odprtiracuni-nvo.djnd.si/9/" class="sm-max:w-full"></iframe>
         </div>
     </div>
 </div>
