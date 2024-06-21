@@ -1,7 +1,7 @@
 {% load static i18n wagtailcore_tags wagtailimages_tags %}
 
 <div class="bg-light">
-  <div class="flex gap-10 max-w-screen-xl mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
+  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
     <a href="{% if value.promoted_snippet.link %}{{ value.promoted_snippet.link }}{% elif value.promoted_snippet.activity %}{{ value.promoted_snippet.activity.link }}{% endif %}" target="_blank" class="block {% if value.promoted_snippet.image %} w-full {% else %} w-2/3 {% endif %} group">
       <div class="bg-white flex border border-dark group-hover:bg-th-primary-light sm-max:flex-col">
         <div class="p-14 sm-max:p-6 {% if value.promoted_snippet.image %} basis-1/2 border-r sm-max:border-r-0 sm-max:border-b border-dark {% endif %}">
