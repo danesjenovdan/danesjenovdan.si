@@ -51,6 +51,7 @@ function homepageLinkedSentences() {
   const boxEls = document.querySelectorAll("[data-linked-sentence]");
 
   if (!introEl || !boxEls.length) return;
+
   // Wrap linked sentences in span elements
   boxEls.forEach((boxEl, i) => {
     const sentence = boxEl.dataset.linkedSentence;
@@ -65,6 +66,22 @@ function homepageLinkedSentences() {
       }
     });
   });
+
+  // Insert icons before every linked sentence
+  const sentenceEls = introEl.querySelectorAll("[data-linked-box-index]");
+  sentenceEls.forEach((sentenceEl) => {
+    const i = sentenceEl.dataset.linkedBoxIndex;
+    const iconEl = boxEls[i].querySelector("img").cloneNode(true);
+    iconEl.style.display = "inline-block";
+    iconEl.style.width = "1.25em";
+    iconEl.style.height = "1.25em";
+    iconEl.style.marginTop = "-0.25em";
+    const iconContainer = document.createElement("span");
+    iconContainer.appendChild(iconEl);
+    iconContainer.appendChild(document.createTextNode(" "));
+    sentenceEl.parentElement.insertBefore(iconContainer, sentenceEl);
+  });
+
 
   // On box hover, highlight the corresponding sentence
   boxEls.forEach((box, i) => {
@@ -87,7 +104,6 @@ function homepageLinkedSentences() {
   });
 
   // On sentence hover, highlight the corresponding box
-  const sentenceEls = introEl.querySelectorAll("[data-linked-box-index]");
   sentenceEls.forEach((sentenceEl) => {
     const i = sentenceEl.dataset.linkedBoxIndex;
     sentenceEl.addEventListener("mouseenter", () => {

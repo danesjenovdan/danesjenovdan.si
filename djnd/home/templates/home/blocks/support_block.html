@@ -1,6 +1,6 @@
 {% load i18n wagtailcore_tags static %}
 
-<div class="bg-gradient-to-b from-th-primary-light to-white">
+<div class="theme-color-{{ value.color_scheme }} bg-gradient-to-b from-th-primary-light to-white">
     <div class="flex justify-center max-w-screen-xl mx-auto px-14 py-16">
         <div class="bg-white flex border border-dark basis-1/2">
             <div class="px-14 py-14">
@@ -10,9 +10,8 @@
                 <h2 class="text-2xl leading-none font-semibold mb-6 mt-4">{% translate "Za nadaljnje neodvisno delovanje potrebujemo tudi" %} <span
                     class="italic">{% translate "tvojo podporo" %}!</span></h2>
                 {% if settings.home.GeneralSettings.support_page %}
-                <a href="{% pageurl settings.home.GeneralSettings.support_page %}" class="flex justify-between w-full px-2 pt-1.5 pb-2 border-2 border-dark font-semibold bg-th-primary">
-                    <span>{% translate 'Podpri nas!' %}</span><img class="w-4 -mb-0.5" src="{% static 'img/noun-arrow-right-1434311.svg' %}" alt="">
-                </a>
+                    {% translate 'Podpri nas!' as button_text %}
+                    {% include "home/partials/button.html" with button_class="w-full" button_color=value.color_scheme button_page_link=settings.home.GeneralSettings.support_page button_text=button_text %}
                 {% endif %}
             </div>
         </div>
