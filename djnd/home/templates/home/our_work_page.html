@@ -15,15 +15,7 @@
       <p class="font-mono">{% translate "Filtriraj po tematskih sklopih" %}</p>
       <div id="id_pillars" class="flex gap-2 mb-6">
         {% for pillar in pillars %}
-        <div>
-          <input type="checkbox" name="pillars" value="{{ pillar.id }}" class="peer hidden" id="id_pillars_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if pillar.id|slugify in form.pillars.value %}checked{% endif %}>
-          <label for="id_pillars_{{ forloop.counter0 }}" class="inline-flex items-center px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-th-primary">
-            {% if pillar.localized.icon %}
-            {% image pillar.localized.icon fill-32x32 class="w-4 me-2" %}
-            {% endif %}
-            {{ pillar.localized.title }}
-          </label>
-        </div>
+        {% include "home/partials/activity_filter.html" with filter=pillar filter_name="pillars" filter_values=form.pillars.value %}
         {% endfor %}
       </div>
     </div>
@@ -32,15 +24,7 @@
       <p class="font-mono">{% translate "Filtriraj po kategorijah" %}</p>
       <div id="id_categories" class="flex gap-2 mb-6">
         {% for category in categories %}
-        <div>
-          <input type="checkbox" name="categories" value="{{ category.id }}" class="peer hidden" id="id_categories_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if category.id|slugify in form.categories.value %}checked{% endif %}>
-          <label for="id_categories_{{ forloop.counter0 }}" class="inline-flex items-center px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-th-primary">
-            {% if category.localized.icon %}
-            {% image category.localized.icon fill-32x32 class="w-4 me-2" %}
-            {% endif %}
-            {{ category.localized.name }}
-          </label>
-        </div>
+        {% include "home/partials/activity_filter.html" with filter=category filter_name="categories" filter_values=form.categories.value %}
         {% endfor %}
       </div>
     </div>
@@ -48,22 +32,10 @@
     <div class="mb-4">
       <p class="font-mono">{% translate "Filtriraj po projektih" %}</p>
       <div id="id_projects" class="flex gap-2 mb-6">
-        <div>
-          <input type="checkbox" name="promoted" id="id_promoted" class="peer hidden" onchange="filterOurWork()" {% if form.promoted.value %}checked{% endif %}>
-          <label for="id_promoted" class="inline-flex items-center px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-th-primary">
-            {% translate "Izpostavljeno" %}
-          </label>
-        </div>
+        {% translate "Izpostavljeno" as filter_title %}
+        {% include "home/partials/activity_filter.html" with filter_title=filter_title filter_name="promoted" filter_value=form.promoted.value %}
         {% for project in projects %}
-        <div>
-          <input type="checkbox" name="projects" value="{{ project.id }}" class="peer hidden" id="id_projects_{{ forloop.counter0 }}" onchange="filterOurWork()" {% if project.id|slugify in form.projects.value %}checked{% endif %}>
-          <label for="id_projects_{{ forloop.counter0 }}" class="inline-flex items-center px-2.5 pt-1 pb-1.5 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-th-primary">
-            {% if project.localized.icon %}
-            {% image project.localized.icon fill-32x32 class="w-4 me-2" %}
-            {% endif %}
-            {{ project.localized.name }}
-          </label>
-        </div>
+        {% include "home/partials/activity_filter.html" with filter=project filter_name="projects" filter_values=form.projects.value %}
         {% endfor %}
       </div>
     </div>
