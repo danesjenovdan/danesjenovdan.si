@@ -3,7 +3,10 @@
 
 {% block wrapper_content %}
 <div class="text-dark">
-  <aside class="fixed w-[255px] h-full border-r md-max:hidden">
+  <header class="hidden md-max:block border-b">
+    {% include "includes/header.html" %}
+  </header>
+  <aside id="sidebar" class="fixed top-0 left-0 z-50 w-[255px] h-full bg-white border-r transition-transform duration-500 ease-out md-max:-translate-x-full">
     {% include "includes/sidebar.html" %}
   </aside>
   <div class="ml-[255px] md-max:ml-0 flex flex-col min-h-screen">
