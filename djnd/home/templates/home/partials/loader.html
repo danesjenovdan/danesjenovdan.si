@@ -1,0 +1,3 @@
+<div {% if next_page_num %} hx-trigger="revealed" hx-get="{% url 'activities' %}?{{ request.META.QUERY_STRING }}&page={{ next_page_num }}" hx-swap="outerHTML" {% endif %}>
+  loading...
+</div>

@@ -51,6 +51,7 @@
         <div>
           <input type="checkbox" name="promoted" id="id_promoted" class="peer hidden" onchange="filterOurWork()" {% if form.promoted.value %}checked{% endif %}>
           <label for="id_promoted" class="inline-flex items-center px-2.5 py-1 border border-dark rounded-full text-sm leading-none cursor-pointer peer-checked:bg-th-primary">
+            <img class="h-[14px] w-auto me-2" height="32px" src="{% static 'img/filter-izpostavljeno.png' %}" alt="">
             {% translate "Izpostavljeno" %}
           </label>
         </div>
@@ -71,7 +72,23 @@
   </form>
 
   <div class="grid grid-cols-3 gap-4">
-    {% include 'home/activities.html' with activities=activities %}
+    {% for activity in activities %}
+
+      {% include 'home/partials/activity.html' with activity=activity %}
+      
+      {% if forloop.counter == 3 %}
+        {% include 'home/partials/newsletter_card.html' with id=forloop.counter %}
+      {% endif %}
+
+      {% if forloop.counter == 7 %}
+        {% include 'home/partials/support_card.html' %}
+      {% endif %}
+
+      {% if forloop.last and activities.has_next %}
+        {% include 'home/partials/loader.html' with activity=activity next_page_num=activities.next_page_number %}
+      {% endif %}
+
+    {% endfor %}
   </div>
 </div>
 
