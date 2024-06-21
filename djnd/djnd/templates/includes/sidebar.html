@@ -6,7 +6,7 @@
   </a>
 
   <div class="relative">
-    <img src="{% static "img/noun-language-4113652.svg" %}" alt="" class="absolute left-2.5 w-4 h-[38px] pointer-events-none">
+    <img src="{% static "img/noun-language-4113652.svg" %}" alt="" class="absolute left-2.5 w-4 h-[34px] pointer-events-none">
     <select id="lang-chooser" class="flex gap-2 w-full p-2 pl-8 border border-dark font-mono text-sm text-left" onchange="window.location.href = this.value">
       {% if page %}
       {% for language_code, language_name in LANGUAGES %}
@@ -27,9 +27,9 @@
       <li class="uppercase text-smd leading-5 font-medium">
         <div class="relative flex items-start gap-1">
           {% if pillar_page.value.localized.icon %}
-            {% image pillar_page.value.localized.icon fill-32x32 class="w-4 mt-0.5" %}
+            {% image pillar_page.value.localized.icon fill-48x48 class="w-6 mt-0.5" %}
           {% elif pillar_page.value.localized.image %}
-            {% image pillar_page.value.localized.image fill-32x32 class="w-4 mt-0.5" %}
+            {% image pillar_page.value.localized.image fill-48x48 class="w-6 mt-0.5" %}
           {% endif %}
           <a
             href="{% pageurl pillar_page.value.localized %}"
