@@ -154,17 +154,6 @@
   .rich-text a,
   a.animated-hover-bg {
     @apply underline bg-right-bottom bg-[length:0%_100%] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_100%] transition-[background-size] duration-500 ease-out;
-
-
-
-    /* &::before {
-      content: "";
-      @apply absolute inset-0 z-[-1] bg-th-primary origin-right transition-transform duration-300 scale-x-0;
-    }
-
-    &:hover::before {
-      @apply origin-left scale-x-100;
-    } */
   }
 
   .forced-animated-bg-show {
