@@ -1,4 +1,4 @@
-{% load i18n static wagtailcore_tags wagtailimages_tags %}
+{% load wagtailimages_tags %}
 
 <div>
   <input
@@ -18,7 +18,7 @@
       for="id_{{ filter_name }}"
     {% endif %}
     class="
-      inline-flex items-center px-2.5 pt-1 pb-1.5 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-sm leading-none cursor-pointer
+      inline-flex items-center min-h-6 align-top px-2.5 py-1 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-sm leading-none cursor-pointer
       peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
       transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
     "
@@ -28,9 +28,9 @@
     {% image filter.localized.icon fill-32x32 class="w-4 me-2" %}
     {% endif %}
     {% firstof filter.localized.name filter.localized.title as title %}
-    {{ title }}
+    <span class="-mt-0.5 leading-[16px]">{{ title }}</span>
   {% else %}
-    {{ filter_title }}
+    <span class="-mt-0.5 leading-[16px]">{{ filter_title }}</span>
   {% endif %}
 </label>
 </div>
