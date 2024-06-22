@@ -24,7 +24,7 @@
     <div class="mt-5 mb-4">
       <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
         class="
-          text-2xl/[1.15] font-semibold xl-max:text-lg
+          text-2xl/[1.15] font-semibold xl-max:text-lg/[1.15]
           bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out
         "
       >{{ activity.localized.title }}</a>

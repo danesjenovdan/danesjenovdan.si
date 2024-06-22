@@ -3,7 +3,7 @@
 <div>
   <input
     type="checkbox" name="{{ filter_name }}" class="peer hidden" onchange="filterOurWork()"
-    {% if filter_values and filter %}
+    {% if filter_values != None and filter %}
       value="{{ filter.id }}" id="id_{{ filter_name }}_{{ filter.id }}"
       {% if filter.id|slugify in filter_values %}checked{% endif %}
     {% else %}
@@ -12,13 +12,13 @@
     {% endif %}
   >
   <label
-    {% if filter_values and filter %}
+    {% if filter_values != None and filter %}
       for="id_{{ filter_name }}_{{ filter.id }}"
     {% else %}
       for="id_{{ filter_name }}"
     {% endif %}
     class="
-      inline-flex items-center min-h-6 align-top px-2.5 py-1 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-sm/none cursor-pointer whitespace-nowrap
+      flex shrink-0 items-center min-h-6 align-top px-2.5 py-1 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-sm/none cursor-pointer whitespace-nowrap
       peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
       transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
     "
@@ -32,5 +32,5 @@
   {% else %}
     <span class="-mt-0.5 leading-[16px]">{{ filter_title }}</span>
   {% endif %}
-</label>
+  </label>
 </div>

@@ -11,32 +11,44 @@
 
   <form id="our-work-form" action="{{ current_site }}" method="get" class="mb-8">
 
-    <div class="mb-4">
+    <div class="mb-2">
       <p class="font-mono">{% translate "Filtriraj po tematskih sklopih" %}</p>
-      <div id="id_pillars" class="flex gap-2 mb-6">
-        {% for pillar in pillars %}
-        {% include "home/partials/activity_filter.html" with filter=pillar filter_name="pillars" filter_values=form.pillars.value %}
-        {% endfor %}
+      <div id="id_pillars" class="mb-2 -mx-6 -mt-2">
+        <div class="py-3 overflow-x-auto thin-scroll">
+          <div class="flex gap-2 px-6 w-max">
+            {% for pillar in pillars %}
+            {% include "home/partials/activity_filter.html" with filter=pillar filter_name="pillars" filter_values=form.pillars.value %}
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="mb-4">
+    <div class="mb-2">
       <p class="font-mono">{% translate "Filtriraj po kategorijah" %}</p>
-      <div id="id_categories" class="flex gap-2 mb-6">
-        {% for category in categories %}
-        {% include "home/partials/activity_filter.html" with filter=category filter_name="categories" filter_values=form.categories.value %}
-        {% endfor %}
+      <div id="id_categories" class="mb-2 -mx-6 -mt-2">
+        <div class="py-3 overflow-x-auto thin-scroll">
+          <div class="flex gap-2 px-6 w-max">
+            {% for category in categories %}
+            {% include "home/partials/activity_filter.html" with filter=category filter_name="categories" filter_values=form.categories.value %}
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="mb-4">
+    <div class="mb-2">
       <p class="font-mono">{% translate "Filtriraj po projektih" %}</p>
-      <div id="id_projects" class="flex gap-2 mb-6">
-        {% translate "Izpostavljeno" as filter_title %}
-        {% include "home/partials/activity_filter.html" with filter_title=filter_title filter_name="promoted" filter_value=form.promoted.value %}
-        {% for project in projects %}
-        {% include "home/partials/activity_filter.html" with filter=project filter_name="projects" filter_values=form.projects.value %}
-        {% endfor %}
+      <div id="id_projects" class="mb-2 -mx-6 -mt-2">
+        <div class="py-3 overflow-x-auto thin-scroll">
+          <div class="flex gap-2 px-6 w-max">
+            {% translate "Izpostavljeno" as filter_title %}
+            {% include "home/partials/activity_filter.html" with filter_title=filter_title filter_name="promoted" filter_value=form.promoted.value %}
+            {% for project in projects %}
+            {% include "home/partials/activity_filter.html" with filter=project filter_name="projects" filter_values=form.projects.value %}
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
 
