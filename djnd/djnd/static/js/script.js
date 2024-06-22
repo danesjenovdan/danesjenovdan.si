@@ -127,6 +127,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebar = document.querySelector("#sidebar");
 
   menuButton.addEventListener("click", () => {
-    sidebar.classList.toggle("md-max:-translate-x-full");
+    const isClosed = sidebar.classList.contains("md-max:-translate-x-full");
+    if (isClosed) {
+      sidebar.classList.remove("md-max:-translate-x-full");
+      menuButton.setAttribute("aria-expanded", "true");
+      menuButton.querySelector('img[alt="Open menu"]').classList.add('hidden')
+      menuButton.querySelector('img[alt="Close menu"]').classList.remove('hidden')
+    } else {
+      sidebar.classList.add("md-max:-translate-x-full");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.querySelector('img[alt="Open menu"]').classList.remove('hidden')
+      menuButton.querySelector('img[alt="Close menu"]').classList.add('hidden')
+    }
   });
 });
