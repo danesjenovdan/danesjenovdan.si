@@ -4,17 +4,18 @@
 {% block body_class %}template-modularpage theme-color-{{ page.color }}{% endblock %}
 
 {% block content %}
-
 <div>
   <div class="border-b border-dark bg-th-primary-light">
-    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 pb-10">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 mb-16 sm-max:flex-col-reverse sm-max:px-6 sm-max:pt-10 sm-max:mb-8">
       <div class="basis-8/12">
-        <h1 class="mb-6 last:mb-0 text-5xl font-semibold">{{ page.title }}</h1>
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
         {% if page.lead %}
-        <p class="mb-6 last:mb-0 text-xl">{{ page.lead }}</p>
+        <p class="mb-6 last:mb-0 text-xl xl-max:text-lg/[1.15]">{{ page.lead }}</p>
         {% endif %}
         {% if page.description %}
-        <p class="mb-6 last:mb-0">{{ page.description|richtext }}</p>
+        <div class="mb-6 rich-text">
+          {{ page.description|richtext }}
+        </div>
         {% endif %}
       </div>
       <div class="basis-4/12">
@@ -24,9 +25,9 @@
       </div>
     </div>
   </div>
-  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 border-b border-dark">
+  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 border-b border-dark sm-max:block sm-max:px-6 sm-max:py-8">
     <div class="basis-8/12">
-      <div class="grid grid-cols-2 gap-6">
+      <div class="grid grid-cols-2 gap-6 sm-max:grid-cols-1">
         <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj?mesecna=true" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
           <div>
             <h2 class="mb-2 text-2xl font-semibold">{% translate "Vsak mesec" %}</h2>
@@ -53,31 +54,33 @@
         </a>
       </div>
     </div>
-    <div class="basis-4/12"></div>
+    <div class="basis-4/12 sm-max:hidden"></div>
   </div>
-  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 border-b border-dark">
+  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 border-b border-dark sm-max:block sm-max:px-6 sm-max:py-8">
     <div class="basis-8/12">
-      <h2 class="mb-2 text-2xl/none font-semibold">{% translate "Nameniš pa nam lahko tudi 1 % dohodnine! Tebe nič ne stane, nam pa pomeni veliko." %}</h2>
-      <iframe
-        id="enprocent_iframe"
-        class="my-10 border border-dark"
-        frameborder="0"
-        width="800"
-        height="537"
-        style="max-width: 100%"
-        src="https://www.cnvos.si/enprocent/embed/v2/?address=RESLJEVA%20CESTA%2025&city=Ljubljana&name=DANES%20JE%20NOV%20DAN%2C%20IN%C5%A0TITUT%20ZA%20DRUGA%20VPRA%C5%A0ANJA&percent=1.0&postalCode=1000&taxNumber=54561710"></iframe>
+      <h2 class="mb-2 text-2xl/none font-semibold xl-max:text-lg">{% translate "Nameniš pa nam lahko tudi 1 % dohodnine! Tebe nič ne stane, nam pa pomeni veliko." %}</h2>
+      <div class="mt-10 mb-8 sm-max:mt-5 sm-max:mb-4 sm-max:-mx-2">
+        <iframe
+          id="enprocent_iframe"
+          class="border border-dark sm-max:w-full"
+          frameborder="0"
+          width="800"
+          height="537"
+          style="max-width: 100%"
+          src="https://www.cnvos.si/enprocent/embed/v2/?address=RESLJEVA%20CESTA%2025&city=Ljubljana&name=DANES%20JE%20NOV%20DAN%2C%20IN%C5%A0TITUT%20ZA%20DRUGA%20VPRA%C5%A0ANJA&percent=1.0&postalCode=1000&taxNumber=54561710"></iframe>
+      </div>
       <div>
         {% translate 'Vlogo lahko oddaš tudi s certifikatom na eDavkih' as button_text %}
         {% include 'home/partials/button.html' with button_text=button_text button_color=page.color button_link="#" %}
       </div>
     </div>
-    <div class="basis-4/12"></div>
+    <div class="basis-4/12 sm-max:hidden"></div>
   </div>
-  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16">
+  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 sm-max:block sm-max:px-6 sm-max:py-8">
     <div class="basis-8/12">
       <p class="text-md/8">{% translate 'Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, nagubaj čelo in napni mišice ter se nam javi na ' %}<a href="mailto:vsi@danesjenovdan.si" class="animated-hover-bg">vsi@danesjenovdan.si</a>.</p>
     </div>
-    <div class="basis-4/12"></div>
+    <div class="basis-4/12 sm-max:hidden"></div>
   </div>
 </div>
 
