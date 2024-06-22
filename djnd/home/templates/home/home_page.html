@@ -6,16 +6,16 @@
 {% block content %}
 <div>
   <div class="border-b border-dark last:border-b-0 bg-white">
-    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 sm-max:block sm-max:px-6 sm-max:pt-10">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 sm-max:block sm-max:px-6 sm-max:pt-8">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
         {% if page.introduction %}
-        <div class="text-xl/[3rem] font-normal xl-max:text-lg" data-introduction="true">
+        <div class="text-xl/[3rem] font-normal xl-max:text-2md" data-introduction="true">
           {{ page.introduction|richtext }}
         </div>
         {% endif %}
       </div>
-      <div class="basis-4/12">
+      <div class="basis-4/12 sm-max:pt-8">
         <h2 class="mt-5 text-center font-semibold text-xl xl-max:text-lg">{{ page.focus_areas_title }}</h2>
         <div class="my-6">
           {% for focus_area in page.focus_areas %}
