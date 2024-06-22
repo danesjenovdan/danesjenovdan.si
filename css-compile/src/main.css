@@ -42,6 +42,11 @@
     --th-primary: theme("colors.lavender");
     --th-primary-light: theme("colors.lavender-light");
   }
+
+  .thin-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--th-primary) var(--th-primary-light);
+  }
 }
 
 @layer base {
