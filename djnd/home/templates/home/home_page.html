@@ -112,8 +112,8 @@
         {% endif %}
       {% endfor %}
 
-      {% if activities.has_next %}
-      <button class="absolute bottom-0 left-0 right-0 mx-auto" hx-trigger="click" hx-get="{% url 'activities-homepage' %}?{{ request.META.QUERY_STRING }}&page={{ activities.next_page_number }}" hx-swap="outerHTML">{% translate "Več aktivnosti" %}</button>
+      {% if page_obj.has_next %}
+      <button class="absolute bottom-0 left-0 right-0 mx-auto" hx-trigger="click" hx-get="{% url 'activities-homepage' %}?{{ request.META.QUERY_STRING }}&page={{ page_obj.next_page_number }}" hx-swap="outerHTML">{% translate "Več aktivnosti" %}</button>
       {% endif %}
     </div>
 

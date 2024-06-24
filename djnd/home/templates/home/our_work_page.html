@@ -66,8 +66,8 @@
         {% include 'home/partials/support_card.html' %}
       {% endif %}
 
-      {% if forloop.last and activities.has_next %}
-        {% include 'home/partials/loader.html' with activity=activity next_page_num=activities.next_page_number %}
+      {% if forloop.last and page_obj.has_next %}
+        {% include 'home/partials/loader.html' with activity=activity next_page_num=page_obj.next_page_number %}
       {% endif %}
 
     {% endfor %}
