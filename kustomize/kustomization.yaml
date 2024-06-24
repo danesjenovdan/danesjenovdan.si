@@ -8,4 +8,4 @@ resources:
 images:
   - name: danesjenovdan
     newName: rg.fr-par.scw.cloud/djnd/danesjenovdan
-    newTag: '0e932f87e22a7958c112f304b369476d0e9e74e2'
+    newTag: '0bee0f17407ded7d686d06103e988d2add357e32'
