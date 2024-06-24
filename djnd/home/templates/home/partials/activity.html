@@ -24,12 +24,12 @@
     <div class="mt-5 mb-4">
       <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
         class="
-          text-2xl/[1.15] font-semibold xl-max:text-lg/[1.15]
+          text-3lg font-semibold xl-max:text-lg/[1.15]
           bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out
         "
       >{{ activity.localized.title }}</a>
     </div>
-    <p class="text-md mb-4 xl-max:text-smd">{{ activity.localized.description }}</p>
+    <p class="text-base/snug mb-4">{{ activity.localized.description }}</p>
     {% if activity.date %}
     <p class="font-mono ">{{ activity.localized.date }}</p>
     {% endif %}
