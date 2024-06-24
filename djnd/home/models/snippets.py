@@ -1,7 +1,8 @@
+from django import forms
 from django.db import models
-
-from wagtail.models import TranslatableMixin
+from wagtail.admin.panels import FieldPanel
 from wagtail.fields import RichTextField
+from wagtail.models import TranslatableMixin
 
 
 class ActivityCategory(TranslatableMixin, models.Model):
@@ -42,14 +43,14 @@ class ActivityProject(TranslatableMixin, models.Model):
 
 class Activity(TranslatableMixin, models.Model):
     title = models.TextField()
-    link = models.URLField(verbose_name='Zunanja povezava', null=True, blank=True)
+    link = models.URLField(verbose_name="Zunanja povezava", null=True, blank=True)
     page = models.ForeignKey(
-        'wagtailcore.Page',
+        "wagtailcore.Page",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+',
-        verbose_name='Povezava na podstran'
+        related_name="+",
+        verbose_name="Povezava na podstran",
     )
     description = models.TextField(blank=True)
     image = models.ForeignKey(
@@ -65,6 +66,20 @@ class Activity(TranslatableMixin, models.Model):
     date = models.DateField(null=True, blank=True)
     note = RichTextField(null=True, blank=True)
     promoted = models.BooleanField(default=False)
+
+    panels = [
+        FieldPanel("title"),
+        FieldPanel("link"),
+        FieldPanel("page"),
+        FieldPanel("description"),
+        FieldPanel("image"),
+        FieldPanel("pillar_page", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("category", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("project", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("date"),
+        FieldPanel("note"),
+        FieldPanel("promoted"),
+    ]
 
     def __str__(self) -> str:
         return self.title
@@ -98,6 +113,14 @@ class TeamMember(TranslatableMixin, models.Model):
     )
     categories = models.ManyToManyField(TeamMemberCategory, blank=True)
 
+    panels = [
+        FieldPanel("name"),
+        FieldPanel("email"),
+        FieldPanel("role"),
+        FieldPanel("image"),
+        FieldPanel("categories", widget=forms.CheckboxSelectMultiple),
+    ]
+
     def __str__(self) -> str:
         return self.name
 
@@ -107,7 +130,11 @@ class TeamMember(TranslatableMixin, models.Model):
 
 
 class Promoted(TranslatableMixin, models.Model):
-    title = models.TextField(blank=True, verbose_name="Naslov", help_text="Če so polja prazna in obstaja Aktivnost, se uporabijo podatki Aktivnosti")
+    title = models.TextField(
+        blank=True,
+        verbose_name="Naslov",
+        help_text="Če so polja prazna in obstaja Aktivnost, se uporabijo podatki Aktivnosti",
+    )
     description = models.CharField(
         blank=True,
         verbose_name="Opis",
