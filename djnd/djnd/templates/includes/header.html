@@ -1,7 +1,8 @@
 {% load static i18n wagtailcore_tags wagtailimages_tags djnd_extras %}
 
 <div class="flex px-6 py-4 justify-between">
-  <a href="/" class="block">
+  {% wagtail_site as current_site %}
+  <a href="{% pageurl current_site.root_page.localized %}" class="block">
     <img src="{% static "img/djnd-logo-dark.svg" %}" alt="Danes je nov dan" class="h-9">
   </a>
 

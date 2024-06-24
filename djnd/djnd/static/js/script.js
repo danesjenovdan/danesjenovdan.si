@@ -76,6 +76,7 @@ function homepageLinkedSentences() {
     iconEl.style.width = "1.25em";
     iconEl.style.height = "1.25em";
     iconEl.style.marginTop = "-0.25em";
+    iconEl.style.overflow = "hidden";
     const iconContainer = document.createElement("span");
     iconContainer.appendChild(iconEl);
     iconContainer.appendChild(document.createTextNode(" "));

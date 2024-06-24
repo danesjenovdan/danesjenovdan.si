@@ -6,18 +6,24 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>
-            {% block title %}
-            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-            {% wagtail_site as current_site %}
-            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
-            {% endblock %}
-        </title>
-        {% if page.search_description %}
-        <meta name="description" content="{{ page.search_description }}" />
-        {% endif %}
+        {% wagtail_site as current_site %}
+        <title>                             {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}{% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}</title>
+        <meta name="twitter:title" content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}{% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}">
+        <meta property="og:title"  content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}{% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}">
+
+        <meta name="description"         content="{% if page.search_description %}{{ page.search_description }}{% else %}Danes je nov dan z delom na presečišču digitalnih tehnologij in demokratičnih procesov sooblikuje bolj vključujočo in pravičnejšo skupno prihodnost.{% endif %}">
+        <meta property="og:description"  content="{% if page.search_description %}{{ page.search_description }}{% else %}Danes je nov dan z delom na presečišču digitalnih tehnologij in demokratičnih procesov sooblikuje bolj vključujočo in pravičnejšo skupno prihodnost.{% endif %}">
+        <meta name="twitter:description" content="{% if page.search_description %}{{ page.search_description }}{% else %}Danes je nov dan z delom na presečišču digitalnih tehnologij in demokratičnih procesov sooblikuje bolj vključujočo in pravičnejšo skupno prihodnost.{% endif %}">
+
+        <meta property="og:image"  content="https://danesjenovdan.si{% static 'favicons/og.jpg' %}">
+        <meta name="twitter:image" content="https://danesjenovdan.si{% static 'favicons/og.jpg' %}">
+
+        <meta name="author" content="danesjenovdan">
+        <meta property="og:site_name" content="Danes je nov dan">
+        <meta name="twitter:creator" content="@danesjenovdan">
+
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
 
         <link rel="icon" type="image/svg+xml" href="{% static 'favicons/favicon.svg' %}">
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png' %}">

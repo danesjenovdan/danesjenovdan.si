@@ -113,10 +113,10 @@ class HomePage(BasePage):
         ordered_activities = activities.order_by("-date")
 
         paginator = Paginator(ordered_activities, 7)
-        page = request.GET.get("page")
-        activities = paginator.get_page(page)
+        activities = paginator.get_page(1)
 
-        context["activities"] = activities
+        context["page_obj"] = activities
+        context["activities"] = activities.object_list
 
         return context
 
@@ -192,11 +192,12 @@ class PillarPage(BasePage):
         ).order_by("-date")
 
         paginator = Paginator(ordered_activities, 7)
-        page = request.GET.get("page")
-        activities = paginator.get_page(page)
+        activities = paginator.get_page(1)
 
         # get activities for this pillar
-        context["activities"] = activities
+        context["page_obj"] = activities
+        context["activities"] = activities.object_list
+        context["loader_extra_query_params"] = f"&pillars={self.id}"
 
         return context
 
@@ -511,9 +512,10 @@ class OurWorkPage(BasePage):
         ordered_activities = filtered_activities.order_by("-date")
 
         paginator = Paginator(ordered_activities, 7)
-        page = request.GET.get("page")
-        activities = paginator.get_page(page)
+        activities = paginator.get_page(1)
 
         context["form"] = form
-        context["activities"] = activities
+        context["page_obj"] = activities
+        context["activities"] = activities.object_list
+
         return context

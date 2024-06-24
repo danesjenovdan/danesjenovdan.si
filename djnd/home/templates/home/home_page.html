@@ -65,7 +65,8 @@
     <div class="flex justify-between mb-6">
       <h2 class="mb-2 text-2xl font-semibold xl-max:text-lg">Zadnje aktivnosti</h2>
       {% if settings.home.GeneralSettings.our_work_page %}
-      <form id="our-work-form" action="{{ current_site }}" method="get" class="flex items-center sm-max:hidden">
+      {% wagtail_site as current_site %}
+      <form id="our-work-form" action="{% pageurl current_site.root_page.localized %}" method="get" class="flex items-center sm-max:hidden">
 
         <div class="me-2">
           <input type="radio" name="filter" value="all" class="peer hidden" id="id_all" onchange="filterOurWork()" {% if request.GET.filter == 'all' or not request.GET.filter %}checked{% endif %}>
@@ -111,8 +112,8 @@
         {% endif %}
       {% endfor %}
 
-      {% if activities.has_next %}
-      <button class="absolute bottom-0 left-0 right-0 mx-auto" hx-trigger="click" hx-get="{% url 'activities-homepage' %}?{{ request.META.QUERY_STRING }}&page={{ activities.next_page_number }}" hx-swap="outerHTML">{% translate "Več aktivnosti" %}</button>
+      {% if page_obj.has_next %}
+      <button class="absolute bottom-0 left-0 right-0 mx-auto" hx-trigger="click" hx-get="{% url 'activities-homepage' %}?{{ request.META.QUERY_STRING }}&page={{ page_obj.next_page_number }}" hx-swap="outerHTML">{% translate "Več aktivnosti" %}</button>
       {% endif %}
     </div>
 
