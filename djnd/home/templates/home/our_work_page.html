@@ -1,6 +1,5 @@
 {% extends "wrapper.html" %}
 {% load i18n static wagtailcore_tags wagtailimages_tags %}
-{% wagtail_site as current_site %}
 
 {% block body_class %}template-ourworkpage theme-color-{{ page.color }}{% endblock %}
 
@@ -9,7 +8,7 @@
 <div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
   <h1 class="mb-6 text-4xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
 
-  <form id="our-work-form" action="{{ current_site }}" method="get" class="mb-8">
+  <form id="our-work-form" action="{% pageurl page.localized %}" method="get" class="mb-8">
 
     <div class="mb-2">
       <p class="font-mono">{% translate "Filtriraj po tematskih sklopih" %}</p>
