@@ -9,10 +9,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - danesjenovdan.lb.djnd.si
+        - danesjenovdan.si
       secretName: danesjenovdan-tls
   rules:
-    - host: danesjenovdan.lb.djnd.si
+    - host: danesjenovdan.si
       http:
         paths:
           - path: /
