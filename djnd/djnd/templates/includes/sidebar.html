@@ -28,9 +28,9 @@
       <li class="uppercase text-smd/5 font-medium">
         <div class="relative flex items-start gap-1">
           {% if pillar_page.value.localized.icon %}
-            {% image pillar_page.value.localized.icon fill-48x48 class="w-6 mt-0.5 overflow-hidden" %}
+            {% image pillar_page.value.localized.icon fill-48x48 class="w-6 mt-0.5 shrink-0 overflow-hidden" %}
           {% elif pillar_page.value.localized.image %}
-            {% image pillar_page.value.localized.image fill-48x48 class="w-6 mt-0.5 overflow-hidden" %}
+            {% image pillar_page.value.localized.image fill-48x48 class="w-6 mt-0.5 shrink-0 overflow-hidden" %}
           {% endif %}
           <a
             href="{% pageurl pillar_page.value.localized %}"
