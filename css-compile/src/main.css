@@ -157,6 +157,7 @@
   }
 
   .rich-text a,
+  .rich-text-mono a,
   a.animated-hover-bg {
     @apply underline bg-right-bottom bg-[length:0%_100%] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_100%] transition-[background-size] duration-500 ease-out;
   }

@@ -100,13 +100,13 @@ class HomePage(BasePage):
             activities = Activity.objects.filter(locale=slovenian_locale, promoted=True)
         elif filter == "newsletter":
             try:
-                newsletter_category = ActivityCategory.objects.get(name="Občasnik")
+                newsletter_project = ActivityProject.objects.get(name="Občasnik")
                 activities = Activity.objects.filter(
                     locale=slovenian_locale,
-                    category=newsletter_category,
+                    project=newsletter_project,
                 )
             except:
-                activities = Activity.objects.filter(locale=slovenian_locale)
+                activities = Activity.objects.none()
         else:
             activities = Activity.objects.filter(locale=slovenian_locale)
 

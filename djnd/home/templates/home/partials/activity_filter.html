@@ -1,4 +1,4 @@
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
 <div>
   <input
@@ -30,6 +30,9 @@
     {% firstof filter.localized.name filter.localized.title as title %}
     <span class="-mt-0.5 leading-[16px]">{{ title }}</span>
   {% else %}
+    {% if filter_image %}
+    <img class="h-[14px] w-auto me-2 overflow-hidden" height="32px" src="{% static filter_image %}" alt="">
+    {% endif %}
     <span class="-mt-0.5 leading-[16px]">{{ filter_title }}</span>
   {% endif %}
   </label>

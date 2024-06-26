@@ -25,13 +25,11 @@ document.addEventListener("alpine:init", () => {
         .then((data) => {
           this.loading = false;
           if (data.msg === "mail sent") {
-            alert(
-              '{% translate "Hvala! Poslali smo ti sporočilo s povezavo, na kateri lahko potrdiš prijavo!" %}'
-            );
+            alert(window.NEWSLETTER_TEXT_SUCCESS);
             document.getElementById(`subscribe-email-${id}`).value = "";
             document.getElementById(`subscribe-consent-${id}`).checked = false;
           } else {
-            alert('{% translate "Prišlo je do napake :(" %}');
+            alert(window.NEWSLETTER_TEXT_FAILURE);
           }
         })
         .catch((error) => {

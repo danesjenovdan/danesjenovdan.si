@@ -29,12 +29,12 @@
         "
       >{{ activity.localized.title }}</a>
     </div>
-    <p class="text-base/snug mb-4">{{ activity.localized.description }}</p>
+    <p class="text-base/snug">{{ activity.localized.description }}</p>
     {% if activity.date %}
-    <p class="font-mono ">{{ activity.localized.date }}</p>
+    <p class="font-mono mt-4">{{ activity.localized.date }}</p>
     {% endif %}
     {% if activity.note %}
-    <div class="font-mono ">{{ activity.localized.note|richtext }}</div>
+    <div class="font-mono rich-text-mono leading-[1.1] mt-4">{{ activity.localized.note|richtext }}</div>
     {% endif %}
   </div>
 </div>
