@@ -60,13 +60,13 @@
   </div>
   {% endfor %}
 
-
+  <a name="activities"></a>
   <div class="max-w-[1280px] mx-auto px-14 pt-16 pb-20 sm-max:block sm-max:px-6 sm-max:pt-8 sm-max:pb-10">
     <div class="flex justify-between mb-6">
       <h2 class="mb-2 text-2xl font-semibold xl-max:text-lg">Zadnje aktivnosti</h2>
       {% if settings.home.GeneralSettings.our_work_page %}
       {% wagtail_site as current_site %}
-      <form id="our-work-form" action="{% pageurl current_site.root_page.localized %}" method="get" class="flex items-center sm-max:hidden">
+      <form id="our-work-form" action="{% pageurl current_site.root_page.localized %}#activities" method="get" class="flex items-center sm-max:hidden">
 
         <div class="me-2">
           <input type="radio" name="filter" value="all" class="peer hidden" id="id_all" onchange="filterOurWork()" {% if request.GET.filter == 'all' or not request.GET.filter %}checked{% endif %}>
