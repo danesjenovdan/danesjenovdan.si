@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar %}
+{% load static i18n wagtailcore_tags wagtailuserbar %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,5 +47,10 @@
         {% wagtailuserbar %}
 
         {% block wrapper_content %}{% endblock %}
+
+        <script>
+            window.NEWSLETTER_TEXT_SUCCESS = '{% translate "Hvala! Poslali smo ti sporočilo s povezavo, na kateri lahko potrdiš prijavo!" %}';
+            window.NEWSLETTER_TEXT_FAILURE = '{% translate "Prišlo je do napake :(" %}'
+        </script>
     </body>
 </html>
