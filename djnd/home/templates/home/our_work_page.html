@@ -42,7 +42,7 @@
         <div class="py-3 overflow-x-auto thin-scroll">
           <div class="flex gap-2 px-6 w-max">
             {% translate "Izpostavljeno" as filter_title %}
-            {% include "home/partials/activity_filter.html" with filter_title=filter_title filter_name="promoted" filter_value=form.promoted.value %}
+            {% include "home/partials/activity_filter.html" with filter_title=filter_title filter_name="promoted" filter_value=form.promoted.value filter_image='img/filter-izpostavljeno.png' %}
             {% for project in projects %}
             {% include "home/partials/activity_filter.html" with filter=project filter_name="projects" filter_values=form.projects.value %}
             {% endfor %}
