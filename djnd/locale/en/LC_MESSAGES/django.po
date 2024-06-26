@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-21 09:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: djnd/templates/includes/footer.html:29
+msgid "Naroči se na Občasnik, naš mesečni novičnik"
+msgstr "Subscribe to Občasnik, our monthly newsletter"
+
+#: djnd/templates/includes/footer.html:37
+msgid "Vsa naša koda je dostopna pod CC0 licenco. Najdeš jo na Githubu"
+msgstr "All our code is available on GitHub under the CC0 licence"
+
+#: djnd/templates/includes/footer.html:41
+msgid "Politika zasebnosti in varstva osebnih podatkov"
+msgstr "Privacy and protection of personal data"
+
+#: djnd/templates/includes/footer.html:46
+msgid "Uredi svoje naročnine na novičnike"
+msgstr "Manage your email subscriptions with Danes je nov dan"
+
+#: djnd/templates/includes/sidebar.html:76 shop/templates/shop/shop.html:10
+msgid "Trgovina"
+msgstr "Shop"
+
+#: home/templates/home/blocks/contact_block.html:8
+msgid "KONTAKT"
+msgstr "Contact"
+
+#: home/templates/home/blocks/contact_block.html:10
+msgid "Danes je nov dan"
+msgstr "Danes je nov dan"
+
+#: home/templates/home/blocks/contact_block.html:11
+msgid "Inštitut za druga vprašanja"
+msgstr "Inštitut za druga vprašanja"
+
+#: home/templates/home/blocks/contact_block.html:23
+msgid "(med 10. in 16. uro)"
+msgstr "(10.00–16.00)"
+
+#: home/templates/home/blocks/contact_block.html:28
+#: home/templates/home/blocks/newsletter_block.html:8
+msgid "BODI NA TEKOČEM"
+msgstr "Stay in touch"
+
+#: home/templates/home/blocks/contact_block.html:32
+#: home/templates/home/blocks/newsletter_block.html:12
+msgid "Prijavi se na naš Občasnik!"
+msgstr "Subscribe to Občasnik, our monthly newsletter"
+
+#: home/templates/home/blocks/donors_block.html:8
+msgid "Sedanji"
+msgstr "Current"
+
+#: home/templates/home/blocks/donors_block.html:13
+msgid "Pretekli"
+msgstr "Past"
+
+#: home/templates/home/blocks/financial_information_block.html:7
+msgid "Letna vsebinska in finančna poročila"
+msgstr "Annual narrative and financial reports"
+
+#: home/templates/home/blocks/promoted_block.html:9
+msgid "IZPOSTAVLJENO"
+msgstr "In the spotlight"
+
+#: home/templates/home/blocks/support_block.html:10
+#: home/templates/home/partials/support_card.html:4
+msgid "Za nadaljnje neodvisno delovanje potrebujemo tudi"
+msgstr "For our continuous independent work we need"
+
+#: home/templates/home/blocks/support_block.html:11
+#: home/templates/home/partials/support_card.html:5
+msgid "tvojo podporo"
+msgstr "your support!"
+
+#: home/templates/home/blocks/support_block.html:14
+#: home/templates/home/partials/support_card.html:8
+msgid "Podpri nas!"
+msgstr "Donate"
+
+#: home/templates/home/blog_page.html:54
+msgid "Povezani zapisi"
+msgstr "Worth your attention"
+
+#: home/templates/home/blog_page.html:55
+#: home/templates/home/newsletter_page.html:75
+msgid "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega"
+msgstr "Invitations, tips, suggestions, and warnings"
+
+#: home/templates/home/blog_page.html:77
+#: home/templates/home/newsletter_page.html:92
+msgid "Prejšnji občasniki"
+msgstr "Archive"
+
+#: home/templates/home/home_page.html:73
+msgid "Vse"
+msgstr "All"
+
+#: home/templates/home/home_page.html:80
+#: home/templates/home/newsletter_page.html:74
+#: home/templates/home/our_work_page.html:55
+msgid "Izpostavljeno"
+msgstr "Featured"
+
+#: home/templates/home/home_page.html:87
+#: home/templates/home/newsletter_list_page.html:30
+#: home/templates/home/newsletter_list_page.html:50
+#: home/templates/home/partials/newsletter_card.html:5
+msgid "Občasnik"
+msgstr "Newsletter"
+
+#: home/templates/home/home_page.html:92
+msgid "Vsi filtri"
+msgstr "More filters"
+
+#: home/templates/home/home_page.html:104
+msgid "Več aktivnosti"
+msgstr "More"
+
+#: home/templates/home/newsletter_list_page.html:22
+msgid "Preberi pretekle občasnike!"
+msgstr "Check all!"
+
+#: home/templates/home/newsletter_page.html:49
+msgid "Danes je nov dan novice"
+msgstr "News from Danes je nov dan"
+
+#: home/templates/home/newsletter_page.html:50
+msgid "Preveri, kaj smo počeli pretekli mesec"
+msgstr "Last month’s highlights"
+
+#: home/templates/home/our_work_page.html:15
+msgid "Filtriraj po tematskih sklopih"
+msgstr "Filter by content"
+
+#: home/templates/home/our_work_page.html:32
+msgid "Filtriraj po kategorijah"
+msgstr "Filter by categories"
+
+#: home/templates/home/our_work_page.html:49
+msgid "Filtriraj po projektih"
+msgstr "Filter by projects"
+
+#: home/templates/home/partials/newsletter_card.html:5
+msgid "Naroči se na"
+msgstr "Subscribe to"
+
+#: home/templates/home/partials/newsletter_card.html:5
+msgid ", naš mesečni novičnik"
+msgstr ", our monthly newsletter"
+
+#: home/templates/home/partials/newsletter_card.html:6
+msgid "Občasnik vsak mesec prinaša izbor naših razmišljanj, projektov, javnih pojavljanj in sodelovanj ter priporočil. Je kratek, a poln vsebine, udaren, a nevsiljiv – in vedno pride ob pravem času."
+msgstr "Each month, we curate a selection of our reflections, projects, public appearances, collaborations and recommendations for reading and action. Občasnik is concise yet substantial, effective yet unobtrusive — and always timely!"
+
+#: home/templates/home/partials/newsletter_form.html:5
+msgid "Vpiši svoj e-naslov"
+msgstr "Enter your email address"
+
+#: home/templates/home/partials/newsletter_form.html:10
+msgid "Strinjam se, da mi Danes je nov dan po e-pošti pošilja Občasnik in druga obvestila."
+msgstr "I agree to receive Občasnik and other notifications from Danes je nov dan by email."
+
+#: home/templates/home/partials/newsletter_form.html:15
+msgid "Naroči se"
+msgstr "Subscribe"
+
+#: home/templates/home/pillar_page.html:45
+msgid "Vse aktivnosti"
+msgstr "All"
+
+#: home/templates/home/support_page.html:32
+msgid "Vsak mesec"
+msgstr "Monthly"
+
+#: home/templates/home/support_page.html:33
+msgid "Ker nas želiš podpirati vsak mesec!"
+msgstr "Because you want to support us every month!"
+
+#: home/templates/home/support_page.html:44
+msgid "Enkrat"
+msgstr "One time"
+
+#: home/templates/home/support_page.html:45
+msgid "Ker imaš ravno prav evrov viška za boljši jutri!"
+msgstr "Because you have just enough spare euros for a better tomorrow!"
+
+#: home/templates/home/support_page.html:60
+msgid "Nameniš pa nam lahko tudi 1 %% dohodnine! Tebe nič ne stane, nam pa pomeni veliko."
+msgstr "You can also give us 1% of income tax! It costs you nothing, but it means a lot to us."
+
+#: home/templates/home/support_page.html:70
+msgid "Vlogo lahko oddaš tudi s certifikatom na eDavkih"
+msgstr "You can also submit an application with a certificate on eDavki"
+
+#: home/templates/home/support_page.html:78
+msgid "Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, nagubaj čelo in napni mišice ter se nam javi na "
+msgstr "Just because you're broke doesn't mean you can't help us. Roll up your sleeves, think hard, flex your muscles and contact us at "
+
+#: shop/templates/shop/shop.html:11
+msgid "Kupi kaj in podpri naše delo."
+msgstr "Buy something and support our work."
