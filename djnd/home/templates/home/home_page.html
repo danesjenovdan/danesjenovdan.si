@@ -66,9 +66,9 @@
       <h2 class="mb-2 text-2xl font-semibold xl-max:text-lg">Zadnje aktivnosti</h2>
       {% if settings.home.GeneralSettings.our_work_page %}
       {% wagtail_site as current_site %}
-      <form id="our-work-form" action="{% pageurl current_site.root_page.localized %}#activities" method="get" class="flex items-center sm-max:hidden">
+      <form id="our-work-form" action="{% pageurl current_site.root_page.localized %}#activities" method="get" class="flex items-center">
 
-        <div class="me-3">
+        <div class="me-3 sm-max:hidden">
           <input type="radio" name="filter" value="all" class="peer hidden" id="id_all" onchange="filterOurWork()" {% if request.GET.filter == 'all' or not request.GET.filter %}checked{% endif %}>
           <label
             for="id_all"
@@ -82,7 +82,7 @@
           </label>
         </div>
 
-        <div class="me-3">
+        <div class="me-3 sm-max:hidden">
           <input type="radio" name="filter" value="promoted" class="peer hidden" id="id_promoted" onchange="filterOurWork()" {% if request.GET.filter == 'promoted' %}checked{% endif %}>
           <label
             for="id_promoted"
@@ -97,7 +97,7 @@
           </label>
         </div>
 
-        <div class="me-3">
+        <div class="me-3 sm-max:hidden">
           <input type="radio" name="filter" value="newsletter" class="peer hidden" id="id_newsletter" onchange="filterOurWork()" {% if request.GET.filter == 'newsletter' %}checked{% endif %}>
           <label
             for="id_newsletter"
