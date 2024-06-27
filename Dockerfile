@@ -74,4 +74,6 @@ COPY --chown=wagtail:wagtail --from=css-compile /app/djnd/djnd/static/css ./djnd
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
 
+RUN python manage.py compilemessages
+
 CMD gunicorn djnd.wsgi:application -b 0.0.0.0:8000 --log-level DEBUG
