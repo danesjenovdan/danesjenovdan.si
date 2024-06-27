@@ -101,7 +101,9 @@
     </div>
     <div class="grid grid-cols-3 gap-4 pb-[80px] relative sm-max:grid-cols-1">
       {% for activity in activities %}
-        {% include 'home/partials/activity.html' with activity=activity %}
+        {% if activity|has_english_translation:request.LANGUAGE_CODE %}
+          {% include 'home/partials/activity.html' with activity=activity %}
+        {% endif %}
 
         {% if forloop.counter == 3 %}
           {% include 'home/partials/newsletter_card.html' with id=forloop.counter %}

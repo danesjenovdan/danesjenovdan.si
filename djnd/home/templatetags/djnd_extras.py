@@ -32,6 +32,14 @@ def get_translated_m2m_ids(value, field_name):
 
     return [obj.id for obj in getattr(value, field_name).all()]
 
+@register.filter
+def has_english_translation(value, field_name):
+    if field_name == "en":
+        en = Locale.objects.get(language_code="en")
+        return value.get_translation_or_none(en)
+    else:
+        return True
+
 
 @register.filter
 def debug_print(value):
