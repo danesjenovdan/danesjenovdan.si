@@ -64,6 +64,7 @@ module.exports = {
       },
       animation: {
         'arrow-hover': 'arrowHover 1s ease-in-out',
+        'arrow-hover-down': 'arrowHoverDown 1s ease-in-out',
       },
       keyframes: {
         arrowHover: {
@@ -73,6 +74,14 @@ module.exports = {
           '31%': { transform: 'translateX(-1px)' },
           '43%': { transform: 'translateX(1px)' },
           '50%': { transform: 'translateX(0)' },
+        },
+        arrowHoverDown: {
+          '0%': { transform: 'translateY(0)' },
+          '6%': { transform: 'translateY(-3px)' },
+          '18%': { transform: 'translateY(2px)' },
+          '31%': { transform: 'translateY(-1px)' },
+          '43%': { transform: 'translateY(1px)' },
+          '50%': { transform: 'translateY(0)' },
         },
       },
     },
