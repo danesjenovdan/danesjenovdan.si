@@ -1,7 +1,9 @@
-{% load i18n %}
+{% load i18n djnd_extras %}
 
 {% for activity in activities %}
-  {% include 'home/partials/activity.html' with activity=activity %}
+  {% if activity|has_english_translation:request.LANGUAGE_CODE %}
+    {% include 'home/partials/activity.html' with activity=activity %}
+  {% endif %}
 {% endfor %}
 
 {% if page_obj.has_next %}
