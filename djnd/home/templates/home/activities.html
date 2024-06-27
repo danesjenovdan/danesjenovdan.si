@@ -2,9 +2,7 @@
 
 {% for activity in activities %}
 
-  {% if activity|has_english_translation:request.LANGUAGE_CODE %}
-    {% include 'home/partials/activity.html' with activity=activity %}
-  {% endif %}
+  {% include 'home/partials/activity.html' with activity=activity %}
 
   {% if forloop.last and page_obj.has_next %}
     {% include 'home/partials/loader.html' with activity=activity next_page_num=page_obj.next_page_number %}
