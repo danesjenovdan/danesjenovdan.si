@@ -56,9 +56,7 @@
   <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
     {% for activity in activities %}
 
-      {% if activity|has_english_translation:request.LANGUAGE_CODE %}
       {% include 'home/partials/activity.html' with activity=activity %}
-      {% endif %}
 
       {% if forloop.counter == 3 %}
         {% include 'home/partials/newsletter_card.html' with id=forloop.counter %}

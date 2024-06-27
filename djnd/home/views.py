@@ -37,6 +37,12 @@ class ActivityView(ListView):
             
             if promoted:
                 filtered_activities = filtered_activities.filter(promoted=True)
+        
+        # get only activities that have english translation
+        if self.request.LANGUAGE_CODE == "en":
+            locale = Locale.get_active()
+            en_activities_translation_keys = Activity.objects.filter(locale=locale).values_list("translation_key", flat=True)
+            filtered_activities = filtered_activities.filter(translation_key__in=en_activities_translation_keys)
 
         activities = filtered_activities.order_by("-date")
 
@@ -62,6 +68,12 @@ class ActivityHomepageView(ListView):
         elif filter == "newsletter":
             newsletter_category = ActivityCategory.objects.get(name="Občasnik")
             filtered_activities = Activity.objects.filter(locale=slovenian_locale, category=newsletter_category)
+
+        # get only activities that have english translation
+        if self.request.LANGUAGE_CODE == "en":
+            locale = Locale.get_active()
+            en_activities_translation_keys = Activity.objects.filter(locale=locale).values_list("translation_key", flat=True)
+            filtered_activities = filtered_activities.filter(translation_key__in=en_activities_translation_keys)
 
         activities = filtered_activities.order_by("-date")
 
