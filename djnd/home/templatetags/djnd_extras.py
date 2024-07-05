@@ -1,5 +1,5 @@
 from django import template
-from wagtail.models import Locale
+from wagtail.models import Locale, Page
 
 register = template.Library()
 
@@ -32,6 +32,7 @@ def get_translated_m2m_ids(value, field_name):
 
     return [obj.id for obj in getattr(value, field_name).all()]
 
+
 @register.filter
 def has_english_translation(value, field_name):
     if field_name == "en":
@@ -42,8 +43,13 @@ def has_english_translation(value, field_name):
 
 
 @register.filter
+def is_page(value):
+    return isinstance(value, Page)
+
+
+@register.filter
 def debug_print(value):
-    print(value)
+    print(f"~~{value}~~")
     print(type(value))
     # print(vars(value))
     return value

@@ -65,15 +65,7 @@
     <p class="text-md mb-8">{% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" %}</p>
     <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
         {% for article in page.promoted %}
-        <div class="border border-dark">
-            <a href="{{ article.value.link }}" target="_blank">
-              {% image article.value.image width-300 class="w-full h-[180px] object-cover" %}
-            </a>
-            <div class="border-t border-dark p-5 pb-2">
-              <a href="{{ article.value.link }}" target="_blank" class="block text-lg font-semibold mb-2 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ article.value.name }}</a>
-              <p class="text-sm mb-6">{{ article.value.description }}</p>
-            </div>
-        </div>
+          {% include "home/partials/blog_activity.html" with activity=article.value %}
         {% endfor %}
     </div>
   </div>

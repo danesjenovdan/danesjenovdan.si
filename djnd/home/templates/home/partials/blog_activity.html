@@ -1,0 +1,24 @@
+{% load i18n static wagtailcore_tags wagtailimages_tags djnd_extras %}
+
+<div class="border border-dark flex flex-col relative">
+  <a href="{% if activity|is_page %}{% pageurl activity %}{% else %}{{ activity.link }}{% endif %}" target="_blank" class="peer">
+    {% if activity.thumbnail %}
+    {% image activity.thumbnail fill-1200x630 class="w-full h-auto object-cover" %}
+    {% elif activity.image %}
+    {% image activity.image fill-1200x630 class="w-full h-auto object-cover" %}
+    {% endif %}
+  </a>
+  <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
+    <div class="mb-4">
+      {% firstof activity.name activity.title as blog_title %}
+      <a href="{% if activity|is_page %}{% pageurl activity %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
+        class="
+          text-lg/[1.15] font-semibold
+          bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out
+        "
+      >{{ blog_title }}</a>
+    </div>
+    {% firstof activity.short_description activity.description as blog_description %}
+    <p class="text-sm/[22px]">{{ blog_description }}</p>
+  </div>
+</div>
