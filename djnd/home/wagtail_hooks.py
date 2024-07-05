@@ -1,6 +1,3 @@
-from wagtail.snippets.models import register_snippet
-from wagtail.snippets.views.snippets import SnippetViewSet
-
 from home.models import (
     Activity,
     ActivityCategory,
@@ -9,6 +6,8 @@ from home.models import (
     TeamMember,
     TeamMemberCategory,
 )
+from wagtail.snippets.models import register_snippet
+from wagtail.snippets.views.snippets import SnippetViewSet
 
 
 class ActivityViewSet(SnippetViewSet):
@@ -23,8 +22,13 @@ class ActivityViewSet(SnippetViewSet):
     }
 
 
+class ActivityCategoryViewSet(SnippetViewSet):
+    model = ActivityCategory
+    list_display = ["name", "order"]
+
+
 register_snippet(ActivityViewSet)
-register_snippet(ActivityCategory)
+register_snippet(ActivityCategoryViewSet)
 register_snippet(ActivityProject)
 register_snippet(Promoted)
 register_snippet(TeamMember)
