@@ -9,36 +9,26 @@
   <div class="border-b border-dark bg-th-primary-light">
     <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 pb-10 sm-max:block sm-max:px-6 sm-max:pt-10 sm-max:pb-5">
       <div class="basis-8/12">
-        {% for pillar in page.pillar_page.all %}
-        <span class="bg-th-primary-light text-sm rounded-full px-3 me py-1 mb-4 inline-flex items-center font-mono border border-dark">
-          {% if pillar.icon %}
-          {% image pillar.icon fill-32x32 class="w-4 me-2" %}
-          {% endif %}
-          {{ pillar.title }}
-        </span>
-        {% endfor %}
-        {% for category in page.category.all %}
-        <span class="bg-th-primary-light text-sm rounded-full px-3 py-1 mb-4 inline-flex items-center font-mono border border-dark">
-          {% if category.icon %}
-          {% image category.icon fill-32x32 class="w-4 me-2" %}
-          {% endif %}
-          {{ category.name }}
-        </span>
-        {% endfor %}
-        {% for project in page.project.all %}
-        <span class="bg-th-primary-light text-sm rounded-full px-3 py-1 mb-4 inline-flex items-center font-mono border border-dark">
-          {% if project.icon %}
-          {% image project.icon fill-32x32 class="w-4 me-2" %}
-          {% endif %}
-          {{ project.name }}
-        </span>
-        {% endfor %}
+        {% if settings.home.GeneralSettings.our_work_page %}
+        <div class="flex flex-wrap">
+          {% for tag in page.pillar_page.all %}
+          {% include "home/partials/activity_tag.html" with tag=tag filter_name="pillars" %}
+          {% endfor %}
+          {% for tag in page.category.all %}
+          {% include "home/partials/activity_tag.html" with tag=tag filter_name="categories" %}
+          {% endfor %}
+          {% for tag in page.project.all %}
+          {% include "home/partials/activity_tag.html" with tag=tag filter_name="projects" %}
+          {% endfor %}
+        </div>
+        {% endif %}
+
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
         <div class="rich-text">
           {{ page.introduction|richtext }}
         </div>
       </div>
-      <div class="basis-4/12 sm-max:hidden"></div>
+      <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
     </div>
   </div>
 

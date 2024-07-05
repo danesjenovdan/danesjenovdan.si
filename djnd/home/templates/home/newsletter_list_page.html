@@ -18,13 +18,15 @@
     </div>
   </div>
 
-  <div class="max-w-[1280px] mx-auto px-14 py-16 border-b border-dark sm-max:px-6 sm-max:py-8">
-      <h2 class="text-2xl font-semibold mb-8 xl-max:text-lg sm-max:mb-4">{% translate "Preberi pretekle občasnike!" %}</h2>
-      <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
-          {% for newsletter in newsletters|slice:":3" %}
-            {% include "home/partials/newsletter_activity.html" with activity=newsletter %}
-          {% endfor %}
-      </div>
+  <div class="border-b border-dark">
+    <div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
+        <h2 class="text-2xl font-semibold mb-8 xl-max:text-lg sm-max:mb-4">{% translate "Preberi pretekle občasnike!" %}</h2>
+        <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
+            {% for newsletter in newsletters|slice:":3" %}
+              {% include "home/partials/newsletter_activity.html" with activity=newsletter %}
+            {% endfor %}
+        </div>
+    </div>
   </div>
 
   {% include 'home/blocks/newsletter_block.html' with id=0 color_scheme='red' %}
