@@ -107,7 +107,7 @@ class TeamMemberCategory(TranslatableMixin, models.Model):
         verbose_name_plural = "Vloge članov ekipe"
 
 
-class TeamMember(TranslatableMixin, models.Model):
+class TeamMember(index.Indexed, TranslatableMixin, models.Model):
     name = models.TextField()
     email = models.TextField(blank=True)
     role = models.TextField(blank=True)
@@ -126,6 +126,12 @@ class TeamMember(TranslatableMixin, models.Model):
         FieldPanel("role"),
         FieldPanel("image"),
         FieldPanel("categories", widget=forms.CheckboxSelectMultiple),
+    ]
+
+    search_fields = [
+        index.SearchField("name"),
+        index.AutocompleteField("name"),
+        index.FilterField("locale_id"),
     ]
 
     def __str__(self) -> str:
