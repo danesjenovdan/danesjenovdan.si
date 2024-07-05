@@ -231,7 +231,7 @@ msgid ""
 "Nameniš pa nam lahko tudi 1 %% dohodnine! Tebe nič ne stane, nam pa pomeni "
 "veliko."
 msgstr ""
-"You can also give us 1% of income tax! It costs you nothing, but it means a "
+"You can also give us 1%% of income tax! It costs you nothing, but it means a "
 "lot to us."
 
 #: home/templates/home/support_page.html:73
