@@ -1,0 +1,33 @@
+{% load i18n static wagtailcore_tags wagtailimages_tags %}
+
+<div class="border border-dark flex flex-col relative">
+  <a href="{% pageurl activity %}" target="_blank" class="peer">
+    {% image activity.thumbnail fill-1200x630 class="w-full h-auto object-cover" %}
+  </a>
+  <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
+    {% if settings.home.GeneralSettings.our_work_page %}
+    <div class="flex flex-wrap">
+      {% for tag in activity.pillar_page.all %}
+      {% include "home/partials/activity_tag.html" with tag=tag filter_name="pillars" %}
+      {% endfor %}
+      {% for tag in activity.category.all %}
+      {% include "home/partials/activity_tag.html" with tag=tag filter_name="categories" %}
+      {% endfor %}
+      {% for tag in activity.project.all %}
+      {% include "home/partials/activity_tag.html" with tag=tag filter_name="projects" %}
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="mt-5 mb-4">
+      <a href="{% pageurl activity %}" target="_blank"
+        class="
+          text-3lg font-semibold xl-max:text-lg/[1.15]
+          bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out
+        "
+      >{{ activity.title }}</a>
+    </div>
+    {% if activity.published_at %}
+    <p class="font-mono mt-4">{{ activity.published_at|date:"F Y" }}</p>
+    {% endif %}
+  </div>
+</div>
