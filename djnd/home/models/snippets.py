@@ -3,6 +3,7 @@ from django.db import models
 from wagtail.admin.panels import FieldPanel
 from wagtail.fields import RichTextField
 from wagtail.models import TranslatableMixin
+from wagtail.search import index
 
 
 class ActivityCategory(TranslatableMixin, models.Model):
@@ -41,7 +42,7 @@ class ActivityProject(TranslatableMixin, models.Model):
         verbose_name_plural = "Projekti"
 
 
-class Activity(TranslatableMixin, models.Model):
+class Activity(index.Indexed, TranslatableMixin, models.Model):
     title = models.TextField()
     link = models.URLField(verbose_name="Zunanja povezava", null=True, blank=True)
     page = models.ForeignKey(
@@ -81,6 +82,12 @@ class Activity(TranslatableMixin, models.Model):
         FieldPanel("promoted"),
     ]
 
+    search_fields = [
+        index.SearchField("title"),
+        index.AutocompleteField("title"),
+        index.FilterField("locale_id"),
+    ]
+
     def __str__(self) -> str:
         return self.title
 
@@ -100,7 +107,7 @@ class TeamMemberCategory(TranslatableMixin, models.Model):
         verbose_name_plural = "Vloge članov ekipe"
 
 
-class TeamMember(TranslatableMixin, models.Model):
+class TeamMember(index.Indexed, TranslatableMixin, models.Model):
     name = models.TextField()
     email = models.TextField(blank=True)
     role = models.TextField(blank=True)
@@ -119,6 +126,12 @@ class TeamMember(TranslatableMixin, models.Model):
         FieldPanel("role"),
         FieldPanel("image"),
         FieldPanel("categories", widget=forms.CheckboxSelectMultiple),
+    ]
+
+    search_fields = [
+        index.SearchField("name"),
+        index.AutocompleteField("name"),
+        index.FilterField("locale_id"),
     ]
 
     def __str__(self) -> str:

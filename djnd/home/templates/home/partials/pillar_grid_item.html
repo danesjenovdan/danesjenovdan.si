@@ -3,7 +3,7 @@
 <a
   href="{% if grid_item_page %}{% pageurl grid_item_page %}{% else %}{{ grid_item_url }}{% endif %}"
   class="bg-white flex p-6 group hover:bg-th-primary-light"
-  target="_blank"
+  {% if open_new_tab %}target="_blank"{% endif %}
 >
   <div class="shrink-0 mr-6">
     {% if grid_item_image %}
