@@ -3,6 +3,7 @@ from django.db import models
 from wagtail.admin.panels import FieldPanel
 from wagtail.fields import RichTextField
 from wagtail.models import TranslatableMixin
+from wagtail.search import index
 
 
 class ActivityCategory(TranslatableMixin, models.Model):
@@ -41,7 +42,7 @@ class ActivityProject(TranslatableMixin, models.Model):
         verbose_name_plural = "Projekti"
 
 
-class Activity(TranslatableMixin, models.Model):
+class Activity(index.Indexed, TranslatableMixin, models.Model):
     title = models.TextField()
     link = models.URLField(verbose_name="Zunanja povezava", null=True, blank=True)
     page = models.ForeignKey(
@@ -79,6 +80,12 @@ class Activity(TranslatableMixin, models.Model):
         FieldPanel("date"),
         FieldPanel("note"),
         FieldPanel("promoted"),
+    ]
+
+    search_fields = [
+        index.SearchField("title"),
+        index.AutocompleteField("title"),
+        index.FilterField("locale_id"),
     ]
 
     def __str__(self) -> str:
