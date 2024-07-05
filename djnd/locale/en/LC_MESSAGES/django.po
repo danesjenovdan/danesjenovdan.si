@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 09:01+0000\n"
+"POT-Creation-Date: 2024-07-05 17:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: djnd/templates/base.html:52
+#: djnd/templates/base.html:53
 msgid ""
 "Hvala! Poslali smo ti sporočilo s povezavo, na kateri lahko potrdiš prijavo!"
 msgstr ""
 
-#: djnd/templates/base.html:53
+#: djnd/templates/base.html:54
 msgid "Prišlo je do napake :("
 msgstr ""
 
@@ -47,8 +46,8 @@ msgstr "Manage your email subscriptions with Danes je nov dan"
 msgid "Trgovina"
 msgstr "Shop"
 
-#: home/templates/home/activities-homepage.html:8
-#: home/templates/home/home_page.html:116
+#: home/templates/home/activities-homepage.html:15
+#: home/templates/home/home_page.html:144
 msgid "Več aktivnosti"
 msgstr "More"
 
@@ -86,7 +85,7 @@ msgstr "Current"
 msgid "Pretekli"
 msgstr "Past"
 
-#: home/templates/home/blocks/financial_information_block.html:7
+#: home/templates/home/blocks/financial_information_block.html:12
 msgid "Letna vsebinska in finančna poročila"
 msgstr "Annual narrative and financial reports"
 
@@ -109,50 +108,53 @@ msgstr "your support!"
 msgid "Podpri nas!"
 msgstr "Donate"
 
-#: home/templates/home/blog_page.html:54
+#: home/templates/home/blog_page.html:44
 msgid "Povezani zapisi"
 msgstr "Worth your attention"
 
-#: home/templates/home/blog_page.html:55
-#: home/templates/home/newsletter_page.html:75
+#: home/templates/home/blog_page.html:45
+#: home/templates/home/newsletter_page.html:65
 msgid "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega"
 msgstr "Invitations, tips, suggestions, and warnings"
 
-#: home/templates/home/blog_page.html:77
-#: home/templates/home/newsletter_page.html:92
+#: home/templates/home/blog_page.html:59
+#: home/templates/home/newsletter_page.html:74
 msgid "Prejšnji občasniki"
 msgstr "Archive"
 
-#: home/templates/home/home_page.html:74
+#: home/templates/home/home_page.html:66
+msgid "Zadnje aktivnosti"
+msgstr ""
+
+#: home/templates/home/home_page.html:81
 msgid "Vse"
 msgstr "All"
 
-#: home/templates/home/home_page.html:82
-#: home/templates/home/newsletter_page.html:74
+#: home/templates/home/home_page.html:96
+#: home/templates/home/newsletter_page.html:64
 #: home/templates/home/our_work_page.html:44
 msgid "Izpostavljeno"
 msgstr "Featured"
 
-#: home/templates/home/home_page.html:90
-#: home/templates/home/newsletter_list_page.html:30
-#: home/templates/home/newsletter_list_page.html:50
+#: home/templates/home/home_page.html:111
+#: home/templates/home/newsletter_list_page.html:43
 #: home/templates/home/partials/newsletter_card.html:5
 msgid "Občasnik"
 msgstr "Newsletter"
 
-#: home/templates/home/home_page.html:95
+#: home/templates/home/home_page.html:116
 msgid "Vsi filtri"
 msgstr "More filters"
 
-#: home/templates/home/newsletter_list_page.html:22
+#: home/templates/home/newsletter_list_page.html:23
 msgid "Preberi pretekle občasnike!"
 msgstr "Check all!"
 
-#: home/templates/home/newsletter_page.html:49
+#: home/templates/home/newsletter_page.html:39
 msgid "Danes je nov dan novice"
 msgstr "News from Danes je nov dan"
 
-#: home/templates/home/newsletter_page.html:50
+#: home/templates/home/newsletter_page.html:40
 msgid "Preveri, kaj smo počeli pretekli mesec"
 msgstr "Last month’s highlights"
 
@@ -224,10 +226,7 @@ msgid "Ker imaš ravno prav evrov viška za boljši jutri!"
 msgstr "Because you have just enough spare euros for a better tomorrow!"
 
 #: home/templates/home/support_page.html:61
-#, fuzzy, python-format
-#| msgid ""
-#| "Nameniš pa nam lahko tudi 1 %% dohodnine! Tebe nič ne stane, nam pa "
-#| "pomeni veliko."
+#, python-format
 msgid ""
 "Nameniš pa nam lahko tudi 1 %% dohodnine! Tebe nič ne stane, nam pa pomeni "
 "veliko."

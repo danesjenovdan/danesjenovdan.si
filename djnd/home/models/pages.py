@@ -115,7 +115,7 @@ class HomePage(BasePage):
             locale = Locale.get_active()
             en_activities_translation_keys = Activity.objects.filter(locale=locale).values_list("translation_key", flat=True)
             activities = activities.filter(translation_key__in=en_activities_translation_keys)
-        
+
         ordered_activities = activities.order_by("-date")
 
         paginator = Paginator(ordered_activities, 7)
