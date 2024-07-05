@@ -70,7 +70,7 @@ class NavigationSettings(BaseGenericSetting):
         [
             ("page", blocks.StructBlock([
                 ("page", blocks.PageChooserBlock()),
-                ("subpages", blocks.ListBlock(blocks.PageChooserBlock())),
+                ("subpages", blocks.ListBlock(blocks.PageChooserBlock(), default=[])),
             ])),
         ],
         verbose_name="Strani",

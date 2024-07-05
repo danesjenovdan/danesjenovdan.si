@@ -21,7 +21,7 @@
         {% endfor %}
       </div>
       {% endif %}
-        
+
       <h1 class="text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
       <!-- <div class="rich-text">
           {{ value.text|richtext }}
@@ -50,15 +50,7 @@
   <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pb-10 sm-max:px-6 sm-max:pb-5">
     <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
         {% for blog in page.more_blogs %}
-        <div class="border border-dark">
-            <a href="{{ blog.value.link }}" target="_blank">
-            {% image blog.value.thumbnail width-300 class="w-full h-[180px] object-cover" %}
-            </a>
-            <div class="border-t border-dark p-5 pb-2">
-              <a href="{{ blog.value.link }}" target="_blank" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ blog.value.title }}</a>
-              <p class="mb-6">{{ blog.value.short_description }}</p>
-            </div>
-        </div>
+          {% include "home/partials/blog_activity.html" with activity=blog.value %}
         {% endfor %}
     </div>
   </div>
