@@ -27,9 +27,14 @@ class ActivityCategoryViewSet(SnippetViewSet):
     list_display = ["name", "order"]
 
 
+class ActivityProjectViewSet(SnippetViewSet):
+    model = ActivityProject
+    list_display = ["name", "order"]
+
+
 register_snippet(ActivityViewSet)
 register_snippet(ActivityCategoryViewSet)
-register_snippet(ActivityProject)
+register_snippet(ActivityProjectViewSet)
 register_snippet(Promoted)
 register_snippet(TeamMember)
 register_snippet(TeamMemberCategory)

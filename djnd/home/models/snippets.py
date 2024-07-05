@@ -35,6 +35,7 @@ class ActivityProject(TranslatableMixin, models.Model):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    order = models.IntegerField(default=0)
 
     def __str__(self) -> str:
         return self.name
@@ -42,6 +43,7 @@ class ActivityProject(TranslatableMixin, models.Model):
     class Meta(TranslatableMixin.Meta):
         verbose_name = "Projekt"
         verbose_name_plural = "Projekti"
+        ordering = ["order"]
 
 
 class Activity(index.Indexed, TranslatableMixin, models.Model):
