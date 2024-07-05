@@ -26,7 +26,7 @@
     </div>
     {% if page.projects %}
     <div class="max-w-[1280px] mx-auto px-14 pb-20 sm-max:px-6 sm-max:pb-10">
-      {% include "home/partials/pillar_grid.html" with grid_items=page.projects %}
+      {% include "home/partials/pillar_grid.html" with open_new_tab=True grid_items=page.projects %}
     </div>
     {% endif %}
   </div>
