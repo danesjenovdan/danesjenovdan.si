@@ -14,8 +14,8 @@
       {% translate 'Naroči se' as button_text %}
       {% include "home/partials/button.html" with button_class="w-full text-smd" button_color=color_scheme button_text=button_text %}
     </div>
-    <div x-show="loading" class="mt-6 text-center">
-      <span class="inline-block loader"></span>
+    <div x-show="loading" class="flex items-center justify-center mt-6 p-2 border border-dark border-dashed ">
+      <div id="loader"></div>
     </div>
   </div>
 </form>
