@@ -1,8 +1,6 @@
 import icu
+from django.core.paginator import Paginator
 from django.db import models
-from django.shortcuts import render
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-
 from modelcluster.fields import ParentalManyToManyField
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
@@ -113,8 +111,12 @@ class HomePage(BasePage):
         # get only activities that have english translation
         if request.LANGUAGE_CODE == "en":
             locale = Locale.get_active()
-            en_activities_translation_keys = Activity.objects.filter(locale=locale).values_list("translation_key", flat=True)
-            activities = activities.filter(translation_key__in=en_activities_translation_keys)
+            en_activities_translation_keys = Activity.objects.filter(
+                locale=locale
+            ).values_list("translation_key", flat=True)
+            activities = activities.filter(
+                translation_key__in=en_activities_translation_keys
+            )
 
         ordered_activities = activities.order_by("-date")
 
@@ -492,34 +494,17 @@ class OurWorkPage(BasePage):
         filtered_activities = Activity.objects.filter(locale=slovenian_locale)
 
         form = OurWorkForm(request.GET, locale=slovenian_locale)
-
-        if form.is_valid():
-            pillars = form.cleaned_data["pillars"]
-            categories = form.cleaned_data["categories"]
-            projects = form.cleaned_data["projects"]
-            promoted = form.cleaned_data["promoted"]
-
-            if pillars:
-                filtered_activities = filtered_activities.filter(
-                    pillar_page__in=pillars
-                )
-
-            if categories:
-                filtered_activities = filtered_activities.filter(
-                    category__in=categories
-                )
-
-            if projects:
-                filtered_activities = filtered_activities.filter(project__in=projects)
-
-            if promoted:
-                filtered_activities = filtered_activities.filter(promoted=True)
+        filtered_activities = form.filter_activities(filtered_activities)
 
         # get only activities that have english translation
         if request.LANGUAGE_CODE == "en":
             locale = Locale.get_active()
-            en_activities_translation_keys = Activity.objects.filter(locale=locale).values_list("translation_key", flat=True)
-            filtered_activities = filtered_activities.filter(translation_key__in=en_activities_translation_keys)
+            en_activities_translation_keys = Activity.objects.filter(
+                locale=locale
+            ).values_list("translation_key", flat=True)
+            filtered_activities = filtered_activities.filter(
+                translation_key__in=en_activities_translation_keys
+            )
 
         # orderamo
         ordered_activities = filtered_activities.order_by("-date")
