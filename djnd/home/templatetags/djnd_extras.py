@@ -1,5 +1,6 @@
 from django import template
 from wagtail.models import Locale, Page
+from django.http import QueryDict
 
 register = template.Library()
 
@@ -45,6 +46,13 @@ def has_english_translation(value, field_name):
 @register.filter
 def is_page(value):
     return isinstance(value, Page)
+
+
+@register.filter
+def query_string_without_page(request):
+    query_string: QueryDict = request.GET.copy()
+    query_string.pop("page", None)
+    return query_string.urlencode()
 
 
 @register.filter

@@ -1,18 +1,16 @@
-{% load static i18n djnd_extras %}
+{% load static i18n %}
 
 {% for activity in activities %}
-  {% include 'home/partials/activity.html' with activity=activity %}
-{% endfor %}
 
-{% if page_obj.has_next %}
-<div class="absolute bottom-0 left-0 right-0 mx-auto text-center">
-  <a
-    class="inline-flex text-md font-medium hover:font-bold theme-color-{{ button_color }} tertiary-button group xl-max:text-smd"
-    hx-get="{% url 'activities-homepage' %}?{{ request.META.QUERY_STRING }}&page={{ page_obj.next_page_number }}"
-    hx-trigger="click" hx-swap="outerHTML" hx-target="closest .absolute"
-    href="javascript:;"
-  >
-    <span>{% translate "Več aktivnosti" %}</span><img class="w-4 ml-4 -mb-0.5 group-hover:animate-arrow-hover-down" src="{% static "img/noun-arrow-down-1434311.svg" %}" alt="">
-  </a>
-</div>
-{% endif %}
+  {% include 'home/partials/activity.html' with activity=activity %}
+
+  {% if forloop.last and page_obj.has_next %}
+    {% include 'home/partials/loader.html' with activity=activity next_page_num=page_obj.next_page_number view='activities-homepage' hidden=True %}
+    <div class="absolute bottom-0 left-0 right-0 mx-auto text-center">
+      <button type="button" onclick="loadMoreOnHomePage(this)" class="inline-flex text-md font-medium hover:font-bold theme-color-{{ button_color }} tertiary-button group xl-max:text-smd">
+        <span>{% translate "Več aktivnosti" %}</span><img class="w-4 ml-4 -mb-0.5 group-hover:animate-arrow-hover-down" src="{% static "img/noun-arrow-down-1434311.svg" %}" alt="">
+      </button>
+    </div>
+  {% endif %}
+
+{% endfor %}

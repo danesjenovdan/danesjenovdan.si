@@ -40,6 +40,15 @@ document.addEventListener("alpine:init", () => {
   }));
 });
 
+function loadMoreOnHomePage(button) {
+  const loader = button.closest(".grid").querySelector("#loader-container");
+  loader.style.display = "";
+  loader.removeAttribute("hx-disable");
+  const container = button.closest(".absolute");
+  container.remove();
+  htmx.process(loader);
+}
+
 function filterOurWork() {
   document.getElementById("our-work-form").submit();
 }
@@ -80,7 +89,6 @@ function homepageLinkedSentences() {
     iconContainer.appendChild(document.createTextNode(" "));
     sentenceEl.parentElement.insertBefore(iconContainer, sentenceEl);
   });
-
 
   // On box hover, highlight the corresponding sentence
   boxEls.forEach((box, i) => {
@@ -130,13 +138,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isClosed) {
       sidebar.classList.remove("md-max:-translate-x-full");
       menuButton.setAttribute("aria-expanded", "true");
-      menuButton.querySelector('img[alt="Open menu"]').classList.add('hidden')
-      menuButton.querySelector('img[alt="Close menu"]').classList.remove('hidden')
+      menuButton.querySelector('img[alt="Open menu"]').classList.add("hidden");
+      menuButton
+        .querySelector('img[alt="Close menu"]')
+        .classList.remove("hidden");
     } else {
       sidebar.classList.add("md-max:-translate-x-full");
       menuButton.setAttribute("aria-expanded", "false");
-      menuButton.querySelector('img[alt="Open menu"]').classList.remove('hidden')
-      menuButton.querySelector('img[alt="Close menu"]').classList.add('hidden')
+      menuButton
+        .querySelector('img[alt="Open menu"]')
+        .classList.remove("hidden");
+      menuButton.querySelector('img[alt="Close menu"]').classList.add("hidden");
     }
   });
 });
