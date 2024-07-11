@@ -3,7 +3,7 @@
 <a
   href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?{{ filter_name }}={{tag.id}}"
   class="
-    inline-flex items-center min-h-6 align-top mr-2 mb-2 px-2.5 py-1 shadow-dark shadow-[0px_0px_0px_1px] rounded-full font-mono text-sm/none
+    inline-flex items-center max-w-full min-h-6 align-top mr-2 mb-2 px-2.5 py-1 shadow-dark shadow-[0px_0px_0px_1px] rounded-full font-mono text-sm/none
     transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px]
   "
 >
@@ -11,5 +11,5 @@
     {% image tag.localized.icon height-32 class="h-[14px] w-auto me-2 overflow-hidden" %}
   {% endif %}
   {% firstof tag.localized.name tag.localized.title as title %}
-  <span class="leading-[16px]">{{ title }}</span>
+  <span class="leading-[16px] whitespace-nowrap overflow-hidden text-ellipsis">{{ title }}</span>
 </a>
