@@ -26,7 +26,7 @@
     <ul class="flex flex-col gap-3">
       {% for pillar_page in settings.home.NavigationSettings.pillars %}
       <li class="uppercase text-smd/5 font-medium">
-        <div class="relative flex items-start gap-1">
+        <div class="relative flex items-start gap-1 theme-color-{{ pillar_page.value.localized.specific.color }}">
           {% if pillar_page.value.localized.icon %}
             {% image pillar_page.value.localized.icon fill-48x48 class="w-6 mt-0.5 shrink-0 overflow-hidden" %}
           {% elif pillar_page.value.localized.image %}
@@ -34,9 +34,14 @@
           {% endif %}
           <a
             href="{% pageurl pillar_page.value.localized %}"
-            class="theme-color-{{ pillar_page.value.localized.specific.color }}"
             aria-current="{% if page.id == pillar_page.value.localized.id %}page{% else %}false{% endif %}"
           >{{ pillar_page.value.localized.title }}</a>
+          <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid" viewBox="0 0 121 41" fill="none">
+            <path
+              stroke="var(--th-primary)" stroke-width="3" stroke-linecap="round"
+              d="M115.155 8.3808C104.262 6.17778 93.2118 4.06513 82.1551 2.90857C68.3234 1.46174 53.5996 1.9203 39.7662 3.04746C28.945 3.92919 15.2972 5.23028 6.09954 11.6864C0.477625 15.6325 0.809624 21.0077 6.04399 25.1864C16.6147 33.6251 32.0896 36.1199 45.044 37.4919C65.855 39.6959 88.8089 40.5911 109.211 34.8808C110.081 34.6372 121.257 31.6479 118.266 28.8252C114.733 25.4915 110.199 23.0251 106.155 20.3808"
+            />
+          </svg>
         </div>
       </li>
       {% endfor %}
@@ -49,23 +54,33 @@
     <ul class="flex flex-col gap-3">
       {% for nav_page in settings.home.NavigationSettings.pages %}
       <li class="uppercase text-smd/5 font-medium">
-        <div class="relative">
+        <div class="relative theme-color-{{ nav_page.value.page.localized.specific.color }}">
           <a
             href="{% pageurl nav_page.value.page.localized %}"
-            class="theme-color-{{ nav_page.value.page.localized.specific.color }}"
             aria-current="{% if page.id == nav_page.value.page.localized.id %}page{% else %}false{% endif %}"
           >{{ nav_page.value.page.localized.title }}</a>
+          <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid" viewBox="0 0 121 41" fill="none">
+            <path
+              stroke="var(--th-primary)" stroke-width="3" stroke-linecap="round"
+              d="M115.155 8.3808C104.262 6.17778 93.2118 4.06513 82.1551 2.90857C68.3234 1.46174 53.5996 1.9203 39.7662 3.04746C28.945 3.92919 15.2972 5.23028 6.09954 11.6864C0.477625 15.6325 0.809624 21.0077 6.04399 25.1864C16.6147 33.6251 32.0896 36.1199 45.044 37.4919C65.855 39.6959 88.8089 40.5911 109.211 34.8808C110.081 34.6372 121.257 31.6479 118.266 28.8252C114.733 25.4915 110.199 23.0251 106.155 20.3808"
+            />
+          </svg>
         </div>
         {% if nav_page.value.subpages %}
         <ul class="mt-1 ml-4 flex flex-col gap-1">
           {% for nav_subpage in nav_page.value.subpages %}
           <li class="normal-case text-base/5 font-normal">
-            <div class="relative">
+            <div class="relative theme-color-{{ nav_subpage.localized.specific.color }}">
               <a
                 href="{% pageurl nav_subpage.localized %}"
-                class="theme-color-{{ nav_subpage.localized.specific.color }}"
                 aria-current="{% if page.id == nav_subpage.localized.id %}page{% else %}false{% endif %}"
               >{{ nav_subpage.localized.title }}</a>
+              <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid" viewBox="0 0 121 41" fill="none">
+                <path
+                  stroke="var(--th-primary)" stroke-width="3" stroke-linecap="round"
+                  d="M115.155 8.3808C104.262 6.17778 93.2118 4.06513 82.1551 2.90857C68.3234 1.46174 53.5996 1.9203 39.7662 3.04746C28.945 3.92919 15.2972 5.23028 6.09954 11.6864C0.477625 15.6325 0.809624 21.0077 6.04399 25.1864C16.6147 33.6251 32.0896 36.1199 45.044 37.4919C65.855 39.6959 88.8089 40.5911 109.211 34.8808C110.081 34.6372 121.257 31.6479 118.266 28.8252C114.733 25.4915 110.199 23.0251 106.155 20.3808"
+                />
+              </svg>
             </div>
           </li>
           {% endfor %}
