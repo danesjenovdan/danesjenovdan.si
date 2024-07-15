@@ -169,8 +169,7 @@ class PillarPage(BasePage):
             pillar_page=self.get_translation(slovenian_locale),
         ).order_by("-date")
 
-        paginator = Paginator(ordered_activities, 7)
-        activities = paginator.get_page(1)
+        activities = paginate_activities(ordered_activities, limit=12, offset=0)
 
         # get activities for this pillar
         context["page_obj"] = activities
@@ -225,7 +224,6 @@ class TeamPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        lang = request.LANGUAGE_CODE
         locale = Locale.get_active()
 
         team_member_categories = TeamMemberCategory.objects.filter(locale=locale)
@@ -334,11 +332,12 @@ class NewsletterListPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        lang = request.LANGUAGE_CODE
         locale = Locale.get_active()
-
-        newsletters = NewsletterPage.objects.filter(locale=locale).order_by(
-            "-published_at"
+        newsletters = (
+            NewsletterPage.objects.child_of(self)
+            .filter(locale=locale)
+            .live()
+            .order_by("-published_at")
         )
 
         return {
@@ -351,9 +350,7 @@ class BlogListingPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        lang = request.LANGUAGE_CODE
         locale = Locale.get_active()
-
         blogs = (
             BlogPage.objects.child_of(self)
             .filter(locale=locale)
