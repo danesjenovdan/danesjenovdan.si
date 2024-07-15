@@ -1,4 +1,5 @@
 import icu
+from django import forms
 from django.core.paginator import Paginator
 from django.db import models
 from modelcluster.fields import ParentalManyToManyField
@@ -305,9 +306,9 @@ class NewsletterPage(BasePage):
     content_panels = BasePage.content_panels + [
         FieldPanel("thumbnail"),
         FieldPanel("published_at"),
-        FieldPanel("pillar_page"),
-        FieldPanel("category"),
-        FieldPanel("project"),
+        FieldPanel("pillar_page", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("category", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("project", widget=forms.CheckboxSelectMultiple),
         FieldPanel("introduction"),
         FieldPanel("news"),
         FieldPanel("promoted"),
@@ -415,9 +416,9 @@ class BlogPage(BasePage):
     content_panels = BasePage.content_panels + [
         FieldPanel("short_description"),
         FieldPanel("thumbnail"),
-        FieldPanel("pillar_page"),
-        FieldPanel("category"),
-        FieldPanel("project"),
+        FieldPanel("pillar_page", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("category", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("project", widget=forms.CheckboxSelectMultiple),
         FieldPanel("modules"),
         FieldPanel("more_blogs"),
     ]
