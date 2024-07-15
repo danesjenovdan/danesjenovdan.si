@@ -1,6 +1,6 @@
 from django import template
-from wagtail.models import Locale, Page
 from django.http import QueryDict
+from wagtail.models import Locale, Page
 
 register = template.Library()
 
@@ -35,17 +35,20 @@ def get_translated_m2m_ids(value, field_name):
 
 
 @register.filter
-def has_english_translation(value, field_name):
-    if field_name == "en":
-        en = Locale.objects.get(language_code="en")
-        return value.get_translation_or_none(en)
-    else:
-        return True
+def is_page(value):
+    return isinstance(value, Page)
 
 
 @register.filter
-def is_page(value):
-    return isinstance(value, Page)
+def is_promoted(value):
+    if value.locale.language_code == "sl":
+        return value.promoted
+
+    sl = Locale.objects.get(language_code="sl")
+    if sl_value := value.get_translation_or_none(sl):
+        return sl_value.promoted
+
+    return False
 
 
 @register.filter

@@ -1,4 +1,7 @@
-from home.models import (
+from wagtail.snippets.models import register_snippet
+from wagtail.snippets.views.snippets import SnippetViewSet
+
+from .models.snippets import (
     Activity,
     ActivityCategory,
     ActivityProject,
@@ -6,8 +9,6 @@ from home.models import (
     TeamMember,
     TeamMemberCategory,
 )
-from wagtail.snippets.models import register_snippet
-from wagtail.snippets.views.snippets import SnippetViewSet
 
 
 class ActivityViewSet(SnippetViewSet):

@@ -1,6 +1,8 @@
 from django import forms
 from django.template.defaultfilters import slugify
-from home.models import ActivityCategory, ActivityProject, PillarPage
+
+from .models.pages import PillarPage
+from .models.snippets import ActivityCategory, ActivityProject
 
 FIELD_TO_MODEL = {
     "pillars": PillarPage,
@@ -64,7 +66,9 @@ class OurWorkForm(forms.Form):
         name = FIELD_TO_NAME[field_name]
         objects = Model.objects.all()
         slug_to_id = {
-            slugify(getattr(obj, name)): str(obj.get_translation_or_none(self.locale).id)
+            slugify(getattr(obj, name)): str(
+                obj.get_translation_or_none(self.locale).id
+            )
             for obj in objects
             if obj.get_translation_or_none(self.locale)
         }
@@ -89,4 +93,4 @@ class OurWorkForm(forms.Form):
             if promoted:
                 activities = activities.filter(promoted=True)
 
-        return activities
+        return activities.distinct()

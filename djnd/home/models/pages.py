@@ -8,6 +8,7 @@ from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
+from ..pagination import get_filtered_activities
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
 from .snippets import (
     Activity,
@@ -89,38 +90,9 @@ class HomePage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        slovenian_locale = Locale.objects.get(language_code="sl")
+        activities, _ = get_filtered_activities(request, for_homepage=True)
 
-        # filtering
-        filter = request.GET.get("filter", "all")
-
-        if filter == "promoted":
-            activities = Activity.objects.filter(locale=slovenian_locale, promoted=True)
-        elif filter == "newsletter":
-            try:
-                newsletter_project = ActivityProject.objects.get(name="Občasnik")
-                activities = Activity.objects.filter(
-                    locale=slovenian_locale,
-                    project=newsletter_project,
-                )
-            except:
-                activities = Activity.objects.none()
-        else:
-            activities = Activity.objects.filter(locale=slovenian_locale)
-
-        # get only activities that have english translation
-        if request.LANGUAGE_CODE == "en":
-            locale = Locale.get_active()
-            en_activities_translation_keys = Activity.objects.filter(
-                locale=locale
-            ).values_list("translation_key", flat=True)
-            activities = activities.filter(
-                translation_key__in=en_activities_translation_keys
-            )
-
-        ordered_activities = activities.order_by("-date")
-
-        paginator = Paginator(ordered_activities, 7)
+        paginator = Paginator(activities, 7)
         activities = paginator.get_page(1)
 
         context["page_obj"] = activities
@@ -478,9 +450,6 @@ class OurWorkPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        # import here because of circular imports
-        from home.forms import OurWorkForm
-
         slovenian_locale = Locale.objects.get(language_code="sl")
 
         pillars = PillarPage.objects.filter(locale=slovenian_locale)
@@ -491,25 +460,9 @@ class OurWorkPage(BasePage):
         context["categories"] = categories
         context["projects"] = projects
 
-        filtered_activities = Activity.objects.filter(locale=slovenian_locale)
+        activities, form = get_filtered_activities(request)
 
-        form = OurWorkForm(request.GET, locale=slovenian_locale)
-        filtered_activities = form.filter_activities(filtered_activities)
-
-        # get only activities that have english translation
-        if request.LANGUAGE_CODE == "en":
-            locale = Locale.get_active()
-            en_activities_translation_keys = Activity.objects.filter(
-                locale=locale
-            ).values_list("translation_key", flat=True)
-            filtered_activities = filtered_activities.filter(
-                translation_key__in=en_activities_translation_keys
-            )
-
-        # orderamo
-        ordered_activities = filtered_activities.order_by("-date")
-
-        paginator = Paginator(ordered_activities, 7)
+        paginator = Paginator(activities, 7)
         activities = paginator.get_page(1)
 
         context["form"] = form
