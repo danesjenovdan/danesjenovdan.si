@@ -52,9 +52,9 @@ def is_promoted(value):
 
 
 @register.filter
-def query_string_without_page(request):
+def query_string_without_offset(request):
     query_string: QueryDict = request.GET.copy()
-    query_string.pop("page", None)
+    query_string.pop("offset", None)
     return query_string.urlencode()
 
 

@@ -8,7 +8,7 @@ from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
-from ..pagination import get_filtered_activities
+from ..pagination import get_filtered_activities, paginate_activities
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
 from .snippets import (
     Activity,
@@ -91,9 +91,7 @@ class HomePage(BasePage):
         context = super().get_context(request, *args, **kwargs)
 
         activities, _ = get_filtered_activities(request, for_homepage=True)
-
-        paginator = Paginator(activities, 7)
-        activities = paginator.get_page(1)
+        activities = paginate_activities(activities, limit=10, offset=0)
 
         context["page_obj"] = activities
         context["activities"] = activities.object_list
@@ -461,9 +459,7 @@ class OurWorkPage(BasePage):
         context["projects"] = projects
 
         activities, form = get_filtered_activities(request)
-
-        paginator = Paginator(activities, 7)
-        activities = paginator.get_page(1)
+        activities = paginate_activities(activities, limit=10, offset=0)
 
         context["form"] = form
         context["page_obj"] = activities
