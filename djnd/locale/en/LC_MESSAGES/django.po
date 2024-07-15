@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-05 17:50+0200\n"
+"POT-Creation-Date: 2024-07-15 16:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,12 +42,12 @@ msgstr "Privacy and protection of personal data"
 msgid "Uredi svoje naročnine na novičnike"
 msgstr "Manage your email subscriptions with Danes je nov dan"
 
-#: djnd/templates/includes/sidebar.html:77 shop/templates/shop/shop.html:10
+#: djnd/templates/includes/sidebar.html:92 shop/templates/shop/shop.html:10
 msgid "Trgovina"
 msgstr "Shop"
 
-#: home/templates/home/activities-homepage.html:15
-#: home/templates/home/home_page.html:144
+#: home/templates/home/activities-homepage.html:11
+#: home/templates/home/home_page.html:139
 msgid "Več aktivnosti"
 msgstr "More"
 
@@ -138,7 +138,6 @@ msgstr "Featured"
 
 #: home/templates/home/home_page.html:111
 #: home/templates/home/newsletter_list_page.html:43
-#: home/templates/home/partials/newsletter_card.html:5
 msgid "Občasnik"
 msgstr "Newsletter"
 
