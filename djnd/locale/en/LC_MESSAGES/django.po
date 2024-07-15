@@ -124,7 +124,7 @@ msgstr "Archive"
 
 #: home/templates/home/home_page.html:66
 msgid "Zadnje aktivnosti"
-msgstr ""
+msgstr "Latest activities"
 
 #: home/templates/home/home_page.html:81
 msgid "Vse"

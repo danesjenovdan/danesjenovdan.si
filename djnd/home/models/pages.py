@@ -1,8 +1,6 @@
 import icu
+from django.core.paginator import Paginator
 from django.db import models
-from django.shortcuts import render
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-
 from modelcluster.fields import ParentalManyToManyField
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
@@ -10,6 +8,7 @@ from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
+from ..pagination import get_filtered_activities, paginate_activities
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
 from .snippets import (
     Activity,
@@ -91,35 +90,8 @@ class HomePage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        slovenian_locale = Locale.objects.get(language_code="sl")
-
-        # filtering
-        filter = request.GET.get("filter", "all")
-
-        if filter == "promoted":
-            activities = Activity.objects.filter(locale=slovenian_locale, promoted=True)
-        elif filter == "newsletter":
-            try:
-                newsletter_project = ActivityProject.objects.get(name="Občasnik")
-                activities = Activity.objects.filter(
-                    locale=slovenian_locale,
-                    project=newsletter_project,
-                )
-            except:
-                activities = Activity.objects.none()
-        else:
-            activities = Activity.objects.filter(locale=slovenian_locale)
-
-        # get only activities that have english translation
-        if request.LANGUAGE_CODE == "en":
-            locale = Locale.get_active()
-            en_activities_translation_keys = Activity.objects.filter(locale=locale).values_list("translation_key", flat=True)
-            activities = activities.filter(translation_key__in=en_activities_translation_keys)
-
-        ordered_activities = activities.order_by("-date")
-
-        paginator = Paginator(ordered_activities, 7)
-        activities = paginator.get_page(1)
+        activities, _ = get_filtered_activities(request, for_homepage=True)
+        activities = paginate_activities(activities, limit=10, offset=0)
 
         context["page_obj"] = activities
         context["activities"] = activities.object_list
@@ -197,8 +169,7 @@ class PillarPage(BasePage):
             pillar_page=self.get_translation(slovenian_locale),
         ).order_by("-date")
 
-        paginator = Paginator(ordered_activities, 7)
-        activities = paginator.get_page(1)
+        activities = paginate_activities(ordered_activities, limit=12, offset=0)
 
         # get activities for this pillar
         context["page_obj"] = activities
@@ -253,7 +224,6 @@ class TeamPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        lang = request.LANGUAGE_CODE
         locale = Locale.get_active()
 
         team_member_categories = TeamMemberCategory.objects.filter(locale=locale)
@@ -362,11 +332,12 @@ class NewsletterListPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        lang = request.LANGUAGE_CODE
         locale = Locale.get_active()
-
-        newsletters = NewsletterPage.objects.filter(locale=locale).order_by(
-            "-published_at"
+        newsletters = (
+            NewsletterPage.objects.child_of(self)
+            .filter(locale=locale)
+            .live()
+            .order_by("-published_at")
         )
 
         return {
@@ -379,9 +350,7 @@ class BlogListingPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        lang = request.LANGUAGE_CODE
         locale = Locale.get_active()
-
         blogs = (
             BlogPage.objects.child_of(self)
             .filter(locale=locale)
@@ -476,9 +445,6 @@ class OurWorkPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        # import here because of circular imports
-        from home.forms import OurWorkForm
-
         slovenian_locale = Locale.objects.get(language_code="sl")
 
         pillars = PillarPage.objects.filter(locale=slovenian_locale)
@@ -489,43 +455,8 @@ class OurWorkPage(BasePage):
         context["categories"] = categories
         context["projects"] = projects
 
-        filtered_activities = Activity.objects.filter(locale=slovenian_locale)
-
-        form = OurWorkForm(request.GET, locale=slovenian_locale)
-
-        if form.is_valid():
-            pillars = form.cleaned_data["pillars"]
-            categories = form.cleaned_data["categories"]
-            projects = form.cleaned_data["projects"]
-            promoted = form.cleaned_data["promoted"]
-
-            if pillars:
-                filtered_activities = filtered_activities.filter(
-                    pillar_page__in=pillars
-                )
-
-            if categories:
-                filtered_activities = filtered_activities.filter(
-                    category__in=categories
-                )
-
-            if projects:
-                filtered_activities = filtered_activities.filter(project__in=projects)
-
-            if promoted:
-                filtered_activities = filtered_activities.filter(promoted=True)
-
-        # get only activities that have english translation
-        if request.LANGUAGE_CODE == "en":
-            locale = Locale.get_active()
-            en_activities_translation_keys = Activity.objects.filter(locale=locale).values_list("translation_key", flat=True)
-            filtered_activities = filtered_activities.filter(translation_key__in=en_activities_translation_keys)
-
-        # orderamo
-        ordered_activities = filtered_activities.order_by("-date")
-
-        paginator = Paginator(ordered_activities, 7)
-        activities = paginator.get_page(1)
+        activities, form = get_filtered_activities(request)
+        activities = paginate_activities(activities, limit=10, offset=0)
 
         context["form"] = form
         context["page_obj"] = activities
