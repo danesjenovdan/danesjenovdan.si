@@ -1,5 +1,5 @@
 {% extends "wrapper.html" %}
-{% load static wagtailcore_tags wagtailimages_tags i18n %}
+{% load static wagtailcore_tags wagtailimages_tags i18n djnd_extras %}
 
 {% block body_class %}template-newsletterpage theme-color-{{ page.color }}{% endblock %}
 
@@ -11,13 +11,13 @@
       <div class="basis-8/12">
         {% if settings.home.GeneralSettings.our_work_page %}
         <div class="flex flex-wrap">
-          {% for tag in page.pillar_page.all %}
+          {% for tag in page|sl_activity_tags:"pillar_page" %}
           {% include "home/partials/activity_tag.html" with tag=tag filter_name="pillars" %}
           {% endfor %}
-          {% for tag in page.category.all %}
+          {% for tag in page|sl_activity_tags:"category" %}
           {% include "home/partials/activity_tag.html" with tag=tag filter_name="categories" %}
           {% endfor %}
-          {% for tag in page.project.all %}
+          {% for tag in page|sl_activity_tags:"project" %}
           {% include "home/partials/activity_tag.html" with tag=tag filter_name="projects" %}
           {% endfor %}
         </div>
