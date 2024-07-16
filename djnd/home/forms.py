@@ -1,8 +1,30 @@
 from django import forms
 from django.template.defaultfilters import slugify
+from wagtail.admin.forms.models import WagtailAdminModelForm
+from wagtail.models import Locale
 
 from .models.pages import PillarPage
 from .models.snippets import ActivityCategory, ActivityProject
+
+#
+# ADMIN FORMS
+#
+
+
+class ActivityAdminModelForm(WagtailAdminModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # filter querysets based on locale
+        sl = Locale.objects.get(language_code="sl")
+        self.fields["pillar_page"].queryset = PillarPage.objects.filter(locale=sl)
+        self.fields["category"].queryset = ActivityCategory.objects.filter(locale=sl)
+        self.fields["project"].queryset = ActivityProject.objects.filter(locale=sl)
+
+
+#
+# FORMS
+#
 
 FIELD_TO_MODEL = {
     "pillars": PillarPage,

@@ -1,6 +1,7 @@
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.views.snippets import SnippetViewSet
 
+from .forms import ActivityAdminModelForm
 from .models.snippets import (
     Activity,
     ActivityCategory,
@@ -9,6 +10,8 @@ from .models.snippets import (
     TeamMember,
     TeamMemberCategory,
 )
+
+Activity.base_form_class = ActivityAdminModelForm
 
 
 class ActivityViewSet(SnippetViewSet):
