@@ -43,7 +43,7 @@
 
         <div class="grid grid-cols-fill230 gap-6">
           {% for member in team_members %}
-            <div class="border" data-member-id="{{ member.id }}" data-category-ids="{{ member|get_translated_m2m_ids:"categories" }}">
+            <div class="border" data-member-id="{{ member.id }}" data-category-ids="{{ member|get_translated_m2m_ids:"category" }}">
               <div class="border-b">
                 {% image member.image fill-300x300 class="w-full aspect-square" %}
               </div>
