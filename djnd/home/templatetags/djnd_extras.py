@@ -40,7 +40,7 @@ def is_page(value):
 
 
 @register.filter
-def is_promoted(value):
+def sl_is_promoted(value):
     if value.locale.language_code == "sl":
         return value.promoted
 
@@ -49,6 +49,18 @@ def is_promoted(value):
         return sl_value.promoted
 
     return False
+
+
+@register.filter
+def sl_activity_tags(value, field_name):
+    if value.locale.language_code == "sl":
+        return getattr(value, field_name).all()
+
+    sl = Locale.objects.get(language_code="sl")
+    if sl_value := value.get_translation_or_none(sl):
+        return getattr(sl_value, field_name).all()
+
+    return []
 
 
 @register.filter

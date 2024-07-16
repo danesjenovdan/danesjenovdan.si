@@ -1,7 +1,7 @@
 {% load i18n static wagtailcore_tags wagtailimages_tags djnd_extras %}
 
 <div class="border border-dark flex flex-col relative">
-  {% if activity|is_promoted %}
+  {% if activity|sl_is_promoted %}
   <img src="{% static 'img/izpostavljeno.svg' %}" alt="" class="w-[30px] h-[30px] -left-[15px] -top-[15px] absolute">
   {% endif %}
   <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank" class="peer">
@@ -10,13 +10,13 @@
   <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
     {% if settings.home.GeneralSettings.our_work_page %}
     <div class="flex flex-wrap">
-      {% for tag in activity.pillar_page.all %}
+      {% for tag in activity|sl_activity_tags:"pillar_page" %}
       {% include "home/partials/activity_tag.html" with tag=tag filter_name="pillars" %}
       {% endfor %}
-      {% for tag in activity.category.all %}
+      {% for tag in activity|sl_activity_tags:"category" %}
       {% include "home/partials/activity_tag.html" with tag=tag filter_name="categories" %}
       {% endfor %}
-      {% for tag in activity.project.all %}
+      {% for tag in activity|sl_activity_tags:"project" %}
       {% include "home/partials/activity_tag.html" with tag=tag filter_name="projects" %}
       {% endfor %}
     </div>
@@ -27,14 +27,14 @@
           text-3lg font-semibold xl-max:text-lg/[1.15]
           bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out
         "
-      >{{ activity.localized.title }}</a>
+      >{{ activity.title }}</a>
     </div>
-    <p class="text-base/snug">{{ activity.localized.description }}</p>
+    <p class="text-base/snug">{{ activity.description }}</p>
     {% if activity.date %}
-    <p class="font-mono mt-4">{{ activity.localized.date }}</p>
+    <p class="font-mono mt-4">{{ activity.date }}</p>
     {% endif %}
     {% if activity.note %}
-    <div class="font-mono rich-text-mono leading-[1.1] mt-4">{{ activity.localized.note|richtext }}</div>
+    <div class="font-mono rich-text-mono leading-[1.1] mt-4">{{ activity.note|richtext }}</div>
     {% endif %}
   </div>
 </div>
