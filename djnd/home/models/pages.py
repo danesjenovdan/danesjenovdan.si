@@ -9,7 +9,7 @@ from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
-from ..pagination import get_filtered_activities, paginate_activities
+from ..pagination import get_filtered_activities, paginate_limit_offset
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
 from .snippets import (
     Activity,
@@ -92,7 +92,7 @@ class HomePage(BasePage):
         context = super().get_context(request, *args, **kwargs)
 
         activities, _ = get_filtered_activities(request, for_homepage=True)
-        activities = paginate_activities(activities, limit=10, offset=0)
+        activities = paginate_limit_offset(activities, limit=10, offset=0)
 
         context["page_obj"] = activities
         context["activities"] = activities.object_list
@@ -169,8 +169,7 @@ class PillarPage(BasePage):
             locale=slovenian_locale,
             pillar_page=self.get_translation(slovenian_locale),
         ).order_by("-date", "pk")
-
-        activities = paginate_activities(ordered_activities, limit=12, offset=0)
+        activities = paginate_limit_offset(ordered_activities, limit=12, offset=0)
 
         # get activities for this pillar
         context["page_obj"] = activities
@@ -334,18 +333,20 @@ class NewsletterListPage(BasePage):
         context = super().get_context(request, *args, **kwargs)
 
         locale = Locale.get_active()
+
         newsletters = (
             NewsletterPage.objects.child_of(self)
             .filter(locale=locale)
             .live()
             .order_by("-published_at", "pk")
         )
-        # TODO: add pagination
+        newsletters = paginate_limit_offset(newsletters, limit=12, offset=0)
 
-        return {
-            **context,
-            "newsletters": newsletters,
-        }
+        context["page_obj"] = newsletters
+        context["newsletters"] = newsletters.object_list
+        context["loader_extra_query_params"] = f"&parent={self.id}"
+
+        return context
 
 
 class BlogListingPage(BasePage):
@@ -459,7 +460,7 @@ class OurWorkPage(BasePage):
         context["projects"] = projects
 
         activities, form = get_filtered_activities(request)
-        activities = paginate_activities(activities, limit=10, offset=0)
+        activities = paginate_limit_offset(activities, limit=10, offset=0)
 
         context["form"] = form
         context["page_obj"] = activities

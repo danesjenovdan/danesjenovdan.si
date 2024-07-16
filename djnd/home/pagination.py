@@ -127,7 +127,7 @@ class LimitOffsetPage(Page):
         return self.paginator.count
 
 
-def paginate_activities(activities, limit=12, offset=0):
+def paginate_limit_offset(activities, limit=12, offset=0):
     paginator = LimitOffsetPaginatorStub(activities)
     paged_object_list = activities[offset : offset + limit]
     return LimitOffsetPage(paged_object_list, limit, offset, paginator)
