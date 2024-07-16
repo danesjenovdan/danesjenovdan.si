@@ -168,7 +168,7 @@ class PillarPage(BasePage):
         ordered_activities = Activity.objects.filter(
             locale=slovenian_locale,
             pillar_page=self.get_translation(slovenian_locale),
-        ).order_by("-date")
+        ).order_by("-date", "pk")
 
         activities = paginate_activities(ordered_activities, limit=12, offset=0)
 
@@ -338,8 +338,9 @@ class NewsletterListPage(BasePage):
             NewsletterPage.objects.child_of(self)
             .filter(locale=locale)
             .live()
-            .order_by("-published_at")
+            .order_by("-published_at", "pk")
         )
+        # TODO: add pagination
 
         return {
             **context,
@@ -356,9 +357,10 @@ class BlogListingPage(BasePage):
             BlogPage.objects.child_of(self)
             .filter(locale=locale)
             .live()
-            .order_by("-first_published_at")
+            .order_by("-first_published_at", "pk")
         )
 
+        # TODO: fix pagination
         paginator = Paginator(blogs, 7)
         page = request.GET.get("page")
         blogs = paginator.get_page(page)
