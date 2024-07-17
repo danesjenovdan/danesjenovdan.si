@@ -10,7 +10,7 @@ from home.models import Activity, ActivityCategory, BlogListingPage, BlogPage
 from wagtail.blocks.stream_block import StreamValue
 from wagtail.models import Locale, Page, Site
 
-from ._save_image import save_image
+from ._save_image import get_image, save_image
 
 
 class Command(BaseCommand):
@@ -32,6 +32,63 @@ class Command(BaseCommand):
         except Page.DoesNotExist:
             sub_page = root_page.add_child(instance=BlogListingPage(title="Agrument"))
         return sub_page
+
+    def _fix_agrument_page_date(self, agrument, parent_page, category):
+        image = get_image(self, agrument["image_url"], tag="agrument")
+
+        try:
+            old_page = BlogPage.objects.child_of(parent_page).get(
+                title=agrument["title"],
+                short_description=agrument["description"],
+            )
+
+            date = agrument["datetime"].split("T")[0]
+            old_page.published_at = date
+
+            raw_html = f""
+
+            if image:
+                alt_text = agrument["image_alt_text"] or image.title
+                raw_html += f'<embed alt="{alt_text}" embedtype="image" format="fullwidth" id="{image.id}"/>'
+
+                image_source = agrument["image_source"]
+                image_source_url = agrument["image_source_url"]
+
+                if image_source and image_source_url:
+                    raw_html += f'<p><i>Slika: <a href="{image_source_url}" target="_blank">{image_source}</a></i></p>'
+                elif image_source:
+                    raw_html += f"<p><i>Slika: {image_source}</i></p>"
+
+            raw_html += (
+                agrument["content_html"]
+                if agrument["content_html"].startswith("<p>")
+                else f"<p>{agrument['content_html']}</p>"
+            )
+
+            if "<br>" in raw_html:
+                raw_html = raw_html.replace("<br>", "<br />")
+
+            old_page.modules = StreamValue(
+                old_page.modules.stream_block,
+                is_lazy=True,
+                stream_data=[
+                    {
+                        "type": "text_content_block",
+                        "value": {
+                            "text": raw_html,
+                            "title": "",
+                            "button": [],
+                        },
+                    }
+                ],
+            )
+
+            old_page.save_revision().publish()
+            return old_page
+        except BlogPage.DoesNotExist:
+            raise Exception("Page not found")
+        except BlogPage.MultipleObjectsReturned:
+            raise Exception("Multiple pages found")
 
     def _save_agrument_page(self, agrument, parent_page, category):
         image = save_image(self, agrument["image_url"], tag="agrument")
@@ -82,8 +139,8 @@ class Command(BaseCommand):
                 else f"<p>{agrument['content_html']}</p>"
             )
 
-            if '<br>' in raw_html:
-                raw_html = raw_html.replace('<br>', '<br />')
+            if "<br>" in raw_html:
+                raw_html = raw_html.replace("<br>", "<br />")
 
             new_page.modules = StreamValue(
                 new_page.modules.stream_block,
@@ -155,7 +212,10 @@ class Command(BaseCommand):
                         f"Importing agrument {index}/{count}...", ending="\r"
                     )
                     with transaction.atomic():
-                        page = self._save_agrument_page(agrument, parent_page, category)
+                        page = self._fix_agrument_page_date(
+                            agrument, parent_page, category
+                        )
+                        # page = self._save_agrument_page(agrument, parent_page, category)
                         # activity = self._save_agrument_activity(
                         #     agrument, page, category
                         # )
