@@ -338,7 +338,7 @@ class NewsletterListPage(BasePage):
             NewsletterPage.objects.child_of(self)
             .filter(locale=locale)
             .live()
-            .order_by("-published_at", "pk")
+            .order_by("-published_at", "-first_published_at", "pk")
         )
         newsletters = paginate_limit_offset(newsletters, limit=12, offset=0)
 
@@ -350,30 +350,43 @@ class NewsletterListPage(BasePage):
 
 
 class BlogListingPage(BasePage):
+    lead = models.TextField(blank=True)
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    content_panels = BasePage.content_panels + [
+        FieldPanel("lead"),
+        FieldPanel("image"),
+    ]
+
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
         locale = Locale.get_active()
+
         blogs = (
             BlogPage.objects.child_of(self)
             .filter(locale=locale)
             .live()
-            .order_by("-first_published_at", "pk")
+            .order_by("-published_at", "-first_published_at", "pk")
         )
+        blogs = paginate_limit_offset(blogs, limit=12, offset=0)
 
-        # TODO: fix pagination
-        paginator = Paginator(blogs, 7)
-        page = request.GET.get("page")
-        blogs = paginator.get_page(page)
+        context["page_obj"] = blogs
+        context["blogs"] = blogs.object_list
+        context["loader_extra_query_params"] = f"&parent={self.id}"
 
-        return {
-            **context,
-            "blogs": blogs,
-        }
+        return context
 
 
 class BlogPage(BasePage):
     short_description = models.TextField(blank=True)
+    published_at = models.DateField(blank=True, null=True)
     pillar_page = ParentalManyToManyField(
         "home.PillarPage",
         blank=True,

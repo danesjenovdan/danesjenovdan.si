@@ -5,27 +5,26 @@
 
 {% block content %}
 
-<div class="max-w-[1280px] mx-auto px-14 py-16">
-  <h1 class="mb-6 text-4xl font-semibold">{{ page.title }}</h1>
-
-  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pb-10">
-    <div class="grid grid-cols-3 gap-4">
-        {% for blog in blogs %}
-        <div class="border border-dark">
-            <a href="{% pageurl blog %}">
-            {% image blog.thumbnail width-300 class="w-full h-[180px] object-cover" %}
-            </a>
-            <div class="border-t border-dark p-5 pb-2">
-              <a href="{% pageurl blog %}" class="block text-2xl font-semibold mb-3 bg-left-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-[length:100%_0.5em] transition-all duration-500 ease-out">{{ blog.title }}</a>
-              <p class="mb-6">{{ blog.short_description }}</p>
-              <p>{{ blog.first_published_at|date:"j. F Y" }}</p>
-            </div>
-        </div>
-        {% endfor %}
+<div>
+  <div class="border-b border-dark bg-th-primary-light">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 pb-10 sm-max:block sm-max:px-6 sm-max:pt-10 sm-max:pb-5">
+      <div class="basis-8/12">
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold uppercase xl-max:text-2xl">{{ page.title }}</h1>
+        <p class="mb-6 last:mb-0 text-xl xl-max:text-lg/[1.15]">{{ page.lead }}</p>
+      </div>
+      <div class="basis-4/12">
+        {% image page.image width-300 class="w-full object-cover" %}
+      </div>
     </div>
   </div>
 
-  TODO infinite scroll
+  <div class="border-b border-dark last:border-b-0">
+    <div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
+      <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
+        {% include "home/blogs.html" with blogs=blogs %}
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock content %}

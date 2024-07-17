@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from wagtail.models import Locale
 
-from .models.pages import NewsletterListPage, NewsletterPage
+from .models.pages import BlogListingPage, BlogPage, NewsletterListPage, NewsletterPage
 from .pagination import get_filtered_activities, paginate_limit_offset
 
 
@@ -22,7 +22,11 @@ class ActivityView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update(_activity_pagination_context(self.request))
+        context.update(
+            _activity_pagination_context(
+                self.request,
+            )
+        )
         return context
 
 
@@ -31,8 +35,34 @@ class ActivityHomepageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update(_activity_pagination_context(self.request, for_homepage=True))
+        context.update(
+            _activity_pagination_context(
+                self.request,
+                for_homepage=True,
+            )
+        )
         return context
+
+
+def _subpage_pagination_context(request, context_name, ParentPageModel, SubPageModel):
+    parent = int(request.GET.get("parent", 0))
+    parent_page = ParentPageModel.objects.filter(pk=parent).first()
+
+    offset = int(request.GET.get("offset", 0))
+    locale = Locale.get_active()
+
+    newsletters = (
+        SubPageModel.objects.child_of(parent_page)
+        .filter(locale=locale)
+        .live()
+        .order_by("-published_at", "-first_published_at", "pk")
+    )
+    newsletters = paginate_limit_offset(newsletters, limit=12, offset=offset)
+
+    return {
+        "page_obj": newsletters,
+        context_name: newsletters.object_list,
+    }
 
 
 class NewsletterListView(TemplateView):
@@ -40,22 +70,28 @@ class NewsletterListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
-        parent = int(self.request.GET.get("parent", 0))
-        parent_page = NewsletterListPage.objects.filter(pk=parent).first()
-
-        offset = int(self.request.GET.get("offset", 0))
-        locale = Locale.get_active()
-
-        newsletters = (
-            NewsletterPage.objects.child_of(parent_page)
-            .filter(locale=locale)
-            .live()
-            .order_by("-published_at", "pk")
+        context.update(
+            _subpage_pagination_context(
+                self.request,
+                "newsletters",
+                NewsletterListPage,
+                NewsletterPage,
+            )
         )
-        newsletters = paginate_limit_offset(newsletters, limit=12, offset=offset)
+        return context
 
-        context["page_obj"] = newsletters
-        context["newsletters"] = newsletters.object_list
 
+class BlogListView(TemplateView):
+    template_name = "home/blogs.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            _subpage_pagination_context(
+                self.request,
+                "blogs",
+                BlogListingPage,
+                BlogPage,
+            )
+        )
         return context
