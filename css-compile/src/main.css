@@ -141,6 +141,10 @@
       @apply mt-5;
     }
 
+    .richtext-image.full-width {
+      @apply w-full;
+    }
+
     .richtext-image + p {
       @apply font-mono mt-2 text-sm;
     }

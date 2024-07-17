@@ -31,7 +31,7 @@
     </div>
     <p class="text-base/snug">{{ activity.description }}</p>
     {% if activity.date %}
-    <p class="font-mono mt-4">{{ activity.date }}</p>
+    <p class="font-mono mt-4">{{ activity.date|date:"j. F Y" }}</p>
     {% endif %}
     {% if activity.note %}
     <div class="font-mono rich-text-mono leading-[1.1] mt-4">{{ activity.note|richtext }}</div>

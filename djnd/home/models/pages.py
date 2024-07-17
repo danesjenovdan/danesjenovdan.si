@@ -432,6 +432,7 @@ class BlogPage(BasePage):
     content_panels = BasePage.content_panels + [
         FieldPanel("short_description"),
         FieldPanel("thumbnail"),
+        FieldPanel("published_at"),
         FieldPanel("pillar_page", widget=forms.CheckboxSelectMultiple),
         FieldPanel("category", widget=forms.CheckboxSelectMultiple),
         FieldPanel("project", widget=forms.CheckboxSelectMultiple),
