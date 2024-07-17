@@ -1,7 +1,8 @@
 import icu
 from django import forms
-from django.core.paginator import Paginator
 from django.db import models
+from django.http import HttpRequest
+from django.template.defaultfilters import slugify
 from modelcluster.fields import ParentalManyToManyField
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
@@ -162,19 +163,18 @@ class PillarPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        slovenian_locale = Locale.objects.get(language_code="sl")
+        # get filtered activities needs a request object so we fake one with the
+        # slugified title of the pillar
+        fake_request = HttpRequest()
+        fake_request.GET.setlist("pillars", [slugify(self.title)])
 
-        # get activities for this pillar
-        ordered_activities = Activity.objects.filter(
-            locale=slovenian_locale,
-            pillar_page=self.get_translation(slovenian_locale),
-        ).order_by("-date", "pk")
-        activities = paginate_limit_offset(ordered_activities, limit=12, offset=0)
+        activities, _ = get_filtered_activities(fake_request)
+        activities = paginate_limit_offset(activities, limit=12, offset=0)
 
         # get activities for this pillar
         context["page_obj"] = activities
         context["activities"] = activities.object_list
-        context["loader_extra_query_params"] = f"&pillars={self.id}"
+        context["loader_extra_query_params"] = f"&{fake_request.GET.urlencode()}"
 
         return context
 
