@@ -22,10 +22,10 @@
       </div>
       {% endif %}
 
-      <h1 class="text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
-      <!-- <div class="rich-text">
-          {{ value.text|richtext }}
-      </div> -->
+      <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
+      {% if page.published_at %}
+      <p class="mb-6 text-smd font-mono font-medium">{{ page.published_at|date:"j. F Y" }}</p>
+      {% endif %}
     </div>
     <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
   </div>
