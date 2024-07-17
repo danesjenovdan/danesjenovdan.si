@@ -1,4 +1,5 @@
 import icu
+from django import forms
 from django.core.paginator import Paginator
 from django.db import models
 from modelcluster.fields import ParentalManyToManyField
@@ -8,7 +9,7 @@ from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 
-from ..pagination import get_filtered_activities, paginate_activities
+from ..pagination import get_filtered_activities, paginate_limit_offset
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
 from .snippets import (
     Activity,
@@ -91,7 +92,7 @@ class HomePage(BasePage):
         context = super().get_context(request, *args, **kwargs)
 
         activities, _ = get_filtered_activities(request, for_homepage=True)
-        activities = paginate_activities(activities, limit=10, offset=0)
+        activities = paginate_limit_offset(activities, limit=10, offset=0)
 
         context["page_obj"] = activities
         context["activities"] = activities.object_list
@@ -167,9 +168,8 @@ class PillarPage(BasePage):
         ordered_activities = Activity.objects.filter(
             locale=slovenian_locale,
             pillar_page=self.get_translation(slovenian_locale),
-        ).order_by("-date")
-
-        activities = paginate_activities(ordered_activities, limit=12, offset=0)
+        ).order_by("-date", "pk")
+        activities = paginate_limit_offset(ordered_activities, limit=12, offset=0)
 
         # get activities for this pillar
         context["page_obj"] = activities
@@ -305,9 +305,9 @@ class NewsletterPage(BasePage):
     content_panels = BasePage.content_panels + [
         FieldPanel("thumbnail"),
         FieldPanel("published_at"),
-        FieldPanel("pillar_page"),
-        FieldPanel("category"),
-        FieldPanel("project"),
+        FieldPanel("pillar_page", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("category", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("project", widget=forms.CheckboxSelectMultiple),
         FieldPanel("introduction"),
         FieldPanel("news"),
         FieldPanel("promoted"),
@@ -333,43 +333,60 @@ class NewsletterListPage(BasePage):
         context = super().get_context(request, *args, **kwargs)
 
         locale = Locale.get_active()
+
         newsletters = (
             NewsletterPage.objects.child_of(self)
             .filter(locale=locale)
             .live()
-            .order_by("-published_at")
+            .order_by("-published_at", "-first_published_at", "pk")
         )
+        newsletters = paginate_limit_offset(newsletters, limit=12, offset=0)
 
-        return {
-            **context,
-            "newsletters": newsletters,
-        }
+        context["page_obj"] = newsletters
+        context["newsletters"] = newsletters.object_list
+        context["loader_extra_query_params"] = f"&parent={self.id}"
+
+        return context
 
 
 class BlogListingPage(BasePage):
+    lead = models.TextField(blank=True)
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    content_panels = BasePage.content_panels + [
+        FieldPanel("lead"),
+        FieldPanel("image"),
+    ]
+
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
         locale = Locale.get_active()
+
         blogs = (
             BlogPage.objects.child_of(self)
             .filter(locale=locale)
             .live()
-            .order_by("-first_published_at")
+            .order_by("-published_at", "-first_published_at", "pk")
         )
+        blogs = paginate_limit_offset(blogs, limit=12, offset=0)
 
-        paginator = Paginator(blogs, 7)
-        page = request.GET.get("page")
-        blogs = paginator.get_page(page)
+        context["page_obj"] = blogs
+        context["blogs"] = blogs.object_list
+        context["loader_extra_query_params"] = f"&parent={self.id}"
 
-        return {
-            **context,
-            "blogs": blogs,
-        }
+        return context
 
 
 class BlogPage(BasePage):
     short_description = models.TextField(blank=True)
+    published_at = models.DateField(blank=True, null=True)
     pillar_page = ParentalManyToManyField(
         "home.PillarPage",
         blank=True,
@@ -415,9 +432,10 @@ class BlogPage(BasePage):
     content_panels = BasePage.content_panels + [
         FieldPanel("short_description"),
         FieldPanel("thumbnail"),
-        FieldPanel("pillar_page"),
-        FieldPanel("category"),
-        FieldPanel("project"),
+        FieldPanel("published_at"),
+        FieldPanel("pillar_page", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("category", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("project", widget=forms.CheckboxSelectMultiple),
         FieldPanel("modules"),
         FieldPanel("more_blogs"),
     ]
@@ -456,7 +474,7 @@ class OurWorkPage(BasePage):
         context["projects"] = projects
 
         activities, form = get_filtered_activities(request)
-        activities = paginate_activities(activities, limit=10, offset=0)
+        activities = paginate_limit_offset(activities, limit=10, offset=0)
 
         context["form"] = form
         context["page_obj"] = activities

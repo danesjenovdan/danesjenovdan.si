@@ -1,5 +1,5 @@
 {% extends "wrapper.html" %}
-{% load static wagtailcore_tags wagtailimages_tags i18n %}
+{% load static wagtailcore_tags wagtailimages_tags i18n djnd_extras %}
 
 {% block body_class %}template-blogpage theme-color-{{ page.color }}{% endblock %}
 
@@ -10,22 +10,22 @@
     <div class="basis-8/12">
       {% if settings.home.GeneralSettings.our_work_page %}
       <div class="flex flex-wrap">
-        {% for tag in page.pillar_page.all %}
+        {% for tag in page|sl_activity_tags:"pillar_page" %}
         {% include "home/partials/activity_tag.html" with tag=tag filter_name="pillars" %}
         {% endfor %}
-        {% for tag in page.category.all %}
+        {% for tag in page|sl_activity_tags:"category" %}
         {% include "home/partials/activity_tag.html" with tag=tag filter_name="categories" %}
         {% endfor %}
-        {% for tag in page.project.all %}
+        {% for tag in page|sl_activity_tags:"project" %}
         {% include "home/partials/activity_tag.html" with tag=tag filter_name="projects" %}
         {% endfor %}
       </div>
       {% endif %}
 
-      <h1 class="text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
-      <!-- <div class="rich-text">
-          {{ value.text|richtext }}
-      </div> -->
+      <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
+      {% if page.published_at %}
+      <p class="mb-6 text-smd font-mono font-medium">{{ page.published_at|date:"j. F Y" }}</p>
+      {% endif %}
     </div>
     <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
   </div>

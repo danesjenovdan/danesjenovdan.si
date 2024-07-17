@@ -122,14 +122,14 @@ class TeamMember(index.Indexed, TranslatableMixin, models.Model):
         on_delete=models.SET_NULL,
         related_name="+",
     )
-    categories = models.ManyToManyField(TeamMemberCategory, blank=True)
+    category = models.ManyToManyField(TeamMemberCategory, blank=True)
 
     panels = [
         FieldPanel("name"),
         FieldPanel("email"),
         FieldPanel("role"),
         FieldPanel("image"),
-        FieldPanel("categories", widget=forms.CheckboxSelectMultiple),
+        FieldPanel("category", widget=forms.CheckboxSelectMultiple),
     ]
 
     search_fields = [

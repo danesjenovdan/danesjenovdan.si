@@ -52,18 +52,31 @@
 @layer base {
   nav {
     [aria-current="page"],
-    [aria-current="false"]:hover {
-      @apply font-bold;
-
-      &::before {
+    [aria-current="false"] {
+      & + svg {
         @apply absolute;
         inset: -7px 0 -8px -10px;
         width: 116px;
+        height: calc(100% + 15px);
         z-index: -1;
-        content: "";
-        background-color: var(--th-primary);
-        mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid" viewBox="0 0 119.774 40.197"><path d="M60.446.013c-7.184.075-14.357.475-21.3 1.04-10.84.884-24.716 2.105-34.407 8.907-3.084 2.165-4.781 4.978-4.738 7.912.043 2.934 1.757 5.713 4.607 7.989 11.016 8.794 26.76 11.246 39.78 12.625 20.883 2.211 44.006 3.141 64.728-2.659.363-.101 3.493-.933 6.184-2.136 1.345-.602 2.602-1.25 3.529-2.235.463-.492.891-1.137.941-1.98.05-.843-.383-1.682-.974-2.24-3.73-3.52-8.347-6.013-12.319-8.61a1.5 1.5 0 0 0-2.076.436 1.5 1.5 0 0 0 .434 2.076c4.095 2.677 8.514 5.11 11.844 8.234-.022.03.013-.022-.036.03-.354.376-1.385 1.021-2.568 1.55-2.367 1.059-5.26 1.843-5.768 1.985-20.081 5.62-42.867 4.76-63.605 2.564-12.89-1.365-28.095-3.903-38.22-11.986C4.096 21.61 3.026 19.614 3 17.829c-.026-1.784.923-3.633 3.46-5.414 8.705-6.11 22.125-7.49 32.928-8.37C53.17 2.92 67.811 2.47 81.501 3.901c10.971 1.147 21.975 3.25 32.857 5.45a1.5 1.5 0 0 0 1.768-1.173 1.5 1.5 0 0 0-1.172-1.768c-10.904-2.205-22-4.328-33.143-5.494-6.987-.73-14.18-.98-21.365-.904Z"/></svg>');
-        mask-size: 100% 100%;
+
+        path {
+          /* call path.getTotalLength() to get the length */
+          stroke-dashoffset: 260.60565185546875;
+          stroke-dasharray: 260.60565185546875;
+          transition: 250ms stroke-dashoffset ease-in;
+        }
+      }
+    }
+
+    [aria-current="page"],
+    [aria-current="false"]:hover {
+      @apply font-bold;
+
+      & + svg {
+        path {
+          stroke-dashoffset: 0;
+        }
       }
     }
   }
@@ -126,6 +139,10 @@
     h4 + p,
     h4 + ul {
       @apply mt-5;
+    }
+
+    .richtext-image.full-width {
+      @apply w-full;
     }
 
     .richtext-image + p {

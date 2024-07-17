@@ -1,0 +1,9 @@
+{% for newsletter in newsletters %}
+
+  {% include "home/partials/newsletter_activity.html" with activity=newsletter %}
+
+  {% if forloop.last and page_obj.has_next and not without_loader %}
+    {% include 'home/partials/loader.html' with next_page_offset=page_obj.next_page_offset view='newsletters' %}
+  {% endif %}
+
+{% endfor %}

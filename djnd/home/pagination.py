@@ -52,7 +52,7 @@ def get_filtered_activities(request, for_homepage=False):
             locale=active_locale, translation_key__in=translation_keys
         )
 
-    activities = filtered_activities.order_by("-date")
+    activities = filtered_activities.order_by("-date", "pk")
 
     return activities, form
 
@@ -127,7 +127,7 @@ class LimitOffsetPage(Page):
         return self.paginator.count
 
 
-def paginate_activities(activities, limit=12, offset=0):
+def paginate_limit_offset(activities, limit=12, offset=0):
     paginator = LimitOffsetPaginatorStub(activities)
     paged_object_list = activities[offset : offset + limit]
     return LimitOffsetPage(paged_object_list, limit, offset, paginator)

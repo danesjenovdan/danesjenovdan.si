@@ -1,6 +1,13 @@
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.views.snippets import SnippetViewSet
 
+from .forms import (
+    ActivityAdminModelForm,
+    BlogPageAdminPageForm,
+    NewsletterPageAdminPageForm,
+    TeamMemberAdminModelForm,
+)
+from .models.pages import BlogPage, NewsletterPage
 from .models.snippets import (
     Activity,
     ActivityCategory,
@@ -9,6 +16,12 @@ from .models.snippets import (
     TeamMember,
     TeamMemberCategory,
 )
+
+BlogPage.base_form_class = BlogPageAdminPageForm
+NewsletterPage.base_form_class = NewsletterPageAdminPageForm
+
+Activity.base_form_class = ActivityAdminModelForm
+TeamMember.base_form_class = TeamMemberAdminModelForm
 
 
 class ActivityViewSet(SnippetViewSet):

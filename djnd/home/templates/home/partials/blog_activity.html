@@ -20,5 +20,8 @@
     </div>
     {% firstof activity.short_description activity.description as blog_description %}
     <p class="text-sm/[22px]">{{ blog_description }}</p>
+    {% if activity.published_at %}
+    <p class="font-mono mt-4">{{ activity.published_at|date:"j. F Y" }}</p>
+    {% endif %}
   </div>
 </div>
