@@ -1,3 +1,4 @@
+from wagtail import hooks
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.views.snippets import SnippetViewSet
 
@@ -52,3 +53,8 @@ register_snippet(ActivityProjectViewSet)
 register_snippet(Promoted)
 register_snippet(TeamMember)
 register_snippet(TeamMemberCategory)
+
+
+@hooks.register("register_rich_text_features")
+def more_rich_text_features(features):
+    features.default_features.append("blockquote")

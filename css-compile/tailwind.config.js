@@ -60,7 +60,7 @@ module.exports = {
         fill230: 'repeat(auto-fill, minmax(230px, 1fr))',
       },
       listStyleImage: {
-        arrow: 'url("/static/img/noun-arrow-right-1434311.svg")',
+        arrow: 'url("/static/img/noun-arrow-list-marker.svg")',
       },
       animation: {
         'arrow-hover': 'arrowHover 1s ease-in-out',

@@ -25,56 +25,61 @@
       </div>
     </div>
   </div>
-  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 border-b border-dark sm-max:block sm-max:px-6 sm-max:py-8">
-    <div class="basis-8/12">
-      <div class="grid grid-cols-2 gap-6 sm-max:grid-cols-1">
-        <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj?mesecna=true" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
-          <div>
-            <h2 class="mb-2 text-2xl font-semibold">{% translate "Vsak mesec" %}</h2>
-            <p class="font-semibold">{% translate "Ker nas želiš podpirati vsak mesec!" %}</p>
-            <div class="flex justify-center mt-6">
-              <img class="" src="{% static 'img/donate/veckrat.svg' %}" alt="">
+  <div class="border-b border-dark">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 sm-max:block sm-max:px-6 sm-max:py-8">
+      <div class="basis-8/12">
+        <div class="grid grid-cols-2 gap-6 sm-max:grid-cols-1">
+          <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj?mesecna=true" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
+            <div>
+              <h2 class="mb-2 text-2xl font-semibold">{% translate "Vsak mesec" %}</h2>
+              <p class="font-semibold">{% translate "Ker nas želiš podpirati vsak mesec!" %}</p>
+              <div class="flex justify-center mt-6">
+                <img class="" src="{% static 'img/donate/veckrat.svg' %}" alt="">
+              </div>
             </div>
-          </div>
-          <div class="grid place-content-center shrink-0 w-9 h-9 rounded-full bg-dark ml-4 absolute right-4 bottom-4">
-            <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
-          </div>
-        </a>
-        <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
-          <div>
-            <h2 class="mb-2 text-2xl font-semibold">{% translate "Enkrat" %}</h2>
-            <p class="font-semibold">{% translate "Ker imaš ravno prav evrov viška za boljši jutri!" %}</p>
-            <div class="flex justify-center mt-6">
-              <img class="" src="{% static 'img/donate/enkrat.svg' %}" alt="">
+            <div class="grid place-content-center shrink-0 w-9 h-9 rounded-full bg-dark ml-4 absolute right-4 bottom-4">
+              <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
             </div>
-          </div>
-          <div class="grid place-content-center shrink-0 w-9 h-9 rounded-full bg-dark ml-4 absolute right-4 bottom-4">
-            <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
-          </div>
-        </a>
+          </a>
+          <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
+            <div>
+              <h2 class="mb-2 text-2xl font-semibold">{% translate "Enkrat" %}</h2>
+              <p class="font-semibold">{% translate "Ker imaš ravno prav evrov viška za boljši jutri!" %}</p>
+              <div class="flex justify-center mt-6">
+                <img class="" src="{% static 'img/donate/enkrat.svg' %}" alt="">
+              </div>
+            </div>
+            <div class="grid place-content-center shrink-0 w-9 h-9 rounded-full bg-dark ml-4 absolute right-4 bottom-4">
+              <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
+            </div>
+          </a>
+        </div>
       </div>
+      <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
     </div>
-    <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
   </div>
-  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 border-b border-dark sm-max:block sm-max:px-6 sm-max:py-8">
-    <div class="basis-8/12">
-      <h2 class="mb-2 text-2xl/none font-semibold xl-max:text-lg">{% translate "Nameniš pa nam lahko tudi 1 % dohodnine! Tebe nič ne stane, nam pa pomeni veliko." %}</h2>
-      <div class="mt-10 mb-8 sm-max:mt-5 sm-max:mb-4 sm-max:-mx-2">
-        <iframe
-          id="enprocent_iframe"
-          class="border border-dark sm-max:w-full"
-          frameborder="0"
-          width="800"
-          height="537"
-          style="max-width: 100%"
-          src="https://www.cnvos.si/enprocent/embed/v2/?address=RESLJEVA%20CESTA%2025&city=Ljubljana&name=DANES%20JE%20NOV%20DAN%2C%20IN%C5%A0TITUT%20ZA%20DRUGA%20VPRA%C5%A0ANJA&percent=1.0&postalCode=1000&taxNumber=54561710"></iframe>
+  <a name="enprocent"></a>
+  <div class="border-b border-dark">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 sm-max:block sm-max:px-6 sm-max:py-8">
+      <div class="basis-8/12">
+        <h2 class="mb-2 text-2xl/none font-semibold xl-max:text-lg">{% translate "Nameniš pa nam lahko tudi 1 % dohodnine! Tebe nič ne stane, nam pa pomeni veliko." %}</h2>
+        <div class="mt-10 mb-8 sm-max:mt-5 sm-max:mb-4 sm-max:-mx-2">
+          <iframe
+            id="enprocent_iframe"
+            class="border border-dark sm-max:w-full"
+            frameborder="0"
+            width="800"
+            height="537"
+            style="max-width: 100%"
+            src="https://www.cnvos.si/enprocent/embed/v2/?address=RESLJEVA%20CESTA%2025&city=Ljubljana&name=DANES%20JE%20NOV%20DAN%2C%20IN%C5%A0TITUT%20ZA%20DRUGA%20VPRA%C5%A0ANJA&percent=1.0&postalCode=1000&taxNumber=54561710"></iframe>
+        </div>
+        <div>
+          {% translate 'Vlogo lahko oddaš tudi s certifikatom na eDavkih' as button_text %}
+          {% include 'home/partials/button.html' with button_text=button_text button_color=page.color button_link="#" %}
+        </div>
       </div>
-      <div>
-        {% translate 'Vlogo lahko oddaš tudi s certifikatom na eDavkih' as button_text %}
-        {% include 'home/partials/button.html' with button_text=button_text button_color=page.color button_link="#" %}
-      </div>
+      <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
     </div>
-    <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
   </div>
   <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 sm-max:block sm-max:px-6 sm-max:py-8">
     <div class="basis-8/12">
