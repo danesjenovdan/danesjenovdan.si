@@ -105,8 +105,10 @@ function homepageLinkedSentences() {
         `[data-linked-box-index="${i}"]`
       );
       if (!sentenceEl) return;
-      sentenceEl.classList.remove("forced-animated-bg-show");
-      sentenceEl.classList.add("forced-animated-bg-hide");
+      if (sentenceEl.classList.contains("forced-animated-bg-show")) {
+        sentenceEl.classList.remove("forced-animated-bg-show");
+        sentenceEl.classList.add("forced-animated-bg-hide");
+      }
     });
   });
 
@@ -119,11 +121,22 @@ function homepageLinkedSentences() {
       boxEls[i].classList.add("forced-box-scale");
     });
     sentenceEl.addEventListener("mouseleave", () => {
-      const boxEl = boxEls[i];
       sentenceEl.classList.remove("forced-animated-bg-show");
       sentenceEl.classList.add("forced-animated-bg-hide");
       boxEls[i].classList.remove("forced-box-scale");
     });
+  });
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      // Clear all highlights on browser back-forward navigation
+      sentenceEls.forEach((sentenceEl) => {
+        const i = sentenceEl.dataset.linkedBoxIndex;
+        sentenceEl.classList.remove("forced-animated-bg-show");
+        sentenceEl.classList.remove("forced-animated-bg-hide");
+        boxEls[i].classList.remove("forced-box-scale");
+      });
+    }
   });
 }
 

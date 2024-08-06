@@ -140,11 +140,41 @@
     }
 
     ul {
-      @apply list-image-arrow;
+      @apply list-none;
+
+      li {
+        @apply relative;
+
+        &::before {
+          content: "";
+          @apply absolute top-0 bottom-0 left-[-1.1em] w-[0.8em] bg-contain bg-no-repeat bg-[top_0.5em_center] xl-max:bg-[top_0.4em_center];
+          background-image: url("/static/img/noun-arrow-right-1434311.svg");
+        }
+      }
     }
 
     ol {
       @apply list-decimal;
+
+      & ol {
+        @apply list-[lower-alpha];
+
+        & ol {
+          @apply list-[lower-roman];
+
+          & ol {
+            @apply list-decimal;
+
+            & ol {
+              @apply list-[lower-alpha];
+
+              & ol {
+                @apply list-[lower-roman];
+              }
+            }
+          }
+        }
+      }
     }
 
     blockquote {

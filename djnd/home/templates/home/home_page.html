@@ -21,11 +21,11 @@
           {% for focus_area in page.focus_areas %}
           {% cycle 'one' 'two' 'three' 'four' as focus_cycle silent %}
           {% if focus_area.value.url or focus_area.value.page %}
-          <a href="{% if focus_area.value.page %}{% pageurl focus_area.value.page %}{% else %}{{ focus_area.value.url }}{% endif %}">
+          <a href="{% if focus_area.value.page %}{% pageurl focus_area.value.page %}{% else %}{{ focus_area.value.url }}{% endif %}" class="group">
           {% endif %}
           <div data-linked-sentence="{{ focus_area.value.linked_sentence }}" data-color="{{ focus_area.value.color }}" class="
             theme-color-{{ focus_area.value.color }}
-            relative flex items-center gap-4 mt-4 px-8 py-7 shadow-dark shadow-[0px_0px_0px_1px] bg-th-primary group
+            relative flex items-center gap-4 mt-4 px-8 py-7 shadow-dark shadow-[0px_0px_0px_1px] bg-th-primary
             {% if focus_cycle == 'one' %}
             -rotate-2 -translate-x-3
             {% elif focus_cycle == 'two' %}
@@ -35,7 +35,7 @@
             {% elif focus_cycle == 'four' %}
             rotate-[4deg] translate-x-3
             {% endif %}
-            transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:z-10
+            transition-all duration-150 [@media(hover:hover)]:group-hover:scale-105 [@media(hover:hover)]:group-hover:shadow-[0px_0px_0px_2px] [@media(hover:hover)]:group-hover:z-10
           ">
             <div class="w-14 shrink-0">
               {% image focus_area.value.image fill-112x112 class="aspect-square" %}
@@ -43,10 +43,11 @@
             <div class="flex-grow font-medium text-lg/none xl-max:text-md">
               {{ focus_area.value.name }}
             </div>
-            <img class="w-5 ml-2 -mb-0.5 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+            <img class="w-5 ml-2 -mb-0.5 [@media(hover:hover)]:group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
           </div>
           {% if focus_area.value.url or focus_area.value.page %}
           </a>
+          <a name="tmp-focus-{{ forloop.counter }}"></a>
           {% endif %}
           {% endfor %}
         </div>
