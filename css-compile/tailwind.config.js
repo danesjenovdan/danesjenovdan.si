@@ -59,9 +59,6 @@ module.exports = {
       gridTemplateColumns: {
         fill230: 'repeat(auto-fill, minmax(230px, 1fr))',
       },
-      listStyleImage: {
-        arrow: 'url("/static/img/noun-arrow-list-marker.svg")',
-      },
       animation: {
         'arrow-hover': 'arrowHover 1s ease-in-out',
         'arrow-hover-down': 'arrowHoverDown 1s ease-in-out',
