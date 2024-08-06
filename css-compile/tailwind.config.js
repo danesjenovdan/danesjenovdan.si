@@ -58,6 +58,7 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         fill230: 'repeat(auto-fill, minmax(230px, 1fr))',
+        fill290: 'repeat(auto-fill, minmax(290px, 1fr))',
       },
       animation: {
         'arrow-hover': 'arrowHover 1s ease-in-out',
