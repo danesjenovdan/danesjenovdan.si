@@ -57,7 +57,7 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        fill230: 'repeat(auto-fill, minmax(230px, 1fr))',
+        fill210: 'repeat(auto-fill, minmax(210px, 1fr))',
         fill290: 'repeat(auto-fill, minmax(290px, 1fr))',
       },
       animation: {
