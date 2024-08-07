@@ -2,8 +2,9 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.templatetags.static import static
-from django.urls import include, path
+from django.urls import include, path, re_path
 from django.views.generic.base import RedirectView
+from home.views import AgrumentByDateRedirectView
 from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
@@ -13,6 +14,12 @@ urlpatterns = [
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
+    # this is a hack because we cant use the wagtail page view since it does not support periods in the url
+    re_path(
+        r"agrument/(?P<day>\d{1,2})\.(?P<month>\d{1,2})\.(?P<year>\d{4})/$",
+        AgrumentByDateRedirectView.as_view(),
+        name="agrument-by-date",
+    ),
 ]
 
 if settings.DEBUG:
