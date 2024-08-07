@@ -21,7 +21,7 @@ jobs:
           username: nologin
           password: ${{ secrets.SCW_SECRET_TOKEN }}
 
-      - name: Build and push
+      - name: Build and push DJND website
         uses: docker/build-push-action@v3
         with:
           context: .
@@ -29,6 +29,15 @@ jobs:
           tags: |
             rg.fr-par.scw.cloud/djnd/danesjenovdan:${{ github.sha }}
             rg.fr-par.scw.cloud/djnd/danesjenovdan:latest
+
+      - name: Build and push DJND website redirects
+        uses: docker/build-push-action@v3
+        with:
+          context: ./website-redirects
+          push: true
+          tags: |
+            rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects:${{ github.sha }}
+            rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects:latest
 
       - name: Update image versions in kustomize/kustomization.yaml
         run: |

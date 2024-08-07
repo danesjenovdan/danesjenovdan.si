@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: danesjenovdan-website-redirects
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - agrument.danesjenovdan.si
+      secretName: danesjenovdan-website-redirects-tls
+  rules:
+    - host: agrument.danesjenovdan.si
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: danesjenovdan-website-redirects
+                port:
+                  number: 80
