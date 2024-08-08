@@ -6,7 +6,7 @@
 {% block content %}
 <div>
   <div class="border-b border-dark last:border-b-0 bg-white">
-    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 sm-max:block sm-max:px-6 sm-max:pt-8">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 lg-max:block sm-max:px-6 sm-max:pt-8">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
         {% if page.introduction %}
@@ -63,11 +63,11 @@
 
   <a name="activities"></a>
   <div class="max-w-[1280px] mx-auto px-14 pt-16 pb-20 sm-max:block sm-max:px-6 sm-max:pt-8 sm-max:pb-10">
-    <div class="flex justify-between mb-6">
+    <div class="flex flex-wrap justify-between mb-6">
       <h2 class="mb-2 text-2xl font-semibold xl-max:text-lg">{% translate "Zadnje aktivnosti" %}</h2>
       {% if settings.home.GeneralSettings.our_work_page %}
       {% wagtail_site as current_site %}
-      <form id="our-work-form" action="{% pageurl current_site.root_page.localized %}#activities" method="get" class="flex items-center">
+      <form id="our-work-form" action="{% pageurl current_site.root_page.localized %}#activities" method="get" class="flex items-center ml-auto">
 
         <div class="me-3 sm-max:hidden">
           <input type="radio" name="filter" value="all" class="peer hidden" id="id_all" onchange="filterOurWork()" {% if request.GET.filter == 'all' or not request.GET.filter %}checked{% endif %}>
@@ -75,6 +75,7 @@
             for="id_all"
             class="
               inline-flex items-center px-4 pt-2.5 pb-3 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-md/none cursor-pointer
+              lg-max:px-3 lg-max:py-1.5 lg-max:text-sm/none
               peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
               transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
             "
@@ -89,11 +90,12 @@
             for="id_promoted"
             class="
               inline-flex items-center px-4 pt-2.5 pb-3 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-md/none cursor-pointer
+              lg-max:px-3 lg-max:py-1.5 lg-max:text-sm/none
               peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
               transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
             "
           >
-            <img class="h-[20px] w-auto me-2" height="32px" src="{% static 'img/filter-izpostavljeno.png' %}" alt="">
+            <img class="h-[20px] w-auto me-2 lg-max:h-[14px]" src="{% static 'img/filter-izpostavljeno.png' %}" alt="">
             {% translate "Izpostavljeno" %}
           </label>
         </div>
@@ -104,11 +106,12 @@
             for="id_newsletter"
             class="
               inline-flex items-center px-4 pt-2.5 pb-3 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-md/none cursor-pointer
+              lg-max:px-3 lg-max:py-1.5 lg-max:text-sm/none
               peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
               transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
             "
           >
-            <img class="h-[20px] w-auto me-2" height="32px" src="{% static 'img/filter-obcasnik.png' %}" alt="">
+            <img class="h-[20px] w-auto me-2 lg-max:h-[14px]" src="{% static 'img/filter-obcasnik.png' %}" alt="">
             {% translate "Občasnik" %}
           </label>
         </div>
@@ -121,7 +124,7 @@
       {% endif %}
 
     </div>
-    <div class="grid grid-cols-3 gap-4 pb-[80px] relative sm-max:grid-cols-1">
+    <div class="grid grid-cols-3 gap-4 pb-[80px] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
       {% for activity in activities %}
         {% include 'home/partials/activity.html' with activity=activity %}
 

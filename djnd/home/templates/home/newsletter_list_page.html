@@ -21,7 +21,7 @@
   <div class="border-b border-dark">
     <div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
         <h2 class="text-2xl font-semibold mb-8 xl-max:text-lg sm-max:mb-4">{% translate "Preberi pretekle občasnike!" %}</h2>
-        <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
+        <div class="grid grid-cols-3 gap-4 lg-max:grid-cols-2 sm-max:grid-cols-1">
           {% include "home/newsletters.html" with newsletters=newsletters|slice:":3" without_loader=True %}
         </div>
     </div>
@@ -34,7 +34,7 @@
   {% if newsletters|length > 3 %}
   <div class="border-b border-dark last:border-b-0">
     <div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
-      <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
+      <div class="grid grid-cols-3 gap-4 lg-max:grid-cols-2 sm-max:grid-cols-1">
         {% include "home/newsletters.html" with newsletters=newsletters|slice:"3:" %}
       </div>
     </div>
