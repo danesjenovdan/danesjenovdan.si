@@ -12,13 +12,7 @@ from wagtail.models import Locale, Page
 
 from ..pagination import get_filtered_activities, paginate_limit_offset
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
-from .snippets import (
-    Activity,
-    ActivityCategory,
-    ActivityProject,
-    TeamMember,
-    TeamMemberCategory,
-)
+from .snippets import ActivityCategory, ActivityProject, TeamMember, TeamMemberCategory
 
 sl_collator = icu.Collator.createInstance(icu.Locale("sl_SI"))
 

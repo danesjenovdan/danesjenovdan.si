@@ -48,7 +48,7 @@
   </div>
 
   <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pb-10 sm-max:px-6 sm-max:pb-5">
-    <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
+    <div class="grid grid-cols-3 gap-4 lg-max:grid-cols-2 sm-max:grid-cols-1">
         {% for blog in page.more_blogs %}
           {% include "home/partials/blog_activity.html" with activity=blog.value %}
         {% endfor %}

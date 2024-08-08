@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: danesjenovdan-website-redirects
+  labels:
+    app: danesjenovdan-website-redirects
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: danesjenovdan-website-redirects
+  template:
+    metadata:
+      labels:
+        app: danesjenovdan-website-redirects
+    spec:
+      containers:
+        - name: danesjenovdan-website-redirects
+          image: danesjenovdan-website-redirects
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: 50Mi
+              cpu: 50m
+            limits:
+              memory: 50Mi
+              cpu: 50m

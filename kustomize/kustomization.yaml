@@ -2,10 +2,16 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: danesjenovdan
 resources:
-  - deployment.yaml
-  - ingress.yaml
-  - service.yaml
+  - djnd/deployment.yaml
+  - djnd/ingress.yaml
+  - djnd/service.yaml
+  - website-redirects/deployment.yaml
+  - website-redirects/ingress.yaml
+  - website-redirects/service.yaml
 images:
   - name: danesjenovdan
     newName: rg.fr-par.scw.cloud/djnd/danesjenovdan
-    newTag: 'eba0b87d434a0a3955d405176a3efa260fc18fc0'
+    newTag: "eba0b87d434a0a3955d405176a3efa260fc18fc0"
+  - name: danesjenovdan-website-redirects
+    newName: rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects
+    newTag: "latest"

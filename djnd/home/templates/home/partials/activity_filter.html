@@ -32,7 +32,7 @@
     <span class="-mt-0.5 leading-[16px]">{{ title }}</span>
   {% else %}
     {% if filter_image %}
-    <img class="h-[14px] w-auto me-2 overflow-hidden" height="32px" src="{% static filter_image %}" alt="">
+    <img class="h-[14px] w-auto me-2 overflow-hidden" src="{% static filter_image %}" alt="">
     {% endif %}
     <span class="-mt-0.5 leading-[16px]">{{ filter_title }}</span>
   {% endif %}

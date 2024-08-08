@@ -66,7 +66,7 @@
   <div class="max-w-[1280px] mx-auto px-14 py-10 sm-max:px-6 sm-max:pb-5">
     <h2 class="text-2xl font-semibold xl-max:text-lg">{% translate "Izpostavljeno" %}</h2>
     <p class="text-md mb-8">{% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" %}</p>
-    <div class="grid grid-cols-3 gap-4 sm-max:grid-cols-1">
+    <div class="grid grid-cols-3 gap-4 lg-max:grid-cols-2 sm-max:grid-cols-1">
         {% for article in page.promoted %}
           {% include "home/partials/blog_activity.html" with activity=article.value %}
         {% endfor %}

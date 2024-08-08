@@ -1,14 +1,16 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 <div class="bg-very-light">
-    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 sm-max:block sm-max:px-6 sm-max:py-8">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-16 sm-max:block sm-max:px-6 sm-max:pt-8">
         <div class="basis-8/12">
             <h2 class="mb-6 text-2xl font-semibold xl-max:text-lg">{{ value.title }}</h2>
             <div class="rich-text mb-12 sm-max:mb-6">
                 {{ value.description|richtext }}
             </div>
-            {% include 'home/partials/partner_links.html' with partners=value.networks %}
         </div>
         <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
+    </div>
+    <div class="max-w-[1280px] mx-auto px-14 pb-16 sm-max:px-6 sm-max:pb-8">
+        {% include 'home/partials/partner_links.html' with partners=value.networks %}
     </div>
 </div>
