@@ -1,14 +1,21 @@
+import re
+from datetime import datetime, timezone
+
 import icu
 from django import forms
 from django.db import models
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.template.defaultfilters import slugify
+from django.utils import feedgenerator
+from django.utils.http import http_date
 from modelcluster.fields import ParentalManyToManyField
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
+from wagtail.contrib.routable_page.models import RoutablePageMixin, path
 from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
+from wagtail.templatetags.wagtailcore_tags import richtext
 
 from ..pagination import get_filtered_activities, paginate_limit_offset
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
@@ -308,7 +315,42 @@ class NewsletterPage(BasePage):
     ]
 
 
-class NewsletterListPage(BasePage):
+def subpage_rss(page, subpages, get_description):
+    feed = feedgenerator.Rss201rev2Feed(
+        title=page.title,
+        description=f"RSS feed for {page.title}",
+        link=page.full_url,
+        feed_url=page.full_url + "rss/",
+        language=page.locale.language_code,
+    )
+
+    for subpage in subpages:
+        timestamp = None
+        if subpage.published_at:
+            timestamp = datetime.combine(
+                subpage.published_at,
+                datetime.min.time(),
+                tzinfo=timezone.utc,
+            )
+
+        feed.add_item(
+            title=subpage.title,
+            link=subpage.full_url,
+            unique_id=subpage.full_url,
+            description=get_description(subpage),
+            pubdate=timestamp,
+        )
+
+    response = HttpResponse(content_type=feed.content_type)
+    if len(subpages) > 0:
+        response.headers["Last-Modified"] = http_date(
+            feed.latest_post_date().timestamp()
+        )
+    feed.write(response, "utf-8")
+    return response
+
+
+class NewsletterListPage(RoutablePageMixin, BasePage):
     lead = models.TextField(blank=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
@@ -342,8 +384,43 @@ class NewsletterListPage(BasePage):
 
         return context
 
+    @path("rss/")
+    def rss(self, request):
+        locale = Locale.get_active()
 
-class BlogListingPage(BasePage):
+        newsletters = (
+            NewsletterPage.objects.child_of(self)
+            .filter(locale=locale)
+            .live()
+            .order_by("-published_at", "-first_published_at", "pk")
+        )
+        newsletters = list(newsletters[35:50])
+
+        read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
+
+        def get_description(subpage):
+            # expand richtext
+            html = richtext(subpage.introduction or "")
+            # fix relative urls
+            html = re.sub(
+                r"\s(href|src)=\"//",
+                r' \1="http://',
+                html,
+                flags=re.MULTILINE,
+            )
+            html = re.sub(
+                r"\s(href|src)=\"/",
+                r' \1="https://danesjenovdan.si/',
+                html,
+                flags=re.MULTILINE,
+            )
+            # add read more link
+            return f'{html}<p><a href="{subpage.full_url}">{read_more}</a></p>'
+
+        return subpage_rss(self, newsletters, get_description)
+
+
+class BlogListingPage(RoutablePageMixin, BasePage):
     lead = models.TextField(blank=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
@@ -376,6 +453,25 @@ class BlogListingPage(BasePage):
         context["loader_extra_query_params"] = f"&parent={self.id}"
 
         return context
+
+    @path("rss/")
+    def rss(self, request):
+        locale = Locale.get_active()
+
+        blogs = (
+            BlogPage.objects.child_of(self)
+            .filter(locale=locale)
+            .live()
+            .order_by("-published_at", "-first_published_at", "pk")
+        )
+        blogs = list(blogs[:12])
+
+        read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
+
+        def get_description(subpage):
+            return f'<p>{subpage.short_description or ""}</p><p><a href="{subpage.full_url}">{read_more}</a></p>'
+
+        return subpage_rss(self, blogs, get_description)
 
 
 class BlogPage(BasePage):
