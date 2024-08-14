@@ -1,3 +1,4 @@
+import re
 from datetime import datetime, timezone
 
 import icu
@@ -398,7 +399,23 @@ class NewsletterListPage(RoutablePageMixin, BasePage):
         read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
 
         def get_description(subpage):
-            return f'{richtext(subpage.introduction or "")}<p><a href="{subpage.full_url}">{read_more}</a></p>'
+            # expand richtext
+            html = richtext(subpage.introduction or "")
+            # fix relative urls
+            html = re.sub(
+                r"\s(href|src)=\"//",
+                r' \1="http://',
+                html,
+                flags=re.MULTILINE,
+            )
+            html = re.sub(
+                r"\s(href|src)=\"/",
+                r' \1="https://danesjenovdan.si/',
+                html,
+                flags=re.MULTILINE,
+            )
+            # add read more link
+            return f'{html}<p><a href="{subpage.full_url}">{read_more}</a></p>'
 
         return subpage_rss(self, newsletters, get_description)
 
