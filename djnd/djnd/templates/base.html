@@ -1,4 +1,4 @@
-{% load static i18n wagtailcore_tags wagtailuserbar %}
+{% load static i18n wagtailcore_tags wagtailimages_tags wagtailuserbar %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +15,14 @@
         <meta property="og:description"  content="{% if page.search_description %}{{ page.search_description }}{% else %}Danes je nov dan z delom na presečišču digitalnih tehnologij in demokratičnih procesov sooblikuje bolj vključujočo in pravičnejšo skupno prihodnost.{% endif %}">
         <meta name="twitter:description" content="{% if page.search_description %}{{ page.search_description }}{% else %}Danes je nov dan z delom na presečišču digitalnih tehnologij in demokratičnih procesov sooblikuje bolj vključujočo in pravičnejšo skupno prihodnost.{% endif %}">
 
-        <meta property="og:image"  content="{% static 'favicons/og.jpg' %}">
-        <meta name="twitter:image" content="{% static 'favicons/og.jpg' %}">
+        {% if self.meta_image %}
+            {% image self.meta_image max-1200x630 as og_image %}
+            <meta property="og:image" content="{{ og_image.url }}">
+            <meta name="twitter:image" content="{{ og_image.url }}">
+        {% else %}
+            <meta property="og:image"  content="{% static 'favicons/og.jpg' %}">
+            <meta name="twitter:image" content="{% static 'favicons/og.jpg' %}">
+        {% endif %}
 
         <meta name="author" content="danesjenovdan">
         <meta property="og:site_name" content="Danes je nov dan">

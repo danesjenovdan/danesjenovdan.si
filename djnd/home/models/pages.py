@@ -31,9 +31,21 @@ class BasePage(Page):
         default=PageColors.WHITE,
         verbose_name="Barva",
     )
+    meta_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+        verbose_name="OG slika",
+    )
 
     content_panels = Page.content_panels + [
         FieldPanel("color"),
+    ]
+
+    promote_panels = Page.promote_panels + [
+        FieldPanel('meta_image'),
     ]
 
     class Meta:
