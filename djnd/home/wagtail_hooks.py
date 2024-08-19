@@ -1,6 +1,9 @@
 from wagtail import hooks
+from wagtail.rich_text import LinkHandler
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.views.snippets import SnippetViewSet
+
+from django.utils.html import escape
 
 from .forms import (
     ActivityAdminModelForm,
@@ -55,6 +58,18 @@ register_snippet(TeamMember)
 register_snippet(TeamMemberCategory)
 
 
+class NewTabExternalLinkHandler(LinkHandler):
+    identifier = 'external'
+
+    @classmethod
+    def expand_db_attributes(cls, attrs):
+        href = attrs['href']
+        return '<a href="%s" target="_blank">' % escape(href)
+
+
 @hooks.register("register_rich_text_features")
 def more_rich_text_features(features):
     features.default_features.append("blockquote")
+
+    features.register_link_type(NewTabExternalLinkHandler)
+    
