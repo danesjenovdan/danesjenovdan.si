@@ -26,6 +26,7 @@
         "
       >{{ activity.title }}</a>
     </div>
+    {{ activity.short_description|richtext }}
     {% if activity.published_at %}
     <p class="font-mono mt-4">{{ activity.published_at|date:"E Y" }}</p>
     {% endif %}

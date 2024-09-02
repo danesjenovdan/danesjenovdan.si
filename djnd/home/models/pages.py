@@ -261,6 +261,7 @@ class NewsletterPage(BasePage):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    short_description = RichTextField(blank=True, null=True)
     introduction = RichTextField(blank=True, null=True)
     published_at = models.DateField(blank=True, null=True)
     pillar_page = ParentalManyToManyField(
@@ -317,6 +318,7 @@ class NewsletterPage(BasePage):
 
     content_panels = BasePage.content_panels + [
         FieldPanel("thumbnail"),
+        FieldPanel("short_description"),
         FieldPanel("published_at"),
         FieldPanel("pillar_page", widget=forms.CheckboxSelectMultiple),
         FieldPanel("category", widget=forms.CheckboxSelectMultiple),
