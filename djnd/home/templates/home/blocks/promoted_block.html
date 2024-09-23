@@ -37,9 +37,9 @@
           {% comment %} TODO: a more bit ta slika absolutno pozicionirana, na breakpointih se zbrejka, zato je min-h definiran {% endcomment %}
           <div class="relative w-full h-full sm-max:min-h-[200px]">
             {% if value.promoted_snippet.image %}
-            {% image value.promoted_snippet.image width-300 class="absolute inset-0 w-full h-full object-cover" %}
+            {% image value.promoted_snippet.image width-1166 class="absolute inset-0 w-full h-full object-cover" %}
             {% elif value.promoted_snippet.activity %}
-            {% image value.promoted_snippet.activity.image width-300 class="absolute inset-0 w-full h-full object-cover" %}
+            {% image value.promoted_snippet.activity.image width-1166 class="absolute inset-0 w-full h-full object-cover" %}
             {% endif %}
             <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 sm-max:top-0 sm-max:left-1/2">
               <div class="grid place-content-center w-16 h-16 rounded-full bg-dark group-hover:animate-arrow-hover sm-max:w-10 sm-max:h-10">
