@@ -41,11 +41,11 @@
           })
         </script>
 
-        <div class="grid grid-cols-fill210 gap-4">
+        <div class="grid grid-cols-fill240 gap-4">
           {% for member in team_members %}
             <div class="border" data-member-id="{{ member.id }}" data-category-ids="{{ member|get_translated_m2m_ids:"category" }}">
               <div class="border-b">
-                {% image member.image fill-300x300 class="w-full aspect-square" %}
+                {% image member.image fill-560x560 class="w-full aspect-square" %}
               </div>
               <div class="p-4">
                 <h2 class="text-3lg font-semibold xl-max:text-lg/[1.15]">{{ member.name }}</h2>
