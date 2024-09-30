@@ -65,7 +65,7 @@ msgstr "Inštitut za druga vprašanja"
 
 #: home/templates/home/blocks/contact_block.html:23
 msgid "(med 10. in 16. uro)"
-msgstr "(10.00–16.00)"
+msgstr "(10:00–16:00)"
 
 #: home/templates/home/blocks/contact_block.html:28
 #: home/templates/home/blocks/newsletter_block.html:8
