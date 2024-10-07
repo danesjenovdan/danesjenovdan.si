@@ -1,28 +1,18 @@
+from django.utils.html import escape
+from django.utils.text import slugify
+from draftjs_exporter.dom import DOM
 from wagtail import hooks
+from wagtail.admin.rich_text.converters.html_to_contentstate import \
+    BlockElementHandler
 from wagtail.rich_text import LinkHandler
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.views.snippets import SnippetViewSet
-from wagtail.admin.rich_text.converters.html_to_contentstate import BlockElementHandler
-from draftjs_exporter.dom import DOM
 
-from django.utils.html import escape
-from django.utils.text import slugify
-
-from .forms import (
-    ActivityAdminModelForm,
-    BlogPageAdminPageForm,
-    NewsletterPageAdminPageForm,
-    TeamMemberAdminModelForm,
-)
+from .forms import (ActivityAdminModelForm, BlogPageAdminPageForm,
+                    NewsletterPageAdminPageForm, TeamMemberAdminModelForm)
 from .models.pages import BlogPage, NewsletterPage
-from .models.snippets import (
-    Activity,
-    ActivityCategory,
-    ActivityProject,
-    Promoted,
-    TeamMember,
-    TeamMemberCategory,
-)
+from .models.snippets import (Activity, ActivityCategory, ActivityProject,
+                              Promoted, TeamMember, TeamMemberCategory)
 
 BlogPage.base_form_class = BlogPageAdminPageForm
 NewsletterPage.base_form_class = NewsletterPageAdminPageForm

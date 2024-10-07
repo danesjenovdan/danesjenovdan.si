@@ -5,7 +5,8 @@ from django.shortcuts import redirect
 from django.views.generic import TemplateView, View
 from wagtail.models import Locale, Site
 
-from .models.pages import BlogListingPage, BlogPage, NewsletterListPage, NewsletterPage
+from .models.pages import (BlogListingPage, BlogPage, NewsletterListPage,
+                           NewsletterPage)
 from .pagination import get_filtered_activities, paginate_limit_offset
 
 

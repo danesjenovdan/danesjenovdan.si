@@ -1,8 +1,8 @@
 from django.db import models
-
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
-from wagtail.contrib.settings.models import BaseGenericSetting, register_setting
+from wagtail.contrib.settings.models import (BaseGenericSetting,
+                                             register_setting)
 from wagtail.fields import StreamField
 
 from .pages import PillarPage
