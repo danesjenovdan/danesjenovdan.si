@@ -7,18 +7,18 @@ import wagtail.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0050_remove_newsletterpage_promoted_blogs_and_more'),
+        ("home", "0050_remove_newsletterpage_promoted_blogs_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='modularpage',
-            name='description',
+            model_name="modularpage",
+            name="description",
             field=wagtail.fields.RichTextField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='pillarpage',
-            name='description',
+            model_name="pillarpage",
+            name="description",
             field=wagtail.fields.RichTextField(blank=True, null=True),
         ),
     ]

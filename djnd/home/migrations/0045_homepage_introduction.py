@@ -7,13 +7,13 @@ import wagtail.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0044_pillarpage_icon'),
+        ("home", "0044_pillarpage_icon"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='homepage',
-            name='introduction',
+            model_name="homepage",
+            name="introduction",
             field=wagtail.fields.RichTextField(blank=True, null=True),
         ),
     ]

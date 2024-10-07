@@ -6,17 +6,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0072_alter_activitycategory_options_and_more'),
+        ("home", "0072_alter_activitycategory_options_and_more"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='activityproject',
-            options={'ordering': ['order'], 'verbose_name': 'Projekt', 'verbose_name_plural': 'Projekti'},
+            name="activityproject",
+            options={
+                "ordering": ["order"],
+                "verbose_name": "Projekt",
+                "verbose_name_plural": "Projekti",
+            },
         ),
         migrations.AddField(
-            model_name='activityproject',
-            name='order',
+            model_name="activityproject",
+            name="order",
             field=models.IntegerField(default=0),
         ),
     ]

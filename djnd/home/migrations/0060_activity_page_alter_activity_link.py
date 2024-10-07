@@ -7,19 +7,26 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailcore', '0089_log_entry_data_json_null_to_object'),
-        ('home', '0059_generalsettings_manage_newsletter_page_and_more'),
+        ("wagtailcore", "0089_log_entry_data_json_null_to_object"),
+        ("home", "0059_generalsettings_manage_newsletter_page_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='activity',
-            name='page',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailcore.page', verbose_name='Povezava na podstran'),
+            model_name="activity",
+            name="page",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="wagtailcore.page",
+                verbose_name="Povezava na podstran",
+            ),
         ),
         migrations.AlterField(
-            model_name='activity',
-            name='link',
-            field=models.URLField(verbose_name='Zunanja povezava'),
+            model_name="activity",
+            name="link",
+            field=models.URLField(verbose_name="Zunanja povezava"),
         ),
     ]

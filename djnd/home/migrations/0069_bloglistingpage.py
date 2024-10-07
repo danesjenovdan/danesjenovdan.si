@@ -7,20 +7,46 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailcore', '0089_log_entry_data_json_null_to_object'),
-        ('home', '0068_activity_promoted'),
+        ("wagtailcore", "0089_log_entry_data_json_null_to_object"),
+        ("home", "0068_activity_promoted"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BlogListingPage',
+            name="BlogListingPage",
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('color', models.CharField(choices=[('white', 'Bela'), ('mint', 'Meta'), ('red', 'Rdeča'), ('green', 'Zelena'), ('blue', 'Modra'), ('yellow', 'Rumena'), ('lavender', 'Sivka')], default='white', max_length=255, verbose_name='Barva')),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.page",
+                    ),
+                ),
+                (
+                    "color",
+                    models.CharField(
+                        choices=[
+                            ("white", "Bela"),
+                            ("mint", "Meta"),
+                            ("red", "Rdeča"),
+                            ("green", "Zelena"),
+                            ("blue", "Modra"),
+                            ("yellow", "Rumena"),
+                            ("lavender", "Sivka"),
+                        ],
+                        default="white",
+                        max_length=255,
+                        verbose_name="Barva",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
-            bases=('wagtailcore.page',),
+            bases=("wagtailcore.page",),
         ),
     ]

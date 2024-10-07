@@ -6,13 +6,26 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0064_newsletterpage_category_newsletterpage_pillar_page_and_more'),
+        ("home", "0064_newsletterpage_category_newsletterpage_pillar_page_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='ourworkpage',
-            name='color',
-            field=models.CharField(choices=[('white', 'Bela'), ('mint', 'Meta'), ('red', 'Rdeča'), ('green', 'Zelena'), ('blue', 'Modra'), ('yellow', 'Rumena'), ('lavender', 'Sivka')], default='white', max_length=255, verbose_name='Barva'),
+            model_name="ourworkpage",
+            name="color",
+            field=models.CharField(
+                choices=[
+                    ("white", "Bela"),
+                    ("mint", "Meta"),
+                    ("red", "Rdeča"),
+                    ("green", "Zelena"),
+                    ("blue", "Modra"),
+                    ("yellow", "Rumena"),
+                    ("lavender", "Sivka"),
+                ],
+                default="white",
+                max_length=255,
+                verbose_name="Barva",
+            ),
         ),
     ]

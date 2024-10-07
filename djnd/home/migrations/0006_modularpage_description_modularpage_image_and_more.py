@@ -8,29 +8,37 @@ import wagtail.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailimages', '0025_alter_image_file_alter_rendition_file'),
-        ('home', '0005_alter_pillarpage_modules_alter_pillarpage_projects'),
+        ("wagtailimages", "0025_alter_image_file_alter_rendition_file"),
+        ("home", "0005_alter_pillarpage_modules_alter_pillarpage_projects"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='modularpage',
-            name='description',
+            model_name="modularpage",
+            name="description",
             field=models.TextField(blank=True),
         ),
         migrations.AddField(
-            model_name='modularpage',
-            name='image',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.image'),
+            model_name="modularpage",
+            name="image",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="wagtailimages.image",
+            ),
         ),
         migrations.AddField(
-            model_name='modularpage',
-            name='modules',
-            field=wagtail.fields.StreamField([], blank=True, null=True, use_json_field=True, verbose_name='Moduli'),
+            model_name="modularpage",
+            name="modules",
+            field=wagtail.fields.StreamField(
+                [], blank=True, null=True, use_json_field=True, verbose_name="Moduli"
+            ),
         ),
         migrations.AddField(
-            model_name='modularpage',
-            name='subtitle',
+            model_name="modularpage",
+            name="subtitle",
             field=models.TextField(blank=True),
         ),
     ]

@@ -6,11 +6,11 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0030_navigationsettings_pages_and_more'),
+        ("home", "0030_navigationsettings_pages_and_more"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='Network',
+            name="Network",
         ),
     ]

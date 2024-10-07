@@ -7,19 +7,25 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailimages', '0025_alter_image_file_alter_rendition_file'),
-        ('home', '0074_rename_categories_teammember_category'),
+        ("wagtailimages", "0025_alter_image_file_alter_rendition_file"),
+        ("home", "0074_rename_categories_teammember_category"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='bloglistingpage',
-            name='image',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.image'),
+            model_name="bloglistingpage",
+            name="image",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="wagtailimages.image",
+            ),
         ),
         migrations.AddField(
-            model_name='bloglistingpage',
-            name='lead',
+            model_name="bloglistingpage",
+            name="lead",
             field=models.TextField(blank=True),
         ),
     ]

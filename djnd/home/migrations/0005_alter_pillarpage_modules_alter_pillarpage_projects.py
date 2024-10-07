@@ -9,18 +9,36 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0004_pillarpage_description_pillarpage_image_and_more'),
+        ("home", "0004_pillarpage_description_pillarpage_image_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='pillarpage',
-            name='modules',
-            field=wagtail.fields.StreamField([], blank=True, null=True, use_json_field=True, verbose_name='Moduli'),
+            model_name="pillarpage",
+            name="modules",
+            field=wagtail.fields.StreamField(
+                [], blank=True, null=True, use_json_field=True, verbose_name="Moduli"
+            ),
         ),
         migrations.AlterField(
-            model_name='pillarpage',
-            name='projects',
-            field=wagtail.fields.StreamField([('project', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.CharBlock()), ('image', wagtail.images.blocks.ImageChooserBlock())]))], blank=True, null=True, use_json_field=True),
+            model_name="pillarpage",
+            name="projects",
+            field=wagtail.fields.StreamField(
+                [
+                    (
+                        "project",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("name", wagtail.blocks.CharBlock()),
+                                ("description", wagtail.blocks.CharBlock()),
+                                ("image", wagtail.images.blocks.ImageChooserBlock()),
+                            ]
+                        ),
+                    )
+                ],
+                blank=True,
+                null=True,
+                use_json_field=True,
+            ),
         ),
     ]

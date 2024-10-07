@@ -12,43 +12,413 @@ import wagtail.snippets.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailimages', '0025_alter_image_file_alter_rendition_file'),
-        ('wagtailcore', '0089_log_entry_data_json_null_to_object'),
-        ('home', '0024_headersettings'),
+        ("wagtailimages", "0025_alter_image_file_alter_rendition_file"),
+        ("wagtailcore", "0089_log_entry_data_json_null_to_object"),
+        ("home", "0024_headersettings"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='blogpage',
-            name='modules',
-            field=wagtail.fields.StreamField([('text_content_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('text', wagtail.blocks.RichTextBlock()), ('button', wagtail.blocks.ListBlock(wagtail.blocks.StructBlock([('button_text', wagtail.blocks.CharBlock()), ('link', wagtail.blocks.URLBlock(label='Zunanja povezava', required=False)), ('page_link', wagtail.blocks.PageChooserBlock(label='Povezava na stran', required=False)), ('color', wagtail.blocks.ChoiceBlock(choices=[('white', 'Bela'), ('green', 'Zelena')], label='Barva gumba'))]), max_num=1, min_num=0))])), ('newsletter_block', wagtail.blocks.StructBlock([])), ('support_block', wagtail.blocks.StructBlock([])), ('promoted_block', wagtail.blocks.StructBlock([('promoted_snippet', wagtail.snippets.blocks.SnippetChooserBlock(home.models.snippets.Promoted))]))], blank=True, null=True, use_json_field=True, verbose_name='Moduli'),
+            model_name="blogpage",
+            name="modules",
+            field=wagtail.fields.StreamField(
+                [
+                    (
+                        "text_content_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                ("text", wagtail.blocks.RichTextBlock()),
+                                (
+                                    "button",
+                                    wagtail.blocks.ListBlock(
+                                        wagtail.blocks.StructBlock(
+                                            [
+                                                (
+                                                    "button_text",
+                                                    wagtail.blocks.CharBlock(),
+                                                ),
+                                                (
+                                                    "link",
+                                                    wagtail.blocks.URLBlock(
+                                                        label="Zunanja povezava",
+                                                        required=False,
+                                                    ),
+                                                ),
+                                                (
+                                                    "page_link",
+                                                    wagtail.blocks.PageChooserBlock(
+                                                        label="Povezava na stran",
+                                                        required=False,
+                                                    ),
+                                                ),
+                                                (
+                                                    "color",
+                                                    wagtail.blocks.ChoiceBlock(
+                                                        choices=[
+                                                            ("white", "Bela"),
+                                                            ("green", "Zelena"),
+                                                        ],
+                                                        label="Barva gumba",
+                                                    ),
+                                                ),
+                                            ]
+                                        ),
+                                        max_num=1,
+                                        min_num=0,
+                                    ),
+                                ),
+                            ]
+                        ),
+                    ),
+                    ("newsletter_block", wagtail.blocks.StructBlock([])),
+                    ("support_block", wagtail.blocks.StructBlock([])),
+                    (
+                        "promoted_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                (
+                                    "promoted_snippet",
+                                    wagtail.snippets.blocks.SnippetChooserBlock(
+                                        home.models.snippets.Promoted
+                                    ),
+                                )
+                            ]
+                        ),
+                    ),
+                ],
+                blank=True,
+                null=True,
+                use_json_field=True,
+                verbose_name="Moduli",
+            ),
         ),
         migrations.AlterField(
-            model_name='modularpage',
-            name='modules',
-            field=wagtail.fields.StreamField([('contact_block', wagtail.blocks.StructBlock([])), ('pillars_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.TextBlock()), ('pillars', wagtail.blocks.ListBlock(wagtail.blocks.PageChooserBlock()))])), ('networks_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.TextBlock())])), ('text_content_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('text', wagtail.blocks.RichTextBlock()), ('button', wagtail.blocks.ListBlock(wagtail.blocks.StructBlock([('button_text', wagtail.blocks.CharBlock()), ('link', wagtail.blocks.URLBlock(label='Zunanja povezava', required=False)), ('page_link', wagtail.blocks.PageChooserBlock(label='Povezava na stran', required=False)), ('color', wagtail.blocks.ChoiceBlock(choices=[('white', 'Bela'), ('green', 'Zelena')], label='Barva gumba'))]), max_num=1, min_num=0))])), ('table_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('table', wagtail.blocks.ListBlock(wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.TextBlock())])))])), ('donors_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock())])), ('financial_information_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('reports_url', wagtail.blocks.URLBlock(label='Letna vsebinska in finančna poročila', required=False))])), ('promoted_block', wagtail.blocks.StructBlock([('promoted_snippet', wagtail.snippets.blocks.SnippetChooserBlock(home.models.snippets.Promoted))]))], blank=True, null=True, use_json_field=True, verbose_name='Moduli'),
+            model_name="modularpage",
+            name="modules",
+            field=wagtail.fields.StreamField(
+                [
+                    ("contact_block", wagtail.blocks.StructBlock([])),
+                    (
+                        "pillars_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                ("description", wagtail.blocks.TextBlock()),
+                                (
+                                    "pillars",
+                                    wagtail.blocks.ListBlock(
+                                        wagtail.blocks.PageChooserBlock()
+                                    ),
+                                ),
+                            ]
+                        ),
+                    ),
+                    (
+                        "networks_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                ("description", wagtail.blocks.TextBlock()),
+                            ]
+                        ),
+                    ),
+                    (
+                        "text_content_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                ("text", wagtail.blocks.RichTextBlock()),
+                                (
+                                    "button",
+                                    wagtail.blocks.ListBlock(
+                                        wagtail.blocks.StructBlock(
+                                            [
+                                                (
+                                                    "button_text",
+                                                    wagtail.blocks.CharBlock(),
+                                                ),
+                                                (
+                                                    "link",
+                                                    wagtail.blocks.URLBlock(
+                                                        label="Zunanja povezava",
+                                                        required=False,
+                                                    ),
+                                                ),
+                                                (
+                                                    "page_link",
+                                                    wagtail.blocks.PageChooserBlock(
+                                                        label="Povezava na stran",
+                                                        required=False,
+                                                    ),
+                                                ),
+                                                (
+                                                    "color",
+                                                    wagtail.blocks.ChoiceBlock(
+                                                        choices=[
+                                                            ("white", "Bela"),
+                                                            ("green", "Zelena"),
+                                                        ],
+                                                        label="Barva gumba",
+                                                    ),
+                                                ),
+                                            ]
+                                        ),
+                                        max_num=1,
+                                        min_num=0,
+                                    ),
+                                ),
+                            ]
+                        ),
+                    ),
+                    (
+                        "table_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                (
+                                    "table",
+                                    wagtail.blocks.ListBlock(
+                                        wagtail.blocks.StructBlock(
+                                            [
+                                                ("title", wagtail.blocks.CharBlock()),
+                                                (
+                                                    "description",
+                                                    wagtail.blocks.TextBlock(),
+                                                ),
+                                            ]
+                                        )
+                                    ),
+                                ),
+                            ]
+                        ),
+                    ),
+                    (
+                        "donors_block",
+                        wagtail.blocks.StructBlock(
+                            [("title", wagtail.blocks.CharBlock())]
+                        ),
+                    ),
+                    (
+                        "financial_information_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                (
+                                    "reports_url",
+                                    wagtail.blocks.URLBlock(
+                                        label="Letna vsebinska in finančna poročila",
+                                        required=False,
+                                    ),
+                                ),
+                            ]
+                        ),
+                    ),
+                    (
+                        "promoted_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                (
+                                    "promoted_snippet",
+                                    wagtail.snippets.blocks.SnippetChooserBlock(
+                                        home.models.snippets.Promoted
+                                    ),
+                                )
+                            ]
+                        ),
+                    ),
+                ],
+                blank=True,
+                null=True,
+                use_json_field=True,
+                verbose_name="Moduli",
+            ),
         ),
         migrations.AlterField(
-            model_name='pillarpage',
-            name='modules',
-            field=wagtail.fields.StreamField([('contact_block', wagtail.blocks.StructBlock([])), ('pillars_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.TextBlock()), ('pillars', wagtail.blocks.ListBlock(wagtail.blocks.PageChooserBlock()))])), ('networks_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.TextBlock())])), ('text_content_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('text', wagtail.blocks.RichTextBlock()), ('button', wagtail.blocks.ListBlock(wagtail.blocks.StructBlock([('button_text', wagtail.blocks.CharBlock()), ('link', wagtail.blocks.URLBlock(label='Zunanja povezava', required=False)), ('page_link', wagtail.blocks.PageChooserBlock(label='Povezava na stran', required=False)), ('color', wagtail.blocks.ChoiceBlock(choices=[('white', 'Bela'), ('green', 'Zelena')], label='Barva gumba'))]), max_num=1, min_num=0))])), ('table_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('table', wagtail.blocks.ListBlock(wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.TextBlock())])))])), ('donors_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock())])), ('financial_information_block', wagtail.blocks.StructBlock([('title', wagtail.blocks.CharBlock()), ('reports_url', wagtail.blocks.URLBlock(label='Letna vsebinska in finančna poročila', required=False))])), ('promoted_block', wagtail.blocks.StructBlock([('promoted_snippet', wagtail.snippets.blocks.SnippetChooserBlock(home.models.snippets.Promoted))]))], blank=True, null=True, use_json_field=True, verbose_name='Moduli'),
+            model_name="pillarpage",
+            name="modules",
+            field=wagtail.fields.StreamField(
+                [
+                    ("contact_block", wagtail.blocks.StructBlock([])),
+                    (
+                        "pillars_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                ("description", wagtail.blocks.TextBlock()),
+                                (
+                                    "pillars",
+                                    wagtail.blocks.ListBlock(
+                                        wagtail.blocks.PageChooserBlock()
+                                    ),
+                                ),
+                            ]
+                        ),
+                    ),
+                    (
+                        "networks_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                ("description", wagtail.blocks.TextBlock()),
+                            ]
+                        ),
+                    ),
+                    (
+                        "text_content_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                ("text", wagtail.blocks.RichTextBlock()),
+                                (
+                                    "button",
+                                    wagtail.blocks.ListBlock(
+                                        wagtail.blocks.StructBlock(
+                                            [
+                                                (
+                                                    "button_text",
+                                                    wagtail.blocks.CharBlock(),
+                                                ),
+                                                (
+                                                    "link",
+                                                    wagtail.blocks.URLBlock(
+                                                        label="Zunanja povezava",
+                                                        required=False,
+                                                    ),
+                                                ),
+                                                (
+                                                    "page_link",
+                                                    wagtail.blocks.PageChooserBlock(
+                                                        label="Povezava na stran",
+                                                        required=False,
+                                                    ),
+                                                ),
+                                                (
+                                                    "color",
+                                                    wagtail.blocks.ChoiceBlock(
+                                                        choices=[
+                                                            ("white", "Bela"),
+                                                            ("green", "Zelena"),
+                                                        ],
+                                                        label="Barva gumba",
+                                                    ),
+                                                ),
+                                            ]
+                                        ),
+                                        max_num=1,
+                                        min_num=0,
+                                    ),
+                                ),
+                            ]
+                        ),
+                    ),
+                    (
+                        "table_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                (
+                                    "table",
+                                    wagtail.blocks.ListBlock(
+                                        wagtail.blocks.StructBlock(
+                                            [
+                                                ("title", wagtail.blocks.CharBlock()),
+                                                (
+                                                    "description",
+                                                    wagtail.blocks.TextBlock(),
+                                                ),
+                                            ]
+                                        )
+                                    ),
+                                ),
+                            ]
+                        ),
+                    ),
+                    (
+                        "donors_block",
+                        wagtail.blocks.StructBlock(
+                            [("title", wagtail.blocks.CharBlock())]
+                        ),
+                    ),
+                    (
+                        "financial_information_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("title", wagtail.blocks.CharBlock()),
+                                (
+                                    "reports_url",
+                                    wagtail.blocks.URLBlock(
+                                        label="Letna vsebinska in finančna poročila",
+                                        required=False,
+                                    ),
+                                ),
+                            ]
+                        ),
+                    ),
+                    (
+                        "promoted_block",
+                        wagtail.blocks.StructBlock(
+                            [
+                                (
+                                    "promoted_snippet",
+                                    wagtail.snippets.blocks.SnippetChooserBlock(
+                                        home.models.snippets.Promoted
+                                    ),
+                                )
+                            ]
+                        ),
+                    ),
+                ],
+                blank=True,
+                null=True,
+                use_json_field=True,
+                verbose_name="Moduli",
+            ),
         ),
         migrations.CreateModel(
-            name='Promoted',
+            name="Promoted",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('translation_key', models.UUIDField(default=uuid.uuid4, editable=False)),
-                ('title', models.TextField()),
-                ('description', models.CharField()),
-                ('link', models.URLField(blank=True)),
-                ('image', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.image')),
-                ('locale', models.ForeignKey(editable=False, on_delete=django.db.models.deletion.PROTECT, related_name='+', to='wagtailcore.locale')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "translation_key",
+                    models.UUIDField(default=uuid.uuid4, editable=False),
+                ),
+                ("title", models.TextField()),
+                ("description", models.CharField()),
+                ("link", models.URLField(blank=True)),
+                (
+                    "image",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="+",
+                        to="wagtailimages.image",
+                    ),
+                ),
+                (
+                    "locale",
+                    models.ForeignKey(
+                        editable=False,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="+",
+                        to="wagtailcore.locale",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Izpostavljeno',
-                'verbose_name_plural': 'Izpostavljeno',
-                'abstract': False,
-                'unique_together': {('translation_key', 'locale')},
+                "verbose_name": "Izpostavljeno",
+                "verbose_name_plural": "Izpostavljeno",
+                "abstract": False,
+                "unique_together": {("translation_key", "locale")},
             },
         ),
     ]

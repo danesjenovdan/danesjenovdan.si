@@ -9,18 +9,47 @@ import wagtail.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0029_rename_headersettings_navigationsettings_and_more'),
+        ("home", "0029_rename_headersettings_navigationsettings_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='navigationsettings',
-            name='pages',
-            field=wagtail.fields.StreamField([('page', wagtail.blocks.StructBlock([('page', wagtail.blocks.PageChooserBlock()), ('subpages', wagtail.blocks.ListBlock(wagtail.blocks.PageChooserBlock()))]))], null=True, use_json_field=True, verbose_name='Strani'),
+            model_name="navigationsettings",
+            name="pages",
+            field=wagtail.fields.StreamField(
+                [
+                    (
+                        "page",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("page", wagtail.blocks.PageChooserBlock()),
+                                (
+                                    "subpages",
+                                    wagtail.blocks.ListBlock(
+                                        wagtail.blocks.PageChooserBlock()
+                                    ),
+                                ),
+                            ]
+                        ),
+                    )
+                ],
+                null=True,
+                use_json_field=True,
+                verbose_name="Strani",
+            ),
         ),
         migrations.AlterField(
-            model_name='navigationsettings',
-            name='pillars',
-            field=wagtail.fields.StreamField([('page', wagtail.blocks.PageChooserBlock(home.models.pages.PillarPage))], use_json_field=True, verbose_name='Stebri'),
+            model_name="navigationsettings",
+            name="pillars",
+            field=wagtail.fields.StreamField(
+                [
+                    (
+                        "page",
+                        wagtail.blocks.PageChooserBlock(home.models.pages.PillarPage),
+                    )
+                ],
+                use_json_field=True,
+                verbose_name="Stebri",
+            ),
         ),
     ]

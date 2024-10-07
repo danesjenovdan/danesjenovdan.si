@@ -7,29 +7,57 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailcore', '0089_log_entry_data_json_null_to_object'),
-        ('home', '0058_alter_blogpage_modules_alter_homepage_modules_and_more'),
+        ("wagtailcore", "0089_log_entry_data_json_null_to_object"),
+        ("home", "0058_alter_blogpage_modules_alter_homepage_modules_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='generalsettings',
-            name='manage_newsletter_page',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailcore.page', verbose_name='Urejanje naročnine na novičnike'),
+            model_name="generalsettings",
+            name="manage_newsletter_page",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="wagtailcore.page",
+                verbose_name="Urejanje naročnine na novičnike",
+            ),
         ),
         migrations.AddField(
-            model_name='generalsettings',
-            name='privacy_policy_page',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailcore.page', verbose_name='Politika zasebnosti in varstva osebnih podatkov'),
+            model_name="generalsettings",
+            name="privacy_policy_page",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="wagtailcore.page",
+                verbose_name="Politika zasebnosti in varstva osebnih podatkov",
+            ),
         ),
         migrations.AlterField(
-            model_name='generalsettings',
-            name='our_work_page',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailcore.page', verbose_name='Naše delo'),
+            model_name="generalsettings",
+            name="our_work_page",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="wagtailcore.page",
+                verbose_name="Naše delo",
+            ),
         ),
         migrations.AlterField(
-            model_name='generalsettings',
-            name='support_page',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailcore.page', verbose_name='Podpri nas'),
+            model_name="generalsettings",
+            name="support_page",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="wagtailcore.page",
+                verbose_name="Podpri nas",
+            ),
         ),
     ]

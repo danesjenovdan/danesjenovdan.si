@@ -9,13 +9,47 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0045_homepage_introduction'),
+        ("home", "0045_homepage_introduction"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='homepage',
-            name='focus_areas',
-            field=wagtail.fields.StreamField([('focus_area', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock(label='Ime')), ('image', wagtail.images.blocks.ImageChooserBlock(label='Ikona')), ('url', wagtail.blocks.URLBlock(label='Zunanja povezava', required=False)), ('page', wagtail.blocks.PageChooserBlock(label='Podstran', required=False))], label='Fokus'))], blank=True, null=True, use_json_field=True, verbose_name='Fokusi'),
+            model_name="homepage",
+            name="focus_areas",
+            field=wagtail.fields.StreamField(
+                [
+                    (
+                        "focus_area",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("name", wagtail.blocks.CharBlock(label="Ime")),
+                                (
+                                    "image",
+                                    wagtail.images.blocks.ImageChooserBlock(
+                                        label="Ikona"
+                                    ),
+                                ),
+                                (
+                                    "url",
+                                    wagtail.blocks.URLBlock(
+                                        label="Zunanja povezava", required=False
+                                    ),
+                                ),
+                                (
+                                    "page",
+                                    wagtail.blocks.PageChooserBlock(
+                                        label="Podstran", required=False
+                                    ),
+                                ),
+                            ],
+                            label="Fokus",
+                        ),
+                    )
+                ],
+                blank=True,
+                null=True,
+                use_json_field=True,
+                verbose_name="Fokusi",
+            ),
         ),
     ]

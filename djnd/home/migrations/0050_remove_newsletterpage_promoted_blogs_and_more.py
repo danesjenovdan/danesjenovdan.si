@@ -9,17 +9,34 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0049_newsletterpage_published_at'),
+        ("home", "0049_newsletterpage_published_at"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='newsletterpage',
-            name='promoted_blogs',
+            model_name="newsletterpage",
+            name="promoted_blogs",
         ),
         migrations.AddField(
-            model_name='newsletterpage',
-            name='promoted',
-            field=wagtail.fields.StreamField([('article', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.CharBlock()), ('image', wagtail.images.blocks.ImageChooserBlock()), ('link', wagtail.blocks.URLBlock(required=False))]))], blank=True, null=True, use_json_field=True),
+            model_name="newsletterpage",
+            name="promoted",
+            field=wagtail.fields.StreamField(
+                [
+                    (
+                        "article",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("name", wagtail.blocks.CharBlock()),
+                                ("description", wagtail.blocks.CharBlock()),
+                                ("image", wagtail.images.blocks.ImageChooserBlock()),
+                                ("link", wagtail.blocks.URLBlock(required=False)),
+                            ]
+                        ),
+                    )
+                ],
+                blank=True,
+                null=True,
+                use_json_field=True,
+            ),
         ),
     ]

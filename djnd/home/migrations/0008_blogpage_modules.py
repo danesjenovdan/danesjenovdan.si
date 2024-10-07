@@ -7,13 +7,15 @@ import wagtail.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0007_newsletterpage_exposed_newsletterpage_introduction_and_more'),
+        ("home", "0007_newsletterpage_exposed_newsletterpage_introduction_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='blogpage',
-            name='modules',
-            field=wagtail.fields.StreamField([], blank=True, null=True, use_json_field=True, verbose_name='Moduli'),
+            model_name="blogpage",
+            name="modules",
+            field=wagtail.fields.StreamField(
+                [], blank=True, null=True, use_json_field=True, verbose_name="Moduli"
+            ),
         ),
     ]

@@ -8,13 +8,33 @@ import wagtail.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0070_alter_homepage_focus_areas'),
+        ("home", "0070_alter_homepage_focus_areas"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='navigationsettings',
-            name='pages',
-            field=wagtail.fields.StreamField([('page', wagtail.blocks.StructBlock([('page', wagtail.blocks.PageChooserBlock()), ('subpages', wagtail.blocks.ListBlock(wagtail.blocks.PageChooserBlock(), default=[]))]))], null=True, use_json_field=True, verbose_name='Strani'),
+            model_name="navigationsettings",
+            name="pages",
+            field=wagtail.fields.StreamField(
+                [
+                    (
+                        "page",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("page", wagtail.blocks.PageChooserBlock()),
+                                (
+                                    "subpages",
+                                    wagtail.blocks.ListBlock(
+                                        wagtail.blocks.PageChooserBlock(), default=[]
+                                    ),
+                                ),
+                            ]
+                        ),
+                    )
+                ],
+                null=True,
+                use_json_field=True,
+                verbose_name="Strani",
+            ),
         ),
     ]

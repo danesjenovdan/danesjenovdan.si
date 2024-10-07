@@ -45,7 +45,7 @@ class BasePage(Page):
     ]
 
     promote_panels = Page.promote_panels + [
-        FieldPanel('meta_image'),
+        FieldPanel("meta_image"),
     ]
 
     class Meta:

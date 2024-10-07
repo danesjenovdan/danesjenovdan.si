@@ -9,13 +9,30 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0038_homepage_modules'),
+        ("home", "0038_homepage_modules"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='modularpage',
-            name='subpages',
-            field=wagtail.fields.StreamField([('page', wagtail.blocks.StructBlock([('name', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.TextBlock()), ('icon', wagtail.images.blocks.ImageChooserBlock()), ('page', wagtail.blocks.PageChooserBlock())]))], blank=True, null=True, use_json_field=True),
+            model_name="modularpage",
+            name="subpages",
+            field=wagtail.fields.StreamField(
+                [
+                    (
+                        "page",
+                        wagtail.blocks.StructBlock(
+                            [
+                                ("name", wagtail.blocks.CharBlock()),
+                                ("description", wagtail.blocks.TextBlock()),
+                                ("icon", wagtail.images.blocks.ImageChooserBlock()),
+                                ("page", wagtail.blocks.PageChooserBlock()),
+                            ]
+                        ),
+                    )
+                ],
+                blank=True,
+                null=True,
+                use_json_field=True,
+            ),
         ),
     ]

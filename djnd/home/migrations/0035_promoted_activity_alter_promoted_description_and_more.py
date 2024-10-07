@@ -7,23 +7,29 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0034_alter_modularpage_modules_alter_pillarpage_modules'),
+        ("home", "0034_alter_modularpage_modules_alter_pillarpage_modules"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='promoted',
-            name='activity',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='home.activity'),
+            model_name="promoted",
+            name="activity",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="home.activity",
+            ),
         ),
         migrations.AlterField(
-            model_name='promoted',
-            name='description',
+            model_name="promoted",
+            name="description",
             field=models.CharField(blank=True),
         ),
         migrations.AlterField(
-            model_name='promoted',
-            name='title',
+            model_name="promoted",
+            name="title",
             field=models.TextField(blank=True),
         ),
     ]

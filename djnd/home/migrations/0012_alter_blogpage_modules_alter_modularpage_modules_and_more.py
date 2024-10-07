@@ -8,23 +8,41 @@ import wagtail.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0011_alter_activity_category_alter_activity_pillar_page_and_more'),
+        ("home", "0011_alter_activity_category_alter_activity_pillar_page_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='blogpage',
-            name='modules',
-            field=wagtail.fields.StreamField([('newsletter_section', wagtail.blocks.StructBlock([]))], blank=True, null=True, use_json_field=True, verbose_name='Moduli'),
+            model_name="blogpage",
+            name="modules",
+            field=wagtail.fields.StreamField(
+                [("newsletter_section", wagtail.blocks.StructBlock([]))],
+                blank=True,
+                null=True,
+                use_json_field=True,
+                verbose_name="Moduli",
+            ),
         ),
         migrations.AlterField(
-            model_name='modularpage',
-            name='modules',
-            field=wagtail.fields.StreamField([('newsletter_section', wagtail.blocks.StructBlock([]))], blank=True, null=True, use_json_field=True, verbose_name='Moduli'),
+            model_name="modularpage",
+            name="modules",
+            field=wagtail.fields.StreamField(
+                [("newsletter_section", wagtail.blocks.StructBlock([]))],
+                blank=True,
+                null=True,
+                use_json_field=True,
+                verbose_name="Moduli",
+            ),
         ),
         migrations.AlterField(
-            model_name='pillarpage',
-            name='modules',
-            field=wagtail.fields.StreamField([('newsletter_section', wagtail.blocks.StructBlock([]))], blank=True, null=True, use_json_field=True, verbose_name='Moduli'),
+            model_name="pillarpage",
+            name="modules",
+            field=wagtail.fields.StreamField(
+                [("newsletter_section", wagtail.blocks.StructBlock([]))],
+                blank=True,
+                null=True,
+                use_json_field=True,
+                verbose_name="Moduli",
+            ),
         ),
     ]

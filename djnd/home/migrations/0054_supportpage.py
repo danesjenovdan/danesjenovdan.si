@@ -8,24 +8,59 @@ import wagtail.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailimages', '0025_alter_image_file_alter_rendition_file'),
-        ('wagtailcore', '0089_log_entry_data_json_null_to_object'),
-        ('home', '0053_activitycategory_icon_activityproject_icon'),
+        ("wagtailimages", "0025_alter_image_file_alter_rendition_file"),
+        ("wagtailcore", "0089_log_entry_data_json_null_to_object"),
+        ("home", "0053_activitycategory_icon_activityproject_icon"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='SupportPage',
+            name="SupportPage",
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('color', models.CharField(choices=[('white', 'Bela'), ('mint', 'Meta'), ('red', 'Rdeča'), ('green', 'Zelena'), ('blue', 'Modra'), ('yellow', 'Rumena'), ('lavender', 'Sivka')], default='white', max_length=255, verbose_name='Barva')),
-                ('lead', models.TextField(blank=True)),
-                ('description', wagtail.fields.RichTextField(blank=True, null=True)),
-                ('image', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.image')),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.page",
+                    ),
+                ),
+                (
+                    "color",
+                    models.CharField(
+                        choices=[
+                            ("white", "Bela"),
+                            ("mint", "Meta"),
+                            ("red", "Rdeča"),
+                            ("green", "Zelena"),
+                            ("blue", "Modra"),
+                            ("yellow", "Rumena"),
+                            ("lavender", "Sivka"),
+                        ],
+                        default="white",
+                        max_length=255,
+                        verbose_name="Barva",
+                    ),
+                ),
+                ("lead", models.TextField(blank=True)),
+                ("description", wagtail.fields.RichTextField(blank=True, null=True)),
+                (
+                    "image",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="+",
+                        to="wagtailimages.image",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
-            bases=('wagtailcore.page',),
+            bases=("wagtailcore.page",),
         ),
     ]

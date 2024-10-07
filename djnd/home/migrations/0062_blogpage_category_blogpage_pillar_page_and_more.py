@@ -6,23 +6,29 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0061_alter_activity_link'),
+        ("home", "0061_alter_activity_link"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='blogpage',
-            name='category',
-            field=models.ManyToManyField(blank=True, to='home.activitycategory', verbose_name='Kategorije'),
+            model_name="blogpage",
+            name="category",
+            field=models.ManyToManyField(
+                blank=True, to="home.activitycategory", verbose_name="Kategorije"
+            ),
         ),
         migrations.AddField(
-            model_name='blogpage',
-            name='pillar_page',
-            field=models.ManyToManyField(blank=True, to='home.pillarpage', verbose_name='Tematski sklopi'),
+            model_name="blogpage",
+            name="pillar_page",
+            field=models.ManyToManyField(
+                blank=True, to="home.pillarpage", verbose_name="Tematski sklopi"
+            ),
         ),
         migrations.AddField(
-            model_name='blogpage',
-            name='project',
-            field=models.ManyToManyField(blank=True, to='home.activityproject', verbose_name='Projekti'),
+            model_name="blogpage",
+            name="project",
+            field=models.ManyToManyField(
+                blank=True, to="home.activityproject", verbose_name="Projekti"
+            ),
         ),
     ]

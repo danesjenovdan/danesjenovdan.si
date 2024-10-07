@@ -7,17 +7,17 @@ import wagtail.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0066_alter_homepage_modules_alter_modularpage_modules_and_more'),
+        ("home", "0066_alter_homepage_modules_alter_modularpage_modules_and_more"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='activity',
-            name='source',
+            model_name="activity",
+            name="source",
         ),
         migrations.AlterField(
-            model_name='activity',
-            name='note',
+            model_name="activity",
+            name="note",
             field=wagtail.fields.RichTextField(blank=True, null=True),
         ),
     ]

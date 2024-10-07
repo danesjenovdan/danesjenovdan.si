@@ -79,9 +79,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS("Start importing videos..."))
 
         url = "https://djnapi.djnd.si/djnd.si/videos/?lang=sl&ordering=date&size=50"
-        url_en = (
-            "https://djnapi.djnd.si/djnd.si/videos/?lang=en&ordering=date&size=50"
-        )
+        url_en = "https://djnapi.djnd.si/djnd.si/videos/?lang=en&ordering=date&size=50"
 
         try:
             category = self._get_category()
