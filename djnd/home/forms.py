@@ -5,8 +5,7 @@ from wagtail.admin.forms.pages import WagtailAdminPageForm
 from wagtail.models import Locale
 
 from .models.pages import PillarPage
-from .models.snippets import (ActivityCategory, ActivityProject,
-                              TeamMemberCategory)
+from .models.snippets import ActivityCategory, ActivityProject, TeamMemberCategory
 
 #
 # ADMIN FORMS

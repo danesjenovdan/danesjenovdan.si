@@ -19,8 +19,7 @@ from wagtail.templatetags.wagtailcore_tags import richtext
 
 from ..pagination import get_filtered_activities, paginate_limit_offset
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
-from .snippets import (ActivityCategory, ActivityProject, TeamMember,
-                       TeamMemberCategory)
+from .snippets import ActivityCategory, ActivityProject, TeamMember, TeamMemberCategory
 
 sl_collator = icu.Collator.createInstance(icu.Locale("sl_SI"))
 
