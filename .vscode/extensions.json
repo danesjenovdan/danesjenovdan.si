@@ -2,6 +2,10 @@
   "recommendations": [
     "bradlc.vscode-tailwindcss",
     "csstools.postcss",
-    "jacobcassidy.css-nesting-syntax-highlighting"
+    "jacobcassidy.css-nesting-syntax-highlighting",
+    "ms-python.black-formatter",
+    "ms-python.isort",
+    "ms-python.python",
+    "ms-python.vscode-pylance"
   ]
 }
