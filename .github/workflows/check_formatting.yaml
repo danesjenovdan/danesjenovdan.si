@@ -22,8 +22,8 @@ jobs:
 
       - name: Check formatting with black
         run: |
-          black . --check --diff
+          black ./djnd --check --diff
 
       - name: Check formatting with isort
         run: |
-          isort . --check --diff --profile black
+          isort ./djnd --check --diff --profile black
