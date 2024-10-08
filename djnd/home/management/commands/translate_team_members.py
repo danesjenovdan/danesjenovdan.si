@@ -3,8 +3,9 @@ import traceback
 import requests
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
-from home.models import TeamMember, TeamMemberCategory
 from wagtail.models import Locale
+
+from home.models import TeamMember, TeamMemberCategory
 
 
 class Command(BaseCommand):

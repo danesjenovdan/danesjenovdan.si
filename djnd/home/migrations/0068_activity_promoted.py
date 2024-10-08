@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0067_remove_activity_source_alter_activity_note'),
+        ("home", "0067_remove_activity_source_alter_activity_note"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='activity',
-            name='promoted',
+            model_name="activity",
+            name="promoted",
             field=models.BooleanField(default=False),
         ),
     ]

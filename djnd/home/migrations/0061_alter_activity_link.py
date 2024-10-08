@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0060_activity_page_alter_activity_link'),
+        ("home", "0060_activity_page_alter_activity_link"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='activity',
-            name='link',
-            field=models.URLField(blank=True, null=True, verbose_name='Zunanja povezava'),
+            model_name="activity",
+            name="link",
+            field=models.URLField(
+                blank=True, null=True, verbose_name="Zunanja povezava"
+            ),
         ),
     ]

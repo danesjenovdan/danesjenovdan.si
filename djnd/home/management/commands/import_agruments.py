@@ -6,9 +6,10 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from django.utils.formats import date_format
 from django.utils.text import slugify
-from home.models import Activity, ActivityCategory, BlogListingPage, BlogPage
 from wagtail.blocks.stream_block import StreamValue
 from wagtail.models import Locale, Page, Site
+
+from home.models import Activity, ActivityCategory, BlogListingPage, BlogPage
 
 from ._save_image import get_image, save_image
 

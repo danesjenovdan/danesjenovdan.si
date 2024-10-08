@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0036_alter_activitycategory_options_and_more'),
+        ("home", "0036_alter_activitycategory_options_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='pillarpage',
-            name='activities_title',
+            model_name="pillarpage",
+            name="activities_title",
             field=models.TextField(blank=True),
         ),
     ]

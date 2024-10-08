@@ -1,5 +1,4 @@
 from django.db import models
-
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
 from wagtail.contrib.settings.models import BaseGenericSetting, register_setting
@@ -7,42 +6,43 @@ from wagtail.fields import StreamField
 
 from .pages import PillarPage
 
+
 @register_setting
 class GeneralSettings(BaseGenericSetting):
     our_work_page = models.ForeignKey(
-        'wagtailcore.Page',
+        "wagtailcore.Page",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+',
-        verbose_name='Naše delo'
+        related_name="+",
+        verbose_name="Naše delo",
     )
 
     support_page = models.ForeignKey(
-        'wagtailcore.Page',
+        "wagtailcore.Page",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+',
-        verbose_name='Podpri nas'
+        related_name="+",
+        verbose_name="Podpri nas",
     )
 
     privacy_policy_page = models.ForeignKey(
-        'wagtailcore.Page',
+        "wagtailcore.Page",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+',
-        verbose_name='Politika zasebnosti in varstva osebnih podatkov'
+        related_name="+",
+        verbose_name="Politika zasebnosti in varstva osebnih podatkov",
     )
 
     manage_newsletter_page = models.ForeignKey(
-        'wagtailcore.Page',
+        "wagtailcore.Page",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+',
-        verbose_name='Urejanje naročnine na novičnike'
+        related_name="+",
+        verbose_name="Urejanje naročnine na novičnike",
     )
 
     panels = [
@@ -68,10 +68,18 @@ class NavigationSettings(BaseGenericSetting):
     )
     pages = StreamField(
         [
-            ("page", blocks.StructBlock([
-                ("page", blocks.PageChooserBlock()),
-                ("subpages", blocks.ListBlock(blocks.PageChooserBlock(), default=[])),
-            ])),
+            (
+                "page",
+                blocks.StructBlock(
+                    [
+                        ("page", blocks.PageChooserBlock()),
+                        (
+                            "subpages",
+                            blocks.ListBlock(blocks.PageChooserBlock(), default=[]),
+                        ),
+                    ]
+                ),
+            ),
         ],
         verbose_name="Strani",
         use_json_field=True,

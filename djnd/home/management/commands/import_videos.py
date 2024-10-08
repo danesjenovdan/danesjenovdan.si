@@ -3,8 +3,9 @@ import traceback
 import requests
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
-from home.models import Activity, ActivityCategory
 from wagtail.models import Locale
+
+from home.models import Activity, ActivityCategory
 
 from ._save_image import save_image
 
@@ -79,9 +80,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS("Start importing videos..."))
 
         url = "https://djnapi.djnd.si/djnd.si/videos/?lang=sl&ordering=date&size=50"
-        url_en = (
-            "https://djnapi.djnd.si/djnd.si/videos/?lang=en&ordering=date&size=50"
-        )
+        url_en = "https://djnapi.djnd.si/djnd.si/videos/?lang=en&ordering=date&size=50"
 
         try:
             category = self._get_category()

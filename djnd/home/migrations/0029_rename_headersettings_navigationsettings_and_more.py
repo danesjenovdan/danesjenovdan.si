@@ -6,16 +6,16 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0028_alter_blogpage_modules_alter_modularpage_modules_and_more'),
+        ("home", "0028_alter_blogpage_modules_alter_modularpage_modules_and_more"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='HeaderSettings',
-            new_name='NavigationSettings',
+            old_name="HeaderSettings",
+            new_name="NavigationSettings",
         ),
         migrations.AlterModelOptions(
-            name='navigationsettings',
-            options={'verbose_name': 'Navigacija', 'verbose_name_plural': 'Navigacija'},
+            name="navigationsettings",
+            options={"verbose_name": "Navigacija", "verbose_name_plural": "Navigacija"},
         ),
     ]

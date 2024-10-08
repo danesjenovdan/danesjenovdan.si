@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0026_rename_subtitle_modularpage_lead_and_more'),
+        ("home", "0026_rename_subtitle_modularpage_lead_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='network',
-            name='link',
+            model_name="network",
+            name="link",
             field=models.URLField(blank=True),
         ),
     ]

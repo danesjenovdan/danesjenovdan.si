@@ -6,11 +6,11 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0032_alter_modularpage_modules_alter_pillarpage_modules'),
+        ("home", "0032_alter_modularpage_modules_alter_pillarpage_modules"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='Donor',
+            name="Donor",
         ),
     ]
