@@ -52,7 +52,8 @@
 
   <nav>
     <ul class="flex flex-col gap-3">
-      {% for nav_page in settings.home.NavigationSettings.pages %}
+      {% for nav_page in settings.home.NavigationSettings.new_pages %}
+      {% if nav_page.value|show_for_language:LANGUAGE_CODE %}
       <li class="uppercase text-smd/5 font-medium">
         <div class="relative theme-color-{{ nav_page.value.page.localized.specific.color }}">
           <a
@@ -69,12 +70,13 @@
         {% if nav_page.value.subpages %}
         <ul class="mt-1 ml-4 flex flex-col gap-1">
           {% for nav_subpage in nav_page.value.subpages %}
+          {% if nav_subpage|show_for_language:LANGUAGE_CODE %}
           <li class="normal-case text-base/5 font-normal">
-            <div class="relative theme-color-{{ nav_subpage.localized.specific.color }}">
+            <div class="relative theme-color-{{ nav_subpage.page.localized.specific.color }}">
               <a
-                href="{% pageurl nav_subpage.localized %}"
-                aria-current="{% if page.id == nav_subpage.localized.id %}page{% else %}false{% endif %}"
-              >{{ nav_subpage.localized.title }}</a>
+                href="{% pageurl nav_subpage.page.localized %}"
+                aria-current="{% if page.id == nav_subpage.page.localized.id %}page{% else %}false{% endif %}"
+              >{{ nav_subpage.page.localized.title }}</a>
               <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid" viewBox="0 0 121 41" fill="none">
                 <path
                   stroke="var(--th-primary)" stroke-width="3" stroke-linecap="round"
@@ -83,10 +85,12 @@
               </svg>
             </div>
           </li>
+          {% endif %}
           {% endfor %}
         </ul>
         {% endif %}
       </li>
+      {% endif %}
       {% endfor %}
       <!-- <li class="uppercase text-smd/5 font-medium">
         <a href="/trgovina" class="hover:underline">{% translate "Trgovina" %}</a>
