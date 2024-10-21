@@ -76,3 +76,9 @@ def debug_print(value):
     print(type(value))
     # print(vars(value))
     return value
+
+
+@register.filter
+def show_for_language(value, language_code):
+    languages = value["show_languages"]
+    return language_code in languages

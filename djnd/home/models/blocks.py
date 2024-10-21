@@ -1,3 +1,4 @@
+from django import forms
 from django.db import models
 from django.utils.translation import get_language
 from wagtail import blocks
@@ -197,3 +198,31 @@ class BlogPageBlock(blocks.StreamBlock):
 
     class Meta:
         label = "Modul"
+
+
+class LanguageChoices(models.TextChoices):
+    EN = "en", "Angleščina"
+    SL = "sl", "Slovenščina"
+
+
+class NavigationPageBlock(blocks.StructBlock):
+    page = blocks.PageChooserBlock(
+        label="Stran",
+    )
+    show_languages = blocks.MultipleChoiceBlock(
+        choices=LanguageChoices.choices,
+        default=[LanguageChoices.EN, LanguageChoices.SL],
+        widget=forms.CheckboxSelectMultiple,
+        label="Pokaži v jezikih",
+    )
+
+    class Meta:
+        label = "Stran"
+
+
+class NavigationPageWithSubpagesBlock(NavigationPageBlock):
+    subpages = blocks.ListBlock(
+        NavigationPageBlock(),
+        default=[],
+        label="Podstrani",
+    )

@@ -4,6 +4,7 @@ from wagtail.admin.panels import FieldPanel
 from wagtail.contrib.settings.models import BaseGenericSetting, register_setting
 from wagtail.fields import StreamField
 
+from .blocks import NavigationPageWithSubpagesBlock
 from .pages import PillarPage
 
 
@@ -85,10 +86,19 @@ class NavigationSettings(BaseGenericSetting):
         use_json_field=True,
         null=True,
     )
+    new_pages = StreamField(
+        [
+            ("page", NavigationPageWithSubpagesBlock()),
+        ],
+        verbose_name="Strani",
+        use_json_field=True,
+        null=True,
+    )
 
     panels = [
         FieldPanel("pillars"),
         FieldPanel("pages"),
+        FieldPanel("new_pages"),
     ]
 
     class Meta:
