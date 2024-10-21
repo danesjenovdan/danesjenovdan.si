@@ -67,25 +67,6 @@ class NavigationSettings(BaseGenericSetting):
         verbose_name="Stebri",
         use_json_field=True,
     )
-    pages = StreamField(
-        [
-            (
-                "page",
-                blocks.StructBlock(
-                    [
-                        ("page", blocks.PageChooserBlock()),
-                        (
-                            "subpages",
-                            blocks.ListBlock(blocks.PageChooserBlock(), default=[]),
-                        ),
-                    ]
-                ),
-            ),
-        ],
-        verbose_name="Strani",
-        use_json_field=True,
-        null=True,
-    )
     new_pages = StreamField(
         [
             ("page", NavigationPageWithSubpagesBlock()),
@@ -97,7 +78,6 @@ class NavigationSettings(BaseGenericSetting):
 
     panels = [
         FieldPanel("pillars"),
-        FieldPanel("pages"),
         FieldPanel("new_pages"),
     ]
 
