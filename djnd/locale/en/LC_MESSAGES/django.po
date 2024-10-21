@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-15 16:55+0200\n"
+"POT-Creation-Date: 2024-10-21 11:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: djnd/templates/base.html:53
+#: djnd/templates/base.html:59
 msgid ""
 "Hvala! Poslali smo ti sporočilo s povezavo, na kateri lahko potrdiš prijavo!"
 msgstr ""
 
-#: djnd/templates/base.html:54
+#: djnd/templates/base.html:60
 msgid "Prišlo je do napake :("
 msgstr ""
+
+#: djnd/templates/includes/footer.html:15
+#: home/templates/home/blocks/contact_block.html:23
+msgid "(med 10. in 16. uro)"
+msgstr "(10:00–16:00)"
 
 #: djnd/templates/includes/footer.html:29
 msgid "Naroči se na Občasnik, naš mesečni novičnik"
@@ -47,7 +52,7 @@ msgid "Trgovina"
 msgstr "Shop"
 
 #: home/templates/home/activities-homepage.html:11
-#: home/templates/home/home_page.html:139
+#: home/templates/home/home_page.html:143
 msgid "Več aktivnosti"
 msgstr "More"
 
@@ -62,10 +67,6 @@ msgstr "Danes je nov dan"
 #: home/templates/home/blocks/contact_block.html:11
 msgid "Inštitut za druga vprašanja"
 msgstr "Inštitut za druga vprašanja"
-
-#: home/templates/home/blocks/contact_block.html:23
-msgid "(med 10. in 16. uro)"
-msgstr "(10:00–16:00)"
 
 #: home/templates/home/blocks/contact_block.html:28
 #: home/templates/home/blocks/newsletter_block.html:8
@@ -113,49 +114,48 @@ msgid "Povezani zapisi"
 msgstr "Worth your attention"
 
 #: home/templates/home/blog_page.html:45
-#: home/templates/home/newsletter_page.html:65
+#: home/templates/home/newsletter_page.html:68
 msgid "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega"
 msgstr "Invitations, tips, suggestions, and warnings"
 
 #: home/templates/home/blog_page.html:59
-#: home/templates/home/newsletter_page.html:74
+#: home/templates/home/newsletter_page.html:77
 msgid "Prejšnji občasniki"
 msgstr "Archive"
 
-#: home/templates/home/home_page.html:66
+#: home/templates/home/home_page.html:67
 msgid "Zadnje aktivnosti"
 msgstr "Latest activities"
 
-#: home/templates/home/home_page.html:81
+#: home/templates/home/home_page.html:83
 msgid "Vse"
 msgstr "All"
 
-#: home/templates/home/home_page.html:96
-#: home/templates/home/newsletter_page.html:64
+#: home/templates/home/home_page.html:99
+#: home/templates/home/newsletter_page.html:67
 #: home/templates/home/our_work_page.html:44
 msgid "Izpostavljeno"
 msgstr "Featured"
 
-#: home/templates/home/home_page.html:111
-#: home/templates/home/newsletter_list_page.html:43
+#: home/templates/home/home_page.html:115
 msgid "Občasnik"
 msgstr "Newsletter"
 
-#: home/templates/home/home_page.html:116
+#: home/templates/home/home_page.html:120
 msgid "Vsi filtri"
 msgstr "More filters"
 
 #: home/templates/home/newsletter_list_page.html:23
 msgid "Preberi pretekle občasnike!"
-msgstr "Check all!"
+msgstr "Read past newsletters!"
 
-#: home/templates/home/newsletter_page.html:39
+#: home/templates/home/newsletter_page.html:42
 msgid "Danes je nov dan novice"
 msgstr "News from Danes je nov dan"
 
-#: home/templates/home/newsletter_page.html:40
+#: home/templates/home/newsletter_page.html:43
 msgid "Preveri, kaj smo počeli pretekli mesec"
-msgstr "Last month’s highlights"
+msgstr "Last month's highlights"
 
 #: home/templates/home/our_work_page.html:14
 msgid "Filtriraj po tematskih sklopih"
@@ -208,23 +208,23 @@ msgstr "Subscribe"
 msgid "Vse aktivnosti"
 msgstr "All"
 
-#: home/templates/home/support_page.html:33
+#: home/templates/home/support_page.html:34
 msgid "Vsak mesec"
 msgstr "Monthly"
 
-#: home/templates/home/support_page.html:34
+#: home/templates/home/support_page.html:35
 msgid "Ker nas želiš podpirati vsak mesec!"
 msgstr "Because you want to support us every month!"
 
-#: home/templates/home/support_page.html:45
+#: home/templates/home/support_page.html:46
 msgid "Enkrat"
 msgstr "One time"
 
-#: home/templates/home/support_page.html:46
+#: home/templates/home/support_page.html:47
 msgid "Ker imaš ravno prav evrov viška za boljši jutri!"
 msgstr "Because you have just enough spare euros for a better tomorrow!"
 
-#: home/templates/home/support_page.html:61
+#: home/templates/home/support_page.html:65
 #, python-format
 msgid ""
 "Nameniš pa nam lahko tudi 1 %% dohodnine! Tebe nič ne stane, nam pa pomeni "
@@ -233,11 +233,11 @@ msgstr ""
 "You can also give us 1%% of income tax! It costs you nothing, but it means a "
 "lot to us."
 
-#: home/templates/home/support_page.html:73
+#: home/templates/home/support_page.html:77
 msgid "Vlogo lahko oddaš tudi s certifikatom na eDavkih"
-msgstr "You can also submit an application with a certificate on eDavki"
+msgstr "You can also submit an application through eDavki"
 
-#: home/templates/home/support_page.html:81
+#: home/templates/home/support_page.html:86
 msgid ""
 "Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, "
 "nagubaj čelo in napni mišice ter se nam javi na "
