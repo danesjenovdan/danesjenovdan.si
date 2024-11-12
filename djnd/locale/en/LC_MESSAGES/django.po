@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-12 14:50+0100\n"
+"POT-Creation-Date: 2024-11-12 15:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,6 +134,7 @@ msgstr "All"
 #: home/templates/home/home_page.html:99
 #: home/templates/home/newsletter_page.html:67
 #: home/templates/home/our_work_page.html:44
+#: home/templates/home/pillar_page.html:29
 msgid "Izpostavljeno"
 msgstr "Featured"
 
@@ -204,7 +205,7 @@ msgstr ""
 msgid "Naroči se"
 msgstr "Subscribe"
 
-#: home/templates/home/pillar_page.html:45
+#: home/templates/home/pillar_page.html:46
 msgid "Vsi projekti"
 msgstr "All projects"
 

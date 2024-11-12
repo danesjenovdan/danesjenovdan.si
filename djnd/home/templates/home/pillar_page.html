@@ -26,6 +26,7 @@
     </div>
     {% if page.projects %}
     <div class="max-w-[1280px] mx-auto px-14 pb-20 sm-max:px-6 sm-max:pb-10">
+      <h2 class="text-2xl font-semibold mb-6 xl-max:text-lg">{% translate "Izpostavljeno" %}</h2>
       {% include "home/partials/pillar_grid.html" with open_new_tab=True grid_items=page.projects %}
     </div>
     {% endif %}
@@ -39,7 +40,7 @@
 
   <div class="max-w-[1280px] mx-auto mt-16 px-14 pb-20 sm-max:px-6 sm-max:pb-10 sm-max:mt-8">
     <div class="flex justify-between mb-6">
-      <h2 class="mb-2 text-2xl font-semibold">{{ page.activities_title }}</h2>
+      <h2 class="mb-2 text-2xl font-semibold xl-max:text-lg">{{ page.activities_title }}</h2>
       {% if settings.home.GeneralSettings.our_work_page %}
       <a href="{% pageurl settings.home.GeneralSettings.our_work_page %}" class="self-center ml-1 hover:font-semibold group">
         <span class="inline-block min-w-[104px] text-center underline">{% translate "Vsi projekti" %}</span><img class="inline-block w-3 ml-2 -mt-1 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
