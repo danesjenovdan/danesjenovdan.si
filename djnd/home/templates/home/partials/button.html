@@ -1,7 +1,9 @@
 {% load static wagtailcore_tags %}
 
 {% if button_page_link or button_link %}
-<a href="{% if button_page_link %}{% pageurl button_page_link %}{% else %}{{ button_link }}{% endif %}"
+<a
+  {% if button_page_link %}href="{% pageurl button_page_link %}"
+  {% else %}href="{{ button_link }}" target="_blank"{% endif %}
 {% else %}
 <button
 {% endif %}
