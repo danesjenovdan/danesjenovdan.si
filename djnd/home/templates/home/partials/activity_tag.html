@@ -5,9 +5,12 @@
   class="
     inline-flex items-center max-w-full min-h-6 align-top mr-2 mb-2 px-2.5 py-1 shadow-dark shadow-[0px_0px_0px_1px] rounded-full font-mono text-sm/none
     transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px]
+    {% if color_hover and tag %}theme-color-{{ tag.localized.color }} hover:bg-th-primary{% endif %}
   "
 >
-  {% if tag.localized.icon %}
+  {% if tag.localized.filter_icon %}
+    {% image tag.localized.filter_icon height-32 class="h-[14px] w-auto me-2 overflow-hidden" %}
+  {% elif tag.localized.icon %}
     {% image tag.localized.icon height-32 class="h-[14px] w-auto me-2 overflow-hidden" %}
   {% endif %}
   {% firstof tag.localized.name tag.localized.title as title %}

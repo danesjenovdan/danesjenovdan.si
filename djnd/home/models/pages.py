@@ -131,6 +131,13 @@ class PillarPage(BasePage):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    filter_icon = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
     projects = StreamField(
         [
             (
@@ -168,6 +175,7 @@ class PillarPage(BasePage):
         FieldPanel("description"),
         FieldPanel("image"),
         FieldPanel("icon"),
+        FieldPanel("filter_icon"),
         FieldPanel("projects"),
         FieldPanel("modules"),
         FieldPanel("activities_title"),

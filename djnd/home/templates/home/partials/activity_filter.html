@@ -22,10 +22,13 @@
       flex shrink-0 items-center min-h-6 align-top px-2.5 py-1 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-sm/none cursor-pointer whitespace-nowrap
       peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
       transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
+      {% if color_hover and filter %}theme-color-{{ filter.localized.color }}{% endif %}
     "
   >
   {% if filter %}
-    {% if filter.localized.icon %}
+    {% if filter.localized.filter_icon %}
+    {% image filter.localized.filter_icon height-32 class="h-[14px] w-auto me-2 overflow-hidden" %}
+    {% elif filter.localized.icon %}
     {% image filter.localized.icon height-32 class="h-[14px] w-auto me-2 overflow-hidden" %}
     {% endif %}
     {% firstof filter.localized.name filter.localized.title as title %}

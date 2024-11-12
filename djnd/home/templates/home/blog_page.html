@@ -11,7 +11,7 @@
       {% if settings.home.GeneralSettings.our_work_page %}
       <div class="flex flex-wrap">
         {% for tag in page|sl_activity_tags:"pillar_page" %}
-        {% include "home/partials/activity_tag.html" with tag=tag filter_name="pillars" %}
+        {% include "home/partials/activity_tag.html" with tag=tag filter_name="pillars" color_hover=True %}
         {% endfor %}
         {% for tag in page|sl_activity_tags:"category" %}
         {% include "home/partials/activity_tag.html" with tag=tag filter_name="categories" %}
