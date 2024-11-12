@@ -76,7 +76,7 @@ msgstr "Stay in touch"
 #: home/templates/home/blocks/contact_block.html:32
 #: home/templates/home/blocks/newsletter_block.html:12
 msgid "Prijavi se na naš Občasnik!"
-msgstr "Subscribe to Občasnik, our monthly newsletter"
+msgstr "Monthly newsletter in Slovenian"
 
 #: home/templates/home/blocks/donors_block.html:8
 msgid "Sedanji"
@@ -190,7 +190,7 @@ msgstr ""
 
 #: home/templates/home/partials/newsletter_form.html:5
 msgid "Vpiši svoj e-naslov"
-msgstr "Enter your email address"
+msgstr "To subscribe, enter your email address"
 
 #: home/templates/home/partials/newsletter_form.html:10
 msgid ""
