@@ -33,7 +33,7 @@ msgstr "(10:00–16:00)"
 
 #: djnd/templates/includes/footer.html:29
 msgid "Naroči se na Občasnik, naš mesečni novičnik"
-msgstr "Subscribe to Občasnik, our monthly newsletter"
+msgstr "Monthly newsletter in Slovenian"
 
 #: djnd/templates/includes/footer.html:37
 msgid "Vsa naša koda je dostopna pod CC0 licenco. Najdeš jo na Githubu"
