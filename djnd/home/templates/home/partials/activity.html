@@ -8,8 +8,23 @@
     {% image activity.image fill-1200x630 class="w-full h-auto object-cover" %}
   </a>
   <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
+    {% if activity.date %}
+    <p class="font-mono">{{ activity.date|date:"j. F Y" }}</p>
+    {% endif %}
+    <div class="mt-3 mb-4">
+      <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
+        class="
+          text-3lg font-semibold xl-max:text-lg/[1.15]
+          bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out
+        "
+      >{{ activity.title }}</a>
+    </div>
+    <p class="text-base/snug">{{ activity.description }}</p>
+    {% if activity.note %}
+    <div class="font-mono rich-text-mono leading-[1.1] mt-4">{{ activity.note|richtext }}</div>
+    {% endif %}
     {% if settings.home.GeneralSettings.our_work_page %}
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap mt-5">
       {% for tag in activity|sl_activity_tags:"pillar_page" %}
       {% include "home/partials/activity_tag.html" with tag=tag filter_name="pillars" %}
       {% endfor %}
@@ -20,21 +35,6 @@
       {% include "home/partials/activity_tag.html" with tag=tag filter_name="projects" %}
       {% endfor %}
     </div>
-    {% endif %}
-    <div class="mt-5 mb-4">
-      <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
-        class="
-          text-3lg font-semibold xl-max:text-lg/[1.15]
-          bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out
-        "
-      >{{ activity.title }}</a>
-    </div>
-    <p class="text-base/snug">{{ activity.description }}</p>
-    {% if activity.date %}
-    <p class="font-mono mt-4">{{ activity.date|date:"j. F Y" }}</p>
-    {% endif %}
-    {% if activity.note %}
-    <div class="font-mono rich-text-mono leading-[1.1] mt-4">{{ activity.note|richtext }}</div>
     {% endif %}
   </div>
 </div>

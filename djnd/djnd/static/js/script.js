@@ -66,9 +66,10 @@ function homepageLinkedSentences() {
     const introChildren = introEl.querySelectorAll(":scope > *");
     introChildren.forEach((introChild) => {
       if (introChild.textContent.includes(sentence)) {
+        const href = boxEl.closest("a")?.getAttribute("href");
         introChild.innerHTML = introChild.innerHTML.replace(
           sentence,
-          `<span data-linked-box-index="${i}" class="theme-color-${color}">${sentence}</span>`
+          `<a href="${href}" data-linked-box-index="${i}" class="theme-color-${color}">${sentence}</a>`
         );
       }
     });
