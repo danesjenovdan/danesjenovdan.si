@@ -96,8 +96,8 @@ class Activity(index.Indexed, TranslatableMixin, models.Model):
         return self.title
 
     class Meta(TranslatableMixin.Meta):
-        verbose_name = "Aktivnost"
-        verbose_name_plural = "Aktivnosti"
+        verbose_name = "Aktivnost (Projekt)"
+        verbose_name_plural = "Aktivnosti (Projekti)"
 
 
 class TeamMemberCategory(TranslatableMixin, models.Model):
@@ -150,7 +150,7 @@ class Promoted(TranslatableMixin, models.Model):
     title = models.TextField(
         blank=True,
         verbose_name="Naslov",
-        help_text="Če so polja prazna in obstaja Aktivnost, se uporabijo podatki Aktivnosti",
+        help_text="Če so polja prazna in obstaja Aktivnost (Projekt), se uporabijo podatki Aktivnosti (Projekta)",
     )
     description = models.CharField(
         blank=True,
@@ -174,7 +174,7 @@ class Promoted(TranslatableMixin, models.Model):
         blank=True,
         on_delete=models.SET_NULL,
         related_name="+",
-        verbose_name="Aktivnost",
+        verbose_name="Aktivnost (Projekt)",
     )
 
     def __str__(self) -> str:

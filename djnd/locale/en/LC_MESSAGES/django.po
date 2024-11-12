@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-21 11:52+0200\n"
+"POT-Creation-Date: 2024-11-12 14:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,14 +47,14 @@ msgstr "Privacy and protection of personal data"
 msgid "Uredi svoje naročnine na novičnike"
 msgstr "Manage your email subscriptions with Danes je nov dan"
 
-#: djnd/templates/includes/sidebar.html:92 shop/templates/shop/shop.html:10
+#: djnd/templates/includes/sidebar.html:96 shop/templates/shop/shop.html:10
 msgid "Trgovina"
 msgstr "Shop"
 
 #: home/templates/home/activities-homepage.html:11
 #: home/templates/home/home_page.html:143
-msgid "Več aktivnosti"
-msgstr "More"
+msgid "Več projektov"
+msgstr "More projects"
 
 #: home/templates/home/blocks/contact_block.html:8
 msgid "KONTAKT"
@@ -124,8 +124,8 @@ msgid "Prejšnji občasniki"
 msgstr "Archive"
 
 #: home/templates/home/home_page.html:67
-msgid "Zadnje aktivnosti"
-msgstr "Latest activities"
+msgid "Zadnji projekti"
+msgstr "Latest projects"
 
 #: home/templates/home/home_page.html:83
 msgid "Vse"
@@ -205,8 +205,8 @@ msgid "Naroči se"
 msgstr "Subscribe"
 
 #: home/templates/home/pillar_page.html:45
-msgid "Vse aktivnosti"
-msgstr "All"
+msgid "Vsi projekti"
+msgstr "All projects"
 
 #: home/templates/home/support_page.html:34
 msgid "Vsak mesec"
