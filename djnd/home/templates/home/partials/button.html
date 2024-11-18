@@ -3,7 +3,7 @@
 {% if button_page_link or button_link %}
 <a
   {% if button_page_link %}href="{% pageurl button_page_link %}"
-  {% else %}href="{{ button_link }}" target="_blank"{% endif %}
+  {% else %}href="{{ button_link }}" {% if not button_link_same_tab %}target="_blank"{% endif %}{% endif %}
 {% else %}
 <button
 {% endif %}

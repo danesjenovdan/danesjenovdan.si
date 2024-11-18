@@ -11,4 +11,5 @@ urlpatterns = [
     ),
     path("newsletters/", views.NewsletterListView.as_view(), name="newsletters"),
     path("blogs/", views.BlogListView.as_view(), name="blogs"),
+    path("random/", views.RandomView.as_view(), name="random"),
 ]

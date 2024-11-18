@@ -1,0 +1,6 @@
+{% load static i18n %}
+<div class="absolute bottom-0 left-0 right-0 mx-auto text-center">
+  <button type="button" onclick="loadMoreOnHomePage(this)" class="inline-flex text-md font-medium hover:font-bold theme-color-{{ button_color }} tertiary-button group xl-max:text-smd">
+    <span>{% translate "Prikaži več" %}</span><img class="w-4 ml-4 -mb-0.5 group-hover:animate-arrow-hover-down" src="{% static "img/noun-arrow-down-1434311.svg" %}" alt="">
+  </button>
+</div>

@@ -53,7 +53,7 @@
 
   </form>
 
-  <div class="grid grid-cols-3 gap-4 lg-max:grid-cols-2 sm-max:grid-cols-1">
+  <div class="grid grid-cols-3 gap-4 pb-[40px] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
     {% for activity in activities %}
 
       {% include 'home/partials/activity.html' with activity=activity %}
@@ -67,7 +67,8 @@
       {% endif %}
 
       {% if forloop.last and page_obj.has_next %}
-        {% include 'home/partials/loader.html' with next_page_offset=page_obj.next_page_offset view='activities' %}
+        {% include 'home/partials/loader.html' with next_page_offset=page_obj.next_page_offset view='activities' hidden=True %}
+        {% include 'home/partials/load_more_button.html' %}
       {% endif %}
 
     {% endfor %}

@@ -2,7 +2,7 @@
 # This file is primarily for development use with docker-compose
 # See Dockerfile in repository root for production and k8s use
 # ---------------------------------- WARNING ----------------------------------
-FROM node:20-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 

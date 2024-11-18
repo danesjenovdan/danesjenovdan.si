@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-12 15:35+0100\n"
+"POT-Creation-Date: 2024-11-18 16:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: djnd/templates/404.html:13
+msgid "Tukaj ni ničesar."
+msgstr "There's nothing here."
+
+#: djnd/templates/404.html:14
+msgid "Pojdi na naključni projekt"
+msgstr "Go to a random project"
 
 #: djnd/templates/base.html:59
 msgid ""
@@ -50,11 +58,6 @@ msgstr "Manage your email subscriptions with Danes je nov dan"
 #: djnd/templates/includes/sidebar.html:96 shop/templates/shop/shop.html:10
 msgid "Trgovina"
 msgstr "Shop"
-
-#: home/templates/home/activities-homepage.html:11
-#: home/templates/home/home_page.html:143
-msgid "Več projektov"
-msgstr "More projects"
 
 #: home/templates/home/blocks/contact_block.html:8
 msgid "KONTAKT"
@@ -169,6 +172,15 @@ msgstr "Filter by categories"
 #: home/templates/home/our_work_page.html:40
 msgid "Filtriraj po projektih"
 msgstr "Filter by projects"
+
+#: home/templates/home/partials/load_more_button.html:4
+msgid "Prikaži več"
+msgstr "Show more"
+
+#: home/templates/home/partials/loader.html:6
+#, python-format
+msgid "Prikazanih %(num)s od %(total)s"
+msgstr "Showing %(num)s of %(total)s"
 
 #: home/templates/home/partials/newsletter_card.html:5
 msgid "Naroči se na"

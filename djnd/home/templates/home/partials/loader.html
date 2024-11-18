@@ -1,5 +1,7 @@
-{% load djnd_extras %}
-
-<div id="loader-container" class="border border-dark/25 border-dashed col-span-full p-5 flex items-center justify-center" {% if hidden %}style="display: none;" hx-disable{% endif %} {% if next_page_offset %} hx-trigger="revealed" hx-indicator="#loader" hx-get="{% url view %}?{{ request|query_string_without_offset }}{% if loader_extra_query_params %}{{ loader_extra_query_params }}{% endif %}&offset={{ next_page_offset }}" hx-swap="outerHTML" {% endif %}>
-  <div id="loader" class="htmx-indicator"></div>
+{% load i18n djnd_extras %}
+<div id="loader-parent" class="col-span-full">
+  <div id="loader-container" class="mb-4 border border-dark/25 border-dashed p-5 flex items-center justify-center" {% if hidden %}style="display: none;" hx-disable{% endif %} {% if next_page_offset %} hx-trigger="revealed" hx-indicator="#loader" hx-get="{% url view %}?{{ request|query_string_without_offset }}{% if loader_extra_query_params %}{{ loader_extra_query_params }}{% endif %}&offset={{ next_page_offset }}" hx-target="closest #loader-parent" hx-swap="outerHTML" {% endif %}>
+    <div id="loader" class="htmx-indicator"></div>
+  </div>
+  <div class="text-right text-sm font-mono">{% blocktranslate with num=page_obj.end_index total=page_obj.paginator.count %}Prikazanih {{ num }} od {{ total }}{% endblocktranslate %}</div>
 </div>

@@ -6,7 +6,7 @@
 # ---
 # build scss in separate image
 # ---
-FROM node:20-alpine as css-compile
+FROM node:22-alpine as css-compile
 
 WORKDIR /app
 
@@ -23,7 +23,7 @@ RUN yarn build
 # wagtail image
 # ---
 # Use an official Python runtime based on Debian 12 "bookworm" as a parent image.
-FROM python:3.11-slim-bookworm
+FROM python:3.12-slim-bookworm
 
 # Add user that will be used in the container.
 RUN useradd wagtail
@@ -53,7 +53,7 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
  && rm -rf /var/lib/apt/lists/*
 
 # Install the application server.
-RUN pip install "gunicorn==21.2.0"
+RUN pip install "gunicorn==23.0.0"
 
 # Install the project requirements.
 COPY ./djnd/requirements.txt /
@@ -74,6 +74,7 @@ COPY --chown=wagtail:wagtail --from=css-compile /app/djnd/djnd/static/css ./djnd
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
 
+# Compile locale files.
 RUN python manage.py compilemessages
 
 CMD gunicorn djnd.wsgi:application -b 0.0.0.0:8000 --log-level DEBUG

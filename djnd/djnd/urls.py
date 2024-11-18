@@ -3,6 +3,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.templatetags.static import static
 from django.urls import include, path, re_path
+from django.views import defaults
 from django.views.generic.base import RedirectView
 from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
@@ -10,7 +11,13 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from home.views import AgrumentByDateRedirectView
 
+
+def page_not_found(request):
+    return defaults.page_not_found(request, None)
+
+
 urlpatterns = [
+    path("404/", page_not_found),
     path("favicon.ico", RedirectView.as_view(url=static("favicons/favicon.ico"))),
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
