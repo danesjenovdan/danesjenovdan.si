@@ -1,9 +1,12 @@
+{% load static i18n %}
+
 {% for activity in activities %}
 
   {% include 'home/partials/activity.html' with activity=activity %}
 
   {% if forloop.last and page_obj.has_next %}
-    {% include 'home/partials/loader.html' with next_page_offset=page_obj.next_page_offset view='activities' %}
+    {% include 'home/partials/loader.html' with next_page_offset=page_obj.next_page_offset view='activities' hidden=True %}
+    {% include 'home/partials/load_more_button.html' %}
   {% endif %}
 
 {% endfor %}

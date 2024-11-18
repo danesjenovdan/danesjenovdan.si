@@ -123,7 +123,7 @@
       {% endif %}
 
     </div>
-    <div class="grid grid-cols-3 gap-4 pb-[80px] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
+    <div class="grid grid-cols-3 gap-4 pb-[40px] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
       {% for activity in activities %}
         {% include 'home/partials/activity.html' with activity=activity %}
 
@@ -137,11 +137,7 @@
 
         {% if forloop.last and page_obj.has_next %}
           {% include 'home/partials/loader.html' with next_page_offset=page_obj.next_page_offset view='activities-homepage' hidden=True %}
-          <div class="absolute bottom-0 left-0 right-0 mx-auto text-center">
-            <button type="button" onclick="loadMoreOnHomePage(this)" class="inline-flex text-md font-medium hover:font-bold theme-color-{{ button_color }} tertiary-button group xl-max:text-smd">
-              <span>{% translate "Več projektov" %}</span><img class="w-4 ml-4 -mb-0.5 group-hover:animate-arrow-hover-down" src="{% static "img/noun-arrow-down-1434311.svg" %}" alt="">
-            </button>
-          </div>
+          {% include 'home/partials/load_more_button.html' %}
         {% endif %}
       {% endfor %}
     </div>

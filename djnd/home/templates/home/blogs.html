@@ -1,9 +1,12 @@
+{% load static i18n %}
+
 {% for blog in blogs %}
 
   {% include "home/partials/blog_activity.html" with activity=blog %}
 
   {% if forloop.last and page_obj.has_next and not without_loader %}
-    {% include 'home/partials/loader.html' with next_page_offset=page_obj.next_page_offset view='blogs' %}
+    {% include 'home/partials/loader.html' with next_page_offset=page_obj.next_page_offset view='blogs' hidden=True %}
+    {% include 'home/partials/load_more_button.html' %}
   {% endif %}
 
 {% endfor %}
