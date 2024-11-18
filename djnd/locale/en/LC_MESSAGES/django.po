@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-18 15:23+0100\n"
+"POT-Creation-Date: 2024-11-18 16:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: djnd/templates/404.html:13
+msgid "Tukaj ni ničesar."
+msgstr "There's nothing here."
+
+#: djnd/templates/404.html:14
+msgid "Pojdi na naključni projekt"
+msgstr "Go to a random project"
 
 #: djnd/templates/base.html:59
 msgid ""

@@ -1,11 +1,24 @@
 {% extends "wrapper.html" %}
+{% load static wagtailcore_tags wagtailimages_tags i18n djnd_extras %}
 
 {% block title %}Page not found{% endblock %}
 
-{% block body_class %}template-404{% endblock %}
+{% block body_class %}template-404 theme-color-red{% endblock %}
 
 {% block content %}
-<h1>Page not found</h1>
-
-<h2>Sorry, this page could not be found.</h2>
+<div>
+  <div class="border-b border-dark last:border-b-0 bg-white">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 sm-max:block sm-max:px-6 sm-max:py-8">
+      <div class="basis-8/12">
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{% translate "Tukaj ni ničesar." %}</h1>
+        {% translate "Pojdi na naključni projekt" as button_text %}
+        {% url "random" as random_url %}
+        {% include 'home/partials/button.html' with button_text=button_text button_color="white" button_link=random_url button_link_same_tab=True %}
+      </div>
+      <div class="basis-4/12 sm-max:hidden">
+        <img src="{% static 'img/404bird.png' %}" alt="" class="w-64" />
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

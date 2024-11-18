@@ -6,6 +6,7 @@ from django.views.generic import TemplateView, View
 from wagtail.models import Locale, Site
 
 from .models.pages import BlogListingPage, BlogPage, NewsletterListPage, NewsletterPage
+from .models.snippets import Activity
 from .pagination import get_filtered_activities, paginate_limit_offset
 
 
@@ -99,6 +100,24 @@ class BlogListView(TemplateView):
             )
         )
         return context
+
+
+class RandomView(View):
+    def get(self, request):
+        sl_locale = Locale.objects.get(language_code="sl")
+        sl_activities = Activity.objects.filter(locale=sl_locale)
+
+        if sl_activities.count() == 0:
+            return redirect("/")
+
+        random_activity = sl_activities.order_by("?").first()
+
+        if random_activity.link:
+            return redirect(random_activity.link)
+        elif random_activity.page:
+            return redirect(random_activity.page.get_url())
+
+        return redirect("/")
 
 
 # ------------
