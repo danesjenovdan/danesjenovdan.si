@@ -5,7 +5,6 @@ from wagtail.contrib.settings.models import BaseGenericSetting, register_setting
 from wagtail.fields import StreamField
 
 from .blocks import NavigationPageWithSubpagesBlock
-from .pages import PillarPage
 
 
 @register_setting
@@ -62,7 +61,7 @@ class GeneralSettings(BaseGenericSetting):
 class NavigationSettings(BaseGenericSetting):
     pillars = StreamField(
         [
-            ("page", blocks.PageChooserBlock(PillarPage)),
+            ("page", blocks.PageChooserBlock("home.PillarPage")),
         ],
         verbose_name="Stebri",
         use_json_field=True,

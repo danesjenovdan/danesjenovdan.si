@@ -55,10 +55,12 @@
     </div>
   </div>
 
+  {% if more_blogs_link %}
   <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-3 pb-14 justify-center">
-    {% translate "Prejšnji občasniki" as button_text %}
-    {% include 'home/partials/tertiary_button.html' with button_text=button_text button_color=page.color button_link="/" %}
+    {% translate "Več zapisov" as button_text %}
+    {% include 'home/partials/tertiary_button.html' with button_text=button_text button_color=page.color button_link=more_blogs_link %}
   </div>
+  {% endif %}
 </div>
 {% endif %}
 
