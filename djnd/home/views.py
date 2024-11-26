@@ -105,19 +105,14 @@ class BlogListView(TemplateView):
 class RandomView(View):
     def get(self, request):
         sl_locale = Locale.objects.get(language_code="sl")
-        sl_activities = Activity.objects.filter(locale=sl_locale)
+        sl_activities = Activity.objects.filter(locale=sl_locale, page__isnull=False)
 
         if sl_activities.count() == 0:
             return redirect("/")
 
         random_activity = sl_activities.order_by("?").first()
 
-        if random_activity.link:
-            return redirect(random_activity.link)
-        elif random_activity.page:
-            return redirect(random_activity.page.get_url())
-
-        return redirect("/")
+        return redirect(random_activity.page.get_url())
 
 
 # ------------
