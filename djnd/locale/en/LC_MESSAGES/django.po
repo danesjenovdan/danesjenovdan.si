@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-18 16:18+0100\n"
+"POT-Creation-Date: 2024-11-26 15:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,9 +122,8 @@ msgid "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega"
 msgstr "Invitations, tips, suggestions, and warnings"
 
 #: home/templates/home/blog_page.html:59
-#: home/templates/home/newsletter_page.html:77
-msgid "Prejšnji občasniki"
-msgstr "Archive"
+msgid "Več zapisov"
+msgstr "More writings"
 
 #: home/templates/home/home_page.html:67
 msgid "Zadnji projekti"
@@ -160,6 +159,10 @@ msgstr "News from Danes je nov dan"
 #: home/templates/home/newsletter_page.html:43
 msgid "Preveri, kaj smo počeli pretekli mesec"
 msgstr "Last month's highlights"
+
+#: home/templates/home/newsletter_page.html:77
+msgid "Prejšnji občasniki"
+msgstr "Archive"
 
 #: home/templates/home/our_work_page.html:14
 msgid "Filtriraj po tematskih sklopih"

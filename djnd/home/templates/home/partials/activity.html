@@ -4,7 +4,11 @@
   {% if activity|sl_is_promoted %}
   <img src="{% static 'img/izpostavljeno.svg' %}" alt="" class="w-[30px] h-[30px] -left-[15px] -top-[15px] absolute">
   {% endif %}
-  <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank" class="peer">
+  <a
+    {% if activity.page %}href="{% pageurl activity.page %}"
+    {% else %}href="{{ activity.link }}" target="_blank"{% endif %}
+    class="peer"
+  >
     {% image activity.image fill-1200x630 class="w-full h-auto object-cover" %}
   </a>
   <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
@@ -12,7 +16,9 @@
     <p class="font-mono">{{ activity.date|date:"j. F Y" }}</p>
     {% endif %}
     <div class="mt-3 mb-4">
-      <a href="{% if activity.page %}{% pageurl activity.page %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
+      <a
+        {% if activity.page %}href="{% pageurl activity.page %}"
+        {% else %}href="{{ activity.link }}" target="_blank"{% endif %}
         class="
           text-3lg font-semibold xl-max:text-lg/[1.15]
           bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out

@@ -19,6 +19,7 @@ from wagtail.templatetags.wagtailcore_tags import richtext
 
 from ..pagination import get_filtered_activities, paginate_limit_offset
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
+from .settings import GeneralSettings
 from .snippets import ActivityCategory, ActivityProject, TeamMember, TeamMemberCategory
 
 sl_collator = icu.Collator.createInstance(icu.Locale("sl_SI"))
@@ -551,6 +552,19 @@ class BlogPage(BasePage):
         FieldPanel("modules"),
         FieldPanel("more_blogs"),
     ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        if category := ActivityCategory.objects.filter(name="Zapis").first():
+            if category_local := category.localized:
+                general_settings = GeneralSettings.load(request_or_site=request)
+                page_url = general_settings.our_work_page.localized.get_url(request)
+                context["more_blogs_link"] = (
+                    f"{page_url}?categories={slugify(category_local.name)}"
+                )
+
+        return context
 
 
 class SupportPage(BasePage):
