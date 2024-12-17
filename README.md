@@ -12,6 +12,18 @@ Koda, ki poganja DJND domek.
 - Website redirects:
   - `website-redirects` is a seperate project that handles custom redirects from other domains. Initially used for `agrument.danesjenovdan.si`, but can be extended for anything else via nginx config.
 
+## Deployment
+
+- Deployment is setup to run automatically when pushed:
+  - Production: to the `v3-k8s` branch
+  - Staging: to the `v3-k8s-staging` branch
+
+- Always merge (PRs are created automatically on push to `v3-dev`):
+  - from `v3-dev` to `v3-k8s-staging`
+  - from `v3-dev` to `v3-k8s`
+
+- **DO NOT** merge from `v3-k8s-staging` to `v3-k8s` or any other way around
+
 ### Old versions
 
 Old versions of the site are available in git under [tags](https://github.com/danesjenovdan/danesjenovdan.si/tags)
