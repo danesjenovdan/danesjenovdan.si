@@ -4,8 +4,8 @@ DEBUG = bool(os.getenv("DJANGO_DEBUG", False))
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "<TODO>")
 
-ALLOWED_HOSTS = ["danesjenovdan.si"]
-CSRF_TRUSTED_ORIGINS = ["https://danesjenovdan.si"]
+ALLOWED_HOSTS = ["staging.danesjenovdan.lb.djnd.si"]
+CSRF_TRUSTED_ORIGINS = ["https://staging.danesjenovdan.lb.djnd.si"]
 
 STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", os.path.join(BASE_DIR, "static"))
 STATIC_URL = os.getenv("DJANGO_STATIC_URL_BASE", "/static/")
@@ -22,7 +22,7 @@ if os.getenv("DJANGO_ENABLE_S3", False):
     AWS_QUERYSTRING_AUTH = (
         False  # query strings expire and don't play nice with the cache
     )
-    AWS_LOCATION = os.getenv("DJANGO_AWS_LOCATION", "danesjenovdan")
+    AWS_LOCATION = os.getenv("DJANGO_AWS_LOCATION", "danesjenovdan-staging")
     AWS_S3_REGION_NAME = os.getenv("DJANGO_AWS_REGION_NAME", "fr-par")
     AWS_S3_ENDPOINT_URL = os.getenv(
         "DJANGO_AWS_S3_ENDPOINT_URL", "https://s3.fr-par.scw.cloud"
