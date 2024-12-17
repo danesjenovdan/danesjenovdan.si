@@ -5,13 +5,13 @@ resources:
   - djnd/deployment.yaml
   - djnd/ingress.yaml
   - djnd/service.yaml
-  - website-redirects/deployment.yaml
-  - website-redirects/ingress.yaml
-  - website-redirects/service.yaml
+  # - website-redirects/deployment.yaml
+  # - website-redirects/ingress.yaml
+  # - website-redirects/service.yaml
 images:
-  - name: danesjenovdan
-    newName: rg.fr-par.scw.cloud/djnd/danesjenovdan
+  - name: danesjenovdan-staging
+    newName: rg.fr-par.scw.cloud/djnd/danesjenovdan-staging
     newTag: '39d665dd3baf5b3d6bb5a0176decf44d7d755b8b'
-  - name: danesjenovdan-website-redirects
-    newName: rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects
-    newTag: '39d665dd3baf5b3d6bb5a0176decf44d7d755b8b'
+  # - name: danesjenovdan-website-redirects
+  #   newName: rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects
+  #   newTag: '39d665dd3baf5b3d6bb5a0176decf44d7d755b8b'

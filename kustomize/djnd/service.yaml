@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: danesjenovdan
+  name: danesjenovdan-staging
 spec:
   selector:
-    app: danesjenovdan
+    app: danesjenovdan-staging
   ports:
     - protocol: TCP
       port: 8000
@@ -13,10 +13,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: danesjenovdan-nginx
+  name: danesjenovdan-staging-nginx
 spec:
   selector:
-    app: danesjenovdan
+    app: danesjenovdan-staging
   ports:
     - protocol: TCP
       port: 80

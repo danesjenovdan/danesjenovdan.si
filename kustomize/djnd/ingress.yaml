@@ -1,34 +1,34 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: danesjenovdan
+  name: danesjenovdan-staging
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
-    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    # nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     nginx.ingress.kubernetes.io/proxy-body-size: 10m
 spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - danesjenovdan.si
-        - www.danesjenovdan.si
-      secretName: danesjenovdan-tls
+        - staging.danesjenovdan.lb.djnd.si
+        # - www.danesjenovdan.si
+      secretName: danesjenovdan-staging-tls
   rules:
-    - host: danesjenovdan.si
+    - host: staging.danesjenovdan.lb.djnd.si
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: danesjenovdan
+                name: danesjenovdan-staging
                 port:
                   number: 8000
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: danesjenovdan-nginx
+  name: danesjenovdan-staging-nginx
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
     nginx.ingress.kubernetes.io/enable-cors: "true"
@@ -36,16 +36,16 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - files.danesjenovdan.lb.djnd.si
-      secretName: danesjenovdan-nginx-tls
+        - files.staging.danesjenovdan.lb.djnd.si
+      secretName: danesjenovdan-staging-nginx-tls
   rules:
-    - host: files.danesjenovdan.lb.djnd.si
+    - host: files.staging.danesjenovdan.lb.djnd.si
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: danesjenovdan-nginx
+                name: danesjenovdan-staging-nginx
                 port:
                   number: 80

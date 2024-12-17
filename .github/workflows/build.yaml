@@ -2,7 +2,7 @@ name: Build and publish Docker image
 on:
   push:
     branches:
-      - v3-k8s
+      - v3-k8s-staging
 jobs:
   push-to-registry:
     name: Build and push Docker image to registry
@@ -27,17 +27,17 @@ jobs:
           context: .
           push: true
           tags: |
-            rg.fr-par.scw.cloud/djnd/danesjenovdan:${{ github.sha }}
-            rg.fr-par.scw.cloud/djnd/danesjenovdan:latest
+            rg.fr-par.scw.cloud/djnd/danesjenovdan-staging:${{ github.sha }}
+            rg.fr-par.scw.cloud/djnd/danesjenovdan-staging:latest
 
-      - name: Build and push DJND website redirects
-        uses: docker/build-push-action@v3
-        with:
-          context: ./website-redirects
-          push: true
-          tags: |
-            rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects:${{ github.sha }}
-            rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects:latest
+      # - name: Build and push DJND website redirects
+      #   uses: docker/build-push-action@v3
+      #   with:
+      #     context: ./website-redirects
+      #     push: true
+      #     tags: |
+      #       rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects:${{ github.sha }}
+      #       rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects:latest
 
       - name: Update image versions in kustomize/kustomization.yaml
         run: |

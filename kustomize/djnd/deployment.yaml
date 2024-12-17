@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: danesjenovdan
+  name: danesjenovdan-staging
   labels:
-    app: danesjenovdan
+    app: danesjenovdan-staging
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: danesjenovdan
+      app: danesjenovdan-staging
   template:
     metadata:
       labels:
-        app: danesjenovdan
+        app: danesjenovdan-staging
     spec:
       securityContext:
         fsGroup: 1000
       volumes:
-        - name: danesjenovdan-storage
+        - name: danesjenovdan-staging-storage
           emptyDir: {}
       initContainers:
         - name: collectstatic
-          image: danesjenovdan
+          image: danesjenovdan-staging
           volumeMounts:
-            - name: danesjenovdan-storage
+            - name: danesjenovdan-staging-storage
               mountPath: /storage
           command:
             - python
@@ -35,7 +35,7 @@ spec:
               value: djnd.settings.production
           envFrom:
             - secretRef:
-                name: danesjenovdan-secrets
+                name: danesjenovdan-staging-secrets
           resources:
             requests:
               memory: 500Mi
@@ -44,9 +44,9 @@ spec:
               memory: 1Gi
               cpu: 500m
         - name: migrate
-          image: danesjenovdan
+          image: danesjenovdan-staging
           volumeMounts:
-            - name: danesjenovdan-storage
+            - name: danesjenovdan-staging-storage
               mountPath: /storage
           command:
             - python
@@ -58,7 +58,7 @@ spec:
               value: djnd.settings.production
           envFrom:
             - secretRef:
-                name: danesjenovdan-secrets
+                name: danesjenovdan-staging-secrets
           resources:
             requests:
               memory: 500Mi
@@ -68,9 +68,9 @@ spec:
               cpu: 500m
       containers:
         - name: djnd
-          image: danesjenovdan
+          image: danesjenovdan-staging
           volumeMounts:
-            - name: danesjenovdan-storage
+            - name: danesjenovdan-staging-storage
               mountPath: /storage
           command:
             - gunicorn
@@ -92,7 +92,7 @@ spec:
               value: djnd.settings.production
           envFrom:
             - secretRef:
-                name: danesjenovdan-secrets
+                name: danesjenovdan-staging-secrets
           resources:
             requests:
               memory: 500Mi
@@ -103,7 +103,7 @@ spec:
         - name: djnd-nginx
           image: nginx:alpine
           volumeMounts:
-            - name: danesjenovdan-storage
+            - name: danesjenovdan-staging-storage
               mountPath: /usr/share/nginx/html
           ports:
             - containerPort: 80
