@@ -14,7 +14,7 @@ Koda, ki poganja DJND domek.
 
 ### Old versions
 
-Old versions of the site are available in git under [tags](/tags)
+Old versions of the site are available in git under [tags](https://github.com/danesjenovdan/danesjenovdan.si/tags)
 
 - v1 (php, retired in 2019)
 - v2 (nuxt, retired in 2024)
