@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-26 15:52+0100\n"
+"POT-Creation-Date: 2025-01-08 12:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,8 +26,7 @@ msgid "Pojdi na naključni projekt"
 msgstr "Go to a random project"
 
 #: djnd/templates/base.html:59
-msgid ""
-"Hvala! Poslali smo ti sporočilo s povezavo, na kateri lahko potrdiš prijavo!"
+msgid "Hvala za prijavo, potrditev prejmeš na e-naslov."
 msgstr ""
 
 #: djnd/templates/base.html:60
@@ -121,7 +120,7 @@ msgstr "Worth your attention"
 msgid "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega"
 msgstr "Invitations, tips, suggestions, and warnings"
 
-#: home/templates/home/blog_page.html:59
+#: home/templates/home/blog_page.html:60
 msgid "Več zapisov"
 msgstr "More writings"
 
