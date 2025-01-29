@@ -1,0 +1,24 @@
+{% load i18n wagtailcore_tags static %}
+
+<form class="theme-color-{{ color_scheme }}" @submit.prevent="subscribeToNewsletter('{{ blockname }}-{{ id }}')" x-data="subscribe">
+  <div>
+    <label for="subscribe-email-{{ blockname }}-{{ id }}" class="block font-mono text-sm mb-2">{% translate "Vpiši svoj e-naslov" %}</label>
+    <div class="flex items-stretch mx-px sm-max:flex-col sm-max:items-start sm-max:gap-2">
+      <input type="email" id="subscribe-email-{{ blockname }}-{{ id }}" class="block flex-1 sm-max:w-full px-4 pt-2.5 pb-3 shadow-dark shadow-[0px_0px_0px_1px] border-0 font-semibold text-lg xl-max:text-smd" required>
+      <div x-show="!loading" class="flex sm-max:w-full">
+        {% translate 'Naroči se' as button_text %}
+        {% include "home/partials/button.html" with button_class="min-w-[145px] sm-max:w-full text-lg !mt-0" button_color=color_scheme button_text=button_text %}
+      </div>
+      <div x-show="loading" class="flex items-center justify-center p-2 border border-dark border-dashed min-w-[160px] sm-max:w-full">
+        <div id="loader"></div>
+      </div>
+    </div>
+  </div>
+  <div class="flex gap-2 mt-3">
+    <input id="subscribe-consent-{{ blockname }}-{{ id }}" type="checkbox" value="" class="w-6 h-6 flex-shrink-0 border border-dark" required>
+    <label for="subscribe-consent-{{ blockname }}-{{ id }}" class="font-mono text-sm/4">{% translate 'Strinjam se, da mi Danes je nov dan po e-pošti pošilja Občasnik in druga obvestila.' %}</label>
+  </div>
+  <div>
+
+  </div>
+</form>

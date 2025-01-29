@@ -1,6 +1,6 @@
 {% load i18n static wagtailcore_tags wagtailimages_tags djnd_extras %}
 
-<div class="border border-dark flex flex-col relative">
+<div class="border border-dark flex flex-col relative js-activity-card">
   {% if activity|sl_is_promoted %}
   <img src="{% static 'img/izpostavljeno.svg' %}" alt="" class="w-[30px] h-[30px] -left-[15px] -top-[15px] absolute">
   {% endif %}
@@ -11,7 +11,7 @@
   >
     {% image activity.image fill-1200x630 class="w-full h-auto object-cover" %}
   </a>
-  <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
+  <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light hover:bg-th-primary-light">
     {% if activity.date %}
     <p class="font-mono">{{ activity.date|date:"j. F Y" }}</p>
     {% endif %}
@@ -20,6 +20,7 @@
         {% if activity.page %}href="{% pageurl activity.page %}"
         {% else %}href="{{ activity.link }}" target="_blank"{% endif %}
         class="
+          js-activity-card-link
           text-3lg font-semibold xl-max:text-lg/[1.15]
           bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out
         "

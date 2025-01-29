@@ -11,6 +11,19 @@
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold uppercase xl-max:text-2xl">{{ page.title }}</h1>
         <p class="mb-6 last:mb-0 text-xl xl-max:text-lg/[1.15]">{{ page.lead }}</p>
+        <div class="py-10 sm-max:py-5 max-w-[720px]">
+          <div class="border border-dark p-8 sm-max:p-5">
+            <div class="flex gap-3 mb-4">
+              <div class="flex items-center flex-shrink-0">
+                <img src="{% static 'img/newsletter.png' %}" class="w-[54px]" />
+              </div>
+              <h2 class="font-semibold text-2lg xl-max:text-md">{% translate "Bodi na tekočem! Prijavi se na naš Občasnik." %}</h2>
+            </div>
+            <div>
+              {% include 'home/partials/newsletter_form2.html' with id=id blockname='blog' color_scheme=value.color_scheme %}
+            </div>
+          </div>
+        </div>
       </div>
       <div class="basis-4/12">
         {% image page.image width-300 class="w-full object-cover" %}
@@ -18,28 +31,14 @@
     </div>
   </div>
 
-  <div class="border-b border-dark">
+  <div class="border-b border-dark last:border-b-0">
     <div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
         <h2 class="text-2xl font-semibold mb-8 xl-max:text-lg sm-max:mb-4">{% translate "Preberi pretekle občasnike!" %}</h2>
-        <div class="grid grid-cols-3 gap-4 lg-max:grid-cols-2 sm-max:grid-cols-1">
-          {% include "home/newsletters.html" with newsletters=newsletters|slice:":3" without_loader=True %}
+        <div class="grid grid-cols-3 gap-4 pb-[40px] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
+          {% include "home/newsletters.html" with newsletters=newsletters %}
         </div>
     </div>
   </div>
-
-  <div class="border-b border-dark last:border-b-0">
-    {% include 'home/blocks/newsletter_block.html' with id=0 color_scheme='red' %}
-  </div>
-
-  {% if newsletters|length > 3 %}
-  <div class="border-b border-dark last:border-b-0">
-    <div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
-      <div class="grid grid-cols-3 gap-4 pb-[40px] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
-        {% include "home/newsletters.html" with newsletters=newsletters|slice:"3:" %}
-      </div>
-    </div>
-  </div>
-  {% endif %}
 </div>
 
 {% endblock content %}
