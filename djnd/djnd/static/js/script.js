@@ -141,8 +141,44 @@ function homepageLinkedSentences() {
   });
 }
 
+function clickableActivityCards() {
+  const setupClickHandler = (card) => {
+    card.style.cursor = "pointer";
+    card.addEventListener("click", (event) => {
+      // Don't navigate if text is selected
+      const selectedText = window.getSelection().toString();
+      if (selectedText) return;
+
+      if (!event.target.closest("a")) {
+        const link = card.querySelector(".js-activity-card-link");
+        if (link) {
+          link.click();
+        }
+      }
+    });
+  };
+
+  // handle existing cards
+  document.querySelectorAll(".js-activity-card").forEach(setupClickHandler);
+
+  // handle dynamically added cards
+  new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.classList?.contains("js-activity-card")) {
+          setupClickHandler(node);
+        }
+        node
+          .querySelectorAll?.(".js-activity-card")
+          ?.forEach(setupClickHandler);
+      });
+    });
+  }).observe(document.body, { childList: true, subtree: true });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   homepageLinkedSentences();
+  clickableActivityCards();
 
   const menuButton = document.querySelector("#menu-button");
   const sidebar = document.querySelector("#sidebar");
