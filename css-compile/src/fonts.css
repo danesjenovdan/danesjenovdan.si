@@ -1,0 +1,10 @@
+/* noto-color-emoji-regular - emoji */
+@font-face {
+  font-display: swap;
+  font-family: "noto-color-emoji-flag-subset";
+  font-style: normal;
+  font-weight: 400;
+  /* unicode-range: U+1F1E7, U+1F1EC, U+1F1EE, U+1F1F8; */
+  src: url("../fonts/noto-color-emoji-flag-subset.woff2")
+    format("woff2");
+}
