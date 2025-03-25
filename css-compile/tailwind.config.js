@@ -13,6 +13,7 @@ module.exports = {
     },
     fontFamily: {
       mono: ["'Courier New'", 'monospace'],
+      'mono-flags': ["'Courier New'", 'monospace', 'noto-color-emoji-flag-subset'],
     },
     fontSize: {
       'sm': ['14px', '16px'],

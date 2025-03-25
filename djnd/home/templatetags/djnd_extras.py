@@ -82,3 +82,11 @@ def debug_print(value):
 def show_for_language(value, language_code):
     languages = value["show_languages"]
     return language_code in languages
+
+
+@register.filter
+def flag_emoji_for_language(language_code):
+    return {
+        "sl": "🇸🇮",
+        "en": "🇬🇧",
+    }.get(language_code, "")
