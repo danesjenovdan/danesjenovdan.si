@@ -11,12 +11,12 @@ from .snippets import Promoted
 
 class PageColors(models.TextChoices):
     WHITE = "white", "Bela"
-    MINT = "mint", "Meta"
-    RED = "red", "Rdeča"
-    GREEN = "green", "Zelena"
-    BLUE = "blue", "Modra"
-    YELLOW = "yellow", "Rumena"
-    LAVENDER = "lavender", "Sivka"
+    MINT = "mint", "Modrozelena (DJND logo, Projekti, ...)"
+    RED = "red", "Rdeča (Občasnik, Podpri nas, ...)"
+    GREEN = "green", "Zelena (Digitalne pravice in pismenost)"
+    BLUE = "blue", "Modra (Skupnost in solidarnost)"
+    YELLOW = "yellow", "Rumena (Participacija in vključenost)"
+    LAVENDER = "lavender", "Vijolična (Odgovornost in transparentnost)"
 
 
 class NetworksBlock(blocks.StructBlock):
