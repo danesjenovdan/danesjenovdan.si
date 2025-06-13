@@ -37,13 +37,17 @@
 
   {% include 'home/blocks/newsletter_block.html' with id=0 color_scheme='red' is_programmers_newsletter=page.get_parent.is_programmers_newsletter %}
 
+  {% if page.news %}
   {% translate "Danes je nov dan novice" as news_section_title %}
   {% translate "Preveri, kaj smo počeli pretekli mesec" as news_section_description %}
   {% include 'home/partials/newsletter_section_list.html' with section_title=news_section_title section_description=news_section_description items=page.news %}
+  {% endif %}
 
+  {% if page.promoted %}
   {% translate "Izpostavljeno" as promoted_section_title %}
   {% translate "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega" as promoted_section_description %}
   {% include 'home/partials/newsletter_section_grid.html' with section_title=promoted_section_title section_description=promoted_section_description items=page.promoted %}
+  {% endif %}
 
   {% for custom_section in page.custom_sections %}
     {% if custom_section.value.section_display == 'list' %}
