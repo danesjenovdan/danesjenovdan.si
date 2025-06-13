@@ -12,6 +12,7 @@ services:
     ports:
       - "8000:8000"
     environment:
+      DJANGO_RUNSERVER_HIDE_WARNING: "true"
       DJANGO_DATABASE_HOST: db
       DJANGO_DATABASE_NAME: wagtail
       DJANGO_DATABASE_USERNAME: wagtail

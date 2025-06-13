@@ -1,6 +1,6 @@
 {% load i18n wagtailcore_tags static %}
 
-<div class="border-b border-dark bg-gradient-to-r from-th-primary to-white">
+<div class="border-t border-dark bg-gradient-to-r from-th-primary to-white">
     <div class="flex justify-center max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
         <div class="bg-white flex border border-dark basis-1/2 lg-max:basis-full">
             <div class="p-14 lg-max:p-6">
@@ -9,7 +9,13 @@
                     <img src="{% static 'img/newsletter.png' %}" class="w-[106px] lg-max:w-[54px]" />
                 </div>
                 <p>
-                    <span class="font-semibold">{% translate "Prijavi se na naš Občasnik!" %}</span>
+                    <span class="font-semibold">
+                        {% if is_programmers_newsletter %}
+                        {% translate "Prijavi se na programerski novičnik!" %}
+                        {% else %}
+                        {% translate "Prijavi se na naš Občasnik!" %}
+                        {% endif %}
+                    </span>
                 </p>
                 {% include 'home/partials/newsletter_form.html' with id=id blockname='blog' color_scheme=value.color_scheme %}
             </div>

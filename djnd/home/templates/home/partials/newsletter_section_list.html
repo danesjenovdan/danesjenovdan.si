@@ -1,0 +1,33 @@
+{% load wagtailimages_tags %}
+
+<div class="border-t border-dark">
+  <div class="max-w-[1280px] mx-auto px-14 py-10 sm-max:px-6 sm-max:py-8">
+    <h2 class="text-2xl font-semibold xl-max:text-lg">{{ section_title }}</h2>
+    <p class="text-md mb-8">{{ section_description }}</p>
+    {% for item in items %}
+    <a href="{% firstof item.value.link item.link %}" target="_blank" class="block w-full group mb-6">
+      <div class="border border-dark flex gap-8 p-3.5 group-hover:bg-th-primary-light sm-max:flex-col-reverse sm-max:gap-3.5">
+        <div class="pl-3 sm-max:pl-0 flex-1">
+          <h5 class="text-2lg/[1.15] font-semibold mt-1.5 mb-3">
+            <span class="bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary group-hover:bg-left-bottom group-hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out">
+              {% firstof item.value.name item.name %}
+            </span>
+          </h5>
+          <p class="mb-2 text-base/snug">
+            {% firstof item.value.description item.description %}
+          </p>
+        </div>
+        {% if item.value.image or item.image %}
+        <div class="basis-[30%] shrink-0">
+          {% if item.value.image %}
+          {% image item.value.image fill-640x336 class="w-full border border-dark" %}
+          {% elif item.image %}
+          {% image item.image fill-640x336 class="w-full border border-dark" %}
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>

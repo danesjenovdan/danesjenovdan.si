@@ -296,7 +296,7 @@ class NewsletterPage(BasePage):
                     [
                         ("name", blocks.CharBlock()),
                         ("description", blocks.CharBlock()),
-                        ("image", ImageChooserBlock()),
+                        ("image", ImageChooserBlock(required=False)),
                         ("link", blocks.URLBlock(required=False)),
                     ]
                 ),
@@ -314,8 +314,47 @@ class NewsletterPage(BasePage):
                     [
                         ("name", blocks.CharBlock()),
                         ("description", blocks.CharBlock()),
-                        ("image", ImageChooserBlock()),
+                        ("image", ImageChooserBlock(required=False)),
                         ("link", blocks.URLBlock(required=False)),
+                    ]
+                ),
+            )
+        ],
+        null=True,
+        blank=True,
+        use_json_field=True,
+    )
+    custom_sections = StreamField(
+        [
+            (
+                "section",
+                blocks.StructBlock(
+                    [
+                        ("section_name", blocks.CharBlock()),
+                        ("section_description", blocks.CharBlock()),
+                        (
+                            "section_display",
+                            blocks.ChoiceBlock(
+                                choices=[
+                                    ("list", "List"),
+                                    ("grid", "Grid"),
+                                ],
+                                default="list",
+                            ),
+                        ),
+                        (
+                            "section_items",
+                            blocks.ListBlock(
+                                blocks.StructBlock(
+                                    [
+                                        ("name", blocks.CharBlock()),
+                                        ("description", blocks.CharBlock()),
+                                        ("image", ImageChooserBlock(required=False)),
+                                        ("link", blocks.URLBlock(required=False)),
+                                    ]
+                                )
+                            ),
+                        ),
                     ]
                 ),
             )
@@ -335,6 +374,7 @@ class NewsletterPage(BasePage):
         FieldPanel("introduction"),
         FieldPanel("news"),
         FieldPanel("promoted"),
+        FieldPanel("custom_sections"),
     ]
 
 
@@ -382,10 +422,15 @@ class NewsletterListPage(RoutablePageMixin, BasePage):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    is_programmers_newsletter = models.BooleanField(
+        default=False,
+        verbose_name="Ali je to programerski novičnik",
+    )
 
     content_panels = BasePage.content_panels + [
         FieldPanel("lead"),
         FieldPanel("image"),
+        FieldPanel("is_programmers_newsletter"),
     ]
 
     def get_context(self, request, *args, **kwargs):

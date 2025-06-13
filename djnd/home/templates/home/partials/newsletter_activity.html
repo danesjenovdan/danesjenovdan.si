@@ -1,12 +1,14 @@
 {% load i18n static wagtailcore_tags wagtailimages_tags djnd_extras %}
 
 <div class="border border-dark flex flex-col relative">
-  <a href="{% pageurl activity %}" target="_blank" class="peer">
+  {% if activity.thumbnail %}
+  <a href="{% pageurl activity %}" target="_blank" class="peer border-b border-dark">
     {% image activity.thumbnail fill-1200x630 class="w-full h-auto object-cover" %}
   </a>
-  <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
-    {% if settings.home.GeneralSettings.our_work_page %}
-    <div class="flex flex-wrap">
+  {% endif %}
+  <div class="p-5 flex-grow peer-hover:bg-th-primary-light">
+    {% if settings.home.GeneralSettings.our_work_page and activity|has_any_tags:"pillar_page|category|project" %}
+    <div class="flex flex-wrap mb-5">
       {% for tag in activity|sl_activity_tags:"pillar_page" %}
       {% include "home/partials/activity_tag.html" with tag=tag filter_name="pillars" color_hover=True %}
       {% endfor %}
@@ -18,7 +20,7 @@
       {% endfor %}
     </div>
     {% endif %}
-    <div class="mt-5 mb-4">
+    <div class="mb-4">
       <a href="{% pageurl activity %}" target="_blank"
         class="
           text-3lg font-semibold xl-max:text-lg/[1.15]

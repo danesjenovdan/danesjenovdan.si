@@ -52,6 +52,24 @@ def sl_is_promoted(value):
 
 
 @register.filter
+def has_any_tags(value, field_names):
+    field_names = field_names.split("|")
+
+    if value.locale.language_code == "sl":
+        for field_name in field_names:
+            if getattr(value, field_name).exists():
+                return True
+    else:
+        sl = Locale.objects.get(language_code="sl")
+        if sl_value := value.get_translation_or_none(sl):
+            for field_name in field_names:
+                if getattr(sl_value, field_name).exists():
+                    return True
+
+    return False
+
+
+@register.filter
 def sl_activity_tags(value, field_name):
     if value.locale.language_code == "sl":
         return getattr(value, field_name).all()
