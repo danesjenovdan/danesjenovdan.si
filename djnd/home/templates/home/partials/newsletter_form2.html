@@ -1,6 +1,6 @@
 {% load i18n wagtailcore_tags static %}
 
-<form class="theme-color-{{ color_scheme }}" @submit.prevent="subscribeToNewsletter('{{ blockname }}-{{ id }}')" x-data="subscribe">
+<form class="theme-color-{{ color_scheme }}" @submit.prevent="subscribeToNewsletter('{{ blockname }}-{{ id }}'{% if is_programmers_newsletter %}, 'programmers_newsletter'{% endif %})" x-data="subscribe">
   <div>
     <label for="subscribe-email-{{ blockname }}-{{ id }}" class="block font-mono text-sm mb-2">{% translate "Vpiši svoj e-naslov" %}</label>
     <div class="flex items-stretch mx-px sm-max:flex-col sm-max:items-start sm-max:gap-2">
@@ -16,7 +16,13 @@
   </div>
   <div class="flex gap-2 mt-3">
     <input id="subscribe-consent-{{ blockname }}-{{ id }}" type="checkbox" value="" class="w-6 h-6 flex-shrink-0 border border-dark" required>
-    <label for="subscribe-consent-{{ blockname }}-{{ id }}" class="font-mono text-sm/4">{% translate 'Strinjam se, da mi Danes je nov dan po e-pošti pošilja Občasnik in druga obvestila.' %}</label>
+    <label for="subscribe-consent-{{ blockname }}-{{ id }}" class="font-mono text-sm/4">
+      {% if is_programmers_newsletter %}
+      {% translate 'Strinjam se, da mi Danes je nov dan po e-pošti pošilja programerski novičnik in druga obvestila.' %}
+      {% else %}
+      {% translate 'Strinjam se, da mi Danes je nov dan po e-pošti pošilja Občasnik in druga obvestila.' %}
+      {% endif %}
+    </label>
   </div>
   <div>
 

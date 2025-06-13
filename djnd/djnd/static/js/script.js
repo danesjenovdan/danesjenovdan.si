@@ -2,12 +2,17 @@ document.addEventListener("alpine:init", () => {
   Alpine.data("subscribe", () => ({
     loading: false,
 
-    subscribeToNewsletter(id) {
+    subscribeToNewsletter(id, newsletter_name) {
       this.loading = true;
 
       const email = document.getElementById(`subscribe-email-${id}`).value;
       console.log("email", email);
       console.log("id", id);
+
+      let segment_id = 21; // default id = Občasnik
+      if (newsletter_name === "programmers_newsletter") {
+        segment_id = 37; // Programerski novičnik
+      }
 
       const options = {
         method: "POST",
@@ -16,7 +21,7 @@ document.addEventListener("alpine:init", () => {
         },
         body: JSON.stringify({
           email: email,
-          segment_id: 21,
+          segment_id: segment_id,
         }),
       };
 

@@ -17,10 +17,15 @@
               <div class="flex items-center flex-shrink-0">
                 <img src="{% static 'img/newsletter.png' %}" class="w-[54px]" />
               </div>
-              <h2 class="font-semibold text-2lg xl-max:text-md">{% translate "Bodi na tekočem! Prijavi se na naš Občasnik." %}</h2>
+              <h2 class="font-semibold text-2lg xl-max:text-md">
+                {% if page.is_programmers_newsletter %}
+                {% translate "Prijavi se na programerski novičnik." %}
+                {% else %}
+                {% translate "Bodi na tekočem! Prijavi se na naš Občasnik." %}</h2>
+                {% endif %}
             </div>
             <div>
-              {% include 'home/partials/newsletter_form2.html' with id=id blockname='blog' color_scheme=value.color_scheme %}
+              {% include 'home/partials/newsletter_form2.html' with id=id blockname='blog' color_scheme=value.color_scheme is_programmers_newsletter=page.is_programmers_newsletter %}
             </div>
           </div>
         </div>
@@ -33,7 +38,13 @@
 
   <div class="border-b border-dark last:border-b-0">
     <div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
-        <h2 class="text-2xl font-semibold mb-8 xl-max:text-lg sm-max:mb-4">{% translate "Preberi pretekle občasnike!" %}</h2>
+        <h2 class="text-2xl font-semibold mb-8 xl-max:text-lg sm-max:mb-4">
+          {% if page.is_programmers_newsletter %}
+          {% translate "Preberi pretekle programerske novičnike!" %}
+          {% else %}
+          {% translate "Preberi pretekle občasnike!" %}
+          {% endif %}
+        </h2>
         <div class="grid grid-cols-3 gap-4 pb-[40px] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
           {% include "home/newsletters.html" with newsletters=newsletters %}
         </div>
