@@ -1,14 +1,16 @@
 {% load i18n static wagtailcore_tags wagtailimages_tags djnd_extras %}
 
 <div class="border border-dark flex flex-col relative">
-  <a href="{% if activity|is_page %}{% pageurl activity %}{% else %}{{ activity.link }}{% endif %}" target="_blank" class="peer">
+  {% if activity.thumbnail or activity.image %}
+  <a href="{% if activity|is_page %}{% pageurl activity %}{% else %}{{ activity.link }}{% endif %}" target="_blank" class="peer border-b border-dark">
     {% if activity.thumbnail %}
     {% image activity.thumbnail fill-1200x630 class="w-full h-auto object-cover" %}
     {% elif activity.image %}
     {% image activity.image fill-1200x630 class="w-full h-auto object-cover" %}
     {% endif %}
   </a>
-  <div class="border-t border-dark p-5 flex-grow peer-hover:bg-th-primary-light">
+  {% endif %}
+  <div class="p-5 flex-grow peer-hover:bg-th-primary-light">
     <div class="mb-4">
       {% firstof activity.name activity.title as blog_title %}
       <a href="{% if activity|is_page %}{% pageurl activity %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
