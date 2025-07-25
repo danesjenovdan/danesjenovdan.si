@@ -11,7 +11,7 @@ resources:
 images:
   - name: danesjenovdan-staging
     newName: rg.fr-par.scw.cloud/djnd/danesjenovdan-staging
-    newTag: 'd4f907db42b6d8042f06fa85026da9253be65ec5'
+    newTag: 'b87b051a3cad8d324cbe6e3cc041cb62de04f30e'
   # - name: danesjenovdan-website-redirects
   #   newName: rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects
-  #   newTag: 'd4f907db42b6d8042f06fa85026da9253be65ec5'
+  #   newTag: 'b87b051a3cad8d324cbe6e3cc041cb62de04f30e'
