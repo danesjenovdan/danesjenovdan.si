@@ -338,6 +338,7 @@ class NewsletterPage(BasePage):
                                 choices=[
                                     ("list", "List"),
                                     ("grid", "Grid"),
+                                    ("text", "Text"),
                                 ],
                                 default="list",
                             ),
@@ -348,7 +349,18 @@ class NewsletterPage(BasePage):
                                 blocks.StructBlock(
                                     [
                                         ("name", blocks.CharBlock()),
-                                        ("description", blocks.CharBlock()),
+                                        (
+                                            "description",
+                                            blocks.RichTextBlock(
+                                                features=[
+                                                    "bold",
+                                                    "italic",
+                                                    "link",
+                                                    "ul",
+                                                    "ol",
+                                                ]
+                                            ),
+                                        ),
                                         ("image", ImageChooserBlock(required=False)),
                                         ("link", blocks.URLBlock(required=False)),
                                     ]
