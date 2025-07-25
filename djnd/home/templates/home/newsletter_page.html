@@ -54,6 +54,8 @@
     {% include 'home/partials/newsletter_section_list.html' with section_title=custom_section.value.section_name section_description=custom_section.value.section_description items=custom_section.value.section_items %}
     {% elif custom_section.value.section_display == 'grid' %}
     {% include 'home/partials/newsletter_section_grid.html' with section_title=custom_section.value.section_name section_description=custom_section.value.section_description items=custom_section.value.section_items %}
+    {% elif custom_section.value.section_display == 'text' %}
+    {% include 'home/partials/newsletter_section_text.html' with section_title=custom_section.value.section_name section_description=custom_section.value.section_description items=custom_section.value.section_items %}
     {% endif %}
   {% endfor %}
 
