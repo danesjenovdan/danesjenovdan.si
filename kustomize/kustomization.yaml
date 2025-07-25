@@ -11,7 +11,7 @@ resources:
 images:
   - name: danesjenovdan
     newName: rg.fr-par.scw.cloud/djnd/danesjenovdan
-    newTag: 'e7ccbae8fe6e7dcaebd000eefb3c1fdd4aca2ed1'
+    newTag: 'f701b2320820592de04a09f0766eeb7363a89524'
   - name: danesjenovdan-website-redirects
     newName: rg.fr-par.scw.cloud/djnd/danesjenovdan-website-redirects
-    newTag: 'e7ccbae8fe6e7dcaebd000eefb3c1fdd4aca2ed1'
+    newTag: 'f701b2320820592de04a09f0766eeb7363a89524'
