@@ -132,6 +132,44 @@
       @apply mb-6 text-md/[30px] xl-max:text-smd;
     }
 
+    li {
+      > ul, > ol {
+        @apply mb-0;
+      }
+    }
+
+    &.rich-text--base {
+      p,
+      ul,
+      ol,
+      hr,
+      blockquote {
+        @apply mb-3 text-base/snug;
+      }
+
+      li {
+        > ul, > ol {
+          @apply mb-0;
+        }
+      }
+    }
+
+    &.rich-text--sm {
+      p,
+      ul,
+      ol,
+      hr,
+      blockquote {
+        @apply mb-2 text-sm/[22px];
+      }
+
+      li {
+        > ul, > ol {
+          @apply mb-0;
+        }
+      }
+    }
+
     p:empty {
       @apply hidden;
     }
@@ -142,6 +180,28 @@
 
       li {
         @apply mb-2;
+      }
+    }
+
+    &.rich-text--base {
+      ul,
+      ol {
+        @apply pl-6;
+
+        li {
+          @apply mb-1;
+        }
+      }
+    }
+
+    &.rich-text--sm {
+      ul,
+      ol {
+        @apply pl-5;
+
+        li {
+          @apply mb-0;
+        }
       }
     }
 
