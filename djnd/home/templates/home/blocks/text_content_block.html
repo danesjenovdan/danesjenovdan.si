@@ -6,12 +6,18 @@
       {% if value.title %}
       <h2 class="mb-6 text-2xl font-semibold xl-max:text-lg">{{ value.title }}</h2>
       {% endif %}
+      {% if value.text %}
       <div class="rich-text">
         {{ value.text|richtext }}
       </div>
+      {% endif %}
+      <div>
       {% for button in value.button %}
-      {% include 'home/partials/button.html' with button_text=button.button_text button_color=button.color button_page_link=button.page_link button_link=button.link %}
+        <div class="mt-6">
+          {% include 'home/partials/button.html' with button_text=button.button_text button_color=button.color button_page_link=button.page_link button_link=button.link no_top_margin=True %}
+        </div>
       {% endfor %}
+      </div>
     </div>
     <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
   </div>

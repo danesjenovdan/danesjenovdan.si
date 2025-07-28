@@ -115,9 +115,9 @@ class SupportBlock(blocks.StructBlock):
 
 class FinancialInformationBlock(blocks.StructBlock):
     title = blocks.CharBlock()
-    reports_url = blocks.URLBlock(
-        required=False, label="Letna vsebinska in finančna poročila"
-    )
+    # reports_url = blocks.URLBlock(
+    #     required=False, label="Letna vsebinska in finančna poročila"
+    # )
 
     class Meta:
         label = "Finančno poslovanje"
@@ -126,7 +126,7 @@ class FinancialInformationBlock(blocks.StructBlock):
 
 class TextContentBlock(blocks.StructBlock):
     title = blocks.CharBlock(required=False)
-    text = blocks.RichTextBlock()
+    text = blocks.RichTextBlock(required=False)
     button = blocks.ListBlock(
         blocks.StructBlock(
             [
@@ -146,7 +146,6 @@ class TextContentBlock(blocks.StructBlock):
                 ),
             ],
         ),
-        max_num=1,
         min_num=0,
     )
 
