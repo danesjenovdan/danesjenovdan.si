@@ -27,17 +27,17 @@
   >
   {% if filter %}
     {% if filter.localized.filter_icon %}
-    {% image filter.localized.filter_icon height-32 class="h-[14px] w-auto me-2 overflow-hidden" %}
+    {% image filter.localized.filter_icon height-32 class="h-[0.875rem] w-auto me-2 overflow-hidden" %}
     {% elif filter.localized.icon %}
-    {% image filter.localized.icon height-32 class="h-[14px] w-auto me-2 overflow-hidden" %}
+    {% image filter.localized.icon height-32 class="h-[0.875rem] w-auto me-2 overflow-hidden" %}
     {% endif %}
     {% firstof filter.localized.name filter.localized.title as title %}
-    <span class="-mt-0.5 leading-[16px]">{{ title }}</span>
+    <span class="-mt-0.5 leading-[1rem]">{{ title }}</span>
   {% else %}
     {% if filter_image %}
-    <img class="h-[14px] w-auto me-2 overflow-hidden" src="{% static filter_image %}" alt="">
+    <img class="h-[0.875rem] w-auto me-2 overflow-hidden" src="{% static filter_image %}" alt="">
     {% endif %}
-    <span class="-mt-0.5 leading-[16px]">{{ filter_title }}</span>
+    <span class="-mt-0.5 leading-[1rem]">{{ filter_title }}</span>
   {% endif %}
   </label>
 </div>

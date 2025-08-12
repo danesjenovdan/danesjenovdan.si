@@ -2,7 +2,7 @@
 
 <div class="border border-dark flex flex-col relative js-activity-card">
   {% if activity|sl_is_promoted %}
-  <img src="{% static 'img/izpostavljeno.svg' %}" alt="" class="w-[30px] h-[30px] -left-[15px] -top-[15px] absolute">
+  <img src="{% static 'img/izpostavljeno.svg' %}" alt="" class="w-[1.875rem] h-[1.875rem] -left-[0.9375rem] -top-[0.9375rem] absolute">
   {% endif %}
   <a
     {% if activity.page %}href="{% pageurl activity.page %}"

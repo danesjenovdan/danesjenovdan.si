@@ -10,10 +10,10 @@
   "
 >
   {% if tag.localized.filter_icon %}
-    {% image tag.localized.filter_icon height-32 class="h-[14px] w-auto me-2 overflow-hidden" %}
+    {% image tag.localized.filter_icon height-32 class="h-[0.875rem] w-auto me-2 overflow-hidden" %}
   {% elif tag.localized.icon %}
-    {% image tag.localized.icon height-32 class="h-[14px] w-auto me-2 overflow-hidden" %}
+    {% image tag.localized.icon height-32 class="h-[0.875rem] w-auto me-2 overflow-hidden" %}
   {% endif %}
   {% firstof tag.localized.name tag.localized.title as title %}
-  <span class="leading-[16px] whitespace-nowrap overflow-hidden text-ellipsis">{{ title }}</span>
+  <span class="leading-[1rem] whitespace-nowrap overflow-hidden text-ellipsis">{{ title }}</span>
 </a>
