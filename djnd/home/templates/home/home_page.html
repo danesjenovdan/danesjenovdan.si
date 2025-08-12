@@ -94,7 +94,7 @@
               transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
             "
           >
-            <img class="h-[20px] w-auto me-2 lg-max:h-[14px]" src="{% static 'img/filter-izpostavljeno.png' %}" alt="">
+            <img class="h-[1.25rem] w-auto me-2 lg-max:h-[0.875rem]" src="{% static 'img/filter-izpostavljeno.png' %}" alt="">
             {% translate "Izpostavljeno" %}
           </label>
         </div>
@@ -110,20 +110,20 @@
               transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
             "
           >
-            <img class="h-[20px] w-auto me-2 lg-max:h-[14px]" src="{% static 'img/filter-obcasnik.png' %}" alt="">
+            <img class="h-[1.25rem] w-auto me-2 lg-max:h-[0.875rem]" src="{% static 'img/filter-obcasnik.png' %}" alt="">
             {% translate "Občasnik" %}
           </label>
         </div>
 
         <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}" class="self-center ml-1 hover:font-semibold group">
-          <span class="inline-block min-w-[56px] text-center underline">{% translate "Vsi filtri" %}</span><img class="inline-block w-3 ml-2 -mt-1 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+          <span class="inline-block min-w-[3.5rem] text-center underline">{% translate "Vsi filtri" %}</span><img class="inline-block w-3 ml-2 -mt-1 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
         </a>
 
       </form>
       {% endif %}
 
     </div>
-    <div class="grid grid-cols-3 gap-4 pb-[40px] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
+    <div class="grid grid-cols-3 gap-4 pb-[2.5rem] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
       {% for activity in activities %}
         {% include 'home/partials/activity.html' with activity=activity %}
 
