@@ -1,8 +1,10 @@
 
 <div class="border-t border-dark">
   <div class="max-w-[1280px] mx-auto px-14 py-10 sm-max:px-6 sm-max:pb-5">
-    <h2 class="text-2xl font-semibold xl-max:text-2lg">{{ section_title }}</h2>
-    <p class="text-md mb-8">{{ section_description }}</p>
+    <div class="w-8/12 lg-max:w-full">
+      <h2 class="text-2xl font-semibold xl-max:text-2lg">{{ section_title }}</h2>
+      <p class="text-md mt-3 mb-8">{{ section_description }}</p>
+    </div>
     <div class="grid grid-cols-3 gap-4 lg-max:grid-cols-2 sm-max:grid-cols-1">
         {% for item in items %}
           {% if item.value.name or item.value.title %}
