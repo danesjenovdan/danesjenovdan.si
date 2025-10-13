@@ -14,7 +14,7 @@ def _activity_pagination_context(request, for_homepage=False):
     offset = int(request.GET.get("offset", 0))
 
     activities, _ = get_filtered_activities(request, for_homepage=for_homepage)
-    activities = paginate_limit_offset(activities, limit=12, offset=offset)
+    activities = paginate_limit_offset(activities, limit=18, offset=offset)
 
     return {
         "page_obj": activities,
@@ -62,7 +62,7 @@ def _subpage_pagination_context(request, context_name, ParentPageModel, SubPageM
         .live()
         .order_by("-published_at", "-first_published_at", "pk")
     )
-    newsletters = paginate_limit_offset(newsletters, limit=12, offset=offset)
+    newsletters = paginate_limit_offset(newsletters, limit=18, offset=offset)
 
     return {
         "page_obj": newsletters,

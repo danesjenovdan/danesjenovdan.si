@@ -107,7 +107,7 @@ class HomePage(BasePage):
         context = super().get_context(request, *args, **kwargs)
 
         activities, _ = get_filtered_activities(request, for_homepage=True)
-        activities = paginate_limit_offset(activities, limit=10, offset=0)
+        activities = paginate_limit_offset(activities, limit=16, offset=0)
 
         context["page_obj"] = activities
         context["activities"] = activities.object_list
@@ -191,7 +191,7 @@ class PillarPage(BasePage):
         fake_request.GET.setlist("pillars", [slugify(self.title)])
 
         activities, _ = get_filtered_activities(fake_request)
-        activities = paginate_limit_offset(activities, limit=12, offset=0)
+        activities = paginate_limit_offset(activities, limit=18, offset=0)
 
         # get activities for this pillar
         context["page_obj"] = activities
@@ -456,7 +456,7 @@ class NewsletterListPage(RoutablePageMixin, BasePage):
             .live()
             .order_by("-published_at", "-first_published_at", "pk")
         )
-        newsletters = paginate_limit_offset(newsletters, limit=12, offset=0)
+        newsletters = paginate_limit_offset(newsletters, limit=18, offset=0)
 
         context["page_obj"] = newsletters
         context["newsletters"] = newsletters.object_list
@@ -526,7 +526,7 @@ class BlogListingPage(RoutablePageMixin, BasePage):
             .live()
             .order_by("-published_at", "-first_published_at", "pk")
         )
-        blogs = paginate_limit_offset(blogs, limit=12, offset=0)
+        blogs = paginate_limit_offset(blogs, limit=18, offset=0)
 
         context["page_obj"] = blogs
         context["blogs"] = blogs.object_list
@@ -657,7 +657,7 @@ class OurWorkPage(BasePage):
         context["projects"] = projects
 
         activities, form = get_filtered_activities(request)
-        activities = paginate_limit_offset(activities, limit=10, offset=0)
+        activities = paginate_limit_offset(activities, limit=16, offset=0)
 
         context["form"] = form
         context["page_obj"] = activities
