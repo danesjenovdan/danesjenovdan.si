@@ -6,41 +6,46 @@ document.addEventListener("alpine:init", () => {
       this.loading = true;
 
       const email = document.getElementById(`subscribe-email-${id}`).value;
-      console.log("email", email);
-      console.log("id", id);
 
+      let campaign_slug = "danes-je-nov-dan";
       let segment_id = 21; // default id = Občasnik
       if (newsletter_name === "programmers_newsletter") {
+        campaign_slug = "programerski-novicnik";
         segment_id = 37; // Programerski novičnik
       }
 
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          segment_id: segment_id,
-        }),
-      };
+      // const options = {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     email: email,
+      //     segment_id: segment_id,
+      //   }),
+      // };
 
-      fetch("https://podpri.lb.djnd.si/api/subscribe/", options)
-        .then((response) => response.json())
-        .then((data) => {
-          this.loading = false;
-          if (data.msg === "mail sent") {
-            alert(window.NEWSLETTER_TEXT_SUCCESS);
-            document.getElementById(`subscribe-email-${id}`).value = "";
-            document.getElementById(`subscribe-consent-${id}`).checked = false;
-          } else {
-            alert(window.NEWSLETTER_TEXT_FAILURE);
-          }
-        })
-        .catch((error) => {
-          this.loading = false;
-          console.error(error);
-        });
+      // fetch("https://podpri.lb.djnd.si/api/subscribe/", options)
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     this.loading = false;
+      //     if (data.msg === "mail sent") {
+      //       alert(window.NEWSLETTER_TEXT_SUCCESS);
+      //       document.getElementById(`subscribe-email-${id}`).value = "";
+      //       document.getElementById(`subscribe-consent-${id}`).checked = false;
+      //     } else {
+      //       alert(window.NEWSLETTER_TEXT_FAILURE);
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     this.loading = false;
+      //     console.error(error);
+      //   });
+
+      let url = `https://moj.djnd.si/${campaign_slug}/prijava?segment_id=${segment_id}`;
+      url += `&email=${encodeURIComponent(email)}`;
+      window.open(`${url}`, `_blank`);
+      this.loading = false;
     },
   }));
 });
