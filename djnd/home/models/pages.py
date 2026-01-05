@@ -474,28 +474,13 @@ class NewsletterListPage(RoutablePageMixin, BasePage):
             .live()
             .order_by("-published_at", "-first_published_at", "pk")
         )
-        newsletters = list(newsletters[35:50])
+        newsletters = list(newsletters[:12])
 
         read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
 
         def get_description(subpage):
-            # expand richtext
-            html = richtext(subpage.introduction or "")
-            # fix relative urls
-            html = re.sub(
-                r"\s(href|src)=\"//",
-                r' \1="http://',
-                html,
-                flags=re.MULTILINE,
-            )
-            html = re.sub(
-                r"\s(href|src)=\"/",
-                r' \1="https://danesjenovdan.si/',
-                html,
-                flags=re.MULTILINE,
-            )
-            # add read more link
-            return f'{html}<p><a href="{subpage.full_url}">{read_more}</a></p>'
+            desc = richtext(subpage.short_description or "")
+            return f'{desc}<p><a href="{subpage.full_url}">{read_more}</a></p>'
 
         return subpage_rss(self, newsletters, get_description)
 
@@ -549,7 +534,8 @@ class BlogListingPage(RoutablePageMixin, BasePage):
         read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
 
         def get_description(subpage):
-            return f'<p>{subpage.short_description or ""}</p><p><a href="{subpage.full_url}">{read_more}</a></p>'
+            desc = f'<p>{subpage.short_description or ""}</p>'
+            return f'{desc}<p><a href="{subpage.full_url}">{read_more}</a></p>'
 
         return subpage_rss(self, blogs, get_description)
 
