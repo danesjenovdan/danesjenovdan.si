@@ -490,7 +490,12 @@ class NewsletterListPage(RoutablePageMixin, BasePage):
             return subpage.full_url
 
         def get_description(subpage):
-            desc = richtext(subpage.short_description or "")
+            desc = ""
+            if subpage.thumbnail:
+                rendition = subpage.thumbnail.get_rendition("fill-1200x630")
+                if rendition and rendition.url and rendition.url.startswith("http"):
+                    desc += f'<p><a href="{get_full_url(subpage)}"><img src="{rendition.url}" alt="{rendition.alt}"></a></p>'
+            desc += richtext(subpage.short_description or "")
             return f'{desc}<p><a href="{get_full_url(subpage)}">{read_more}</a></p>'
 
         return subpage_rss(self, newsletters, get_description, get_full_url)
@@ -548,7 +553,12 @@ class BlogListingPage(RoutablePageMixin, BasePage):
             return subpage.full_url
 
         def get_description(subpage):
-            desc = f'<p>{subpage.short_description or ""}</p>'
+            desc = ""
+            if subpage.thumbnail:
+                rendition = subpage.thumbnail.get_rendition("fill-1200x630")
+                if rendition and rendition.url and rendition.url.startswith("http"):
+                    desc += f'<p><a href="{get_full_url(subpage)}"><img src="{rendition.url}" alt="{rendition.alt}"></a></p>'
+            desc += f'<p>{subpage.short_description or ""}</p>'
             return f'{desc}<p><a href="{get_full_url(subpage)}">{read_more}</a></p>'
 
         return subpage_rss(self, blogs, get_description, get_full_url)
@@ -672,7 +682,7 @@ class OurWorkPage(RoutablePageMixin, BasePage):
         activities, form = get_filtered_activities(request)
         activities = list(activities[:12])
 
-        read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
+        read_more = "Poglej tukaj!" if locale.language_code == "sl" else "Take a look!"
 
         def get_full_url(snippet):
             if snippet.page:
@@ -682,7 +692,13 @@ class OurWorkPage(RoutablePageMixin, BasePage):
             return self.full_url
 
         def get_description(snippet):
-            desc = f'<p>{snippet.description or ""}</p>'
+            desc = ""
+            if snippet.image:
+                rendition = snippet.image.get_rendition("fill-1200x630")
+                if rendition and rendition.url and rendition.url.startswith("http"):
+                    desc += f'<p><a href="{get_full_url(snippet)}"><img src="{rendition.url}" alt="{rendition.alt}"></a></p>'
+            desc += f'<p>{snippet.description or ""}</p>'
+            desc += richtext(snippet.note or "")
             return f'{desc}<p><a href="{get_full_url(snippet)}">{read_more}</a></p>'
 
         return subpage_rss(self, activities, get_description, get_full_url)
