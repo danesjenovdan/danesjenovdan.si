@@ -35,6 +35,8 @@
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png' %}">
         <link rel="icon" type="image/png" href="{% static 'favicons/favicon.png' %}">
 
+        {% block extra_head %}{% endblock %}
+
         {# Force all links in the live preview panel to be opened in a new tab #}
         {% if request.in_preview_panel %}
         <base target="_blank">

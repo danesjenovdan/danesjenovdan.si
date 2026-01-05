@@ -390,7 +390,7 @@ class NewsletterPage(BasePage):
     ]
 
 
-def subpage_rss(page, subpages, get_description):
+def subpage_rss(page, subpages, get_description, get_full_url):
     feed = feedgenerator.Rss201rev2Feed(
         title=page.title,
         description=f"RSS feed for {page.title}",
@@ -401,17 +401,25 @@ def subpage_rss(page, subpages, get_description):
 
     for subpage in subpages:
         timestamp = None
-        if subpage.published_at:
+        if hasattr(subpage, "published_at") and subpage.published_at:
             timestamp = datetime.combine(
                 subpage.published_at,
                 datetime.min.time(),
                 tzinfo=timezone.utc,
             )
+        elif hasattr(subpage, "date") and subpage.date:
+            timestamp = datetime.combine(
+                subpage.date,
+                datetime.min.time(),
+                tzinfo=timezone.utc,
+            )
+
+        full_url = get_full_url(subpage)
 
         feed.add_item(
             title=subpage.title,
-            link=subpage.full_url,
-            unique_id=subpage.full_url,
+            link=full_url,
+            unique_id=full_url,
             description=get_description(subpage),
             pubdate=timestamp,
         )
@@ -478,11 +486,14 @@ class NewsletterListPage(RoutablePageMixin, BasePage):
 
         read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
 
+        def get_full_url(subpage):
+            return subpage.full_url
+
         def get_description(subpage):
             desc = richtext(subpage.short_description or "")
-            return f'{desc}<p><a href="{subpage.full_url}">{read_more}</a></p>'
+            return f'{desc}<p><a href="{get_full_url(subpage)}">{read_more}</a></p>'
 
-        return subpage_rss(self, newsletters, get_description)
+        return subpage_rss(self, newsletters, get_description, get_full_url)
 
 
 class BlogListingPage(RoutablePageMixin, BasePage):
@@ -533,11 +544,14 @@ class BlogListingPage(RoutablePageMixin, BasePage):
 
         read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
 
+        def get_full_url(subpage):
+            return subpage.full_url
+
         def get_description(subpage):
             desc = f'<p>{subpage.short_description or ""}</p>'
-            return f'{desc}<p><a href="{subpage.full_url}">{read_more}</a></p>'
+            return f'{desc}<p><a href="{get_full_url(subpage)}">{read_more}</a></p>'
 
-        return subpage_rss(self, blogs, get_description)
+        return subpage_rss(self, blogs, get_description, get_full_url)
 
 
 class BlogPage(BasePage):
@@ -628,7 +642,7 @@ class SupportPage(BasePage):
     ]
 
 
-class OurWorkPage(BasePage):
+class OurWorkPage(RoutablePageMixin, BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
@@ -650,3 +664,25 @@ class OurWorkPage(BasePage):
         context["activities"] = activities.object_list
 
         return context
+
+    @path("rss/")
+    def rss(self, request):
+        locale = Locale.get_active()
+
+        activities, form = get_filtered_activities(request)
+        activities = list(activities[:12])
+
+        read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
+
+        def get_full_url(snippet):
+            if snippet.page:
+                return snippet.page.full_url
+            elif snippet.link:
+                return snippet.link
+            return self.full_url
+
+        def get_description(snippet):
+            desc = f'<p>{snippet.description or ""}</p>'
+            return f'{desc}<p><a href="{get_full_url(snippet)}">{read_more}</a></p>'
+
+        return subpage_rss(self, activities, get_description, get_full_url)
