@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 12:03+0100\n"
+"POT-Creation-Date: 2026-01-16 16:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,11 +25,11 @@ msgstr "There's nothing here."
 msgid "Pojdi na naključni projekt"
 msgstr "Go to a random project"
 
-#: djnd/templates/base.html:59
+#: djnd/templates/base.html:61
 msgid "Hvala za prijavo, potrditev prejmeš na e-naslov."
 msgstr ""
 
-#: djnd/templates/base.html:60
+#: djnd/templates/base.html:62
 msgid "Prišlo je do napake :("
 msgstr ""
 
@@ -38,23 +38,27 @@ msgstr ""
 msgid "(med 10. in 16. uro)"
 msgstr "(10:00–16:00)"
 
-#: djnd/templates/includes/footer.html:29
+#: djnd/templates/includes/footer.html:28
+msgid "Spremljaj nas z RSS bralnikom"
+msgstr "Add us to your RSS reader"
+
+#: djnd/templates/includes/footer.html:35
 msgid "Naroči se na Občasnik, naš mesečni novičnik"
 msgstr "Monthly newsletter in Slovenian"
 
-#: djnd/templates/includes/footer.html:37
+#: djnd/templates/includes/footer.html:43
 msgid "Vsa naša koda je dostopna pod CC0 licenco. Najdeš jo na Githubu"
 msgstr "All our code is available on GitHub under the CC0 licence"
 
-#: djnd/templates/includes/footer.html:41
+#: djnd/templates/includes/footer.html:47
 msgid "Politika zasebnosti in varstva osebnih podatkov"
 msgstr "Privacy and protection of personal data"
 
-#: djnd/templates/includes/footer.html:46
+#: djnd/templates/includes/footer.html:52
 msgid "Uredi svoje naročnine na novičnike"
 msgstr "Manage your email subscriptions with Danes je nov dan"
 
-#: djnd/templates/includes/sidebar.html:96 shop/templates/shop/shop.html:10
+#: djnd/templates/includes/sidebar.html:95 shop/templates/shop/shop.html:10
 msgid "Trgovina"
 msgstr "Shop"
 
@@ -76,7 +80,7 @@ msgid "BODI NA TEKOČEM"
 msgstr "Stay in touch"
 
 #: home/templates/home/blocks/contact_block.html:32
-#: home/templates/home/blocks/newsletter_block.html:12
+#: home/templates/home/blocks/newsletter_block.html:16
 msgid "Prijavi se na naš Občasnik!"
 msgstr "Monthly newsletter in Slovenian"
 
@@ -91,6 +95,10 @@ msgstr "Past"
 #: home/templates/home/blocks/financial_information_block.html:12
 msgid "Letna vsebinska in finančna poročila"
 msgstr "Annual narrative and financial reports"
+
+#: home/templates/home/blocks/newsletter_block.html:14
+msgid "Prijavi se na programerski novičnik!"
+msgstr ""
 
 #: home/templates/home/blocks/promoted_block.html:9
 msgid "IZPOSTAVLJENO"
@@ -116,7 +124,7 @@ msgid "Povezani zapisi"
 msgstr "Worth your attention"
 
 #: home/templates/home/blog_page.html:45
-#: home/templates/home/newsletter_page.html:68
+#: home/templates/home/newsletter_page.html:48
 msgid "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega"
 msgstr "Invitations, tips, suggestions, and warnings"
 
@@ -133,8 +141,8 @@ msgid "Vse"
 msgstr "All"
 
 #: home/templates/home/home_page.html:99
-#: home/templates/home/newsletter_page.html:67
-#: home/templates/home/our_work_page.html:44
+#: home/templates/home/newsletter_page.html:47
+#: home/templates/home/our_work_page.html:48
 #: home/templates/home/pillar_page.html:29
 msgid "Izpostavljeno"
 msgstr "Featured"
@@ -147,31 +155,47 @@ msgstr "Newsletter"
 msgid "Vsi filtri"
 msgstr "More filters"
 
-#: home/templates/home/newsletter_list_page.html:23
+#: home/templates/home/newsletter_list_page.html:26
+msgid "Prijavi se na programerski novičnik."
+msgstr ""
+
+#: home/templates/home/newsletter_list_page.html:28
+msgid "Bodi na tekočem! Prijavi se na naš Občasnik."
+msgstr ""
+
+#: home/templates/home/newsletter_list_page.html:47
+msgid "Preberi pretekle programerske novičnike!"
+msgstr ""
+
+#: home/templates/home/newsletter_list_page.html:49
 msgid "Preberi pretekle občasnike!"
 msgstr "Read past newsletters!"
 
-#: home/templates/home/newsletter_page.html:42
+#: home/templates/home/newsletter_page.html:41
 msgid "Danes je nov dan novice"
 msgstr "News from Danes je nov dan"
 
-#: home/templates/home/newsletter_page.html:43
+#: home/templates/home/newsletter_page.html:42
 msgid "Preveri, kaj smo počeli pretekli mesec"
 msgstr "Last month's highlights"
 
-#: home/templates/home/newsletter_page.html:77
+#: home/templates/home/newsletter_page.html:64
+msgid "Prejšnji programerski novičniki"
+msgstr ""
+
+#: home/templates/home/newsletter_page.html:66
 msgid "Prejšnji občasniki"
 msgstr "Archive"
 
-#: home/templates/home/our_work_page.html:14
+#: home/templates/home/our_work_page.html:18
 msgid "Filtriraj po tematskih sklopih"
 msgstr "Filter by content"
 
-#: home/templates/home/our_work_page.html:27
+#: home/templates/home/our_work_page.html:31
 msgid "Filtriraj po kategorijah"
 msgstr "Filter by categories"
 
-#: home/templates/home/our_work_page.html:40
+#: home/templates/home/our_work_page.html:44
 msgid "Filtriraj po projektih"
 msgstr "Filter by projects"
 
@@ -204,10 +228,18 @@ msgstr ""
 "timely!"
 
 #: home/templates/home/partials/newsletter_form.html:5
+#: home/templates/home/partials/newsletter_form2.html:5
 msgid "Vpiši svoj e-naslov"
 msgstr "To subscribe, enter your email address"
 
-#: home/templates/home/partials/newsletter_form.html:10
+#: home/templates/home/partials/newsletter_form.html:12
+#: home/templates/home/partials/newsletter_form2.html:21
+msgid ""
+"Strinjam se, da mi Danes je nov dan po e-pošti pošilja programerski novičnik."
+msgstr ""
+
+#: home/templates/home/partials/newsletter_form.html:14
+#: home/templates/home/partials/newsletter_form2.html:23
 msgid ""
 "Strinjam se, da mi Danes je nov dan po e-pošti pošilja Občasnik in druga "
 "obvestila."
@@ -215,7 +247,8 @@ msgstr ""
 "I agree to receive Občasnik and other notifications from Danes je nov dan by "
 "email."
 
-#: home/templates/home/partials/newsletter_form.html:14
+#: home/templates/home/partials/newsletter_form.html:20
+#: home/templates/home/partials/newsletter_form2.html:9
 msgid "Naroči se"
 msgstr "Subscribe"
 
