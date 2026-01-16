@@ -11,7 +11,7 @@ DATABASE_PASSWORD=$(kubectl get secret $SECRETS_NAME -n $K8S_NAMESPACE -o jsonpa
 
 echo
 echo "PORT FORWARDING"
-nohup kubectl port-forward pod/postgresql-15-0 54321:5432 --namespace=shared &>/dev/null &
+nohup kubectl port-forward deployment/postgresql-djnd 54321:5432 --namespace=shared &>/dev/null &
 
 # store the kubectl pid for later
 KUBECTL_PID=$!
