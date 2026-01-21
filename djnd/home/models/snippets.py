@@ -2,11 +2,11 @@ from django import forms
 from django.db import models
 from wagtail.admin.panels import FieldPanel
 from wagtail.fields import RichTextField
-from wagtail.models import TranslatableMixin
+from wagtail.models import Orderable, TranslatableMixin
 from wagtail.search import index
 
 
-class ActivityCategory(TranslatableMixin, models.Model):
+class ActivityCategory(TranslatableMixin, Orderable):
     name = models.TextField()
     icon = models.ForeignKey(
         "wagtailimages.Image",
@@ -15,7 +15,6 @@ class ActivityCategory(TranslatableMixin, models.Model):
         on_delete=models.SET_NULL,
         related_name="+",
     )
-    order = models.IntegerField(default=0)
 
     def __str__(self) -> str:
         return self.name
@@ -23,10 +22,9 @@ class ActivityCategory(TranslatableMixin, models.Model):
     class Meta(TranslatableMixin.Meta):
         verbose_name = "Kategorija"
         verbose_name_plural = "Kategorije"
-        ordering = ["order"]
 
 
-class ActivityProject(TranslatableMixin, models.Model):
+class ActivityProject(TranslatableMixin, Orderable):
     name = models.TextField()
     icon = models.ForeignKey(
         "wagtailimages.Image",
@@ -35,7 +33,6 @@ class ActivityProject(TranslatableMixin, models.Model):
         on_delete=models.SET_NULL,
         related_name="+",
     )
-    order = models.IntegerField(default=0)
 
     def __str__(self) -> str:
         return self.name
@@ -43,7 +40,6 @@ class ActivityProject(TranslatableMixin, models.Model):
     class Meta(TranslatableMixin.Meta):
         verbose_name = "Projekt"
         verbose_name_plural = "Projekti"
-        ordering = ["order"]
 
 
 class Activity(index.Indexed, TranslatableMixin, models.Model):

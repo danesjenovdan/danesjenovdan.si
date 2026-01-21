@@ -1,5 +1,5 @@
 # Use an official Python runtime based on Debian 12 "bookworm" as a parent image.
-FROM python:3.12-slim-bookworm
+FROM python:3.14-slim-bookworm
 
 # Add user that will be used in the container.
 RUN useradd wagtail
@@ -26,6 +26,7 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     libicu-dev \
     python3-icu \
     pkg-config \
+    libmagickwand-dev \
  && rm -rf /var/lib/apt/lists/*
 
 # Install the application server.
