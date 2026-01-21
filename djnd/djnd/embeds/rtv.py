@@ -108,8 +108,6 @@ class RtvEmbedFinder(EmbedFinder):
         if embed_data is None:
             embed_data = self._get_embed_data(embed_url)
 
-        print(embed_url, embed_data)
-
         return {
             "title": embed_data.get("title", ""),
             "author_name": "Multimedijski center RTV Slovenija",
