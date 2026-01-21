@@ -44,12 +44,12 @@ class ActivityViewSet(SnippetViewSet):
 
 class ActivityCategoryViewSet(SnippetViewSet):
     model = ActivityCategory
-    list_display = ["name", "order"]
+    list_display = ["name", "sort_order"]
 
 
 class ActivityProjectViewSet(SnippetViewSet):
     model = ActivityProject
-    list_display = ["name", "order"]
+    list_display = ["name", "sort_order"]
 
 
 register_snippet(ActivityViewSet)

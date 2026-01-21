@@ -6,7 +6,7 @@
 # ---
 # build scss in separate image
 # ---
-FROM node:22-alpine as css-compile
+FROM node:22-alpine AS css-compile
 
 WORKDIR /app
 
@@ -23,7 +23,7 @@ RUN yarn build
 # wagtail image
 # ---
 # Use an official Python runtime based on Debian 12 "bookworm" as a parent image.
-FROM python:3.12-slim-bookworm
+FROM python:3.14-slim-bookworm
 
 # Add user that will be used in the container.
 RUN useradd wagtail
@@ -50,6 +50,7 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     libicu-dev \
     python3-icu \
     pkg-config \
+    libmagickwand-dev \
  && rm -rf /var/lib/apt/lists/*
 
 # Install the application server.

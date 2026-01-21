@@ -201,3 +201,11 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://localhost:8000"
+
+# Embeds
+# https://docs.wagtail.org/en/stable/advanced_topics/embeds.html#custom-embed-finders
+WAGTAILEMBEDS_FINDERS = [
+    {"class": "wagtail.embeds.finders.oembed"},
+    {"class": "djnd.embeds.rtv"},
+    {"class": "djnd.embeds.arnes"},
+]
