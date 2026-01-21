@@ -23,7 +23,7 @@ RUN yarn build
 # wagtail image
 # ---
 # Use an official Python runtime based on Debian 12 "bookworm" as a parent image.
-FROM python:3.12-slim-bookworm
+FROM python:3.14-slim-bookworm
 
 # Add user that will be used in the container.
 RUN useradd wagtail
