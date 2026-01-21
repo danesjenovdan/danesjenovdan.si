@@ -68,6 +68,7 @@ typing_extensions==4.15.0
 urllib3==2.6.3
 wagtail==7.2.1
 wagtail-localize==1.12.2
+Wand==0.6.13
 wcwidth==0.2.14
 webencodings==0.5.1
 Willow==1.12.0

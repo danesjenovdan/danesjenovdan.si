@@ -26,6 +26,7 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     libicu-dev \
     python3-icu \
     pkg-config \
+    libmagickwand-dev \
  && rm -rf /var/lib/apt/lists/*
 
 # Install the application server.
