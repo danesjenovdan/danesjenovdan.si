@@ -208,4 +208,5 @@ WAGTAILEMBEDS_FINDERS = [
     {"class": "wagtail.embeds.finders.oembed"},
     {"class": "djnd.embeds.rtv"},
     {"class": "djnd.embeds.arnes"},
+    {"class": "djnd.embeds.parlameter"},
 ]
