@@ -39,10 +39,10 @@ spec:
           resources:
             requests:
               memory: 500Mi
-              cpu: 200m
+              cpu: 500m
             limits:
               memory: 1Gi
-              cpu: 500m
+              cpu: 1000m
         - name: migrate
           image: danesjenovdan-staging
           volumeMounts:
@@ -62,10 +62,10 @@ spec:
           resources:
             requests:
               memory: 500Mi
-              cpu: 200m
+              cpu: 500m
             limits:
               memory: 1Gi
-              cpu: 500m
+              cpu: 1000m
       containers:
         - name: djnd
           image: danesjenovdan-staging
@@ -82,7 +82,7 @@ spec:
             - --workers
             - "1"
             - --threads
-            - "3"
+            - "4"
             - --timeout
             - "90"
           ports:
@@ -96,10 +96,10 @@ spec:
           resources:
             requests:
               memory: 500Mi
-              cpu: 200m
+              cpu: 500m
             limits:
               memory: 1Gi
-              cpu: 500m
+              cpu: 1500m
         - name: djnd-nginx
           image: nginx:alpine
           volumeMounts:
@@ -109,8 +109,8 @@ spec:
             - containerPort: 80
           resources:
             requests:
-              memory: 50Mi
-              cpu: 50m
+              memory: 100Mi
+              cpu: 100m
             limits:
               memory: 200Mi
-              cpu: 100m
+              cpu: 200m
