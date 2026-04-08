@@ -29,3 +29,14 @@ DEFAULT_LOGGING["filters"]["request_filter"] = {
 }
 DEFAULT_LOGGING["handlers"]["console"]["filters"] = ["request_filter"]
 DEFAULT_LOGGING["handlers"]["django.server"]["filters"] = ["request_filter"]
+
+
+# debug toolbar settings
+def show_toolbar(request):
+    return True
+
+
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+    "RESULTS_CACHE_SIZE": 500,
+}

@@ -5,11 +5,10 @@ from django.templatetags.static import static
 from django.urls import include, path, re_path
 from django.views import defaults
 from django.views.generic.base import RedirectView
+from home.views import AgrumentByDateRedirectView
 from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
-
-from home.views import AgrumentByDateRedirectView
 
 
 def page_not_found(request):
@@ -31,8 +30,12 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
+    from debug_toolbar.toolbar import debug_toolbar_urls
     from django.conf.urls.static import static
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+    # Add debug toolbar
+    urlpatterns += debug_toolbar_urls()
 
     # Serve static and media files from development server
     urlpatterns += staticfiles_urlpatterns()
