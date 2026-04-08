@@ -31,8 +31,12 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
+    from debug_toolbar.toolbar import debug_toolbar_urls
     from django.conf.urls.static import static
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+    # Add debug toolbar
+    urlpatterns += debug_toolbar_urls()
 
     # Serve static and media files from development server
     urlpatterns += staticfiles_urlpatterns()
