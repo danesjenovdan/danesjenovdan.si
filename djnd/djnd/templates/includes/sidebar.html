@@ -1,4 +1,4 @@
-{% load static i18n wagtailcore_tags wagtailimages_tags djnd_extras %}
+{% load static i18n cache wagtailcore_tags wagtailimages_tags djnd_extras %}
 
 <div class="px-6 pt-8">
   {% wagtail_site as current_site %}
@@ -25,6 +25,7 @@
     <ul class="flex flex-col gap-3">
       {% for pillar_page in settings.home.NavigationSettings.pillars %}
       <li class="uppercase text-smd/5 font-medium">
+        {% cache None nav_pillar_page pillar_page.value.localized.cache_key page.id %}
         <div class="relative flex items-start gap-1 theme-color-{{ pillar_page.value.localized.specific.color }}">
           {% if pillar_page.value.localized.icon %}
             {% image pillar_page.value.localized.icon fill-48x48 class="w-6 mt-0.5 shrink-0 overflow-hidden" %}
@@ -42,6 +43,7 @@
             />
           </svg>
         </div>
+        {% endcache %}
       </li>
       {% endfor %}
     </ul>
@@ -54,6 +56,7 @@
       {% for nav_page in settings.home.NavigationSettings.new_pages %}
       {% if nav_page.value|show_for_language:LANGUAGE_CODE %}
       <li class="uppercase text-smd/5 font-medium">
+        {% cache None nav_page nav_page.value.page.localized.cache_key page.id %}
         <div class="relative theme-color-{{ nav_page.value.page.localized.specific.color }}">
           <a
             href="{% pageurl nav_page.value.page.localized %}"
@@ -66,11 +69,13 @@
             />
           </svg>
         </div>
+        {% endcache %}
         {% if nav_page.value.subpages %}
         <ul class="mt-1 ml-4 flex flex-col gap-1">
           {% for nav_subpage in nav_page.value.subpages %}
           {% if nav_subpage|show_for_language:LANGUAGE_CODE %}
           <li class="normal-case text-base/5 font-normal">
+            {% cache None nav_subpage nav_subpage.page.localized.cache_key page.id %}
             <div class="relative theme-color-{{ nav_subpage.page.localized.specific.color }}">
               <a
                 href="{% pageurl nav_subpage.page.localized %}"
@@ -83,6 +88,7 @@
                 />
               </svg>
             </div>
+            {% endcache %}
           </li>
           {% endif %}
           {% endfor %}

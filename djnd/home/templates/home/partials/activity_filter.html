@@ -1,5 +1,6 @@
-{% load static wagtailcore_tags wagtailimages_tags %}
+{% load static cache wagtailcore_tags wagtailimages_tags %}
 
+{% cache None activity_filter filter.localized.cache_key filter_name filter_values filter_value %}
 <div>
   <input
     type="checkbox" name="{{ filter_name }}" class="peer hidden" onchange="filterOurWork()"
@@ -41,3 +42,4 @@
   {% endif %}
   </label>
 </div>
+{% endcache %}

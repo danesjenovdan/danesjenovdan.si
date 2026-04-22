@@ -15,6 +15,11 @@ class ActivityCategory(TranslatableMixin, Orderable):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    updated_at = models.DateTimeField(auto_now=True)
+
+    @property
+    def cache_key(self):
+        return f"activity_category_{self.id}_{self.updated_at.timestamp()}"
 
     def __str__(self) -> str:
         return self.name
@@ -33,6 +38,11 @@ class ActivityProject(TranslatableMixin, Orderable):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    updated_at = models.DateTimeField(auto_now=True)
+
+    @property
+    def cache_key(self):
+        return f"activity_project_{self.id}_{self.updated_at.timestamp()}"
 
     def __str__(self) -> str:
         return self.name
