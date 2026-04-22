@@ -52,7 +52,11 @@ def get_filtered_activities(request, for_homepage=False):
             locale=active_locale, translation_key__in=translation_keys
         )
 
-    activities = filtered_activities.order_by("-date", "pk")
+    activities = filtered_activities.prefetch_related(
+        "pillar_page",
+        "category",
+        "project",
+    ).order_by("-date", "pk")
 
     return activities, form
 
