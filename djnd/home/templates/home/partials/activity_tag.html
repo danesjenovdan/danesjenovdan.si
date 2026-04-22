@@ -1,5 +1,6 @@
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load cache wagtailcore_tags wagtailimages_tags %}
 
+{% cache None activity_tag tag.localized.cache_key filter_name %}
 {% firstof tag.localized.name tag.localized.title as title %}
 <a
   href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}?{{ filter_name }}={{ title|slugify }}"
@@ -14,6 +15,6 @@
   {% elif tag.localized.icon %}
     {% image tag.localized.icon height-32 class="h-[0.875rem] w-auto me-2 overflow-hidden" %}
   {% endif %}
-  {% firstof tag.localized.name tag.localized.title as title %}
   <span class="leading-[1rem] whitespace-nowrap overflow-hidden text-ellipsis">{{ title }}</span>
 </a>
+{% endcache %}
