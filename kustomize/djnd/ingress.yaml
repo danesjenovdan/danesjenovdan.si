@@ -4,17 +4,16 @@ metadata:
   name: danesjenovdan-staging
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
-    # nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
-    nginx.ingress.kubernetes.io/proxy-body-size: 10m
+    traefik.ingress.kubernetes.io/router.middlewares: |
+      traefik-redirect-to-https@kubernetescrd
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik
   tls:
     - hosts:
-        - staging.danesjenovdan.lb.djnd.si
-        # - www.danesjenovdan.si
+        - staging.danesjenovdan.si
       secretName: danesjenovdan-staging-tls
   rules:
-    - host: staging.danesjenovdan.lb.djnd.si
+    - host: staging.danesjenovdan.si
       http:
         paths:
           - path: /
@@ -31,15 +30,14 @@ metadata:
   name: danesjenovdan-staging-nginx
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
-    nginx.ingress.kubernetes.io/enable-cors: "true"
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik
   tls:
     - hosts:
-        - files.staging.danesjenovdan.lb.djnd.si
+        - files.staging.danesjenovdan.si
       secretName: danesjenovdan-staging-nginx-tls
   rules:
-    - host: files.staging.danesjenovdan.lb.djnd.si
+    - host: files.staging.danesjenovdan.si
       http:
         paths:
           - path: /
