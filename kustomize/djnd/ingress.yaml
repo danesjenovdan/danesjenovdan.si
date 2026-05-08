@@ -8,6 +8,23 @@ spec:
     replacement: https://danesjenovdan.si/${1}
     permanent: true
 ---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: enable-cors
+spec:
+  headers:
+    accessControlAllowOriginList:
+      - "https://danesjenovdan.si"
+    accessControlAllowMethods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      - OPTIONS
+    accessControlAllowHeaders:
+      - "*"
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -44,6 +61,8 @@ metadata:
   name: danesjenovdan-nginx
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
+    traefik.ingress.kubernetes.io/router.middlewares: |
+      danesjenovdan-enable-cors@kubernetescrd
 spec:
   ingressClassName: traefik
   tls:
