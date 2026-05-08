@@ -4,10 +4,10 @@ DEBUG = bool(os.getenv("DJANGO_DEBUG", False))
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "<TODO>")
 
-ALLOWED_HOSTS = ["staging.danesjenovdan.lb.djnd.si"]
-CSRF_TRUSTED_ORIGINS = ["https://staging.danesjenovdan.lb.djnd.si"]
+ALLOWED_HOSTS = ["staging.danesjenovdan.si"]
+CSRF_TRUSTED_ORIGINS = ["https://staging.danesjenovdan.si"]
 
-WAGTAILADMIN_BASE_URL = "https://staging.danesjenovdan.lb.djnd.si"
+WAGTAILADMIN_BASE_URL = "https://staging.danesjenovdan.si"
 
 STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", os.path.join(BASE_DIR, "static"))
 STATIC_URL = os.getenv("DJANGO_STATIC_URL_BASE", "/static/")
