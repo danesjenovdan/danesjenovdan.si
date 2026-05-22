@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-16 16:33+0100\n"
+"POT-Creation-Date: 2026-05-22 17:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,7 +58,7 @@ msgstr "Privacy and protection of personal data"
 msgid "Uredi svoje naročnine na novičnike"
 msgstr "Manage your email subscriptions with Danes je nov dan"
 
-#: djnd/templates/includes/sidebar.html:95 shop/templates/shop/shop.html:10
+#: djnd/templates/includes/sidebar.html:101 shop/templates/shop/shop.html:10
 msgid "Trgovina"
 msgstr "Shop"
 
@@ -123,12 +123,7 @@ msgstr "Donate"
 msgid "Povezani zapisi"
 msgstr "Worth your attention"
 
-#: home/templates/home/blog_page.html:45
-#: home/templates/home/newsletter_page.html:48
-msgid "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega"
-msgstr "Invitations, tips, suggestions, and warnings"
-
-#: home/templates/home/blog_page.html:60
+#: home/templates/home/blog_page.html:59
 msgid "Več zapisov"
 msgstr "More writings"
 
@@ -147,11 +142,15 @@ msgstr "All"
 msgid "Izpostavljeno"
 msgstr "Featured"
 
-#: home/templates/home/home_page.html:115
+#: home/templates/home/home_page.html:116
 msgid "Občasnik"
 msgstr "Newsletter"
 
-#: home/templates/home/home_page.html:120
+#: home/templates/home/home_page.html:133
+msgid "Sredina digitalna higiena"
+msgstr ""
+
+#: home/templates/home/home_page.html:139
 msgid "Vsi filtri"
 msgstr "More filters"
 
@@ -178,6 +177,10 @@ msgstr "News from Danes je nov dan"
 #: home/templates/home/newsletter_page.html:42
 msgid "Preveri, kaj smo počeli pretekli mesec"
 msgstr "Last month's highlights"
+
+#: home/templates/home/newsletter_page.html:48
+msgid "Priporočamo, svetujemo, vabimo, opozarjamo in še kaj drugega"
+msgstr "Invitations, tips, suggestions, and warnings"
 
 #: home/templates/home/newsletter_page.html:64
 msgid "Prejšnji programerski novičniki"

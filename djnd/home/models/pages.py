@@ -656,11 +656,11 @@ class OurWorkPage(RoutablePageMixin, BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        slovenian_locale = Locale.objects.get(language_code="sl")
+        sl = Locale.objects.get(language_code="sl")
 
-        pillars = PillarPage.objects.filter(locale=slovenian_locale)
-        categories = ActivityCategory.objects.filter(locale=slovenian_locale)
-        projects = ActivityProject.objects.filter(locale=slovenian_locale)
+        pillars = PillarPage.objects.filter(locale=sl)
+        categories = ActivityCategory.objects.filter(locale=sl).order_by("sort_order")
+        projects = ActivityProject.objects.filter(locale=sl).order_by("sort_order")
 
         context["pillars"] = pillars
         context["categories"] = categories
