@@ -7,6 +7,7 @@ from django.db import models
 from django.http import HttpRequest, HttpResponse
 from django.template.defaultfilters import slugify
 from django.utils import feedgenerator
+from django.utils.html import strip_tags
 from django.utils.http import http_date
 from modelcluster.fields import ParentalManyToManyField
 from wagtail import blocks
@@ -20,7 +21,13 @@ from wagtail.templatetags.wagtailcore_tags import richtext
 from ..pagination import get_filtered_activities, paginate_limit_offset
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
 from .settings import GeneralSettings
-from .snippets import ActivityCategory, ActivityProject, TeamMember, TeamMemberCategory
+from .snippets import (
+    ActivityCategory,
+    ActivityProject,
+    SocialMediaActivity,
+    TeamMember,
+    TeamMemberCategory,
+)
 
 sl_collator = icu.Collator.createInstance(icu.Locale("sl_SI"))
 
@@ -390,7 +397,7 @@ class NewsletterPage(BasePage):
     ]
 
 
-def subpage_rss(page, subpages, get_description, get_full_url):
+def subpage_rss(page, subpages, get_description, get_full_url, get_title=None):
     if page.seo_title:
         title = page.seo_title
     else:
@@ -409,27 +416,46 @@ def subpage_rss(page, subpages, get_description, get_full_url):
 
     for subpage in subpages:
         timestamp = None
+        timestamp_updated = None
         if hasattr(subpage, "published_at") and subpage.published_at:
             timestamp = datetime.combine(
                 subpage.published_at,
                 datetime.min.time(),
                 tzinfo=timezone.utc,
             )
+            timestamp_updated = timestamp
         elif hasattr(subpage, "date") and subpage.date:
             timestamp = datetime.combine(
                 subpage.date,
                 datetime.min.time(),
                 tzinfo=timezone.utc,
             )
+            timestamp_updated = timestamp
+        elif hasattr(subpage, "created_at") and subpage.created_at:
+            timestamp = subpage.created_at
+            timestamp_updated = timestamp
+
+        if hasattr(subpage, "last_published_at") and subpage.last_published_at:
+            timestamp_updated = subpage.last_published_at
+        elif hasattr(subpage, "updated_at") and subpage.updated_at:
+            timestamp_updated = subpage.updated_at
 
         full_url = get_full_url(subpage)
+        if not full_url:
+            continue
+
+        if get_title:
+            subpage_title = get_title(subpage)
+        else:
+            subpage_title = subpage.title if hasattr(subpage, "title") else "Objava"
 
         feed.add_item(
-            title=subpage.title,
+            title=subpage_title,
             link=full_url,
             unique_id=full_url,
             description=get_description(subpage),
             pubdate=timestamp,
+            updateddate=timestamp_updated,
         )
 
     response = HttpResponse(content_type=feed.content_type)
@@ -689,10 +715,33 @@ class OurWorkPage(RoutablePageMixin, BasePage):
 
         activities, form = get_filtered_activities(request)
         activities = list(activities[:12])
-
         read_more = "Poglej tukaj!" if locale.language_code == "sl" else "Take a look!"
 
+        sm_activities = SocialMediaActivity.objects.all().order_by(
+            "-updated_at", "-created_at"
+        )
+        sm_activities = list(sm_activities[:12])
+
+        def get_date(activity):
+            if isinstance(activity, SocialMediaActivity):
+                return activity.updated_at or activity.created_at
+
+            return datetime.combine(
+                activity.date,
+                datetime.min.time(),
+                tzinfo=timezone.utc,
+            )
+
+        all_activities = sorted(
+            activities + sm_activities,
+            key=get_date,
+            reverse=True,
+        )[:24]
+
         def get_full_url(snippet):
+            if isinstance(snippet, SocialMediaActivity):
+                return snippet.post_url
+
             if snippet.page:
                 return snippet.page.full_url
             elif snippet.link:
@@ -700,6 +749,9 @@ class OurWorkPage(RoutablePageMixin, BasePage):
             return self.full_url
 
         def get_description(snippet):
+            if isinstance(snippet, SocialMediaActivity):
+                return snippet.raw_html
+
             desc = ""
             if snippet.image:
                 rendition = snippet.image.get_rendition("fill-1200x630")
@@ -709,4 +761,20 @@ class OurWorkPage(RoutablePageMixin, BasePage):
             desc += richtext(snippet.note or "")
             return f'{desc}<p><a href="{get_full_url(snippet)}">{read_more}</a></p>'
 
-        return subpage_rss(self, activities, get_description, get_full_url)
+        def get_title(snippet):
+            if isinstance(snippet, SocialMediaActivity):
+                text = get_description(snippet)
+                text = strip_tags(text)
+                text = re.sub(r"\s+", " ", text).strip()
+                text = text[:50] + "..." if len(text) > 50 else text
+                return f"Objava z družbenega omrežja: {text}"
+
+            return snippet.title
+
+        return subpage_rss(
+            self,
+            all_activities,
+            get_description,
+            get_full_url,
+            get_title,
+        )
