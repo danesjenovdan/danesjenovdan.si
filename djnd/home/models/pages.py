@@ -391,9 +391,17 @@ class NewsletterPage(BasePage):
 
 
 def subpage_rss(page, subpages, get_description, get_full_url):
+    if page.seo_title:
+        title = page.seo_title
+    else:
+        title = page.title
+        site = page.get_site()
+        if site and site.site_name:
+            title = f"{site.site_name} | {title}"
+
     feed = feedgenerator.Rss201rev2Feed(
-        title=page.title,
-        description=f"RSS feed for {page.title}",
+        title=title,
+        description=f"{page.title} RSS feed",
         link=page.full_url,
         feed_url=page.full_url + "rss/",
         language=page.locale.language_code,
