@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: fetch-bluesky-staging
+spec:
+  schedule: "45 * * * *" # At HH:45 every hour.
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: fetch-bluesky
+              image: danesjenovdan-staging
+              command:
+                - python
+                - manage.py
+                - fetch_bluesky
+              env:
+                - name: DJANGO_SETTINGS_MODULE
+                  value: djnd.settings.production
+              envFrom:
+                - secretRef:
+                    name: danesjenovdan-staging-secrets

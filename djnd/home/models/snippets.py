@@ -1,7 +1,8 @@
 from django import forms
 from django.db import models
+from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
-from wagtail.fields import RichTextField
+from wagtail.fields import RichTextField, StreamField
 from wagtail.models import Orderable, TranslatableMixin
 from wagtail.search import index
 
@@ -104,6 +105,35 @@ class Activity(index.Indexed, TranslatableMixin, models.Model):
     class Meta(TranslatableMixin.Meta):
         verbose_name = "Aktivnost (Projekt)"
         verbose_name_plural = "Aktivnosti (Projekti)"
+
+
+class SocialMediaActivity(models.Model):
+    uid = models.CharField(max_length=255, unique=True)
+    post_url = models.URLField()
+    raw_html = StreamField(
+        [
+            ("raw_html", blocks.RawHTMLBlock()),
+        ],
+        null=True,
+        blank=True,
+    )
+    created_at = models.DateTimeField()
+    updated_at = models.DateTimeField()
+
+    panels = [
+        FieldPanel("uid"),
+        FieldPanel("post_url"),
+        FieldPanel("raw_html"),
+        FieldPanel("created_at"),
+        FieldPanel("updated_at"),
+    ]
+
+    def __str__(self) -> str:
+        return f"Objava z dne {self.created_at.strftime('%Y-%m-%d %H:%M:%S')}"
+
+    class Meta:
+        verbose_name = "Objava na družbenem omrežju"
+        verbose_name_plural = "Objave na družbenem omrežju"
 
 
 class TeamMemberCategory(TranslatableMixin, models.Model):
