@@ -5,6 +5,7 @@ resources:
   - djnd/deployment.yaml
   - djnd/ingress.yaml
   - djnd/service.yaml
+  - djnd/cronjobs/fetch_bluesky.yaml
   - website-redirects/deployment.yaml
   - website-redirects/ingress.yaml
   - website-redirects/service.yaml
