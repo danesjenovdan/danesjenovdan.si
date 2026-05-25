@@ -19,6 +19,7 @@ from .models.snippets import (
     ActivityCategory,
     ActivityProject,
     Promoted,
+    SocialMediaActivity,
     TeamMember,
     TeamMemberCategory,
 )
@@ -58,6 +59,7 @@ register_snippet(ActivityProjectViewSet)
 register_snippet(Promoted)
 register_snippet(TeamMember)
 register_snippet(TeamMemberCategory)
+register_snippet(SocialMediaActivity)
 
 
 class NewTabExternalLinkHandler(LinkHandler):

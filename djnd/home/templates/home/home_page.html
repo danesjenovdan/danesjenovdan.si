@@ -99,6 +99,7 @@
           </label>
         </div>
 
+        {% if LANGUAGE_CODE == "sl" %}
         <div class="me-3 sm-max:hidden">
           <input type="radio" name="filter" value="newsletter" class="peer hidden" id="id_newsletter" onchange="filterOurWork()" {% if request.GET.filter == 'newsletter' %}checked{% endif %}>
           <label
@@ -114,6 +115,23 @@
             {% translate "Občasnik" %}
           </label>
         </div>
+
+        <div class="me-3 sm-max:hidden">
+          <input type="radio" name="filter" value="sdh" class="peer hidden" id="id_sdh" onchange="filterOurWork()" {% if request.GET.filter == 'sdh' %}checked{% endif %}>
+          <label
+            for="id_sdh"
+            class="
+              inline-flex items-center px-4 pt-2.5 pb-3 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-md/none cursor-pointer
+              lg-max:px-3 lg-max:py-1.5 lg-max:text-sm/none
+              peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
+              transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
+            "
+          >
+            {% comment %} <img class="h-[1.25rem] w-auto me-2 lg-max:h-[0.875rem]" src="{% static 'img/filter-todo.png' %}" alt=""> {% endcomment %}
+            {% translate "Sredina digitalna higiena" %}
+          </label>
+        </div>
+        {% endif %}
 
         <a href="{% pageurl settings.home.GeneralSettings.our_work_page.localized %}" class="self-center ml-1 hover:font-semibold group">
           <span class="inline-block min-w-[3.5rem] text-center underline">{% translate "Vsi filtri" %}</span><img class="inline-block w-3 ml-2 -mt-1 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
