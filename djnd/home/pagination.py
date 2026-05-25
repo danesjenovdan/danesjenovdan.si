@@ -24,7 +24,7 @@ def _filter_activities_homepage(request, activities):
 
     if filter == "sdh":
         try:
-            sdh_project = ActivityProject.objects.get(name="Sredina digitalna higiena")
+            sdh_project = ActivityProject.objects.get(name="Digitalna higiena")
             activities = activities.filter(project=sdh_project)
         except ActivityProject.DoesNotExist:
             return activities.none()
