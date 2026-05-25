@@ -7,8 +7,10 @@ services:
     build: ./djnd
     working_dir: /app
     command: ./manage.py runserver 0.0.0.0:8000
+    user: "wagtail:wagtail"
     volumes:
       - ./djnd:/app:delegated,rw
+      - ./djnd/ipython_config.py:/tmp/ipython/profile_default/ipython_config.py:delegated,rw
     ports:
       - "8000:8000"
     environment:
