@@ -442,38 +442,58 @@ class NewsletterListPage(RoutablePageMixin, BasePage):
 
         return context
 
+    def _get_feed_items(self, request):
+        locale = Locale.get_active()
+        newsletters = (
+            NewsletterPage.objects.child_of(self)
+            .filter(locale=locale)
+            .live()
+            .order_by("-published_at", "-first_published_at", "pk")
+        )
+        newsletters = list(newsletters[:20])
 
-#     @path("rss/")
-#     def rss(self, request):
-#         locale = Locale.get_active()
+        def get_newsletter_description(newsletter, link):
+            desc = ""
+            desc += get_image_html_for_rss(newsletter.thumbnail, link)
+            desc += f'<p>{newsletter.short_description or ""}</p>'
+            desc += get_read_more_html_for_rss(link)
+            return desc
 
-#         newsletters = (
-#             NewsletterPage.objects.child_of(self)
-#             .filter(locale=locale)
-#             .live()
-#             .order_by("-published_at", "-first_published_at", "pk")
-#         )
-#         newsletters = list(newsletters[:12])
+        feed_items = []
+        for newsletter in newsletters:
+            link = newsletter.full_url
+            unique_id = sha1(
+                f"NewsletterPage_{newsletter.id}".encode("utf-8"),
+                usedforsecurity=False,
+            ).hexdigest()
+            date_time = datetime.combine(
+                newsletter.published_at or datetime.now().date(),
+                datetime.min.time(),
+                tzinfo=zoneinfo.ZoneInfo(settings.TIME_ZONE),
+            )
+            description = get_newsletter_description(newsletter, link)
+            feed_items.append(
+                {
+                    "title": newsletter.title,
+                    "link": link,
+                    "unique_id": unique_id,
+                    "description": description,
+                    "pubdate": date_time,
+                    "updateddate": date_time,
+                }
+            )
 
-#         read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
+        return feed_items
 
-#         def get_full_url(subpage):
-#             return subpage.full_url
+    @path("rss-preview/")
+    def rss_preview(self, request):
+        feed_items = self._get_feed_items(request)
+        return rss_preview(self, self.title, feed_items)
 
-#         def get_description(subpage):
-#             desc = ""
-#             if subpage.thumbnail:
-#                 rendition = subpage.thumbnail.get_rendition("fill-1200x630")
-#                 if rendition and rendition.url and rendition.url.startswith("http"):
-#                     desc += f'<p><a href="{get_full_url(subpage)}"><img src="{rendition.url}" alt="{rendition.alt}"></a></p>'
-#                 else:
-#                     desc += f"<p>MISSING IMAGE RENDITION!</p>"
-#             else:
-#                 desc += f"<p>MISSING IMAGE!</p>"
-#             desc += richtext(subpage.short_description or "")
-#             return f'{desc}<p><a href="{get_full_url(subpage)}">{read_more}</a></p>'
-
-#         return subpage_rss(self, newsletters, get_description, get_full_url)
+    @path("rss/")
+    def rss(self, request):
+        feed_items = self._get_feed_items(request)
+        return rss_feed(self, self.title, feed_items)
 
 
 class BlogListingPage(RoutablePageMixin, BasePage):
@@ -510,37 +530,58 @@ class BlogListingPage(RoutablePageMixin, BasePage):
 
         return context
 
-    # @path("rss/")
-    # def rss(self, request):
-    #     locale = Locale.get_active()
+    def _get_feed_items(self, request):
+        locale = Locale.get_active()
+        blogs = (
+            BlogPage.objects.child_of(self)
+            .filter(locale=locale)
+            .live()
+            .order_by("-published_at", "-first_published_at", "pk")
+        )
+        blogs = list(blogs[:20])
 
-    #     blogs = (
-    #         BlogPage.objects.child_of(self)
-    #         .filter(locale=locale)
-    #         .live()
-    #         .order_by("-published_at", "-first_published_at", "pk")
-    #     )
-    #     blogs = list(blogs[:12])
+        def get_blog_description(blog, link):
+            desc = ""
+            desc += get_image_html_for_rss(blog.thumbnail, link)
+            desc += f'<p>{blog.short_description or ""}</p>'
+            desc += get_read_more_html_for_rss(link)
+            return desc
 
-    #     read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
+        feed_items = []
+        for blog in blogs:
+            link = blog.full_url
+            unique_id = sha1(
+                f"BlogPage_{blog.id}".encode("utf-8"),
+                usedforsecurity=False,
+            ).hexdigest()
+            date_time = datetime.combine(
+                blog.published_at or datetime.now().date(),
+                datetime.min.time(),
+                tzinfo=zoneinfo.ZoneInfo(settings.TIME_ZONE),
+            )
+            description = get_blog_description(blog, link)
+            feed_items.append(
+                {
+                    "title": blog.title,
+                    "link": link,
+                    "unique_id": unique_id,
+                    "description": description,
+                    "pubdate": date_time,
+                    "updateddate": date_time,
+                }
+            )
 
-    #     def get_full_url(subpage):
-    #         return subpage.full_url
+        return feed_items
 
-    #     def get_description(subpage):
-    #         desc = ""
-    #         if subpage.thumbnail:
-    #             rendition = subpage.thumbnail.get_rendition("fill-1200x630")
-    #             if rendition and rendition.url and rendition.url.startswith("http"):
-    #                 desc += f'<p><a href="{get_full_url(subpage)}"><img src="{rendition.url}" alt="{rendition.alt}"></a></p>'
-    #             else:
-    #                 desc += f"<p>MISSING IMAGE RENDITION!</p>"
-    #         else:
-    #             desc += f"<p>MISSING IMAGE!</p>"
-    #         desc += f'<p>{subpage.short_description or ""}</p>'
-    #         return f'{desc}<p><a href="{get_full_url(subpage)}">{read_more}</a></p>'
+    @path("rss-preview/")
+    def rss_preview(self, request):
+        feed_items = self._get_feed_items(request)
+        return rss_preview(self, self.title, feed_items)
 
-    #     return subpage_rss(self, blogs, get_description, get_full_url)
+    @path("rss/")
+    def rss(self, request):
+        feed_items = self._get_feed_items(request)
+        return rss_feed(self, self.title, feed_items)
 
 
 class BlogPage(BasePage):
