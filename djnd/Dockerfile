@@ -27,7 +27,7 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     python3-icu \
     pkg-config \
     libmagickwand-dev \
- && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 # Install the application server.
 RUN pip install "gunicorn==23.0.0"
@@ -47,6 +47,11 @@ COPY --chown=wagtail:wagtail . .
 
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
+
+# Set the IPython directory to a temporary folder to avoid permission issues and
+# create the default profile directory with the correct user.
+ENV IPYTHONDIR=/tmp/ipython
+RUN mkdir -p $IPYTHONDIR/profile_default
 
 # Compile locale files.
 RUN python manage.py compilemessages

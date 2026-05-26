@@ -1,6 +1,10 @@
 {% extends "wrapper.html" %}
 {% load static wagtailcore_tags wagtailimages_tags i18n djnd_extras %}
 
+{% block extra_head %}
+<link rel="alternate" type="application/rss+xml" title="{{ page.title }} RSS feed" href="{{ page.full_url }}rss/">
+{% endblock %}
+
 {% block body_class %}template-homepage theme-color-{{ page.color }}{% endblock %}
 
 {% block content %}
@@ -127,7 +131,7 @@
               transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
             "
           >
-            {% comment %} <img class="h-[1.25rem] w-auto me-2 lg-max:h-[0.875rem]" src="{% static 'img/filter-todo.png' %}" alt=""> {% endcomment %}
+            <img class="h-[1.25rem] w-auto me-2 lg-max:h-[0.875rem]" src="{% static 'img/filter-digitalna-higiena.png' %}" alt="">
             {% translate "Digitalna higiena" %}
           </label>
         </div>
