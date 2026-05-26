@@ -1,3 +1,5 @@
+from html import escape as html_escape
+
 from django.http import HttpResponse
 from django.utils import feedgenerator
 from django.utils.http import http_date
@@ -12,7 +14,8 @@ def get_image_html_for_rss(image, link):
         try:
             rendition = image.get_rendition("max-600x315")
             if rendition and rendition.full_url:
-                desc += f'<p><a href="{link}" target="_blank"><img width="{rendition.width}" height="{rendition.height}" src="{rendition.full_url}" alt="{rendition.alt}"></a></p>'
+                alt = html_escape(rendition.alt, quote=True)
+                desc += f'<p><a href="{link}" target="_blank"><img width="{rendition.width}" height="{rendition.height}" src="{rendition.full_url}" alt="{alt}"></a></p>'
         except IOError:
             desc += f"<p>ERROR GENERATING IMAGE RENDITION!</p>"
     return f"{desc}"
@@ -85,10 +88,12 @@ def rss_feed(page, title, feed_items):
     )
 
     for item in feed_items:
+        is_permalink = item["unique_id"].startswith("http")
         feed.add_item(
             title=item["title"],
             link=item["link"],
             unique_id=item["unique_id"],
+            unique_id_is_permalink=is_permalink,
             description=item["description"],
             pubdate=item["pubdate"],
             updateddate=item["updateddate"],
@@ -101,17 +106,3 @@ def rss_feed(page, title, feed_items):
         )
     feed.write(response, "utf-8")
     return response
-
-
-#     for subpage in subpages:
-#         timestamp = None
-#         timestamp_updated = None
-#         if hasattr(subpage, "published_at") and subpage.published_at:
-#             timestamp = datetime.combine(
-#                 subpage.published_at,
-#                 datetime.min.time(),
-#                 tzinfo=timezone.utc,
-#             )
-#             timestamp_updated = timestamp
-#         if hasattr(subpage, "last_published_at") and subpage.last_published_at:
-#             timestamp_updated = subpage.last_published_at
