@@ -542,7 +542,7 @@ class NewsletterListPage(RoutablePageMixin, BasePage):
         def get_newsletter_description(newsletter, link):
             desc = ""
             desc += get_image_html_for_rss(newsletter.thumbnail, link)
-            desc += f'<p>{newsletter.short_description or ""}</p>'
+            desc += richtext(newsletter.short_description or "")
             desc += get_read_more_html_for_rss(link)
             return desc
 
