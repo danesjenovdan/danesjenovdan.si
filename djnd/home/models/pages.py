@@ -1,14 +1,14 @@
-import re
-from datetime import datetime, timezone
+import zoneinfo
+from datetime import datetime
+from hashlib import sha1
 
 import icu
 from django import forms
+from django.conf import settings
 from django.db import models
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest
 from django.template.defaultfilters import slugify
-from django.utils import feedgenerator
 from django.utils.html import strip_tags
-from django.utils.http import http_date
 from modelcluster.fields import ParentalManyToManyField
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
@@ -19,6 +19,12 @@ from wagtail.models import Locale, Page
 from wagtail.templatetags.wagtailcore_tags import richtext
 
 from ..pagination import get_filtered_activities, paginate_limit_offset
+from ..rss import (
+    get_image_html_for_rss,
+    get_read_more_html_for_rss,
+    rss_feed,
+    rss_preview,
+)
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
 from .settings import GeneralSettings
 from .snippets import (
@@ -60,7 +66,7 @@ class BasePage(Page):
         abstract = True
 
 
-class HomePage(BasePage):
+class HomePage(RoutablePageMixin, BasePage):
     introduction = RichTextField(blank=True, null=True)
     focus_areas_title = models.CharField(max_length=255, blank=True, null=True)
     focus_areas = StreamField(
@@ -120,6 +126,90 @@ class HomePage(BasePage):
         context["activities"] = activities.object_list
 
         return context
+
+    def _get_social_feed_items(self):
+        sm_activities = SocialMediaActivity.objects.all()
+        sm_activities = sm_activities.order_by("-updated_at", "-created_at", "pk")
+        sm_activities = list(sm_activities[:20])
+
+        def get_sma_description(sma, link):
+            desc = str(sma.raw_html).strip() or ""
+            desc += get_read_more_html_for_rss(link)
+            return desc
+
+        def get_sma_title(sma, link):
+            text = get_sma_description(sma, link)
+            text = strip_tags(text)
+            if len(text) > 70:
+                text = text[:70]
+                last_space = text.rfind(" ")
+                if last_space != -1:
+                    text = text[:last_space]
+                text = text.rstrip(".,;:!?'")
+                text += "…"
+            return f"Objava z družbenega omrežja: {text}"
+
+        feed_items = []
+        for sma in sm_activities:
+            link = sma.post_url
+            unique_id = sha1(
+                f"SocialMediaActivity_{sma.id}".encode("utf-8"),
+                usedforsecurity=False,
+            ).hexdigest()
+            description = get_sma_description(sma, link)
+            title = get_sma_title(sma, link)
+            feed_items.append(
+                {
+                    "title": title,
+                    "link": link,
+                    "unique_id": unique_id,
+                    "description": description,
+                    "pubdate": sma.created_at,
+                    "updateddate": sma.updated_at or sma.created_at,
+                }
+            )
+
+        return feed_items
+
+    @path("social-rss-preview/")
+    def social_rss_preview(self, request):
+        feed_items = self._get_social_feed_items()
+        root_page = self.get_site().root_page
+        return rss_preview(root_page, "Objave z družbenih omrežij", feed_items)
+
+    @path("social-rss/")
+    def social_rss(self, request):
+        feed_items = self._get_social_feed_items()
+        root_page = self.get_site().root_page
+        return rss_feed(root_page, "Objave z družbenih omrežij", feed_items)
+
+    # ---
+    # COMBINED RSS FEED
+    # - activities from our work page
+    # - social media activities
+    # ---
+
+    def _get_combined_feed_items(self, request):
+        general_settings = GeneralSettings.load(request_or_site=request)
+        our_work_page = general_settings.our_work_page.specific
+
+        activity_feed_items = our_work_page._get_feed_items(request)
+        social_feed_items = self._get_social_feed_items()
+
+        combined_items = activity_feed_items + social_feed_items
+        combined_items.sort(key=lambda x: x["pubdate"], reverse=True)
+
+        return combined_items[:20]
+
+    @path("rss-preview/")
+    def rss_preview(self, request):
+        feed_items = self._get_combined_feed_items(request)
+        return rss_preview(self, self.title, feed_items)
+
+    @path("rss/")
+    def rss(self, request):
+        feed_items = self._get_combined_feed_items(request)
+        return rss_feed(self, self.title, feed_items)
 
 
 class PillarPage(BasePage):
@@ -397,76 +487,6 @@ class NewsletterPage(BasePage):
     ]
 
 
-def subpage_rss(page, subpages, get_description, get_full_url, get_title=None):
-    if page.seo_title:
-        title = page.seo_title
-    else:
-        title = page.title
-        site = page.get_site()
-        if site and site.site_name:
-            title = f"{site.site_name} | {title}"
-
-    feed = feedgenerator.Rss201rev2Feed(
-        title=title,
-        description=f"{page.title} RSS feed",
-        link=page.full_url,
-        feed_url=page.full_url + "rss/",
-        language=page.locale.language_code,
-    )
-
-    for subpage in subpages:
-        timestamp = None
-        timestamp_updated = None
-        if hasattr(subpage, "published_at") and subpage.published_at:
-            timestamp = datetime.combine(
-                subpage.published_at,
-                datetime.min.time(),
-                tzinfo=timezone.utc,
-            )
-            timestamp_updated = timestamp
-        elif hasattr(subpage, "date") and subpage.date:
-            timestamp = datetime.combine(
-                subpage.date,
-                datetime.min.time(),
-                tzinfo=timezone.utc,
-            )
-            timestamp_updated = timestamp
-        elif hasattr(subpage, "created_at") and subpage.created_at:
-            timestamp = subpage.created_at
-            timestamp_updated = timestamp
-
-        if hasattr(subpage, "last_published_at") and subpage.last_published_at:
-            timestamp_updated = subpage.last_published_at
-        elif hasattr(subpage, "updated_at") and subpage.updated_at:
-            timestamp_updated = subpage.updated_at
-
-        full_url = get_full_url(subpage)
-        if not full_url:
-            continue
-
-        if get_title:
-            subpage_title = get_title(subpage)
-        else:
-            subpage_title = subpage.title if hasattr(subpage, "title") else "Objava"
-
-        feed.add_item(
-            title=subpage_title,
-            link=full_url,
-            unique_id=full_url,
-            description=get_description(subpage),
-            pubdate=timestamp,
-            updateddate=timestamp_updated,
-        )
-
-    response = HttpResponse(content_type=feed.content_type)
-    if len(subpages) > 0:
-        response.headers["Last-Modified"] = http_date(
-            feed.latest_post_date().timestamp()
-        )
-    feed.write(response, "utf-8")
-    return response
-
-
 class NewsletterListPage(RoutablePageMixin, BasePage):
     lead = models.TextField(blank=True)
     image = models.ForeignKey(
@@ -506,33 +526,58 @@ class NewsletterListPage(RoutablePageMixin, BasePage):
 
         return context
 
-    @path("rss/")
-    def rss(self, request):
+    def _get_feed_items(self, request):
         locale = Locale.get_active()
-
         newsletters = (
             NewsletterPage.objects.child_of(self)
             .filter(locale=locale)
             .live()
             .order_by("-published_at", "-first_published_at", "pk")
         )
-        newsletters = list(newsletters[:12])
+        newsletters = list(newsletters[:20])
 
-        read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
-
-        def get_full_url(subpage):
-            return subpage.full_url
-
-        def get_description(subpage):
+        def get_newsletter_description(newsletter, link):
             desc = ""
-            if subpage.thumbnail:
-                rendition = subpage.thumbnail.get_rendition("fill-1200x630")
-                if rendition and rendition.url and rendition.url.startswith("http"):
-                    desc += f'<p><a href="{get_full_url(subpage)}"><img src="{rendition.url}" alt="{rendition.alt}"></a></p>'
-            desc += richtext(subpage.short_description or "")
-            return f'{desc}<p><a href="{get_full_url(subpage)}">{read_more}</a></p>'
+            desc += get_image_html_for_rss(newsletter.thumbnail, link)
+            desc += f'<p>{newsletter.short_description or ""}</p>'
+            desc += get_read_more_html_for_rss(link)
+            return desc
 
-        return subpage_rss(self, newsletters, get_description, get_full_url)
+        feed_items = []
+        for newsletter in newsletters:
+            link = newsletter.full_url
+            unique_id = sha1(
+                f"NewsletterPage_{newsletter.id}".encode("utf-8"),
+                usedforsecurity=False,
+            ).hexdigest()
+            date_time = datetime.combine(
+                newsletter.published_at or datetime.now().date(),
+                datetime.min.time(),
+                tzinfo=zoneinfo.ZoneInfo(settings.TIME_ZONE),
+            )
+            description = get_newsletter_description(newsletter, link)
+            feed_items.append(
+                {
+                    "title": newsletter.title,
+                    "link": link,
+                    "unique_id": unique_id,
+                    "description": description,
+                    "pubdate": date_time,
+                    "updateddate": date_time,
+                }
+            )
+
+        return feed_items
+
+    @path("rss-preview/")
+    def rss_preview(self, request):
+        feed_items = self._get_feed_items(request)
+        return rss_preview(self, self.title, feed_items)
+
+    @path("rss/")
+    def rss(self, request):
+        feed_items = self._get_feed_items(request)
+        return rss_feed(self, self.title, feed_items)
 
 
 class BlogListingPage(RoutablePageMixin, BasePage):
@@ -569,33 +614,58 @@ class BlogListingPage(RoutablePageMixin, BasePage):
 
         return context
 
-    @path("rss/")
-    def rss(self, request):
+    def _get_feed_items(self, request):
         locale = Locale.get_active()
-
         blogs = (
             BlogPage.objects.child_of(self)
             .filter(locale=locale)
             .live()
             .order_by("-published_at", "-first_published_at", "pk")
         )
-        blogs = list(blogs[:12])
+        blogs = list(blogs[:20])
 
-        read_more = "Preberi v celoti" if locale.language_code == "sl" else "Read more"
-
-        def get_full_url(subpage):
-            return subpage.full_url
-
-        def get_description(subpage):
+        def get_blog_description(blog, link):
             desc = ""
-            if subpage.thumbnail:
-                rendition = subpage.thumbnail.get_rendition("fill-1200x630")
-                if rendition and rendition.url and rendition.url.startswith("http"):
-                    desc += f'<p><a href="{get_full_url(subpage)}"><img src="{rendition.url}" alt="{rendition.alt}"></a></p>'
-            desc += f'<p>{subpage.short_description or ""}</p>'
-            return f'{desc}<p><a href="{get_full_url(subpage)}">{read_more}</a></p>'
+            desc += get_image_html_for_rss(blog.thumbnail, link)
+            desc += f'<p>{blog.short_description or ""}</p>'
+            desc += get_read_more_html_for_rss(link)
+            return desc
 
-        return subpage_rss(self, blogs, get_description, get_full_url)
+        feed_items = []
+        for blog in blogs:
+            link = blog.full_url
+            unique_id = sha1(
+                f"BlogPage_{blog.id}".encode("utf-8"),
+                usedforsecurity=False,
+            ).hexdigest()
+            date_time = datetime.combine(
+                blog.published_at or datetime.now().date(),
+                datetime.min.time(),
+                tzinfo=zoneinfo.ZoneInfo(settings.TIME_ZONE),
+            )
+            description = get_blog_description(blog, link)
+            feed_items.append(
+                {
+                    "title": blog.title,
+                    "link": link,
+                    "unique_id": unique_id,
+                    "description": description,
+                    "pubdate": date_time,
+                    "updateddate": date_time,
+                }
+            )
+
+        return feed_items
+
+    @path("rss-preview/")
+    def rss_preview(self, request):
+        feed_items = self._get_feed_items(request)
+        return rss_preview(self, self.title, feed_items)
+
+    @path("rss/")
+    def rss(self, request):
+        feed_items = self._get_feed_items(request)
+        return rss_feed(self, self.title, feed_items)
 
 
 class BlogPage(BasePage):
@@ -709,72 +779,50 @@ class OurWorkPage(RoutablePageMixin, BasePage):
 
         return context
 
-    @path("rss/")
-    def rss(self, request):
-        locale = Locale.get_active()
-
+    def _get_feed_items(self, request):
         activities, form = get_filtered_activities(request)
-        activities = list(activities[:12])
-        read_more = "Poglej tukaj!" if locale.language_code == "sl" else "Take a look!"
+        activities = list(activities[:20])
 
-        sm_activities = SocialMediaActivity.objects.all().order_by(
-            "-updated_at", "-created_at"
-        )
-        sm_activities = list(sm_activities[:12])
+        def get_activity_description(activity, link):
+            desc = ""
+            desc += get_image_html_for_rss(activity.image, link)
+            desc += f'<p>{activity.description or ""}</p>'
+            desc += richtext(activity.note or "")
+            desc += get_read_more_html_for_rss(link)
+            return desc
 
-        def get_date(activity):
-            if isinstance(activity, SocialMediaActivity):
-                return activity.updated_at or activity.created_at
-
-            return datetime.combine(
-                activity.date,
+        feed_items = []
+        for activity in activities:
+            link = activity.page.full_url if activity.page else activity.link
+            unique_id = sha1(
+                f"Activity_{activity.id}".encode("utf-8"),
+                usedforsecurity=False,
+            ).hexdigest()
+            date_time = datetime.combine(
+                activity.date or datetime.now().date(),
                 datetime.min.time(),
-                tzinfo=timezone.utc,
+                tzinfo=zoneinfo.ZoneInfo(settings.TIME_ZONE),
+            )
+            description = get_activity_description(activity, link)
+            feed_items.append(
+                {
+                    "title": activity.title or "Objava",
+                    "link": link,
+                    "unique_id": unique_id,
+                    "description": description,
+                    "pubdate": date_time,
+                    "updateddate": date_time,
+                }
             )
 
-        all_activities = sorted(
-            activities + sm_activities,
-            key=get_date,
-            reverse=True,
-        )[:24]
+        return feed_items
 
-        def get_full_url(snippet):
-            if isinstance(snippet, SocialMediaActivity):
-                return snippet.post_url
+    @path("rss-preview/")
+    def rss_preview(self, request):
+        feed_items = self._get_feed_items(request)
+        return rss_preview(self, self.title, feed_items)
 
-            if snippet.page:
-                return snippet.page.full_url
-            elif snippet.link:
-                return snippet.link
-            return self.full_url
-
-        def get_description(snippet):
-            if isinstance(snippet, SocialMediaActivity):
-                return snippet.raw_html
-
-            desc = ""
-            if snippet.image:
-                rendition = snippet.image.get_rendition("fill-1200x630")
-                if rendition and rendition.url and rendition.url.startswith("http"):
-                    desc += f'<p><a href="{get_full_url(snippet)}"><img src="{rendition.url}" alt="{rendition.alt}"></a></p>'
-            desc += f'<p>{snippet.description or ""}</p>'
-            desc += richtext(snippet.note or "")
-            return f'{desc}<p><a href="{get_full_url(snippet)}">{read_more}</a></p>'
-
-        def get_title(snippet):
-            if isinstance(snippet, SocialMediaActivity):
-                text = get_description(snippet)
-                text = strip_tags(text)
-                text = re.sub(r"\s+", " ", text).strip()
-                text = text[:50] + "..." if len(text) > 50 else text
-                return f"Objava z družbenega omrežja: {text}"
-
-            return snippet.title
-
-        return subpage_rss(
-            self,
-            all_activities,
-            get_description,
-            get_full_url,
-            get_title,
-        )
+    @path("rss/")
+    def rss(self, request):
+        feed_items = self._get_feed_items(request)
+        return rss_feed(self, self.title, feed_items)
