@@ -191,9 +191,12 @@ class HomePage(RoutablePageMixin, BasePage):
 
     def _get_combined_feed_items(self, request):
         general_settings = GeneralSettings.load(request_or_site=request)
-        our_work_page = general_settings.our_work_page.specific
+        if general_settings.our_work_page:
+            our_work_page = general_settings.our_work_page.specific
+            activity_feed_items = our_work_page._get_feed_items(request)
+        else:
+            activity_feed_items = []
 
-        activity_feed_items = our_work_page._get_feed_items(request)
         social_feed_items = self._get_social_feed_items()
 
         combined_items = activity_feed_items + social_feed_items
@@ -730,10 +733,11 @@ class BlogPage(BasePage):
         if category := ActivityCategory.objects.filter(name="Zapis").first():
             if category_local := category.localized:
                 general_settings = GeneralSettings.load(request_or_site=request)
-                page_url = general_settings.our_work_page.localized.get_url(request)
-                context["more_blogs_link"] = (
-                    f"{page_url}?categories={slugify(category_local.name)}"
-                )
+                if general_settings.our_work_page:
+                    page_url = general_settings.our_work_page.localized.get_url(request)
+                    context["more_blogs_link"] = (
+                        f"{page_url}?categories={slugify(category_local.name)}"
+                    )
 
         return context
 
