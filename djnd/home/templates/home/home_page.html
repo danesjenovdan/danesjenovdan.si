@@ -1,6 +1,10 @@
 {% extends "wrapper.html" %}
 {% load static wagtailcore_tags wagtailimages_tags i18n djnd_extras %}
 
+{% block extra_head %}
+<link rel="alternate" type="application/rss+xml" title="{{ page.title }} RSS feed" href="{{ page.full_url }}rss/">
+{% endblock %}
+
 {% block body_class %}template-homepage theme-color-{{ page.color }}{% endblock %}
 
 {% block content %}

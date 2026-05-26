@@ -66,7 +66,7 @@ class BasePage(Page):
         abstract = True
 
 
-class HomePage(BasePage):
+class HomePage(RoutablePageMixin, BasePage):
     introduction = RichTextField(blank=True, null=True)
     focus_areas_title = models.CharField(max_length=255, blank=True, null=True)
     focus_areas = StreamField(
@@ -126,6 +126,90 @@ class HomePage(BasePage):
         context["activities"] = activities.object_list
 
         return context
+
+    def _get_social_feed_items(self):
+        sm_activities = SocialMediaActivity.objects.all()
+        sm_activities = sm_activities.order_by("-updated_at", "-created_at", "pk")
+        sm_activities = list(sm_activities[:20])
+
+        def get_sma_description(sma, link):
+            desc = str(sma.raw_html).strip() or ""
+            desc += get_read_more_html_for_rss(link)
+            return desc
+
+        def get_sma_title(sma, link):
+            text = get_sma_description(sma, link)
+            text = strip_tags(text)
+            if len(text) > 70:
+                text = text[:70]
+                last_space = text.rfind(" ")
+                if last_space != -1:
+                    text = text[:last_space]
+                text = text.rstrip(".,;:!?'")
+                text += "…"
+            return f"Objava z družbenega omrežja: {text}"
+
+        feed_items = []
+        for sma in sm_activities:
+            link = sma.post_url
+            unique_id = sha1(
+                f"SocialMediaActivity_{sma.id}".encode("utf-8"),
+                usedforsecurity=False,
+            ).hexdigest()
+            description = get_sma_description(sma, link)
+            title = get_sma_title(sma, link)
+            feed_items.append(
+                {
+                    "title": title,
+                    "link": link,
+                    "unique_id": unique_id,
+                    "description": description,
+                    "pubdate": sma.created_at,
+                    "updateddate": sma.updated_at or sma.created_at,
+                }
+            )
+
+        return feed_items
+
+    @path("social-rss-preview/")
+    def social_rss_preview(self, request):
+        feed_items = self._get_social_feed_items()
+        root_page = self.get_site().root_page
+        return rss_preview(root_page, "Objave z družbenih omrežij", feed_items)
+
+    @path("social-rss/")
+    def social_rss(self, request):
+        feed_items = self._get_social_feed_items()
+        root_page = self.get_site().root_page
+        return rss_feed(root_page, "Objave z družbenih omrežij", feed_items)
+
+    # ---
+    # COMBINED RSS FEED
+    # - activities from our work page
+    # - social media activities
+    # ---
+
+    def _get_combined_feed_items(self, request):
+        general_settings = GeneralSettings.load(request_or_site=request)
+        our_work_page = general_settings.our_work_page.specific
+
+        activity_feed_items = our_work_page._get_feed_items(request)
+        social_feed_items = self._get_social_feed_items()
+
+        combined_items = activity_feed_items + social_feed_items
+        combined_items.sort(key=lambda x: x["pubdate"], reverse=True)
+
+        return combined_items[:20]
+
+    @path("rss-preview/")
+    def rss_preview(self, request):
+        feed_items = self._get_combined_feed_items(request)
+        return rss_preview(self, self.title, feed_items)
+
+    @path("rss/")
+    def rss(self, request):
+        feed_items = self._get_combined_feed_items(request)
+        return rss_feed(self, self.title, feed_items)
 
 
 class PillarPage(BasePage):
@@ -742,59 +826,3 @@ class OurWorkPage(RoutablePageMixin, BasePage):
     def rss(self, request):
         feed_items = self._get_feed_items(request)
         return rss_feed(self, self.title, feed_items)
-
-    def _get_social_feed_items(self):
-        sm_activities = SocialMediaActivity.objects.all()
-        sm_activities = sm_activities.order_by("-updated_at", "-created_at", "pk")
-        sm_activities = list(sm_activities[:20])
-
-        def get_sma_description(sma, link):
-            desc = str(sma.raw_html).strip() or ""
-            desc += get_read_more_html_for_rss(link)
-            return desc
-
-        def get_sma_title(sma, link):
-            text = get_sma_description(sma, link)
-            text = strip_tags(text)
-            if len(text) > 70:
-                text = text[:70]
-                last_space = text.rfind(" ")
-                if last_space != -1:
-                    text = text[:last_space]
-                text = text.rstrip(".,;:!?'")
-                text += "…"
-            return f"Objava iz družbenega omrežja: {text}"
-
-        feed_items = []
-        for sma in sm_activities:
-            link = sma.post_url
-            unique_id = sha1(
-                f"SocialMediaActivity_{sma.id}".encode("utf-8"),
-                usedforsecurity=False,
-            ).hexdigest()
-            description = get_sma_description(sma, link)
-            title = get_sma_title(sma, link)
-            feed_items.append(
-                {
-                    "title": title,
-                    "link": link,
-                    "unique_id": unique_id,
-                    "description": description,
-                    "pubdate": sma.created_at,
-                    "updateddate": sma.updated_at or sma.created_at,
-                }
-            )
-
-        return feed_items
-
-    @path("social-rss-preview/")
-    def social_rss_preview(self, request):
-        feed_items = self._get_social_feed_items()
-        root_page = self.get_site().root_page
-        return rss_preview(root_page, "Objave iz družbenih omrežij", feed_items)
-
-    @path("social-rss/")
-    def social_rss(self, request):
-        feed_items = self._get_social_feed_items()
-        root_page = self.get_site().root_page
-        return rss_feed(root_page, "Objave iz družbenih omrežij", feed_items)
