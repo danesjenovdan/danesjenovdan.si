@@ -14,34 +14,6 @@ document.addEventListener("alpine:init", () => {
         segment_id = 37; // Programerski novičnik
       }
 
-      // const options = {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     email: email,
-      //     segment_id: segment_id,
-      //   }),
-      // };
-
-      // fetch("https://podpri.lb.djnd.si/api/subscribe/", options)
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     this.loading = false;
-      //     if (data.msg === "mail sent") {
-      //       alert(window.NEWSLETTER_TEXT_SUCCESS);
-      //       document.getElementById(`subscribe-email-${id}`).value = "";
-      //       document.getElementById(`subscribe-consent-${id}`).checked = false;
-      //     } else {
-      //       alert(window.NEWSLETTER_TEXT_FAILURE);
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     this.loading = false;
-      //     console.error(error);
-      //   });
-
       let url = `https://moj.djnd.si/${campaign_slug}/prijava?segment_id=${segment_id}`;
       url += `&email=${encodeURIComponent(email)}`;
       window.open(`${url}`, `_blank`);
