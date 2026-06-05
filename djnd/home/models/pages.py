@@ -18,6 +18,7 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
 from wagtail.templatetags.wagtailcore_tags import richtext
 
+from ..date_utils import to_datetime
 from ..pagination import get_filtered_activities, paginate_limit_offset
 from ..rss import (
     get_image_html_for_rss,
@@ -25,6 +26,8 @@ from ..rss import (
     rss_feed,
     rss_preview,
 )
+from ..templatetags.djnd_extras import sl_activity_tags
+from ..templatetags.schemaorg_tags import DJND_ORGANIZATION_DATA
 from .blocks import BlogPageBlock, ModuleBlock, PageColors
 from .settings import GeneralSettings
 from .snippets import (
@@ -740,6 +743,81 @@ class BlogPage(BasePage):
                     )
 
         return context
+
+    def get_jsonld_data(self, context):
+        data = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": self.title,
+            "name": self.title,
+            "url": self.full_url,
+        }
+
+        date_published = to_datetime(self.published_at or self.first_published_at)
+        if date_published:
+            data["datePublished"] = date_published.isoformat()
+        date_modified = to_datetime(self.last_published_at or self.first_published_at)
+        if date_modified:
+            if date_published and date_modified < date_published:
+                date_modified = date_published
+            data["dateModified"] = date_modified.isoformat()
+
+        if self.thumbnail:
+            try:
+                rendition = self.thumbnail.get_rendition("original")
+                if rendition and rendition.full_url:
+                    data["image"] = {
+                        "@type": "ImageObject",
+                        "url": rendition.full_url,
+                        "width": rendition.width,
+                        "height": rendition.height,
+                        "description": rendition.alt,
+                    }
+            except IOError:
+                pass
+
+        if self.short_description:
+            data["description"] = self.short_description
+
+        tags = [
+            *sl_activity_tags(self, "pillar_page"),
+            *sl_activity_tags(self, "category"),
+            *sl_activity_tags(self, "project"),
+        ]
+        sections = set()
+        for tag in tags:
+            if hasattr(tag, "name"):
+                sections.add(tag.name)
+            elif hasattr(tag, "title"):
+                sections.add(tag.title)
+        if len(sections):
+            data["articleSection"] = list(sections)
+
+        if self.modules:
+            text_parts = []
+            for block in self.modules:
+                text = str(block)
+                text = text.replace("</p>", "</p>\n")
+                text = text.replace("</li>", "</li>\n")
+                text = text.replace(
+                    "<br/>", "<br/>\n"
+                )  # TODO replace <br>, <br />, <br/> with a single regex
+                text = text.replace("><", "> <")
+                text = text.replace("&nbsp;", " ")
+                text = strip_tags(text)
+                text = text.strip()
+                if len(text) > 0:
+                    text_parts.append(text)
+            body_text = "\n".join(text_parts)
+            data["articleBody"] = body_text
+            print(body_text)
+
+        # TODO: preveri da v EN tudi dela prav (pri prevedenem članku in pri ne-prevedenem članku)
+
+        data["author"] = DJND_ORGANIZATION_DATA
+        data["publisher"] = DJND_ORGANIZATION_DATA
+
+        return data
 
 
 class SupportPage(BasePage):

@@ -1,4 +1,4 @@
-{% load static i18n wagtailcore_tags wagtailimages_tags wagtailuserbar %}
+{% load static i18n wagtailcore_tags wagtailimages_tags wagtailuserbar schemaorg_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@
             <meta name="twitter:image" content="{% static 'favicons/og.jpg' %}">
         {% endif %}
 
-        <meta name="author" content="danesjenovdan">
+        <meta name="author" content="Danes je nov dan">
         <meta property="og:site_name" content="Danes je nov dan">
         <meta name="twitter:creator" content="@danesjenovdan">
 
@@ -34,6 +34,8 @@
         <link rel="icon" type="image/svg+xml" href="{% static 'favicons/favicon.svg' %}">
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png' %}">
         <link rel="icon" type="image/png" href="{% static 'favicons/favicon.png' %}">
+
+        {% schemaorg_jsonld page %}
 
         {% block extra_head %}{% endblock %}
 
