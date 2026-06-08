@@ -108,3 +108,33 @@ def flag_emoji_for_language(language_code):
         "sl": "🇸🇮",
         "en": "🇬🇧",
     }.get(language_code, "")
+
+
+def get_referrer_params(request):
+    referrers = [
+        request.META.get("HTTP_REFERER"),
+        *request.GET.getlist("referer"),
+        *request.GET.getlist("referrer"),
+    ]
+    referrers = [r for r in referrers if r]
+    get_params = {
+        "referrer": ", ".join(referrers),
+    }
+    for key in request.GET:
+        if key.startswith("utm_"):
+            value = ", ".join(request.GET.getlist(key))
+            get_params[key] = value
+    return {
+        **get_params,
+    }
+
+
+@register.simple_tag
+def set_referrer_params(request, default_params_string=""):
+    referrer_params = get_referrer_params(request)
+    query_dict = QueryDict(default_params_string, mutable=True)
+    for key, value in referrer_params.items():
+        if value:
+            query_dict[key] = value
+    query_string = query_dict.urlencode()
+    return query_string

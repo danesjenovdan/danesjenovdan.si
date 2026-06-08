@@ -1,5 +1,5 @@
 {% extends "wrapper.html" %}
-{% load i18n static wagtailcore_tags wagtailimages_tags %}
+{% load i18n static wagtailcore_tags wagtailimages_tags djnd_extras %}
 
 {% block body_class %}template-modularpage theme-color-{{ page.color }}{% endblock %}
 
@@ -29,7 +29,8 @@
     <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 sm-max:block sm-max:px-6 sm-max:py-8">
       <div class="basis-8/12">
         <div class="grid grid-cols-2 gap-6 sm-max:grid-cols-1">
-          <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj?mesecna=true&amp;referrer=danesjenovdan.si&amp;utm_source=danesjenovdan.si&amp;utm_medium=website&amp;utm_campaign=podpri-nas&amp;utm_content=vsak-mesec" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
+          {% set_referrer_params request default_params_string="referrer=danesjenovdan.si&utm_source=danesjenovdan.si&utm_medium=website&utm_campaign=podpri-nas&utm_content=vsak-mesec" as referrer_params %}
+          <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj?mesecna=true&{{ referrer_params }}" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
             <div>
               <h2 class="mb-2 text-2xl font-semibold">{% translate "Vsak mesec" %}</h2>
               <p class="font-semibold">{% translate "Ker nas želiš podpirati vsak mesec!" %}</p>
@@ -41,7 +42,8 @@
               <img class="w-4" src="{% static 'img/noun-arrow-right-white-1434311.svg' %}" alt="">
             </div>
           </a>
-          <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj?referrer=danesjenovdan.si&amp;utm_source=danesjenovdan.si&amp;utm_medium=website&amp;utm_campaign=podpri-nas&amp;utm_content=enkrat" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
+          {% set_referrer_params request default_params_string="referrer=danesjenovdan.si&utm_source=danesjenovdan.si&utm_medium=website&utm_campaign=podpri-nas&utm_content=enkrat" as referrer_params %}
+          <a href="https://moj.djnd.si/danes-je-nov-dan/doniraj?{{ referrer_params }}" target="_blank" class="bg-white border border-dark p-8 relative hover:bg-th-primary">
             <div>
               <h2 class="mb-2 text-2xl font-semibold">{% translate "Enkrat" %}</h2>
               <p class="font-semibold">{% translate "Ker imaš ravno prav evrov viška za boljši jutri!" %}</p>
