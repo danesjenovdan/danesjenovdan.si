@@ -8,13 +8,16 @@
     </div>
     {% for item in items %}
     <div class="mb-6 {% if item.value.image or item.image %}w-full{% else %}w-8/12 sm-max:w-full{% endif %}">
-      <div class="border border-dark flex gap-8 p-3.5 sm-max:flex-col-reverse sm-max:gap-3.5">
+      <div class="border border-dark flex gap-8 p-3.5 sm-max:flex-col-reverse sm-max:gap-3.5 js-activity-card hover:bg-th-primary-light">
         <div class="pl-3 sm-max:pl-0 flex-1">
-          <h5 class="text-2lg/[1.15] font-semibold mt-1.5 mb-3">
-            <a href="{% firstof item.value.link item.link %}" target="_blank" class="bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out">
-              {% firstof item.value.name item.name %}
-            </a>
-          </h5>
+          <h3 class="text-2lg/[1.15] font-semibold mt-1.5 mb-3">
+            <a href="{% firstof item.value.link item.link %}" target="_blank"
+              class="
+                js-activity-card-link
+                bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out
+              "
+            >{% firstof item.value.name item.name %}</a>
+          </h3>
           {% firstof item.value.description item.description as description %}
           <div class="mb-2 text-base/snug rich-text rich-text--base">
             {{ description|richtext }}

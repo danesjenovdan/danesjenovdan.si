@@ -25,7 +25,7 @@ services:
   css-compile:
     build: ./css-compile
     working_dir: /app
-    command: yarn dev
+    command: npm run dev
     volumes:
       - ./djnd:/app/djnd:delegated,rw
       - ./css-compile/src:/app/src:delegated,rw
