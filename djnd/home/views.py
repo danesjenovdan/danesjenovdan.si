@@ -1,6 +1,6 @@
 import datetime
 
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.shortcuts import redirect
 from django.views.generic import TemplateView, View
 from wagtail.models import Locale, Site
@@ -52,6 +52,9 @@ class ActivityHomepageView(TemplateView):
 def _subpage_pagination_context(request, context_name, ParentPageModel, SubPageModel):
     parent = int(request.GET.get("parent", 0))
     parent_page = ParentPageModel.objects.filter(pk=parent).first()
+
+    if not parent_page:
+        raise Http404(f"Parent page with id {parent} not found.")
 
     offset = int(request.GET.get("offset", 0))
     locale = Locale.get_active()
@@ -142,3 +145,19 @@ class AgrumentByDateRedirectView(View):
             raise Http404
 
         return redirect(blog.get_url())
+
+
+ROBOTS_TXT_CONTENT = """
+
+User-agent: *
+Disallow: /admin/
+Disallow: /django-admin/
+
+Sitemap: https://danesjenovdan.si/sitemap.xml
+
+""".strip()
+
+
+class RobotsTxtView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse(ROBOTS_TXT_CONTENT, content_type="text/plain")

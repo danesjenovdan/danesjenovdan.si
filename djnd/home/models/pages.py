@@ -62,6 +62,32 @@ class BasePage(Page):
         FieldPanel("meta_image"),
     ]
 
+    def get_sitemap_urls(self, request):
+        urls = super().get_sitemap_urls(request)
+        if not urls or len(urls) != 1:
+            return urls
+
+        # Build a translation cache on the first call to avoid an N+1 query
+        # pattern where each page individually queries for its translations.
+        # Instead, fetch all live pages once and group by translation_key.
+        if not hasattr(request, "_sitemap_translation_cache"):
+            cache = {}
+            for p in Page.objects.live().select_related("locale"):
+                cache.setdefault(p.translation_key, []).append(p)
+            request._sitemap_translation_cache = cache
+
+        translations = request._sitemap_translation_cache.get(
+            self.translation_key, [self]
+        )
+        urls[0]["alternates"] = [
+            {
+                "lang_code": t.locale.language_code,
+                "location": t.get_full_url(request),
+            }
+            for t in translations
+        ]
+        return urls
+
     class Meta:
         abstract = True
 

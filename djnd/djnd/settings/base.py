@@ -29,7 +29,6 @@ DEFAULT_LOGGING["handlers"]["console"]["filters"] = []
 
 INSTALLED_APPS = [
     "home",
-    "shop",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.contrib.settings",
@@ -55,6 +54,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.postgres",
+    "django.contrib.sitemaps",
     "debug_toolbar",
 ]
 
