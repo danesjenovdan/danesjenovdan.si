@@ -1,6 +1,6 @@
 import datetime
 
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.shortcuts import redirect
 from django.views.generic import TemplateView, View
 from wagtail.models import Locale, Site
@@ -145,3 +145,19 @@ class AgrumentByDateRedirectView(View):
             raise Http404
 
         return redirect(blog.get_url())
+
+
+ROBOTS_TXT_CONTENT = """
+
+User-agent: *
+Disallow: /admin/
+Disallow: /django-admin/
+
+Sitemap: https://danesjenovdan.si/sitemap.xml
+
+""".strip()
+
+
+class RobotsTxtView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse(ROBOTS_TXT_CONTENT, content_type="text/plain")
