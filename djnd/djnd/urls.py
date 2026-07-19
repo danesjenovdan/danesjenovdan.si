@@ -4,9 +4,11 @@ from django.contrib import admin
 from django.templatetags.static import static
 from django.urls import include, path, re_path
 from django.views import defaults
+from django.views.decorators.cache import cache_page
 from django.views.generic.base import RedirectView
 from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.contrib.sitemaps.views import sitemap
 from wagtail.documents import urls as wagtaildocs_urls
 
 from home.views import AgrumentByDateRedirectView
@@ -22,6 +24,8 @@ urlpatterns = [
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
+    # cache sitemap for 1 hour
+    path("sitemap.xml", cache_page(60 * 60)(sitemap)),
     # this is a hack because we cant use the wagtail page view since it does not support periods in the url
     re_path(
         r"agrument/(?P<day>\d{1,2})\.(?P<month>\d{1,2})\.(?P<year>\d{4})/$",
