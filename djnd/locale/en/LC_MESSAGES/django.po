@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-25 15:28+0200\n"
+"POT-Creation-Date: 2026-07-19 22:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,11 +58,11 @@ msgstr "Privacy and protection of personal data"
 msgid "Uredi svoje naročnine na novičnike"
 msgstr "Manage your email subscriptions with Danes je nov dan"
 
-#: djnd/templates/includes/sidebar.html:101 shop/templates/shop/shop.html:10
+#: djnd/templates/includes/sidebar.html:101
 msgid "Trgovina"
 msgstr "Shop"
 
-#: home/rss.py:4
+#: home/rss.py:8
 msgid "Poglej objavo!"
 msgstr "Take a look!"
 
@@ -131,30 +131,30 @@ msgstr "Worth your attention"
 msgid "Več zapisov"
 msgstr "More writings"
 
-#: home/templates/home/home_page.html:67
+#: home/templates/home/home_page.html:71
 msgid "Zadnji projekti"
 msgstr "Latest projects"
 
-#: home/templates/home/home_page.html:83
+#: home/templates/home/home_page.html:87
 msgid "Vse"
 msgstr "All"
 
-#: home/templates/home/home_page.html:99
+#: home/templates/home/home_page.html:103
 #: home/templates/home/newsletter_page.html:47
 #: home/templates/home/our_work_page.html:48
 #: home/templates/home/pillar_page.html:29
 msgid "Izpostavljeno"
 msgstr "Featured"
 
-#: home/templates/home/home_page.html:116
+#: home/templates/home/home_page.html:120
 msgid "Občasnik"
 msgstr "Newsletter"
 
-#: home/templates/home/home_page.html:133
+#: home/templates/home/home_page.html:136
 msgid "Digitalna higiena"
 msgstr "Digital hygiene"
 
-#: home/templates/home/home_page.html:139
+#: home/templates/home/home_page.html:142
 msgid "Vsi filtri"
 msgstr "More filters"
 
@@ -239,22 +239,7 @@ msgstr ""
 msgid "Vpiši svoj e-naslov"
 msgstr "To subscribe, enter your email address"
 
-#: home/templates/home/partials/newsletter_form.html:12
-#: home/templates/home/partials/newsletter_form2.html:21
-msgid ""
-"Strinjam se, da mi Danes je nov dan po e-pošti pošilja programerski novičnik."
-msgstr ""
-
-#: home/templates/home/partials/newsletter_form.html:14
-#: home/templates/home/partials/newsletter_form2.html:23
-msgid ""
-"Strinjam se, da mi Danes je nov dan po e-pošti pošilja Občasnik in druga "
-"obvestila."
-msgstr ""
-"I agree to receive Občasnik and other notifications from Danes je nov dan by "
-"email."
-
-#: home/templates/home/partials/newsletter_form.html:20
+#: home/templates/home/partials/newsletter_form.html:21
 #: home/templates/home/partials/newsletter_form2.html:9
 msgid "Naroči se"
 msgstr "Subscribe"
@@ -263,23 +248,23 @@ msgstr "Subscribe"
 msgid "Vsi projekti"
 msgstr "All projects"
 
-#: home/templates/home/support_page.html:34
+#: home/templates/home/support_page.html:35
 msgid "Vsak mesec"
 msgstr "Monthly"
 
-#: home/templates/home/support_page.html:35
+#: home/templates/home/support_page.html:36
 msgid "Ker nas želiš podpirati vsak mesec!"
 msgstr "Because you want to support us every month!"
 
-#: home/templates/home/support_page.html:46
+#: home/templates/home/support_page.html:48
 msgid "Enkrat"
 msgstr "One time"
 
-#: home/templates/home/support_page.html:47
+#: home/templates/home/support_page.html:49
 msgid "Ker imaš ravno prav evrov viška za boljši jutri!"
 msgstr "Because you have just enough spare euros for a better tomorrow!"
 
-#: home/templates/home/support_page.html:65
+#: home/templates/home/support_page.html:67
 #, python-format
 msgid ""
 "Nameniš pa nam lahko tudi 1 %% dohodnine! Tebe nič ne stane, nam pa pomeni "
@@ -288,18 +273,14 @@ msgstr ""
 "You can also give us 1%% of income tax! It costs you nothing, but it means a "
 "lot to us."
 
-#: home/templates/home/support_page.html:77
+#: home/templates/home/support_page.html:79
 msgid "Vlogo lahko oddaš tudi s certifikatom na eDavkih"
 msgstr "You can also submit an application through eDavki"
 
-#: home/templates/home/support_page.html:86
+#: home/templates/home/support_page.html:88
 msgid ""
 "Če si brez denarja, še ne pomeni, da nam ne moreš pomagati. Zavihaj rokave, "
 "nagubaj čelo in napni mišice ter se nam javi na "
 msgstr ""
 "Just because you're broke doesn't mean you can't help us. Roll up your "
 "sleeves, think hard, flex your muscles and contact us at "
-
-#: shop/templates/shop/shop.html:11
-msgid "Kupi kaj in podpri naše delo."
-msgstr "Buy something and support our work."
