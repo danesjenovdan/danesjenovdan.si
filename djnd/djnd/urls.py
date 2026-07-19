@@ -45,7 +45,6 @@ if settings.DEBUG:
 # Translatable URLs
 # These will be available under a language code prefix. For example /en/search/
 urlpatterns += i18n_patterns(
-    path("trgovina/", include("shop.urls")),
     path("api/", include("home.urls")),
     path("", include(wagtail_urls)),
     prefix_default_language=False,

@@ -29,7 +29,6 @@ DEFAULT_LOGGING["handlers"]["console"]["filters"] = []
 
 INSTALLED_APPS = [
     "home",
-    "shop",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.contrib.settings",
