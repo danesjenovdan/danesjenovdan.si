@@ -53,6 +53,9 @@ def _subpage_pagination_context(request, context_name, ParentPageModel, SubPageM
     parent = int(request.GET.get("parent", 0))
     parent_page = ParentPageModel.objects.filter(pk=parent).first()
 
+    if not parent_page:
+        raise Http404(f"Parent page with id {parent} not found.")
+
     offset = int(request.GET.get("offset", 0))
     locale = Locale.get_active()
 
