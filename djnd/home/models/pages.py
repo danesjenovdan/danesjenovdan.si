@@ -481,6 +481,7 @@ class NewsletterPage(BasePage):
                                                 features=[
                                                     "bold",
                                                     "italic",
+                                                    "strikethrough",
                                                     "link",
                                                     "ul",
                                                     "ol",
