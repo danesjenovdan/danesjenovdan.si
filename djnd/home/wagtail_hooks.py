@@ -92,6 +92,7 @@ def header_with_name(props):
 @hooks.register("register_rich_text_features")
 def more_rich_text_features(features):
     features.default_features.append("blockquote")
+    features.default_features.append("strikethrough")
 
     features.register_link_type(NewTabExternalLinkHandler)
 
