@@ -61,6 +61,7 @@ pytokens==0.4.1
 pytz==2026.2
 requests==2.34.2
 s3transfer==0.18.0
+sentry-sdk==2.66.1
 six==1.17.0
 soupsieve==2.8.4
 sqlparse==0.5.5
