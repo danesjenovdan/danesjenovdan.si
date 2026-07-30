@@ -28,3 +28,17 @@ if os.getenv("DJANGO_ENABLE_S3", False):
     )
     AWS_S3_SIGNATURE_VERSION = os.getenv("DJANGO_AWS_S3_SIGNATURE_VERSION", "s3v4")
     AWS_S3_FILE_OVERWRITE = False
+
+if sentry_url := os.getenv("DJANGO_SENTRY_URL", False):
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        sentry_url,
+        integrations=[DjangoIntegration()],
+        send_default_pii=True,
+        max_request_body_size="always",
+        traces_sample_rate=0,
+        send_client_reports=False,
+        auto_session_tracking=False,
+    )
