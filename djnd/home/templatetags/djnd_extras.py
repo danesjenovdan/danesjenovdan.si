@@ -142,6 +142,12 @@ def set_referrer_params(request, default_params_string=""):
 
 @register.simple_tag
 def get_canonical_and_alternates(page, request):
+    if not page:
+        return {
+            "canonical": None,
+            "alternates": [],
+        }
+
     canonical = page.get_full_url(request=request)
     alternates = []
 

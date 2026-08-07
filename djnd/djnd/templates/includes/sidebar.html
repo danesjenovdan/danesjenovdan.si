@@ -18,6 +18,7 @@
       {% endif %}
     </select> {% endcomment %}
 
+    {% if page %}
     <div id="lang-chooser" class="select flex flex-col gap-4 w-full overflow-hidden p-2 border border-dark font-mono-flags text-sm text-left">
       {% for alternate in canonical_and_alternates.alternates %}
       <div>
@@ -26,6 +27,7 @@
       </div>
       {% endfor %}
     </div>
+    {% endif %}
   </div>
 
   <hr class="my-10">
