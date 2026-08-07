@@ -29,7 +29,7 @@ urlpatterns = [
     path("robots.txt", cache_page(60 * 60)(RobotsTxtView.as_view())),
     # this is a hack because we cant use the wagtail page view since it does not support periods in the url
     re_path(
-        r"agrument/(?P<day>\d{1,2})\.(?P<month>\d{1,2})\.(?P<year>\d{4})/$",
+        r"agrument/(?P<day>\d{1,2})\.(?P<month>\d{1,2})\.(?P<year>\d{4})/?$",
         AgrumentByDateRedirectView.as_view(),
         name="agrument-by-date",
     ),

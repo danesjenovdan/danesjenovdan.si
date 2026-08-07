@@ -1,4 +1,4 @@
-{% load static i18n wagtailcore_tags wagtailimages_tags wagtailuserbar %}
+{% load static i18n wagtailcore_tags wagtailimages_tags wagtailuserbar djnd_extras %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +30,14 @@
 
         <meta property="og:type" content="website">
         <meta name="twitter:card" content="summary_large_image">
+
+        {% get_canonical_and_alternates page request as canonical_and_alternates %}
+        {% if canonical_and_alternates.canonical %}
+        <link rel="canonical" href="{{ canonical_and_alternates.canonical }}">
+        {% endif %}
+        {% for alternate in canonical_and_alternates.alternates %}
+        <link rel="alternate" hreflang="{{ alternate.lang_code }}" href="{{ alternate.location }}">
+        {% endfor %}
 
         <link rel="icon" type="image/svg+xml" href="{% static 'favicons/favicon.svg' %}">
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png' %}">

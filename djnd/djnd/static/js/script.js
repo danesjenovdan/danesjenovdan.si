@@ -51,7 +51,7 @@ function homepageLinkedSentences() {
         const href = boxEl.closest("a")?.getAttribute("href");
         introChild.innerHTML = introChild.innerHTML.replace(
           sentence,
-          `<a href="${href}" data-linked-box-index="${i}" class="theme-color-${color}">${sentence}</a>`
+          `<a href="${href}" data-linked-box-index="${i}" class="theme-color-${color}">${sentence}</a>`,
         );
       }
     });
@@ -77,7 +77,7 @@ function homepageLinkedSentences() {
   boxEls.forEach((box, i) => {
     box.addEventListener("mouseenter", () => {
       const sentenceEl = introEl.querySelector(
-        `[data-linked-box-index="${i}"]`
+        `[data-linked-box-index="${i}"]`,
       );
       if (!sentenceEl) return;
       sentenceEl.classList.add("forced-animated-bg-show");
@@ -85,7 +85,7 @@ function homepageLinkedSentences() {
     });
     box.addEventListener("mouseleave", () => {
       const sentenceEl = introEl.querySelector(
-        `[data-linked-box-index="${i}"]`
+        `[data-linked-box-index="${i}"]`,
       );
       if (!sentenceEl) return;
       if (sentenceEl.classList.contains("forced-animated-bg-show")) {
@@ -158,9 +158,41 @@ function clickableActivityCards() {
   }).observe(document.body, { childList: true, subtree: true });
 }
 
+function langChooserExpandCollapse() {
+  const langChooser = document.getElementById("lang-chooser");
+  if (!langChooser) return;
+  const child = langChooser.firstElementChild;
+  if (!child) return;
+
+  const height = langChooser.scrollHeight;
+  const padding =
+    parseFloat(getComputedStyle(langChooser).paddingTop) +
+    parseFloat(getComputedStyle(langChooser).paddingBottom);
+  const childHeight = langChooser.firstElementChild.scrollHeight;
+
+  langChooser.style.height = `${childHeight + padding}px`;
+  langChooser.style.transition = "height 0.3s ease";
+
+  langChooser.addEventListener("click", (event) => {
+    const isLink = event.target.closest("a");
+    if (isLink) return;
+
+    if (langChooser.style.height === `${childHeight + padding}px`) {
+      langChooser.style.height = `${height}px`;
+      langChooser.classList.add("expanded");
+    } else {
+      langChooser.style.height = `${childHeight + padding}px`;
+      langChooser.classList.remove("expanded");
+    }
+  });
+
+  langChooser.style.cursor = "pointer";
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   homepageLinkedSentences();
   clickableActivityCards();
+  langChooserExpandCollapse();
 
   const menuButton = document.querySelector("#menu-button");
   const sidebar = document.querySelector("#sidebar");

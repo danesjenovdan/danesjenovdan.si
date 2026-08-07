@@ -144,7 +144,7 @@ class AgrumentByDateRedirectView(View):
         if blog is None:
             raise Http404
 
-        return redirect(blog.get_url())
+        return redirect(blog.get_url(), permanent=True)
 
 
 ROBOTS_TXT_CONTENT = """
