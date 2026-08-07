@@ -138,3 +138,29 @@ def set_referrer_params(request, default_params_string=""):
             query_dict[key] = value
     query_string = query_dict.urlencode()
     return query_string
+
+
+@register.simple_tag
+def get_canonical_and_alternates(page, request):
+    canonical = page.get_full_url(request=request)
+    alternates = []
+
+    pages = (
+        Page.objects.live()
+        .filter(translation_key=page.translation_key)
+        .select_related("locale")
+    )
+    for p in pages:
+        page_obj = {
+            "lang_code": p.locale.language_code,
+            "location": p.get_full_url(request=request),
+        }
+        if p.locale.language_code != page.locale.language_code:
+            alternates.append(page_obj)
+        else:
+            alternates.insert(0, page_obj)  # always put the current page first
+
+    return {
+        "canonical": canonical,
+        "alternates": alternates,
+    }
