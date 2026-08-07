@@ -164,25 +164,33 @@ function langChooserExpandCollapse() {
   const child = langChooser.firstElementChild;
   if (!child) return;
 
-  const height = langChooser.scrollHeight;
+  const fullHeight = langChooser.scrollHeight;
   const padding =
     parseFloat(getComputedStyle(langChooser).paddingTop) +
     parseFloat(getComputedStyle(langChooser).paddingBottom);
   const childHeight = langChooser.firstElementChild.scrollHeight;
+  const collapsedHeight = childHeight + padding;
+  const expandedHeight = fullHeight;
 
-  langChooser.style.height = `${childHeight + padding}px`;
+  langChooser.style.height = `${collapsedHeight}px`;
   langChooser.style.transition = "height 0.3s ease";
+
+  if (langChooser.childElementCount <= 1) {
+    langChooser.style.cursor = "default";
+    langChooser.style.backgroundImage = "none";
+    return;
+  }
 
   langChooser.addEventListener("click", (event) => {
     const isLink = event.target.closest("a");
     if (isLink) return;
 
-    if (langChooser.style.height === `${childHeight + padding}px`) {
-      langChooser.style.height = `${height}px`;
-      langChooser.classList.add("expanded");
-    } else {
-      langChooser.style.height = `${childHeight + padding}px`;
+    if (langChooser.classList.contains("expanded")) {
+      langChooser.style.height = `${collapsedHeight}px`;
       langChooser.classList.remove("expanded");
+    } else {
+      langChooser.style.height = `${expandedHeight}px`;
+      langChooser.classList.add("expanded");
     }
   });
 
