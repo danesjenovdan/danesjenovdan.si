@@ -7,7 +7,7 @@
   </a>
 
   <div class="relative">
-    <select id="lang-chooser" class="flex gap-2 w-full p-2 border border-dark font-mono-flags text-sm text-left" onchange="window.location.href = this.value">
+    {% comment %} <select id="lang-chooser" class="flex gap-2 w-full p-2 border border-dark font-mono-flags text-sm text-left" onchange="window.location.href = this.value">
       {% if page %}
       {% for language_code, language_name in LANGUAGES %}
         {% get_language_info for language_code as lang %}
@@ -16,7 +16,16 @@
         {% endlanguage %}
       {% endfor %}
       {% endif %}
-    </select>
+    </select> {% endcomment %}
+
+    <div id="lang-chooser" class="select flex flex-col gap-4 w-full overflow-hidden p-2 border border-dark font-mono-flags text-sm text-left">
+      {% for alternate in canonical_and_alternates.alternates %}
+      <div>
+        {% get_language_info for alternate.lang_code as lang %}
+        <a class="font-mono-flags {% if LANGUAGE_CODE == alternate.lang_code %} pointer-events-none {% else %} hover:font-semibold {% endif %}" href="{{ alternate.location }}" hreflang="{{ alternate.lang_code }}" {% if LANGUAGE_CODE == alternate.lang_code %}aria-current="page"{% endif %}>{{ alternate.lang_code|flag_emoji_for_language }} {{ lang.name_local }}</a>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 
   <hr class="my-10">
