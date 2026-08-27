@@ -4,8 +4,8 @@ DEBUG = bool(os.getenv("DJANGO_DEBUG", False))
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "<TODO>")
 
-ALLOWED_HOSTS = ["danesjenovdan.si"]
-CSRF_TRUSTED_ORIGINS = ["https://danesjenovdan.si"]
+ALLOWED_HOSTS = ["danesjenovdan.si", "www.danesjenovdan.si"]
+CSRF_TRUSTED_ORIGINS = ["https://danesjenovdan.si", "https://www.danesjenovdan.si"]
 
 WAGTAILADMIN_BASE_URL = "https://danesjenovdan.si"
 
