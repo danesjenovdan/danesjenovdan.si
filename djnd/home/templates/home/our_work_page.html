@@ -9,8 +9,8 @@
 
 {% block content %}
 
-<div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
-  <h1 class="mb-6 text-4xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
+<div class="max-w-[1280px] mx-auto px-14 py-16 max-sm:px-6 max-sm:py-8">
+  <h1 class="mb-6 text-4xl font-semibold max-xl:text-2xl">{{ page.title }}</h1>
 
   <form id="our-work-form" action="{% pageurl page.localized %}" method="get" class="mb-8">
 
@@ -57,7 +57,7 @@
 
   </form>
 
-  <div class="grid grid-cols-3 gap-4 pb-10 relative lg-max:grid-cols-2 sm-max:grid-cols-1">
+  <div class="grid grid-cols-3 gap-4 pb-10 relative max-lg:grid-cols-2 max-sm:grid-cols-1">
     {% for activity in activities %}
 
       {% include 'home/partials/activity.html' with activity=activity %}

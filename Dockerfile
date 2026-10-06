@@ -15,7 +15,7 @@ RUN npm ci
 
 COPY ./djnd ./djnd
 COPY ./css-compile/src ./src
-COPY ./css-compile/postcss.config.js ./css-compile/tailwind.config.js ./
+COPY ./css-compile/postcss.config.js ./
 
 RUN npm run build
 

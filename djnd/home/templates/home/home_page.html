@@ -10,18 +10,18 @@
 {% block content %}
 <div>
   <div class="border-b border-dark last:border-b-0 bg-white">
-    <div class="block max-w-[1280px] mx-auto px-14 pt-20 sm-max:px-6 sm-max:pt-8">
+    <div class="block max-w-[1280px] mx-auto px-14 pt-20 max-sm:px-6 max-sm:pt-8">
       <div class="basis-full">
-        <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold max-xl:text-2xl">{{ page.title }}</h1>
         {% if page.introduction %}
-        <div class="text-xl/[3rem] font-normal xl-max:text-2md" data-introduction="true">
+        <div class="text-xl/[3rem] font-normal max-xl:text-2md" data-introduction="true">
           {{ page.introduction|richtext }}
         </div>
         {% endif %}
       </div>
-      <div class="basis-full pt-4 pb-6 xl-max:pt-2 xl-max:pb-4 sm-max:pt-4  ">
-        {% comment %} <h2 class="mt-5 text-center font-semibold text-xl xl-max:text-lg/[1.15]">{{ page.focus_areas_title }}</h2> {% endcomment %}
-        <div class="my-4 grid grid-cols-4 sm-max:grid-cols-1 2lg-max:grid-cols-2 justify-center">
+      <div class="basis-full pt-4 pb-6 max-xl:pt-2 max-xl:pb-4 max-sm:pt-4  ">
+        {% comment %} <h2 class="mt-5 text-center font-semibold text-xl max-xl:text-lg/[1.15]">{{ page.focus_areas_title }}</h2> {% endcomment %}
+        <div class="my-4 grid grid-cols-4 max-sm:grid-cols-1 max-2lggrid-cols-2 justify-center">
           {% for focus_area in page.focus_areas %}
           {% cycle 'one' 'two' 'three' 'four' as focus_cycle silent %}
           {% if focus_area.value.url or focus_area.value.page %}
@@ -29,22 +29,22 @@
           {% endif %}
           <div data-linked-sentence="{{ focus_area.value.linked_sentence }}" data-color="{{ focus_area.value.color }}" class="
             theme-color-{{ focus_area.value.color }}
-            relative flex items-center gap-4 mt-4 sm-max:mt-1 px-6 py-5 xl-max:px-4 xl-max:py-3 shadow-dark shadow-[0px_0px_0px_1px] bg-th-primary
+            relative flex items-center gap-4 mt-4 max-sm:mt-1 px-6 py-5 max-xl:px-4 max-xl:py-3 shadow-dark shadow-[0px_0px_0px_1px] bg-th-primary
             {% if focus_cycle == 'one' %}
-            -rotate-2 -translate-y-3           sm-max:translate-y-0 sm-max:-rotate-1
+            -rotate-2 -translate-y-3           max-sm:translate-y-0 max-sm:-rotate-1
             {% elif focus_cycle == 'two' %}
-            rotate-3 translate-y-3             sm-max:translate-y-0 sm-max:rotate-1
+            rotate-3 translate-y-3             max-sm:translate-y-0 max-sm:rotate-1
             {% elif focus_cycle == 'three' %}
-            rotate-[-0.5deg] -translate-y-3    sm-max:translate-y-0 sm-max:-rotate-1
+            rotate-[-0.5deg] -translate-y-3    max-sm:translate-y-0 max-sm:-rotate-1
             {% elif focus_cycle == 'four' %}
-            rotate-[4deg] translate-y-3        sm-max:translate-y-0 sm-max:rotate-1
+            rotate-[4deg] translate-y-3        max-sm:translate-y-0 max-sm:rotate-1
             {% endif %}
             transition-all duration-150 [@media(hover:hover)]:group-hover:scale-105 [@media(hover:hover)]:group-hover:shadow-[0px_0px_0px_2px] [@media(hover:hover)]:group-hover:z-10
           ">
-            <div class="w-12 xl-max:w-10 shrink-0">
+            <div class="w-12 max-xl:w-10 shrink-0">
               {% image focus_area.value.image fill-112x112 class="aspect-square overflow-hidden" %}
             </div>
-            <div class="grow font-medium text-smd/none xl-max:text-sm">
+            <div class="grow font-medium text-smd/none max-xl:text-sm">
               {{ focus_area.value.name }}
             </div>
             <img class="w-3 ml-2 -mb-0.5 [@media(hover:hover)]:group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
@@ -65,20 +65,20 @@
   {% endfor %}
 
   <a name="activities"></a>
-  <div class="max-w-[1280px] mx-auto px-14 pt-16 pb-20 sm-max:block sm-max:px-6 sm-max:pt-8 sm-max:pb-10">
+  <div class="max-w-[1280px] mx-auto px-14 pt-16 pb-20 max-sm:block max-sm:px-6 max-sm:pt-8 max-sm:pb-10">
     <div class="flex flex-wrap justify-between mb-6">
-      <h2 class="mb-2 text-2xl font-semibold xl-max:text-lg">{% translate "Zadnji projekti" %}</h2>
+      <h2 class="mb-2 text-2xl font-semibold max-xl:text-lg">{% translate "Zadnji projekti" %}</h2>
       {% if settings.home.GeneralSettings.our_work_page %}
       {% wagtail_site as current_site %}
       <form id="our-work-form" action="{% pageurl current_site.root_page.localized %}#activities" method="get" class="flex items-center ml-auto">
 
-        <div class="me-3 sm-max:hidden">
+        <div class="me-3 max-sm:hidden">
           <input type="radio" name="filter" value="all" class="peer hidden" id="id_all" onchange="filterOurWork()" {% if request.GET.filter == 'all' or not request.GET.filter %}checked{% endif %}>
           <label
             for="id_all"
             class="
               inline-flex items-center px-4 pt-2.5 pb-3 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-md/none cursor-pointer
-              lg-max:px-3 lg-max:py-1.5 lg-max:text-sm/none
+              max-lg:px-3 max-lg:py-1.5 max-lg:text-sm/none
               peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
               transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
             "
@@ -87,51 +87,51 @@
           </label>
         </div>
 
-        <div class="me-3 sm-max:hidden">
+        <div class="me-3 max-sm:hidden">
           <input type="radio" name="filter" value="promoted" class="peer hidden" id="id_promoted" onchange="filterOurWork()" {% if request.GET.filter == 'promoted' %}checked{% endif %}>
           <label
             for="id_promoted"
             class="
               inline-flex items-center px-4 pt-2.5 pb-3 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-md/none cursor-pointer
-              lg-max:px-3 lg-max:py-1.5 lg-max:text-sm/none
+              max-lg:px-3 max-lg:py-1.5 max-lg:text-sm/none
               peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
               transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
             "
           >
-            <img class="h-5 w-auto me-2 lg-max:h-3.5" src="{% static 'img/filter-izpostavljeno.png' %}" alt="">
+            <img class="h-5 w-auto me-2 max-lg:h-3.5" src="{% static 'img/filter-izpostavljeno.png' %}" alt="">
             {% translate "Izpostavljeno" %}
           </label>
         </div>
 
         {% if LANGUAGE_CODE == "sl" %}
-        <div class="me-3 sm-max:hidden">
+        <div class="me-3 max-sm:hidden">
           <input type="radio" name="filter" value="newsletter" class="peer hidden" id="id_newsletter" onchange="filterOurWork()" {% if request.GET.filter == 'newsletter' %}checked{% endif %}>
           <label
             for="id_newsletter"
             class="
               inline-flex items-center px-4 pt-2.5 pb-3 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-md/none cursor-pointer
-              lg-max:px-3 lg-max:py-1.5 lg-max:text-sm/none
+              max-lg:px-3 max-lg:py-1.5 max-lg:text-sm/none
               peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
               transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
             "
           >
-            <img class="h-5 w-auto me-2 lg-max:h-3.5" src="{% static 'img/filter-obcasnik.png' %}" alt="">
+            <img class="h-5 w-auto me-2 max-lg:h-3.5" src="{% static 'img/filter-obcasnik.png' %}" alt="">
             {% translate "Občasnik" %}
           </label>
         </div>
 
-        <div class="me-3 sm-max:hidden">
+        <div class="me-3 max-sm:hidden">
           <input type="radio" name="filter" value="sdh" class="peer hidden" id="id_sdh" onchange="filterOurWork()" {% if request.GET.filter == 'sdh' %}checked{% endif %}>
           <label
             for="id_sdh"
             class="
               inline-flex items-center px-4 pt-2.5 pb-3 shadow-dark shadow-[0px_0px_0px_1px] rounded-full text-md/none cursor-pointer
-              lg-max:px-3 lg-max:py-1.5 lg-max:text-sm/none
+              max-lg:px-3 max-lg:py-1.5 max-lg:text-sm/none
               peer-checked:bg-th-primary peer-checked:shadow-[0px_0px_0px_2px]
               transition-all duration-150 hover:scale-105 hover:shadow-[0px_0px_0px_2px] hover:bg-th-primary
             "
           >
-            <img class="h-5 w-auto me-2 lg-max:h-3.5" src="{% static 'img/filter-digitalna-higiena.png' %}" alt="">
+            <img class="h-5 w-auto me-2 max-lg:h-3.5" src="{% static 'img/filter-digitalna-higiena.png' %}" alt="">
             {% translate "Digitalna higiena" %}
           </label>
         </div>
@@ -145,7 +145,7 @@
       {% endif %}
 
     </div>
-    <div class="grid grid-cols-3 gap-4 pb-10 relative lg-max:grid-cols-2 sm-max:grid-cols-1">
+    <div class="grid grid-cols-3 gap-4 pb-10 relative max-lg:grid-cols-2 max-sm:grid-cols-1">
       {% for activity in activities %}
         {% include 'home/partials/activity.html' with activity=activity %}
 
