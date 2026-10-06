@@ -18,7 +18,7 @@
         <div class="py-10 sm-max:py-5 max-w-[720px]">
           <div class="border border-dark p-8 sm-max:p-5">
             <div class="flex gap-3 mb-4">
-              <div class="flex items-center flex-shrink-0">
+              <div class="flex items-center shrink-0">
                 <img src="{% static 'img/newsletter.png' %}" class="w-[54px]" />
               </div>
               <h2 class="font-semibold text-2lg xl-max:text-md">
@@ -49,7 +49,7 @@
           {% translate "Preberi pretekle občasnike!" %}
           {% endif %}
         </h2>
-        <div class="grid grid-cols-3 gap-4 pb-[2.5rem] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
+        <div class="grid grid-cols-3 gap-4 pb-10 relative lg-max:grid-cols-2 sm-max:grid-cols-1">
           {% include "home/newsletters.html" with newsletters=newsletters %}
         </div>
     </div>
