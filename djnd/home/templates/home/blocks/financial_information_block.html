@@ -1,10 +1,10 @@
 {% load wagtailcore_tags i18n static %}
 
 <div class="bg-white">
-    <div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
-        <h2 class="mb-6 text-2xl font-semibold xl-max:text-lg sm-max:mb-3">{{ value.title }}</h2>
-        <div class="mt-10 sm-max:mt-5 sm-max:-mx-2">
-            <iframe id="odprti-racuni" frameborder="0" src="https://odprtiracuni-nvo.djnd.si/9/" class="w-full sm-max:w-full"></iframe>
+    <div class="max-w-[1280px] mx-auto px-14 py-16 max-sm:px-6 max-sm:py-8">
+        <h2 class="mb-6 text-2xl font-semibold max-xl:text-lg max-sm:mb-3">{{ value.title }}</h2>
+        <div class="mt-10 max-sm:mt-5 max-sm:-mx-2">
+            <iframe id="odprti-racuni" frameborder="0" src="https://odprtiracuni-nvo.djnd.si/9/" class="w-full max-sm:w-full"></iframe>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.6/iframeResizer.min.js" integrity="sha512-f0wd6UIvZbsjPNebGx+uMzHmg6KXr1jWvumJDYSEDmwYJYOptZ0dTka/wBJu7Tj80tnCYMKoKicqvZiIc9GJgw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script>iFrameResize({ checkOrigin: false }, '#odprti-racuni');</script>
         </div>

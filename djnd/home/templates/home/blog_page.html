@@ -6,7 +6,7 @@
 {% block content %}
 
 <div class="bg-white">
-  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-16 sm-max:block sm-max:px-6 sm-max:pb-8">
+  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-16 max-sm:block max-sm:px-6 max-sm:pb-8">
     <div class="basis-8/12">
       {% if settings.home.GeneralSettings.our_work_page %}
       <div class="flex flex-wrap">
@@ -22,12 +22,12 @@
       </div>
       {% endif %}
 
-      <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
+      <h1 class="mb-6 last:mb-0 text-5xl font-semibold max-xl:text-2xl">{{ page.title }}</h1>
       {% if page.published_at %}
       <p class="mb-6 text-smd font-mono font-medium">{{ page.published_at|date:"j. F Y" }}</p>
       {% endif %}
     </div>
-    <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
+    <div class="basis-4/12 max-sm:hidden">&nbsp;</div>
   </div>
 </div>
 
@@ -39,15 +39,15 @@
 
 {% if page.more_blogs %}
 <div class="bg-white">
-  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-16 sm-max:px-6 sm-max:pt-8">
+  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-16 max-sm:px-6 max-sm:pt-8">
     <div class="basis-8/12">
-      <h2 class="text-2xl font-semibold mb-5 xl-max:text-lg">{% translate "Povezani zapisi" %}</h2>
+      <h2 class="text-2xl font-semibold mb-5 max-xl:text-lg">{% translate "Povezani zapisi" %}</h2>
     </div>
     <div class="basis-4/12">&nbsp;</div>
   </div>
 
-  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pb-10 sm-max:px-6 sm-max:pb-5">
-    <div class="grid grid-cols-3 gap-4 lg-max:grid-cols-2 sm-max:grid-cols-1">
+  <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pb-10 max-sm:px-6 max-sm:pb-5">
+    <div class="grid grid-cols-3 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1">
         {% for blog in page.more_blogs %}
           {% include "home/partials/blog_activity.html" with activity=blog.value %}
         {% endfor %}

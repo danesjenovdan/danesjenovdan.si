@@ -6,7 +6,7 @@
     <input type="email" id="subscribe-email-{{ blockname }}-{{ id }}" class="w-full px-2 pt-1.5 pb-2 border border-dark font-semibold" required>
   </div>
   {% comment %} <div class="flex gap-2 mt-2">
-    <input id="subscribe-consent-{{ blockname }}-{{ id }}" type="checkbox" value="" class="w-6 h-6 flex-shrink-0 border border-dark" required>
+    <input id="subscribe-consent-{{ blockname }}-{{ id }}" type="checkbox" value="" class="w-6 h-6 shrink-0 border border-dark" required>
     <label for="subscribe-consent-{{ blockname }}-{{ id }}" class="font-mono text-sm/4">
       {% if is_programmers_newsletter %}
       {% translate 'Strinjam se, da mi Danes je nov dan po e-pošti pošilja programerski novičnik.' %}
@@ -16,7 +16,7 @@
     </label>
   </div> {% endcomment %}
   <div>
-    <div x-show="!loading" class="mt-2 p-[1px]">
+    <div x-show="!loading" class="mt-2 p-px">
       {% translate 'Naroči se' as button_text %}
       {% include "home/partials/button.html" with button_class="w-full text-smd" no_top_margin=True button_color=color_scheme button_text=button_text %}
     </div>

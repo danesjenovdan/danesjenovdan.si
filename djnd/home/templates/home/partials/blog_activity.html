@@ -10,14 +10,14 @@
     {% endif %}
   </a>
   {% endif %}
-  <div class="p-5 flex-grow peer-hover:bg-th-primary-light hover:bg-th-primary-light">
+  <div class="p-5 grow peer-hover:bg-th-primary-light hover:bg-th-primary-light">
     <div class="mb-4">
       {% firstof activity.name activity.title as blog_title %}
       <a href="{% if activity|is_page %}{% pageurl activity %}{% else %}{{ activity.link }}{% endif %}" target="_blank"
         class="
           js-activity-card-link
           text-lg/[1.15] font-semibold
-          bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-700 ease-out
+          bg-bottom-right bg-size-[0%_0.5em] bg-no-repeat bg-linear-to-r from-th-primary to-th-primary hover:bg-bottom-left hover:bg-size-[100%_0.5em] transition-[background-size] duration-700 ease-out
         "
       >{{ blog_title }}</a>
     </div>

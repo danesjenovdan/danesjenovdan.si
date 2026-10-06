@@ -1,0 +1,40 @@
+/* noto-color-emoji-regular - emoji */
+@font-face {
+  font-display: swap;
+  font-family: "noto-color-emoji-flag-subset";
+  font-style: normal;
+  font-weight: 400;
+  /* unicode-range: U+1F1E7, U+1F1EC, U+1F1EE, U+1F1F8; */
+  src: url("../fonts/noto-color-emoji-flag-subset.woff2") format("woff2");
+}
+
+@theme {
+  --font-mono: "Courier New", monospace;
+  --font-mono-flags: "Courier New", monospace, "noto-color-emoji-flag-subset";
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-smd: 1.125rem;
+  --text-smd--line-height: 1.5rem;
+  --text-md: 1.25rem;
+  --text-md--line-height: 1.625rem;
+  --text-2md: 1.3125rem;
+  --text-2md--line-height: 1.875rem;
+  --text-lg: 1.5rem;
+  --text-lg--line-height: 2.25rem;
+  --text-2lg: 1.625rem;
+  --text-2lg--line-height: 2.25rem;
+  --text-3lg: 1.875rem;
+  --text-3lg--line-height: 2.125rem;
+  --text-xl: 2rem;
+  --text-xl--line-height: 2.625rem;
+  --text-2xl: 2.25rem;
+  --text-2xl--line-height: 2.5rem;
+  --text-3xl: 2.5rem;
+  --text-3xl--line-height: 1.625rem;
+  --text-4xl: 3rem;
+  --text-4xl--line-height: 1.625rem;
+  --text-5xl: 3.5rem;
+  --text-5xl--line-height: 4.1875rem;
+}
