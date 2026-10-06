@@ -9,6 +9,6 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
-COPY postcss.config.js tailwind.config.js ./
+COPY postcss.config.js ./
 
 CMD ["npm", "run", "build"]

@@ -7,9 +7,9 @@
 <div>
 
   <div class="border-b border-dark last:border-b-0">
-    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-20 sm-max:px-6 sm-max:py-10">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-20 max-sm:px-6 max-sm:py-10">
       <div class="basis-full">
-        <h1 class="mb-12 text-5xl font-semibold xl-max:text-2xl sm-max:mb-6">{{ page.title }}</h1>
+        <h1 class="mb-12 text-5xl font-semibold max-xl:text-2xl max-sm:mb-6">{{ page.title }}</h1>
         <form onsubmit="return false;" class="flex flex-wrap gap-2 mb-6" x-data="categoriesFilter">
           {% for category in team_member_categories %}
             <div>
@@ -48,7 +48,7 @@
                 {% image member.image fill-560x560 class="w-full aspect-square" %}
               </div>
               <div class="p-4">
-                <h2 class="text-3lg font-semibold xl-max:text-lg/[1.15]">{{ member.name }}</h2>
+                <h2 class="text-3lg font-semibold max-xl:text-lg/[1.15]">{{ member.name }}</h2>
                 <p class="mt-2 font-mono text-sm">{{ member.email }}</p>
                 <p class="mt-4">{{ member.role }}</p>
               </div>

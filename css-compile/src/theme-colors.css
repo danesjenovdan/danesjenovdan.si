@@ -1,0 +1,73 @@
+@theme {
+  --color-*: initial;
+  --color-current: currentColor;
+  --color-white: #ffffff;
+  --color-very-light: #f6f9f8;
+  --color-light: #eeeeee;
+  --color-dark: #333333;
+  /* dark colors: */
+  --color-dark-green: #6ca89f;
+  --color-dark-red: #df786b;
+  --color-dark-yellow: #cfad54;
+  /* light colors: */
+  --color-mint: #9df2d3;
+  --color-mint-light: #eafff7;
+  --color-red: #ffd1c7;
+  --color-red-light: #fff8f6;
+  --color-green: #d2f29d;
+  --color-green-light: #ebf4db;
+  --color-blue: #bae2ed;
+  --color-blue-light: #e6f0f3;
+  --color-yellow: #ffedad;
+  --color-yellow-light: #fff7db;
+  --color-lavender: #ccc7ff;
+  --color-lavender-light: #eeedff;
+}
+
+@theme inline {
+  /* theme colors: */
+  --color-th-primary: var(--th-primary);
+  --color-th-primary-light: var(--th-primary-light);
+}
+
+@utility theme-color-white {
+  --th-primary: var(--color-light);
+  --th-primary-light: var(--color-very-light);
+
+  &.primary-button {
+    --th-primary: var(--color-white);
+    --th-primary-light: var(--color-white);
+  }
+}
+
+@utility theme-color-mint {
+  --th-primary: var(--color-mint);
+  --th-primary-light: var(--color-mint-light);
+}
+
+@utility theme-color-red {
+  --th-primary: var(--color-red);
+  --th-primary-light: var(--color-red-light);
+}
+
+@utility theme-color-green {
+  --th-primary: var(--color-green);
+  --th-primary-light: var(--color-green-light);
+}
+
+@utility theme-color-blue {
+  --th-primary: var(--color-blue);
+  --th-primary-light: var(--color-blue-light);
+}
+
+@utility theme-color-yellow {
+  --th-primary: var(--color-yellow);
+  --th-primary-light: var(--color-yellow-light);
+}
+
+@utility theme-color-lavender {
+  --th-primary: var(--color-lavender);
+  --th-primary-light: var(--color-lavender-light);
+}
+
+@source inline("theme-color-{white,mint,red,green,blue,yellow,lavender}");

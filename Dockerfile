@@ -15,7 +15,7 @@ RUN npm ci
 
 COPY ./djnd ./djnd
 COPY ./css-compile/src ./src
-COPY ./css-compile/postcss.config.js ./css-compile/tailwind.config.js ./
+COPY ./css-compile/postcss.config.js ./
 
 RUN npm run build
 
@@ -54,7 +54,7 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
  && rm -rf /var/lib/apt/lists/*
 
 # Install the application server.
-RUN pip install "gunicorn==26.0.0"
+RUN pip install "gunicorn==26.2.0"
 
 # Install the project requirements.
 COPY ./djnd/requirements.txt /

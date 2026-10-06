@@ -206,16 +206,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebar = document.querySelector("#sidebar");
 
   menuButton.addEventListener("click", () => {
-    const isClosed = sidebar.classList.contains("md-max:-translate-x-full");
+    const isClosed = sidebar.classList.contains("max-md:-translate-x-full");
     if (isClosed) {
-      sidebar.classList.remove("md-max:-translate-x-full");
+      sidebar.classList.remove("max-md:-translate-x-full");
       menuButton.setAttribute("aria-expanded", "true");
       menuButton.querySelector('img[alt="Open menu"]').classList.add("hidden");
       menuButton
         .querySelector('img[alt="Close menu"]')
         .classList.remove("hidden");
     } else {
-      sidebar.classList.add("md-max:-translate-x-full");
+      sidebar.classList.add("max-md:-translate-x-full");
       menuButton.setAttribute("aria-expanded", "false");
       menuButton
         .querySelector('img[alt="Open menu"]')
