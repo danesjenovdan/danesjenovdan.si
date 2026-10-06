@@ -7,7 +7,7 @@
 
 <div>
   <div class="bg-th-primary-light">
-    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 pb-10 sm-max:block sm-max:px-6 sm-max:pt-10 sm-max:pb-5">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 pb-10 max-sm:block max-sm:px-6 max-sm:pt-10 max-sm:pb-5">
       <div class="basis-8/12">
         {% if settings.home.GeneralSettings.our_work_page %}
         <div class="flex flex-wrap">
@@ -23,7 +23,7 @@
         </div>
         {% endif %}
 
-        <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold max-xl:text-2xl">{{ page.title }}</h1>
         {% if page.published_at %}
         <p class="mb-6 text-smd font-mono font-medium">{{ page.published_at|date:"j. F Y" }}</p>
         {% endif %}
@@ -31,7 +31,7 @@
           {{ page.introduction|richtext }}
         </div>
       </div>
-      <div class="basis-4/12 sm-max:hidden">&nbsp;</div>
+      <div class="basis-4/12 max-sm:hidden">&nbsp;</div>
     </div>
   </div>
 

@@ -1,13 +1,13 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 <div class="border-t border-dark">
-  <div class="max-w-[1280px] mx-auto px-14 py-10 sm-max:px-6 sm-max:py-8">
-    <div class="w-8/12 lg-max:w-full">
-      <h2 class="text-2xl font-semibold xl-max:text-2lg">{{ section_title }}</h2>
+  <div class="max-w-[1280px] mx-auto px-14 py-10 max-sm:px-6 max-sm:py-8">
+    <div class="w-8/12 max-lg:w-full">
+      <h2 class="text-2xl font-semibold max-xl:text-2lg">{{ section_title }}</h2>
       <p class="text-md mt-3 mb-8">{{ section_description }}</p>
     </div>
     {% for item in items %}
-    <div class="mb-4 w-8/12 sm-max:w-full">
+    <div class="mb-4 w-8/12 max-sm:w-full">
       <div class="pb-4">
         {% if item.value.image or item.image %}
         <div class="pb-4">
@@ -20,7 +20,7 @@
         {% endif %}
         <div>
           <h3 class="text-2lg/[1.15] font-semibold mt-1.5 mb-3">
-            <a href="{% firstof item.value.link item.link %}" target="_blank" class="bg-right-bottom bg-[length:0%_0.5em] bg-no-repeat bg-gradient-to-r from-th-primary to-th-primary hover:bg-left-bottom hover:bg-[length:100%_0.5em] transition-[background-size] duration-500 ease-out">
+            <a href="{% firstof item.value.link item.link %}" target="_blank" class="bg-bottom-right bg-size-[0%_0.5em] bg-no-repeat bg-linear-to-r from-th-primary to-th-primary hover:bg-bottom-left hover:bg-size-[100%_0.5em] transition-[background-size] duration-500 ease-out">
               {% firstof item.value.name item.name %}
             </a>
           </h3>

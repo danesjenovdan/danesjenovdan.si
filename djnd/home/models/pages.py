@@ -16,7 +16,6 @@ from wagtail.contrib.routable_page.models import RoutablePageMixin, path
 from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Locale, Page
-from wagtail.templatetags.wagtailcore_tags import richtext
 
 from ..pagination import get_filtered_activities, paginate_limit_offset
 from ..rss import (
@@ -557,6 +556,9 @@ class NewsletterListPage(RoutablePageMixin, BasePage):
         return context
 
     def _get_feed_items(self, request):
+        # compilemessages fails if this is imported in the global scope
+        from wagtail.templatetags.wagtailcore_tags import richtext
+
         locale = Locale.get_active()
         newsletters = (
             NewsletterPage.objects.child_of(self)
@@ -811,6 +813,9 @@ class OurWorkPage(RoutablePageMixin, BasePage):
         return context
 
     def _get_feed_items(self, request):
+        # compilemessages fails if this is imported in the global scope
+        from wagtail.templatetags.wagtailcore_tags import richtext
+
         activities, form = get_filtered_activities(request)
         activities = list(activities[:20])
 

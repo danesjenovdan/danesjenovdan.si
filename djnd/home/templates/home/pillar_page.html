@@ -6,11 +6,11 @@
 {% block content %}
 <div>
   <div class="border-b border-dark last:border-b-0 bg-th-primary-light">
-    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 mb-16 sm-max:flex-col-reverse sm-max:px-6 sm-max:pt-10 sm-max:mb-8">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 mb-16 max-sm:flex-col-reverse max-sm:px-6 max-sm:pt-10 max-sm:mb-8">
       <div class="basis-8/12">
-        <h1 class="mb-6 last:mb-0 text-5xl font-semibold xl-max:text-2xl">{{ page.title }}</h1>
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold max-xl:text-2xl">{{ page.title }}</h1>
         {% if page.lead %}
-        <p class="mb-6 last:mb-0 text-xl xl-max:text-lg/[1.15]">{{ page.lead }}</p>
+        <p class="mb-6 last:mb-0 text-xl max-xl:text-lg/[1.15]">{{ page.lead }}</p>
         {% endif %}
         {% if page.description %}
         <div class="mb-6 rich-text">
@@ -25,8 +25,8 @@
       </div>
     </div>
     {% if page.projects %}
-    <div class="max-w-[1280px] mx-auto px-14 pb-20 sm-max:px-6 sm-max:pb-10">
-      <h2 class="text-2xl font-semibold mb-6 xl-max:text-lg">{% translate "Izpostavljeno" %}</h2>
+    <div class="max-w-[1280px] mx-auto px-14 pb-20 max-sm:px-6 max-sm:pb-10">
+      <h2 class="text-2xl font-semibold mb-6 max-xl:text-lg">{% translate "Izpostavljeno" %}</h2>
       {% include "home/partials/pillar_grid.html" with open_new_tab=True grid_items=page.projects %}
     </div>
     {% endif %}
@@ -38,16 +38,16 @@
   </div>
   {% endfor %}
 
-  <div class="max-w-[1280px] mx-auto mt-16 px-14 pb-20 sm-max:px-6 sm-max:pb-10 sm-max:mt-8">
+  <div class="max-w-[1280px] mx-auto mt-16 px-14 pb-20 max-sm:px-6 max-sm:pb-10 max-sm:mt-8">
     <div class="flex justify-between mb-6">
-      <h2 class="mb-2 text-2xl font-semibold xl-max:text-lg">{{ page.activities_title }}</h2>
+      <h2 class="mb-2 text-2xl font-semibold max-xl:text-lg">{{ page.activities_title }}</h2>
       {% if settings.home.GeneralSettings.our_work_page %}
       <a href="{% pageurl settings.home.GeneralSettings.our_work_page %}" class="self-center ml-1 hover:font-semibold group">
         <span class="inline-block min-w-[104px] text-center underline">{% translate "Vsi projekti" %}</span><img class="inline-block w-3 ml-2 -mt-1 group-hover:animate-arrow-hover" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
       </a>
       {% endif %}
     </div>
-    <div class="grid grid-cols-3 gap-4 pb-[2.5rem] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
+    <div class="grid grid-cols-3 gap-4 pb-10 relative max-lg:grid-cols-2 max-sm:grid-cols-1">
       {% include 'home/activities.html' with activities=activities %}
     </div>
   </div>

@@ -1,0 +1,30 @@
+nav {
+  [aria-current="page"],
+  [aria-current="false"] {
+    & + svg {
+      @apply absolute;
+      inset: -7px 0 -8px -10px;
+      width: 116px;
+      height: calc(100% + 15px);
+      z-index: -1;
+
+      path {
+        /* call path.getTotalLength() to get the length */
+        stroke-dashoffset: 260.60565185546875;
+        stroke-dasharray: 260.60565185546875;
+        transition: 250ms stroke-dashoffset ease-in;
+      }
+    }
+  }
+
+  [aria-current="page"],
+  [aria-current="false"]:hover {
+    @apply font-bold;
+
+    & + svg {
+      path {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+}

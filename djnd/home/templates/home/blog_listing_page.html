@@ -11,10 +11,10 @@
 
 <div>
   <div class="border-b border-dark bg-th-primary-light">
-    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 pb-10 sm-max:block sm-max:px-6 sm-max:pt-10 sm-max:pb-5">
+    <div class="flex gap-10 max-w-[1280px] mx-auto px-14 pt-20 pb-10 max-sm:block max-sm:px-6 max-sm:pt-10 max-sm:pb-5">
       <div class="basis-8/12">
-        <h1 class="mb-6 last:mb-0 text-5xl font-semibold uppercase xl-max:text-2xl">{{ page.title }}</h1>
-        <p class="mb-6 last:mb-0 text-xl xl-max:text-lg/[1.15]">{{ page.lead }}</p>
+        <h1 class="mb-6 last:mb-0 text-5xl font-semibold uppercase max-xl:text-2xl">{{ page.title }}</h1>
+        <p class="mb-6 last:mb-0 text-xl max-xl:text-lg/[1.15]">{{ page.lead }}</p>
       </div>
       <div class="basis-4/12">
         {% image page.image width-300 class="w-full object-cover" %}
@@ -23,8 +23,8 @@
   </div>
 
   <div class="border-b border-dark last:border-b-0">
-    <div class="max-w-[1280px] mx-auto px-14 py-16 sm-max:px-6 sm-max:py-8">
-      <div class="grid grid-cols-3 gap-4 pb-[2.5rem] relative lg-max:grid-cols-2 sm-max:grid-cols-1">
+    <div class="max-w-[1280px] mx-auto px-14 py-16 max-sm:px-6 max-sm:py-8">
+      <div class="grid grid-cols-3 gap-4 pb-10 relative max-lg:grid-cols-2 max-sm:grid-cols-1">
         {% include "home/blogs.html" with blogs=blogs %}
       </div>
     </div>
