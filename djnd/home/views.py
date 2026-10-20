@@ -1,9 +1,12 @@
 import datetime
 
+from django.contrib import messages
+from django.core.exceptions import PermissionDenied
 from django.http import Http404, HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404, redirect
+from django.views.decorators.http import require_POST
 from django.views.generic import TemplateView, View
-from wagtail.models import Locale, Site
+from wagtail.models import Locale, Page, Site
 
 from .models.pages import BlogListingPage, BlogPage, NewsletterListPage, NewsletterPage
 from .models.snippets import Activity
@@ -161,3 +164,38 @@ Sitemap: https://danesjenovdan.si/sitemap.xml
 class RobotsTxtView(View):
     def get(self, request, *args, **kwargs):
         return HttpResponse(ROBOTS_TXT_CONTENT, content_type="text/plain")
+
+
+# ------------
+
+
+def page_action_create_activity(request, page_id):
+    page = get_object_or_404(Page, pk=page_id).specific
+    if not page.permissions_for_user(request.user).can_edit():
+        raise PermissionDenied
+
+    if activity := create_activity_from_page(page):
+        messages.success(request, "Aktivnost (projekt) uspešno ustvarjena.")
+        return redirect("wagtailsnippets_home_activity:edit", pk=activity.pk)
+
+    messages.warning(
+        request,
+        "Aktivnost (projekt) že obstaja ali pa je ni bilo mogoče ustvariti.",
+    )
+    return redirect("wagtailadmin_pages:edit", page_id=page.pk)
+
+
+def create_activity_from_page(page):
+    if not Activity.objects.filter(page=page).exists():
+        activity = Activity.objects.create(
+            title=page.title,
+            page=page,
+            description=page.short_description,
+            image=page.thumbnail,
+            date=page.published_at,
+        )
+        activity.pillar_page.set(page.pillar_page.all())
+        activity.category.set(page.category.all())
+        activity.project.set(page.project.all())
+        return activity
+    return None
