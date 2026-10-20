@@ -1,7 +1,9 @@
+from django.urls import path, reverse
 from django.utils.html import escape
 from django.utils.text import slugify
 from draftjs_exporter.dom import DOM
 from wagtail import hooks
+from wagtail.admin.action_menu import ActionMenuItem
 from wagtail.admin.rich_text.converters.html_to_contentstate import BlockElementHandler
 from wagtail.rich_text import LinkHandler
 from wagtail.snippets.models import register_snippet
@@ -23,6 +25,7 @@ from .models.snippets import (
     TeamMember,
     TeamMemberCategory,
 )
+from .views import page_action_create_activity
 
 BlogPage.base_form_class = BlogPageAdminPageForm
 NewsletterPage.base_form_class = NewsletterPageAdminPageForm
@@ -126,3 +129,34 @@ def more_rich_text_features(features):
             "to_database_format": {"block_map": {"header-four": header_with_name}},
         },
     )
+
+
+@hooks.register("register_admin_urls")
+def register_page_action_create_activity_url():
+    return [
+        path(
+            "page-action-create-activity/<int:page_id>/",
+            page_action_create_activity,
+            name="page_action_create_activity",
+        ),
+    ]
+
+
+class CreateActivityFromPageMenuItem(ActionMenuItem):
+    name = "action-create-activity"
+    label = "Ustvari aktivnost (projekt)"
+    icon_name = "snippet"
+
+    def get_url(self, context):
+        return reverse("page_action_create_activity", args=[context["page"].pk])
+
+    def is_shown(self, context):
+        page = context["page"]
+        if hasattr(page, "specific"):
+            page = page.specific
+        return isinstance(page, (BlogPage, NewsletterPage))
+
+
+@hooks.register("register_page_action_menu_item")
+def register_page_action_create_activity_menu_item():
+    return CreateActivityFromPageMenuItem(order=10)
