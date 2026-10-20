@@ -701,8 +701,15 @@ class BlogListingPage(RoutablePageMixin, BasePage):
 
 
 class BlogPage(BasePage):
-    short_description = models.TextField(blank=True)
-    published_at = models.DateField(blank=True, null=True)
+    short_description = models.TextField(
+        blank=True,
+        verbose_name="Kratek opis",
+    )
+    published_at = models.DateField(
+        blank=True,
+        null=True,
+        verbose_name="Datum objave",
+    )
     pillar_page = ParentalManyToManyField(
         "home.PillarPage",
         blank=True,
@@ -743,6 +750,7 @@ class BlogPage(BasePage):
         blank=True,
         on_delete=models.SET_NULL,
         related_name="+",
+        verbose_name="Slika",
     )
 
     content_panels = BasePage.content_panels + [

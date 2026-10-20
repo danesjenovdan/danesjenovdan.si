@@ -54,8 +54,12 @@ class ActivityProject(TranslatableMixin, Orderable):
 
 
 class Activity(index.Indexed, TranslatableMixin, models.Model):
-    title = models.TextField()
-    link = models.URLField(verbose_name="Zunanja povezava", null=True, blank=True)
+    title = models.TextField(verbose_name="Naslov")
+    link = models.URLField(
+        null=True,
+        blank=True,
+        verbose_name="Zunanja povezava",
+    )
     page = models.ForeignKey(
         "wagtailcore.Page",
         null=True,
@@ -64,19 +68,43 @@ class Activity(index.Indexed, TranslatableMixin, models.Model):
         related_name="+",
         verbose_name="Povezava na podstran",
     )
-    description = models.TextField(blank=True)
+    description = models.TextField(
+        blank=True,
+        verbose_name="Opis",
+    )
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name="+",
+        verbose_name="Slika",
     )
-    pillar_page = models.ManyToManyField("home.PillarPage", blank=True)
-    category = models.ManyToManyField(ActivityCategory, blank=True)
-    project = models.ManyToManyField(ActivityProject, blank=True)
-    date = models.DateField(null=True, blank=True)
-    note = RichTextField(null=True, blank=True)
+    pillar_page = models.ManyToManyField(
+        "home.PillarPage",
+        blank=True,
+        verbose_name="Tematski sklopi",
+    )
+    category = models.ManyToManyField(
+        ActivityCategory,
+        blank=True,
+        verbose_name="Kategorije",
+    )
+    project = models.ManyToManyField(
+        ActivityProject,
+        blank=True,
+        verbose_name="Projekti",
+    )
+    date = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name="Datum",
+    )
+    note = RichTextField(
+        null=True,
+        blank=True,
+        verbose_name="Opomba",
+    )
     promoted = models.BooleanField(default=False)
 
     panels = [
