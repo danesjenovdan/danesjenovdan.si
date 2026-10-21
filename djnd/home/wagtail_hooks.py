@@ -148,12 +148,17 @@ class CreateActivityFromPageMenuItem(ActionMenuItem):
     icon_name = "snippet"
 
     def get_url(self, context):
-        return reverse("page_action_create_activity", args=[context["page"].pk])
+        page = context.get("page", None)
+        if page and hasattr(page, "pk"):
+            return reverse("page_action_create_activity", args=[page.pk])
+        return "#"
 
     def is_shown(self, context):
-        page = context["page"]
-        if hasattr(page, "specific"):
+        page = context.get("page", None)
+        if page and hasattr(page, "specific"):
             page = page.specific
+        if not page:
+            return False
         return isinstance(page, (BlogPage, NewsletterPage))
 
 
