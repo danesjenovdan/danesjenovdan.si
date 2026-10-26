@@ -29,9 +29,6 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     libmagickwand-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install the application server.
-RUN pip install "gunicorn==26.2.0"
-
 # Install the project requirements.
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
