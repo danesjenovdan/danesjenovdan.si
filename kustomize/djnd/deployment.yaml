@@ -102,6 +102,7 @@ spec:
               cpu: 1500m
         - name: djnd-nginx
           image: nginx:alpine
+          imagePullPolicy: Always
           volumeMounts:
             - name: danesjenovdan-storage
               mountPath: /usr/share/nginx/html
