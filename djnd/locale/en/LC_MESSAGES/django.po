@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-19 22:44+0200\n"
+"POT-Creation-Date: 2026-11-10 18:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,14 +22,14 @@ msgid "Tukaj ni ničesar."
 msgstr "There's nothing here."
 
 #: djnd/templates/404.html:14
-msgid "Pojdi na naključni projekt"
-msgstr "Go to a random project"
+msgid "Pojdi na naključno aktivnost"
+msgstr "Go to a random activity"
 
-#: djnd/templates/base.html:61
+#: djnd/templates/base.html:71
 msgid "Hvala za prijavo, potrditev prejmeš na e-naslov."
 msgstr ""
 
-#: djnd/templates/base.html:62
+#: djnd/templates/base.html:72
 msgid "Prišlo je do napake :("
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr "Privacy and protection of personal data"
 msgid "Uredi svoje naročnine na novičnike"
 msgstr "Manage your email subscriptions with Danes je nov dan"
 
-#: djnd/templates/includes/sidebar.html:101
+#: djnd/templates/includes/sidebar.html:113
 msgid "Trgovina"
 msgstr "Shop"
 
@@ -132,8 +132,8 @@ msgid "Več zapisov"
 msgstr "More writings"
 
 #: home/templates/home/home_page.html:71
-msgid "Zadnji projekti"
-msgstr "Latest projects"
+msgid "Zadnje aktivnosti"
+msgstr "Latest activities"
 
 #: home/templates/home/home_page.html:87
 msgid "Vse"
@@ -203,8 +203,8 @@ msgid "Filtriraj po kategorijah"
 msgstr "Filter by categories"
 
 #: home/templates/home/our_work_page.html:44
-msgid "Filtriraj po projektih"
-msgstr "Filter by projects"
+msgid "Filtriraj po aktivnostih"
+msgstr "Filter by activities"
 
 #: home/templates/home/partials/load_more_button.html:4
 msgid "Prikaži več"
@@ -245,8 +245,8 @@ msgid "Naroči se"
 msgstr "Subscribe"
 
 #: home/templates/home/pillar_page.html:46
-msgid "Vsi projekti"
-msgstr "All projects"
+msgid "Vse aktivnosti"
+msgstr "All activities"
 
 #: home/templates/home/support_page.html:35
 msgid "Vsak mesec"
