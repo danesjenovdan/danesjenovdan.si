@@ -11,7 +11,7 @@
     <div class="flex gap-10 max-w-[1280px] mx-auto px-14 py-16 max-sm:block max-sm:px-6 max-sm:py-8">
       <div class="basis-8/12">
         <h1 class="mb-6 last:mb-0 text-5xl font-semibold max-xl:text-2xl">{% translate "Tukaj ni ničesar." %}</h1>
-        {% translate "Pojdi na naključni projekt" as button_text %}
+        {% translate "Pojdi na naključno aktivnost" as button_text %}
         {% url "random" as random_url %}
         {% include 'home/partials/button.html' with button_text=button_text button_color="white" button_link=random_url button_link_same_tab=True %}
       </div>
