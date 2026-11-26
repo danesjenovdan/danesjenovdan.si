@@ -36,6 +36,15 @@ class GeneralSettings(BaseGenericSetting):
         verbose_name="Politika zasebnosti in varstva osebnih podatkov",
     )
 
+    terms_of_use_page = models.ForeignKey(
+        "wagtailcore.Page",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+        verbose_name="Splošni pogoji uporabe",
+    )
+
     manage_newsletter_page = models.ForeignKey(
         "wagtailcore.Page",
         null=True,
@@ -49,6 +58,7 @@ class GeneralSettings(BaseGenericSetting):
         FieldPanel("our_work_page"),
         FieldPanel("support_page"),
         FieldPanel("privacy_policy_page"),
+        FieldPanel("terms_of_use_page"),
         FieldPanel("manage_newsletter_page"),
     ]
 
