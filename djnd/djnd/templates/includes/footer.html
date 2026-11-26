@@ -47,6 +47,11 @@
             <span>{% translate "Politika zasebnosti in varstva osebnih podatkov" %}</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
           </a>
           {% endif %}
+          {% if settings.home.GeneralSettings.terms_of_use_page %}
+          <a href="{% pageurl settings.home.GeneralSettings.terms_of_use_page %}" class="hover:underline">
+            <span>{% translate "Splošni pogoji uporabe" %}</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
+          </a>
+          {% endif %}
           {% if settings.home.GeneralSettings.manage_newsletter_page %}
           <a href="{% pageurl settings.home.GeneralSettings.manage_newsletter_page %}" class="hover:underline">
             <span>{% translate "Uredi svoje naročnine na novičnike" %}</span><img class="inline-block w-3 ml-1 -mt-1" src="{% static "img/noun-arrow-right-1434311.svg" %}" alt="">
