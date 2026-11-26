@@ -1,8 +1,11 @@
 import traceback
 from html import escape as html_escape
+from io import BytesIO
 
 import requests
 from django.core.management.base import BaseCommand, CommandError
+from PIL import Image
+from sentry_sdk import capture_exception
 from wagtail.blocks.stream_block import StreamValue
 
 from home.models.snippets import SocialMediaActivity
@@ -60,6 +63,21 @@ class Command(BaseCommand):
         html = html.replace("\n", "<br />")
         return html
 
+    def _get_image_size(self, image, image_url):
+        if "aspectRatio" in image:
+            width = image["aspectRatio"]["width"]
+            height = image["aspectRatio"]["height"]
+            return width, height
+        if image_url:
+            try:
+                response = requests.get(image_url, timeout=10)
+                response.raise_for_status()
+                img = Image.open(BytesIO(response.content))
+                return img.width, img.height
+            except Exception as e:
+                capture_exception(e)
+        return 0, 0
+
     def _max_image_size(self, max_width, max_height, width, height):
         aspect_ratio = width / height
         if aspect_ratio > 1:
@@ -73,26 +91,34 @@ class Command(BaseCommand):
                 ref = image["image"]["ref"]["$link"]
                 image_url = f"https://cdn.bsky.app/img/feed_fullsize/plain/{did}/{ref}"
                 alt = html_escape(image.get("alt", ""), quote=True)
-                width, height = self._max_image_size(
-                    600,
-                    315,
-                    image["aspectRatio"]["width"],
-                    image["aspectRatio"]["height"],
-                )
-                html += f'<p><a href="{image_url}" target="_blank"><img src="{image_url}" alt="{alt}" width="{width}" height="{height}" /></a></p>'
+                image_width, image_height = self._get_image_size(image, image_url)
+                if image_width > 0 and image_height > 0:
+                    width, height = self._max_image_size(
+                        600,
+                        315,
+                        image_width,
+                        image_height,
+                    )
+                    html += f'<p><a href="{image_url}" target="_blank"><img src="{image_url}" alt="{alt}" width="{width}" height="{height}" /></a></p>'
+                else:
+                    html += f'<p><a href="{image_url}" target="_blank"><img src="{image_url}" alt="{alt}" width="600" /></a></p>'
 
         if embed.get("$type") == "app.bsky.embed.video":
             ref = embed["video"]["ref"]["$link"]
             poster_url = f"https://video.bsky.app/watch/{did}/{ref}/thumbnail.jpg"
             post_url = f"https://bsky.app/profile/{USER_HANDLE}/post/{id}"
             html += f'<p><a href="{post_url}" target="_blank">Video</a></p>'
-            width, height = self._max_image_size(
-                600,
-                315,
-                embed["aspectRatio"]["width"],
-                embed["aspectRatio"]["height"],
-            )
-            html += f'<p><a href="{post_url}" target="_blank"><img src="{poster_url}" alt="Video thumbnail" width="{width}" height="{height}" /></a></p>'
+            video_width, video_height = self._get_image_size(embed, poster_url)
+            if video_width > 0 and video_height > 0:
+                width, height = self._max_image_size(
+                    600,
+                    315,
+                    video_width,
+                    video_height,
+                )
+                html += f'<p><a href="{post_url}" target="_blank"><img src="{poster_url}" alt="Video thumbnail" width="{width}" height="{height}" /></a></p>'
+            else:
+                html += f'<p><a href="{post_url}" target="_blank"><img src="{poster_url}" alt="Video thumbnail" height="315" /></a></p>'
 
         return html
 
@@ -175,9 +201,11 @@ class Command(BaseCommand):
 
         except requests.RequestException as e:
             self.stdout.write("")
+            capture_exception(e)
             raise CommandError(f"Failed to fetch data: {e}")
         except Exception as e:
             self.stdout.write("")
+            capture_exception(e)
             traceback.print_exc()
             raise CommandError(f"Failed to import data: {e}")
 
